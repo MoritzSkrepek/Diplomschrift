@@ -1,1 +1,1 @@
-Diplomschrift documentation
+Diplomschrift Dokumentation
