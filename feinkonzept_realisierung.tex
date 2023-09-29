@@ -1,50 +1,113 @@
 \chapter{Feinkonzept und Realisierung}
-Hier steht der allgemeine Text zu dem Feinkonzept und Realisierung
-
-\section{Allgemeine Definition der Ansichten}
-Hier steht der allgemeine Text für Definition der Ansichten
-
-\subsection{Hauptmenu}
-Hier steht der allgemeine Text zu Hauptmenu
-
-\subsection{Ping Level}
-Hier steht der allgemeine Text zu dem Ping Level
-
-\subsection{Knappsack Problem Level}
-Hier steht der allgemeine Text für das Knappsack Problem Level
-
-\section{Applikation}
-Hier steht der allgemeine Text für die Applikation
-
-\subsection{Blueprints}
-Hier steht der allgemeine Text zu Blueprints
-\subsubsection{Liste der Plugins}
-\begin{itemize}
-    \item Player Pawn
-    \item Actors
-    %Hier könnten wir alle verwendeten Blueprints reinschreiben
-    % Fügen Sie weitere Plugins hinzu, falls erforderlich
-\end{itemize}
-
-\subsection{Custom C++ Blueprints}
-Hier steht der allgemeine Text für Custom C++ Blueprints
-
-\subsection{Plugins}
-Hier steht der allgemeine Text zu Plugins
-
-\subsubsection{Liste der Plugins}
-\begin{itemize}
-    \item Plugin 1
-    \item Plugin 2
-    \item Plugin 3
-    % Fügen Sie weitere Plugins hinzu, falls erforderlich
-\end{itemize}
 
 \section{Entwicklungsumgebungen}
-\subsection{Unreal Engine 5.0.3}
-Hier steht der allgemeine Text für Unreal Engine 5.0.3
-
 \subsection{Visual Studio 2022}
-Hier steht der allgemeine Text für Visual Studio 2022
+Entwicklungsumgebung die mit dem Unreal Editor verbunden ist. Hier kann man die Custom C++
+Blueprints schreiben.
+
+\subsection{Unreal Editor}
+Entwicklungsumgebung für Spiele. Hier entwickeln wir alle Blueprints, Custom C++ Blueprints,
+Actors, Pawns, etc...
+
+\subsection{Blender}
+Mit Blender Modellieren wir alle in der Applikation verwendeten 3D-Objekte.
+
+\section{Applikation}
+
+\subsection{Blueprints}
+Das Blueprint Visual Scripting-System in Unreal Engine ist ein vollständiges
+Gameplay-Scripting-System, das auf dem Konzept basiert, eine knotenbasierte Schnittstelle
+zu verwenden, um Gameplay-Elemente innerhalb des Unreal Editors zu erstellen.
+Wie viele gängige Skriptsprachen wird sie zum Definieren objektorientierter (OO) Klassen
+oder Objekte in der Engine verwendet. Wenn Sie UE4 verwenden, werden Sie häufig feststellen,
+dass mit Blueprint definierte Objekte umgangssprachlich nur als „Blueprints“ bezeichnet werden.
+
+Dieses System ist äußerst flexibel und leistungsstark, da es Designern die Möglichkeit bietet,
+nahezu die gesamte Palette an Konzepten und Tools zu nutzen, die im Allgemeinen nur
+Programmierern zur Verfügung stehen. Darüber hinaus ermöglicht das Blueprint-spezifische
+Markup, das in der C++-Implementierung der Unreal Engine verfügbar ist, Programmierern die
+Erstellung von Basissystemen, die von Designern erweitert werden können.
+
+\subsection{Custom C++ Blueprints}
+Selbst geschriebener Code kann durch Unreal Engine Tools in einen Blueprint verwandelt werden.
+Dieser Blueprint kann dann wie ein normaler Blueprint im Event Graphen verwendet werden.
+
+\section{Hauptmenu}
+Das Hauptmenu dient dazu um das Basic UI/UX System zu implementieren.
+Hier kann der Benutzer dann diverse Einstellungen Tätigen als auch
+das gewünschte Level auswählen und starten
+
+\subsection{UI/UX}
+Mittels verwendung des UX-Tools-Plug-Ins für Mixed Reality wird
+mit bereitgestellten Knöpfen, Oberflächen, Comboboxen, etc...
+die Benutzeroberfläche erstellt.
+
+\subsection{Laden der Level}
+Durch einen Knopfdruck wird dann in Unreal Engine das der ausgewählte
+Level geladen.
+
+\section{Ping Level}
+In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
+PCs dargestellt. Das Kabel zwischen den zwei PCs wird von der
+HoloLens getracked und mittels Kurvenberechnung wird dann eine
+unsichtbare Kurve über dieses Kabel gezeichnet. Wenn dann der Benutzer
+auf die Enter Taste auf einem PC drückt wird ein Ping-Paket simuliert
+und auf dieser Kurve von einem PC zu dem anderen geschickt.
+
+\subsection{Object Tracking}
+Durch verwendung von bereitgestellten Technologien der HoloLens2
+werden die zwei PCs und das Kabel getracked.
+
+\subsection{Kurvenberechnung}
+Durch Berechnung der Kurve wird das Kabel als Kurve gespeichert
+und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
+Kurve von einem PC zum anderen läuft.
+
+\section{Knappsack Problem Level}
+In diesem Level wird das IT-Grundprinzip des Knappsack-Problems dargestellt.
+Auf einem Tisch wird mittels Spatial Mapping die Oberfläche des Tisches
+getracked und dann ein Spatial Anchor platziert. Auf diesem Anchor wird
+anschließend der Inventar-Actor platziert. Außerdem liegen auf dem Tisch
+verteilt reale Gegenstände die mit einem QR-Code versehen sind. Nimmt der
+Spieler einen Gegenstand in die Hand, wird der QR-Code von der HoloLens2
+erfasst. Darauf folgend wird der Inhalt des QR-Codes geladen und in einem
+Fenster angezeigt. Der Benutzer kann die Gegenstände frei in das Inventar
+verteilen und pro neuen Gegenstand wird ein Inventar-Value berechnet.
+Wenn der Benutzer mit seiner Lösung zufrieden ist, kann er anschließend
+durch einen Kopfdruck die perfekte Lösung in einem zweiten Inventar anzeigen
+lassen.
+
+\subsection{Spatial Anchors / ARPins}
+Spatial Anchors / ARPins werden verwendet um einen Anchor in der Realen und
+Augmented Reality Welt zu setzen. Rund um diesen gesetzten Anchor wird dann die
+AR-Welt aufgebaut.
+
+\subsection{Spatial Mapping}
+Spatial Mapping mapped mittels Sensoren und Kameras die Umgebung in einem
+eingestellten Radius rund um den Benutzer. Durch Einstellungen wird spezifiziert
+wie genau und hochwertig dieses erstellte Mesh sein soll. In Kombination mit
+Spatial Anchors kann dann ermittelt werden falls ein Anchor mit dem Mesh kollidiert
+und wenn das der Fall ist kann richtig ermittelt ob das eine richtige Oberfläche ist.
+
+\subsection{QR-Code Tagging}
+Generierte QR-Codes werden auf die realen Objekte geklebt. In diesen QR-Codes werden
+wichtige Informationen zu den Objekten gespeichert. Darunten sind folgende Elemente:
+Gewicht, Wert und eine kurze Beschreibung zu diesem Objekt.
+
+\subsection{QR-Code Tracking}
+Durch Verwendung der integrierten Kamera rendert die HoloLens2 existente QR-Codes an
+der Originalen Positionen in 3D-Objekte. Mittels tracking kann dann auch der Inhalt
+der getracked QR-Codes geladen werden.
+
+\subsection{Knappsack-Algorithmus}
+%Hier kommt dann ein Bild vom Knappsack Algorithmus mit erklärung
+Durch Interaktion zwischen echten und 3D-Obejekt können
+
+\subsection{Unit-Tests}
+Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus
+richtig und performant funktioniert.
 
 \section{Performance}
+Performance-Messung
+
+%\subsection{Performance Optimierungen} OPTIONALES THEMA
