@@ -1,14 +1,12 @@
 \chapter{Produktspezifikationen}
-Hier steht der allgemeine Text für die Produktspezifikationen
+Dieses Kapitel behandelt die Planung und Spezifikation des Projekts.
+Weiteres wird die verwendete Technologieauswahl begründet und mit Alternativlösungen verglichen.
 
 \section{Anforderungen und Spezifikationen}
 Hier steht der allgemeine Text für die Anforderungen und Spezifikationen
 
 \subsection{Use Cases}
 Hier steht der allgemeine Text für die Use Cases
-
-\subsection{Rollen}
-Hier steht der allgemeine Text für die Rollen
 
 \section{Design}
 Hier steht der allgemeine Text für das Design
@@ -20,17 +18,103 @@ Hier steht der allgemeine Text für die Abläufe
 Hier steht der allgemeine Text für die Mockups
 
 \section{Eingesetzte Technologien}
-Hier steht der allgemeine Text für die eingesetzten Technologien
 
 \subsection{Kriterien}
-Hier steht der allgemeine Text für die Kriterien
+Bei der Auswahl der eingesetzten Technologien war es besonders wichtig, dass diese möglichst
+zuverlässig und bereits etabliert sind. Die Technologien sollen ausfallsicher, leicht benutzbar
+und vorallem eine performant Verwendung der Applikation sicherstellen.
 
 \subsection{Game Engine}
-Hier steht der allgemeine Text für die Game Engine
+Als Game Engine wird eine Entwicklungsumgebung für die Erstellung von Spielen bezeichnet.
+Hier gab es am Projektanfang die Auswahl zwischen zwei bekannten Game Engines.
+\begin{itemize}
+    \item Unreal Engine
+    \item Unity
+\end{itemize}
+Ausschlaggebend für die Entscheidung von Unreal Engine waren mehrere Punkte. Einersets ist es
+die leistungsstarke Grafikleistung die Unreal Engine unterstützt und Unity weit überlegen ist.
+Ein weiterer Punkt ist das Blueprint-Scripting-System, dass einen leichten und schnellen
+Einstieg in die Entwicklung einer AR-Applikation ermöglicht.
 
 \subsection{Plugins}
-Hier steht der allgemeine Text zu Plugins
+%Quellen:
+%https://www.unrealengine.com/marketplace/en-US/product/mixed-reality-toolkit-hub
+%https://www.unrealengine.com/marketplace/en-US/product/mixed-reality-ux-tools
+%https://www.unrealengine.com/marketplace/en-US/product/ef8930ca860148c498b46887da196239
+In dem folgenden Abschnitt wird erklärt welche Plugins in dem Unreal Editor
+Installiert und verwendet werden müssen, dass die Entwicklung einer Augmented Reality
+Applikation in dem Unreal Editor möglich ist.
+
+\subsubsection{Microsoft OpenXR}
+Bei Absicht eine Applikation für die HoloLens2 oder ein Windows Moexed Reality VR-Headset
+zu schreiben, ist dieses Plugin notwendig. Dieses Plugin enthält eine Reihe von
+OpenXR-Erweiterungen, die wichtige Mixed-Reality-spezifische Funktionen von Microsoft freischaltet. \\
+Darunter sind folgende für diese Diplomarbeit wichtige Funktionen eingeschlossen:
+\begin{itemize}
+    \item Spatial Mapping
+    \item Spatial Anchors
+    \item Holographic remoting
+    \item QR-Tracking
+\end{itemize}
+
+\subsubsection{Mixed Reality Toolkit Hub}
+Das MRTK Hub Plugin ist eine Komponente des Mixed Reality Toolkits, die dazu dient, die
+Interaktion zwischen Benutzern und MR/AR-Anwendungen zu erleichtern. Es bietet eine Reihe von
+Tools und Funktionen, um Benutzererfahrungen in MR- und AR-Anwendungen zu verbessern. Hier
+sind einige wichtige Aspekte des Plugins:
+\begin{itemize}
+    \item Benutzeroberfläche (UI) und Menüs\\
+    Das MRTK Hub Plugin ermöglicht die einfache Erstellung von Benutzeroberflächen und Menüs,
+    die in der AR-Anwendung angezeigt werden können. Diese können verwendet werden, um Optionen,
+    Steuerelemente und Informationen für den Benutzer bereitzustellen.
+    \item Benutzererlebnis-Design\\
+    Das Plugin unterstützt die Gestaltung von Benutzererfahrungen (UX) in AR-Anwendungen,
+    einschließlich der Platzierung von virtuellen Objekten, der Navigation und der
+    Benutzeroberfläche.
+    \item Interaktion und Eingabe\\
+    Das Plugin bietet verschiedene Funktionen zur Unterstützung von Eingabe- und
+    Interaktionsmöglichkeiten in AR-Umgebungen. Dazu gehören Hand- und Gestenerkennung sowie
+    die Integration von Controllern und Tracking-Systemen.
+\end{itemize}
+
+\subsubsection{Mixed Reality UX Tools}
+Das Mixed Reality UX Tools Plugin bietet eine Reihe von Funktionen und Werkzeugen, die es
+Entwicklern ermöglichen, immersive und benutzerfreundliche Mixed-Reality-Erfahrungen in der
+Unreal Engine zu erstellen. Es ist darauf ausgerichtet, die Entwicklungsarbeit für AR- und
+MR-Anwendungen zu erleichtern und die Interaktion zwischen der digitalen und der physischen
+Welt zu optimieren.
+\begin{itemize}
+    \item Interaktionstools\\
+    Das Mixed Reality UX Tools Plugin enthält Werkzeuge zur Implementierung von Interaktionen
+    in AR-Anwendungen. Dies kann die Erkennung von Gesten, Handbewegungen und Touch-Eingaben
+    umfassen, um Benutzern die Interaktion mit virtuellen Objekten zu ermöglichen.
+    \item Tracking und Kalibrierung\\
+    Das Plugin bietet Möglichkeiten zur Tracking-Optimierung und zur Kalibrierung von
+    AR-Geräten. Dies hilft dabei, genaue AR-Positionierung und -Orientierung sicherzustellen,
+    um realistische AR-Inhalte zu erzeugen.
+    \item Benutzeroberflächen-Design\\
+    Das Mixed Reality UX Tools Plugin kann auch Werkzeuge zur Gestaltung von Benutzeroberflächen
+    (UI) in AR-Anwendungen enthalten. Dies ermöglicht die Integration von AR-spezifischen
+    Benutzerschnittstellen, um Informationen und Steuerelemente in die AR-Erfahrung einzuführen.
+\end{itemize}
 
 \subsection{Rendering Program}
-Hier steht der allgemeine Text für das Rendering Program
- 
+%https://www.blender.org/about/
+Das Rendering Program wird benötigt um die eingesetzten 3D-Modellen für die zwei
+Level zu erstellen. Die Auswahl dieses Rendering Programs Blender war bereits bei Projektstart
+klar. \\
+Diese Entscheidung ist begründet durch folgende Punkte:
+\begin{itemize}
+    \item Kostenfrei und Opensource\\
+    Blender ist kostenfrei und quelloffen, was bedeutet, dass Sie es ohne Lizenzkosten nutzen
+    können. Das kann bei der Entwicklung von AR-Anwendungen mit begrenztem Budget besonders
+    attraktiv sein.
+    \item Echtzeit-Rendering\\
+    Blender verfügt über einen Echtzeit-Renderer namens Eevee, der schnelle Vorschauen und
+    Renderings ermöglicht. Dies kann nützlich sein, um AR-Inhalte in Echtzeit anzuzeigen und zu
+    überprüfen.
+    \item Integration mit AR-Frameworks\\
+    Obwohl Blender nicht direkt AR-Funktionen unterstützt, können Sie die erstellten 3D-Modelle
+    und Animationen in AR-Entwicklungsumgebungen wie Unity oder Unreal Engine importieren und
+    dort AR-spezifische Funktionalitäten hinzufügen.
+\end{itemize}
