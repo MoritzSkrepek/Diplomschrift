@@ -28,7 +28,59 @@ Programmierern zur Verfügung stehen. Darüber hinaus ermöglicht das Blueprint-
 Markup, das in der C++-Implementierung der Unreal Engine verfügbar ist, Programmierern die
 Erstellung von Basissystemen, die von Designern erweitert werden können.
 
-\subsection{Custom C++ Blueprints}
+\subsection{Arten von Blueprints}#
+\begin{itemize}
+    \item Level Blueprint\\
+    Ein Level-Blueprint ist ein spezieller Blueprint-Typ, der als Level-weiter globaler Ereignisgraph
+    fungiert. Für jedes Level in Ihrem Projekt wird standardmäßig ein eigener Level-Blueprint erstellt,
+    der im Unreal-Editor bearbeitet werden kann. Neue Level-Blueprints können jedoch nicht über die
+    Editor-Oberfläche erstellt werden.
+    \item Blueprint Klasse\\
+    Eine Blueprint-Klasse, oft abgekürzt als Blueprint, ist ein Asset, das es Inhaltserstellern ermöglicht,
+    auf einfache Weise Funktionen zu vorhandenen Gameplay-Klassen hinzuzufügen. Blaupausen werden visuell
+    im Unreal Editor erstellt, anstatt Code einzugeben, und als Assets in einem Inhaltspaket gespeichert.
+    Diese definieren im Wesentlichen eine neue Klasse oder einen neuen Akteurtyp, der dann als Instanzen in
+    Karten platziert werden kann, die sich wie jeder andere Akteurtyp verhalten.
+    \item Data Only Blueprint\\
+    Ein Nur-Daten-Blueprint ist eine Blueprint-Klasse, die nur den Code (in Form von Knotendiagrammen),
+    Variablen und Komponenten enthält, die von ihrer übergeordneten Klasse geerbt wurden. Dadurch können
+    diese geerbten Eigenschaften optimiert und geändert werden, es können jedoch keine neuen Elemente hinzugefügt
+    werden. Diese sind im Wesentlichen ein Ersatz für Archetypen und können verwendet werden, um Designern die
+    Möglichkeit zu geben, Eigenschaften zu optimieren oder Elemente mit Variationen festzulegen.
+    \item Blueprint Interface\\
+    Eine Blueprint-Schnittstelle ist eine Sammlung einer oder mehrerer Funktionen – nur Namen, keine Implementierung –
+    die zu anderen Blueprints hinzugefügt werden können. Jeder Blueprint, dem die Schnittstelle hinzugefügt wurde,
+    verfügt garantiert über diese Funktionen. Die Funktionen der Schnittstelle können in jedem der Blueprints,
+    die sie hinzugefügt haben, mit Funktionalität versehen werden. Dies ähnelt im Wesentlichen dem Konzept einer
+    Schnittstelle in der allgemeinen Programmierung, das die gemeinsame Nutzung und den Zugriff mehrerer unterschiedlicher
+    Objekttypen über eine gemeinsame Schnittstelle ermöglicht. Vereinfacht gesagt ermöglichen Blueprint-Schnittstellen
+    die gemeinsame Nutzung und das Senden von Daten verschiedener Blueprints untereinander.
+    \item Blueprint Macro Library\\
+    Eine Blueprint-Makrobibliothek ist ein Container, der eine Sammlung von Makros oder eigenständigen Diagrammen enthält,
+    die als Knoten in anderen Blueprints platziert werden können. Dies kann zeitsparend sein, da sie häufig verwendete
+    Knotensequenzen mit Ein- und Ausgängen für die Ausführung und Datenübertragung speichern können.
+\end{itemize}
+
+\subsection{Blueprint Klassen}
+In Unreal Engine gibt es mehrere verschiedene Blueprint Klassen die jeweils für unterschiedliche
+Konzepte verwendet werden. Darunter gibt es folgende Blueprint Klassen:
+\begin{itemize}
+    \item Actor \\
+    Ein Objekt, dass in der Augmented Reality Welt platziert werden kann und mit
+    dem interagiert werden kann
+    \item Pawn \\
+    Ist ein Actor, der den Spieler repräsentiert und über einen Controller (z.B.: HoloLens2)
+    Spieler Input erkennen kann
+    \item Player Controller \\
+    Der Player Controller ist ein Actor, der dafür verantworlich ist, dass der
+    Pawn, der vom Spieler verwendet wird kontrolliert wird und richtig funktioniert
+    \item Game Mode \\
+    Definiert das gespielte, die Regeln, Punkte und andere Aspekte des Spieltyps
+\end{itemize}
+Diese genannten Blueprint Klassen versichern das einfache Blueprint-Scripting, damit eine erfolgreiche
+entwicklung einer Unreal Engine Applikation möglich ist.
+
+\subsection{Selbstgeschriebene C++ Blueprints}
 Selbst geschriebener Code kann durch Unreal Engine Tools in einen Blueprint verwandelt werden.
 Dieser Blueprint kann dann wie ein normaler Blueprint im Event Graphen verwendet werden.
 
