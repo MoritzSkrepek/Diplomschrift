@@ -1,32 +1,35 @@
-\chapter{Organisatorische Grundlagen}
+\usepackage[style=authoryear]{biblatex}
+\usepackage{hyperref}
+
+\chapter{Grundlagen}
 In diesem Kapitel werden das Vorgehensmodell und alle Tools, die für die erfolgreiche
 Abwicklung des Projekts nötig sind, erläutert.
 
 \section{Vorgehensmodelle}
 Im Vorfeld der Durchführung des Projekts wurden Informationen über diverse Vorgehensmodelle
 gesammelt. Für das Projektteam war schnell klar, dass ein agiles Modell gewählt werden sollte,
-da somit das Projekt dynamischer geplant und durchgeführt werden kann. Die Auswahl stand direkt
-fest und wir entschieden uns für SCRUM. In den folgenden Abscnhitten wird dieses Vorgehensmodell
-erklärt und die Entscheidung der Wahl begründet.
+da somit das Projekt dynamischer geplant und durchgeführt werden kann. Die Auswahl für Scrum
+stand direkt bei Projektbegin fest. In dem folgenden Abscnhitt wird dieses
+Vorgehendsmodell genauer erklärt und unsere Entscheidung anschließend begründet.
 
-\subsection{SCRUM}
-SCRUM beschreibt einen Vorgehensrahmen nach dem Projekte jeder Art agil, also beweglich
-und unbürokratisch, abgewickelt werden.\\
+\subsection{Scrum}
+Scrum ist ein agiles Projektmanagement-Framework zur effizienten Entwicklung von Produkten und Software.
+Es betont Zusammenarbeit, Anpassungsfähigkeit und Lieferung von Arbeitsfähigem in kurzen Zeitspannen (Sprints). \footcite{https://www.scrumalliance.org/about-scrum#} \\
 
 %Source: https://www.scrumalliance.org/about-scrum#!section1
 \noindent Die oben angeführte Definition gibt einen kurzen Einblick in das agile Vorgehendsmodell
-SCRUM. Zu den Hauptmerkmalen dieses Modells zählen folgende:
+Scrum. Zu den Hauptmerkmalen dieses Modells zählen folgende:
 \begin{itemize}
     \item Drei Rollen, welche nachfolgend erklärt werden
     \item Product Backlog, welches Anforderungen enthält
     \item Produktentwicklung erfolgt iterativ und in zeitlich definierten Zyklen
     \item Das Team arbeitet autonom
-    \item Alle Mitglieder sind gleichberechtigt
+    \item Alle Mitglieder sind gleichberechtigt\\
 \end{itemize}
-\\
-\noindent Die drei Rollen in SCRUM:
+
+\noindent Die drei Rollen in Scrum: \footcite{https://www.scrumalliance.org/about-scrum#}
 \begin{itemize}
-    \item Product Owner \\
+    \item \\
     Ist dafür verantworlich den Wert des Produkts, der sich aus der Arbeit des Entwicklungsteam
     ergibt, zu maximieren.
     \item Scrum Master \\
@@ -37,7 +40,7 @@ SCRUM. Zu den Hauptmerkmalen dieses Modells zählen folgende:
     Das Team ist eine Gruppe von Entwicklern, die für die Umsetzung der, großteils vom
     Product Owner definierten, Anforderungen zuständig sind. Die Größe des Teams spielt eine
     wichtige Rolle, da es klein genug sein muss, damit es immernoch agil ist, jedoch nicht
-    zu klein sein darf, da sonst keine großen Arbeitsleistung erfüllt werden können.
+    zu klein sein darf, da sonst keine großen Arbeitsleistung erfüllt werden können.\\
 \end{itemize}
 \\
 \noindent Alle Anforderungen an das Produkt werden in sogennanten User Stories, die hauptsächlich
@@ -60,22 +63,19 @@ nach Scrum besteht dabei aus 5 Elementen:
     Teammitglieder stätig up-to-date und kennen den aktuellen Stand wodurch anstehende Probleme
     leichter gelöst werden können.
     \item Sprint Review \\
-    n diesem Meeting präsentiert das Entwicklungsteam die in diesem Sprint abgeschlossenen
+    In diesem Meeting präsentiert das Entwicklungsteam die in diesem Sprint abgeschlossenen
     Arbeitsergebnisse (z. B. fertige Produktinkremente) den Stakeholdern, dies können
     Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen sein.
     \item Sprint Retroperspektive \\
     Ihr Hauptzweck besteht darin, dass das Scrum-Team (das Entwicklungsteam, der Scrum-Master
     und der Produktbesitzer) gemeinsam über den abgeschlossenen Sprint reflektiert und
-    Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.
+    Möglichkeiten zur kontinuierlichen Verbesserung identifiziert. \footcite{https://www.scrumalliance.org/about-scrum#}
 \end{itemize}
 \noindent Durch diese Elemente kann ein optimaler Projektablauf gewehrleistet werden. Das
 Projekt ist jederzeit für Änderungen offen und durch eine enge Zusammenarbeit mit dem Kunden
 können Missverständnisse und Probleme früh behandelt und kommuniziert werden.
 
-\subsection{KanBan}
-%TODO write infos for KanBan
-
-\subsection{Unsere Auswahl}
+\subsection{Begründung der Auswahl}
 Die Applied Augmented Reality in Education Applikation besteht aus 3 verschiedenen Level.
 Im Team welches aus vier Schülern bestand übernahm jede Person einen Teilbereich oder arbeiteten
 gemeinsam an einem dieser Level mit Unteraufgaben in diesem Level. Unterstützt wurde man von einem
@@ -134,8 +134,8 @@ Evaluierung. Folgende Entscheidung müssen daher schon im Vorfeld definiert und 
 \begin{itemize}
     \item Inhalt: evtl. bestehende Fragebögen verwenden oder anpassen.
     \item Umfang: Eher kurz halten (In Abhängigkeit von den Zielen).
-    \item Ablauf und zeitlicher Rahmen: postalisch (längere Rücklaufzeit) oder elektronisch
-    \item Zielgruppe: Vollbefragung oder Stichproben
+    \item Ablauf und zeitlicher Rahmen: postalisch (längere Rücklaufzeit) oder elektronisch \footcite[Vgl.][url]{Einfuehrung in die Test- und Fragebogenkonstruktion}
+    \item Zielgruppe: Vollbefragung oder Stichproben \footcite{Interview und schriftliche Befragung}
 \end{itemize}
 
 \subsection{Abfassung der Fragen}
@@ -153,7 +153,7 @@ Folgende Regeln zur Formulierung sollen daher eingehalten werden:
     \item Keine hypothetischen Formulierungen
     \item Nur auf einen bestimmten Sachverhalt beziehen
     \item Keine Überforderung (Nicht zu viele Informationen auf einmal)
-    \item Keine doppelten Verneinungen
+    \item Keine doppelten Verneinungen \footcite{Interview und schriftliche Befragung}
 \end{itemize}
 
 Diese Kriterien gelten für eine schriftliche Befragung. Um das Resultat dieser Umfrage nicht
@@ -161,18 +161,18 @@ zu verfälschen darf der Interviewer keine Extrafragen oder Umformulierungen an 
 Fragen tätigen.
 
 \subsection{Arten von Fragen}
-Je nach Anforderungsbedinungen wird zwischen einer offenen und geschlossenen Frage unterschieden
+Je nach Anforderungsbedinungen wird zwischen einer offenen und geschlossenen Frage unterschieden \footcite{Interview und schriftliche Befragung}
 
 %Offene und geschlossene Fragen erklären
 
 \subsection{Struktur und Gliederung von Fragebögen}
-Hier wird verfasst wie die Allgemeine Struktur und Gliederung von Fragebögen aussehen soll.
+Hier wird verfasst wie die Allgemeine Struktur und Gliederung von Fragebögen aussehen soll. \footcite{Einfuehrung in die Test- und Fragebogenkonstruktion}
 
 \subsection{Mögliche Verfälschung des Resultats}
 Welche Arten von Verfälschungen gibt es und diese Beschreiben
-Ursachen dafür beschreiben.
+Ursachen dafür beschreiben. \footcite{Einfuehrung in die Test- und Fragebogenkonstruktion}
 
 \subsection{Auswertung von Fragebögen}
-Wie werten wir die Fragenbögen aus?
+Wie werten wir die Fragenbögen aus? \footcite{Interview und schriftliche Befragung}
 
 %Quellen zu den Fragenbögen Dingen finden und ALLES genauer beschreiben
