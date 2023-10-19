@@ -14,7 +14,7 @@ Mit Blender Modellieren wir alle in der Applikation verwendeten 3D-Objekte.
 
 \section{Applikation}
 
-\subsection{Blueprints}
+\subsection{Blueprint Visual Scripting}
 Das Blueprint Visual Scripting-System in Unreal Engine ist ein vollständiges
 Gameplay-Scripting-System, das auf dem Konzept basiert, eine knotenbasierte Schnittstelle
 zu verwenden, um Gameplay-Elemente innerhalb des Unreal Editors zu erstellen.
@@ -26,7 +26,8 @@ Dieses System ist äußerst flexibel und leistungsstark, da es Designern die Mö
 nahezu die gesamte Palette an Konzepten und Tools zu nutzen, die im Allgemeinen nur
 Programmierern zur Verfügung stehen. Darüber hinaus ermöglicht das Blueprint-spezifische
 Markup, das in der C++-Implementierung der Unreal Engine verfügbar ist, Programmierern die
-Erstellung von Basissystemen, die von Designern erweitert werden können. \footcite{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Blueprints/}
+Erstellung von Basissystemen, die von Designern erweitert werden können.
+\footnote{Unreal Engine \cite{Blueprint-Visual-Scripting}}
 
 \subsection{Arten von Blueprints}
 \begin{itemize}
@@ -58,7 +59,7 @@ Erstellung von Basissystemen, die von Designern erweitert werden können. \footc
     \item Blueprint Macro Library\\
     Eine Blueprint-Makrobibliothek ist ein Container, der eine Sammlung von Makros oder eigenständigen Diagrammen enthält,
     die als Knoten in anderen Blueprints platziert werden können. Dies kann zeitsparend sein, da sie häufig verwendete
-    Knotensequenzen mit Ein- und Ausgängen für die Ausführung und Datenübertragung speichern können. \footcite{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Blueprints/UserGuide/Types/}
+    Knotensequenzen mit Ein- und Ausgängen für die Ausführung und Datenübertragung speichern können. \footnote{Unreal Engine \cite{Blueprint-Arten}}
 \end{itemize}
 
 \subsection{Blueprint Klassen}
@@ -78,7 +79,8 @@ Konzepte verwendet werden. Darunter gibt es folgende Blueprint Klassen:
     Definiert das gespielte, die Regeln, Punkte und andere Aspekte des Spieltyps
 \end{itemize}
 Diese genannten Blueprint Klassen versichern das einfache Blueprint-Scripting, damit eine erfolgreiche
-entwicklung einer Unreal Engine Applikation möglich ist. \footcite{https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Blueprints/UserGuide/Types/}
+entwicklung einer Unreal Engine Applikation möglich ist.
+\footnote{Unreal Engine \cite{Blueprint-Klassen}}
 
 \subsection{Selbstgeschriebene C++ Blueprints}
 Selbst geschriebener Code kann durch Unreal Engine Tools in einen Blueprint verwandelt werden.
@@ -97,6 +99,7 @@ die Benutzeroberfläche erstellt.
 \subsection{Laden der Level}
 Durch einen Knopfdruck wird dann in Unreal Engine das der ausgewählte
 Level geladen.
+%Hier dann noch Bilder vom Code einfügen
 
 \section{Ping Level}
 In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
@@ -109,11 +112,13 @@ und auf dieser Kurve von einem PC zu dem anderen geschickt.
 \subsection{Object Tracking}
 Durch verwendung von bereitgestellten Technologien der HoloLens2
 werden die zwei PCs und das Kabel getracked.
+%Hier dann noch code zum Object Tracking einfügen
 
 \subsection{Kurvenberechnung}
 Durch Berechnung der Kurve wird das Kabel als Kurve gespeichert
 und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
 Kurve von einem PC zum anderen läuft.
+%Hier dann noch code zur Kurvenberechnung einfügen
 
 \section{Knappsack Problem Level}
 In diesem Level wird das IT-Grundprinzip des Knappsack-Problems dargestellt.
@@ -132,17 +137,24 @@ lassen.
 \subsection{Spatial Anchors / ARPins}
 Spatial Anchors / ARPins werden verwendet um einen Anchor in der Realen und
 Augmented Reality Welt zu setzen. Rund um diesen gesetzten Anchor wird dann die
-AR-Welt aufgebaut.
+AR-Welt aufgebaut. \footnote{Unreal Engine \cite{ARPins}}
 %Genauere Beschreibung + wenn Vorhanden Code von erstellen und löschen von
-%Spatial Anchors hinzufügen
+%Spatial Anchors Code hinzufügen
 
 \subsection{Spatial Mapping}
 Spatial Mapping mapped mittels Sensoren und Kameras die Umgebung in einem
 eingestellten Radius rund um den Benutzer. Durch Einstellungen wird spezifiziert
 wie genau und hochwertig dieses erstellte Mesh sein soll. In Kombination mit
 Spatial Anchors kann dann ermittelt werden falls ein Anchor mit dem Mesh kollidiert
-und wenn das der Fall ist kann richtig ermittelt ob das eine richtige Oberfläche ist.
+und wenn das der Fall ist kann richtig ermittelt ob das eine richtige Oberfläche ist. \footnote{Unreal Engine \cite{Spatial-Mapping}}
 %Genauer Beschreibung + wenn vorhanden Code und Blueprints von Spatial Mapping hinzufügen
+
+\subsection{Scene Understanding}
+Durch das Szenenverständnis erhält das MRMesh Ebenen, die entsprechend ihrer interpretierten
+Verwendung klassifiziert werden, z. B. Wände, Böden, Decken und Tische. Anwendungsfälle ähneln
+der räumlichen Kartierung, aber die Netze verfügen über diese zusätzlichen Metadaten und werden
+als Ebenen und nicht als grobes Netz dargestellt.%\footcite[haha]{SceneUnderstanding}
+\footnote{Unreal Engine \cite{Scene-Understanding}}
 
 \subsection{QR-Code Tagging}
 Generierte QR-Codes werden auf die realen Objekte geklebt. In diesen QR-Codes werden
@@ -152,7 +164,7 @@ Gewicht, Wert und eine kurze Beschreibung zu diesem Objekt.
 \subsection{QR-Code Tracking}
 Durch Verwendung der integrierten Kamera rendert die HoloLens2 existente QR-Codes an
 der Originalen Positionen in 3D-Objekte. Mittels tracking kann dann auch der Inhalt
-der getracked QR-Codes geladen werden.
+der getracked QR-Codes geladen werden. \footnote{Unreal Engine \cite{QRCodes}}
 %Genauer Beschreibung + wenn vorhanden Code und Blueprints von QR-Code-Tracking hinzufügen
 
 \subsection{Knappsack-Algorithmus}
