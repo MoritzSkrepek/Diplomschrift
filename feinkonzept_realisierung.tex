@@ -2,89 +2,14 @@
 
 \section{Entwicklungsumgebungen}
 \subsection{Visual Studio 2022}
-Entwicklungsumgebung die mit dem Unreal Editor verbunden ist. Hier kann man die Custom C++
-Blueprints schreiben.
+Visual Studio 2022 ist eine integrierte Entwicklungsumgebung (IDE) von Microsoft, die speziell für die Entwicklung von
+Softwareanwendungen, Webanwendungen und Desktop-Anwendungen konzipiert ist. Es handelt sich um eine umfangreiche
+Entwicklungsumgebung, die von Entwicklern weltweit für eine breite Palette von Anwendungsfällen eingesetzt wird.
 
-\subsection{Unreal Editor}
-Entwicklungsumgebung für Spiele. Hier entwickeln wir alle Blueprints, Custom C++ Blueprints,
-Actors, Pawns, etc...
-
-\subsection{Blender}
-Mit Blender Modellieren wir alle in der Applikation verwendeten 3D-Objekte.
-
-\section{Applikation}
-
-\subsection{Blueprint Visual Scripting}
-Das Blueprint Visual Scripting-System in Unreal Engine ist ein vollständiges
-Gameplay-Scripting-System, das auf dem Konzept basiert, eine knotenbasierte Schnittstelle
-zu verwenden, um Gameplay-Elemente innerhalb des Unreal Editors zu erstellen.
-Wie viele gängige Skriptsprachen wird sie zum Definieren objektorientierter (OO) Klassen
-oder Objekte in der Engine verwendet. Wenn Sie UE4 verwenden, werden Sie häufig feststellen,
-dass mit Blueprint definierte Objekte umgangssprachlich nur als „Blueprints“ bezeichnet werden.
-
-Dieses System ist äußerst flexibel und leistungsstark, da es Designern die Möglichkeit bietet,
-nahezu die gesamte Palette an Konzepten und Tools zu nutzen, die im Allgemeinen nur
-Programmierern zur Verfügung stehen. Darüber hinaus ermöglicht das Blueprint-spezifische
-Markup, das in der C++-Implementierung der Unreal Engine verfügbar ist, Programmierern die
-Erstellung von Basissystemen, die von Designern erweitert werden können.
-\footnote{Unreal Engine \cite{Blueprint-Visual-Scripting}}
-
-\subsection{Arten von Blueprints}
-\begin{itemize}
-    \item Level Blueprint\\
-    Ein Level-Blueprint ist ein spezieller Blueprint-Typ, der als Level-weiter globaler Ereignisgraph
-    fungiert. Für jedes Level in Ihrem Projekt wird standardmäßig ein eigener Level-Blueprint erstellt,
-    der im Unreal-Editor bearbeitet werden kann. Neue Level-Blueprints können jedoch nicht über die
-    Editor-Oberfläche erstellt werden.
-    \item Blueprint Klasse\\
-    Eine Blueprint-Klasse, oft abgekürzt als Blueprint, ist ein Asset, das es Inhaltserstellern ermöglicht,
-    auf einfache Weise Funktionen zu vorhandenen Gameplay-Klassen hinzuzufügen. Blaupausen werden visuell
-    im Unreal Editor erstellt, anstatt Code einzugeben, und als Assets in einem Inhaltspaket gespeichert.
-    Diese definieren im Wesentlichen eine neue Klasse oder einen neuen Akteurtyp, der dann als Instanzen in
-    Karten platziert werden kann, die sich wie jeder andere Akteurtyp verhalten.
-    \item Data Only Blueprint\\
-    Ein Nur-Daten-Blueprint ist eine Blueprint-Klasse, die nur den Code (in Form von Knotendiagrammen),
-    Variablen und Komponenten enthält, die von ihrer übergeordneten Klasse geerbt wurden. Dadurch können
-    diese geerbten Eigenschaften optimiert und geändert werden, es können jedoch keine neuen Elemente hinzugefügt
-    werden. Diese sind im Wesentlichen ein Ersatz für Archetypen und können verwendet werden, um Designern die
-    Möglichkeit zu geben, Eigenschaften zu optimieren oder Elemente mit Variationen festzulegen.
-    \item Blueprint Interface\\
-    Eine Blueprint-Schnittstelle ist eine Sammlung einer oder mehrerer Funktionen – nur Namen, keine Implementierung –
-    die zu anderen Blueprints hinzugefügt werden können. Jeder Blueprint, dem die Schnittstelle hinzugefügt wurde,
-    verfügt garantiert über diese Funktionen. Die Funktionen der Schnittstelle können in jedem der Blueprints,
-    die sie hinzugefügt haben, mit Funktionalität versehen werden. Dies ähnelt im Wesentlichen dem Konzept einer
-    Schnittstelle in der allgemeinen Programmierung, das die gemeinsame Nutzung und den Zugriff mehrerer unterschiedlicher
-    Objekttypen über eine gemeinsame Schnittstelle ermöglicht. Vereinfacht gesagt ermöglichen Blueprint-Schnittstellen
-    die gemeinsame Nutzung und das Senden von Daten verschiedener Blueprints untereinander.
-    \item Blueprint Macro Library\\
-    Eine Blueprint-Makrobibliothek ist ein Container, der eine Sammlung von Makros oder eigenständigen Diagrammen enthält,
-    die als Knoten in anderen Blueprints platziert werden können. Dies kann zeitsparend sein, da sie häufig verwendete
-    Knotensequenzen mit Ein- und Ausgängen für die Ausführung und Datenübertragung speichern können. \footnote{Unreal Engine \cite{Blueprint-Arten}}
-\end{itemize}
-
-\subsection{Blueprint Klassen}
-In Unreal Engine gibt es mehrere verschiedene Blueprint Klassen die jeweils für unterschiedliche
-Konzepte verwendet werden. Darunter gibt es folgende Blueprint Klassen:
-\begin{itemize}
-    \item Actor \\
-    Ein Objekt, dass in der Augmented Reality Welt platziert werden kann und mit
-    dem interagiert werden kann
-    \item Pawn \\
-    Ist ein Actor, der den Spieler repräsentiert und über einen Controller (z.B.: HoloLens2)
-    Spieler Input erkennen kann
-    \item Player Controller \\
-    Der Player Controller ist ein Actor, der dafür verantworlich ist, dass der
-    Pawn, der vom Spieler verwendet wird kontrolliert wird und richtig funktioniert
-    \item Game Mode \\
-    Definiert das gespielte, die Regeln, Punkte und andere Aspekte des Spieltyps
-\end{itemize}
-Diese genannten Blueprint Klassen versichern das einfache Blueprint-Scripting, damit eine erfolgreiche
-entwicklung einer Unreal Engine Applikation möglich ist.
-\footnote{Unreal Engine \cite{Blueprint-Klassen}}
-
-\subsection{Selbstgeschriebene C++ Blueprints}
-Selbst geschriebener Code kann durch Unreal Engine Tools in einen Blueprint verwandelt werden.
-Dieser Blueprint kann dann wie ein normaler Blueprint im Event Graphen verwendet werden.
+\subsection{Unity Editor}
+Der Unity-Editor ist eine leistungsstarke integrierte Entwicklungsumgebung (IDE) und eine zentrale Arbeitsumgebung
+für die Erstellung von 2D-, 3D-, Augmented Reality (AR) und Virtual Reality (VR) Anwendungen und Spielen. Er wird von
+Unity Technologies entwickelt und ist die Hauptplattform für die Entwicklung von Unity-basierten Projekten.
 
 \section{Hauptmenu}
 Das Hauptmenu dient dazu um das Basic UI/UX System zu implementieren.
@@ -134,27 +59,150 @@ Wenn der Benutzer mit seiner Lösung zufrieden ist, kann er anschließend
 durch einen Kopfdruck die perfekte Lösung in einem zweiten Inventar anzeigen
 lassen.
 
-\subsection{Spatial Anchors / ARPins}
-Spatial Anchors / ARPins werden verwendet um einen Anchor in der Realen und
-Augmented Reality Welt zu setzen. Rund um diesen gesetzten Anchor wird dann die
-AR-Welt aufgebaut. \footnote{Unreal Engine \cite{ARPins}}
-%Genauere Beschreibung + wenn Vorhanden Code von erstellen und löschen von
-%Spatial Anchors Code hinzufügen
+\subsection{Spatial Anchors}
+Spatial Anchors\footnote{Unity \cite{Anchor}} sind virtuelle Ankerpunkte in einer Augmented Reality (AR)- oder Mixed Reality-Umgebung, die dazu dienen,
+virtuelle Objekte stabil und präzise in der realen Welt zu verankern. Diese Ankerpunkte ermöglichen es AR- und
+MR-Anwendungen, die räumliche Beziehung zwischen virtuellen Objekten und der physischen Umgebung zu speichern und
+beizubehalten. Spatial Anchors sind besonders wichtig, wenn es darum geht, AR-Objekte konsistent in der realen Welt
+zu positionieren, unabhängig davon, wie sich der Benutzer oder das AR-Gerät bewegt.
 
-\subsection{Spatial Mapping}
-Spatial Mapping mapped mittels Sensoren und Kameras die Umgebung in einem
-eingestellten Radius rund um den Benutzer. Durch Einstellungen wird spezifiziert
-wie genau und hochwertig dieses erstellte Mesh sein soll. In Kombination mit
-Spatial Anchors kann dann ermittelt werden falls ein Anchor mit dem Mesh kollidiert
-und wenn das der Fall ist kann richtig ermittelt ob das eine richtige Oberfläche ist. \footnote{Unreal Engine \cite{Spatial-Mapping}}
-%Genauer Beschreibung + wenn vorhanden Code und Blueprints von Spatial Mapping hinzufügen
+\subsection{Managers}
+In diesem Level werden mehrere von Unity und dem Mixed Reality Toolkit 3 bereits
+bereitgestellten Manager \footnote{Medium \cite{Managers}} verwendet. Unter einer Manager
+versteht man eine Komponente die einer Unity-Scene hinzugefügt wird die dazu dient,
+bestimmte Aspekte oder Funktionen der Anwendung zu verwalten und zu stuern. Diese Manager
+spielen eine wichtige Rolle in der Organisation und Kontroller verschiedener Teile der Unity-Anwendung.
+In dem "Knappsack Problem Level" werden folgende Manager verwendet:
+\begin{itemize}
+    \item ARPlaneManager\footnote{Unity \cite{PlaneManager}}:\\
+    Dieser Manager wird verwendet um in der Umgebung des Benutzers alle Horizontalen Flächen zu erkennen und zu tracken.
+    Außerdem erleichtert er das platzieren von Objekten in der echten Welt.
+    Diese Flächen werden anschließend mit einer Textur markiert. Wenn der User für die vorgeschriebene
+    Zeit auf eine dieser Flächen schaut wird in der Mitte dieser Fläche das Inventar als 3D Objekt dargestellt. An dieses
+    3D Objekt wird anschließend auch ein Spatial Anchor angehängt und in dem ARAnchorManager verwaltet.
 
-\subsection{Scene Understanding}
-Durch das Szenenverständnis erhält das MRMesh Ebenen, die entsprechend ihrer interpretierten
-Verwendung klassifiziert werden, z. B. Wände, Böden, Decken und Tische. Anwendungsfälle ähneln
-der räumlichen Kartierung, aber die Netze verfügen über diese zusätzlichen Metadaten und werden
-als Ebenen und nicht als grobes Netz dargestellt.%\footcite[haha]{SceneUnderstanding}
-\footnote{Unreal Engine \cite{Scene-Understanding}}
+    \item ARAnchorManager\footnote{Unity \cite{AnchorManager}}: \\
+    Dieser Manager wird verwendet um AR-Anker in der AR-Welt und der echten Welt zu erstellen, zu verankern und zu verwalten.
+    In dem "Knappsack Problem Level" wird dieser Manager gebraucht, weil wir das Inventar sowohl in der AR, als auch in
+    der echten Welt verankern müssen. An der Stelle wo das Inventar verankert wird, wird anschließend ein ARAnchor \footnote{Unity \cite{Anchor}}
+    erstellt, der von der HoloLens2 getracked wird.
+
+    \item ARRaycastManager\footnote{Unity \cite{RaycastManager}}; \\
+    Dieser Manager wird verwendet um aus einem Origin Punkt also in diesem Fall die Kamera der HoloLens2, raycasting durchzuführen.
+    Diese Raycasts treffen dann auf bereits markierte und getrackte Planes. Wenn dies der Fall ist, ist bekannt, dass der
+    Benutzer auf dieses Plane sieht. Dies ermöglicht dann eine akkurate Platzierung eines 3D Objekts in der realen Welt. \\
+
+\end{itemize}
+In dem folgendem Code Abscnhitt wird dargestellt wie die drei Manager alle zusammenspielen, um in der realen Welt
+ein 3D Objekt zu verankern.
+
+\begin{lstlisting}[language=C#, style=csharpstyle, caption=3D Objekt in der echten Welt platzieren]
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+
+public class PlaceObjectOnLookedAtDesk : MonoBehaviour
+{
+    public ARRaycastManager raycastManager;
+    public ARPlaneManager planeManager;
+    public ARAnchorManager anchorManager;     //TODO: add the Anchor to the placed Object
+    public GameObject objectToPlace; // Assign your 3D object in the inspector.
+    public float requiredLookTime = 3.0f; // Time in seconds for desk confirmation.
+
+    private ARPlane selectedDeskPlane;
+    private float lookStartTime = -1f;
+    private bool objectPlaced = false;
+    private float heightOffset = 0.05f;
+
+    void Update()
+    {
+        if (!objectPlaced)
+        {
+            Debug.Log("Object has not been placed yet!");
+
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            if (raycastManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes))
+            {
+                Debug.Log("Player is looking at a plane");
+                ARPlane plane = planeManager.GetPlane(hits[0].trackableId);
+                if (plane != null)
+                {
+                    if (selectedDeskPlane == null)
+                    {
+                        selectedDeskPlane = plane;
+                        lookStartTime = Time.time; // Start the timer when a new plane is selected.
+                        Debug.Log("Plane selected. Timer started.");
+                    }
+
+                    if (selectedDeskPlane == plane)
+                    {
+                        float timeLookedAtPlane = Time.time - lookStartTime;
+                        Debug.Log("Time looked at plane: " + timeLookedAtPlane);
+
+                        if (timeLookedAtPlane >= requiredLookTime)
+                        {
+                            PlaceObjectOnDesk(selectedDeskPlane);
+                            Debug.Log("Object is now placed.");
+                            objectPlaced = true;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("User is now looking at a different plane.");
+                        selectedDeskPlane = null;
+                    }
+                }
+                else
+                {
+                    Debug.Log("User is now looking at a different plane.");
+                    selectedDeskPlane = null;
+                }
+            }
+            else
+            {
+                Debug.Log("No planes detected.");
+                selectedDeskPlane = null;
+            }
+        }
+    }
+
+    void PlaceObjectOnDesk(ARPlane deskPlane)
+    {
+        // Disable the plane manager to stop further plane detection.
+        planeManager.enabled = false;
+
+        // Disable this script so it won't run again.
+        gameObject.SetActive(false);
+
+        // Calculate the object's position above the center of the plane.
+        Vector3 objectPosition = deskPlane.center + Vector3.up * heightOffset;
+
+        // Instantiate the object and place it at the calculated position.
+        Instantiate(objectToPlace, objectPosition, Quaternion.identity);
+
+
+        /*
+        //This code handles the calculation for the placement position and also attaches an ARAnchor to the placed Object
+        // Disable the plane manager to stop further plane detection.
+        planeManager.enabled = false;
+
+        // Disable this script so it won't run again.
+        gameObject.SetActive(false);
+
+        // Calculate the object's position above the center of the plane.
+        Vector3 objectPosition = deskPlane.center + Vector3.up * heightOffset;
+
+        //Create Anchor
+        ARAnchor newAnchor = anchorManager.AddComponent<ARAnchor>();
+        GameObject anchorVisual = Instantiate(objectToPlace, objectPosition, Quaternion.identity);
+        anchorVisual.transform.parent = newAnchor.transform;
+        */
+    }
+}
+
+\end{lstlisting}
 
 \subsection{QR-Code Tagging}
 Generierte QR-Codes werden auf die realen Objekte geklebt. In diesen QR-Codes werden
@@ -164,7 +212,7 @@ Gewicht, Wert und eine kurze Beschreibung zu diesem Objekt.
 \subsection{QR-Code Tracking}
 Durch Verwendung der integrierten Kamera rendert die HoloLens2 existente QR-Codes an
 der Originalen Positionen in 3D-Objekte. Mittels tracking kann dann auch der Inhalt
-der getracked QR-Codes geladen werden. \footnote{Unreal Engine \cite{QRCodes}}
+der getracked QR-Codes geladen werden.
 %Genauer Beschreibung + wenn vorhanden Code und Blueprints von QR-Code-Tracking hinzufügen
 
 \subsection{Knappsack-Algorithmus}
@@ -178,11 +226,3 @@ richtig und performant funktioniert.
 
 \section{Performance}
 Performance-Messung
-%Genauere Erklärung
-
-%\subsection{Performance Optimierungen} OPTIONALES THEMA
-
-
-%Quellen zu den Fragenbögen Dingen finden und ALLES genauer beschreiben
-
-%Quellen zu UnrealEngine Dingen finden und alles GENAUER beschreiben

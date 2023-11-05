@@ -25,75 +25,64 @@ zuverlässig und bereits etabliert sind. Die Technologien sollen ausfallsicher, 
 und vorallem eine performant Verwendung der Applikation sicherstellen.
 
 \subsection{Game Engine}
-Als Game Engine wird eine Entwicklungsumgebung für die Erstellung von Spielen bezeichnet.
-Hier gab es am Projektanfang die Auswahl zwischen zwei bekannten Game Engines.
+Als Game Engine wird eine Entwicklungsumgebung für das Design und Entwickeln von Spielen bezeichnet.
+Zu Projektstart gab es die Auswahl zwischen den zwei bekanntesten Game Enginges, die momentan am Markt
+vorhanden sind. Diese sind die folgenden:
 \begin{itemize}
     \item Unreal Engine
     \item Unity
 \end{itemize}
-Ausschlaggebend für die Entscheidung von Unreal Engine waren mehrere Punkte. Einersets ist es
-die leistungsstarke Grafikleistung die Unreal Engine unterstützt und Unity weit überlegen ist.
-Ein weiterer Punkt ist das Blueprint-Scripting-System, dass einen leichten und schnellen
-Einstieg in die Entwicklung einer AR-Applikation ermöglicht.
 
-\subsection{Plugins}
+Nach tiefgründiger Recherche war für das Projektteam klar, dass Unity die verwendete GameEngine sein wird.
+Folgende Kriterien haben uns in dieser Entscheidung verstärkt:
+\begin{itemize}
+    \item Programmiersprache: C#.
+    \item Einfacher Einstieg in die Entwicklung von Spielen für Beginner.
+    \item Sehr gute Dokumentation.
+    \item Hohe Anzahl an Tutorials an die man sich richten kann.
+\end{itemize}
+
+\subsection{Unity foundation packages}
 %Quellen:
-In dem folgenden Abschnitt wird erklärt welche Plugins in dem Unreal Editor
-Installiert und verwendet werden müssen, dass die Entwicklung einer Augmented Reality
-Applikation in dem Unreal Editor möglich ist.
+In dem folgenden Abscnhitt wird erklärt welche Packages in die Unity Applikation
+eingeführt werden müssen um die Entwicklung einer Augmented Reality Applikation ohne Problem
+ermöglichen zu können.
 
-\subsubsection{Microsoft OpenXR}
-Bei Absicht eine Applikation für die HoloLens2 oder ein Windows Mixed Reality VR-Headset
-zu schreiben, ist dieses Plugin notwendig. Dieses Plugin enthält eine Reihe von
-OpenXR-Erweiterungen, die wichtige Mixed-Reality-spezifische Funktionen von Microsoft freischaltet. \\
-Darunter sind folgende für diese Diplomarbeit wichtige Funktionen eingeschlossen:
+\subsubsection{MRTK3}
+Das Mixed Reality Toolkit (MRTK) \footnote{Microsoft \cite{MRTK3}} ist eine Sammlung von Tools,
+Skripten und Ressourcen, die speziell für die Entwicklung von Mixed-Reality-Anwendungen, einschließlich Augmented
+Reality, in Unity entwickelt wurden. MRTK3 ist eine Weiterentwicklung der vorherigen Versionen und bietet viele
+Vorteile für AR-Anwendungen:
 \begin{itemize}
-    \item Spatial Mapping
-    \item Spatial Anchors
-    \item Holographic remoting
-    \item QR-Tracking
+    \item Interaktions- und Benutzerführung: \\
+    MRTK3 stellt eine Reihe von Interaktionskomponenten und -systemen zur
+    Verfügung, die es Entwicklern ermöglichen, intuitivere Benutzererfahrungen in AR-Anwendungen zu gestalten.
+    Dies umfasst Dinge wie das Platzieren von Objekten in der realen Welt, die Verfolgung von Handgesten und die
+    Unterstützung von Blickverfolgung.
+    \item Standardisierte APIs: \\
+    Durch die Verwendung von MRTK3 kannst du auf standardisierte APIs und Komponenten
+    zugreifen, die speziell für AR-Anwendungen entwickelt wurden. Dies erleichtert die Implementierung von Funktionen
+    wie Handgesten, Sprachsteuerung und Objektplatzierung.
+    \item Einfache Konfiguration und Anpassung: \\
+    MRTK3 bietet eine einfache Konfiguration und Anpassung über die
+    Unity-Oberfläche. Dies erleichtert die Anpassung deiner AR-Anwendung an spezifische Anforderungen und Use Cases.
 \end{itemize}
 
-\subsubsection{Mixed Reality Toolkit Hub}
-Das MRTK Hub Plugin ist eine Komponente des Mixed Reality Toolkits, die dazu dient, die
-Interaktion zwischen Benutzern und MR/AR-Anwendungen zu erleichtern. Es bietet eine Reihe von
-Tools und Funktionen, um Benutzererfahrungen in MR- und AR-Anwendungen zu verbessern. Hier
-sind einige wichtige Aspekte des Plugins:
+\subsubsection{Microsoft OpenXR Plugin}
+Das Microsoft OpenXR Plugin \footnote{Khronos \cite{OpenXR}} ist eine Sammlung von Tools ist ein wichtiges Plugin für Unity, das die Integration von OpenXR-Unterstützung in
+die AR-Anwendung ermöglicht. OpenXR ist ein offener Industriestandard, der die Entwicklung von XR
+(Extended Reality)-Anwendungen, einschließlich Augmented Reality, erleichtert. Anschließend ein paar Punkte wieso
+dieses Plugin so wichtig ist:
 \begin{itemize}
-    \item Benutzeroberfläche (UI) und Menüs\\
-    Das MRTK Hub Plugin ermöglicht die einfache Erstellung von Benutzeroberflächen und Menüs,
-    die in der AR-Anwendung angezeigt werden können. Diese können verwendet werden, um Optionen,
-    Steuerelemente und Informationen für den Benutzer bereitzustellen.
-    \item Benutzererlebnis-Design\\
-    Das Plugin unterstützt die Gestaltung von Benutzererfahrungen (UX) in AR-Anwendungen,
-    einschließlich der Platzierung von virtuellen Objekten, der Navigation und der
-    Benutzeroberfläche.
-    \item Interaktion und Eingabe\\
-    Das Plugin bietet verschiedene Funktionen zur Unterstützung von Eingabe- und
-    Interaktionsmöglichkeiten in AR-Umgebungen. Dazu gehören Hand- und Gestenerkennung sowie
-    die Integration von Controllern und Tracking-Systemen.
-\end{itemize}
-
-\subsubsection{Mixed Reality UX Tools}
-Das Mixed Reality UX Tools Plugin bietet eine Reihe von Funktionen und Werkzeugen, die es
-Entwicklern ermöglichen, immersive und benutzerfreundliche Mixed-Reality-Erfahrungen in der
-Unreal Engine zu erstellen. Es ist darauf ausgerichtet, die Entwicklungsarbeit für AR- und
-MR-Anwendungen zu erleichtern und die Interaktion zwischen der digitalen und der physischen
-Welt zu optimieren.
-\begin{itemize}
-    \item Interaktionstools\\
-    Das Mixed Reality UX Tools Plugin enthält Werkzeuge zur Implementierung von Interaktionen
-    in AR-Anwendungen. Dies kann die Erkennung von Gesten, Handbewegungen und Touch-Eingaben
-    umfassen, um Benutzern die Interaktion mit virtuellen Objekten zu ermöglichen.
-    \item Tracking und Kalibrierung\\
-    Das Plugin bietet Möglichkeiten zur Tracking-Optimierung und zur Kalibrierung von
-    AR-Geräten. Dies hilft dabei, genaue AR-Positionierung und -Orientierung sicherzustellen,
-    um realistische AR-Inhalte zu erzeugen.
-    \item Benutzeroberflächen-Design\\
-    Das Mixed Reality UX Tools Plugin kann auch Werkzeuge zur Gestaltung von Benutzeroberflächen
-    (UI) in AR-Anwendungen enthalten. Dies ermöglicht die Integration von AR-spezifischen
-    Benutzerschnittstellen, um Informationen und Steuerelemente in die AR-Erfahrung einzuführen.
-\end{itemize}
+    \item Geräteunabhängigkeit: \\
+    Durch die Verwendung von OpenXR und dem Microsoft OpenXR Plugin kann die AR-Anwendung auf verschiedenen
+    XR-Geräten ausgeführt werden, ohne die Kernfunktionalität für jedes einzelne Gerät neu entwickeln zu müssen.
+    Dies gewährleistet eine reibungslose Interaktion mit der HoloLens 2 und anderen XR-Geräten.
+    \item Leistungssteigerung und Stabilität: \\
+    Die Nutzung von OpenXR und des Microsoft OpenXR Plugins kann die
+    Leistung und Stabilität der AR-Anwendung erheblich verbessern. Sie gewährleisten eine reibungslose Ausführung
+    der Anwendung auf dem Zielsystem und bieten eine optimale Benutzererfahrung.
+\end[itemize]
 
 \subsection{Rendering Program}
 Das Rendering Program wird benötigt um die eingesetzten 3D-Modellen für die zwei
@@ -113,6 +102,7 @@ Diese Entscheidung ist begründet durch folgende Punkte:
     Obwohl Blender nicht direkt AR-Funktionen unterstützt, können Sie die erstellten 3D-Modelle
     und Animationen in AR-Entwicklungsumgebungen wie Unity oder Unreal Engine importieren und
     dort AR-spezifische Funktionalitäten hinzufügen.
+
 \end{itemize}
 Wie funktioniert Blender im Allgemeinen? Die folgende Beschreibung hebt die Schlüsselaspekte, sowie die Funktionalität von Blender hervor.
 \begin{itemize}
