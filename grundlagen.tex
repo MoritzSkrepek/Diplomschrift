@@ -10,8 +10,8 @@ stand direkt bei Projektbegin fest. In dem folgenden Abscnhitt wird dieses
 Vorgehendsmodell genauer erklärt und unsere Entscheidung anschließend begründet.
 
 \subsection{Scrum}
-Scrum ist ein agiles Projektmanagement-Framework zur effizienten Entwicklung von Produkten und Software.
-Es betont Zusammenarbeit, Anpassungsfähigkeit und Lieferung von Arbeitsfähigem in kurzen Zeitspannen (Sprints). \footcite{https://www.scrumalliance.org/about-scrum#} \\
+Scrum \footnote{Scrum Alliance \cite{WHAT-IS-SCRUM}} ist ein agiles Projektmanagement-Framework zur effizienten Entwicklung von Produkten und Software.
+Es betont Zusammenarbeit, Anpassungsfähigkeit und Lieferung von Arbeitsfähigem in kurzen Zeitspannen (Sprints). \\
 
 %Source: https://www.scrumalliance.org/about-scrum#!section1
 \noindent Die oben angeführte Definition gibt einen kurzen Einblick in das agile Vorgehendsmodell
@@ -24,20 +24,32 @@ Scrum. Zu den Hauptmerkmalen dieses Modells zählen folgende:
     \item Alle Mitglieder sind gleichberechtigt\\
 \end{itemize}
 
-\noindent Die drei Rollen in Scrum: \footcite{https://www.scrumalliance.org/about-scrum#}
+\subsubsection{Die drei Rollen in Scrum}
 \begin{itemize}
-    \item \\
-    Ist dafür verantworlich den Wert des Produkts, der sich aus der Arbeit des Entwicklungsteam
-    ergibt, zu maximieren.
-    \item Scrum Master \\
-    Der Scrum Master ist für die Förderung und Unterstützung von Scrum verantwortlich. Scrum
-    Master tun dies, indem sie jedem helfen, die Scrum-Theorie, -Praktiken, -Regeln und
+    \item Product Owner \footnote{Scrum-Rolle \cite{Product-Owner}}: \\
+    Die Pflege des Product Backlogs liegt in der Verantwortung dieser Rolle, die die fachliche Auftraggeberseite
+    sowie sämtliche Stakeholders vertritt. Ein zentrales Anliegen ist die Priorisierung der Product Backlog
+    Items in einer Weise, die den Business Value des Produkts maximal steigert und die Möglichkeit für
+    frühzeitige Releases von Kernfunktionalitäten schafft. Dies ermöglicht einen schnellen Return on Investment.
+    Um stets gut informiert zu sein, nimmt die Person nach Möglichkeit an den Daily Scrums teil, um auf passive
+    Weise Einblicke zu gewinnen. Zudem steht sie dem Team für Rückfragen zur Verfügung, um einen reibungslosen
+    Informationsaustausch zu gewährleisten.
+    \item Scrum Master \footnote{Scrum-Rolle \cite{Scrum-Master}}: \\
+    Der Scrum-Master übernimmt eine zentrale Rolle im Scrum-Prozess und ist für die korrekte Umsetzung desselben verantwortlich.
+    Als Vermittler und Unterstützer fungiert er als Facilitator, der darauf abzielt, einen maximalen Nutzen zu erzielen
+    und kontinuierliche Optimierung sicherzustellen. Ein zentrales Anliegen ist die Beseitigung von Hindernissen, um
+    ein reibungsloses Voranschreiten des Teams zu gewährleisten. Der ScrumMaster sorgt für einen effizienten
+    Informationsfluss zwischen dem Product Owner und dem Team, moderiert Scrum-Meetings und behält die Aktualität
+    der Scrum-Artefakte wie Product Backlog, Sprint Backlog und Burndown Charts im Blick. Darüber hinaus liegt in
+    seiner Verantwortung, das Team vor unberechtigten Eingriffen während des Sprints zu schützen.
     -Werte zu verstehen.
-    \item Team \\
-    Das Team ist eine Gruppe von Entwicklern, die für die Umsetzung der, großteils vom
-    Product Owner definierten, Anforderungen zuständig sind. Die Größe des Teams spielt eine
-    wichtige Rolle, da es klein genug sein muss, damit es immernoch agil ist, jedoch nicht
-    zu klein sein darf, da sonst keine großen Arbeitsleistung erfüllt werden können.\\
+    \item Team \footnote{Scrum-Rolle \cite{Team}}: \\
+    Das Team, bestehend aus fünf bis zehn Personen (idealerweise sieben), zeichnet sich durch seine interdisziplinäre
+    Zusammensetzung aus, die Entwickler, Architekten, Tester und technische Redakteure umfasst – eine Struktur, die in
+    den meisten Fällen von Vorteil ist. Durch Selbstorganisation agiert das Team eigenständig und übernimmt die
+    Verantwortung als sein eigener Manager. Es hat die Befugnis, autonom über die Aufteilung von Anforderungen in
+    Aufgaben zu entscheiden und diese auf die einzelnen Mitglieder zu verteilen, wodurch der Sprint Backlog aus dem
+    aktuellen Teil des Product Backlog entsteht.\\
 \end{itemize}
 \\
 \noindent Alle Anforderungen an das Produkt werden in sogennanten User Stories, die hauptsächlich
@@ -45,28 +57,28 @@ vom Product Owner erstellt werden, im Product Backlog gesammelt. in einem Interv
 als Sprint bezeichnet wird, werden die User Stories abgearbeitet. Die Projektentwicklung
 nach Scrum besteht dabei aus 5 Elementen:
 \begin{itemize}
-    \item Sprint Planning Meeting \\
+    \item Sprint: Planning Meeting \footnote{Scrum-Meetings \cite{Sprint-planing-meeting}}\\
     Im Sprint Planning Meeting wird das Ziel des folgendes Sprints festgelegt. Hier werden
     jene Anforderungen im Projekt Backlog, die in diesem Sprint realisiert werden sollen,
     in einzelne Aufgaben zerteilt und anschließend im Sprint Backlog gesammelt.
-    \item Sprint \\
+    \item Sprint: \footnote{Scrum-Meetings \cite{Sprint}} \\
     Ein Sprint ist eine Entwicklungsphase, in welcher eine vollfunktionsfähige und potentielle
     veröffentlichbare Software entsteht. Die Dauer eines solchen Sprints liegt zwischen
     1 bis 4 Wochen.
-    \item Daily Scrum \\
+    \item Daily Scrum: \footnote{Scrum-Meetings \cite{Daily-Scrum}}\\
     Der Daily Scrum ist ein kurzes Teammeeting in dem Teammitglieder mitteilen, welche
     Aufgaben seit dem letzten Daily Scrum abgeschlossen wurden, woran bis zum nächsten
     Daily Scrum gearbeitet werden muss und wo momentan Probleme existieren. Somit sind alle
     Teammitglieder stätig up-to-date und kennen den aktuellen Stand wodurch anstehende Probleme
     leichter gelöst werden können.
-    \item Sprint Review \\
+    \item Sprint Review: \footnote{Scrum-Meetings \cite{Sprint-Review}}\\
     In diesem Meeting präsentiert das Entwicklungsteam die in diesem Sprint abgeschlossenen
     Arbeitsergebnisse (z. B. fertige Produktinkremente) den Stakeholdern, dies können
     Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen sein.
-    \item Sprint Retroperspektive \\
+    \item Sprint Retroperspektive: \footnote{Scrum-Meetings \cite{Sprint-Retroperspektiv}} \\
     Ihr Hauptzweck besteht darin, dass das Scrum-Team (das Entwicklungsteam, der Scrum-Master
     und der Produktbesitzer) gemeinsam über den abgeschlossenen Sprint reflektiert und
-    Möglichkeiten zur kontinuierlichen Verbesserung identifiziert. \footcite{https://www.scrumalliance.org/about-scrum#}
+    Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.
 \end{itemize}
 \noindent Durch diese Elemente kann ein optimaler Projektablauf gewehrleistet werden. Das
 Projekt ist jederzeit für Änderungen offen und durch eine enge Zusammenarbeit mit dem Kunden
@@ -131,8 +143,8 @@ Evaluierung. Folgende Entscheidung müssen daher schon im Vorfeld definiert und 
 \begin{itemize}
     \item Inhalt: evtl. bestehende Fragebögen verwenden oder anpassen.
     \item Umfang: Eher kurz halten (In Abhängigkeit von den Zielen).
-    \item Ablauf und zeitlicher Rahmen: postalisch (längere Rücklaufzeit) oder elektronisch \footcite[Vgl.][url]{Einfuehrung in die Test- und Fragebogenkonstruktion}
-    \item Zielgruppe: Vollbefragung oder Stichproben \footcite{Interview und schriftliche Befragung}
+    \item Ablauf und zeitlicher Rahmen: postalisch (längere Rücklaufzeit) oder elektronisch \footnote{Vgl. \cite{Buehner} S. -}
+    \item Zielgruppe: Vollbefragung oder Stichproben \footnote{Vgl. \cite{Mayer} S. -}
 \end{itemize}
 
 \subsection{Abfassung der Fragen}
@@ -150,7 +162,7 @@ Folgende Regeln zur Formulierung sollen daher eingehalten werden:
     \item Keine hypothetischen Formulierungen
     \item Nur auf einen bestimmten Sachverhalt beziehen
     \item Keine Überforderung (Nicht zu viele Informationen auf einmal)
-    \item Keine doppelten Verneinungen \footcite{Interview und schriftliche Befragung}
+    \item Keine doppelten Verneinungen \footnote{Vgl. \cite{Mayer} S. -}
 \end{itemize}
 
 Diese Kriterien gelten für eine schriftliche Befragung. Um das Resultat dieser Umfrage nicht
@@ -158,18 +170,18 @@ zu verfälschen darf der Interviewer keine Extrafragen oder Umformulierungen an 
 Fragen tätigen.
 
 \subsection{Arten von Fragen}
-Je nach Anforderungsbedinungen wird zwischen einer offenen und geschlossenen Frage unterschieden \footcite{Interview und schriftliche Befragung}
+Je nach Anforderungsbedinungen wird zwischen einer offenen und geschlossenen Frage unterschieden \footnote{Vgl. \cite{Mayer} S. -}
 
 %Offene und geschlossene Fragen erklären
 
 \subsection{Struktur und Gliederung von Fragebögen}
-Hier wird verfasst wie die Allgemeine Struktur und Gliederung von Fragebögen aussehen soll. \footcite{Einfuehrung in die Test- und Fragebogenkonstruktion}
+Hier wird verfasst wie die Allgemeine Struktur und Gliederung von Fragebögen aussehen soll. \footnote{Vgl. \cite{Buehner} S. -}
 
 \subsection{Mögliche Verfälschung des Resultats}
 Welche Arten von Verfälschungen gibt es und diese Beschreiben
-Ursachen dafür beschreiben. \footcite{Einfuehrung in die Test- und Fragebogenkonstruktion}
+Ursachen dafür beschreiben. \footnote{Vgl. \cite{Buehner} S. -}
 
 \subsection{Auswertung von Fragebögen}
-Wie werten wir die Fragenbögen aus? \footcite{Interview und schriftliche Befragung}
+Wie werten wir die Fragenbögen aus? \footnote{Vgl. \cite{Mayer} S. -}
 
 %Quellen zu den Fragenbögen Dingen finden und ALLES genauer beschreiben
