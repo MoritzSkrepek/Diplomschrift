@@ -3,10 +3,10 @@ name: Build Thesis
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   merge_group:
 
 jobs:
