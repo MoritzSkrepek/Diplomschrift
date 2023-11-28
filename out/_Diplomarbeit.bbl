@@ -1,0 +1,1154 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{PAT07}{misc}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=ad233466d08c5aa185ec452f13cd74a5}{%
+           family={Anisetti},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ba1346eaf66624e71c2bd41de3e9b5bd}{%
+           family={Ardagna},
+           familyi={A\bibinitperiod},
+           given={{C.A.}},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62360953baa5cf5708327aeb54d640d1}{%
+           family={Bellandi},
+           familyi={B\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0504c7de761f411776998e7eb58f6206}{%
+           family={Damiani},
+           familyi={D\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{b7338074c8f73164ba74bb15bf696d19}
+      \strng{fullhash}{9398d06fd3c7d6c9e033cb7debe15273}
+      \strng{bibnamehash}{b7338074c8f73164ba74bb15bf696d19}
+      \strng{authorbibnamehash}{b7338074c8f73164ba74bb15bf696d19}
+      \strng{authornamehash}{b7338074c8f73164ba74bb15bf696d19}
+      \strng{authorfullhash}{9398d06fd3c7d6c9e033cb7debe15273}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{European Patent No. EP1765031}
+      \field{month}{3}
+      \field{title}{Method, System, Network and Computer Program Product for Positioning in a Mobile Communications Network}
+      \field{year}{2007}
+    \endentry
+    \entry{Microsoft01}{manual}{}
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {Microsoft Corporation}%
+      }
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{note}{Kopie auf CD-ROM}
+      \field{title}{Application Service Providers: Evolution and Resources}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb www.microsoft.com/ISN/downloads/ASP.doc
+      \endverb
+      \verb{url}
+      \verb www.microsoft.com/ISN/downloads/ASP.doc
+      \endverb
+    \endentry
+    \entry{Bacher04}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6264ea2c3cf098217060b2a9d4afac23}{%
+           family={Bacher},
+           familyi={B\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Fachhochschule Hagenberg, Medientechnik und -design}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {Hagenberg, Austria}%
+      }
+      \strng{namehash}{6264ea2c3cf098217060b2a9d4afac23}
+      \strng{fullhash}{6264ea2c3cf098217060b2a9d4afac23}
+      \strng{bibnamehash}{6264ea2c3cf098217060b2a9d4afac23}
+      \strng{authorbibnamehash}{6264ea2c3cf098217060b2a9d4afac23}
+      \strng{authornamehash}{6264ea2c3cf098217060b2a9d4afac23}
+      \strng{authorfullhash}{6264ea2c3cf098217060b2a9d4afac23}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Interaktionsmäglichkeiten mit Bildschirmen und großflächigen Projektionen}
+      \field{type}{Bachelorarbeit}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb http://theses.fh-hagenberg.at
+      \endverb
+      \verb{url}
+      \verb http://theses.fh-hagenberg.at
+      \endverb
+    \endentry
+    \entry{Beeler48}{report}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=abefa9ff09f2a3db9547d43ba0fad6b3}{%
+           family={Beeler},
+           familyi={B\bibinitperiod},
+           given={De\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a83c5c9b7f18c8f1503219502df21ebc}{%
+           family={Mayer},
+           familyi={M\bibinitperiod},
+           given={John\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {NASA Dryden Flight Research Center}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Edwards, CA}%
+      }
+      \strng{namehash}{6851a74e0f9de8271cae96da4e111653}
+      \strng{fullhash}{6851a74e0f9de8271cae96da4e111653}
+      \strng{bibnamehash}{6851a74e0f9de8271cae96da4e111653}
+      \strng{authorbibnamehash}{6851a74e0f9de8271cae96da4e111653}
+      \strng{authornamehash}{6851a74e0f9de8271cae96da4e111653}
+      \strng{authorfullhash}{6851a74e0f9de8271cae96da4e111653}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{number}{NACA-RM-L7L12}
+      \field{title}{Measurement of the wing and tail loads during acceptance test of the {Bell} {XS-1} research airplane}
+      \field{type}{techreport}
+      \field{year}{1948}
+      \verb{urlraw}
+      \verb www.dfrc.nasa.gov/DTRS/1948/index.html
+      \endverb
+      \verb{url}
+      \verb www.dfrc.nasa.gov/DTRS/1948/index.html
+      \endverb
+    \endentry
+    \entry{Braams2008}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d52f183a29af96d48695b8bea23e66e1}{%
+           family={Braams},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{d52f183a29af96d48695b8bea23e66e1}
+      \strng{fullhash}{d52f183a29af96d48695b8bea23e66e1}
+      \strng{bibnamehash}{d52f183a29af96d48695b8bea23e66e1}
+      \strng{authorbibnamehash}{d52f183a29af96d48695b8bea23e66e1}
+      \strng{authornamehash}{d52f183a29af96d48695b8bea23e66e1}
+      \strng{authorfullhash}{d52f183a29af96d48695b8bea23e66e1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Babel, a multilingual package for use with {LaTeX}'s standard document classes}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb www.ctan.org/tex-archive/macros/latex/required/babel/
+      \endverb
+      \verb{url}
+      \verb www.ctan.org/tex-archive/macros/latex/required/babel/
+      \endverb
+    \endentry
+    \entry{Ears99}{incollection}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e7e8945dcd98bec43ca6d811e95c674f}{%
+           family={Burge},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Wilhelm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=cd01587a47d1084d2adebe55a57d1c5c}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anil\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=c8ba0d60b2577b7b4fe35b6fe2aa8e8f}{%
+           family={Ruud},
+           familyi={R\bibinitperiod},
+           given={Bolle},
+           giveni={B\bibinitperiod}}}%
+        {{hash=fa9ab9a98d2d9cf82651c52673e54868}{%
+           family={Sharath},
+           familyi={S\bibinitperiod},
+           given={Pankanti},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Boston}%
+      }
+      \list{publisher}{1}{%
+        {Kluwer Academic Publishers}%
+      }
+      \strng{namehash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{fullhash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{bibnamehash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{authorbibnamehash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{authornamehash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{authorfullhash}{5d41e08eff66e1ea19ad26c92892fa9c}
+      \strng{editorbibnamehash}{91d4ef4688299c2017aefb0580d76e06}
+      \strng{editornamehash}{91d4ef4688299c2017aefb0580d76e06}
+      \strng{editorfullhash}{91d4ef4688299c2017aefb0580d76e06}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Biometrics: Personal Identification in Networked Society}
+      \field{chapter}{13}
+      \field{title}{Ear Biometrics}
+      \field{year}{1999}
+      \field{pages}{273\bibrangedash 285}
+      \range{pages}{13}
+    \endentry
+    \entry{Burger87}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Wilhelm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9b3f20f4d72e6b9e8f04c9fbd69f6482}{%
+           family={Bhanu},
+           familyi={B\bibinitperiod},
+           given={Bir},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {San Francisco}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann Publishers}%
+      }
+      \strng{namehash}{00f94573f111a06b3600b5e2aa721f8e}
+      \strng{fullhash}{00f94573f111a06b3600b5e2aa721f8e}
+      \strng{bibnamehash}{00f94573f111a06b3600b5e2aa721f8e}
+      \strng{authorbibnamehash}{00f94573f111a06b3600b5e2aa721f8e}
+      \strng{authornamehash}{00f94573f111a06b3600b5e2aa721f8e}
+      \strng{authorfullhash}{00f94573f111a06b3600b5e2aa721f8e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Intl.\ Joint Conference on Artificial Intelligence}
+      \field{month}{5}
+      \field{title}{Qualitative Motion Understanding}
+      \field{year}{1987}
+      \field{pages}{819\bibrangedash 821}
+      \range{pages}{3}
+    \endentry
+    \entry{BurgerBurge06}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9ad59080ba03ad1d0e62ab1765d41109}{%
+           family={Burger},
+           familyi={B\bibinitperiod},
+           given={Wilhelm},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7e8945dcd98bec43ca6d811e95c674f}{%
+           family={Burge},
+           familyi={B\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \strng{fullhash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \strng{bibnamehash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \strng{authorbibnamehash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \strng{authornamehash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \strng{authorfullhash}{6ff3e0e6f86b5a867690ec59086d4c92}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Digitale Bildverarbeitung -- Eine Einführung mit Java und ImageJ}
+      \field{year}{2006}
+    \endentry
+    \entry{Carlisle99}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1a1d54f6b1b90518b7892191b83b1085}{%
+           family={Carlisle},
+           familyi={C\bibinitperiod},
+           given={D.\bibnamedelimi P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{1a1d54f6b1b90518b7892191b83b1085}
+      \strng{fullhash}{1a1d54f6b1b90518b7892191b83b1085}
+      \strng{bibnamehash}{1a1d54f6b1b90518b7892191b83b1085}
+      \strng{authorbibnamehash}{1a1d54f6b1b90518b7892191b83b1085}
+      \strng{authornamehash}{1a1d54f6b1b90518b7892191b83b1085}
+      \strng{authorfullhash}{1a1d54f6b1b90518b7892191b83b1085}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{1}
+      \field{title}{Packages in the {`graphics'} bundle}
+      \field{year}{1999}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/required/graphics/grfguide.pdf
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/required/graphics/grfguide.pdf
+      \endverb
+    \endentry
+    \entry{Duden97}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e60091cf679509c7ca2e6b893b8f1255}{%
+           family={Christian},
+           familyi={C\bibinitperiod},
+           given={Friedrich},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {Mannheim}%
+      }
+      \list{publisher}{1}{%
+        {Bibliographisches Institut}%
+      }
+      \strng{namehash}{e60091cf679509c7ca2e6b893b8f1255}
+      \strng{fullhash}{e60091cf679509c7ca2e6b893b8f1255}
+      \strng{bibnamehash}{e60091cf679509c7ca2e6b893b8f1255}
+      \strng{authorbibnamehash}{e60091cf679509c7ca2e6b893b8f1255}
+      \strng{authornamehash}{e60091cf679509c7ca2e6b893b8f1255}
+      \strng{authorfullhash}{e60091cf679509c7ca2e6b893b8f1255}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Duden Taschenbücher}
+      \field{title}{Schriftliche Arbeiten im technisch-natur\-wissen\-schaft\-lichen Studium: ein Leitfaden zur effektiven Erstellung und zum Einsatz moderner Arbeitsmethoden}
+      \field{volume}{27}
+      \field{year}{1997}
+    \endentry
+    \entry{Cochran95}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=64ecfeb69ced9885dc5d0a41894a9d55}{%
+           family={Cochran},
+           familyi={C\bibinitperiod},
+           given={Steven\bibnamedelima Douglas},
+           giveni={S\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \strng{fullhash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \strng{bibnamehash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \strng{authorbibnamehash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \strng{authornamehash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \strng{authorfullhash}{64ecfeb69ced9885dc5d0a41894a9d55}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{The {\tt subfigure} Package}
+      \field{year}{1995}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/subfigure/subfigure.pdf
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/subfigure/subfigure.pdf
+      \endverb
+    \endentry
+    \entry{DIN9241-110}{misc}{}
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{publisher}{1}{%
+        {Europäisches Kommittee für Normung}%
+      }
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{DIN 9241-110}
+      \field{title}{Ergonomie der Mensch-System-Interaktion: Teil 110 Grundsätze der Dialoggestaltung}
+      \field{year}{2006}
+    \endentry
+    \entry{DIN9241-11}{misc}{}
+      \list{language}{1}{%
+        {german}%
+      }
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{DIN EN ISO 9241-11}
+      \field{month}{1}
+      \field{title}{Ergonomische Anforderungen für Bürotätigkeiten mit Bildschirmgeräten Teil 11: Anforderungen an die Gebrauchstauglichkeit - Leitsätze}
+      \field{year}{1999}
+    \endentry
+    \entry{Eberl87}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9de988d1c74d8e335fe6d039d86da7e2}{%
+           family={Eberl},
+           familyi={E\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universität der Bundeswehr, Fakultät für Raum- und Luftfahrttechnik}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {München}%
+      }
+      \strng{namehash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \strng{fullhash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \strng{bibnamehash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \strng{authorbibnamehash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \strng{authornamehash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \strng{authorfullhash}{9de988d1c74d8e335fe6d039d86da7e2}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{8}
+      \field{title}{Automatischer Landeanflug durch Rechnersehen}
+      \field{type}{phdthesis}
+      \field{year}{1987}
+    \endentry
+    \entry{Faires34}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3e9ccc9f4f34bd2d068608e0d5b7b9f4}{%
+           family={Faires},
+           familyi={F\bibinitperiod},
+           given={V.\bibnamedelimi M.},
+           giveni={V\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {The Mac\-millan Com\-pany}%
+      }
+      \strng{namehash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \strng{fullhash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \strng{bibnamehash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \strng{authorbibnamehash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \strng{authornamehash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \strng{authorfullhash}{3e9ccc9f4f34bd2d068608e0d5b7b9f4}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Originalausgabe 1920}
+      \field{title}{Design of Machine Elements}
+      \field{year}{1934}
+    \endentry
+    \entry{Guttman01}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b2c9ede8e5e078153a929c6bc5ac94d2}{%
+           family={Guttman},
+           familyi={G\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \strng{fullhash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \strng{bibnamehash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \strng{authorbibnamehash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \strng{authornamehash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \strng{authorfullhash}{b2c9ede8e5e078153a929c6bc5ac94d2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Internet Computing}
+      \field{month}{5/6}
+      \field{title}{Autoconfiguration for {IP} Networking}
+      \field{volume}{5}
+      \field{year}{2001}
+      \field{pages}{81\bibrangedash 86}
+      \range{pages}{6}
+    \endentry
+    \entry{Higham98}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5bec9d02065c9b35d45c881a24f7a1cd}{%
+           family={Higham},
+           familyi={H\bibinitperiod},
+           given={Nicholas\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Philadelphia}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics (SIAM)}%
+      }
+      \strng{namehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{fullhash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{bibnamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authorbibnamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authornamehash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \strng{authorfullhash}{5bec9d02065c9b35d45c881a24f7a1cd}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Handbook of Writing for the Mathematical Sciences}
+      \field{year}{1998}
+      \verb{urlraw}
+      \verb www.maths.manchester.ac.uk/~higham/hwms/
+      \endverb
+      \verb{url}
+      \verb www.maths.manchester.ac.uk/~higham/hwms/
+      \endverb
+    \endentry
+    \entry{Kopka98}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7ad513520366785f926861843001ed4e}{%
+           family={Kopka},
+           familyi={K\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e24997e3daa7857bfaaf818be6735947}{%
+           family={Daly},
+           familyi={D\bibinitperiod},
+           given={Patric\bibnamedelima William},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Reading, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{71803f876fe3f92f4ec056d111d47972}
+      \strng{fullhash}{71803f876fe3f92f4ec056d111d47972}
+      \strng{bibnamehash}{71803f876fe3f92f4ec056d111d47972}
+      \strng{authorbibnamehash}{71803f876fe3f92f4ec056d111d47972}
+      \strng{authornamehash}{71803f876fe3f92f4ec056d111d47972}
+      \strng{authorfullhash}{71803f876fe3f92f4ec056d111d47972}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{A Guide to LaTeX}
+      \field{year}{1998}
+    \endentry
+    \entry{Kreisky75}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=693d3da20df690baff69161230dde478}{%
+           family={Kreisky},
+           familyi={K\bibinitperiod},
+           given={Bruno},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \strng{namehash}{693d3da20df690baff69161230dde478}
+      \strng{fullhash}{693d3da20df690baff69161230dde478}
+      \strng{bibnamehash}{693d3da20df690baff69161230dde478}
+      \strng{authorbibnamehash}{693d3da20df690baff69161230dde478}
+      \strng{authornamehash}{693d3da20df690baff69161230dde478}
+      \strng{authorfullhash}{693d3da20df690baff69161230dde478}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Persönl.\ Gespräch}
+      \field{month}{11}
+      \field{title}{Kaffeehausgespräch zur Lage der Nation}
+      \field{year}{1975}
+    \endentry
+    \entry{Lamport95}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {Reading, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Das {LaTeX}-Handbuch}
+      \field{year}{1995}
+    \endentry
+    \entry{Lamport94}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           familyi={L\bibinitperiod},
+           given={Leslie},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Reading, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \field{extraname}{2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{{LaTeX}, A Document Preparation System}
+      \field{year}{1994}
+    \endentry
+    \entry{Mermin89}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=711617251066ebdd9d8e58c101e03ed3}{%
+           family={Mermin},
+           familyi={M\bibinitperiod},
+           given={N.\bibnamedelimi David},
+           giveni={N\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{711617251066ebdd9d8e58c101e03ed3}
+      \strng{fullhash}{711617251066ebdd9d8e58c101e03ed3}
+      \strng{bibnamehash}{711617251066ebdd9d8e58c101e03ed3}
+      \strng{authorbibnamehash}{711617251066ebdd9d8e58c101e03ed3}
+      \strng{authornamehash}{711617251066ebdd9d8e58c101e03ed3}
+      \strng{authorfullhash}{711617251066ebdd9d8e58c101e03ed3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physics Today}
+      \field{number}{10}
+      \field{title}{What's wrong with these equations?}
+      \field{volume}{42}
+      \field{year}{1989}
+      \field{pages}{9\bibrangedash 11}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1063/1.2811173
+      \endverb
+    \endentry
+    \entry{Nosferatu}{misc}{}
+      \list{language}{1}{%
+        {german}%
+      }
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Drehbuch/Regie: F. W. Murnau. Mit Max Schreck, Gustav von Wangenheim, Greta Schröder}
+      \field{note}{DVD, Film Preservation Associates, London (1991)}
+      \field{title}{Nosferatu---A Symphony of Horrors}
+      \field{year}{1922}
+    \endentry
+    \entry{Oetiker01}{manual}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=5d11479143005f8afd00a80db661847f}{%
+           family={Oetiker},
+           familyi={O\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ca96670929452aa6904ed514c3b557d}{%
+           family={Partl},
+           familyi={P\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db9b819bf4a42d221113f40ed8c86d64}{%
+           family={Hyna},
+           familyi={H\bibinitperiod},
+           given={Irene},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18761ea06cd8d6305a71fa1fde3f4b19}{%
+           family={Schlegl},
+           familyi={S\bibinitperiod},
+           given={Elisabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{fullhash}{8fca386a8f8bd6243f3461ae9167a2f4}
+      \strng{bibnamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authorbibnamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authornamehash}{febdb7d8cc94bfeec1182be1d0189280}
+      \strng{authorfullhash}{8fca386a8f8bd6243f3461ae9167a2f4}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{The Not So Short Introduction to {LaTeX2e}}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/info/lshort/english/
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/info/lshort/english/
+      \endverb
+    \endentry
+    \entry{Oostrum97}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9869d88ab60333db37f5aa4d2644b76a}{%
+           family={Oostrum},
+           familyi={O\bibinitperiod},
+           given={{Piet van}},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9869d88ab60333db37f5aa4d2644b76a}
+      \strng{fullhash}{9869d88ab60333db37f5aa4d2644b76a}
+      \strng{bibnamehash}{9869d88ab60333db37f5aa4d2644b76a}
+      \strng{authorbibnamehash}{9869d88ab60333db37f5aa4d2644b76a}
+      \strng{authornamehash}{9869d88ab60333db37f5aa4d2644b76a}
+      \strng{authorfullhash}{9869d88ab60333db37f5aa4d2644b76a}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{title}{Page layout in {LaTeX}}
+      \field{year}{1997}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/fancyhdr/
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/supported/fancyhdr/
+      \endverb
+    \endentry
+    \entry{Pakin01}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b835af205adc9f4cf7b438d1116ffb60}{%
+           family={Pakin},
+           familyi={P\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{b835af205adc9f4cf7b438d1116ffb60}
+      \strng{fullhash}{b835af205adc9f4cf7b438d1116ffb60}
+      \strng{bibnamehash}{b835af205adc9f4cf7b438d1116ffb60}
+      \strng{authorbibnamehash}{b835af205adc9f4cf7b438d1116ffb60}
+      \strng{authornamehash}{b835af205adc9f4cf7b438d1116ffb60}
+      \strng{authorfullhash}{b835af205adc9f4cf7b438d1116ffb60}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{7}
+      \field{title}{The Comprehensive {LaTeX} Symbol List}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+      \endverb
+    \endentry
+    \entry{Patashnik88}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b5085a32ea3005cb2c63376fae9f0646}{%
+           family={Patashnik},
+           familyi={P\bibinitperiod},
+           given={Oren},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{fullhash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{bibnamehash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{authorbibnamehash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{authornamehash}{b5085a32ea3005cb2c63376fae9f0646}
+      \strng{authorfullhash}{b5085a32ea3005cb2c63376fae9f0646}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{2}
+      \field{title}{{BiBTeXing}}
+      \field{year}{1988}
+      \verb{urlraw}
+      \verb www.literateprogramming.com/btxdoc.pdf
+      \endverb
+      \verb{url}
+      \verb www.literateprogramming.com/btxdoc.pdf
+      \endverb
+    \endentry
+    \entry{Schmidt01}{manual}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=b8a8f21e5cd7834c8f4ec6e251325bb5}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=40287cfe19a93d2ff0ca55a68372964d}{%
+           family={Knappen},
+           familyi={K\bibinitperiod},
+           given={Jörg},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8ca96670929452aa6904ed514c3b557d}{%
+           family={Partl},
+           familyi={P\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=db9b819bf4a42d221113f40ed8c86d64}{%
+           family={Hyna},
+           familyi={H\bibinitperiod},
+           given={Irene},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \strng{namehash}{12bcc5b8050bce95db6dd0a843a7787d}
+      \strng{fullhash}{ae257a708fefc0759120e852c57c917c}
+      \strng{bibnamehash}{12bcc5b8050bce95db6dd0a843a7787d}
+      \strng{authorbibnamehash}{12bcc5b8050bce95db6dd0a843a7787d}
+      \strng{authornamehash}{12bcc5b8050bce95db6dd0a843a7787d}
+      \strng{authorfullhash}{ae257a708fefc0759120e852c57c917c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{{LaTeX2e} Kurzbeschreibung}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/info/lshort/german/l2kurz.pdf
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/info/lshort/german/l2kurz.pdf
+      \endverb
+    \endentry
+    \entry{Sommerfeldt07}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1f7b4f8fb1312c184175d6339f35e887}{%
+           family={Sommerfeldt},
+           familyi={S\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \strng{namehash}{1f7b4f8fb1312c184175d6339f35e887}
+      \strng{fullhash}{1f7b4f8fb1312c184175d6339f35e887}
+      \strng{bibnamehash}{1f7b4f8fb1312c184175d6339f35e887}
+      \strng{authorbibnamehash}{1f7b4f8fb1312c184175d6339f35e887}
+      \strng{authornamehash}{1f7b4f8fb1312c184175d6339f35e887}
+      \strng{authorfullhash}{1f7b4f8fb1312c184175d6339f35e887}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Setzen von Abbildungs- und Tabellenbeschriftungen mit dem {\tt caption}-Paket}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/caption/anleitung.pdf
+      \endverb
+      \verb{url}
+      \verb www.tex.ac.uk/tex-archive/macros/latex/contrib/caption/anleitung.pdf
+      \endverb
+    \endentry
+    \entry{Taylor96}{manual}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ae655fd42e32ec4680609d16443509d2}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b98e05ee4ed167fee7a95526c06fb09c}{%
+           family={Dawson},
+           familyi={D\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{f5ac5014919b496817aa92cccf30ab03}
+      \strng{fullhash}{f5ac5014919b496817aa92cccf30ab03}
+      \strng{bibnamehash}{f5ac5014919b496817aa92cccf30ab03}
+      \strng{authorbibnamehash}{f5ac5014919b496817aa92cccf30ab03}
+      \strng{authornamehash}{f5ac5014919b496817aa92cccf30ab03}
+      \strng{authorfullhash}{f5ac5014919b496817aa92cccf30ab03}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Bibliography files in Hypatia}
+      \field{year}{1996}
+      \verb{urlraw}
+      \verb http://hypatia.dcs.qmw.ac.uk/html/bibliography.html
+      \endverb
+      \verb{url}
+      \verb http://hypatia.dcs.qmw.ac.uk/html/bibliography.html
+      \endverb
+    \endentry
+    \entry{amsldoc02}{manual}{}
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {American Mathematical Society}%
+      }
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labeltitlesource}{title}
+      \field{note}{Version 2.0}
+      \field{title}{User's Guide for the {\tt amsmath} Package}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf
+      \endverb
+      \verb{url}
+      \verb ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf
+      \endverb
+    \endentry
+    \entry{mathmode09}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e081108643ae4b78a904ec3a607d3d71}{%
+           family={Voß},
+           familyi={V\bibinitperiod},
+           given={Herbert},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{e081108643ae4b78a904ec3a607d3d71}
+      \strng{fullhash}{e081108643ae4b78a904ec3a607d3d71}
+      \strng{bibnamehash}{e081108643ae4b78a904ec3a607d3d71}
+      \strng{authorbibnamehash}{e081108643ae4b78a904ec3a607d3d71}
+      \strng{authornamehash}{e081108643ae4b78a904ec3a607d3d71}
+      \strng{authorfullhash}{e081108643ae4b78a904ec3a607d3d71}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Math mode -- v.2.41}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://ctan.tug.org/tex-archive/info/math/voss/mathmode/
+      \endverb
+      \verb{url}
+      \verb http://ctan.tug.org/tex-archive/info/math/voss/mathmode/
+      \endverb
+    \endentry
+    \entry{Wintersberger00}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f1facd7d54bd5d7851b1cd92cd853867}{%
+           family={Wintersberger},
+           familyi={W\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Fachhochschule Hagenberg, Medientechnik und -design}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{location}{1}{%
+        {Hagenberg, Austria}%
+      }
+      \strng{namehash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \strng{fullhash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \strng{bibnamehash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \strng{authorbibnamehash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \strng{authornamehash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \strng{authorfullhash}{f1facd7d54bd5d7851b1cd92cd853867}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Realisierung eines Internet-Auktionshauses basierend auf {PHP} und {MySQL}}
+      \field{type}{mathesis}
+      \field{year}{2000}
+    \endentry
+    \entry{Zappa95}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d9fb627f97e1fe6a71fbfe00f1166e76}{%
+           family={Zappa},
+           familyi={Z\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \strng{fullhash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \strng{bibnamehash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \strng{authorbibnamehash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \strng{authornamehash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \strng{authorfullhash}{d9fb627f97e1fe6a71fbfe00f1166e76}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Audio-CD, Rykodisc, New York}
+      \field{month}{5}
+      \field{title}{Freak Out}
+      \field{year}{1995}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
