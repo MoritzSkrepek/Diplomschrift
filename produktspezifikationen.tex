@@ -12,7 +12,12 @@ Hier steht der allgemeine Text für die Use Cases
 Hier steht der allgemeine Text für das Design
 
 \subsection{Abläufe}
-Hier steht der allgemeine Text für die Abläufe
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5, angle=270]{images/AblaufdiagrammLevel2}
+    \caption{Ablaufdiagramm des Knapsack-Problem Levels}
+    \label{fig:Ablaufdiagramm Level 2}
+\end{figure}
 
 \subsection{Mockups}
 Hier steht der allgemeine Text für die Mockups
@@ -24,25 +29,83 @@ Bei der Auswahl der eingesetzten Technologien war es besonders wichtig, dass die
 zuverlässig und bereits etabliert sind. Die Technologien sollen ausfallsicher, leicht benutzbar
 und vorallem eine performant Verwendung der Applikation sicherstellen.
 
-\subsection{Game Engine}
-Als Game Engine wird eine Entwicklungsumgebung für das Design und Entwickeln von Spielen bezeichnet.
-Zu Projektstart gab es die Auswahl zwischen den zwei bekanntesten Game Enginges, die momentan am Markt
-vorhanden sind. Diese sind die folgenden:
+\subsection{Game Engine: Konzeption und Funktion}
+Eine Game Engine stellt eine hochentwickelte und modulare Entwicklungsumgebung dar, die speziell für die Konzeption,
+Gestaltung und Implementierung von interaktiven digitalen Spielen entwickelt wurde. Als komplexe Softwarearchitektur
+bildet sie das Grundgerüst für die Realisierung von Spieleprojekten, wobei sie eine Vielzahl von Funktionen und
+Werkzeugen bereitstellt, um den Entwicklungsprozess zu erleichtern und zu optimieren.
+
+Im Kern vereint eine Game Engine verschiedene Module, die für unterschiedliche Aspekte der Spieleentwicklung zuständig
+sind. Dazu gehören unter anderem die Grafik-Engine, die Physik-Engine, die Audio-Engine sowie Mechanismen für
+Kollisionserkennung, Animationen und Künstliche Intelligenz. Durch diese modulare Struktur ermöglicht die Game Engine
+eine effiziente und ressourcenschonende Entwicklung, indem sie Entwickler von der tiefen Implementierung grundlegender
+Funktionen entlastet.
+
+Die Grafik-Engine ist dabei verantwortlich für die Darstellung visueller Elemente, von 2D-Grafiken bis hin zu
+komplexen 3D-Welten. Sie bietet Mechanismen zur Berechnung von Lichteffekten, Schatten, Texturen und Animationen.
+Die Physik-Engine simuliert realistische physikalische Interaktionen, um eine authentische Umgebungsgestaltung und
+realitätsnahe Bewegungen der Spielelemente zu gewährleisten. Die Audio-Engine ermöglicht die Integration von Klängen
+und Musik, um die Spielerfahrung zu vertiefen.
+
+Ein entscheidendes Merkmal einer Game Engine ist auch die Integration von Programmiersprachen wie C++ oder C#, die es
+Entwicklern erlauben, spezifische Spiellogik und Interaktionen zu implementieren. Dieser Aspekt ermöglicht die
+Flexibilität und Anpassbarkeit der Engine an die individuellen Anforderungen eines Spieleprojekts.
+
+In der Gesamtheit fungiert die Game Engine als zentrale Schaltstelle für die kreative Entfaltung von Entwicklerteams,
+indem sie eine umfassende Plattform für das Design und die Umsetzung von Spieleideen bietet. Ihre Funktionen reichen
+von der effizienten Ressourcenverwaltung bis hin zur Bereitstellung von Werkzeugen für das Testen, Debuggen und
+Optimieren von Spielen.
+
+Die Auswahl einer geeigneten Game Engine ist eine strategische Entscheidung und hängt von den spezifischen
+Anforderungen eines Projekts ab. In diesem Kontext wurden die beiden führenden Game Engines, Unity und Unreal Engine,
+evaluiert, wobei Unity aufgrund seiner Programmiersprache C#, dem einfachen Einstieg für Anfänger, der exzellenten
+Dokumentation und der umfangreichen Tutorial-Ressourcen als präferierte Wahl für das vorliegende Projektteam hervorging.
+
+\subsubsection{Game Engine Auswahl und Wechsel im Projektverlauf}
+Zu Projektbeginn standen zwei der führenden Game Engines zur Auswahl – die Unreal Engine und Unity. Eine Game Engine
+fungiert als komplexe Softwareumgebung, speziell entwickelt für das Design und die Entwicklung von digitalen Spielen.
+Die Auswahl einer geeigneten Engine beeinflusst maßgeblich den Entwicklungsprozess und den Erfolg eines Projekts.
+
+Nach einer gründlichen Recherche und Evaluierung der beiden Optionen entschied sich das Projektteam für Unity als
+präferierte Game Engine. Diese Entscheidung wurde durch mehrere Schlüsselfaktoren gestützt:
+
 \begin{itemize}
-    \item Unreal Engine
-    \item Unity
+    \item \textbf{Programmiersprache: C#} - Die Verwendung der Programmiersprache C# erwies sich als entscheidend,
+    da sie sich als äußerst effizient und benutzerfreundlich herausstellte.
+    \item \textbf{Einfacher Einstieg für Anfänger} - Unity bietet einen leicht verständlichen Einstieg in die
+    Spieleentwicklung, was besonders für Teammitglieder mit unterschiedlichem Erfahrungsniveau von Vorteil ist.
+    \item \textbf{Sehr gute Dokumentation} - Die umfassende Dokumentation von Unity spielte eine zentrale Rolle für
+    effiziente Entwicklung und Problemlösung im gesamten Projektverlauf.
+    \item \textbf{Hohe Anzahl an Tutorials} - Unity überzeugte mit einer reichhaltigen Sammlung von Tutorials und
+    Schulungsmaterialien, die eine kontinuierliche Weiterbildung und schnelle Lösung von Herausforderungen ermöglichten.
 \end{itemize}
 
-Nach tiefgründiger Recherche war für das Projektteam klar, dass Unity die verwendete GameEngine sein wird.
-Folgende Kriterien haben uns in dieser Entscheidung verstärkt:
-\begin{itemize}
-    \item Programmiersprache: C#.
-    \item Einfacher Einstieg in die Entwicklung von Spielen für Beginner.
-    \item Sehr gute Dokumentation.
-    \item Hohe Anzahl an Tutorials an die man sich richten kann.
-\end{itemize}
+Ursprünglich war die Unreal Engine aufgrund ihres beliebten Blueprint-Scripting-Systems in Betracht gezogen worden.
+Jedoch traten im Verlauf der Entwicklungsarbeit spezifische Herausforderungen auf, die zu einer strategischen
+Entscheidung für den Wechsel zur Unity Game Engine führten. Die Herausforderungen umfassten:
 
-% Hier dann beschreibeen wieso wir von Unreal Engine auf Unity umgestiegen sind.
+\begin{enumerate}
+    \item \textbf{Mangelhafte Dokumentation für AR-Entwicklung in der Unreal Engine:} Die unzureichende Dokumentation
+    für die Entwicklung von Augmented Reality (AR)-Anwendungen in der Unreal Engine erwies sich als erhebliche Hürde.
+    Fehlende detaillierte Anleitungen und Referenzen für AR-spezifische Funktionen behinderten die effiziente Integration von AR-Elementen.
+    \item \textbf{Begrenzte Verfügbarkeit von AR-spezifischen Online-Tutorials:} Ein Mangel an Online-Tutorials,
+    die sich speziell mit der Entwicklung von AR-Anwendungen in der Unreal Engine befassten, führte zu einer
+    beträchtlichen Lernkurve für das Entwicklerteam und verzögerte den Implementierungsprozess von AR-spezifischen Features.
+    \item \textbf{Komplexität der AR-Entwicklung in der Unreal Engine:} Die Unreal Engine erwies sich als
+    anspruchsvoller in Bezug auf die Umsetzung von AR-spezifischen Funktionen. Die Notwendigkeit, komplexe Skripte zu
+    erstellen und vielfältige Einstellungen anzupassen, führte zu einem erhöhten Zeitaufwand für die Umsetzung von AR-Elementen.
+    \item \textbf{Mangelhafte Integration von AR-spezifischen Werkzeugen:} Schwächen in der Integration von
+    AR-spezifischen Entwicklungswerkzeugen in der Unreal Engine erschwerten eine nahtlose Interaktion mit AR-Plattformen
+    und die optimale Nutzung ihrer Funktionen.
+    \item \textbf{Eingeschränkte Community-Unterstützung für AR-Entwicklung:} Im Vergleich zu Unity war die Community-Unterstützung
+    für die AR-Entwicklung in der Unreal Engine begrenzt. Die Verfügbarkeit von Ratschlägen und Lösungen für spezifische
+    AR-Herausforderungen war eingeschränkt, was die Eigenständigkeit bei der Lösung von Problemen beeinträchtigte.
+\end{enumerate}
+
+Diese Herausforderungen bildeten die Grundlage für die strategische Entscheidung des Projektteams, von der Unreal Engine
+zu Unity zu wechseln. Der Wechsel ermöglichte eine effizientere und zielführende Entwicklung der AR-Applikation,
+gestützt durch Unity's umfassende Unterstützung, detaillierte Dokumentation und breite Community-Ressourcen.
+
 
 \subsection{Unity foundation packages}
 %Quellen:

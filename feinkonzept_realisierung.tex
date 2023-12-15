@@ -31,10 +31,85 @@ Visual Studio 2022 ist eine integrierte Entwicklungsumgebung (IDE) von Microsoft
 Softwareanwendungen, Webanwendungen und Desktop-Anwendungen konzipiert ist. Es handelt sich um eine umfangreiche
 Entwicklungsumgebung, die von Entwicklern weltweit für eine breite Palette von Anwendungsfällen eingesetzt wird.
 
-\subsection{Unity Editor}
-Der Unity-Editor ist eine leistungsstarke integrierte Entwicklungsumgebung (IDE) und eine zentrale Arbeitsumgebung
-für die Erstellung von 2D-, 3D-, Augmented Reality (AR) und Virtual Reality (VR) Anwendungen und Spielen. Er wird von
-Unity Technologies entwickelt und ist die Hauptplattform für die Entwicklung von Unity-basierten Projekten.
+\subsection{Unity}
+Der Unity-Editor, entwickelt von Unity Technologies, fungiert als umfassende integrierte Entwicklungsumgebung (IDE)
+und zentrale Arbeitsumgebung für die Konzeption und Umsetzung von 2D-, 3D-, Augmented Reality (AR) und Virtual Reality
+(VR) Anwendungen und Spielen. Als Kernelement der Unity-Plattform spielt der Editor eine entscheidende Rolle in der
+Entwicklung von Projekten, die auf Unity-Technologien basieren.
+
+Die Funktionalität des Unity-Editors erstreckt sich über verschiedene Aspekte der Softwareentwicklung, angefangen bei
+der visuellen Gestaltung von Szenen und Spielwelten bis hin zur Implementierung komplexer Logik und Interaktionen. Die
+folgenden Abschnitte vertiefen die Schlüsselmerkmale und Funktionen des Unity-Editors, die ihn zu einem essenziellen
+Werkzeug für Entwickler machen.
+
+\subsubsection{Multidisziplinäre Unterstützung und Integration}
+Der Unity-Editor zeichnet sich durch seine multidisziplinäre Unterstützung aus, die Entwicklern ermöglicht, kollaborativ
+an Projekten zu arbeiten. Künstler, Entwickler und Designer können innerhalb derselben Umgebung zusammenarbeiten,
+wodurch ein nahtloser Austausch von Assets, Szenen und Ressourcen ermöglicht wird. Die Integration von Grafik-,
+Physik- und Audio-Engines erleichtert die Schaffung immersiver und ansprechender digitaler Umgebungen.
+
+\subsubsection{Szenengestaltung und Asset-Management}
+Ein zentrales Merkmal des Unity-Editors ist die intuitive Szenengestaltung, die es Entwicklern ermöglicht,
+2D- und 3D-Szenen durch Drag-and-Drop-Operationen zu erstellen und anzupassen. Das Asset-Management ermöglicht eine
+effiziente Organisation von Ressourcen wie Modelle, Texturen und Audio-Dateien. Hierbei kommt dem Editor eine
+Schlüsselrolle in der Strukturierung und Verwaltung umfangreicher Projekte zu.
+
+\subsubsection{Programmierung und Skripterstellung}
+Der Unity-Editor integriert leistungsstarke Programmierfunktionen, die Entwicklern erlauben, Skripte in C# oder
+JavaScript zu verfassen. Die Implementierung von Logik, Interaktionen und Funktionalitäten erfolgt durch die
+Integration von Skripten in GameObjects und Szenen. Die Echtzeitansicht von Codeänderungen unterstützt einen
+iterativen Entwicklungsprozess.
+
+\subsubsection{Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}
+Der Unity-Editor ist essenziell für die Entwicklung von AR- und VR-Anwendungen. Durch die Integration von AR Foundation
+und XR Interaction Toolkit bietet der Editor leistungsstarke Werkzeuge zur Erstellung immersiver Erlebnisse. Die
+Möglichkeit, Szenen in Echtzeit in AR- und VR-Geräten zu überprüfen, unterstützt Entwickler bei der Feinabstimmung
+und Optimierung ihrer Projekte.
+
+\subsubsection{Erweiterte Debugging- und Profiling-Werkzeuge}
+Der Unity-Editor stellt umfassende Debugging- und Profiling-Werkzeuge zur Verfügung, um die Leistung und Funktionalität
+von Anwendungen zu optimieren. Durch Echtzeit-Inspektion, Fehlerverfolgung und Ressourcenüberwachung unterstützt der
+Editor Entwickler bei der Identifizierung und Behebung von Problemen, um eine reibungslose Ausführung der Anwendungen
+sicherzustellen.
+
+\subsection{Aufbau einer Unity-Applikation}
+Die Struktur einer Unity-Applikation ist entscheidend für eine effektive Entwicklung und Organisation von 3D-Anwendungen
+und Spielen. Eine typische Unity-Anwendung besteht aus verschiedenen Schlüsselelementen, darunter Szenen, GameObjects,
+Komponenten, Skripte und Assets. Diese werden koordiniert durch die Hauptkomponente der Anwendung, die sogenannte
+"GameManager" oder "MainScene". In diesem Abschnitt werden die grundlegenden Bausteine einer Unity-Anwendung sowie
+bewährte Praktiken für die Strukturierung und Verwaltung dieser Elemente beleuchtet.
+
+\subsection{Lebenszyklusmethoden in Unity}
+Die Entwicklung von Augmented Reality (AR)-Applikationen in Unity erfordert ein tiefgreifendes Verständnis der
+Lebenszyklusmethoden, die in MonoBehaviour-Klassen implementiert werden können. Diese Methoden regeln den Fluss der
+Programmlogik und ermöglichen Entwicklern, spezifische Aktionen zu bestimmten Zeitpunkten im Lebenszyklus einer
+Anwendung auszuführen.
+
+\begin{itemize}
+    \item \textbf{Awake():} Die \texttt{Awake()}-Methode wird aufgerufen, wenn das Skript erstellt wird. Dies geschieht
+    vor anderen Initialisierungsmethoden wie \texttt{Start()}. Sie eignet sich für die Durchführung von
+    Initialisierungen, bei denen auf andere Skriptkomponenten oder Ressourcen zugegriffen werden soll. Der Hauptzweck
+    besteht darin, die Ressourcen für das Skript vorzubereiten.
+    \item \textbf{Start():} Die \texttt{Start()}-Methode wird vor dem ersten Frame aufgerufen und bietet die
+    Möglichkeit, Initialisierungsaufgaben durchzuführen. Im Gegensatz zu \texttt{Awake()} garantiert \texttt{Start()}
+    die vollständige Initialisierung aller GameObjects in der Szene. Entwickler nutzen diese Methode oft für
+    Konfigurationen und Vorbereitungen, die spezifisch für die Startphase der Anwendung sind.
+    \item \textbf{Update():} Die \texttt{Update()}-Methode ist von entscheidender Bedeutung, da sie in jedem Frame
+    aufgerufen wird. Hier kann kontinuierliche Logik ausgeführt werden, wie etwa die Aktualisierung von Animationen,
+    die Verarbeitung von Benutzereingaben oder die Anpassung von Positionen basierend auf der Zeit. Es ist wichtig zu
+    beachten, dass \texttt{Update()} häufig aufgerufen wird und daher effizient implementiert werden sollte.
+    \item \textbf{LateUpdate():} Ähnlich wie \texttt{Update()}, wird aber nachdem alle \texttt{Update()}-Methoden
+    aufgerufen wurden. Dies ist besonders nützlich, wenn Anpassungen oder Berechnungen vorgenommen werden müssen,
+    nachdem andere GameObjects und Skripte bereits ihre \texttt{Update()}-Logik abgeschlossen haben. Beispielsweise
+    eignet sich \texttt{LateUpdate()} gut für Kamera-Anpassungen, bei denen die Position anderer GameObjects bereits
+    aktualisiert wurde.
+    \item \textbf{OnEnable() und OnDisable():} Die \texttt{OnEnable()}-Methode wird aufgerufen, wenn ein Skript
+    aktiviert wird, während \texttt{OnDisable()} aufgerufen wird, wenn es deaktiviert wird. Diese Methoden bieten
+    die Möglichkeit, spezifische Aktionen auszuführen, wenn ein Skript seine Ausführung aufnimmt oder beendet.
+    Entwickler können diese nutzen, um Ressourcen zu laden oder freizugeben, Abonnements auf Ereignisse
+    einzurichten oder abzubrechen, oder um andere vorbereitende oder aufräumende Maßnahmen durchzuführen.
+\end{itemize}
+
 
 \subsection{Managers}
 In diesem Level werden mehrere von Unity und dem Mixed Reality Toolkit 3 bereits
@@ -93,7 +168,7 @@ Kurve von einem PC zum anderen läuft.
 
 \section{Knapsack Problem Level}
 Im zweiten Level dieses Projekts steht das Knapsack-Problem im Fokus.
-Ziel ist es, einen Programmieralgorithmus mithilfe von Augmented Reality
+Ziel ist es, bbgbinen Programmieralgorithmus mithilfe von Augmented Reality
 (AR) darzustellen. Dieser Algorithmus wird nicht nur in der Höheren
 Technischen Lehranstalt (HTL) vermittelt, sondern die Benutzer sollen
 ihn auch selbst programmieren können.
@@ -121,8 +196,8 @@ Insgesamt bietet dieses Unity Level für die HoloLens 2 eine interaktive und vis
 bei der die Benutzer das Knapsack-Problem nicht nur verstehen, sondern auch praktisch anwenden können.
 
 \subsection{Aufbau von dem Knapsack-Problem Level}
-In diesem Abschnitt wird darauf eingegangen wie das Knapsack-Problem Level im Unity Editor aufgebaut ist.
-Zusätzlich wird erklärt was genau auf diesem Bild dargestellt wird und wie es funktioniert.\\
+In diesem Abschnitt wird darauf eingegangen wie eine Szene im Unity Editor aufgebaut ist und wie diese
+Grundsätzlich funktionieren. \\
 
 \begin{figure}[h]
     \centering
@@ -131,21 +206,48 @@ Zusätzlich wird erklärt was genau auf diesem Bild dargestellt wird und wie es 
     \label{fig:level2_hierarchy}
 \end{figure}
 
-In dieser Abbildung wird der Aufbau der Scene\footnote{Unity \cite{Scene}} von dem Knapsack-Problem Level dargestellt.
-Zu sehen ist auf diese Abbildung folgendes:
+In dieser Abbildung ist der Aufbau und Inhalt der 2. Szene\footnote{Unity \cite{Scene}} also dem Knapsack-Problem Level
+zu sehen. Wie zu sehen ist besteht die Szene für dieses Level aus mehreren wichtigen Unity Game Objekten. Darunter
+sind die folgenden:
+
 \begin{itemize}
-    \item \textbf{level-2:} Die Scene in der Alle Unity-Objekte enthalten sind.
-    \item \textbf{MRTK XR Rig:} Das Objekt in dem die Hauptkomponenten wie z.B.: \textit{Main Camera, MRTK Interaction Manager, Alle Manager, etc... } für die AR-Applikation enthalten sind.
-    \item \textbf{AR Default Plane:} Ein Objekt das auf große Flächen verweißt und diese mit hilfe des ARPlaneManagers markiert.
-    \item \textbf{ARSession:} Objekt, dass sich um eine Laufzeitumgebung oder einen Kontext, der für die Erfassung, Verarbeitung und Darstellung von AR-Inhalten kümmert.
-    \item \textbf{InventoryPlacement:} Objekt dem das selbstgeschriebene \textit{Anchorscript} zugewiesen ist, dass sich um das platzieren des Inventars kümmert.
-    \item \textbf{InventoryController:} Objekt, dass sich Frame für Frame überprüft ob ein neues Item in das Inventar hinzugefügt wurde.
-    \item \textbf{KnapsackAlgo:} Ist das Objekt, dem das KnapsackAlgorithmus Script zugewiesen ist und sich darum kümmert, dass das \textit{Momentane Inventar, der Maximale mögliche Wert und die perfekte Lösung} berechnet werden.
-    \item \textbf{InfoObject:} Ist eine Sammlung an 3D-Objekten um das KnapsackAlgorithmusScript auszuführen und die errechneten Werte darzustellen.\\
+    \item \textbf{level-2:} Die Scene in der Alle Unity-Game-Objekte enthalten sind.
+    \item \textbf{MRTK XR Rig:} Das Objekt in dem die Hauptkomponenten wie z.B.: \textit{Main Camera, MRTK Interaction
+    Manager, Alle Manager, etc... } für die AR-Applikation enthalten sind.
+    \item \textbf{AR Default Plane:} In der Augmented Reality (AR)-Entwicklung bezieht sich ein Plane\footnote{Unity \cite{Plane}} normalerweise
+    auf eine erkannte horizontale Fläche in der realen Welt, auf der virtuelle Objekte platziert werden können. Diese
+    Flächen können zum Beispiel Tische, Böden oder andere ebene Oberflächen sein. Das Erkennen und Tracking von Planes
+    ist entscheidend, um AR-Objekte realistisch in die Umgebung zu integrieren.
+    \item \textbf{ARSession:} In Unity und AR Foundation bezieht sich die "ARSession" im Allgemeinen auf die
+    Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
+    \item \textbf{InventoryPlacement:} Ist ein Game Objekt, dem das \textit{Knapsackscript.cs} Script zugewiesen ist und
+    bei Szenen-Start aktiv ist. Dieses Game Objekt kümmert sich darum, dass zu Beginn der Szene für drei Sekunden lang
+    nach Planes gescanned wird. Nach Abschluss dieser 3 Sekunden wird anschließend dann das Inventar auf dem Plane auf
+    das der User schaut platziert.
+    \item \textbf{InventoryController:} Das Game Objekt, dem das \textit{InventoryController.cs} Script zugewiesen ist
+    und nach Abschluss des InventoryPlacement Scripts aktiviert wird. Dieses Game Objekt wird jeden Frame ausgelöst
+    und überprüft ob ein mit QR-Code versehenes Item in dem 3D Inventar platziert wurde.
+    \item \textbf{KnapsackAlgo:} Ist das Game Objekt, dem das \textit{KnapsackAlgo.cs} Script zugewiesen ist und bei
+    drücken des \textit{SolveButtons} aktiviert. Bei aktivierung dieses Scripts wird der Knapsack Algorithmus
+    ausgeführt und somit der maximale Wert, der Wert des selbst zusammengestellten Inventars und die Perfekte Lösung
+    errechnet.
+    \item \textbf{InfoObject:} Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird
+    bei Ausführung des InventoryPlacement Scripts neben dem Inventar platziert. Es beinhaltet einen Button, der bei Knopfdruck
+    das \textit{KnapsackAlgo} Game Objekt aktiviert, und 3 verschiedene TextMeshPros\footnote{Unity \cite{TextMesh}} die
+    für die Ausgabe von Infos zuständig sind.
+    Außerdem ist bei diesem GameObjekt gut die Strukturierung von Game Objekten in Unity zu sehen. Die drei TextMeshPros
+    und der Button sind dem \textit{InfoObject} untergeordnet was bedeutet, dass diese vier Game Objekte \textit{Children}
+    von dem \textit{InfoObject} sind. Das übergeordnete Game Objekt wird hier dann als \textit{Parent} bezeichnet.
 \end{itemize}
 
-Wenn der Name eines Objekts wie in der Abbildung sichtbar ausgegraut ist, heißt das, dass das Objekt zu Programmstart deaktiviert ist und daher nicht ausgeführt wird.
-Wenn neben dem Objekt ein durchgestrichenes Auge sichtbar ist, bedeuted das, dass das Objekt in der Unity Scene nicht sichtbar aber aktiviert ist und daher zu Programmstart direkt gestartet wird.
+In der Abbildung ist zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
+Wenn ein Game Objekt im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObjekt und somit alle angehängiten Scripts von diesem Game Objekt deaktiviert sind.
+Das bedeutet, dass dieses Game Objekt samt allen Scripts zu Szenenbeginn nicht aufgerufen und somit auch nicht ausgeführt werden. Nicht ausgegraute Game Objekte widerum sind
+daher genau das Gegenteil. Das beudetet, dass das Game Objekt selbst samt allen angehängiten Scripts alle aktiviert sind und somit zu Szenenbeginn aufgerufen und ausgeführt werden.
+
+Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das nur, dass dieses Game Objekt im Unity Editor nicht zu sehen ist. Andererseits, wenn kein Zeichen
+neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
+diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
 \subsection{QR-Code Tagging}
 Generierte QR-Codes werden auf die realen Objekte geklebt. In diesen QR-Codes werden
@@ -159,8 +261,9 @@ der getracked QR-Codes geladen werden.
 %Genauer Beschreibung + wenn vorhanden Code und Blueprints von QR-Code-Tracking hinzufügen
 
 \subsection{Platzieren des Inventars}
-In dem folgendem Abschnitt wird die PlaceObjectOnLookedAtDesk Klasse der AARiE Applikation beschrieben, die das platzieren des Inventars,
-Solve Buttons, und Info-Mehes implementiert.
+In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse der AARiE Applikation beschrieben. Diese Klasse
+implementiert das Platzieren des 3D Objektes des Inventars auf einem Tischm und kümmert sich zusätzlich
+um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels zu handeln.
 
 \subsection*{Frame-Aktualisierung um richtiges Plane zu finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:update]
@@ -201,11 +304,14 @@ void Update()
 \end{lstlisting}
 \textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Bedingte Aktualisierung:} Die Update-Funktion wird nur ausgeführt, wenn das Objekt noch nicht platziert wurde und das Skript gestartet werden kann. Wenn die Funktion dann gestartet wird, wird diese jeden Frame 1 mal ausgeführt.
+    \item \textbf{Bedingte Aktualisierung:} Die Update-Funktion wird nur ausgeführt, wenn das Objekt noch nicht platziert
+    wurde und das Skript gestartet werden kann. Wenn die Funktion dann gestartet wird, wird diese jeden Frame 1 mal ausgeführt.
     \item \textbf{Raycasting auf Planes:} Ein Raycast wird durchgeführt, um festzustellen, ob die Kamera auf ein AR-Plane blickt.
-    \item \textbf{Suche nach dem nächsten AR-Plane:} Die Funktion \texttt{FindClosestPlane} wird aufgerufen, um das nächste AR-Plane zu finden.
+    \item \textbf{Suche nach dem nächsten AR-Plane:} Die Funktion \texttt{FindClosestPlane} wird aufgerufen, um das
+    nächste AR-Plane zu finden.
     \item \textbf{Zeiterfassung für Blickzeit:} Die Zeit, die auf das ausgewählte AR-Plane geschaut wurde, wird gemessen.
-    \item \textbf{Platzierung des Objekts bei ausreichender Blickzeit:} Wenn die benötigte Blickzeit überschritten wurde, wird die Funktion \texttt{PlaceObjectOnDesk} aufgerufen und das Objekt wird platziert.\\
+    \item \textbf{Platzierung des Objekts bei ausreichender Blickzeit:} Wenn die benötigte Blickzeit überschritten
+    wurde, wird die Funktion \texttt{PlaceObjectOnDesk} aufgerufen und das Objekt wird platziert.\\
 \end{enumerate}
 
 \subsection*{Das am kürzesten entfernte Plane\footnote{Unity \cite{Plane}} finden}
@@ -283,9 +389,38 @@ In diesem Abschnitt wird genauer auf das InventarController Script eingegangen u
 
 %Hier Code einfügen hihi
 
-\subsection{Knappsack-Algorithmus}
-In dem folgendem Abschnitt wird auf die Funktion \texit{KnapsackMaxValue} des \texit{KnapsackScript.cs} eingegangen, die den Knapsack-Algorithmus
-implementiert. Diese Funktion errechnet sich den Maximal-erreichbaren Wert und die perfekte Lösung.
+\subsection{Knapsack-Algorithmus}
+Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die
+Unterschiede der beiden möglichen Algorithmen erläutert. Außerdem wird darauf eingegangen, warum er so wichtig ist
+und in welchen Anwendungen er zum Einsatz kommt. Zudem wird das \textit{KnapsackScript.cs} besprochen, welches
+diesen Algorithmus implementiert, um den maximal erreichbaren Wert und die optimale Lösung zu finden.
+
+Der Knapsack-Algorithmus ist ein häufig verwendetes Werkzeug in der Informatik, um das Problem der optimalen
+Ressourcenallokation zu lösen. Dieses Problem tritt auf, wenn eine begrenzte Menge an Ressourcen so effizient wie
+möglich genutzt werden soll, um einen bestimmten Nutzen oder Gewinn zu maximieren. Der Begriff "Knapsack" leitet sich
+von der Idee ab, dass man versucht, einen Rucksack mit begrenztem Fassungsvermögen mit Gegenständen zu füllen, die
+unterschiedliche Werte und Gewichte haben.
+
+\subsubsection{Problemstellung}
+Gegeben sei ein Rucksack mit begrenzter Kapazität und eine Menge von Gegenständen, von denen jeder einen bestimmten
+Wert und ein bestimmtes Gewicht hat. Das Ziel besteht darin, die Gegenstände auszuwählen, die in den Rucksack passen
+und den Gesamtwert maximieren.
+
+\subsubsection{Algorithmus}
+Der Knapsack-Algorithmus kann in verschiedenen Varianten implementiert werden, darunter der dynamische
+Programmieransatz und der Greedy-Ansatz. Im dynamischen Programmieransatz wird eine Tabelle erstellt, um
+Teilprobleme zu lösen und die optimale Lösung zu berechnen. Der Greedy-Ansatz hingegen wählt Gegenstände basierend
+auf bestimmten Kriterien aus, um eine lokale Optimierung zu erreichen.
+
+In unserem Kontext wurde der dynamische Programmieransatz implementiert, um den Knapsack-Algorithmus umzusetzen.
+Der Code dafür ist in der Datei \textit{KnapsackScript.cs} zu finden, welche den maximal erreichbaren Wert und
+die optimale Lösung berechnet.
+
+\subsubsection{Anwendungen}
+Der Knapsack-Algorithmus findet Anwendung in verschiedenen Bereichen, darunter Logistik, Finanzplanung,
+Ressourcenmanagement und Netzwerkoptimierung. Beispielsweise kann er verwendet werden, um den effizientesten
+Transport von Gütern mit begrenzten Kapazitäten zu planen oder in der Finanzplanung, um das Portfolio von
+Investitionen zu optimieren.
 
 \subsection*{Funktionsaufruf}
 \begin{lstlisting}[style=csharp, caption={}, label=code:init]
@@ -309,12 +444,12 @@ for (int i = 0; i <= n; i++)
 {
     for (int w = 0; w <= capacity; w++)
     {
-        // Initialisierung der DP-Tabelle
+        % Initialisierung der DP-Tabelle
         if (i == 0 || w == 0)
             dp[i, w] = 0;
         else if (items[i].weight <= w && i <= maxItems)
         {
-            // Berechnung des neuen Werts, wenn das Item ausgewählt wird
+            % Berechnung des neuen Werts, wenn das Item ausgewählt wird
             int newValue = items[i].value + dp[i - 1, w - items[i].weight];
             if (newValue > dp[i - 1, w])
             {
@@ -338,16 +473,34 @@ for (int i = 0; i <= n; i++)
 
 \textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Iterationen durch die Items und Kapazität:} Die äußere Schleife durchläuft jedes Item (\texttt{i}) von 0 bis zur Gesamtanzahl der Items (\texttt{n}). Die innere Schleife durchläuft jede mögliche Kapazität (\texttt{w}) von 0 bis zur maximalen Kapazität des Rucksacks.
+    \item \textbf{Iterationen durch die Items und Kapazität:} Die äußere Schleife durchläuft jedes Item
+    (\texttt{i}) von 0 bis zur Gesamtanzahl der Items (\texttt{n}). Die innere Schleife durchläuft jede mögliche
+    Kapazität (\texttt{w}) von 0 bis zur maximalen Kapazität des Rucksacks.
 
-    \item \textbf{Initialisierung der DP-Tabelle:} Wenn \texttt{i} oder \texttt{w} 0 ist, wird der Wert in der DP-Tabelle auf 0 gesetzt. Dies liegt daran, dass es keine Items gibt oder die Kapazität des Rucksacks 0 ist.
+    \item \textbf{Initialisierung der DP-Tabelle:} Wenn \texttt{i} oder \texttt{w} 0 ist, wird der Wert in der
+    DP-Tabelle auf 0 gesetzt. Dies liegt daran, dass es keine Items gibt oder die Kapazität des Rucksacks 0 ist.
 
-    \item \textbf{Überprüfung, ob das Item ausgewählt werden kann:} Wenn das aktuelle Item ausgewählt werden kann (basierend auf Gewicht und maximaler Anzahl von Items), wird der neue Wert berechnet, wenn das Item ausgewählt wird.
+    \item \textbf{Überprüfung, ob das Item ausgewählt werden kann:} Wenn das aktuelle Item ausgewählt werden
+    kann (basierend auf Gewicht und maximaler Anzahl von Items), wird der neue Wert berechnet, wenn das Item
+    ausgewählt wird.
 
-    \item \textbf{Vergleich und Auswahl:} Der neue Wert wird mit dem Wert verglichen, wenn das Item nicht ausgewählt wird. Wenn der neue Wert größer ist, wird das Item ausgewählt (\texttt{selected[i, w] = true}), andernfalls wird das vorherige Ergebnis beibehalten (\texttt{selected[i, w] = false}).
+    \item \textbf{Vergleich und Auswahl:} Der neue Wert wird mit dem Wert verglichen, wenn das Item nicht
+    ausgewählt wird. Wenn der neue Wert größer ist, wird das Item ausgewählt (\texttt{selected[i, w] = true}),
+    andernfalls wird das vorherige Ergebnis beibehalten (\texttt{selected[i, w] = false}).
 
-    \item \textbf{Falls Item nicht ausgewählt wird:} Wenn das aktuelle Item nicht ausgewählt wird, wird der Wert in der DP-Tabelle auf den Wert gesetzt, den das Rucksack ohne das aktuelle Item in der vorherigen Iteration erreicht hat.\\
+    \item \textbf{Falls Item nicht ausgewählt wird:} Wenn das aktuelle Item nicht ausgewählt wird, wird der
+    Wert in der DP-Tabelle auf den Wert gesetzt, den das Rucksack ohne das aktuelle Item in der vorherigen
+    Iteration erreicht hat.\\
 \end{enumerate}
+
+\textbf{Bedeutung der DP-Tabelle:}
+Die DP-Tabelle (dp) dient dazu, Teilprobleme zu lösen und die besten Ergebnisse für verschiedene Kombinationen
+von Items und Kapazitäten zu speichern. Jeder Eintrag in der Tabelle repräsentiert den maximal erreichbaren Wert
+für eine bestimmte Menge von ausgewählten Items und eine bestimmte Kapazität des Rucksacks.
+
+Insgesamt ermöglicht dieser Algorithmus, die optimale Auswahl von Gegenständen zu finden, die in den Rucksack
+passt, um den Gesamtwert zu maximieren.
+
 
 \subsection*{Backtracking, um ausgewählte Items und perfekt Lösung zu finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:backtrack]

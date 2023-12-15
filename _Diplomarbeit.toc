@@ -33,43 +33,54 @@
 \contentsline {subsection}{\numberline {3.1.1}Use Cases}{8}{subsection.47}%
 \contentsline {section}{\numberline {3.2}Design}{8}{section.48}%
 \contentsline {subsection}{\numberline {3.2.1}Abläufe}{8}{subsection.49}%
-\contentsline {subsection}{\numberline {3.2.2}Mockups}{8}{subsection.50}%
-\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{8}{section.51}%
-\contentsline {subsection}{\numberline {3.3.1}Kriterien}{8}{subsection.52}%
-\contentsline {subsection}{\numberline {3.3.2}Game Engine}{8}{subsection.53}%
-\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{9}{subsection.54}%
-\contentsline {subsubsection}{MRTK3}{9}{section*.55}%
-\contentsline {subsubsection}{Microsoft OpenXR Plugin}{9}{section*.57}%
-\contentsline {subsection}{\numberline {3.3.4}Rendering Program}{10}{subsection.59}%
-\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{12}{chapter.60}%
-\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{12}{section.61}%
-\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{12}{subsection.62}%
-\contentsline {subsection}{\numberline {4.1.2}Unity Editor}{12}{subsection.63}%
-\contentsline {subsection}{\numberline {4.1.3}Managers}{12}{subsection.64}%
-\contentsline {section}{\numberline {4.2}Hauptmenu}{13}{section.68}%
-\contentsline {subsection}{\numberline {4.2.1}UI/UX}{13}{subsection.69}%
-\contentsline {subsection}{\numberline {4.2.2}Laden der Level}{13}{subsection.70}%
-\contentsline {section}{\numberline {4.3}Ping Level}{13}{section.71}%
-\contentsline {subsection}{\numberline {4.3.1}Object Tracking}{13}{subsection.72}%
-\contentsline {subsection}{\numberline {4.3.2}Kurvenberechnung}{13}{subsection.73}%
-\contentsline {section}{\numberline {4.4}Knapsack Problem Level}{13}{section.74}%
-\contentsline {subsection}{\numberline {4.4.1}Aufbau von dem Knapsack-Problem Level}{14}{subsection.75}%
-\contentsline {subsection}{\numberline {4.4.2}QR-Code Tagging}{15}{subsection.78}%
-\contentsline {subsection}{\numberline {4.4.3}QR-Code Tracking}{15}{subsection.79}%
-\contentsline {subsection}{\numberline {4.4.4}Platzieren des Inventars}{15}{subsection.80}%
-\contentsline {subsection}{\numberline {4.4.5}Inventar-Controller}{18}{subsection.181}%
-\contentsline {subsection}{\numberline {4.4.6}Knappsack-Algorithmus}{18}{subsection.182}%
-\contentsline {subsection}{\numberline {4.4.7}Berechnen des eigenen Inventars}{21}{subsection.283}%
-\contentsline {subsection}{\numberline {4.4.8}Darstellung der perfekten Lösung}{23}{subsection.336}%
-\contentsline {subsection}{\numberline {4.4.9}Unit-Tests}{23}{subsection.337}%
-\contentsline {section}{\numberline {4.5}Performance}{23}{section.338}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{24}{chapter.339}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{24}{section.340}%
-\contentsline {section}{\numberline {5.2}Abnahme}{24}{section.341}%
-\contentsline {section}{\numberline {5.3}Zukunft}{24}{section.342}%
-\contentsline {chapter}{\numberline {A}Mockups}{25}{appendix.343}%
-\contentsline {section}{\numberline {A.1}UI/UX}{25}{section.344}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{25}{section.345}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{25}{section.346}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{25}{section.347}%
-\contentsline {chapter}{\numberline {B}Literatur}{26}{appendix.348}%
+\contentsline {subsection}{\numberline {3.2.2}Mockups}{8}{subsection.51}%
+\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{8}{section.52}%
+\contentsline {subsection}{\numberline {3.3.1}Kriterien}{8}{subsection.53}%
+\contentsline {subsection}{\numberline {3.3.2}Game Engine: Konzeption und Funktion}{8}{subsection.54}%
+\contentsline {subsubsection}{Game Engine Auswahl und Wechsel im Projektverlauf}{9}{section*.55}%
+\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{10}{subsection.61}%
+\contentsline {subsubsection}{MRTK3}{10}{section*.62}%
+\contentsline {subsubsection}{Microsoft OpenXR Plugin}{11}{section*.64}%
+\contentsline {subsection}{\numberline {3.3.4}Rendering Program}{11}{subsection.66}%
+\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{14}{chapter.67}%
+\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{14}{section.68}%
+\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{14}{subsection.69}%
+\contentsline {subsection}{\numberline {4.1.2}Unity}{14}{subsection.70}%
+\contentsline {subsubsection}{Multidisziplinäre Unterstützung und Integration}{14}{section*.71}%
+\contentsline {subsubsection}{Szenengestaltung und Asset-Management}{14}{section*.72}%
+\contentsline {subsubsection}{Programmierung und Skripterstellung}{15}{section*.73}%
+\contentsline {subsubsection}{Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{15}{section*.74}%
+\contentsline {subsubsection}{Erweiterte Debugging- und Profiling-Werkzeuge}{15}{section*.75}%
+\contentsline {subsection}{\numberline {4.1.3}Aufbau einer Unity-Applikation}{15}{subsection.76}%
+\contentsline {subsection}{\numberline {4.1.4}Lebenszyklusmethoden in Unity}{15}{subsection.77}%
+\contentsline {subsection}{\numberline {4.1.5}Managers}{16}{subsection.78}%
+\contentsline {section}{\numberline {4.2}Hauptmenu}{17}{section.82}%
+\contentsline {subsection}{\numberline {4.2.1}UI/UX}{17}{subsection.83}%
+\contentsline {subsection}{\numberline {4.2.2}Laden der Level}{17}{subsection.84}%
+\contentsline {section}{\numberline {4.3}Ping Level}{17}{section.85}%
+\contentsline {subsection}{\numberline {4.3.1}Object Tracking}{17}{subsection.86}%
+\contentsline {subsection}{\numberline {4.3.2}Kurvenberechnung}{17}{subsection.87}%
+\contentsline {section}{\numberline {4.4}Knapsack Problem Level}{17}{section.88}%
+\contentsline {subsection}{\numberline {4.4.1}Aufbau von dem Knapsack-Problem Level}{18}{subsection.89}%
+\contentsline {subsection}{\numberline {4.4.2}QR-Code Tagging}{19}{subsection.94}%
+\contentsline {subsection}{\numberline {4.4.3}QR-Code Tracking}{20}{subsection.95}%
+\contentsline {subsection}{\numberline {4.4.4}Platzieren des Inventars}{20}{subsection.96}%
+\contentsline {subsection}{\numberline {4.4.5}Inventar-Controller}{22}{subsection.197}%
+\contentsline {subsection}{\numberline {4.4.6}Knapsack-Algorithmus}{23}{subsection.198}%
+\contentsline {subsubsection}{Problemstellung}{23}{section*.199}%
+\contentsline {subsubsection}{Algorithmus}{23}{section*.200}%
+\contentsline {subsubsection}{Anwendungen}{23}{section*.201}%
+\contentsline {subsection}{\numberline {4.4.7}Berechnen des eigenen Inventars}{26}{subsection.302}%
+\contentsline {subsection}{\numberline {4.4.8}Darstellung der perfekten Lösung}{28}{subsection.355}%
+\contentsline {subsection}{\numberline {4.4.9}Unit-Tests}{28}{subsection.356}%
+\contentsline {section}{\numberline {4.5}Performance}{28}{section.357}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{29}{chapter.358}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{29}{section.359}%
+\contentsline {section}{\numberline {5.2}Abnahme}{29}{section.360}%
+\contentsline {section}{\numberline {5.3}Zukunft}{29}{section.361}%
+\contentsline {chapter}{\numberline {A}Mockups}{30}{appendix.362}%
+\contentsline {section}{\numberline {A.1}UI/UX}{30}{section.363}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{30}{section.364}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{30}{section.365}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{30}{section.366}%
+\contentsline {chapter}{\numberline {B}Literatur}{31}{appendix.367}%
