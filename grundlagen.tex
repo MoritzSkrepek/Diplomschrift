@@ -9,80 +9,71 @@ da somit das Projekt dynamischer geplant und durchgeführt werden kann. Die Ausw
 stand direkt bei Projektbegin fest. In dem folgenden Abscnhitt wird dieses
 Vorgehendsmodell genauer erklärt und unsere Entscheidung anschließend begründet.
 
-\subsection{Scrum}
-Scrum \footnote{Scrum Alliance \cite{WHAT-IS-SCRUM}} ist ein agiles Projektmanagement-Framework zur effizienten Entwicklung von Produkten und Software.
-Es betont Zusammenarbeit, Anpassungsfähigkeit und Lieferung von Arbeitsfähigem in kurzen Zeitspannen (Sprints). \\
+\section{Scrum}
+Scrum\footnote{Quelle: Scrum Alliance \cite{WHAT-IS-SCRUM}} repräsentiert ein agiles Projektmanagement-Framework,
+das auf die effiziente Entwicklung von Produkten und Software abzielt. Es legt besonderen Wert auf Zusammenarbeit,
+Anpassungsfähigkeit und die kontinuierliche Bereitstellung funktionsfähiger Inkremente innerhalb kurzer Entwicklungszyklen,
+den sogenannten Sprints. \\
 
-%Source: https://www.scrumalliance.org/about-scrum#!section1
-\noindent Die oben angeführte Definition gibt einen kurzen Einblick in das agile Vorgehendsmodell
-Scrum. Zu den Hauptmerkmalen dieses Modells zählen folgende:
+Die zuvor skizzierte Definition gewährt einen knappen Einblick in das agile Vorgehensmodell Scrum. Die herausragenden Merkmale dieses Modells sind:
+
 \begin{itemize}
-    \item Drei Rollen, welche nachfolgend erklärt werden
-    \item Product Backlog, welches Anforderungen enthält
-    \item Produktentwicklung erfolgt iterativ und in zeitlich definierten Zyklen
-    \item Das Team arbeitet autonom
-    \item Alle Mitglieder sind gleichberechtigt\\
+    \item Drei zentrale Rollen, die im Folgenden näher erläutert werden.
+    \item Der Product Backlog, der sämtliche Anforderungen enthält.
+    \item Eine iterative und zeitlich definierte Entwicklung von Produkten.
+    \item Die autonome Arbeitsweise des Teams.
+    \item Gleichberechtigung aller Teammitglieder.
 \end{itemize}
 
-\subsubsection{Die drei Rollen in Scrum}
+\subsection{Die drei Rollen in Scrum}
 \begin{itemize}
-    \item Product Owner \footnote{Scrum-Rolle \cite{Product-Owner}}: \\
-    Die Pflege des Product Backlogs liegt in der Verantwortung dieser Rolle, die die fachliche Auftraggeberseite
-    sowie sämtliche Stakeholders vertritt. Ein zentrales Anliegen ist die Priorisierung der Product Backlog
-    Items in einer Weise, die den Business Value des Produkts maximal steigert und die Möglichkeit für
-    frühzeitige Releases von Kernfunktionalitäten schafft. Dies ermöglicht einen schnellen Return on Investment.
-    Um stets gut informiert zu sein, nimmt die Person nach Möglichkeit an den Daily Scrums teil, um auf passive
-    Weise Einblicke zu gewinnen. Zudem steht sie dem Team für Rückfragen zur Verfügung, um einen reibungslosen
-    Informationsaustausch zu gewährleisten.
-    \item Scrum Master \footnote{Scrum-Rolle \cite{Scrum-Master}}: \\
-    Der Scrum-Master übernimmt eine zentrale Rolle im Scrum-Prozess und ist für die korrekte Umsetzung desselben verantwortlich.
-    Als Vermittler und Unterstützer fungiert er als Facilitator, der darauf abzielt, einen maximalen Nutzen zu erzielen
-    und kontinuierliche Optimierung sicherzustellen. Ein zentrales Anliegen ist die Beseitigung von Hindernissen, um
-    ein reibungsloses Voranschreiten des Teams zu gewährleisten. Der ScrumMaster sorgt für einen effizienten
-    Informationsfluss zwischen dem Product Owner und dem Team, moderiert Scrum-Meetings und behält die Aktualität
-    der Scrum-Artefakte wie Product Backlog, Sprint Backlog und Burndown Charts im Blick. Darüber hinaus liegt in
-    seiner Verantwortung, das Team vor unberechtigten Eingriffen während des Sprints zu schützen.
-    -Werte zu verstehen.
-    \item Team \footnote{Scrum-Rolle \cite{Team}}: \\
-    Das Team, bestehend aus fünf bis zehn Personen (idealerweise sieben), zeichnet sich durch seine interdisziplinäre
-    Zusammensetzung aus, die Entwickler, Architekten, Tester und technische Redakteure umfasst – eine Struktur, die in
-    den meisten Fällen von Vorteil ist. Durch Selbstorganisation agiert das Team eigenständig und übernimmt die
-    Verantwortung als sein eigener Manager. Es hat die Befugnis, autonom über die Aufteilung von Anforderungen in
-    Aufgaben zu entscheiden und diese auf die einzelnen Mitglieder zu verteilen, wodurch der Sprint Backlog aus dem
-    aktuellen Teil des Product Backlog entsteht.\\
+    \item \textbf{Product Owner}\footnote{Scrum-Rolle \cite{Product-Owner}}: Der Product Owner trägt die Verantwortung
+    für die Pflege des Product Backlogs und vertritt dabei die fachliche Auftraggeberseite sowie sämtliche Stakeholder.
+    Ein zentrales Anliegen ist die Priorisierung der Elemente im Product Backlog, um den geschäftlichen Wert des
+    Produkts zu maximieren und die Möglichkeit für frühe Veröffentlichungen essenzieller Funktionalitäten zu schaffen.
+    Der Product Owner nimmt nach Möglichkeit an den täglichen Scrum-Meetings teil, um auf passive Weise Einblicke zu
+    gewinnen. Zudem steht er dem Team für Rückfragen zur Verfügung, um einen reibungslosen Informationsaustausch zu gewährleisten.
+    \item \textbf{Scrum Master}\footnote{Scrum-Rolle \cite{Scrum-Master}}: Der Scrum Master übernimmt eine zentrale
+    Rolle im Scrum-Prozess und ist für die korrekte Umsetzung desselben verantwortlich. Als Vermittler und Unterstützer
+    fungiert er als Facilitator, der darauf abzielt, einen maximalen Nutzen zu erzielen und kontinuierliche Optimierung
+    sicherzustellen. Ein zentrales Anliegen ist die Beseitigung von Hindernissen, um ein reibungsloses Voranschreiten
+    des Teams zu gewährleisten. Der Scrum Master sorgt für einen effizienten Informationsfluss zwischen dem Product Owner
+    und dem Team, moderiert Scrum-Meetings und behält die Aktualität der Scrum-Artefakte wie Product Backlog,
+    Sprint Backlog und Burndown Charts im Blick. Darüber hinaus liegt in seiner Verantwortung, das Team vor
+    unberechtigten Eingriffen während des Sprints zu schützen.
+    \item \textbf{Team}\footnote{Scrum-Rolle \cite{Team}}: Das Team, bestehend aus vier bis zehn Mitgliedern,
+    idealerweise sieben, zeichnet sich durch eine interdisziplinäre Zusammensetzung aus, die Entwickler, Architekten,
+    Tester und technische Redakteure einschließt. Durch Selbstorganisation agiert das Team eigenständig und übernimmt
+    die Verantwortung als sein eigener Manager. Es besitzt die Befugnis, autonom über die Aufteilung von Anforderungen
+    in Aufgaben zu entscheiden und diese auf die einzelnen Mitglieder zu verteilen, wodurch der Sprint Backlog aus dem
+    aktuellen Teil des Product Backlog entsteht.
 \end{itemize}
-\\
-\noindent Alle Anforderungen an das Produkt werden in sogennanten User Stories, die hauptsächlich
-vom Product Owner erstellt werden, im Product Backlog gesammelt. in einem Intervall, welcher
-als Sprint bezeichnet wird, werden die User Stories abgearbeitet. Die Projektentwicklung
-nach Scrum besteht dabei aus 5 Elementen:
+
+\noindent Alle Anforderungen an das Produkt werden in sogenannten User Stories, vorrangig erstellt durch den Product
+Owner, im Product Backlog gesammelt. In einem Intervall, bezeichnet als Sprint, werden die User Stories abgearbeitet.
+Die Projektentwicklung nach Scrum besteht aus fünf zentralen Elementen:
 \begin{itemize}
-    \item Sprint: Planning Meeting \footnote{Scrum-Meetings \cite{Sprint-planing-meeting}}\\
-    Im Sprint Planning Meeting wird das Ziel des folgendes Sprints festgelegt. Hier werden
-    jene Anforderungen im Projekt Backlog, die in diesem Sprint realisiert werden sollen,
-    in einzelne Aufgaben zerteilt und anschließend im Sprint Backlog gesammelt.
-    \item Sprint: \footnote{Scrum-Meetings \cite{Sprint}} \\
-    Ein Sprint ist eine Entwicklungsphase, in welcher eine vollfunktionsfähige und potentielle
-    veröffentlichbare Software entsteht. Die Dauer eines solchen Sprints liegt zwischen
-    1 bis 4 Wochen.
-    \item Daily Scrum: \footnote{Scrum-Meetings \cite{Daily-Scrum}}\\
-    Der Daily Scrum ist ein kurzes Teammeeting in dem Teammitglieder mitteilen, welche
-    Aufgaben seit dem letzten Daily Scrum abgeschlossen wurden, woran bis zum nächsten
-    Daily Scrum gearbeitet werden muss und wo momentan Probleme existieren. Somit sind alle
-    Teammitglieder stätig up-to-date und kennen den aktuellen Stand wodurch anstehende Probleme
-    leichter gelöst werden können.
-    \item Sprint Review: \footnote{Scrum-Meetings \cite{Sprint-Review}}\\
-    In diesem Meeting präsentiert das Entwicklungsteam die in diesem Sprint abgeschlossenen
-    Arbeitsergebnisse (z. B. fertige Produktinkremente) den Stakeholdern, dies können
-    Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen sein.
-    \item Sprint Retroperspektive: \footnote{Scrum-Meetings \cite{Sprint-Retroperspektiv}} \\
-    Ihr Hauptzweck besteht darin, dass das Scrum-Team (das Entwicklungsteam, der Scrum-Master
-    und der Produktbesitzer) gemeinsam über den abgeschlossenen Sprint reflektiert und
-    Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.
+    \item \textbf{Sprint: Planning Meeting}\footnote{Scrum-Meetings \cite{Sprint-planing-meeting}}: Im Sprint Planning
+    Meeting wird das Ziel des folgenden Sprints definiert. Hierbei werden die Anforderungen im Project Backlog, die in
+    diesem Sprint umgesetzt werden sollen, in einzelne Aufgaben zerlegt und anschließend im Sprint Backlog gesammelt.
+    \item \textbf{Sprint}\footnote{Scrum-Meetings \cite{Sprint}}: Ein Sprint repräsentiert eine Entwicklungsphase,
+    während der eine voll funktionsfähige und potenziell veröffentlichte Software entsteht. Die Dauer eines solchen
+    Sprints beträgt typischerweise zwischen 1 und 4 Wochen.
+    \item \textbf{Daily Scrum}\footnote{Scrum-Meetings \cite{Daily-Scrum}}: Der Daily Scrum ist ein kurzes Teammeeting,
+    in dem Teammitglieder darüber informieren, welche Aufgaben seit dem letzten Meeting abgeschlossen wurden, woran bis
+    zum nächsten Meeting gearbeitet werden muss und wo momentane Probleme existieren. Auf diese Weise sind alle Teammitglieder
+    stets auf dem aktuellen Stand, was die Lösung aufkommender Probleme erleichtert.
+    \item \textbf{Sprint Review}\footnote{Scrum-Meetings \cite{Sprint-Review}}: In diesem Meeting präsentiert das
+    Entwicklungsteam die im Sprint abgeschlossenen Arbeitsergebnisse, beispielsweise fertige Produktinkremente, den
+    Stakeholdern, zu denen Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen gehören.
+    \item \textbf{Sprint Retrospective}\footnote{Scrum-Meetings \cite{Sprint-Retroperspektiv}}: Die Sprint Retrospective
+    dient primär dazu, dass das Scrum-Team (bestehend aus dem Entwicklungsteam, dem Scrum Master und dem Product Owner)
+    gemeinsam den abgeschlossenen Sprint reflektiert und Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.
 \end{itemize}
-\noindent Durch diese Elemente kann ein optimaler Projektablauf gewehrleistet werden. Das
-Projekt ist jederzeit für Änderungen offen und durch eine enge Zusammenarbeit mit dem Kunden
-können Missverständnisse und Probleme früh behandelt und kommuniziert werden.
+
+\noindent Durch diese Elemente kann ein optimaler Projektablauf gewährleistet werden. Das Projekt bleibt jederzeit
+offen für Änderungen, und durch eine enge Zusammenarbeit mit dem Kunden können Missverständnisse und Probleme
+frühzeitig behandelt und kommuniziert werden.
 
 \subsection{Begründung der Auswahl}
 Die Applied Augmented Reality in Education Applikation besteht aus 3 verschiedenen Level.
@@ -100,35 +91,41 @@ Durch die Sprint Retroperspektive konnten die Schüler einen größeren Mehrwert
 Projektentwicklung schöpfen, da sie neben der Verwendung des Scrum-Prozesses auch ihre Fähigkeiten
 in den einzelnen Bereichen, durch das Besprechen der positiven und negativen Aspekte verbessern.
 
-\section{Projektmanagement Tools}
+\section{Projektmanagement-Tools}
 Um einen positiven Verlauf des Projekts zu ermöglichen, benötigt man die unterstützenden
-Tolls beim Projektmanagement sowie die Verwaltung von Dateien.
+Tools beim Projektmanagement sowie die Verwaltung von Dateien.
 
 \subsection{GitHub}
-Als sogennantes Repository für die Source Code Dateien wurde GitHub mit der dazugehörigen
-Webanwendung verwendet. Hier stand am Anfang des Projekt die Frage welche Technologie und
-welcher Anbieter gewählt werden soll. Andere namhafte Anbieter solche Verwaltungssystem sind:
-\begin{itemize}
-    \item GitLab
-    \item SourceForge
-\end{itemize}
-Ausschlaggebend für die Wahl von GitHub waren mehrere Punkte. Einerseits ist GitHub eine
-kostenlose Lösung. Das bedeutet, dass man gratis ein privates Projekt mit mehreren Mitgliedern
-anlegen kann. Manche Lösungen bieten hier beispielsweise nur eine begrenzte Anzahl von
-Mitgliedern an. Benötigt wurde lediglich ein Account zur Registration.
+Als sogenanntes Repository für die Source Code Dateien wurde GitHub mit der dazugehörigen
+Webanwendung verwendet. Zu Beginn des Projekts stand die Entscheidung an, welche Technologie
+und welcher Anbieter für das Versionskontrollsystem gewählt werden sollten. Neben GitHub gibt es
+andere namhafte Anbieter solcher Verwaltungssysteme, darunter GitLab und SourceForge.
+
+Ausschlaggebend für die Wahl von GitHub waren mehrere Punkte. Zum einen ist GitHub eine
+kostenlose Lösung, die es ermöglicht, ein privates Projekt mit mehreren Mitgliedern
+ohne Kosten anzulegen. Im Gegensatz dazu bieten manche Plattformen nur eine begrenzte Anzahl
+von Mitgliedschaften in kostenfreien Projekten an. Die Registrierung erforderte lediglich
+einen Account.
+
+Darüber hinaus bietet GitHub eine benutzerfreundliche Oberfläche, eine breite Unterstützung
+für verschiedene Programmiersprachen und eine aktive Entwicklergemeinschaft. Dies erleichtert
+die Zusammenarbeit und den Informationsaustausch im Projektteam.
 
 \subsection{Jira}
-Als sogennantes Verwaltungstool für die Vorgänge in dem Project wurde Jira mit der dazugehörigen
-Webanwendung verwendet. Hier stand am Anfang des Projekts ebenfalls die Frage welche Technologie
-und welcher Anbieter gewählt werden soll. Andere namhafte Anbieter solcher Tools sind:
-\begin{itemize}
-    \item VivifyScrum
-    \item KanBan
-\end{itemize}
-Ausschlaggebend für die Wahl von Jira waren mehrere Punkte. Einersetis ist Jira eine kostenlose
-Lösung. Das bedeutet, dass man ein SCRUM Board mit mehreren Mitgleidern gratis anlegen kann.
-Ein weiterer Punkt ist die direkte Verbindung zu dem GitHub Repository und die Möglichkeit,
-dass in Jira selbst neue Branches und Commits auf das Repository erstellt werden können.
+Als sogenanntes Verwaltungstool für die Vorgänge im Projekt wurde Jira mit der dazugehörigen
+Webanwendung verwendet. Auch hier stand zu Projektbeginn die Frage im Raum, welche Technologie
+und welcher Anbieter für das Aufgabenmanagement gewählt werden sollten. Neben Jira gibt es
+weitere namhafte Anbieter solcher Tools, darunter VivifyScrum und KanBan.
+
+Die Wahl von Jira basierte auf mehreren Überlegungen. Zum einen ist Jira eine kostenlose
+Lösung, die es ermöglicht, ein SCRUM Board mit mehreren Mitgliedern kostenfrei anzulegen.
+Ein weiterer entscheidender Faktor war die direkte Verbindung zu dem GitHub-Repository und die Möglichkeit,
+neue Branches und Commits direkt in Jira zu erstellen.
+
+Darüber hinaus bietet Jira eine umfassende Funktionalität für das Projektmanagement, einschließlich
+der Verfolgung von Aufgaben, der Planung von Sprints und der Erstellung von Berichten. Diese Features
+ermöglichen es dem Projektteam, den Fortschritt genau zu überwachen und eventuelle Herausforderungen
+frühzeitig zu identifizieren und anzugehen.
 
 \section{Konzeption von Fragebögen}
 Bei jeder Umfrage werden Informationen von Personen oder Personengruppen zu der allgemeinen

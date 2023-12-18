@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  18 DEC 2023 09:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  18 DEC 2023 10:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1378,12 +1378,12 @@ Configuring pdfsync
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/htl.jpeg, id=285, 497.6994pt x 238.9728pt>
+<images/htl.jpeg, id=289, 497.6994pt x 238.9728pt>
 File: images/htl.jpeg Graphic file (type jpg)
 <use images/htl.jpeg>
 Package pdftex.def Info: images/htl.jpeg  used on input line 58.
 (pdftex.def)             Requested size: 85.35826pt x 40.98218pt.
-<images/htl_allgemein.jpg, id=286, 770.88pt x 337.26pt>
+<images/htl_allgemein.jpg, id=290, 770.88pt x 337.26pt>
 File: images/htl_allgemein.jpg Graphic file (type jpg)
 <use images/htl_allgemein.jpg>
 Package pdftex.def Info: images/htl_allgemein.jpg  used on input line 58.
@@ -1456,7 +1456,7 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=393, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=398, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf>
 Package pdftex.def Info: pdf/Formular-printed.pdf  used on input line 7.
@@ -1480,7 +1480,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=396, page=1, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=401, page=1, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 1>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page1 used on input line 7.
@@ -1535,7 +1535,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=422, page=2, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=427, page=2, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 2>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page2 used on input line 8.
@@ -1585,7 +1585,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=434, page=3, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=439, page=3, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 3>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page3 used on input line 9.
@@ -1637,7 +1637,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=441, page=4, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=446, page=4, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 4>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page4 used on input line 10
@@ -1703,17 +1703,12 @@ Kapitel 2.
 LaTeX Warning: Citation 'WHAT-IS-SCRUM' on page 3 undefined on input line 13.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--15
+Underfull \hbox (badness 10000) in paragraph at lines 13--17
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--25
-
- []
-
-
-LaTeX Warning: Citation 'Product-Owner' on page 3 undefined on input line 29.
+LaTeX Warning: Citation 'Product-Owner' on page 3 undefined on input line 30.
 
 [3
 
@@ -1722,71 +1717,62 @@ LaTeX Warning: Citation 'Product-Owner' on page 3 undefined on input line 29.
 
 ]
 
-LaTeX Warning: Citation 'Scrum-Master' on page 4 undefined on input line 37.
+LaTeX Warning: Citation 'Scrum-Master' on page 4 undefined on input line 36.
 
 
-LaTeX Warning: Citation 'Team' on page 4 undefined on input line 46.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--53
-
- []
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/grundlagen.tex:55: LaTeX Error: 
-There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.55 \noindent
-               Alle Anforderungen an das Produkt werden in sogennanten User ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+LaTeX Warning: Citation 'Team' on page 4 undefined on input line 44.
 
 
 LaTeX Warning: Citation 'Sprint-planing-meeting' on page 4 undefined on input l
-ine 60.
+ine 56.
 
 
-LaTeX Warning: Citation 'Sprint' on page 4 undefined on input line 64.
+LaTeX Warning: Citation 'Sprint' on page 4 undefined on input line 59.
 
 
-LaTeX Warning: Citation 'Daily-Scrum' on page 4 undefined on input line 68.
+LaTeX Warning: Citation 'Daily-Scrum' on page 4 undefined on input line 62.
 
 
-LaTeX Warning: Citation 'Sprint-Review' on page 4 undefined on input line 74.
-
-[4]
-
-LaTeX Warning: Citation 'Sprint-Retroperspektiv' on page 5 undefined on input l
-ine 78.
-
-[5]
-
-LaTeX Warning: Citation 'Buehner' on page 6 undefined on input line 146.
+LaTeX Warning: Citation 'Sprint-Review' on page 4 undefined on input line 66.
 
 
-LaTeX Warning: Citation 'Mayer' on page 6 undefined on input line 147.
+Overfull \hbox (2.35632pt too wide) in paragraph at lines 66--69
+\T1/cmr/m/n/10.95 ab-ge-schlos-se-nen Ar-beits-er-geb-nis-se, bei-spiels-wei-se
+ fer-ti-ge Pro-duk-tin-kre-men-te, den Sta-
+ []
+
+
+LaTeX Warning: Citation 'Sprint-Retroperspektiv' on page 4 undefined on input l
+ine 69.
+
+
+Overfull \hbox (3.29195pt too wide) in paragraph at lines 69--72
+[][][]\T1/cmr/bx/n/10.95 Sprint Re-tro-spec-ti-ve[][][][][]\T1/cmr/m/n/10.95 : 
+Die Sprint Re-tro-spec-ti-ve dient pri-mär da-zu, dass das Scrum-
+ []
+
+[4] [5]
+
+LaTeX Warning: Citation 'Buehner' on page 6 undefined on input line 143.
+
+
+LaTeX Warning: Citation 'Mayer' on page 6 undefined on input line 144.
 
 [6]
 
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 165.
+LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 162.
 
 
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 173.
+LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 170.
 
 
-LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 178.
+LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 175.
 
 
-LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 182.
+LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 179.
 
 
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 185.
+LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 182.
 
 ) [7]
 \openout2 = `produktspezifikationen.aux'.
@@ -1794,7 +1780,7 @@ LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 185.
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.tex
 Kapitel 3.
-<images/AblaufdiagrammLevel2.png, id=529, 1304.875pt x 682.55pt>
+<images/AblaufdiagrammLevel2.png, id=533, 1304.875pt x 682.55pt>
 File: images/AblaufdiagrammLevel2.png Graphic file (type png)
 <use images/AblaufdiagrammLevel2.png>
 Package pdftex.def Info: images/AblaufdiagrammLevel2.png  used on input line 17
@@ -1952,7 +1938,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--201
 
  []
 
-<images/Level2Hirarchy.png, id=599, 286.06876pt x 313.77225pt>
+<images/Level2Hirarchy.png, id=603, 286.06876pt x 313.77225pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 204.
@@ -4093,7 +4079,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: DAABC027B9CBE9D9D75AC93190E021BE;10155.
+(rerunfilecheck)             Checksum: 6922100FBABDB9224A84E39AFF1763F8;10339.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -4104,10 +4090,10 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33875 strings out of 474267
- 606108 string characters out of 5751464
+ 33876 strings out of 474267
+ 606119 string characters out of 5751464
  2404558 words of memory out of 5000000
- 54876 multiletter control sequences out of 15000+600000
+ 54877 multiletter control sequences out of 15000+600000
  580744 words of font info for 90 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2333b,2708s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -4127,10 +4113,10 @@ onts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1
 i1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 <c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (45 pages, 1712915 bytes).
+pdf (45 pages, 1714490 bytes).
 PDF statistics:
- 1201 PDF objects out of 1440 (max. 8388607)
- 1073 compressed objects within 11 object streams
+ 1205 PDF objects out of 1440 (max. 8388607)
+ 1077 compressed objects within 11 object streams
  442 named destinations out of 1000 (max. 500000)
- 646 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 654 words of extra memory for PDF output out of 10000 (max. 10000000)
 
