@@ -73,23 +73,130 @@ Level geladen.
 %Hier dann noch Bilder vom Code einfügen
 
 \section{Ping Level}
-In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
-PCs dargestellt. Das Kabel zwischen den zwei PCs wird von der
-HoloLens getracked und mittels Kurvenberechnung wird dann eine
-unsichtbare Kurve über dieses Kabel gezeichnet. Wenn dann der Benutzer
-auf die Enter Taste auf einem PC drückt wird ein Ping-Paket simuliert
-und auf dieser Kurve von einem PC zu dem anderen geschickt.
+In diesem Level wird das IT-Grundprinzip eines Pings dargestellt.
+In einer realen Umgebung sind zwei PCs durch ein
+rotes Kabel miteinander verbunden. Der Benutzer trägt die
+HoloLens 2 und kann durch Drücken eines Knopfes ein Foto der Umgebung
+aufnehmen, anschließend werden dann Raycasts verwendet,
+um die genaue Position des roten Kabels in der physischen
+Welt zu bestimmen. Durch erneutes Drücken des Knopfes wird
+ein virtuelles Ping-Paket erzeugt, das entlang des roten
+Kabels hin und her wandert. Dieser Vorgang visualisiert
+die Netzwerkverbindung zwischen den beiden PCs.
+Der Benutzer kann das Ping-Paket durch die HoloLens 2 verfolgen,
+da es die physische Verbindung zwischen den beiden Computern
+simuliert. Mit einem weiteren Knopfdruck werden einaml Simplere
+und einmal detaillierte Informationen über das Ping-Paket angezeigt.
+Angezeigt wird dann die Ziel-Ip-Adresse, Quell-Ip-Adresse, die gesamte länge
+ sowie die time to Live. Die Benutzeroberfläche
+schwebt virtuell über dem roten Kabel, sodass der Benutzer
+die Informationen einfach betrachten kann.
+
+\clearpage
+
+\subsection{Aufbau von Ping Level}
+In diesen Abschnitt wird beschrieben wie die Unity Scene aufgebaut ist und
+was die aufgabe der einzelnen GameObjects\footnote{Unity \cite{GameObject}} ist.
+
+\subsection{Gameobject}
+Ein Unity GameObject ist die grundlegende Einheit in der Unity-Spieleentwicklung
+und repräsentiert eine Spielkomponente, die sowohl grafische als auch funktionale
+Elemente enthalten kann. Es dient als Container für Komponenten wie Modelle,
+Texturen, Skripte und Kollisionsformen, die gemeinsam ein interagieren können.
+GameObjects können sowohl 3D- als auch 2D-Objekte sein und ermöglichen die
+Realisierung von Spielfiguren, Umgebungen,Effekten und mehr. Durch die
+Verknüpfung von GameObjects mit Skripten kann man Verhalten und
+Interaktionen programmieren.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{images/Level1Hierarchy}
+    \caption{Hierarchie des Ping Levels im Unity Editor.}
+    \label{fig:level1_hierarchy}
+\end{figure}
+\begin{itemize}
+    \item \textbf{level-1:} Die Scene in der Alle Unity-Objekte enthalten sind.
+    \item \textbf{ScanningForCable:} Knopf welcher den Prozess zur realisierung der Position des Kabels startet.
+    \item \textbf{ShowInformation:} Knopf welcher den Informationen über das virtuelle Ping Paket anzeigt.
+    \item \textbf{S-MessageTextSimple:} Simpler Text welcher angezeigt wird sobald ShowInformation Knopf gedrückt wurde.
+    \item \textbf{S-MessageTextTechnicalInfo:} gleich wie S-MessageTextSimple nur mit den technischen informationen.
+\end{itemize}
+
 
 \subsection{Object Tracking}
-Durch verwendung von bereitgestellten Technologien der HoloLens2
-werden die zwei PCs und das Kabel getracked.
-%Hier dann noch code zum Object Tracking einfügen
+\subsection*{Foto der umgebung schießen}
+Nach betätigen des Knopfes am anfang, wird ein Foto von der Umgebung gemacht.
+\begin{lstlisting}[style=csharp, caption={}, label=code:takingPicture]
+void takingPicture()
+{
+    if (!takingNewPicture)
+    {
+        redPixelCoordinates.Clear();
+        takingNewPicture = true;
+
+        PhotoCapture.CreateAsync(false, delegate (PhotoCapture captureObject)
+        {
+            if (captureObject != null)
+            {
+                photoCaptureObject = captureObject;
+                CameraParameters cameraParameters = new CameraParameters();
+                cameraParameters.hologramOpacity = 0.0f;
+                cameraParameters.cameraResolutionWidth = cameraResolution.width;
+                cameraParameters.cameraResolutionHeight = cameraResolution.height;
+                cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
+                try
+                {
+                    photoCaptureObject.StartPhotoModeAsync(cameraParameters, delegate (PhotoCapture.PhotoCaptureResult result)
+                    {
+                        photoCaptureObject.TakePhotoAsync(onCapturedPhotoToMemory);
+                    });
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning(e);
+                }
+            }
+        });
+    }
+}
+\end{lstlisting}
+\textbf{Erklärung:}
+\begin{enumerate}
+    \item \textbf{redPixelCoordinates:} Ist eine List<Vector2> welche hier geleert wird und wo später die x und y coordinaten der roten Pixel gespeichert werden.
+    \item \textbf{cameraParameters:} Ein Parameter, der Einstellungen für die Kamera festlegt. cameraParameter ist ein Objekt des Typs CameraParameters, das in Unity für die Konfiguration von Kameraeigenschaften verwendet wird, wenn mit der PhotoCapture-API gearbeitet wird.
+    \item \textbf{photoCaptureObject.StartPhotoModeAsync:} Die Funktion startet den Fotoaufnahmemodus der Kamera asynchron. Der cameraParameters-Parameter enthält Einstellungen für die Kamera, und der delegate-Block wird aufgerufen, wenn der Fotoaufnahmemodus gestartet wurde.
+    \item \textbf{photoCaptureObject.TakePhotoAsync(onCapturedPhotoToMemory):} Dieser Befehl löst das eigentliche Aufnehmen des Fotos aus. Das Foto wird dann an die Methode onCapturedPhotoToMemory übergeben, wenn die Aufnahme abgeschlossen ist.\\
+\end{enumerate}
+
+
+\subsection*{Foto der umgebung schießen}
+Nach betätigen des Knopfes am anfang, wird ein Foto von der Umgebung gemacht.
+\begin{lstlisting}[style=csharp, caption={}, label=code:onCapturedPhotoToMemory]
+void onCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result, PhotoCaptureFrame photoCaptureFrame)
+    {
+        photoCaptureFrame.UploadImageDataToTexture(targetTexture);
+
+        editTexture(targetTexture);
+
+        photoCaptureObject.StopPhotoModeAsync(onStoppedPhotoMode);
+    }
+\end{lstlisting}
+\textbf{Erklärung:}
+\begin{enumerate}
+    \item \textbf{photoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto in die globale variable targetTexture. targetTexture ist ein Texture2D\footnote{Unity \cite{Texture2D}} Klasse welches für texturen in C# Programme benutzt wird.
+    \item \textbf{editedTexture:} Diese Funktion bearbeitet das Foto und sucht nach roten Pixeln.
+    \item \textbf{photoCaptureObject.StopPhotoModeAsync(onStoppedPhotoMode):} Beendet die instanz des Photocapture und ruft dannach die funktion onStoppedPhotoMode.
+\end{enumerate}
+
+
+
 
 \subsection{Kurvenberechnung}
 Durch Berechnung der Kurve wird das Kabel als Kurve gespeichert
 und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
 Kurve von einem PC zum anderen läuft.
-%Hier dann noch code zur Kurvenberechnung einfügen
+% Hier dann noch Code zur Kurvenberechnung einfügen
+
 
 \section{Knapsack Problem Level}
 Im zweiten Level dieses Projekts steht das Knapsack-Problem im Fokus.
