@@ -110,27 +110,68 @@ Anwendung auszuführen.
     einzurichten oder abzubrechen, oder um andere vorbereitende oder aufräumende Maßnahmen durchzuführen.
 \end{itemize}
 
-
-\subsection{Managers}
-In diesem Level werden mehrere von Unity und dem Mixed Reality Toolkit 3 bereits
-bereitgestellten Manager \footnote{Medium \cite{Managers}} verwendet. Unter einer Manager
-versteht man eine Komponente die einer Unity-Scene hinzugefügt wird die dazu dient,
-bestimmte Aspekte oder Funktionen der Anwendung zu verwalten und zu stuern. Diese Manager
-spielen eine wichtige Rolle in der Organisation und Kontroller verschiedener Teile der Unity-Anwendung.
-In dem "Knappsack Problem Level" werden folgende Manager verwendet:
+\subsection{Manager in Unity}
+Für eine präzise und immersive Umsetzung von Augmented-Reality-(AR-)Applikationen werden spezielle Manager eingesetzt.
+Diese Manager bieten essenzielle Funktionen, die für eine erfolgreiche Umsetzung der verschiedenen Szenarien unerlässlich
+sind.
 \begin{itemize}
-    \item ARPlaneManager\footnote{Unity \cite{PlaneManager}}:\\
-    Dieser Manager wird verwendet um in der Umgebung des Benutzers alle Horizontalen Flächen zu erkennen und zu tracken.
-    Außerdem erleichtert er das platzieren von Objekten in der echten Welt.
-    Diese Flächen werden anschließend mit einer Textur markiert. Wenn der User für die vorgeschriebene
-    Zeit auf eine dieser Flächen schaut wird in der Mitte dieser Fläche das Inventar als 3D Objekt dargestellt. An dieses
-    3D Objekt wird anschließend auch ein Spatial Anchor angehängt und in dem ARAnchorManager verwaltet.
+    \item \textbf{ARPlaneManager\footnote{Unity \cite{Managers}}:}
+    Der ARPlaneManager in Unity ist eine Komponente, die im Kontext von Augmented Reality (AR) eingesetzt wird, um
+    horizontale Flächen in der realen Welt zu erkennen und zu verfolgen. Diese Flächen können beispielsweise Böden,
+    Tische oder andere flache Oberflächen sein. Der ARPlaneManager gehört zum Unity-eigenen Mixed Reality Toolkit 3.
+    Bietet Funktionen zur erleichterten Integration von AR-Elementen in die reale Umgebung.
 
-    \item ARRaycastManager\footnote{Unity \cite{RaycastManager}}; \\
-    Dieser Manager wird verwendet um aus einem Origin Punkt also in diesem Fall die Kamera der HoloLens2, raycasting durchzuführen.
-    Diese Raycasts treffen dann auf bereits markierte und getrackte Planes. Wenn dies der Fall ist, ist bekannt, dass der
-    Benutzer auf dieses Plane sieht. Dies ermöglicht dann eine akkurate Platzierung eines 3D Objekts in der realen Welt. \\
+    Die Hauptaufgaben des ARPlaneManagers umfassen:
+    \begin{itemize}
+        \item \textbf{Erkennung horizontaler Flächen:} Der Manager identifiziert automatisch horizontale Flächen in der
+        Umgebung des Benutzers. Dies ermöglicht es, virtuelle Objekte präzise auf diesen Flächen zu platzieren.
+        \item \textbf{Verfolgung der Flächenbewegung:} Sobald Flächen erkannt wurden, verfolgt der ARPlaneManager ihre
+        Bewegungen in Echtzeit. Dies ist besonders wichtig, um virtuelle Inhalte stabil auf den realen Flächen zu halten.
+        \item \textbf{Texturmarkierung der Flächen:} Die erkannten Flächen können mit Texturen markiert werden, um ihre
+        Grenzen für den Benutzer sichtbar zu machen und die Integration von virtuellen Objekten zu verbessern.
+        \item \textbf{Unterstützung beim Platzieren von Objekten:} Der ARPlaneManager erleichtert das Platzieren von
+        virtuellen 3D-Objekten in der realen Welt, indem er eine Referenz für die Position und Ausrichtung der erkannten
+        Flächen bereitstellt.
+    \end{itemize}
+
+    \item \textbf{ARRaycastManager\footnote{Unity \cite{RaycastManager}}:}
+    Der ARRaycastManager in Unity ist eine Komponente, die im Kontext von Augmented Reality (AR) genutzt wird, um Raycasts von
+    einem Ursprungspunkt, wie beispielsweise der Kamera der HoloLens 2, durchzuführen. Diese Raycasts treffen
+    auf zuvor markierte und verfolgte Ebenen. Der ARRaycastManager ist Teil des Unity-eigenen Mixed Reality Toolkit 3.
+    Und erlaubt die präzise Positionierung von virtuellen 3D-Objekten in der realen Welt.
+
+    Die Hauptaufgaben des ARRaycastManagers umfassen:
+    \begin{itemize}
+        \item \textbf{Durchführung von Raycasts:} Der Manager führt Raycasts von einem Ursprungspunkt aus, um
+        Kollisionen mit bereits markierten und verfolgten Ebenen zu identifizieren.
+        \item \textbf{Genauigkeit bei der Platzierung von Objekten:} Durch die Nutzung von Raycasts ermöglicht der
+        ARRaycastManager eine genaue Platzierung von virtuellen 3D-Objekten in der realen Welt, basierend auf
+        Benutzerinteraktionen.
+    \end{itemize}
 \end{itemize}
+Die erfolgreiche Umsetzung der funktionalen Anforderungen in den spezifischen Augmented-Reality-(AR-) Anwendungsszenarien
+des \textit{Knappsack Problem Levels} sowie des \textit{Ping Levels} hängt maßgeblich von der Integration und
+Anwendung der Manager ab, insbesondere des ARPlaneManagers und ARRaycastManagers. Diese Manager sind von grundlegender
+Bedeutung für die Schaffung einer qualitativ hochwertigen, präzisen und immersiven Benutzererfahrung.
+
+Im Kontext des \textit{Knappsack-Problem-Levels} spielt der ARPlaneManager eine zentrale Rolle. Er identifiziert und
+markiert horizontale Flächen in der Benutzerumgebung, die entscheidend für die genaue Platzierung von virtuellem Inventar
+sind. Die automatische Erkennung und kontinuierliche Verfolgung dieser Flächen durch den ARPlaneManager gewährleisten
+eine stabile Integration von AR-Elementen in die reale Umgebung.
+
+Der ARRaycastManager führt Raycasts von der HoloLens 2-Kamera aus und identifiziert Kollisionen mit markierten Ebenen.
+Diese Funktionalität ist entscheidend für die präzise Positionierung von virtuellen 3D-Objekten in der realen Welt,
+insbesondere im Anwendungsfall des \textit{Knappsack Problem Levels}. Der ARRaycastManager ermöglicht eine exakte
+Platzierung des Inventars basierend auf Benutzerinteraktionen.
+
+Im speziellen Anwendungsfall des \textit{Ping Levels} spielt der PlaneManager eine kritische Rolle. Er identifiziert
+die Fläche, auf der der Raycast auftrifft, um eine präzise Interaktion und Platzierung von AR-Elementen entsprechend
+den Benutzeraktionen zu ermöglichen.
+
+Insgesamt sind diese Manager wichtige Ressourcen, die die technische Umsetzbarkeit und Effektivität von AR-Anwendungen
+maßgeblich beeinflussen. Durch ihre integrierte Anwendung wird eine nahtlose Verschmelzung von virtuellen und physischen
+Elementen realisiert, was eine immersive und präzise AR-Benutzererfahrung sowohl auf dem \textit{Knappsack-Problem-Level}
+als auch auf dem \textit{Ping-Level} gewährleistet.
 
 \section{Hauptmenu}
 Das Hauptmenu dient dazu um das Basic UI/UX System zu implementieren.
@@ -250,7 +291,6 @@ neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. 
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
 \subsection{Verwendung von QR-Codes}
-
 Im vorangegangenen Abschnitt wurde bereits darauf hingewiesen, dass QR-Codes in diesem Level verwendet werden,
 um die verschiedenen Items zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen,
 vielfältige Informationen zu den einzelnen Objekten zu speichern und sie anschließend in einer virtuellen Umgebung
@@ -259,7 +299,6 @@ und welchen Zweck sie innerhalb der Augmented Reality (AR)-Applikation erfüllen
 wie die Generierung der Codes erfolgt und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
 \subsubsection{Inhalt der QR-Codes}
-
 Die Informationen, die in einem QR-Code gespeichert werden, sind begrenzt. In unserem Anwendungsfall wird lediglich eine
 einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsentieren die 11 verschiedenen Modelle, die wir
 unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
@@ -321,12 +360,34 @@ Hier eine kurze Übersicht:
 %TODO: Übersicht einfügen
 
 \subsection{Platzieren des Inventars}
-In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse der AARiE Applikation beschrieben. Diese Klasse
-implementiert das Platzieren des 3D Objektes des Inventars auf einem Tischm und kümmert sich zusätzlich
-um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels zu handeln.
+In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse des \textit{AnchorScript.cs} beschrieben. Dieses Script
+implementiert das Platzieren des 3D Objektes des Inventars auf einem Tisch und kümmert sich zusätzlich
+um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels.
+
+\subsection*{Start des Knapsack-Problem-Levels}
+\begin{lstlisting}[style=csharp, caption={}, label=code:Start]
+void Start()
+{
+    StartCoroutine(DelayedStart());
+}
+\end{lstlisting}
+Zu Begin des \textit{Knapsack-Problem-Levels} wird die \textit{Lebenszyklusmethode} \textbf{Start()} aufgerufen. Diese
+Funktion startet dann den Coroutine \textbf{DelayedStart()}.\\
+
+\begin{lstlisting}[style=csharp, caption={}, label=code:DelayedStart]
+IEnumerator DelayedStart()
+{
+    yield return new WaitForSeconds(3.0f); // Adjust the delay time as needed.
+    canStartScript = true;
+}
+\end{lstlisting}
+Anschließend wird in dieser Funktion eine Verzögerung von 3 Sekunden durchgeführt und anschließend \textit{canStartScript}
+auf true gesetzt. Dies ist deswegen wichtig, weil durch dieses Verzögerte starten, die \textit{Planes} in der Umgebung ohne
+Zwischenwirkung gescannt werden können. Dadurch kann im folgenden Abschnitt die \textit{Lebenszyklusmethode} \textbf{Update()}
+Funktion weiter ausgeführt werden kann.
 
 \subsection*{Frame-Aktualisierung um richtiges Plane zu finden}
-\begin{lstlisting}[style=csharp, caption={}, label=code:update]
+\begin{lstlisting}[style=csharp, caption={}, label=code:Update]
 void Update()
 {
     if (!objectPlaced && canStartScript)
@@ -364,15 +425,22 @@ void Update()
 \end{lstlisting}
 \textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Bedingte Aktualisierung:} Die Update-Funktion wird nur ausgeführt, wenn das Objekt noch nicht platziert
-    wurde und das Skript gestartet werden kann. Wenn die Funktion dann gestartet wird, wird diese jeden Frame 1 mal ausgeführt.
-    \item \textbf{Raycasting auf Planes:} Ein Raycast wird durchgeführt, um festzustellen, ob die Kamera auf ein AR-Plane blickt.
-    \item \textbf{Suche nach dem nächsten AR-Plane:} Die Funktion \texttt{FindClosestPlane} wird aufgerufen, um das
-    nächste AR-Plane zu finden.
-    \item \textbf{Zeiterfassung für Blickzeit:} Die Zeit, die auf das ausgewählte AR-Plane geschaut wurde, wird gemessen.
-    \item \textbf{Platzierung des Objekts bei ausreichender Blickzeit:} Wenn die benötigte Blickzeit überschritten
-    wurde, wird die Funktion \texttt{PlaceObjectOnDesk} aufgerufen und das Objekt wird platziert.\\
+    \item \textbf{Bedingte Aktualisierung:} Die \textit{Update()} Funktion wird nur dann weiter ausgeführt, wenn das Inventar
+    Objekt nicht bereits platziert wurde. Wenn das Inventar noch nicht platziert wurde und \textit{canStartScript = true}
+    ergibt dann kann die Funktion weiter fortschreiten.
+    \item \textbf{Raycasting auf Planes:} In jedem Durchlauf dieser Funktion wird immer ein Raycasting durchgeführt und
+    anschließend alle Treffer dieser Raycasts in einem Array verspeichert.
+    \item \textbf{Suche nach dem am kürzest entfernten AR-Plane:} Nachdem das Raycasting abgeschlossen ist, wird anschließend die
+    \textbf{FindClosestPlane(hits)} Funktion mit allen zuvor gespeicherten hits aufgerufen.
+    \item \textbf{Zeiterfassung für die Blickzeit:} Jeden Frame wird die Variable \textit{timeLookedAtPlane} um die aktuelle
+    verstriche Zeit \textbf{float timeLookedAtPlane = Time.time - lookStartTime} aktuallisiert.
+    \item \textbf{Platzieren des Objekts bei ausreichender Blickzeit:} Wenn die \textit{timeLookedAtPlane} die \textit{requiredLookTime}
+    übersteigt wird anschließend die Funktion \textit{PlaceObjectOnDesk(selectedDeskPlane)} mit dem ausgewählten Plane
+    ausgeführt um das Inventar zu platzieren. Zusätzlich wird die Variable \textit{objectPlaced = true} gesetzt um aus der \textit{Update()}
+    Funktion zu kommen und die Überprüfungen somit zu stoppen.//
 \end{enumerate}
+Diese \textit{Lebenszyklusmethode} wird so lange ausgeführt, bis das Script beendet und somit das Inventar samt dem Info-Objekt
+platziert wurde.
 
 \subsection*{Das am kürzesten entfernte Plane\footnote{Unity \cite{Plane}} finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:findclosestplane]
@@ -399,9 +467,16 @@ ARPlane FindClosestPlane(List<ARRaycastHit> hits)
 
 \textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Suche nach der nächsten AR-Plane:} Die Funktion durchläuft alle getroffenen AR-Planes und findet diejenige mit der geringsten Distanz zur Kamera.
-    \item \textbf{Berechnung der Distanz:} Die Distanz zwischen der Kameraposition und der Position der getroffenen AR-Plane wird berechnet.
-    \item \textbf{Vergleich der Distanzen:} Die Distanz zur aktuellen AR-Plane wird mit der bisher geringsten Distanz verglichen. Wenn sie kleiner ist, wird die aktuelle AR-Plane als nächste ausgewählt.\\
+    \item \textbf{Variablen Initilaisierung: }Zu Beginn der Funktion wird das \textit{closestPlane} als \textit{null}
+    deklariert und die momentan kürzeste Distanz zu einem Plane wird in der \textit{closestDistance} Variable gespeichert.
+    \item \textbf{Suche nach dem kürzesten AR-Plane:} Anschließend wird mit Hilfe einer \textit{foreach-Schleife} die
+    Liste alle hits durchlaufen. In dieser Schleife wird dann immer das aktuelle AR-Plane anhand der \textit{trackableId}
+    herausgenommen um es im weiteren Funktionsablauf zu bearbeiten.
+    \item \textbf{Berechnung der Distanz:} Anhand des herausgenommenem AR-Plane wird nur die Distanz von diesem Plane zu
+    zu Kamera Position berechnet.
+    \item \textbf{Vergleich der Distanzen:} Der letzte Schritt des Schleifendurchlaufs ist, dass die aktuelle berechnete
+    Distanz mit der davor gespeicherten \textit{closestDistance} verglichen wird. Wenn die Distanz kürzer ist, als die
+    zuvor gespeicherte AR-Plane wird die \texit{closestDistance} überschrieben und die neue kürzeste Distanz wird gespeichert//
 \end{enumerate}
 
 \subsection*{Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}
@@ -434,14 +509,25 @@ void PlaceObjectOnDesk(ARPlane deskPlane)
 
 \textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Aktivierung von QR-Codes und Objektplatzierung:} Die QR-Code-Manager werden aktiviert, und die Position des zu platzierenden Objekts wird berechnet.
-    \item \textbf{Berechnung der Objektposition und Rotation:} Die Position des Objekts wird über dem Zentrum der ausgewählten AR-Plane berechnet, und die Rotation wird auf -90 Grad um die x-Achse festgelegt.
-    \item \textbf{Instantiierung des Objekts:} Das Objekt wird instanziiert und skaliert.
-    \item \textbf{Platzierung des infoGameObject:} Die Position des Info-Objekts (TextMeshes und Button für den Knapsack-Algorithmus) wird festgelegt und aktiviert.
-    \item \textbf{Setzen des Inventarobjekts im InventoryController:} Das platzierte Objekt wird im InventoryController festgelegt.
-    \item \textbf{Aktivierung des InventoryController:} Der InventoryController wird aktiviert.
-    \item \textbf{Sichtbarkeit der Planes ausschalten:} Die Sichtbarkeit der AR-Planes wird ausgeschaltet.
-    \item \textbf{Deaktivierung des Skripts:} Das aktuelle Skript wird deaktiviert, damit es nicht erneut ausgeführt wird.\\
+    \item \textbf{Aktivierung von QR-Code Manager:} Zu Beginn dieser Funktion wird der QR-Code Manager aktiviert und
+    somit auch das tracken von QR-Codes.
+    \item \textbf{Berechnung der Objektposition und Rotation:} Anschließend wird von dem ausgewählten AR-Plane die
+    Flächenmitte \textit{objectPosition} berechnet. Zusätzlich wird die Objekt Rotation von diesem Objekt auf der x-Achse
+    festgelegt mittels \textit{Quaternion.Euler(-90f, 0f, 0f)}.
+    \item \textbf{Instantiierung des Objekts:} Nach berechnung der Position und Rotation wird das Objekt jetzt durch
+    die Verwendung der \textit{Instantiate} Funktion instanziiert und skaliert.
+    \item \textbf{Platzierung des infoGameObjects:} Zusätzlich zu dem Inventar-Objekt wird das Position des \textit{Info-Objects},
+    dass aus 2 TextMeshes und 2 Buttons besteht festgelegt und anschließend aktiviert, dass es für den Benutzer sichtbar ist.
+    \item \textbf{Setzen des InventarObjekts im InventoryController:} Das platzierte Inventar-Objekte wird an den \textit{InventoryController}
+    weitergeleitet und dort deklariert, dass auf das selbe Game Objekt zugegriffen wird und die Berechnungen davon stimmen.
+    \item \textbf{Aktivierung des InventoryController:} Nachdem das Inventar und das InfoObject erfolgreich platziert wurden
+    und das InventoryObject erfolgreich an den InventoryController übergeben wurde wird nun der InventoryController
+    aktiviert.
+    \item \textbf{Sichtbarkeit der Planes ausschalten:} Daher, dass alle AR-Planes mit einer Textur markiert wurden, diese
+    aber nach erfolgreicher Platzierung der Objekte nichtmehr sichtbar sein müssen werden diese nun mit \textit{planeManager.planePrefab.SetActive(false)}
+    deaktiviert und sind somit nichtmehr sichtbar.
+    \item \textbf{Deaktivierung des Skripts:} Nach Abschluss all dieser Schritte wird nun das \textit{AnchorScript.cs}
+    entgültig deaktiviert um weitere Ressourcenverbrauchende Aktuallisierungen zu stoppen.
 \end{enumerate}
 
 \subsection{Inventar-Controller}
