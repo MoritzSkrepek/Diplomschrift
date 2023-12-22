@@ -1,4 +1,4 @@
-\chapter{Feinkonzept und Realisierung}
+\usepackage{graphicx}\chapter{Feinkonzept und Realisierung}
 
 \section{Entwicklungsumgebungen}
 \subsection{Visual Studio 2022}
@@ -12,19 +12,66 @@ für die Erstellung von 2D-, 3D-, Augmented Reality (AR) und Virtual Reality (VR
 Unity Technologies entwickelt und ist die Hauptplattform für die Entwicklung von Unity-basierten Projekten.
 
 \section{Hauptmenu}
-Das Hauptmenu dient dazu um das Basic UI/UX System zu implementieren.
-Hier kann der Benutzer dann diverse Einstellungen Tätigen als auch
-das gewünschte Level auswählen und starten
+Das Hauptmenü dient als Implementierung des Basic UI/UX Systems. Nach umfassender Recherche und internen
+Abstimmungen im Team haben wir uns für die Umsetzung einer freibeweglichen Menüleiste entschieden, wie in
+Abbildung \ref{fig:menübar} dargestellt.
+\\
+Diese Menüstruktur ermöglicht es dem Benutzer, sich im Raum frei zu bewegen, während das Menü stets
+auf Hüfthöhe mitfliegt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/menubar.png}
+    \caption{Die Menüleiste besteht aus drei Buttons, einem Pin-Button und einer Grab-Bar.}
+    \label{fig:menübar}
+\end{figure}
+
+\subsection{Beschreiben der Buttons}
+Die Funktionalitäten der Buttons sind wie folgt:
+
+\begin{itemize}
+    \item \textbf{Debug-Button}\\
+    Der Debug-Button ist ausschließlich für Entwickler vorgesehen. Beim Aktivieren öffnet sich ein erweitertes
+    Menü oberhalb des Hauptmenüs, das zusätzliche Funktionen für das Bugfixing während des Betriebs bereitstellt.
+    Vorhandene Optionen umfassen einen Reset-Button für Level 2, der bei Problemen mit der Platzierung von
+    Inventarobjekten verwendet werden kann.
+
+    \item \textbf{Pin-Button}\\
+    Der Pin-Button ermöglicht das Fixieren des Menüs an einer geeigneten Stelle. Dies ist besonders nützlich,
+    wenn der Benutzer sich an einen Tisch setzt und das Menü entsprechend positionieren möchte. Die
+    Positionierung erfolgt mithilfe der Grab-Bar.
+
+    \item \textbf{Grab-Bar}\\
+    Die weiße Leiste (Grab-Bar) kann festgehalten werden, um das Menü frei zu bewegen. In Kombination mit dem
+    Pin-Button ist eine präzisere Platzierung möglich.
+\end{itemize}
+
+\subsection{Laden der Level}
+Das Betätigen eines dieser Buttons (Level 1, Level 2) löst das Skript SceneChanger aus. Dieser Code wechselt die geladene
+Szene entsprechend. Die zu ladende Szene wird durch die Variable "sceneToLoad" definiert, die in Unity
+festgelegt wird und das gewünschte Level angibt.
+
+
+\begin{lstlisting}[language=C#, style=csharpstyle, caption=Auf Knopfdruck Szene wechseln.]
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class SceneChanger : MonoBehaviour
+{
+public string sceneToLoad;
+
+// Assign this method to the button's onClick event in the Unity Editor.
+public void ChangeScene()
+{
+SceneManager.LoadScene(sceneToLoad);
+Debug.Log("Button clicked. Loading scene: " + sceneToLoad);
+}
+}
+\end{lstlisting}
 
 \subsection{UI/UX}
 Mittels verwendung des UX-Tools-Plug-Ins für Mixed Reality wird
 mit bereitgestellten Knöpfen, Oberflächen, Comboboxen, etc...
 die Benutzeroberfläche erstellt.
-
-\subsection{Laden der Level}
-Durch einen Knopfdruck wird dann in Unreal Engine das der ausgewählte
-Level geladen.
-%Hier dann noch Bilder vom Code einfügen
 
 \section{Ping Level}
 In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier

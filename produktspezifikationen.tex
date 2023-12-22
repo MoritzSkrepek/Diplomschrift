@@ -86,41 +86,52 @@ dieses Plugin so wichtig ist:
     der Anwendung auf dem Zielsystem und bieten eine optimale Benutzererfahrung.
 \end[itemize]
 
-\subsection{Rendering Program}
-Das Rendering Program wird benötigt um die eingesetzten 3D-Modellen für die zwei
-Level zu erstellen. Die Auswahl dieses Rendering Programs Blender war bereits bei Projektstart
-klar. \\
-Diese Entscheidung ist begründet durch folgende Punkte:
+\subsection{Modellierungsprogramm}
+
+Die Erstellung der 3D-Modelle für die beiden Level erfordert ein Rendering-Programm. Die Entscheidung für das
+Rendering-Programm Blender wurde bereits zu Beginn des Projekts getroffen. \\
+Diese Wahl basiert auf folgenden Gründen:
 \begin{itemize}
-    \item Kostenfrei und Opensource\\
-    Blender ist kostenfrei und quelloffen, was bedeutet, dass Sie es ohne Lizenzkosten nutzen
-    können. Das kann bei der Entwicklung von AR-Anwendungen mit begrenztem Budget besonders
-    attraktiv sein.
-    \item Echtzeit-Rendering\\
-    Blender verfügt über einen Echtzeit-Renderer namens Eevee, der schnelle Vorschauen und
-    Renderings ermöglicht. Dies kann nützlich sein, um AR-Inhalte in Echtzeit anzuzeigen und zu
-    überprüfen.
-    \item Integration mit AR-Frameworks\\
-    Obwohl Blender nicht direkt AR-Funktionen unterstützt, können Sie die erstellten 3D-Modelle
-    und Animationen in AR-Entwicklungsumgebungen wie Unity oder Unreal Engine importieren und
-    dort AR-spezifische Funktionalitäten hinzufügen.
+    \item \textbf{Kostenfrei und Open Source}\\
+    Blender ist kostenfrei und quelloffen, was bedeutet, dass es ohne Lizenzkosten genutzt werden kann. Dies ist
+    besonders attraktiv bei der Entwicklung von AR-Anwendungen mit begrenztem Budget.
+    \item \textbf{Echtzeit-Rendering}\\
+    Blender verfügt über einen Echtzeit-Renderer namens Eevee, der schnelle Vorschauen
+    und Renderings ermöglicht. Dies ist hilfreich, um AR-Inhalte in Echtzeit anzuzeigen und zu überprüfen.
+
+    \item \textbf{Integration mit AR-Frameworks}\\
+    Obwohl Blender keine direkte Unterstützung für AR-Funktionen bietet, können die erstellten 3D-Modelle und
+    Animationen in AR-Entwicklungsumgebungen wie Unity oder Unreal Engine importiert werden, um dort
+    AR-spezifische Funktionalitäten hinzuzufügen.
+
 
 \end{itemize}
-Wie funktioniert Blender im Allgemeinen? Die folgende Beschreibung hebt die Schlüsselaspekte, sowie die Funktionalität von Blender hervor.
+
+\subsubsection{Wie funktioniert Blender im Allgemeinen?}
+
+Die nachfolgende Beschreibung hebt die Schlüsselaspekte und die Funktionalität von Blender für unseren speziellen
+Anwendungsbereich hervor.
+
 \begin{itemize}
-	\item Benutzeroberfläche und Interaktion\\
-	Blender verfügt über eine komplex gestaltete Benutzeroberfläche, die sich jedoch durch eine hohe Anpassbarkeit auszeichnet. Die Hauptansicht enthält 3D-Modelle, Ansichten, Fenster und Panels. Benutzer interagieren mit den Objekten und Werkzeugen über Maus- und Tastaturbefehle. Erfahrene Nutzer sind in der Lage einige Zeit zu sparen, in dem sie sogenannte Hotkeys oder Shortcuts verwenden. Wenn man zum Beispiel die Tasten "STRG" und "A" gleichzeitig drückt, kann man alle Objekte auswählen, ohne diese mit der Maus einzeln anzuklicken und auszuwählen.
-	\item 3D-Modellierung\\
-	Blender ermöglicht die Erstellung von 3D-Modellen mithilfe von Primitiven wie Würfeln, Kugeln, Flächen und Kurven. Diese können dann bearbeitet und modifiziert werden, um komplexe Formen zu erstellen. Zu den Modellierungswerkzeugen gehören Extrusion, Verschiebung, Skalierung und Rotation.
-	\item Animation\\
-	Blender unterstützt die Erstellung von Animationen durch das Setzen von Schlüsselbildern (Keyframes) und die Interpolation von Position, Rotation und Skalierung zwischen diesen Schlüsselbildern. Es bietet auch fortschrittliche Animationstools für Skelettanimation, Constraints und Pfadbewegungen.
-	\item Materialien und Texturen\\
-	Für die Erzeugung realistischer Oberflächen können Materialien erstellt und Texturen auf Objekte angewendet werden. Blender ermöglicht die Feinanpassung von Materialeigenschaften wie Diffusreflexion, Glanz, Transparenz und Emission.
-	\item Rendering\\
-	Blender verfügt über einen integrierten Renderer, der hochwertige Bilder und Animationen erstellen kann. Benutzer können Render-Einstellungen anpassen und Bilder in verschiedenen Formaten exportieren.
-	\item Skripting und Add-Ons\\
-	Fortgeschrittene Benutzer können Blender durch Python-Skripting anpassen und erweitern, um benutzerdefinierte Tools und Automatisierungen zu erstellen. Darüber hinaus gibt es eine aktive Entwicklergemeinschaft, die Add-Ons entwickelt, um die Funktionalität von Blender zu erweitern.
-	\item Gemeinschaft und Ressourcen\\
-	Blender verfügt über eine engagierte Benutzergemeinschaft, die eine umfangreiche Dokumentation, Tutorials und Foren bereitstellt. Diese Ressourcen erleichtern die Einarbeitung und die Lösung von Problemen.
+    \item \textbf{Benutzeroberfläche und Interaktion}\\
+    Die Benutzeroberfläche von Blender ist komplex gestaltet, aber hoch anpassbar. Sie enthält 3D-Modelle,
+    Ansichten, Fenster und Panels. Benutzer interagieren mit Objekten und Werkzeugen über Maus- und Tastaturbefehle,
+    wobei erfahrene Nutzer Hotkeys oder Shortcuts verwenden können, um effizienter zu arbeiten.
+
+    \item \textbf{3D-Modellierung}\\
+    Blender ermöglicht die Erstellung von 3D-Modellen durch die Verwendung von Primitiven wie Würfeln, Kugeln,
+    Flächen und Kurven. Diese können dann bearbeitet und modifiziert werden, um komplexe Formen zu erstellen.
+    Modellierungswerkzeuge umfassen Extrusion, Verschiebung, Skalierung und Rotation.
+
+    \item \textbf{Materialien und Texturen}\\
+    Zur Erzeugung realistischer Oberflächen können Materialien erstellt und Texturen auf Objekte angewendet werden.
+    Blender erlaubt die Feinanpassung von Materialeigenschaften wie Diffusreflexion, Glanz, Transparenz und Emission.
+
+    \item \textbf{Gemeinschaft und Ressourcen}\\
+    Blender verfügt über eine engagierte Benutzergemeinschaft, die umfassende Dokumentation, Tutorials und Foren
+    bereitstellt. Diese Ressourcen erleichtern die Einarbeitung und die Lösung von Problemen.
+
 \end{itemize}
-In unserer Diplomarbeit kommt Blender in beiden Leveln zum Einsatz. Die Hauptanwendung des Programms findet in Level 2 statt. Dabei wird Blender für die digitale Modellierung der wichtigen täglichen Gegenstände von Schülern eingesetzt. Das Ziel am Ende ist es, ein großes Pool aus einigen Objekten zu haben, um den Benutzern eine gute Auswahl zu geben.
+Blender kommt in unserer Diplomarbeit in beiden Leveln zum Einsatz. Die Hauptanwendung des Programms findet im Level 2
+statt, wo Blender für die digitale Modellierung wichtiger täglicher Gegenstände von Schülern genutzt wird. Das Ziel ist
+es, am Ende eine umfangreiche Sammlung von Objekten zu haben, um den Benutzern eine vielfältige Auswahl zu bieten.
