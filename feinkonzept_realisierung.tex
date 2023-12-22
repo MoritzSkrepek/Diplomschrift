@@ -1,3 +1,4 @@
+\setcounter{secnumdepth}{4}
 \lstdefinestyle{csharp}{
     language=C#,
     basicstyle=\ttfamily\small,
@@ -21,7 +22,6 @@
     escapeinside={\%*}{*)},
     morekeywords={var},
 }
-
 
 \chapter{Feinkonzept und Realisierung}
 
@@ -364,7 +364,7 @@ In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse des \text
 implementiert das Platzieren des 3D Objektes des Inventars auf einem Tisch und kümmert sich zusätzlich
 um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels.
 
-\subsection*{Start des Knapsack-Problem-Levels}
+\subsubsection{Startverzögerung}
 \begin{lstlisting}[style=csharp, caption={}, label=code:Start]
 void Start()
 {
@@ -386,7 +386,7 @@ auf true gesetzt. Dies ist deswegen wichtig, weil durch dieses Verzögerte start
 Zwischenwirkung gescannt werden können. Dadurch kann im folgenden Abschnitt die \textit{Lebenszyklusmethode} \textbf{Update()}
 Funktion weiter ausgeführt werden kann.
 
-\subsection*{Frame-Aktualisierung um richtiges Plane zu finden}
+\subsubsection{Frame-Aktualisierung um richtiges Plane zu finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:Update]
 void Update()
 {
@@ -442,7 +442,7 @@ void Update()
 Diese \textit{Lebenszyklusmethode} wird so lange ausgeführt, bis das Script beendet und somit das Inventar samt dem Info-Objekt
 platziert wurde.
 
-\subsection*{Das am kürzesten entfernte Plane\footnote{Unity \cite{Plane}} finden}
+\subsubsection{Das am kürzesten entfernte Plane finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:findclosestplane]
 ARPlane FindClosestPlane(List<ARRaycastHit> hits)
 {
@@ -479,7 +479,7 @@ ARPlane FindClosestPlane(List<ARRaycastHit> hits)
     zuvor gespeicherte AR-Plane wird die \texit{closestDistance} überschrieben und die neue kürzeste Distanz wird gespeichert//
 \end{enumerate}
 
-\subsection*{Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}
+\subsubsection{Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}
 \begin{lstlisting}[style=csharp, caption={}, label=code:placeobject]
 void PlaceObjectOnDesk(ARPlane deskPlane)
 {
@@ -568,7 +568,7 @@ Ressourcenmanagement und Netzwerkoptimierung. Beispielsweise kann er verwendet w
 Transport von Gütern mit begrenzten Kapazitäten zu planen oder in der Finanzplanung, um das Portfolio von
 Investitionen zu optimieren.
 
-\subsection*{Funktionsaufruf}
+\subsubsection{Funktionsaufruf}
 \begin{lstlisting}[style=csharp, caption={}, label=code:init]
 int maxValue = KnapsackMaxValue(out usedItems, out int coveredCapacity);
 int inventoryValue = -1;
@@ -576,7 +576,7 @@ maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
 \end{lstlisting}
 \textbf{Erklärung:} Hier wird die Funktion aufgerufen und dem textMesh \textbf{maxMesh} wird dieser Wert zugewiesen um dem User diesen Wert darzustellen.\\
 
-\subsection*{Variablen Initialisierung}
+\subsubsection{Variablen Initialisierung}
 \begin{lstlisting}[style=csharp, caption={}, label=code:variable]
 int n = items.Count;
 int[,] dp = new int[n + 1, capacity + 1];
@@ -584,7 +584,7 @@ bool[,] selected = new bool[n + 1, capacity + 1];
 \end{lstlisting}
 \textbf{Erklärung:} Die Initialisierung erstellt die notwendigen Arrays für die dynamische Programmierung.\\
 
-\subsection*{Knapsack-Algorithmus}
+\subsubsection{Dynamischer Knapsack Algorithmus}
 \begin{lstlisting}[style=csharp, caption={}, label=code:dynamic]
 for (int i = 0; i <= n; i++)
 {
@@ -648,7 +648,7 @@ Insgesamt ermöglicht dieser Algorithmus, die optimale Auswahl von Gegenständen
 passt, um den Gesamtwert zu maximieren.
 
 
-\subsection*{Backtracking, um ausgewählte Items und perfekt Lösung zu finden}
+\subsubsection{Backtracking, um ausgewählte Items und perfekt Lösung zu finden}
 \begin{lstlisting}[style=csharp, caption={}, label=code:backtrack]
 List<List<int>> tempUsedItems = new List<List<int>>();
 int row = n;
@@ -693,7 +693,7 @@ while (row > 0 && col > 0)
 
 Diese Schritte werden wiederholt, bis alle ausgewählten Items gefunden sind und die temporäre Liste \texttt{tempUsedItems} alle ausgewählten Gruppen enthält.\\
 
-\subsection*{Gruppengröße berechnen}
+\subsubsection{Gruppengröße berechnen}
 \begin{lstlisting}[style=csharp, caption={}, label=code:maxgroup]
 int maxGroupSize = 0;
 foreach (var group in tempUsedItems)
@@ -704,7 +704,7 @@ foreach (var group in tempUsedItems)
 \end{lstlisting}
 \textbf{Erklärung:} Findet die maximale Gruppengröße.\\
 
-\subsection*{Temporäres Array umwandeln und das usedItems Array befüllen}
+\subsubsection{Temporäres Array umwandeln und das usedItems Array befüllen}
 \begin{lstlisting}[style=csharp, caption={}, label=code:convert]
 usedItems = new int[tempUsedItems.Count, maxGroupSize];
 for (int i = 0; i < tempUsedItems.Count; i++)
@@ -717,17 +717,21 @@ for (int i = 0; i < tempUsedItems.Count; i++)
 \end{lstlisting}
 \textbf{Erklärung:} Konvertiert die temporäre Liste von Gruppen in ein 2D-Array, um die ausgewählten Items also die perfekt Lösung zu speichern.\\
 
-\subsection*{Rückgabewert}
+\subsubsection{Rückgabewert}
 \begin{lstlisting}[style=csharp, caption={}, label=code:return]
 return dp[n, capacity];
 \end{lstlisting}
 \textbf{Erklärung:} Gibt den Gesamtwert des besten Rucksacks zurück.\\
 
+\subsection{Darstellung der perfekten Lösung}
+Um die perfekt Lösung nach der Berechnung erfolgreich darzustellen wird in diesem Abschnitt auf die \texit{PLACEHOLDES} Funktion des
+\textit{KnapsackScript.cs} eingegangen um die errechnete Lösung nach dem drücken des \textit{SolveButton} anzugeigen
+
 \subsection{Berechnen des eigenen Inventars}
 In diesem Abschnitt wird auf die Funktion \textit{KnapsackInventoryValue} des \texit{KnapsackScript.cs} eingegangen. Diese Funktion
 berechnet das Inventar Value des selbst gebauten Inventars.
 
-\subsection*{Funktionsaufruf}
+\subsubsection{Funktionsaufruf}
 \begin{lstlisting}[style=csharp, caption={}, label=code:aufruf]
 inventoryValue = KnapsackInventoryValue(inventory);
 if (maxValue == inventoryValue)
@@ -747,7 +751,7 @@ ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
     \item \textbf{Ergebnis Handling:} Wenn der eigene Wert gleich dem Maximalen errechnetem Wert enspricht hat der Benutzer gewonnen. Anderenfalls wird dem \texit{infoMesh} der aktuelle Wert zugewiesen.
 \end{enumerate}
 
-\subsection*{Code für die Berechnung des eigenen Inventars}
+\subsubsection{Code für die Berechnung des eigenen Inventars}
 \begin{lstlisting}[style=csharp, caption={}, label=code:ownInventory]
 int KnapsackInventoryValue(int[,] inventory)
 {
@@ -794,13 +798,6 @@ int KnapsackInventoryValue(int[,] inventory)
 
     \item \textbf{Rückgabe des Gesamtwerts:} Am Ende wird der Gesamtwert des Rucksackinventars zurückgegeben.
 \end{enumerate}
-%Hier Code einfügen
-
-\subsection{Darstellung der perfekten Lösung}
-Um die perfekt Lösung nach der Berechnung erfolgreich darzustellen wird in diesem Abschnitt auf die \texit{PLACEHOLDES} Funktion des
-\textit{KnapsackScript.cs} eingegangen um die errechnete Lösung nach dem drücken des \textit{SolveButton} anzugeigen
-
-%Hier Code einfügen
 
 \subsection{Unit-Tests}
 Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus

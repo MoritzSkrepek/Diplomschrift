@@ -46,11 +46,11 @@
 \contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{14}{section.68}%
 \contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{14}{subsection.69}%
 \contentsline {subsection}{\numberline {4.1.2}Unity}{14}{subsection.70}%
-\contentsline {subsubsection}{Multidisziplinäre Unterstützung und Integration}{14}{section*.71}%
-\contentsline {subsubsection}{Szenengestaltung und Asset-Management}{14}{section*.72}%
-\contentsline {subsubsection}{Programmierung und Skripterstellung}{15}{section*.73}%
-\contentsline {subsubsection}{Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{15}{section*.74}%
-\contentsline {subsubsection}{Erweiterte Debugging- und Profiling-Werkzeuge}{15}{section*.75}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Multidisziplinäre Unterstützung und Integration}{14}{subsubsection.71}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}Szenengestaltung und Asset-Management}{14}{subsubsection.72}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}Programmierung und Skripterstellung}{15}{subsubsection.73}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{15}{subsubsection.74}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}Erweiterte Debugging- und Profiling-Werkzeuge}{15}{subsubsection.75}%
 \contentsline {subsection}{\numberline {4.1.3}Aufbau einer Unity-Applikation}{15}{subsection.76}%
 \contentsline {subsection}{\numberline {4.1.4}Lebenszyklusmethoden in Unity}{15}{subsection.77}%
 \contentsline {subsection}{\numberline {4.1.5}Manager in Unity}{16}{subsection.78}%
@@ -63,25 +63,38 @@
 \contentsline {section}{\numberline {4.4}Knapsack Problem Level}{18}{section.87}%
 \contentsline {subsection}{\numberline {4.4.1}Aufbau von dem Knapsack-Problem Level}{19}{subsection.88}%
 \contentsline {subsection}{\numberline {4.4.2}Verwendung von QR-Codes}{20}{subsection.93}%
-\contentsline {subsubsection}{Inhalt der QR-Codes}{21}{section*.94}%
-\contentsline {subsubsection}{QR-Code Tracking}{21}{section*.123}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Inhalt der QR-Codes}{21}{subsubsection.94}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}QR-Code Tracking}{21}{subsubsection.123}%
 \contentsline {subsection}{\numberline {4.4.3}Platzieren des Inventars}{22}{subsection.124}%
-\contentsline {subsection}{\numberline {4.4.4}Inventar-Controller}{25}{subsection.238}%
-\contentsline {subsection}{\numberline {4.4.5}Knapsack-Algorithmus}{25}{subsection.239}%
-\contentsline {subsubsection}{Problemstellung}{26}{section*.240}%
-\contentsline {subsubsection}{Algorithmus}{26}{section*.241}%
-\contentsline {subsubsection}{Anwendungen}{26}{section*.242}%
-\contentsline {subsection}{\numberline {4.4.6}Berechnen des eigenen Inventars}{29}{subsection.343}%
-\contentsline {subsection}{\numberline {4.4.7}Darstellung der perfekten Lösung}{31}{subsection.396}%
-\contentsline {subsection}{\numberline {4.4.8}Unit-Tests}{31}{subsection.397}%
-\contentsline {section}{\numberline {4.5}Performance}{31}{section.398}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{32}{chapter.399}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{32}{section.400}%
-\contentsline {section}{\numberline {5.2}Abnahme}{32}{section.401}%
-\contentsline {section}{\numberline {5.3}Zukunft}{32}{section.402}%
-\contentsline {chapter}{\numberline {A}Mockups}{33}{appendix.403}%
-\contentsline {section}{\numberline {A.1}UI/UX}{33}{section.404}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{33}{section.405}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{33}{section.406}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{33}{section.407}%
-\contentsline {chapter}{\numberline {B}Literatur}{34}{appendix.408}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}Startverzögerung}{22}{subsubsection.125}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}Frame-Aktualisierung um richtiges Plane zu finden}{22}{subsubsection.137}%
+\contentsline {subsubsection}{\numberline {4.4.3.3}Das am kürzesten entfernte Plane finden}{23}{subsubsection.178}%
+\contentsline {subsubsection}{\numberline {4.4.3.4}Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}{24}{subsubsection.203}%
+\contentsline {subsection}{\numberline {4.4.4}Inventar-Controller}{25}{subsection.237}%
+\contentsline {subsection}{\numberline {4.4.5}Knapsack-Algorithmus}{25}{subsection.238}%
+\contentsline {subsubsection}{\numberline {4.4.5.1}Problemstellung}{26}{subsubsection.239}%
+\contentsline {subsubsection}{\numberline {4.4.5.2}Algorithmus}{26}{subsubsection.240}%
+\contentsline {subsubsection}{\numberline {4.4.5.3}Anwendungen}{26}{subsubsection.241}%
+\contentsline {subsubsection}{\numberline {4.4.5.4}Funktionsaufruf}{26}{subsubsection.242}%
+\contentsline {subsubsection}{\numberline {4.4.5.5}Variablen Initialisierung}{26}{subsubsection.247}%
+\contentsline {subsubsection}{\numberline {4.4.5.6}Dynamischer Knapsack Algorithmus}{26}{subsubsection.252}%
+\contentsline {subsubsection}{\numberline {4.4.5.7}Backtracking, um ausgewählte Items und perfekt Lösung zu finden}{28}{subsubsection.288}%
+\contentsline {subsubsection}{\numberline {4.4.5.8}Gruppengröße berechnen}{29}{subsubsection.321}%
+\contentsline {subsubsection}{\numberline {4.4.5.9}Temporäres Array umwandeln und das usedItems Array befüllen}{29}{subsubsection.329}%
+\contentsline {subsubsection}{\numberline {4.4.5.10}Rückgabewert}{29}{subsubsection.339}%
+\contentsline {subsection}{\numberline {4.4.6}Darstellung der perfekten Lösung}{29}{subsection.342}%
+\contentsline {subsection}{\numberline {4.4.7}Berechnen des eigenen Inventars}{29}{subsection.343}%
+\contentsline {subsubsection}{\numberline {4.4.7.1}Funktionsaufruf}{29}{subsubsection.344}%
+\contentsline {subsubsection}{\numberline {4.4.7.2}Code für die Berechnung des eigenen Inventars}{30}{subsubsection.359}%
+\contentsline {subsection}{\numberline {4.4.8}Unit-Tests}{31}{subsection.396}%
+\contentsline {section}{\numberline {4.5}Performance}{31}{section.397}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{32}{chapter.398}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{32}{section.399}%
+\contentsline {section}{\numberline {5.2}Abnahme}{32}{section.400}%
+\contentsline {section}{\numberline {5.3}Zukunft}{32}{section.401}%
+\contentsline {chapter}{\numberline {A}Mockups}{33}{appendix.402}%
+\contentsline {section}{\numberline {A.1}UI/UX}{33}{section.403}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{33}{section.404}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{33}{section.405}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{33}{section.406}%
+\contentsline {chapter}{\numberline {B}Literatur}{34}{appendix.407}%
