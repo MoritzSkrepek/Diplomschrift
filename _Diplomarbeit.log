@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  22 DEC 2023 08:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  22 DEC 2023 08:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1375,12 +1375,12 @@ Configuring pdfsync
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<images/htl.jpeg, id=289, 497.6994pt x 238.9728pt>
+<images/htl.jpeg, id=285, 497.6994pt x 238.9728pt>
 File: images/htl.jpeg Graphic file (type jpg)
 <use images/htl.jpeg>
 Package pdftex.def Info: images/htl.jpeg  used on input line 58.
 (pdftex.def)             Requested size: 85.35826pt x 40.98218pt.
-<images/htl_allgemein.jpg, id=290, 770.88pt x 337.26pt>
+<images/htl_allgemein.jpg, id=286, 770.88pt x 337.26pt>
 File: images/htl_allgemein.jpg Graphic file (type jpg)
 <use images/htl_allgemein.jpg>
 Package pdftex.def Info: images/htl_allgemein.jpg  used on input line 58.
@@ -1453,7 +1453,7 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=398, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=393, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf>
 Package pdftex.def Info: pdf/Formular-printed.pdf  used on input line 7.
@@ -1477,7 +1477,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=401, page=1, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=396, page=1, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 1>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page1 used on input line 7.
@@ -1532,7 +1532,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=427, page=2, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=422, page=2, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 2>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page2 used on input line 8.
@@ -1582,7 +1582,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=439, page=3, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=434, page=3, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 3>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page3 used on input line 9.
@@ -1634,7 +1634,7 @@ st version <1.5> allowed
 pdfTeX warning: pdflatex.exe (file C:/Users/Moritz/Documents/GitHub/Diplomschri
 ft/pdf/Formular-printed.pdf): PDF inclusion: found PDF version <1.7>, but at mo
 st version <1.5> allowed
-<pdf/Formular-printed.pdf, id=446, page=4, 597.55246pt x 845.07724pt>
+<pdf/Formular-printed.pdf, id=441, page=4, 597.55246pt x 845.07724pt>
 File: pdf/Formular-printed.pdf Graphic file (type pdf)
 <use pdf/Formular-printed.pdf, page 4>
 Package pdftex.def Info: pdf/Formular-printed.pdf , page4 used on input line 10
@@ -1777,7 +1777,7 @@ LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 182.
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.tex
 Kapitel 3.
-<images/AblaufdiagrammLevel2.png, id=533, 1304.875pt x 682.55pt>
+<images/AblaufdiagrammLevel2.png, id=528, 1304.875pt x 682.55pt>
 File: images/AblaufdiagrammLevel2.png Graphic file (type png)
 <use images/AblaufdiagrammLevel2.png>
 Package pdftex.def Info: images/AblaufdiagrammLevel2.png  used on input line 17
@@ -1895,16 +1895,6 @@ Kapitel 4.
 
 
 ]
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:58:
- You can't use `macro parameter character #' in horizontal mode.
-l.58 ...n, die Entwicklern erlauben, Skripte in C#
-                                                   oder
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-
 Overfull \hbox (5.80417pt too wide) in paragraph at lines 76--81
 \T1/cmr/m/n/10.95 aus ver-schie-de-nen Schlüs-sel-ele-men-ten, dar-un-ter Sze-n
 en, Ga-me-Ob-jects, Kom-po-nen-ten, Skrip-
@@ -1937,7 +1927,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 240--242
 
  []
 
-<images/Level2Hirarchy.png, id=606, 286.06876pt x 313.77225pt>
+<images/Level2Hirarchy.png, id=601, 286.06876pt x 313.77225pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 245.
@@ -2828,61 +2818,61 @@ ge-legt mit-tels \T1/cmr/m/it/10.95 Quaternion.Euler(-
  []
 
 [25]
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2898,136 +2888,132 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:572
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:579
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.572 ...tyle=csharp, caption={}, label=code:init]
+l.579 ...tyle=csharp, caption={}, label=code:init]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 572.
+Package csquotes Info: Input encoding change on input line 579.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 577--578
-
- []
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3043,282 +3029,136 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:580
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:591
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.580 ...=csharp, caption={}, label=code:variable]
+l.591 ...=csharp, caption={}, label=code:variable]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 580.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 585--586
-
- []
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@temp.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \@tempa.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@malias.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@temp.
-<to be read again> 
-                   $
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@malias.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@require.
-<to be read again> 
-                   $
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2023/02/27 1.9 listings language file
-)
-(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2023/02/27 1.9 listings language file
-)
-(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2023/02/27 1.9 listings language file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \@err@                             
-                                    .
-<to be read again> 
-                   $
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-The following languages weren't loadable:
-    ,c##$
-This may cause errors in the sequel.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@malias.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@temp.
-<to be read again> 
-                   $
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Illegal parameter number in definition of \lst@malias.
-<to be read again> 
-                   }
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:588
-: Package Listings Error: language c## undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.588 ...e=csharp, caption={}, label=code:dynamic]
-                                                  
-The language is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 588.
+Package csquotes Info: Input encoding change on input line 591.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 ) [26]
-Underfull \hbox (badness 10000) in paragraph at lines 637--640
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
 
  []
 
-[27]
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3334,136 +3174,136 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:652
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:599
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.652 ...csharp, caption={}, label=code:backtrack]
+l.599 ...e=csharp, caption={}, label=code:dynamic]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 652.
+Package csquotes Info: Input encoding change on input line 599.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 694--695
+) [27]
+Underfull \hbox (badness 10000) in paragraph at lines 648--651
 
  []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3479,78 +3319,77 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:697
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:663
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.697 ...=csharp, caption={}, label=code:maxgroup]
+l.663 ...csharp, caption={}, label=code:backtrack]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[28]
-Package csquotes Info: Input encoding change on input line 697.
- (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+Package csquotes Info: Input encoding change on input line 663.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
+) [28]
 Underfull \hbox (badness 10000) in paragraph at lines 705--706
 
  []
@@ -3559,7 +3398,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3569,7 +3408,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3579,7 +3418,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3589,7 +3428,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3599,7 +3438,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3609,7 +3448,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3630,7 +3469,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
                                     .
 <to be read again> 
                    $
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3643,7 +3482,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 The following languages weren't loadable:
     ,c##$
@@ -3653,7 +3492,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3663,7 +3502,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3673,7 +3512,7 @@ C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:708
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3687,7 +3526,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.708 ...e=csharp, caption={}, label=code:convert]
+l.708 ...=csharp, caption={}, label=code:maxgroup]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3696,65 +3535,65 @@ Package csquotes Info: Input encoding change on input line 708.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 718--719
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
 
  []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3770,84 +3609,229 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:721
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:719
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.721 ...le=csharp, caption={}, label=code:return]
+l.719 ...e=csharp, caption={}, label=code:convert]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 721.
+Package csquotes Info: Input encoding change on input line 719.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 724--725
+Underfull \hbox (badness 10000) in paragraph at lines 729--730
 
  []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:727
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@temp.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \@tempa.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@malias.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@temp.
+<to be read again> 
+                   $
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@malias.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@require.
+<to be read again> 
+                   $
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2023/02/27 1.9 listings language file
+)
+(c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2023/02/27 1.9 listings language file
+)
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \@err@                             
+                                    .
+<to be read again> 
+                   $
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Package Listings Error: Couldn't load requested language.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+The following languages weren't loadable:
+    ,c##$
+This may cause errors in the sequel.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@malias.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@temp.
+<to be read again> 
+                   $
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Illegal parameter number in definition of \lst@malias.
+<to be read again> 
+                   }
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:732
+: Package Listings Error: language c## undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.732 ...le=csharp, caption={}, label=code:return]
+                                                  
+The language is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 732.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 735--736
+
+ []
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:738
 : Undefined control sequence.
-l.727 ...n wird in diesem Abschnitt auf die \texit
+l.738 ...n wird in diesem Abschnitt auf die \texit
                                                   {PLACEHOLDES} Funktion des
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3855,9 +3839,9 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:731
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:742
 : Undefined control sequence.
-l.731 ...textit{KnapsackInventoryValue} des \texit
+l.742 ...textit{KnapsackInventoryValue} des \texit
                                                   {KnapsackScript.cs} eingeg...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3865,61 +3849,62 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+[29]
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -3935,80 +3920,80 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:735
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:746
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.735 ...le=csharp, caption={}, label=code:aufruf]
+l.746 ...le=csharp, caption={}, label=code:aufruf]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 735.
+Package csquotes Info: Input encoding change on input line 746.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [29]
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:751
+)
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:762
 : Undefined control sequence.
-l.751 ...er gewonnen. Anderenfalls wird dem \texit
+l.762 ...er gewonnen. Anderenfalls wird dem \texit
                                                   {infoMesh} der aktuelle We...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4016,61 +4001,61 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \@tempa.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@require.
 <to be read again> 
                    $
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -4086,78 +4071,78 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \@err@                             
                                     .
 <to be read again> 
                    $
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Package Listings Error: Couldn't load requested language.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 The following languages weren't loadable:
     ,c##$
 This may cause errors in the sequel.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
                    $
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Illegal parameter number in definition of \lst@malias.
 <to be read again> 
                    }
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:755
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:766
 : Package Listings Error: language c## undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.755 ...arp, caption={}, label=code:ownInventory]
+l.766 ...arp, caption={}, label=code:ownInventory]
                                                   
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 755.
+Package csquotes Info: Input encoding change on input line 766.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 ) [30]
-Overfull \hbox (3.87924pt too wide) in paragraph at lines 803--806
+Overfull \hbox (3.87924pt too wide) in paragraph at lines 814--817
 [][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
 m-ple-men-tier-te Knappsack-Algorithmus
  []
@@ -4359,7 +4344,7 @@ L3 programming layer <2023-11-09>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: D973268B92833B85117473D112FABE6D;10385.
+(rerunfilecheck)             Checksum: 528514165A762985F11E9A1162052EF4;10326.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -4371,9 +4356,9 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  33907 strings out of 474267
- 607339 string characters out of 5751464
- 2361558 words of memory out of 5000000
- 54881 multiletter control sequences out of 15000+600000
+ 607343 string characters out of 5751464
+ 2404558 words of memory out of 5000000
+ 54880 multiletter control sequences out of 15000+600000
  579199 words of font info for 84 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2333b,2714s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -4393,10 +4378,10 @@ onts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1
 i1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
 <c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (47 pages, 1727078 bytes).
+pdf (47 pages, 1727644 bytes).
 PDF statistics:
- 1224 PDF objects out of 1440 (max. 8388607)
- 1094 compressed objects within 11 object streams
- 455 named destinations out of 1000 (max. 500000)
- 654 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1221 PDF objects out of 1440 (max. 8388607)
+ 1091 compressed objects within 11 object streams
+ 456 named destinations out of 1000 (max. 500000)
+ 646 words of extra memory for PDF output out of 10000 (max. 10000000)
 

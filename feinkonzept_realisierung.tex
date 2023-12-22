@@ -55,7 +55,7 @@ effiziente Organisation von Ressourcen wie Modelle, Texturen und Audio-Dateien. 
 Schlüsselrolle in der Strukturierung und Verwaltung umfangreicher Projekte zu.
 
 \subsubsection{Programmierung und Skripterstellung}
-Der Unity-Editor integriert leistungsstarke Programmierfunktionen, die Entwicklern erlauben, Skripte in C# oder
+Der Unity-Editor integriert leistungsstarke Programmierfunktionen, die Entwicklern erlauben, Skripte in C-Sharp oder
 JavaScript zu verfassen. Die Implementierung von Logik, Interaktionen und Funktionalitäten erfolgt durch die
 Integration von Skripten in GameObjects und Szenen. Die Echtzeitansicht von Codeänderungen unterstützt einen
 iterativen Entwicklungsprozess.
@@ -236,7 +236,7 @@ Zusätzlich wird die optimale Lösung für das Problem ermittelt.
 Insgesamt bietet dieses Unity Level für die HoloLens 2 eine interaktive und visuelle Erfahrung,
 bei der die Benutzer das Knapsack-Problem nicht nur verstehen, sondern auch praktisch anwenden können.
 
-\subsection{Aufbau von dem Knapsack-Problem Level}
+\subsection{Aufbau von dem Knapsack-Problem Level im Unity Editor}
 In diesem Abschnitt wird darauf eingegangen wie eine Szene im Unity Editor aufgebaut ist und wie diese
 Grundsätzlich funktionieren. \\
 
@@ -362,7 +362,7 @@ Hier eine kurze Übersicht:
 \subsection{Platzieren des Inventars}
 In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse des \textit{AnchorScript.cs} beschrieben. Dieses Script
 implementiert das Platzieren des 3D Objektes des Inventars auf einem Tisch und kümmert sich zusätzlich
-um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels.
+um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels zu versichern.
 
 \subsubsection{Startverzögerung}
 \begin{lstlisting}[style=csharp, caption={}, label=code:Start]
@@ -433,11 +433,11 @@ void Update()
     \item \textbf{Suche nach dem am kürzest entfernten AR-Plane:} Nachdem das Raycasting abgeschlossen ist, wird anschließend die
     \textbf{FindClosestPlane(hits)} Funktion mit allen zuvor gespeicherten hits aufgerufen.
     \item \textbf{Zeiterfassung für die Blickzeit:} Jeden Frame wird die Variable \textit{timeLookedAtPlane} um die aktuelle
-    verstriche Zeit \textbf{float timeLookedAtPlane = Time.time - lookStartTime} aktuallisiert.
+    verstriche Zeit \text{Time.time - lookStartTime} aktuallisiert.
     \item \textbf{Platzieren des Objekts bei ausreichender Blickzeit:} Wenn die \textit{timeLookedAtPlane} die \textit{requiredLookTime}
     übersteigt wird anschließend die Funktion \textit{PlaceObjectOnDesk(selectedDeskPlane)} mit dem ausgewählten Plane
     ausgeführt um das Inventar zu platzieren. Zusätzlich wird die Variable \textit{objectPlaced = true} gesetzt um aus der \textit{Update()}
-    Funktion zu kommen und die Überprüfungen somit zu stoppen.//
+    Funktion zu kommen und die Überprüfungen somit zu stoppen.
 \end{enumerate}
 Diese \textit{Lebenszyklusmethode} wird so lange ausgeführt, bis das Script beendet und somit das Inventar samt dem Info-Objekt
 platziert wurde.
@@ -535,11 +535,10 @@ In diesem Abschnitt wird genauer auf das InventarController Script eingegangen u
 
 %Hier Code einfügen hihi
 
-\subsection{Knapsack-Algorithmus}
+\subsection{Knapsack Algorithmus Definition}
 Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die
 Unterschiede der beiden möglichen Algorithmen erläutert. Außerdem wird darauf eingegangen, warum er so wichtig ist
-und in welchen Anwendungen er zum Einsatz kommt. Zudem wird das \textit{KnapsackScript.cs} besprochen, welches
-diesen Algorithmus implementiert, um den maximal erreichbaren Wert und die optimale Lösung zu finden.
+und in welchen Anwendungen er zum Einsatz kommt.
 
 Der Knapsack-Algorithmus ist ein häufig verwendetes Werkzeug in der Informatik, um das Problem der optimalen
 Ressourcenallokation zu lösen. Dieses Problem tritt auf, wenn eine begrenzte Menge an Ressourcen so effizient wie
@@ -568,15 +567,27 @@ Ressourcenmanagement und Netzwerkoptimierung. Beispielsweise kann er verwendet w
 Transport von Gütern mit begrenzten Kapazitäten zu planen oder in der Finanzplanung, um das Portfolio von
 Investitionen zu optimieren.
 
+\subsection{Knapsack Algorithmus Implementierung}
+Der folgende Abschnitt beschreibt das \textit{KnapsackScript.cs} und den darin geschriebenen Code für die Umsetzung des
+dynamischen Knapsack-Algorithmus in C-Sharp unter Verwendung von Unity. Die Implementierung umfasst den Funktionsaufruf, die
+Initialisierung der Variablen für den Algorithmus, den eigentlichen Algorithmus, das Backtracking zur
+Identifizierung der ausgewählten Gegenstände für die perfekte Lösung, die Berechnung der Gruppengröße, die Konvertierung
+der temporären Liste in ein 2D-Array, die Rückgabe des Gesamtwerts, sowie die Darstellung der perfekten Lösung und die
+Berechnung des eigenen Inventars.
+
 \subsubsection{Funktionsaufruf}
 \begin{lstlisting}[style=csharp, caption={}, label=code:init]
 int maxValue = KnapsackMaxValue(out usedItems, out int coveredCapacity);
 int inventoryValue = -1;
 maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
 \end{lstlisting}
-\textbf{Erklärung:} Hier wird die Funktion aufgerufen und dem textMesh \textbf{maxMesh} wird dieser Wert zugewiesen um dem User diesen Wert darzustellen.\\
+\textbf{Erklärung:} In diesem Codeabschnitt erfolgt der Aufruf der Funktion \textit{KnapsackMaxValue}. Die beiden
+\textit{out}-Parameter (\textit{usedItems} und \textit{coveredCapacity}) dienen dazu, Werte aus der Funktion
+herauszugeben, und werden nach dem Funktionsaufruf mit den berechneten Werten aktualisiert. Der Rückgabewert
+\textit{maxValue} enthält den maximal erreichbaren Wert des Rucksacks. Dieser Wert wird dann im TextMesh \textit{maxMesh}
+dargestellt, um dem Benutzer die Information über den maximal erreichbaren Wert anzuzeigen.
 
-\subsubsection{Variablen Initialisierung}
+\subsubsection{Initialisierung der Variablen für den Algorithmus}
 \begin{lstlisting}[style=csharp, caption={}, label=code:variable]
 int n = items.Count;
 int[,] dp = new int[n + 1, capacity + 1];
@@ -723,11 +734,11 @@ return dp[n, capacity];
 \end{lstlisting}
 \textbf{Erklärung:} Gibt den Gesamtwert des besten Rucksacks zurück.\\
 
-\subsection{Darstellung der perfekten Lösung}
+\subsubsection{Darstellung der perfekten Lösung}
 Um die perfekt Lösung nach der Berechnung erfolgreich darzustellen wird in diesem Abschnitt auf die \texit{PLACEHOLDES} Funktion des
 \textit{KnapsackScript.cs} eingegangen um die errechnete Lösung nach dem drücken des \textit{SolveButton} anzugeigen
 
-\subsection{Berechnen des eigenen Inventars}
+\subsubsection{Berechnen des eigenen Inventars}
 In diesem Abschnitt wird auf die Funktion \textit{KnapsackInventoryValue} des \texit{KnapsackScript.cs} eingegangen. Diese Funktion
 berechnet das Inventar Value des selbst gebauten Inventars.
 
