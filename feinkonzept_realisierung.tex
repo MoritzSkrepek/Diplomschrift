@@ -11,6 +11,58 @@ Der Unity-Editor ist eine leistungsstarke integrierte Entwicklungsumgebung (IDE)
 für die Erstellung von 2D-, 3D-, Augmented Reality (AR) und Virtual Reality (VR) Anwendungen und Spielen. Er wird von
 Unity Technologies entwickelt und ist die Hauptplattform für die Entwicklung von Unity-basierten Projekten.
 
+\section{Objektdesign mittels Blender}
+\subsection{Rendering und Optimierung für AR}
+Bei der Erstellung von 3D-Modellen für Augmented Reality (AR) ist die Optimierung entscheidend, um eine reibungslose
+Erfahrung auf Geräten wie der Hololens 2 zu gewährleisten. In Blender können verschiedene Techniken angewendet werden,
+um die Modelle für AR zu optimieren.\\
+\\
+Eine dieser Techniken ist die Polygonreduktion, bei der die Anzahl der Polygone in den Modellen reduziert wird, um die
+Belastung für die Hardware zu verringern. Blender bietet Werkzeuge wie den Decimate Modifier, um die Anzahl der Polygone
+effizient zu reduzieren, ohne die visuelle Qualität stark zu beeinträchtigen. Es ist essentiell, von Anfang an eine
+Modellierungspraxis mit geringer Polygonanzahl zu berücksichtigen. Ein erfahrener Modellierer kann identische Figuren
+mit reduziertem Polygonaufwand im Vergleich zu einem Anfänger erstellen, aufgrund seines fundierten Wissens über die
+Modellierung von Formen.\\
+\\
+Bei der Texturenoptimierung sollte auf die Größe und Qualität der Texturen geachtet werden, da übermäßig große Texturen
+die Leistung beeinträchtigen können. Blender ermöglicht die Anpassung von Texturauflösung und -komprimierung. Im Verlauf
+der Texturierung wurde die Hololens mehrmals in Verbindung mit den Texturen integriert, um sicherzustellen, dass keine
+signifikanten Leistungseinbußen auftreten. Wenn Beeinträchtigungen festgestellt wurden, wurden Anpassungen vorgenommen,
+indem die Auflösung oder die Reflexionsstufen modifiziert wurden.\\
+\\
+Es ist empfehlenswert, verschiedene Detailstufen zu implementieren, insbesondere wenn sich der Betrachter von einem
+Modell entfernt. Dies kann erreicht werden, indem verschiedene Modellversionen mit unterschiedlichen Polygonanzahlen
+erstellt werden. \textbf{(hab ich nicht gemacht, vielleicht mach ichs aber noch deswegen lass ich das stehen)}
+
+\subsection{Export- und Integrationsprozess}
+Die nahtlose Integration von Blender-Modellen in AR-Entwicklungsumgebungen ist entscheidend. Es sollten folgende
+Aspekte berücksichtigt werden:
+\begin{itemize}
+    \item \textbf{Dateiformate}\\
+    Blender unterstützt einige Dateiformate für den Export, aber da wir Unity nutzen, haben wir uns für Filmbox (FBX)
+    entschieden. Das FBX-Dateiformat (Filmbox) ist ein proprietäres Dateiformat, das von Autodesk entwickelt
+    wurde. Es dient dem Austausch von 3D-Modellen, Animationen, Texturen und anderen Szenendaten zwischen verschiedenen
+    3D-Anwendungen. FBX speichert Informationen über geometrische Formen, Materialien, Animationen, Kameras und
+    Lichtquellen in einer hierarchischen Struktur.
+
+    Das FBX-Format basiert auf einer offenen Architektur, die es ermöglicht, komplexe 3D-Szenen mit verschiedenen
+    Softwareanwendungen zu teilen. Es unterstützt dabei nicht nur die Geometrie und Materialien, sondern auch Animationen
+    und andere wichtige Parameter. FBX verwendet eine hierarchische Struktur aus sogenannten 'Nodes', die verschiedene
+    Elemente der 3D-Szene repräsentieren.
+
+    FBX-Dateien können sowohl binäre als auch ASCII-Formate haben. Das binäre Format ist kompakter und speichert die
+    Daten in einem für Maschinen optimierten Binärformat. Im Gegensatz dazu ist das ASCII-Format besser lesbar für
+    Menschen und erleichtert die Handbearbeitung von Dateien.
+
+    \item \textbf{Koordinatensysteme}\\
+    Vor und während der Modellierung wurde oft geprüft, ob die Modelle eine sinnvolle Größenrelation zueinander haben.
+    Zudem wurden alle Objekte am Ursprungspunkt und in dieselbe Richtung modelliert, um eine einheitliche Sammlung an
+    fertigen Modellen zu erhalten und Verwirrungen zu vermeiden.
+
+\end{itemize}
+
+\subsection{Blender-Add-Ons und Plugins}
+
 \section{Hauptmenu}
 Das Hauptmenü dient als Implementierung des Basic UI/UX Systems. Nach umfassender Recherche und internen
 Abstimmungen im Team haben wir uns für die Umsetzung einer freibeweglichen Menüleiste entschieden, wie in
