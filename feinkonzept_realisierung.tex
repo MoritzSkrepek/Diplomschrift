@@ -1,4 +1,29 @@
-\usepackage{graphicx}\chapter{Feinkonzept und Realisierung}
+\setcounter{secnumdepth}{4}
+\lstdefinestyle{csharp}{
+    language=C#,
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{green!40!black},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{gray},
+    numbers=left,
+    stepnumber=1,
+    numbersep=5pt,
+    backgroundcolor=\color{white},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,
+    rulecolor=\color{black},
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=false,
+    title=\lstname,
+    escapeinside={\%*}{*)},
+morekeywords={var},
+}
+
+\chapter{Feinkonzept und Realisierung}
 
 \section{Entwicklungsumgebungen}
 \subsection{Visual Studio 2022}
@@ -36,32 +61,48 @@ erstellt werden. \textbf{(hab ich nicht gemacht, vielleicht mach ichs aber noch 
 
 \subsection{Export- und Integrationsprozess}
 Die nahtlose Integration von Blender-Modellen in AR-Entwicklungsumgebungen ist entscheidend. Es sollten folgende
-Aspekte berücksichtigt werden:
-\begin{itemize}
-    \item \textbf{Dateiformate}\\
-    Blender unterstützt einige Dateiformate für den Export, aber da wir Unity nutzen, haben wir uns für Filmbox (FBX)
-    entschieden. Das FBX-Dateiformat (Filmbox) ist ein proprietäres Dateiformat, das von Autodesk entwickelt
-    wurde. Es dient dem Austausch von 3D-Modellen, Animationen, Texturen und anderen Szenendaten zwischen verschiedenen
-    3D-Anwendungen. FBX speichert Informationen über geometrische Formen, Materialien, Animationen, Kameras und
-    Lichtquellen in einer hierarchischen Struktur.
+Aspekte berücksichtigt werden:\\
+\\
+\textbf{Dateiformat}\\
+Blender unterstützt einige Dateiformate für den Export, aber da wir Unity nutzen, haben wir uns für Filmbox (FBX)
+entschieden. Das FBX-Dateiformat (Filmbox) ist ein proprietäres Dateiformat, das von Autodesk entwickelt
+wurde. Es dient dem Austausch von 3D-Modellen, Animationen, Texturen und anderen Szenendaten zwischen verschiedenen
+3D-Anwendungen. FBX speichert Informationen über geometrische Formen, Materialien, Animationen, Kameras und
+Lichtquellen in einer hierarchischen Struktur.\\
+\\
+Das FBX-Format basiert auf einer offenen Architektur, die es ermöglicht, komplexe 3D-Szenen mit verschiedenen
+Softwareanwendungen zu teilen. Es unterstützt dabei nicht nur die Geometrie und Materialien, sondern auch Animationen
+und andere wichtige Parameter. FBX verwendet eine hierarchische Struktur aus sogenannten 'Nodes', die verschiedene
+Elemente der 3D-Szene repräsentieren.\\
+\\
+FBX-Dateien können sowohl binäre als auch ASCII-Formate haben. Das binäre Format ist kompakter und speichert die
+Daten in einem für Maschinen optimierten Binärformat. Im Gegensatz dazu ist das ASCII-Format besser lesbar für
+Menschen und erleichtert die Handbearbeitung von Dateien.\\
+\\
+\textbf{Koordinatensysteme}\\
+Vor und während der Modellierung wurde oft geprüft, ob die Modelle eine sinnvolle Größenrelation zueinander haben.
+Zudem wurden alle Objekte am Ursprungspunkt und in dieselbe Richtung modelliert, um eine einheitliche Sammlung an
+fertigen Modellen zu erhalten und Verwirrungen zu vermeiden.
 
-    Das FBX-Format basiert auf einer offenen Architektur, die es ermöglicht, komplexe 3D-Szenen mit verschiedenen
-    Softwareanwendungen zu teilen. Es unterstützt dabei nicht nur die Geometrie und Materialien, sondern auch Animationen
-    und andere wichtige Parameter. FBX verwendet eine hierarchische Struktur aus sogenannten 'Nodes', die verschiedene
-    Elemente der 3D-Szene repräsentieren.
-
-    FBX-Dateien können sowohl binäre als auch ASCII-Formate haben. Das binäre Format ist kompakter und speichert die
-    Daten in einem für Maschinen optimierten Binärformat. Im Gegensatz dazu ist das ASCII-Format besser lesbar für
-    Menschen und erleichtert die Handbearbeitung von Dateien.
-
-    \item \textbf{Koordinatensysteme}\\
-    Vor und während der Modellierung wurde oft geprüft, ob die Modelle eine sinnvolle Größenrelation zueinander haben.
-    Zudem wurden alle Objekte am Ursprungspunkt und in dieselbe Richtung modelliert, um eine einheitliche Sammlung an
-    fertigen Modellen zu erhalten und Verwirrungen zu vermeiden.
-
-\end{itemize}
 
 \subsection{Blender-Add-Ons und Plugins}
+Es wurden einige Blender-Add-Ons und Plug-Ins verwendet, insbesondere aber das Plug-In LoopTools \footnote{Blender \cite{LoopTools}}
+und das Import-Export Add-On Images as Planes \footnote{Blender \cite{Images as Planes}} verwendet.
+
+\subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
+
+Das Add-On Looptools hat sich bei der Optimierung der Topologie und der Oberflächen meiner 3D-Modelle als sehr nützlich
+erwiesen. Durch die Verwendung von Werkzeugen wie Circle konnte ich komplexere geometrische Formen aus einer einfachen Oberfläche
+extrahieren und gleichzeitig sicherstellen, dass die Topologie meiner Modelle sowohl ästhetisch ansprechend als auch für die weitere
+Bearbeitung geeignet ist.
+
+\subsubsection{Images as Planes: Effiziente Integration von Texturen}
+
+Das Add-On Images as Planes ermöglichte die nahtlose Integration von Texturen in meine 3D-Modelle. Durch die direkte
+Umwandlung von Bildern in ebene Flächen konnte ich realistische Texturen auf meine Modelle anwenden. Die Effizienz dieses
+Plug-ins trug dazu bei, den Arbeitsprozess zu beschleunigen und die Gesamtqualität meiner erstellten Objekte zu verbessern.
+Mit dem Plugin war es außerdem möglich, Vorschaubilder für die Modellierung hinter meinem Objekt zu platzieren, um das
+reale Objekt näher und realistischer zu modellieren.
 
 \section{Hauptmenu}
 Das Hauptmenü dient als Implementierung des Basic UI/UX Systems. Nach umfassender Recherche und internen
@@ -121,9 +162,26 @@ Debug.Log("Button clicked. Loading scene: " + sceneToLoad);
 \end{lstlisting}
 
 \subsection{UI/UX}
-Mittels verwendung des UX-Tools-Plug-Ins für Mixed Reality wird
-mit bereitgestellten Knöpfen, Oberflächen, Comboboxen, etc...
-die Benutzeroberfläche erstellt.
+\textbf{Blickzentrierung und Interaktionsmodelle}\\
+Die Menüleiste bewegt sich auf Hüfthöhe mit dem Benutzer mit und ermöglicht so eine natürliche und intuitive Interaktion.
+Der Benutzer kann die Bedienelemente einfach durch Blickkontakt auswählen, was die Benutzerfreundlichkeit erhöht und die
+Bedienung der Anwendung erleichtert.\\
+\\
+\textbf{Konsistenz im Design}\\
+Die klare Gestaltung der Buttons mit aussagekräftigen Symbolen trägt zur Konsistenz und Benutzerfreundlichkeit bei.
+Eine einheitliche visuelle Sprache erleichtert es dem Benutzer, die Funktionen der Buttons zu verstehen, selbst wenn er
+sie zum ersten Mal verwendet.\\
+\\
+\textbf{Kontextsensitive Funktionen}\\
+Der Debug-Button bietet erweiterte Funktionen, die speziell für Entwickler relevant sind. Diese kontextsensitiven
+Optionen sind wichtig für die Fehlersuche und tragen dazu bei, die Entwicklungszeit zu optimieren. Gleichzeitig bleibt
+die Benutzeroberfläche für den Endbenutzer sauber und übersichtlich.\\
+\\
+\textbf{Anpassungsmöglichkeiten für den Benutzer}\\
+Die Option, das Menü mit dem Pin-Button zu fixieren und mit der Grab-Bar frei zu bewegen, gibt dem Benutzer die
+Kontrolle über die Positionierung des Menüs. Diese Anpassungsmöglichkeiten tragen dazu bei, die Anwendung an
+verschiedene Nutzerszenarien anzupassen und die individuellen Bedürfnisse der Benutzer zu berücksichtigen.
+Feedback und Animationen
 
 \section{Ping Level}
 In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier

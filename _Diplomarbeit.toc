@@ -38,42 +38,44 @@
 \contentsline {subsection}{\numberline {3.3.1}Kriterien}{8}{subsection.52}%
 \contentsline {subsection}{\numberline {3.3.2}Game Engine}{8}{subsection.53}%
 \contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{9}{subsection.54}%
-\contentsline {subsubsection}{MRTK3}{9}{section*.55}%
-\contentsline {subsubsection}{Microsoft OpenXR Plugin}{9}{section*.57}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}MRTK3}{9}{subsubsection.55}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}Microsoft OpenXR Plugin}{9}{subsubsection.57}%
 \contentsline {subsection}{\numberline {3.3.4}Modellierungsprogramm}{10}{subsection.59}%
-\contentsline {subsubsection}{Wie funktioniert Blender im Allgemeinen?}{10}{section*.60}%
-\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{13}{chapter.61}%
-\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{13}{section.62}%
-\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{13}{subsection.63}%
-\contentsline {subsection}{\numberline {4.1.2}Unity Editor}{13}{subsection.64}%
-\contentsline {section}{\numberline {4.2}Objektdesign mittels Blender}{13}{section.65}%
-\contentsline {subsection}{\numberline {4.2.1}Rendering und Optimierung für AR}{13}{subsection.66}%
-\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{14}{subsection.67}%
+\contentsline {subsubsection}{\numberline {3.3.4.1}Wie funktioniert Blender im Allgemeinen?}{10}{subsubsection.60}%
+\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{12}{chapter.61}%
+\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{12}{section.62}%
+\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{12}{subsection.63}%
+\contentsline {subsection}{\numberline {4.1.2}Unity Editor}{12}{subsection.64}%
+\contentsline {section}{\numberline {4.2}Objektdesign mittels Blender}{12}{section.65}%
+\contentsline {subsection}{\numberline {4.2.1}Rendering und Optimierung für AR}{12}{subsection.66}%
+\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{13}{subsection.67}%
 \contentsline {subsection}{\numberline {4.2.3}Blender-Add-Ons und Plugins}{14}{subsection.68}%
-\contentsline {section}{\numberline {4.3}Hauptmenu}{14}{section.69}%
-\contentsline {subsection}{\numberline {4.3.1}Beschreiben der Buttons}{14}{subsection.71}%
-\contentsline {subsection}{\numberline {4.3.2}Laden der Level}{15}{subsection.72}%
-\contentsline {subsection}{\numberline {4.3.3}UI/UX}{16}{subsection.87}%
-\contentsline {section}{\numberline {4.4}Ping Level}{16}{section.88}%
-\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{16}{subsection.89}%
-\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{16}{subsection.90}%
-\contentsline {section}{\numberline {4.5}Knappsack Problem Level}{16}{section.91}%
-\contentsline {subsection}{\numberline {4.5.1}Spatial Anchors}{16}{subsection.92}%
-\contentsline {subsection}{\numberline {4.5.2}Managers}{17}{subsection.94}%
-\contentsline {subsection}{\numberline {4.5.3}QR-Code Tagging}{19}{subsection.196}%
-\contentsline {subsection}{\numberline {4.5.4}QR-Code Tracking}{19}{subsection.197}%
-\contentsline {subsection}{\numberline {4.5.5}Knappsack-Algorithmus}{19}{subsection.198}%
-\contentsline {subsection}{\numberline {4.5.6}Unit-Tests}{19}{subsection.199}%
-\contentsline {section}{\numberline {4.6}Performance}{19}{section.200}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{20}{chapter.201}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{20}{section.202}%
-\contentsline {section}{\numberline {5.2}Abnahme}{20}{section.203}%
-\contentsline {section}{\numberline {5.3}Zukunft}{20}{section.204}%
-\contentsline {chapter}{\numberline {A}Mockups}{21}{appendix.205}%
-\contentsline {section}{\numberline {A.1}UI/UX}{21}{section.206}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{21}{section.207}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{21}{section.208}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{21}{section.209}%
-\contentsline {chapter}{\numberline {B}Literatur}{22}{appendix.210}%
-\contentsline {chapter}{Index}{24}{appendix.210}%
-\contentsline {chapter}{Literatur}{24}{appendix.210}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Looptools: Optimierung von Topologie und Oberflächen}{14}{subsubsection.71}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Images as Planes: Effiziente Integration von Texturen}{14}{subsubsection.72}%
+\contentsline {section}{\numberline {4.3}Hauptmenu}{14}{section.73}%
+\contentsline {subsection}{\numberline {4.3.1}Beschreiben der Buttons}{15}{subsection.75}%
+\contentsline {subsection}{\numberline {4.3.2}Laden der Level}{15}{subsection.76}%
+\contentsline {subsection}{\numberline {4.3.3}UI/UX}{15}{subsection.91}%
+\contentsline {section}{\numberline {4.4}Ping Level}{16}{section.92}%
+\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{16}{subsection.93}%
+\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{16}{subsection.94}%
+\contentsline {section}{\numberline {4.5}Knappsack Problem Level}{16}{section.95}%
+\contentsline {subsection}{\numberline {4.5.1}Spatial Anchors}{17}{subsection.96}%
+\contentsline {subsection}{\numberline {4.5.2}Managers}{17}{subsection.98}%
+\contentsline {subsection}{\numberline {4.5.3}QR-Code Tagging}{19}{subsection.200}%
+\contentsline {subsection}{\numberline {4.5.4}QR-Code Tracking}{19}{subsection.201}%
+\contentsline {subsection}{\numberline {4.5.5}Knappsack-Algorithmus}{19}{subsection.202}%
+\contentsline {subsection}{\numberline {4.5.6}Unit-Tests}{20}{subsection.203}%
+\contentsline {section}{\numberline {4.6}Performance}{20}{section.204}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{21}{chapter.205}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{21}{section.206}%
+\contentsline {section}{\numberline {5.2}Abnahme}{21}{section.207}%
+\contentsline {section}{\numberline {5.3}Zukunft}{21}{section.208}%
+\contentsline {chapter}{\numberline {A}Mockups}{22}{appendix.209}%
+\contentsline {section}{\numberline {A.1}UI/UX}{22}{section.210}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{22}{section.211}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{22}{section.212}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{22}{section.213}%
+\contentsline {chapter}{\numberline {B}Literatur}{23}{appendix.214}%
+\contentsline {chapter}{Index}{25}{appendix.214}%
+\contentsline {chapter}{Literatur}{25}{appendix.214}%
