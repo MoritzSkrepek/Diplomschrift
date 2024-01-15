@@ -340,52 +340,48 @@ Kurve von einem PC zum anderen läuft.
 
 \section{Knapsack Problem Level}
 Im zweiten Level dieses Projekts steht das Knapsack-Problem im Fokus.
-Ziel ist es, bbgbinen Programmieralgorithmus mithilfe von Augmented Reality
-(AR) darzustellen. Dieser Algorithmus wird nicht nur in der Höheren
+Ziel ist es, diesen Programmieralgorithmus mithilfe von Augmented Reality
+(AR) visuell darzustellen. Dieser Algorithmus wird nicht nur in der Höheren
 Technischen Lehranstalt (HTL) vermittelt, sondern die Benutzer sollen
 ihn auch selbst programmieren können.
 
 Der Level beginnt damit, dass der Benutzer aufgefordert wird, auf eine
 horizontale, flache Oberfläche zu schauen. Diese Oberfläche kann ein Tisch,
 der Boden oder ähnliches sein. Der Benutzer wird dann gebeten, für eine bestimmte
-vorgegebene Zeit auf diese Oberfläche zu schauen. Nach dieser Zeit werden das Inventar,
-der Solve-Button und drei Informationslabels auf dieser Oberfläche platziert.
+vorgegebene Zeit auf diese Oberfläche zu schauen. Nach Ablauf der vorgeschriebenen
+Zeit wird dann das Inventar als auch das \textit{infoObjekt} platziert.
 
 Das Inventar wird durch ein 3x3 zweidimensionales Gitter repräsentiert, ähnlich
 wie das Inventar in einem Spiel. Zusätzlich befinden sich auf der Oberfläche 11 Bauklötze,
 die mit QR-Codes versehen sind. Diese Bauklötze repräsentieren die Items, die der Benutzer
 in das Inventar legen kann. Durch Aufheben und Nahheranhalten an die HoloLens wird der QR-Code gescannt.
-Dadurch werden das dazugehörige 3D-Modell, der Wert und das Gewicht des Items angezeigt.
+Dadurch werden das dazugehörige 3D-Modell, der Wert, Gewicht und der Name des Items angezeigt.
 Diese Informationen sind für den Benutzer wichtig, um das Gewicht des Items und
 seinen Einfluss auf das Inventar zu verstehen.
 
-Nach dem Scannen kann der Benutzer einen beliebigen Bauklotz in das Inventar platzieren.
-Wenn der Benutzer wissen möchte, welchen Wert seine Lösung hat, kann er auf den Solve-Button
-klicken. Dies löst den Knapsack-Algorithmus aus, der den Wert des eigenen Inventars berechnet.
-Zusätzlich wird die optimale Lösung für das Problem ermittelt.
+Wenn der Bauklotz erfolgreich platziert wurde, wird automatisch der Knapsack-Algorithmus für die perfekte Lösung,
+und die Berechnung des eigenen Inventars gestartet um stets den aktuellen Wert zu sehen.
 
 Insgesamt bietet dieses Unity Level für die HoloLens 2 eine interaktive und visuelle Erfahrung,
 bei der die Benutzer das Knapsack-Problem nicht nur verstehen, sondern auch praktisch anwenden können.
 
-\subsection{Aufbau von dem Knapsack-Problem Level im Unity Editor}
-In diesem Abschnitt wird darauf eingegangen wie eine Szene im Unity Editor aufgebaut ist und wie diese
-Grundsätzlich funktionieren. \\
+\subsection{Knapsack-Problem Level Hirarchie}
+In dem folgendem Abschnitt wird darauf eingegangen wie eine Szene in dem Unity Editor aufgebaut ist und wie diese Grundsätzlich
+funktionieren.\\
 
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.8]{images/Level2Hirarchy}
-    \caption{Hierarchie des Knapsack-Problem Levels im Unity Editor.}
+    \caption{Knapsack-Problem Levels Hirarchie Unity Editor.}
     \label{fig:level2_hierarchy}
 \end{figure}
 
-In dieser Abbildung ist der Aufbau und Inhalt der 2. Szene\footnote{Unity \cite{Scene}} also dem Knapsack-Problem Level
-zu sehen. Wie zu sehen ist besteht die Szene für dieses Level aus mehreren wichtigen Unity Game Objekten. Darunter
-sind die folgenden:
+In dieser Abbildung ist die Hirarchie und der Inhalt des Knapsack-Problem Levels / Szene\footnote{Unity \cite{Scene}} 2 zu sehen.
+Wie zu sehen ist, besteht die Szene aus vielen wichtigen Komponenten die zusammenspielen, um das gewünschte Ergebnis
+zu erzielen. Darunter sind folgende Objekte:
 
 \begin{itemize}
     \item \textbf{level-2:} Die Scene in der Alle Unity-Game-Objekte enthalten sind.
-    \item \textbf{MRTK XR Rig:} Das Objekt in dem die Hauptkomponenten wie z.B.: \textit{Main Camera, MRTK Interaction
-    Manager, Alle Manager, etc... } für die AR-Applikation enthalten sind.
     \item \textbf{AR Default Plane:} In der Augmented Reality (AR)-Entwicklung bezieht sich ein Plane\footnote{Unity \cite{Plane}} normalerweise
     auf eine erkannte horizontale Fläche in der realen Welt, auf der virtuelle Objekte platziert werden können. Diese
     Flächen können zum Beispiel Tische, Böden oder andere ebene Oberflächen sein. Das Erkennen und Tracking von Planes
@@ -393,23 +389,32 @@ sind die folgenden:
     \item \textbf{ARSession:} In Unity und AR Foundation bezieht sich die "ARSession" im Allgemeinen auf die
     Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
     \item \textbf{InventoryPlacement:} Ist ein Game Objekt, dem das \textit{Knapsackscript.cs} Script zugewiesen ist und
-    bei Szenen-Start aktiv ist. Dieses Game Objekt kümmert sich darum, dass zu Beginn der Szene für drei Sekunden lang
-    nach Planes gescanned wird. Nach Abschluss dieser 3 Sekunden wird anschließend dann das Inventar auf dem Plane auf
-    das der User schaut platziert.
-    \item \textbf{InventoryController:} Das Game Objekt, dem das \textit{InventoryController.cs} Script zugewiesen ist
-    und nach Abschluss des InventoryPlacement Scripts aktiviert wird. Dieses Game Objekt wird jeden Frame ausgelöst
-    und überprüft ob ein mit QR-Code versehenes Item in dem 3D Inventar platziert wurde.
-    \item \textbf{KnapsackAlgo:} Ist das Game Objekt, dem das \textit{KnapsackAlgo.cs} Script zugewiesen ist und bei
-    drücken des \textit{SolveButtons} aktiviert. Bei aktivierung dieses Scripts wird der Knapsack Algorithmus
-    ausgeführt und somit der maximale Wert, der Wert des selbst zusammengestellten Inventars und die Perfekte Lösung
-    errechnet.
-    \item \textbf{InfoObject:} Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird
-    bei Ausführung des InventoryPlacement Scripts neben dem Inventar platziert. Es beinhaltet einen Button, der bei Knopfdruck
-    das \textit{KnapsackAlgo} Game Objekt aktiviert, und 3 verschiedene TextMeshPros\footnote{Unity \cite{TextMesh}} die
-    für die Ausgabe von Infos zuständig sind.
-    Außerdem ist bei diesem GameObjekt gut die Strukturierung von Game Objekten in Unity zu sehen. Die drei TextMeshPros
-    und der Button sind dem \textit{InfoObject} untergeordnet was bedeutet, dass diese vier Game Objekte \textit{Children}
-    von dem \textit{InfoObject} sind. Das übergeordnete Game Objekt wird hier dann als \textit{Parent} bezeichnet.
+    bei Szenen-Start aktiv ist. Dieses Game Objekt kümmert sich darum, dass das Inventar richtig in der Augmented Reality
+    Welt platziert wird.
+    \item \textbf{InventoryController:} Das Game Objekt, dem das \textit{InventorryController.cs} Script zugewiesen ist
+    und nach Abschluss des InventoryPlacement Scripts aktiviert wird. Dieses Objekt ist die Hauptschnittstelle
+    zwischen den QR-Codes und dem 3D Inventar Modell und kümmert sich darum neue QR-Codes innerhalb des Modells zu erkennen
+    und zu verspeichern.
+    \item \textbf{KnapsackAlgo:} GameObjekt, dem das \textit{KnapsackAlgo.cs} Script zugewiesen ist und bei platzieren
+    eines QR-Codes innerhalb des Inventars auslöst, den maximalen erreichbaren Wert, die perfekte Lösung und den Wert des
+    selbst erstellten Inventars berechnet.
+    \item \textbf{bestSolutionPrefab:} Dieses Objekt ist das Prefab\footnote{Unity \cite{Prefab}} für die Perfekte Lösung.
+    Diesem Objekt ist das 3D Modell des Inventars untergeordnet und diesem Inventar sind Prefabs für QRCodes untergeordnet.
+    In jeder Zelle des Inventars ist ein eigenes QRCode Prefab um anschließend die berechnete perfekte Lösung darstellen zu können.
+    Diesem Objekt ist das \textit{PerfectSolutionVisualizer.cs} Script zugewiesen, dass sich darum kümmert die perfekte Lösung
+    anzuzeigen.
+    \begin{figure}[h]
+              \centering
+              \includegraphics[scale=0.8]{images/bestSolPref}
+              \caption{bestSolutionPrefab Objekt Hirarchie.}
+              \label{fig:bestSolutionPrefab_hirarchie}
+    \end{figure}
+    \item \textbf{InfoObject:} Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird bei platzieren
+    des Inventars neben dem Inventar mitplatziert. Bei den Objekten handelt es sich hierbei um den \textit{BestSolutionButton},
+    der bei Knopfdruck einer der mehreren besten Lösungen visuell veranschaulicht, und drei \textit{TextMeshes}, um die
+    berechneten Werte, und auch Informationen anzuzeigen.
+    Zusätzlich ist hier zusehen, dass diese 4 Objekte dem \textit{infoObject} untergeordnet sind, was bedeutet, dass diese Objekte
+    \textit{children} von dem \textit{infoObejct} sind. Das übergeordnete OBjekt wird hier dann als \textit{parent} bezeichnet.
 \end{itemize}
 
 In der Abbildung ist zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
@@ -490,10 +495,14 @@ und zuletzt darzustellen.
 Hier eine kurze Übersicht:
 %TODO: Übersicht einfügen
 
-\subsection{Platzieren des Inventars}
-In diesem Abschnitt wird die \textit{PlaceObjectOnLookedAtDesk} Klasse des \textit{AnchorScript.cs} beschrieben. Dieses Script
-implementiert das Platzieren des 3D Objektes des Inventars auf einem Tisch und kümmert sich zusätzlich
-um das aktivieren und deaktivieren sämtlicher Game Objekte um den weiteren Verlauf des Spiels zu versichern.
+\subsection{Anchor Script}
+Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
+Kamera erforderlich, um die physische Umgebung zu erfassen. Durch die Analyse der erfassten Daten können Planes
+identifiziert werden, die entscheidend sind, um eine exakte Platzierung von Inventargegenständen zu erreichen.
+
+In diesem Abschnitt wird die Klasse \textit{PlacedObjectOnLookedAtDesk} des Scripts \textit{AnchorScript.cs} behandelt.
+Es werden sämtliche darin enthaltenen Elemente detailliert erläutert, einschließlich der Vorgehensweise und der
+Interaktionen zwischen den Funktionen, um ein umfassendes Verständnis zu vermitteln.
 
 \subsubsection{Startverzögerung}
 \begin{lstlisting}[style=csharp, caption={}, label=code:Start]
