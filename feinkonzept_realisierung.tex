@@ -986,37 +986,187 @@ void UpdateGrid()
 Die vorliegende Funktion, \texttt{UpdateGrid()}, ist maßgeblich für die Überwachung und Verwaltung von neu hinzugefügten
 oder entfernten Items im Inventar verantwortlich. Zu Beginn eines jeden Frames wird das \texttt{activeQRObjects}-Dictionary
 gesperrt, um Thread-Sicherheit zu gewährleisten. Anschließend erfolgt eine Iteration durch jedes Element in diesem Dictionary
-mittels einer \texttt{foreach}-Schleife.
+mittels einer \texttt{foreach}-Schleife.\\
 
 Innerhalb dieser Schleife wird für jedes Objekt die zugehörige \texttt{QRCode}-Komponente extrahiert, und die Weltposition
 des Objekts wird durch Transformation der lokalen Position des QR-Codes unter Berücksichtigung der Transformation des
-übergeordneten Objekts berechnet.
+übergeordneten Objekts berechnet.\\
 
 Die Hauptüberprüfung erfolgt daraufhin, ob das aktuelle Item nicht null ist und ob seine Weltposition innerhalb der durch
 \texttt{inventoryBounds} definierten Grenzen liegt. Wenn diese Bedingungen erfüllt sind, wird das Item als "hinzugefügt"
-betrachtet.
+betrachtet.\\
 
 Im weiteren Verlauf wird überprüft, ob die ID des Items bereits in der Menge der verarbeiteten Items (\texttt{processedItems})
 vorhanden ist. Falls nicht, wird überprüft, ob das Hinzufügen des Items das aktuelle Gesamtgewicht (\texttt{currWeight})
-zusammen mit dem Gewicht des Items unter die maximale Kapazität (\texttt{cap}) bringt.
+zusammen mit dem Gewicht des Items unter die maximale Kapazität (\texttt{cap}) bringt.\\
 
 Wenn diese Bedingungen erfüllt sind, wird das Item in die Menge der verarbeiteten Items aufgenommen, eine Nachricht wird
 auf Leer gesetzt, und die Position des Items im zweidimensionalen Array \texttt{idGrid} wird aktualisiert. Zusätzlich
 wird die Anzeige des Inventars durch den Aufruf der Methode \texttt{UpdateInfoMesh} des \texttt{knapsackScript}
 aktualisiert, und das aktuelle Gewicht des Inventars wird entsprechend angepasst. Schließlich wird ein Ereignis
 (\texttt{GridUpdate}) ausgelöst, um andere Teile des Systems über die Aktualisierung des Grids zu informieren.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{images/itemAdded}
+    \caption{Item zu Inventar hinzugefügt}
+    \label{fig:controller_itemAdded}
+\end{figure}
 
-Falls das Gewicht des Items die Kapazität überschreiten würde, wird eine Fehlermeldung gesetzt und die Aktualisierung
-des Grids unterbleibt.
+In Abbildung \ref{fig:controller_itemAdded} ist der Zustand nach dem Hinzufügen eines Items dargestellt. In Zelle 7 wurde
+das Item mit der \textit{ID: 1} hinzugefügt. Nach dem Hinzufügen des Items wird der \textit{Knapsack Algorithmus} ausgelöst
+und anschließend die beiden TextMehes aktualisiert, indem in dem oberen TextMesh der maximal erreichbare Wert angezeigt wird
+und in dem unteren der Wert des selbst zusammengestellten Inventars.\\
+
+Nachdem das Item im Inventar platziert wurde sieht nun dass \textit{idGrid} folgendermaßen aus:
+\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
+int idGrid = [[0, 0, 0],
+              [0, 0, 0],
+              [1, 0, 0]];
+\end{lstlisting}\\
+
+Das Hashset \textit{processedItems} sieht nach platzieren des Items dann so aus:
+\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
+processedItems = [1];
+\end{lstlisting}\\
+
+Sollte das Gewicht des hinzugefügten Items die Kapazität überschreiten, wird eine Fehlermeldung generiert, und die
+Aktualisierung des Grids wird unterbunden. Die Fehlermeldung und der resultierende Zustand des Grids sind in Abbildung
+\ref{fig:controller_itemToHeavy} dargestellt.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{images/itemToHeavy}
+    \caption{Item zu schwer}
+    \label{fig:controller_itemToHeavy}
+\end{figure}
+
+In Abbildung \ref{fig:controller_itemToHeavy} sind vier verschiedene Items im Inventar enthalten, mit den IDs
+\textit{1, 3, 5, 9}. Die Reihenfolge ihres Hinzufügens zum Inventar war 1, 5, 9, 3. Das Item mit der ID 9 wurde jedoch
+aufgrund seines zu hohen Gewichts nicht zu \textit{idGrid} und \textit{processedItems} hinzugefügt. Gleichzeitig wird
+eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren, dass das zuletzt hinzugefügte Item zu schwer für das
+aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid} und \textit{processedItems} unverändert und enthalten
+daher nicht die ID 9. Im Hintergrund sieht daher das \textit{idGrid} dementsprechend folgendermaßen aus:
+\begin{lstlisting}[style=csharp, caption={Item zu schwer für das Inventar}, label=code:controller_savedIDs]
+int idGrid = [[0, 0, 0],
+              [5, 0, 0],
+              [1, 3, 0]];
+\end{lstlisting}\\
+Das HashSet \textit{processedItems} sieht nach platzieren des Items dann so aus:
+\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
+processedItems = [1, 5, 9];
+\end{lstlisting}\\
+Sobald der Benutzer dieses Item wieder aus dem Inventar entfernt wird die Fehlermeldung nicht mehr angezeigt und es kann
+ein passendes Item hinzugefügt werden.\\
 
 Im alternativen Zweig der Hauptbedingung wird überprüft, ob das Item außerhalb der Inventargrenzen liegt, aber zuvor
 als verarbeitet markiert wurde und weiterhin in \texttt{processedItems} und \texttt{idGrid} vorhanden ist. Dies deutet
 darauf hin, dass das Item aus dem Inventar entfernt wurde. In diesem Fall wird die ID des Items aus \texttt{processedItems}
 und \texttt{idGrid} entfernt, und das Gewicht des Inventars wird entsprechend angepasst. Auch hier wird ein
-\texttt{GridUpdate}-Ereignis ausgelöst.
+\texttt{GridUpdate}-Ereignis ausgelöst.\\
 
-Schließlich erfolgt der Aufruf der Methode \texttt{PrintGrid()}, die den aktuellen Zustand des Inventargrids ausgibt.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.6]{images/itemEntfernt}
+    \caption{Item aus Inventar entfernt}
+    \label{fig:controller_itemEntfernt}
+\end{figure}
 
+In Abbilding \ref{fig:controller_itemEntfernt} ist der aktuelle Zustand eines selbst zusamengestellten Inventars zu sehen. In
+diesem Inventar sind die beiden Items mit den IDs \textit{5, 3} enthalten. Im Hintergrund sieht das \textit{idGrid} jedoch so aus:
+\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDitemEntferntGrid]
+int idGrid = [[0, 0, 0],
+              [5, 0, 0],
+              [1, 3, 0]];
+\end{lstlisting}\\
+Und das HashSet \textit{processedItems} sieht so aus:
+\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDItemEntferntHash]
+processedItems = [1, 5, 3];
+\end{lstlisting}\\
+Anhand der Abbildung \ref{fig:controller_itemEntfernt} und den beiden Codeabschnitten \ref{code:controller_savedIDitemEntferntGrid}
+und \ref{code:controller_savedIDItemEntferntHash} ist aber zu sehen, dass hier noch die ID \textit{1} gespeichert ist.
+Dies bedeutet, dass das Item mit der ID \textit{1} in einem vorherigen Zustand im Inventar platziert wurde aber jetzt außerhalb
+der Bounds des Iventars liegt. Anhand dieser Erkenntnis wird anschließend diese ID aus dem \textit{idGrid} und \textit{processedItems}
+entfernt und das \textit{currWeight} angepasst. Diese sehen nach der Entfernung dieser ID folgendermaßen aus:
+\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDgg]
+int idGrid = [[0, 0, 0],
+              [5, 0, 0],
+              [0, 3, 0]];
+\end{lstlisting}
+\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedIDID]
+processedItems = [5, 3];
+\end{lstlisting}\\
+Schließlich erfolgt der Aufruf der Funktion \textbf{PrintGrid()}, die Testweise für das Debugging enthalten ist
+um aus den Logs herauslesen zu können, wie das \textit{idGrid} aufgebaut ist und welche Items enthalten sind und ob
+die Berechnung und Platzierung richtig abgelaufen ist.
+
+\subsubsection{Berechnen der Position im idGrid anhand der Koordinaten}
+In Codeabschnitt \ref{code:controller_check} wird bei platzieren eines Items innerhalb des Inventars die Funktion
+\textbf{CalculateGridPosition()} aufgerufen. Diese Funktion kümmert sich darum, dass anhand der gegebenen Koordinaten des
+Items innerhalb des Inventar Modells ein Vektor Berechnet wird an welcher Stelle dieses Item im \textit{idGrid} liegt.
+Diese Funktion sieht folgendermaßen aus:
+\begin{lstlisting}[style=csharp, caption={Stelle im idGrid anhand Koordinaten berechnen}, label=code:controller_calcPos]
+private Vector2 CalculateGridPosition(Vector3 objectPosition)
+{
+    float cellWidth = inventoryBounds.size.x / numColumns;
+    float cellHeight = inventoryBounds.size.z / numRows;
+    int col = Mathf.FloorToInt((objectPosition.x - inventoryBounds.min.x) / cellWidth);
+    int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
+    return new Vector2(row, col);
+}
+\end{lstlisting}\\
+Die Funktion beginnt damit, dass sie sich anhand der Länge der Bounds in X- und Y-Achse die Länge einer einzelnen Zelle
+berechnet. Die Variable \texttt{cellWidth} repräsentiert die Breite jeder Zelle, und \texttt{cellHeight} repräsentiert
+die Höhe jeder Zelle im Inventar-Raster.
+
+Anschließend werden die 2D-Koordinaten der Position des übergebenen Objekts im Inventar-Raster berechnet. Dazu wird
+zuerst die X-Koordinate des Objekts relativ zur minimalen X-Grenze der Inventar-Bounds genommen und durch die Breite
+einer Zelle (\texttt{cellWidth}) geteilt. Dieser Wert wird dann auf die nächste ganze Zahl abgerundet
+(\texttt{Mathf.FloorToInt}) und repräsentiert die Spalte (\texttt{col}) im Raster.
+
+Ebenso wird die Z-Koordinate des Objekts relativ zur maximalen Z-Grenze der Inventar-Bounds genommen und durch die Höhe
+einer Zelle (\texttt{cellHeight}) geteilt. Auch dieser Wert wird auf die nächste ganze Zahl abgerundet und repräsentiert
+die Zeile (\texttt{row}) im Raster.
+
+Abschließend werden die berechneten Zeilen- und Spaltenwerte als 2D-Vektor (\texttt{Vector2}) zurückgegeben, der die
+Position des Objekts im Inventar-Raster repräsentiert.
+
+\subsubsection{Hilfsfunktionen}
+Im Codeabschnitt \ref{code:controller_check} werden die Funktionen \textbf{RemoveItem} und \textbf{ContainsID} für die
+Entfernung eines Items aus dem \textit{idGrid} und die Überprüfung, ob eine bestimmte Item-ID im \textit{idGrid}
+vorhanden ist, verwendet. Die Funktion \textbf{RemoveItem} hat den Zweck, ein Item anhand seiner ID aus dem \textit{idGrid} zu entfernen.
+Die Funktion \textbf{ContainsID} wird verwendet, um zu überprüfen, ob eine bestimmte Item-ID bereits im \textit{idGrid}
+vorhanden ist. Die Implementierungen dieser Funktionen sind entsprechend:
+\begin{lstlisting}[style=csharp, caption={ID aus idGrid entfernen}, label=code:controller_removeID]
+private void RemoveItem(int id)
+{
+    for (int i = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numColumns; j++)
+        {
+            if (idGrid[i, j] == id)
+            {
+                idGrid[i, j] = 0;
+                return;
+            }
+        }
+    }
+}
+\end{lstlisting}\\
+\begin{lstlisting}[style=csharp, caption={Ueberpruefen ob ID in idGrid enthalten ist}, label=code:controller_contains ID]
+private bool ContainsId(int id)
+{
+    for (int i = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numColumns; j++)
+        {
+            if (idGrid[i, j] == id)
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+\end{lstlisting}\\
 
 \subsection{Knapsack Algorithmus Definition}
 Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die
