@@ -937,7 +937,7 @@ Nach Abschluss des Codes aus Codeabschnitt \ref{code:controller_start} wird ansc
 Abschnitt genau eingegangen wird.\\
 
 \subsubsection{Funktion für neue Items innerhalb des Bounds}
-\begin{lstlisting}[style=csharp, caption={Code für überprüfen neuer Items im Inventar}, label=code:controller_check]
+\begin{lstlisting}[style=csharp, caption={Code fuer ueberpruefen neuer Items im Inventar}, label=code:controller_check]
 void UpdateGrid()
 {
     lock (activeQRObjects)
@@ -983,28 +983,40 @@ void UpdateGrid()
     }
 }
 \end{lstlisting}
-Diese Funktion ist Hauptverantworlich für die Überprüfung ob ein neues Item \textit{hinzugefügt} oder \textit{entfernt}
-wurde. Zu beginn von jedem Frame wird das \textit{activeQRObjects} gelocked, weil auf dieses Object mehrere Threads zugreifen.
-Anschließend wird anhand einer \textit{for-Schleife} durch jedes der Objekte in dem \textit{activeQRObjects Dictionary}
-durchiteriert und von diesem Item wird mittels der \textbf{.GetComponent<QRCode>()} die QRCode Komponente dieses Objekts extrahiert
-und gespeichert. Durch die Speicherung der Position des QR-Codes im Raum muss die lokale Position in eine Welt Position umgerechnet
-werden, dass die Koordinaten mit dem des Inventar Objekts übereinstimmen und miteinander interagieren können.
+Die vorliegende Funktion, \texttt{UpdateGrid()}, ist maßgeblich für die Überwachung und Verwaltung von neu hinzugefügten
+oder entfernten Items im Inventar verantwortlich. Zu Beginn eines jeden Frames wird das \texttt{activeQRObjects}-Dictionary
+gesperrt, um Thread-Sicherheit zu gewährleisten. Anschließend erfolgt eine Iteration durch jedes Element in diesem Dictionary
+mittels einer \texttt{foreach}-Schleife.
 
-Nach Abschluss dieses Teils beginnt der Hauptteil um zu überprüfen ob ein Item jetzt \textit{hinzugefügt} oder \textit{entfernt}
-wurde. Die erste \textit{if-Abfrage} überpüft ob das aktuelle Item nicht null ist und zusätzlich auch noch ob \textbf{.Contains()}
-was nur bedeutet, dass die Koordinaten des Items innerhalbs der Bounds von dem Inventar sind. Wenn dass der Fall ist
-bedeutet das, dass ein Item hinzugefügt wird.
+Innerhalb dieser Schleife wird für jedes Objekt die zugehörige \texttt{QRCode}-Komponente extrahiert, und die Weltposition
+des Objekts wird durch Transformation der lokalen Position des QR-Codes unter Berücksichtigung der Transformation des
+übergeordneten Objekts berechnet.
 
-Als nächstes wird dann überprüft ob die \textit{ID} des aktuellen Items in dem \textit{processedItems} \textit{HashSet}
-vorhanden ist oder nicht. Wenn die aktuelle ID noch nicht in dem \textit{HashSet} vorhanden ist, bedeutet das, dass das
-aktuelle Item noch nicht verarbeitet und somit auch noch nicht hinzugefügt wurde.
+Die Hauptüberprüfung erfolgt daraufhin, ob das aktuelle Item nicht null ist und ob seine Weltposition innerhalb der durch
+\texttt{inventoryBounds} definierten Grenzen liegt. Wenn diese Bedingungen erfüllt sind, wird das Item als "hinzugefügt"
+betrachtet.
 
-Wenn das der Fall ist wird anschließend überprüft ob das aktuelle Gewicht (Das Gewicht aller momentan vorhandenen Items im
-Inventar) + Das Gewicht des neuen Items kleiner ist als die \textit{Capacity}. Wenn dies der Fall ist bedeutet das, dass das
-Item jetzt hinzugefügt werden kann. Hirzu wird es zu beginn in das \textit{HashSet} hinzugefügt um zu verspeichern, dass dieses
-Item verarbeitet wurde. Für das visuelle für den Benutzer wird anschließend eine \textit{message} definiert die in diesem
-Fall leer ist. Um dann anhand der Koordinaten innerhalb des 3D Inventar Modells die Position des Items innerhalb eines \textit{2D int arrays}
-zu bestimmen wird die \textbf{CalculateGridPosition()} mit der Position des Items aufgerufen. 
+Im weiteren Verlauf wird überprüft, ob die ID des Items bereits in der Menge der verarbeiteten Items (\texttt{processedItems})
+vorhanden ist. Falls nicht, wird überprüft, ob das Hinzufügen des Items das aktuelle Gesamtgewicht (\texttt{currWeight})
+zusammen mit dem Gewicht des Items unter die maximale Kapazität (\texttt{cap}) bringt.
+
+Wenn diese Bedingungen erfüllt sind, wird das Item in die Menge der verarbeiteten Items aufgenommen, eine Nachricht wird
+auf Leer gesetzt, und die Position des Items im zweidimensionalen Array \texttt{idGrid} wird aktualisiert. Zusätzlich
+wird die Anzeige des Inventars durch den Aufruf der Methode \texttt{UpdateInfoMesh} des \texttt{knapsackScript}
+aktualisiert, und das aktuelle Gewicht des Inventars wird entsprechend angepasst. Schließlich wird ein Ereignis
+(\texttt{GridUpdate}) ausgelöst, um andere Teile des Systems über die Aktualisierung des Grids zu informieren.
+
+Falls das Gewicht des Items die Kapazität überschreiten würde, wird eine Fehlermeldung gesetzt und die Aktualisierung
+des Grids unterbleibt.
+
+Im alternativen Zweig der Hauptbedingung wird überprüft, ob das Item außerhalb der Inventargrenzen liegt, aber zuvor
+als verarbeitet markiert wurde und weiterhin in \texttt{processedItems} und \texttt{idGrid} vorhanden ist. Dies deutet
+darauf hin, dass das Item aus dem Inventar entfernt wurde. In diesem Fall wird die ID des Items aus \texttt{processedItems}
+und \texttt{idGrid} entfernt, und das Gewicht des Inventars wird entsprechend angepasst. Auch hier wird ein
+\texttt{GridUpdate}-Ereignis ausgelöst.
+
+Schließlich erfolgt der Aufruf der Methode \texttt{PrintGrid()}, die den aktuellen Zustand des Inventargrids ausgibt.
+
 
 \subsection{Knapsack Algorithmus Definition}
 Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die

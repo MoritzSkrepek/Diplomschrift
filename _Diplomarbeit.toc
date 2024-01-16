@@ -86,31 +86,33 @@
 \contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{34}{subsubsection.336}%
 \contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{34}{subsubsection.344}%
 \contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{35}{subsubsection.352}%
-\contentsline {subsection}{\numberline {4.5.5}Knapsack Algorithmus Definition}{35}{subsection.358}%
-\contentsline {subsubsection}{\numberline {4.5.5.1}Problemstellung}{35}{subsubsection.359}%
-\contentsline {subsubsection}{\numberline {4.5.5.2}Algorithmus}{35}{subsubsection.360}%
-\contentsline {subsubsection}{\numberline {4.5.5.3}Anwendungen}{36}{subsubsection.361}%
-\contentsline {subsection}{\numberline {4.5.6}Knapsack Algorithmus Implementierung}{36}{subsection.362}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Funktionsaufruf}{36}{subsubsection.363}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Initialisierung der Variablen für den Algorithmus}{36}{subsubsection.368}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Dynamischer Knapsack Algorithmus}{36}{subsubsection.373}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Backtracking, um ausgewählte Items und perfekt Lösung zu finden}{38}{subsubsection.409}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Gruppengröße berechnen}{38}{subsubsection.442}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Temporäres Array umwandeln und das usedItems Array befüllen}{39}{subsubsection.450}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Rückgabewert}{39}{subsubsection.460}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Darstellung der perfekten Lösung}{39}{subsubsection.463}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}Berechnen des eigenen Inventars}{39}{subsubsection.464}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Funktionsaufruf}{39}{subsubsection.465}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Code für die Berechnung des eigenen Inventars}{40}{subsubsection.480}%
-\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{41}{subsection.517}%
-\contentsline {section}{\numberline {4.6}Performance}{41}{section.518}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{42}{chapter.519}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{42}{section.520}%
-\contentsline {section}{\numberline {5.2}Abnahme}{42}{section.521}%
-\contentsline {section}{\numberline {5.3}Zukunft}{42}{section.522}%
-\contentsline {chapter}{\numberline {A}Mockups}{43}{appendix.523}%
-\contentsline {section}{\numberline {A.1}UI/UX}{43}{section.524}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{43}{section.525}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{43}{section.526}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{43}{section.527}%
-\contentsline {chapter}{\numberline {B}Literatur}{44}{appendix.528}%
+\contentsline {subsubsection}{\numberline {4.5.4.7}Update Funktion}{35}{subsubsection.358}%
+\contentsline {subsubsection}{\numberline {4.5.4.8}Funktion für neue Items innerhalb des Bounds}{35}{subsubsection.364}%
+\contentsline {subsection}{\numberline {4.5.5}Knapsack Algorithmus Definition}{37}{subsection.410}%
+\contentsline {subsubsection}{\numberline {4.5.5.1}Problemstellung}{37}{subsubsection.411}%
+\contentsline {subsubsection}{\numberline {4.5.5.2}Algorithmus}{37}{subsubsection.412}%
+\contentsline {subsubsection}{\numberline {4.5.5.3}Anwendungen}{38}{subsubsection.413}%
+\contentsline {subsection}{\numberline {4.5.6}Knapsack Algorithmus Implementierung}{38}{subsection.414}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Funktionsaufruf}{38}{subsubsection.415}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Initialisierung der Variablen für den Algorithmus}{38}{subsubsection.420}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Dynamischer Knapsack Algorithmus}{38}{subsubsection.425}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Backtracking, um ausgewählte Items und perfekt Lösung zu finden}{39}{subsubsection.461}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Gruppengröße berechnen}{40}{subsubsection.494}%
+\contentsline {subsubsection}{\numberline {4.5.6.6}Temporäres Array umwandeln und das usedItems Array befüllen}{41}{subsubsection.502}%
+\contentsline {subsubsection}{\numberline {4.5.6.7}Rückgabewert}{41}{subsubsection.512}%
+\contentsline {subsubsection}{\numberline {4.5.6.8}Darstellung der perfekten Lösung}{41}{subsubsection.515}%
+\contentsline {subsubsection}{\numberline {4.5.6.9}Berechnen des eigenen Inventars}{41}{subsubsection.516}%
+\contentsline {subsubsection}{\numberline {4.5.6.10}Funktionsaufruf}{41}{subsubsection.517}%
+\contentsline {subsubsection}{\numberline {4.5.6.11}Code für die Berechnung des eigenen Inventars}{42}{subsubsection.532}%
+\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{43}{subsection.569}%
+\contentsline {section}{\numberline {4.6}Performance}{43}{section.570}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{44}{chapter.571}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{44}{section.572}%
+\contentsline {section}{\numberline {5.2}Abnahme}{44}{section.573}%
+\contentsline {section}{\numberline {5.3}Zukunft}{44}{section.574}%
+\contentsline {chapter}{\numberline {A}Mockups}{45}{appendix.575}%
+\contentsline {section}{\numberline {A.1}UI/UX}{45}{section.576}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{45}{section.577}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{45}{section.578}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{45}{section.579}%
+\contentsline {chapter}{\numberline {B}Literatur}{46}{appendix.580}%
