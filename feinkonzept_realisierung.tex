@@ -404,10 +404,10 @@ zu erzielen. Darunter sind folgende Objekte:
     Diesem Objekt ist das \textit{PerfectSolutionVisualizer.cs} Script zugewiesen, dass sich darum kümmert die perfekte Lösung
     anzuzeigen.
     \begin{figure}[h]
-              \centering
-              \includegraphics[scale=0.8]{images/bestSolPref}
-              \caption{bestSolutionPrefab Objekt Hirarchie.}
-              \label{fig:bestSolutionPrefab_hirarchie}
+        \centering
+        \includegraphics[scale=0.8]{images/bestSolPref}
+        \caption{bestSolutionPrefab Objekt Hirarchie.}
+        \label{fig:bestSolutionPrefab_hirarchie}
     \end{figure}
     \item \textbf{InfoObject:} Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird bei platzieren
     des Inventars neben dem Inventar mitplatziert. Bei den Objekten handelt es sich hierbei um den \textit{BestSolutionButton},
@@ -495,45 +495,104 @@ und zuletzt darzustellen.
 Hier eine kurze Übersicht:
 %TODO: Übersicht einfügen
 
-\subsection{Anchor Script}
+\subsection{Inventory Placement Game Objekt}
 Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
-Kamera erforderlich, um die physische Umgebung zu erfassen. Durch die Analyse der erfassten Daten können Planes
-identifiziert werden, die entscheidend sind, um eine exakte Platzierung von Inventargegenständen zu erreichen.
+Kamera erforderlich, um die physische Umgebung zu erfassen. Durch die Analyse der erfassten Daten können Ebenen
+identifiziert werden, die entscheidend sind, um eine genaue Platzierung von Inventargegenständen zu erreichen.
 
-In diesem Abschnitt wird die Klasse \textit{PlacedObjectOnLookedAtDesk} des Scripts \textit{AnchorScript.cs} behandelt.
-Es werden sämtliche darin enthaltenen Elemente detailliert erläutert, einschließlich der Vorgehensweise und der
-Interaktionen zwischen den Funktionen, um ein umfassendes Verständnis zu vermitteln.
+In diesem Abschnitt wird das \textit{Inventory Placement} Game Objekt mit dem angehängten \textit{AnchorScript.cs}
+behandelt. Dieses Script enthält die \textbf{PlacedObjectOnLookedAtDesk} Klasse, welche alle Funktionen für das Berechnen
+der Position und Platzierung des Inventars beinhaltet. Diese Funktionen werden in den nächsten Abschnitten detailliert erläutert.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/invPlace_Editor}
+    \caption{inventoryPlacement Objekt im Editor}
+    \label{fig:inventoryPlacement_Editor}
+\end{figure}
+
+Die Abbildung \ref{fig:inventoryPlacement_Editor} zeigt das \textit{inventoryPlacement}-Objekt im Unity Editor. Hier
+können verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten
+im Unity Editor und die angehängte Komponente \textit{AnchorScript.cs}. Zudem sind vordefinierte Werte für bestimmte
+Variablen sichtbar. Diese Variablen umfassen:
+
+\begin{itemize}
+    \item \textbf{Raycast Manager:} Das Game Objekt des ARRaycastManagers aus der Level 2 Szene.
+    \item \textbf{Plane Manager:} Das Game Objekt des ARPlanesManagers aus der Level 2 Szene.
+    \item \textbf{Inventory Object:} Das 3D-Modell des Inventars aus dem Prefab Ordner.
+    \item \textbf{Inventory Controller:} Das Script des InventoryControllers.
+    \item \textbf{QR Codes Manager:} Das Game Objekt des QRCodeManagers aus der Level 2 Szene.
+    \item \textbf{Info Object:} Das Game Objekt des Info-Objekts aus der Level 2 Szene.
+    \item \textbf{Required Look Time:} Die vorgeschriebene Zeit, die der Benutzer auf ein Plane schauen muss, damit das
+    Inventar platziert wird.
+\end{itemize}
+
+Im Unity Editor können die Werte dieser Variablen direkt verändert werden, was Auswirkungen auf die Ausführung des Codes hat.\\
+
+\subsubsection{Klassenvariablen}
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen der PlacedObjectOnLookedAtDesk Klasse}, label=code:anchor_var]
+public ARRaycastManager raycastManager;
+public ARPlaneManager planeManager;
+public GameObject inventoryObject;
+public InventoryController inventoryController;
+public GameObject qrCodesManager;
+public GameObject infoObject;
+public float requiredLookTime = 5.0f;
+public Vector3 objectPosition;
+
+private ARPlane selectedDeskPlane;
+private float lookStartTime = -1f;
+private bool objectPlaced = false;
+private float heightOffset = 0.001f;
+
+private bool canStartScript = false;
+\end{lstlisting}
+
+Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind Teil der \textit{PlaceObjectOnLookedAtDesk} Klasse. Öffentliche
+(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden. Dies
+ermöglicht einen direkten Zugriff auf diese Objekte im Code. Die Vektor-Variable \textit{objectPosition} spielt eine
+entscheidende Rolle für die präzise Platzierung der perfekten Lösung. Die privaten (\textbf{private}) Variablen dienen
+der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.
 
 \subsubsection{Startverzögerung}
-\begin{lstlisting}[style=csharp, caption={}, label=code:Start]
+\begin{lstlisting}[style=csharp, caption={Beginn des Anchor Scripts}, label=code:Start]
 void Start()
 {
     StartCoroutine(DelayedStart());
 }
 \end{lstlisting}
-Zu Begin des \textit{Knapsack-Problem-Levels} wird die \textit{Lebenszyklusmethode} \textbf{Start()} aufgerufen. Diese
-Funktion startet dann den Coroutine \textbf{DelayedStart()}.\\
+Zu Beginn des Levels für das "Knapsack-Problem" wird die Lebenszyklusmethode \textit{Start()} aufgerufen. Diese Funktion
+startet dann die Coroutine \textbf{DelayedStart()}. Die Startverzögerung wird hier verwendet, um dem \textit{ARPlaneManager}
+ausreichend Zeit zu geben, um Ebenen in der Umgebung des Benutzers zu scannen und zu markieren. Dies ist von Bedeutung,
+um eine solide Grundlage für die spätere präzise Platzierung des Inventars zu gewährleisten.\\
 
-\begin{lstlisting}[style=csharp, caption={}, label=code:DelayedStart]
-IEnumerator DelayedStart()
+\begin{lstlisting}[style=csharp, caption={Verzoegerter Start}, label=code:DelayedStart]
+private IEnumerator DelayedStart()
 {
-    yield return new WaitForSeconds(3.0f); // Adjust the delay time as needed.
+    yield return new WaitForSeconds(3.0f);
     canStartScript = true;
 }
 \end{lstlisting}
-Anschließend wird in dieser Funktion eine Verzögerung von 3 Sekunden durchgeführt und anschließend \textit{canStartScript}
-auf true gesetzt. Dies ist deswegen wichtig, weil durch dieses Verzögerte starten, die \textit{Planes} in der Umgebung ohne
-Zwischenwirkung gescannt werden können. Dadurch kann im folgenden Abschnitt die \textit{Lebenszyklusmethode} \textbf{Update()}
-Funktion weiter ausgeführt werden kann.
+In der Funktion \textbf{DelayedStart()} wird eine Verzögerung von 3 Sekunden durchgeführt, bevor \textit{canStartScript}
+auf true gesetzt wird. Diese Verzögerung ermöglicht es dem \textit{ARPlaneManager}, ungestört die Umgebung zu scannen.
+Die Aktivierung von \textit{canStartScript} markiert den Zeitpunkt, ab dem die \textit{Update()} Methode ihre Ausführung
+fortsetzen kann. Dieser gestaffelte Startprozess gewährleistet eine reibungslose Erfassung von AR-Planes und legt somit
+einen soliden Grundstein für die präzise Platzierung von Inventargegenständen in der augmentierten Realität.
 
-\subsubsection{Frame-Aktualisierung um richtiges Plane zu finden}
-\begin{lstlisting}[style=csharp, caption={}, label=code:Update]
+\subsubsection{Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}
+Da in der Umgebung mehrere AR-Planes gescannt und markiert werden, ist es notwendig, ständig zu aktualisieren, welcher
+der markierten und gescannten Planes tatsächlich das beabsichtigte ist. Um dieses Verhalten zu erreichen, wird die
+Lebenszyklusmethode \textit{Update()} verwendet. Diese Methode sorgt dafür, dass stets der gewünschte AR-Plane
+ausgewählt ist. Falls der Benutzer seinen Blick auf einen anderen, näher gelegenen Plane richtet, wird dieser als der
+neue ausgewählte Plane betrachtet.\\
+
+\begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update()
 {
     if (!objectPlaced && canStartScript)
     {
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        // Use Camera.main.transform.forward as the ray direction
+        % Use Camera.main.transform.forward as the ray direction
         if (raycastManager.Raycast(new Ray(Camera.main.transform.position, Camera.main.transform.forward), hits, TrackableType.Planes))
         {
             ARPlane closestPlane = FindClosestPlane(hits);
@@ -542,7 +601,7 @@ void Update()
                 if (selectedDeskPlane == null || selectedDeskPlane != closestPlane)
                 {
                     selectedDeskPlane = closestPlane;
-                    lookStartTime = Time.time; // Start the timer when a new plane is selected.
+                    lookStartTime = Time.time; % Start the timer when a new plane is selected.
                 }
                 float timeLookedAtPlane = Time.time - lookStartTime;
                 if (timeLookedAtPlane >= requiredLookTime)
@@ -563,27 +622,72 @@ void Update()
     }
 }
 \end{lstlisting}
-\textbf{Erklärung:}
-\begin{enumerate}
-    \item \textbf{Bedingte Aktualisierung:} Die \textit{Update()} Funktion wird nur dann weiter ausgeführt, wenn das Inventar
-    Objekt nicht bereits platziert wurde. Wenn das Inventar noch nicht platziert wurde und \textit{canStartScript = true}
-    ergibt dann kann die Funktion weiter fortschreiten.
-    \item \textbf{Raycasting auf Planes:} In jedem Durchlauf dieser Funktion wird immer ein Raycasting durchgeführt und
-    anschließend alle Treffer dieser Raycasts in einem Array verspeichert.
-    \item \textbf{Suche nach dem am kürzest entfernten AR-Plane:} Nachdem das Raycasting abgeschlossen ist, wird anschließend die
-    \textbf{FindClosestPlane(hits)} Funktion mit allen zuvor gespeicherten hits aufgerufen.
-    \item \textbf{Zeiterfassung für die Blickzeit:} Jeden Frame wird die Variable \textit{timeLookedAtPlane} um die aktuelle
-    verstriche Zeit \text{Time.time - lookStartTime} aktuallisiert.
-    \item \textbf{Platzieren des Objekts bei ausreichender Blickzeit:} Wenn die \textit{timeLookedAtPlane} die \textit{requiredLookTime}
-    übersteigt wird anschließend die Funktion \textit{PlaceObjectOnDesk(selectedDeskPlane)} mit dem ausgewählten Plane
-    ausgeführt um das Inventar zu platzieren. Zusätzlich wird die Variable \textit{objectPlaced = true} gesetzt um aus der \textit{Update()}
-    Funktion zu kommen und die Überprüfungen somit zu stoppen.
-\end{enumerate}
-Diese \textit{Lebenszyklusmethode} wird so lange ausgeführt, bis das Script beendet und somit das Inventar samt dem Info-Objekt
-platziert wurde.
+Die \textit{Update()} Methode bildet das Herzstück des AR-Anker-Skripts, das die kontinuierliche Interaktion zwischen
+der realen und augmentierten Realität orchestriert. Der Ablauf beginnt mit einer sorgfältigen Prüfung, ob das
+Inventarobjekt noch nicht platziert wurde (\textit{!objectPlaced}) und ob das Skript gestartet werden kann
+(\textit{canStartScript}). Diese Bedingungen dienen dazu sicherzustellen, dass der Platzierungsprozess nur startet,
+wenn die Voraussetzungen erfüllt sind.\\
+
+\begin{lstlisting}[style=csharp, caption={Raycasting}, label=code:Raycasting]
+List<ARRaycastHit> hits = new List<ARRaycastHit>();
+if (raycastManager.Raycast(new Ray(Camera.main.transform.position, Camera.main.transform.forward), hits, TrackableType.Planes))
+{
+    % Weitere Verarbeitung der Treffer...
+}
+\end{lstlisting}
+Sobald die Startbedingungen erfüllt sind, wird ein Raycasting durchgeführt, um die AR-Planes in der Umgebung zu
+identifizieren. Der Richtungsvektor des Rays wird durch \textit{Camera.main.transform.forward} bestimmt.\\
+
+\begin{lstlisting}[style=csharp, caption={Kürzest entfernte Plane}, label=code:FindClosestPlane]
+ARPlane closestPlane = FindClosestPlane(hits);
+\end{lstlisting}
+Der nächste Schritt beinhaltet die Bestimmung des am kürzesten entfernten AR-Planes durch Aufruf der Funktion
+\textbf{FindClosestPlane(hits)}. Diese Funktion vergleicht die Distanzen aller getroffenen AR-Planes und gibt den
+nächstgelegenen zurück.\\
+
+\begin{lstlisting}[style=csharp, caption={Plane auswählen und timer starten}, label=code:TimeMeasurement]
+if (selectedDeskPlane == null || selectedDeskPlane != closestPlane)
+{
+    selectedDeskPlane = closestPlane;
+    lookStartTime = Time.time; % Starten des Timers, wenn ein neues Plane ausgewählt wird.
+}
+\end{lstlisting}
+Die ausgewählten AR-Plane werden daraufhin miteinander verglichen, und wenn ein neues AR-Plane ausgewählt wird oder der
+aktuelle AR-Plane sich geändert hat, wird die Zeitmessung (\textit{lookStartTime}) gestartet. Diese Zeitmessung erfasst
+die Dauer, für die der Benutzer auf den aktuellen AR-Plane blickt.\\
+
+\begin{lstlisting}[style=csharp, caption={Blickzeit messen}, label=code:TimeUpdate]
+float timeLookedAtPlane = Time.time - lookStartTime;
+\end{lstlisting}
+Die gemessene Blickzeit (\textit{timeLookedAtPlane}) wird in jedem Frame aktualisiert, indem die aktuelle verstrichene
+Zeit seit dem Start des Blicks auf den AR-Plane gemessen wird.\\
+
+\begin{lstlisting}[style=csharp, caption={Platzier-Funktion aufrufen}, label=code:Placement]
+if (timeLookedAtPlane >= requiredLookTime)
+{
+    PlaceObjectOnDesk(selectedDeskPlane);
+    objectPlaced = true;
+}
+\end{lstlisting}
+Wenn die gemessene Blickzeit die erforderliche Blickzeit überschreitet, wird die Funktion
+\textbf{PlaceObjectOnDesk(selectedDeskPlane)} aufgerufen, um das Inventarobjekt auf dem ausgewählten AR-Plane zu
+platzieren. Zusätzlich wird \textit{objectPlaced} auf true gesetzt, um zu signalisieren, dass das Objekt platziert
+wurde und weitere Überprüfungen gestoppt werden sollen.\\
+
+\begin{lstlisting}[style=csharp, caption={Plane null setzen}, label=code:NoPlaneHit]
+else
+{
+    selectedDeskPlane = null;
+}
+\end{lstlisting}
+Falls kein AR-Plane getroffen wurde, wird \textit{selectedDeskPlane} auf null gesetzt, um sicherzustellen, dass keine
+vorherigen Auswahlinformationen beibehalten werden.\\
+
+Dieser Ablauf setzt sich in jedem Frame fort, bis die vorgegebene Blickzeit erreicht ist und somit das Inventarobjekt
+erfolgreich auf dem AR-Plane platziert wurde.\\
 
 \subsubsection{Das am kürzesten entfernte Plane finden}
-\begin{lstlisting}[style=csharp, caption={}, label=code:findclosestplane]
+\begin{lstlisting}[style=csharp, caption={Kürzest entfernte Plane - Funktion}, label=code:findclosestplane]
 ARPlane FindClosestPlane(List<ARRaycastHit> hits)
 {
     ARPlane closestPlane = null;
@@ -604,76 +708,303 @@ ARPlane FindClosestPlane(List<ARRaycastHit> hits)
     return closestPlane;
 }
 \end{lstlisting}
+Die Funktion \textit{FindClosestPlane} durchläuft eine Liste von \textit{ARRaycastHit}-Objekten, die durch den
+Raycasting-Prozess erstellt wurden. Für jedes Trefferobjekt wird der zugehörige AR-Plane über den \textit{planeManager} abgerufen.
+Dann wird die Entfernung von der Kameraposition zum Trefferpunkt des Rays auf dem AR-Plane berechnet.
 
-\textbf{Erklärung:}
-\begin{enumerate}
-    \item \textbf{Variablen Initilaisierung: }Zu Beginn der Funktion wird das \textit{closestPlane} als \textit{null}
-    deklariert und die momentan kürzeste Distanz zu einem Plane wird in der \textit{closestDistance} Variable gespeichert.
-    \item \textbf{Suche nach dem kürzesten AR-Plane:} Anschließend wird mit Hilfe einer \textit{foreach-Schleife} die
-    Liste alle hits durchlaufen. In dieser Schleife wird dann immer das aktuelle AR-Plane anhand der \textit{trackableId}
-    herausgenommen um es im weiteren Funktionsablauf zu bearbeiten.
-    \item \textbf{Berechnung der Distanz:} Anhand des herausgenommenem AR-Plane wird nur die Distanz von diesem Plane zu
-    zu Kamera Position berechnet.
-    \item \textbf{Vergleich der Distanzen:} Der letzte Schritt des Schleifendurchlaufs ist, dass die aktuelle berechnete
-    Distanz mit der davor gespeicherten \textit{closestDistance} verglichen wird. Wenn die Distanz kürzer ist, als die
-    zuvor gespeicherte AR-Plane wird die \texit{closestDistance} überschrieben und die neue kürzeste Distanz wird gespeichert//
-\end{enumerate}
+Die Schleife sucht nach dem am nächsten gelegenen AR-Plane, indem sie die Distanz für jeden Treffer vergleicht.
+Das am nächsten gelegene AR-Plane (\textit{closestPlane}) und die entsprechende Distanz (\textit{closestDistance})
+werden aktualisiert, wenn ein näherer Treffer gefunden wird. Am Ende wird das am nächsten gelegene AR-Plane zurückgegeben.
 
-\subsubsection{Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}
-\begin{lstlisting}[style=csharp, caption={}, label=code:placeobject]
+Diese Funktion wird in der Regel in AR-Anwendungen verwendet, um das AR-Plane zu identifizieren, auf das der Benutzer am
+längsten schaut, bevor eine Aktion ausgeführt wird.\\
+
+\textbf{Beispiel}:
+Angenommen, es existieren drei AR-Planes in der Umgebung des Benutzers und die Liste \textit{hits} enthält folgende
+Trefferpunkte:
+\begin{itemize}
+    \item 1. Trefferpunkt auf Plane A: Entfernung = 2 Meter
+    \item 2. Trefferpunkt auf Plane B: Entfernung = 1 Meter
+    \item 3. Trefferpunkt auf Plane C: Entfernung = 3 Meter
+\end{itemize}
+Während des Durchlaufs durch die Trefferpunkte würde die Funktion \textit{FindClosestPlane} in diesem Beispiel das
+AR-Plane B zurückgeben, da es die kürzeste Distanz von 1 Meter zur Kameraposition hat.\\
+
+\subsubsection{Berechnung der Position und Aktivierung/Deaktivierung sämtlicher Objekte}
+\begin{lstlisting}[style=csharp, caption={Inventar platzier - Funktion}, label=code:placeobject]
 void PlaceObjectOnDesk(ARPlane deskPlane)
 {
     qrCodesManager.SetActive(true);
-    // Calculate the object's position above the center of the plane.
     Vector3 objectPosition = deskPlane.center + Vector3.up * heightOffset;
-    // Calculate the rotation to rotate the object -90 degrees around the x-axis.
     Quaternion objectRotation = Quaternion.Euler(-90f, 0f, 0f);
-    // Instantiate the object with rotation.
     GameObject instantiatedObject = Instantiate(inventoryObject, objectPosition, objectRotation);
-    // Set the scale of the instantiated object.
     instantiatedObject.transform.localScale = new Vector3(20f, 20f, 20f);
-    // Spawn infoGameObject (Two TextMeshes and button for Knapsack Algorithm)
     Vector3 infoObjectPosition = objectPosition - Vector3.forward * 4.415f + Vector3.right * 0.4f;
     infoObject.transform.position = infoObjectPosition;
     infoObject.SetActive(true);
-    // Set the inventoryObject in the InventoryController
     inventoryController.SetInventoryObject(instantiatedObject);
-    // Enable the InventoryController
     inventoryController.gameObject.SetActive(true);
-    // Set the visibility of the planes.
     planeManager.planePrefab.SetActive(false);
-    // Disable this script so it won't run again.
     gameObject.SetActive(false);
 }
 \end{lstlisting}
+Diese Funktion übernimmt mehrere wichtige Aufgaben im Kontext der Augented Reality-Anwendung die den sicheren weiteren
+Ablauf der Appplikation versichert.
 
-\textbf{Erklärung:}
 \begin{enumerate}
-    \item \textbf{Aktivierung von QR-Code Manager:} Zu Beginn dieser Funktion wird der QR-Code Manager aktiviert und
-    somit auch das tracken von QR-Codes.
-    \item \textbf{Berechnung der Objektposition und Rotation:} Anschließend wird von dem ausgewählten AR-Plane die
-    Flächenmitte \textit{objectPosition} berechnet. Zusätzlich wird die Objekt Rotation von diesem Objekt auf der x-Achse
-    festgelegt mittels \textit{Quaternion.Euler(-90f, 0f, 0f)}.
-    \item \textbf{Instantiierung des Objekts:} Nach berechnung der Position und Rotation wird das Objekt jetzt durch
-    die Verwendung der \textit{Instantiate} Funktion instanziiert und skaliert.
-    \item \textbf{Platzierung des infoGameObjects:} Zusätzlich zu dem Inventar-Objekt wird das Position des \textit{Info-Objects},
-    dass aus 2 TextMeshes und 2 Buttons besteht festgelegt und anschließend aktiviert, dass es für den Benutzer sichtbar ist.
-    \item \textbf{Setzen des InventarObjekts im InventoryController:} Das platzierte Inventar-Objekte wird an den \textit{InventoryController}
-    weitergeleitet und dort deklariert, dass auf das selbe Game Objekt zugegriffen wird und die Berechnungen davon stimmen.
-    \item \textbf{Aktivierung des InventoryController:} Nachdem das Inventar und das InfoObject erfolgreich platziert wurden
-    und das InventoryObject erfolgreich an den InventoryController übergeben wurde wird nun der InventoryController
-    aktiviert.
-    \item \textbf{Sichtbarkeit der Planes ausschalten:} Daher, dass alle AR-Planes mit einer Textur markiert wurden, diese
-    aber nach erfolgreicher Platzierung der Objekte nichtmehr sichtbar sein müssen werden diese nun mit \textit{planeManager.planePrefab.SetActive(false)}
-    deaktiviert und sind somit nichtmehr sichtbar.
-    \item \textbf{Deaktivierung des Skripts:} Nach Abschluss all dieser Schritte wird nun das \textit{AnchorScript.cs}
-    entgültig deaktiviert um weitere Ressourcenverbrauchende Aktuallisierungen zu stoppen.
-\end{enumerate}
+    \item \textbf{Aktivierung des QR-Code Managers:} Die Funktion startet damit, den QR-Code Manager zu aktivieren,
+    was das Tracken von QR-Codes ermöglicht.
+    \item \textbf{Berechnung der Objektposition und Rotation:} Anschließend wird die Position des Inventar-Objekts
+    berechnet. Dazu wird die Flächenmitte des ausgewählten AR-Planes genutzt, und die Rotation des Objekts wird auf
+    der x-Achse festgelegt.
+    \item \textbf{Instantiierung des Objekts:} Das Inventar-Objekt wird dann durch die Verwendung der
+    \textbf{Instantiate}-Funktion erstellt und auf eine bestimmte Größe skaliert.
+    \item \textbf{Platzierung des Info-Objects:} Die Position des Info-Objects, das aus TextMeshes und Buttons besteht,
+    wird ebenfalls berechnet und aktiviert, um für den Benutzer sichtbar zu sein.
+    \item \textbf{Setzen des Inventar-Objekts im InventoryController:} Das platzierte Inventar-Objekt wird an den
+    \textit{InventoryController} weitergeleitet und dort als aktuelles Inventarobjekt festgelegt um sicherzustellen,
+    dass hier dann in Folge auf das selbe Objekt zugegriffen wird.
+    \item \textbf{Aktivierung des InventoryControllers:} Nach der erfolgreichen Platzierung des Inventar-Objekts und
+    Aktivierung des Info-Objects wird der \textit{InventoryController} aktiviert, um die Inventarverwaltung zu starten.
+    \item \textbf{Sichtbarkeit der Planes ausschalten:} Da die AR-Planes nach erfolgreicher Platzierung der Objekte nicht
+    mehr sichtbar sein sollen, weil sie nichtmehr gebraucht werden, werden sie mit
+    \textit{planeManager.planePrefab.SetActive(false)} deaktiviert.
+    \item \textbf{Deaktivierung des Skripts:} Schließlich wird das \textit{AnchorScript.cs} deaktiviert, um weitere
+    ressourcenintensive Aktualisierungen zu stoppen.
+\end{enumerate}\\
 
-\subsection{Inventar-Controller}
-In diesem Abschnitt wird genauer auf das InventarController Script eingegangen und erklärt wie dieses funktioniert.
+Dieser Ablauf stellt sicher, dass nach der Erkennung und Auswahl eines AR-Planes das Inventar-Objekt präzise platziert
+wird und alle notwendigen Elemente aktiviert bzw. deaktiviert werden, um eine nahtlose Integration von realer und
+augmentierter Realität zu gewährleisten.
 
-%Hier Code einfügen hihi
+\subsection{Inventory Controller Game Objekt}
+Das \textit{Inventory Controller} Game Objekt spielt eine entscheidende Rolle bei der Überwachung und Verwaltung des
+Inventars in der Augmented Reality (AR)-Anwendung. Durch das angehängte \textit{InventoryController.cs} Script wird die
+\textbf{InventoryController} Klasse realisiert. Diese Klasse ist verantwortlich für die Erkennung neuer Gegenstände im
+Inventar, die Überprüfung auf verfügbaren Platz im Inventar, die Berechnung der Zellenposition anhand der QR-Code-Koordinaten
+und die Speicherung der Positionen dieser Items in einem \textit{2D Array}.
+
+Der Zugriff auf die Begrenzungen (\textit{Bounds}) des Inventarmodells ermöglicht es, ständig zu überwachen, ob der
+Benutzer ein neues Element in das Inventar gelegt hat. Dieser Ansatz gewährleistet eine präzise Kontrolle über die
+Platzierung von Gegenständen im Inventar.
+
+Das \textit{InventoryController.cs} Script interagiert dabei aktiv mit den AR-Elementen, insbesondere den QR-Codes, um
+den Platzbedarf der Gegenstände zu überwachen und ihre Positionen im Inventar festzulegen. Zusätzlich interagiert der
+\textit{InventoryController} auch mit dem \textit{KnapsackAlgo} Game Objekt, in dem es das verspeicherte \textit{2D Array}
+immer weitergibt um damit rechnen zu können.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/invCon_Editor}
+    \caption{IventoryController Objekt im Editor}
+    \label{fig:InventoryController_Editor}
+\end{figure}
+
+Die Abbildung \ref{fig:InventoryController_Editor} zeigt das \textit{iventoryController}-Objekt im Unity Editor.  Hier
+können verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten
+im Unity Editor und die angehängte Komponente \textit{InventoryController.cs}. Zudem sind vordefinierte Werte für bestimmte
+Variablen sichtbar. Diese Variablen umfassen:
+
+\begin{itemize}
+    \item \textbf{QRCodesManager:} Das QRCodesManager Game Objekt aus der Level 2 Szene.
+    \item \textbf{Knapsack Solver Game Objekt:} Das KnapsackAlgo Game Objekt aus der Level 2 Szene.
+    \item \textbf{Vertical Offset:} Float Wert um den die Bounds\footnote{Unity \cite{Bounds}} des Inventory Objekts auf der X-Achso erweitert werden.\\
+\end{itemize}
+
+\subsubsection{InventoryController Klassenvariablen}
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:controller_var]
+void PlaceObjectOnDesk(ARPlane deskPlane)
+{
+    public GameObject QRCodeManager;
+    public GameObject knapsackSolverGameObject;
+
+    private SortedDictionary<System.Guid, GameObject> activeQRObjects;
+
+    private GameObject inventoryObject;
+    public float verticalOffset = 0.1f;
+    private Bounds inventoryBounds;
+    private int numRows = 3;
+    private int numColumns = 3;
+    private int[,] idGrid;
+    private KnapsackScript knapsackScript;
+    private int cap;
+    private int currWeight = 0;
+    private string message;
+    private HashSet<int> processedItems;
+}
+\end{lstlisting}
+Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:controller_var} sind Teil des \textit{InventoryController} Klasse.
+Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden. Dies
+ermöglicht einen direkten Zugriff auf diese Objekte im Code. Die float-Variable \textit{verticalOffset} spielt hier eine
+wichtige Rolle, für die erweiterung der \textit{Bounds} von dem Inventar Modell. Die privaten (\textbf{private}) Variablen dienen
+der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.\\
+
+\subsubsection{Start des InventoryControllers}
+\begin{lstlisting}[style=csharp, caption={Start Funktion des InventoryControllers}, label=code:controller_start]
+void Start()
+{
+    activeQRObjects = QRCodeManager.GetComponent<QRCodesVisualizer>().qrCodesObjectsList;
+    knapsackScript = knapsackSolverGameObject.GetComponent<KnapsackScript>();
+    cap = knapsackScript.capacity;
+    processedItems = new HashSet<int>();
+    UpdateInventoryBounds();
+    InitializeIDGrid();
+}
+\end{lstlisting}
+Die \textbf{Start()} Funktion wird zu Beginn des Inventory Controllers aufgerufen und aufgeführt. Hier werden die
+wichtigen Objekte die für den weiteren Verlauf des Programms notwendig sind deklariert beziehungsweise erstellt und
+ebenfalls werden die beiden Funktionen \textbf{UpdateInventoryBounds()} und \textbf{InitializeIDGRid()} aufgerufen.\\
+
+\subsubsection{Neue Bounds setzen}
+\begin{lstlisting}[style=csharp, caption={Funktion um Inventar Bounds zu erweitern}, label=code:controller_updateBounds]
+private void UpdateInventoryBounds()
+{
+    if (inventoryObject != null)
+    {
+        Bounds localBounds = GetBounds(inventoryObject);
+        ExtendBounds(ref localBounds, verticalOffset);
+        inventoryBounds = localBounds;
+    }
+}
+\end{lstlisting}
+Um zu erreichen, dass man ein Item wirklich in die Bounds des Inventars legen kann wird in der \textbf{UpdateInventoryBounds()}
+Funktion genau dies ausgeführt. Es werden die aktuellen Bounds des Inventars gespeichert und diese werden dann mittels
+der \textbf{ExtendBounds()} Funktion erweitert und anschließend werden diese Bounds als neue Bounds gespeichert.\\
+
+\subsubsection{Bounds des Inventars ermitteln}
+\begin{lstlisting}[style=csharp, caption={Funktion um Bounds zu ermitteln}, label=code:controller_getBounds]
+private Bounds GetBounds(GameObject obj)
+{
+    Renderer renderer = obj.GetComponent<Renderer>();
+    return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
+}
+\end{lstlisting}
+Die von \ref{code:controller_updateBounds} aufgerufene Funktion \textbf{GetBounds} greift auf den Renderer\footnote{Unity \cite{Renderer}}
+des Inventar Modells zu um dadurch auf die Bounds zuzugreifen zu können, denn der Renderer ist dafür verantwortlich,
+dass das Modell überhaupt sichtbar ist. Wenn dieser Renderer ungleich \textbf{null} ist, gibt er die neuenn Bounds zurück und speichert
+sie in \textit{localBounds} von Codeabschnitt \ref{code:controller_updateBounds}.\\
+
+\subsubsection{Inventory Bounds erweitern}
+\begin{lstlisting}[style=csharp, caption={Funktion um Bounds zu erweitern}, label=code:controller_extendBounds]
+private void ExtendBounds(ref Bounds bounds, float offset)
+{
+    bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
+    bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
+}
+\end{lstlisting}
+Um anschließend diese Bounds zu erweitern um zu erkennen ob QR-Koordinaten innerhalb von diesen Bounds ist wird die von
+\ref{code:controller_updateBounds} aufgerufene Funktion \textbf{ExtendBounds()} ausgeführt. Diese Funktion erzielt, dass die
+Bounds von dem Inventar Modell auf der X-Achso um das \textit{Vertical Offset} erweitert werden. Nach Abschluss dieser Funktion
+sehen die Bounds von diesem Modell dann folgendermaßen aus:
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/extendedBounds}
+    \caption{Erweiterte Bounds des Inventar Modells}
+    \label{fig:extended_inventoryBounds}
+\end{figure}
+
+Auf der Abbildung \ref{fig:extended_inventoryBounds} ist eine einfache schematische Zeichnung des zweidimensionalen Inventars zu sehen. Die
+blaue Umrandung repräsentiert die Begrenzungen (Bounds) vor der Ausführung der Funktion \textbf{UpdateInventoryBounds()}
+aus dem Codeabschnitt \ref{code:controller_updateBounds}. Nachdem die Funktion ausgeführt wurde, wird die rote Umrandung
+dargestellt. Durch die neuen Bounds wird deutlich, dass insbesondere die Begrenzung entlang der X-Achse erweitert wurde.
+
+Die Erweiterung der Bounds ist von entscheidender Bedeutung, da nicht erweiterte Bounds die Höhe der Bauklötze nicht
+berücksichtigen würden. Dies könnte dazu führen, dass ein QR-Code, der sich tatsächlich innerhalb der Bounds befindet,
+als außerhalb betrachtet wird, wenn die Höhe der Bauklötze nicht angemessen einbezogen wird.
+
+Diese Anpassungen sind wichtig, um sicherzustellen, dass die Begrenzungen des Inventars korrekt erfasst werden und somit
+eine präzise Verortung von QR-Codes innerhalb der Augmented-Reality-Anwendung gewährleistet ist.\\
+
+\subsubsection{ID Grid Initialisierung}
+\begin{lstlisting}[style=csharp, caption={Initialisierung des idGrids}, label=code:controller_initialize]
+private void InitializeIDGrid()
+{
+    idGrid = new int[numRows, numColumns];
+}
+\end{lstlisting}
+Die in Codeabschnitt \ref{code:controller_start} aufgerufene Funktion initialisiert das idGrid mit \textit{numRows} und
+\textit{numColumns} also wird das idGrid als \textit{int [3,3]} initialisiert.\\
+
+\subsubsection{Update Funktion}
+\begin{lstlisting}[style=csharp, caption={Initialisierung des idGrids}, label=code:controller_update]
+void Update()
+{
+    UpdateGrid();
+}
+\end{lstlisting}
+Nach Abschluss des Codes aus Codeabschnitt \ref{code:controller_start} wird anschließend die \textit{Lebenszyklusmethode}
+\textbf{Update()} ausgeführt. Diese Funktion ruft jeden Frame die \textbf{UpdateGrid()} Funktion auf, auf die im nächsten
+Abschnitt genau eingegangen wird.\\
+
+\subsubsection{Funktion für neue Items innerhalb des Bounds}
+\begin{lstlisting}[style=csharp, caption={Code für überprüfen neuer Items im Inventar}, label=code:controller_check]
+void UpdateGrid()
+{
+    lock (activeQRObjects)
+    {
+        foreach (var item in activeQRObjects.Values)
+        {
+            QRCode qRCode = item.GetComponent<QRCode>();
+            Vector3 worldPosition = item.transform.TransformPoint(qRCode.item.qrData.position);
+
+            if (item != null && inventoryBounds.Contains(worldPosition))
+            {
+                int itemId = qRCode.item.qrData.id;
+
+                if (!processedItems.Contains(itemId))
+                {
+                    if (currWeight + qRCode.item.qrData.weight <= cap)
+                    {
+                        processedItems.Add(itemId);
+                        message = " ";
+                        Vector2 startGridPosition = CalculateGridPosition(worldPosition);
+                        idGrid[(int)startGridPosition.x, (int)startGridPosition.y] = itemId;
+                        knapsackScript?.UpdateInfoMesh(message);
+                        currWeight += qRCode.item.qrData.weight;
+                        EventManager.GridUpdate(idGrid);
+                    }
+                    else
+                    {
+                        message = "Item hat zu viel Gewicht!";
+                        knapsackScript?.UpdateInfoMesh(message);
+                    }
+                }
+            }
+            else if (!inventoryBounds.Contains(worldPosition) && processedItems.Contains(qRCode.item.qrData.id) && ContainsId(qRCode.item.qrData.id))
+            {
+                int itemId = qRCode.item.qrData.id;
+                processedItems.Remove(itemId);
+                RemoveItem(itemId);
+                currWeight -= qRCode.item.qrData.weight;
+                EventManager.GridUpdate(idGrid);
+            }
+        }
+        PrintGrid();
+    }
+}
+\end{lstlisting}
+Diese Funktion ist Hauptverantworlich für die Überprüfung ob ein neues Item \textit{hinzugefügt} oder \textit{entfernt}
+wurde. Zu beginn von jedem Frame wird das \textit{activeQRObjects} gelocked, weil auf dieses Object mehrere Threads zugreifen.
+Anschließend wird anhand einer \textit{for-Schleife} durch jedes der Objekte in dem \textit{activeQRObjects Dictionary}
+durchiteriert und von diesem Item wird mittels der \textbf{.GetComponent<QRCode>()} die QRCode Komponente dieses Objekts extrahiert
+und gespeichert. Durch die Speicherung der Position des QR-Codes im Raum muss die lokale Position in eine Welt Position umgerechnet
+werden, dass die Koordinaten mit dem des Inventar Objekts übereinstimmen und miteinander interagieren können.
+
+Nach Abschluss dieses Teils beginnt der Hauptteil um zu überprüfen ob ein Item jetzt \textit{hinzugefügt} oder \textit{entfernt}
+wurde. Die erste \textit{if-Abfrage} überpüft ob das aktuelle Item nicht null ist und zusätzlich auch noch ob \textbf{.Contains()}
+was nur bedeutet, dass die Koordinaten des Items innerhalbs der Bounds von dem Inventar sind. Wenn dass der Fall ist
+bedeutet das, dass ein Item hinzugefügt wird.
+
+Als nächstes wird dann überprüft ob die \textit{ID} des aktuellen Items in dem \textit{processedItems} \textit{HashSet}
+vorhanden ist oder nicht. Wenn die aktuelle ID noch nicht in dem \textit{HashSet} vorhanden ist, bedeutet das, dass das
+aktuelle Item noch nicht verarbeitet und somit auch noch nicht hinzugefügt wurde.
+
+Wenn das der Fall ist wird anschließend überprüft ob das aktuelle Gewicht (Das Gewicht aller momentan vorhandenen Items im
+Inventar) + Das Gewicht des neuen Items kleiner ist als die \textit{Capacity}. Wenn dies der Fall ist bedeutet das, dass das
+Item jetzt hinzugefügt werden kann. Hirzu wird es zu beginn in das \textit{HashSet} hinzugefügt um zu verspeichern, dass dieses
+Item verarbeitet wurde. Für das visuelle für den Benutzer wird anschließend eine \textit{message} definiert die in diesem
+Fall leer ist. Um dann anhand der Koordinaten innerhalb des 3D Inventar Modells die Position des Items innerhalb eines \textit{2D int arrays}
+zu bestimmen wird die \textbf{CalculateGridPosition()} mit der Position des Items aufgerufen. 
 
 \subsection{Knapsack Algorithmus Definition}
 Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die

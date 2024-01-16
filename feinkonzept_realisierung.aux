@@ -40,52 +40,96 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2.1}Inhalt der QR-Codes}{24}{subsubsection.120}\protected@file@percent }
 \newlabel{code:update}{{4.5.2.1}{24}{}{lstlisting.121}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code Tracking}{25}{subsubsection.149}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Anchor Script}{25}{subsection.150}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.1}Startverzögerung}{25}{subsubsection.151}\protected@file@percent }
-\newlabel{code:Start}{{4.5.3.1}{25}{}{lstlisting.152}{}}
-\newlabel{code:DelayedStart}{{4.5.3.1}{25}{}{lstlisting.157}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.2}Frame-Aktualisierung um richtiges Plane zu finden}{26}{subsubsection.163}\protected@file@percent }
-\newlabel{code:Update}{{4.5.3.2}{26}{}{lstlisting.164}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.3}Das am kürzesten entfernte Plane finden}{27}{subsubsection.204}\protected@file@percent }
-\newlabel{code:findclosestplane}{{4.5.3.3}{27}{}{lstlisting.205}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.4}Berechnung der Position und aktivierung/deaktivierung sämtlicher Objekte}{27}{subsubsection.229}\protected@file@percent }
-\newlabel{code:placeobject}{{4.5.3.4}{27}{}{lstlisting.230}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Inventar-Controller}{29}{subsection.263}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.5}Knapsack Algorithmus Definition}{29}{subsection.264}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.1}Problemstellung}{29}{subsubsection.265}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.2}Algorithmus}{29}{subsubsection.266}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.3}Anwendungen}{29}{subsubsection.267}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.6}Knapsack Algorithmus Implementierung}{29}{subsection.268}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.1}Funktionsaufruf}{30}{subsubsection.269}\protected@file@percent }
-\newlabel{code:init}{{4.5.6.1}{30}{}{lstlisting.270}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.2}Initialisierung der Variablen für den Algorithmus}{30}{subsubsection.274}\protected@file@percent }
-\newlabel{code:variable}{{4.5.6.2}{30}{}{lstlisting.275}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.3}Dynamischer Knapsack Algorithmus}{30}{subsubsection.279}\protected@file@percent }
-\newlabel{code:dynamic}{{4.5.6.3}{30}{}{lstlisting.280}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.4}Backtracking, um ausgewählte Items und perfekt Lösung zu finden}{31}{subsubsection.315}\protected@file@percent }
-\newlabel{code:backtrack}{{4.5.6.4}{31}{}{lstlisting.316}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.5}Gruppengröße berechnen}{32}{subsubsection.348}\protected@file@percent }
-\newlabel{code:maxgroup}{{4.5.6.5}{32}{}{lstlisting.349}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.6}Temporäres Array umwandeln und das usedItems Array befüllen}{32}{subsubsection.356}\protected@file@percent }
-\newlabel{code:convert}{{4.5.6.6}{32}{}{lstlisting.357}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.7}Rückgabewert}{33}{subsubsection.366}\protected@file@percent }
-\newlabel{code:return}{{4.5.6.7}{33}{}{lstlisting.367}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.8}Darstellung der perfekten Lösung}{33}{subsubsection.369}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.9}Berechnen des eigenen Inventars}{33}{subsubsection.370}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.10}Funktionsaufruf}{33}{subsubsection.371}\protected@file@percent }
-\newlabel{code:aufruf}{{4.5.6.10}{33}{}{lstlisting.372}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.11}Code für die Berechnung des eigenen Inventars}{33}{subsubsection.386}\protected@file@percent }
-\newlabel{code:ownInventory}{{4.5.6.11}{33}{}{lstlisting.387}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{34}{subsection.423}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Performance}{34}{section.424}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Game Objekt}{25}{subsection.150}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces inventoryPlacement Objekt im Editor}}{25}{figure.caption.151}\protected@file@percent }
+\newlabel{fig:inventoryPlacement_Editor}{{4.4}{25}{inventoryPlacement Objekt im Editor}{figure.caption.151}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.1}Klassenvariablen}{26}{subsubsection.152}\protected@file@percent }
+\newlabel{code:anchor_var}{{4.2}{26}{Klassenvariablen der PlacedObjectOnLookedAtDesk Klasse}{lstlisting.153}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.2}{\ignorespaces Klassenvariablen der PlacedObjectOnLookedAtDesk Klasse}}{26}{lstlisting.153}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{26}{subsubsection.169}\protected@file@percent }
+\newlabel{code:Start}{{4.3}{26}{Beginn des Anchor Scripts}{lstlisting.170}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.3}{\ignorespaces Beginn des Anchor Scripts}}{26}{lstlisting.170}\protected@file@percent }
+\newlabel{code:DelayedStart}{{4.4}{27}{Verzoegerter Start}{lstlisting.175}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.4}{\ignorespaces Verzoegerter Start}}{27}{lstlisting.175}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{27}{subsubsection.181}\protected@file@percent }
+\newlabel{code:Update}{{4.5}{27}{Update Funktion}{lstlisting.182}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.5}{\ignorespaces Update Funktion}}{27}{lstlisting.182}\protected@file@percent }
+\newlabel{code:Raycasting}{{4.6}{28}{Raycasting}{lstlisting.217}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.6}{\ignorespaces Raycasting}}{28}{lstlisting.217}\protected@file@percent }
+\newlabel{code:FindClosestPlane}{{4.7}{28}{Kürzest entfernte Plane}{lstlisting.223}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.7}{\ignorespaces Kürzest entfernte Plane}}{28}{lstlisting.223}\protected@file@percent }
+\newlabel{code:TimeMeasurement}{{4.8}{28}{Plane auswählen und timer starten}{lstlisting.225}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.8}{\ignorespaces Plane auswählen und timer starten}}{28}{lstlisting.225}\protected@file@percent }
+\newlabel{code:TimeUpdate}{{4.9}{29}{Blickzeit messen}{lstlisting.231}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.9}{\ignorespaces Blickzeit messen}}{29}{lstlisting.231}\protected@file@percent }
+\newlabel{code:Placement}{{4.10}{29}{Platzier-Funktion aufrufen}{lstlisting.233}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.10}{\ignorespaces Platzier-Funktion aufrufen}}{29}{lstlisting.233}\protected@file@percent }
+\newlabel{code:NoPlaneHit}{{4.11}{29}{Plane null setzen}{lstlisting.239}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.11}{\ignorespaces Plane null setzen}}{29}{lstlisting.239}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.4}Das am kürzesten entfernte Plane finden}{29}{subsubsection.244}\protected@file@percent }
+\newlabel{code:findclosestplane}{{4.12}{29}{Kürzest entfernte Plane - Funktion}{lstlisting.245}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.12}{\ignorespaces Kürzest entfernte Plane - Funktion}}{29}{lstlisting.245}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.3.5}Berechnung der Position und Aktivierung/Deaktivierung sämtlicher Objekte}{30}{subsubsection.265}\protected@file@percent }
+\newlabel{code:placeobject}{{4.13}{30}{Inventar platzier - Funktion}{lstlisting.266}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.13}{\ignorespaces Inventar platzier - Funktion}}{30}{lstlisting.266}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{31}{subsection.290}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces IventoryController Objekt im Editor}}{32}{figure.caption.291}\protected@file@percent }
+\newlabel{fig:InventoryController_Editor}{{4.5}{32}{IventoryController Objekt im Editor}{figure.caption.291}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{32}{subsubsection.293}\protected@file@percent }
+\newlabel{code:controller_var}{{4.14}{32}{Klassenvariablen der InventoryController Klasse}{lstlisting.294}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.14}{\ignorespaces Klassenvariablen der InventoryController Klasse}}{32}{lstlisting.294}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{33}{subsubsection.314}\protected@file@percent }
+\newlabel{code:controller_start}{{4.15}{33}{Start Funktion des InventoryControllers}{lstlisting.315}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.15}{\ignorespaces Start Funktion des InventoryControllers}}{33}{lstlisting.315}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.3}Neue Bounds setzen}{33}{subsubsection.325}\protected@file@percent }
+\newlabel{code:controller_updateBounds}{{4.16}{33}{Funktion um Inventar Bounds zu erweitern}{lstlisting.326}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.16}{\ignorespaces Funktion um Inventar Bounds zu erweitern}}{33}{lstlisting.326}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{34}{subsubsection.336}\protected@file@percent }
+\newlabel{code:controller_getBounds}{{4.17}{34}{Funktion um Bounds zu ermitteln}{lstlisting.337}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.17}{\ignorespaces Funktion um Bounds zu ermitteln}}{34}{lstlisting.337}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{34}{subsubsection.344}\protected@file@percent }
+\newlabel{code:controller_extendBounds}{{4.18}{34}{Funktion um Bounds zu erweitern}{lstlisting.345}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.18}{\ignorespaces Funktion um Bounds zu erweitern}}{34}{lstlisting.345}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Erweiterte Bounds des Inventar Modells}}{34}{figure.caption.351}\protected@file@percent }
+\newlabel{fig:extended_inventoryBounds}{{4.6}{34}{Erweiterte Bounds des Inventar Modells}{figure.caption.351}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{35}{subsubsection.352}\protected@file@percent }
+\newlabel{code:controller_initialize}{{4.19}{35}{Initialisierung des idGrids}{lstlisting.353}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4.19}{\ignorespaces Initialisierung des idGrids}}{35}{lstlisting.353}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.5}Knapsack Algorithmus Definition}{35}{subsection.358}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.1}Problemstellung}{35}{subsubsection.359}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.2}Algorithmus}{35}{subsubsection.360}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.5.3}Anwendungen}{36}{subsubsection.361}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.6}Knapsack Algorithmus Implementierung}{36}{subsection.362}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.1}Funktionsaufruf}{36}{subsubsection.363}\protected@file@percent }
+\newlabel{code:init}{{4.5.6.1}{36}{}{lstlisting.364}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.2}Initialisierung der Variablen für den Algorithmus}{36}{subsubsection.368}\protected@file@percent }
+\newlabel{code:variable}{{4.5.6.2}{36}{}{lstlisting.369}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.3}Dynamischer Knapsack Algorithmus}{36}{subsubsection.373}\protected@file@percent }
+\newlabel{code:dynamic}{{4.5.6.3}{36}{}{lstlisting.374}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.4}Backtracking, um ausgewählte Items und perfekt Lösung zu finden}{38}{subsubsection.409}\protected@file@percent }
+\newlabel{code:backtrack}{{4.5.6.4}{38}{}{lstlisting.410}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.5}Gruppengröße berechnen}{38}{subsubsection.442}\protected@file@percent }
+\newlabel{code:maxgroup}{{4.5.6.5}{38}{}{lstlisting.443}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.6}Temporäres Array umwandeln und das usedItems Array befüllen}{39}{subsubsection.450}\protected@file@percent }
+\newlabel{code:convert}{{4.5.6.6}{39}{}{lstlisting.451}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.7}Rückgabewert}{39}{subsubsection.460}\protected@file@percent }
+\newlabel{code:return}{{4.5.6.7}{39}{}{lstlisting.461}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.8}Darstellung der perfekten Lösung}{39}{subsubsection.463}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.9}Berechnen des eigenen Inventars}{39}{subsubsection.464}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.10}Funktionsaufruf}{39}{subsubsection.465}\protected@file@percent }
+\newlabel{code:aufruf}{{4.5.6.10}{39}{}{lstlisting.466}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.6.11}Code für die Berechnung des eigenen Inventars}{40}{subsubsection.480}\protected@file@percent }
+\newlabel{code:ownInventory}{{4.5.6.11}{40}{}{lstlisting.481}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{41}{subsection.517}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Performance}{41}{section.518}\protected@file@percent }
 \@setckpt{feinkonzept_realisierung}{
-\setcounter{page}{35}
+\setcounter{page}{42}
 \setcounter{equation}{0}
 \setcounter{enumi}{7}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
-\setcounter{footnote}{7}
+\setcounter{footnote}{9}
 \setcounter{mpfootnote}{0}
 \setcounter{AM@survey}{0}
 \setcounter{part}{0}
@@ -95,7 +139,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{3}
+\setcounter{figure}{6}
 \setcounter{table}{0}
 \setcounter{tabx@nest}{0}
 \setcounter{listtotal}{0}
@@ -229,11 +273,11 @@
 \setcounter{subprogram}{0}
 \setcounter{lstnumber}{29}
 \setcounter{section@level}{1}
-\setcounter{Item}{41}
-\setcounter{Hfootnote}{25}
+\setcounter{Item}{32}
+\setcounter{Hfootnote}{27}
 \setcounter{bookmark@seq@number}{65}
 \setcounter{su@anzahl}{0}
 \setcounter{LT@tables}{0}
 \setcounter{LT@chunks}{0}
-\setcounter{lstlisting}{1}
+\setcounter{lstlisting}{19}
 }
