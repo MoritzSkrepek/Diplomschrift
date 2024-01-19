@@ -621,19 +621,19 @@ im Unity Editor und die angehängte Komponente \textit{AnchorScript.cs}. Zudem s
 Variablen sichtbar. Diese Variablen umfassen:
 
 \begin{itemize}
-    \item \textbf{Raycast Manager:} Das Game Objekt des ARRaycastManagers aus der Level 2 Szene.
-    \item \textbf{Plane Manager:} Das Game Objekt des ARPlanesManagers aus der Level 2 Szene.
-    \item \textbf{Inventory Object:} Das 3D-Modell des Inventars aus dem Prefab Ordner.
-    \item \textbf{Inventory Controller:} Das Script des InventoryControllers.
-    \item \textbf{QR Codes Manager:} Das Game Objekt des QRCodeManagers aus der Level 2 Szene.
-    \item \textbf{Info Object:} Das Game Objekt des Info-Objekts aus der Level 2 Szene.
+    \item \textbf{Raycast Manager:} Referent auf das Game Objekt des \textit{ARRaycastManagers} aus der Level 2 Szene.
+    \item \textbf{Plane Manager:} Referenz auf das Game Objekt des \textit{ARPlanesManagers} aus der Level 2 Szene.
+    \item \textbf{Inventory Object:} Referenz auf das 3D-Modell des \textit{Inventars} aus dem Prefab Ordner.
+    \item \textbf{Inventory Controller:} Referenz auf das Script des \textit{InventoryControllers}.
+    \item \textbf{QR Codes Manager:} Referenz auf das Game Objekt des \textit{QRCodeManagers} aus der Level 2 Szene.
+    \item \textbf{Info Object:} Referenz auf das \textit{infoObject} Game Objekt aus der Level 2 Szene.
     \item \textbf{Required Look Time:} Die vorgeschriebene Zeit, die der Benutzer auf ein Plane schauen muss, damit das
     Inventar platziert wird.
 \end{itemize}
 
 Im Unity Editor können die Werte dieser Variablen direkt verändert werden, was Auswirkungen auf die Ausführung des Codes hat.\\
 
-\subsubsection{Klassenvariablen}
+\subsubsection{PlacedObjectOnLookedAtDesk Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen der PlacedObjectOnLookedAtDesk Klasse}, label=code:anchor_var]
 public ARRaycastManager raycastManager;
 public ARPlaneManager planeManager;
@@ -652,9 +652,10 @@ private float heightOffset = 0.001f;
 private bool canStartScript = false;
 \end{lstlisting}
 
-Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind Teil der \textit{PlaceObjectOnLookedAtDesk} Klasse. Öffentliche
-(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden. Dies
-ermöglicht einen direkten Zugriff auf diese Objekte im Code. Die Vektor-Variable \textit{objectPosition} spielt eine
+Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind Teil der \textit{PlaceObjectOnLookedAtDesk} Klasse.
+Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden
+oder von anderen Klassen für die funktionalität gebraucht werden. Dies ermöglicht einen direkten Zugriff auf diese Objekte in der
+eigenen oder einer anderen Klasse. Die Vektor-Variable \textit{objectPosition} spielt eine
 entscheidende Rolle für die präzise Platzierung der perfekten Lösung. Die privaten (\textbf{private}) Variablen dienen
 der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.
 
@@ -665,7 +666,7 @@ void Start()
     StartCoroutine(DelayedStart());
 }
 \end{lstlisting}
-Zu Beginn des Levels für das "Knapsack-Problem" wird die Lebenszyklusmethode \textit{Start()} aufgerufen. Diese Funktion
+Zu Beginn des Levels für das "Knapsack-Problem" wird die Lebenszyklusmethode \textbf{Start()} aufgerufen. Diese Funktion
 startet dann die Coroutine \textbf{DelayedStart()}. Die Startverzögerung wird hier verwendet, um dem \textit{ARPlaneManager}
 ausreichend Zeit zu geben, um Ebenen in der Umgebung des Benutzers zu scannen und zu markieren. Dies ist von Bedeutung,
 um eine solide Grundlage für die spätere präzise Platzierung des Inventars zu gewährleisten.\\
@@ -677,16 +678,17 @@ private IEnumerator DelayedStart()
     canStartScript = true;
 }
 \end{lstlisting}
-In der Funktion \textbf{DelayedStart()} wird eine Verzögerung von 3 Sekunden durchgeführt, bevor \textit{canStartScript}
-auf true gesetzt wird. Diese Verzögerung ermöglicht es dem \textit{ARPlaneManager}, ungestört die Umgebung zu scannen.
-Die Aktivierung von \textit{canStartScript} markiert den Zeitpunkt, ab dem die \textit{Update()} Methode ihre Ausführung
-fortsetzen kann. Dieser gestaffelte Startprozess gewährleistet eine reibungslose Erfassung von AR-Planes und legt somit
-einen soliden Grundstein für die präzise Platzierung von Inventargegenständen in der augmentierten Realität.
+Die in Codeabschnitt \ref{code:Start} aufgerufene Funktion \textbf{DelayedStart()} führt dazu, dass vor weiterarbeiten
+des Scripts eine Verzögerung von 3 Sekunden gewährleistet wird. Diese Verzögerung ermöglicht es dem \textit{ARPlaneManager},
+ungestört die Umgebung zu scannen. Die Aktivierung von \textit{canStartScript} markiert den Zeitpunkt, ab dem die
+\textbf{Update()} Methode ihre Ausführung fortsetzen kann. Dieser gestaffelte Startprozess gewährleistet eine reibungslose
+Erfassung von AR-Planes und legt somit einen soliden Grundstein für die präzise Platzierung von Inventargegenständen
+in der augmentierten Realität.
 
 \subsubsection{Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}
 Da in der Umgebung mehrere AR-Planes gescannt und markiert werden, ist es notwendig, ständig zu aktualisieren, welcher
 der markierten und gescannten Planes tatsächlich das beabsichtigte ist. Um dieses Verhalten zu erreichen, wird die
-Lebenszyklusmethode \textit{Update()} verwendet. Diese Methode sorgt dafür, dass stets der gewünschte AR-Plane
+Lebenszyklusmethode \textit{Update()} verwendet. Diese Methode sorgt dafür, dass stets das gewünschte AR-Plane
 ausgewählt ist. Falls der Benutzer seinen Blick auf einen anderen, näher gelegenen Plane richtet, wird dieser als der
 neue ausgewählte Plane betrachtet.\\
 
@@ -726,8 +728,8 @@ void Update()
     }
 }
 \end{lstlisting}
-Die \textit{Update()} Methode bildet das Herzstück des AR-Anker-Skripts, das die kontinuierliche Interaktion zwischen
-der realen und augmentierten Realität orchestriert. Der Ablauf beginnt mit einer sorgfältigen Prüfung, ob das
+Die \textbf{Update()} Funktion aus Codeabschnitt \ref{code:Update} bildet das Herzstück des AR-Anker-Skripts, das die
+kontinuierliche Interaktion zwischen der realen und augmentierten Realität orchestriert. Der Ablauf beginnt mit einer sorgfältigen Prüfung, ob das
 Inventarobjekt noch nicht platziert wurde (\textit{!objectPlaced}) und ob das Skript gestartet werden kann
 (\textit{canStartScript}). Diese Bedingungen dienen dazu sicherzustellen, dass der Platzierungsprozess nur startet,
 wenn die Voraussetzungen erfüllt sind.\\
@@ -739,32 +741,37 @@ if (raycastManager.Raycast(new Ray(Camera.main.transform.position, Camera.main.t
     % Weitere Verarbeitung der Treffer...
 }
 \end{lstlisting}
-Sobald die Startbedingungen erfüllt sind, wird ein Raycasting durchgeführt, um die AR-Planes in der Umgebung zu
-identifizieren. Der Richtungsvektor des Rays wird durch \textit{Camera.main.transform.forward} bestimmt.\\
+In Codeabschnitt \ref{code:Raycasting} ist die Hauptbedingungen für das auswählen eines Planes der \textbf{Update()}
+Funktion aus Codeabschnitt \ref{code:Update} zu sehen. Zu Begin wird hier eine \textit{Liste} erstellt die anschließend
+mit allen von dem \textit{ARRaycastManager} registrierten hits gefühlt wird. Anschließend wird ein Raycasting durchgeführt,
+um die AR-Planes in der Umgebung zu identifizieren. Hier wird ein bestimmter Richtungsvektor verwendet um sicherzuhstellen,
+dass die Raycasts nur in die Richtung des Blicks geschossen werden. Dies wird hier durch \textit{Camera.main.transform.forward}
+bestimmt.\\
 
-\begin{lstlisting}[style=csharp, caption={Kürzest entfernte Plane}, label=code:FindClosestPlane]
+\begin{lstlisting}[style=csharp, caption={Kuerzest entfernte Plane}, label=code:FindClosestPlane]
 ARPlane closestPlane = FindClosestPlane(hits);
 \end{lstlisting}
-Der nächste Schritt beinhaltet die Bestimmung des am kürzesten entfernten AR-Planes durch Aufruf der Funktion
-\textbf{FindClosestPlane(hits)}. Diese Funktion vergleicht die Distanzen aller getroffenen AR-Planes und gibt den
-nächstgelegenen zurück.\\
+Dieser Code wird nach erfüllen der Bedingung aus Codeabschnitt \ref{code:Raycasting} durchgeführt. Hier wird ein neues
+AR-Plane definiert und anschließend die Funktion \textbf{FindClosestPlane} mit der \textit{hits} Liste aufgerufen um
+das am kürzesten entfernte Plane zu ermitteln.\\
 
-\begin{lstlisting}[style=csharp, caption={Plane auswählen und timer starten}, label=code:TimeMeasurement]
+\begin{lstlisting}[style=csharp, caption={Plane auswaehlen und timer starten}, label=code:TimeMeasurement]
 if (selectedDeskPlane == null || selectedDeskPlane != closestPlane)
 {
     selectedDeskPlane = closestPlane;
     lookStartTime = Time.time; % Starten des Timers, wenn ein neues Plane ausgewählt wird.
 }
 \end{lstlisting}
-Die ausgewählten AR-Plane werden daraufhin miteinander verglichen, und wenn ein neues AR-Plane ausgewählt wird oder der
-aktuelle AR-Plane sich geändert hat, wird die Zeitmessung (\textit{lookStartTime}) gestartet. Diese Zeitmessung erfasst
-die Dauer, für die der Benutzer auf den aktuellen AR-Plane blickt.\\
+Nach Abschluss der Funktion \textbf{FindClosestPlane()} wird anschließend dieser der Code aus Codeabschnitt \ref{code:TimeMeasurement}
+ausgeführt. Dieser Code überprüft zuerst ob das \textit{selectedDeskPlane} null ist oder ob das \textit{selectedDeskPlane}
+ungleach dem am kürzest entferntem Plane ist. Wenn das der Fall ist wird dieses Plane als das aktuelle selektierte Plane gesetzt.
+Anschließend wird hier der Timer gestartet um zu messen wie lange der Benutzer auf genau dieses Plane blickt.\\
 
 \begin{lstlisting}[style=csharp, caption={Blickzeit messen}, label=code:TimeUpdate]
 float timeLookedAtPlane = Time.time - lookStartTime;
 \end{lstlisting}
-Die gemessene Blickzeit (\textit{timeLookedAtPlane}) wird in jedem Frame aktualisiert, indem die aktuelle verstrichene
-Zeit seit dem Start des Blicks auf den AR-Plane gemessen wird.\\
+In diesem Codeabschnitt ist die Aktualisierung des Times zu sehen. Diese Zeit wird jeden Frame aktualisiert, indem die
+aktuell verstrichene Zeit seit dem Starts des Blicks auf das AR-Plane gemessen wird.\\
 
 \begin{lstlisting}[style=csharp, caption={Platzier-Funktion aufrufen}, label=code:Placement]
 if (timeLookedAtPlane >= requiredLookTime)
@@ -773,10 +780,11 @@ if (timeLookedAtPlane >= requiredLookTime)
     objectPlaced = true;
 }
 \end{lstlisting}
-Wenn die gemessene Blickzeit die erforderliche Blickzeit überschreitet, wird die Funktion
-\textbf{PlaceObjectOnDesk(selectedDeskPlane)} aufgerufen, um das Inventarobjekt auf dem ausgewählten AR-Plane zu
-platzieren. Zusätzlich wird \textit{objectPlaced} auf true gesetzt, um zu signalisieren, dass das Objekt platziert
-wurde und weitere Überprüfungen gestoppt werden sollen.\\
+Als letzte überprüfung in der \textbf{Update()} Funktion aus Codeabschnitt \ref{code:Update} wird nun überprüft
+ob die aktuell gemessene Blickzeit die erforderliche Blickzeit überschreitet. Wenn dies der Fall ist wird die Funktion
+\textbf{PlaceObjectOnDesk} mit dem aktuell selektiertem Plane aufgerfen, um das Inventarobjekt auf diesem Plane zu platzieren.
+Zusätzlich wird hier \textit{objectPlaced} auf true gesetzt, um zu signalisieren, dass das Objekt platziert wurde und weitere
+Überprüfungen gestoppt werden sollen.\\
 
 \begin{lstlisting}[style=csharp, caption={Plane null setzen}, label=code:NoPlaneHit]
 else
@@ -784,14 +792,14 @@ else
     selectedDeskPlane = null;
 }
 \end{lstlisting}
-Falls kein AR-Plane getroffen wurde, wird \textit{selectedDeskPlane} auf null gesetzt, um sicherzustellen, dass keine
-vorherigen Auswahlinformationen beibehalten werden.\\
+In dem Fall, dass jedoch keine AR-Planes getroffen wurden, wird \textit{selectedDeskPlane} auf null gesetzt, um sicherzustellen,
+dass keine vorherigen Auswahlinformationen beibehalten werden.\\
 
 Dieser Ablauf setzt sich in jedem Frame fort, bis die vorgegebene Blickzeit erreicht ist und somit das Inventarobjekt
 erfolgreich auf dem AR-Plane platziert wurde.\\
 
 \subsubsection{Das am kürzesten entfernte Plane finden}
-\begin{lstlisting}[style=csharp, caption={Kürzest entfernte Plane - Funktion}, label=code:findclosestplane]
+\begin{lstlisting}[style=csharp, caption={Kuerzest entfernte Plane - Funktion}, label=code:findclosestplane]
 ARPlane FindClosestPlane(List<ARRaycastHit> hits)
 {
     ARPlane closestPlane = null;
@@ -812,9 +820,12 @@ ARPlane FindClosestPlane(List<ARRaycastHit> hits)
     return closestPlane;
 }
 \end{lstlisting}
-Die Funktion \textit{FindClosestPlane} durchläuft eine Liste von \textit{ARRaycastHit}-Objekten, die durch den
-Raycasting-Prozess erstellt wurden. Für jedes Trefferobjekt wird der zugehörige AR-Plane über den \textit{planeManager} abgerufen.
-Dann wird die Entfernung von der Kameraposition zum Trefferpunkt des Rays auf dem AR-Plane berechnet.
+Die in Codeabschnitt \ref{code:Update} aufgerufen Funktion \textbf{FindClosestPlane} ist eine simple Funktion die
+Zahlenwerte miteinander vergleicht um die kürzeste Distanz zu finden. In einer Schleife werden alle
+\textit{ARRaycastHit}-Objekte, die durch den Raycasting-Prozess wurden durchlaufen. Für jedes Trefferobjekte wird
+das zugehörige AR-Plae über den \textit{ARPlaneManager} abgerufen. Anschließend wird hier über einfache Vektorrechnung
+die Distanz von der Kameraposition \textit{Camera.main.transform.position} zu dem AR-Plane \textit{hit.pose.position}
+berechnet.
 
 Die Schleife sucht nach dem am nächsten gelegenen AR-Plane, indem sie die Distanz für jeden Treffer vergleicht.
 Das am nächsten gelegene AR-Plane (\textit{closestPlane}) und die entsprechende Distanz (\textit{closestDistance})
@@ -910,8 +921,8 @@ im Unity Editor und die angehängte Komponente \textit{InventoryController.cs}. 
 Variablen sichtbar. Diese Variablen umfassen:
 
 \begin{itemize}
-    \item \textbf{QRCodesManager:} Das QRCodesManager Game Objekt aus der Level 2 Szene.
-    \item \textbf{Knapsack Solver Game Objekt:} Das KnapsackAlgo Game Objekt aus der Level 2 Szene.
+    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
+    \item \textbf{Knapsack Solver Game Objekt:} Referenz auf das \textit{KnapsackAlgo} Game Objekt aus der Level 2 Szene.
     \item \textbf{Vertical Offset:} Float Wert um den die Bounds\footnote{Unity \cite{Bounds}} des Inventory Objekts auf der X-Achso erweitert werden.\\
 \end{itemize}
 
@@ -937,9 +948,10 @@ void PlaceObjectOnDesk(ARPlane deskPlane)
     private HashSet<int> processedItems;
 }
 \end{lstlisting}
-Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:controller_var} sind Teil des \textit{InventoryController} Klasse.
-Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden. Dies
-ermöglicht einen direkten Zugriff auf diese Objekte im Code. Die float-Variable \textit{verticalOffset} spielt hier eine
+Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:controller_var} sind Teil der \textit{InventoryController} Klasse.
+Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden
+oder von anderen Klassen für die funktionalität gebraucht werden. Dies ermöglicht einen direkten Zugriff auf diese Objekte in der
+eigenen oder einer anderen Klasse. Die float-Variable \textit{verticalOffset} spielt hier eine
 wichtige Rolle, für die erweiterung der \textit{Bounds} von dem Inventar Modell. Die privaten (\textbf{private}) Variablen dienen
 der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.\\
 
@@ -983,7 +995,7 @@ private Bounds GetBounds(GameObject obj)
     return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
 }
 \end{lstlisting}
-Die von \ref{code:controller_updateBounds} aufgerufene Funktion \textbf{GetBounds} greift auf den Renderer\footnote{Unity \cite{Renderer}}
+Die von \ref{code:controller_updateBounds} aufgerufene Funktion \textbf{GetBounds()} greift auf den Renderer\footnote{Unity \cite{Renderer}}
 des Inventar Modells zu um dadurch auf die Bounds zuzugreifen zu können, denn der Renderer ist dafür verantwortlich,
 dass das Modell überhaupt sichtbar ist. Wenn dieser Renderer ungleich \textbf{null} ist, gibt er die neuenn Bounds zurück und speichert
 sie in \textit{localBounds} von Codeabschnitt \ref{code:controller_updateBounds}.\\
@@ -1105,10 +1117,11 @@ vorhanden ist. Falls nicht, wird überprüft, ob das Hinzufügen des Items das a
 zusammen mit dem Gewicht des Items unter die maximale Kapazität (\texttt{cap}) bringt.\\
 
 Wenn diese Bedingungen erfüllt sind, wird das Item in die Menge der verarbeiteten Items aufgenommen, eine Nachricht wird
-auf Leer gesetzt, und die Position des Items im zweidimensionalen Array \texttt{idGrid} wird aktualisiert. Zusätzlich
-wird die Anzeige des Inventars durch den Aufruf der Methode \texttt{UpdateInfoMesh} des \texttt{knapsackScript}
-aktualisiert, und das aktuelle Gewicht des Inventars wird entsprechend angepasst. Schließlich wird ein Ereignis
-(\texttt{GridUpdate}) ausgelöst, um andere Teile des Systems über die Aktualisierung des Grids zu informieren.
+auf Leer gesetzt, das \textit{currWeight} wird um das Gewicht des verarbeiteten Items erweitertund die Position des
+Items im zweidimensionalen Array \texttt{idGrid} wird aktualisiert. Zusätzlich wird die Anzeige des Inventars durch den
+Aufruf der Methode \texttt{UpdateInfoMesh} des \texttt{knapsackScript}aktualisiert, und das aktuelle Gewicht des Inventars
+wird entsprechend angepasst. Schließlich wird das Event\textbf{GridUpdate()} des \textit{EventManager} ausgelöst. Dieses
+Event ist maßgäblich für das Übergeben des \textit{idGrid}and das \textit{knapsackScript} für die weitere Verarbeitung.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.6]{images/itemAdded}
@@ -1149,7 +1162,7 @@ aufgrund seines zu hohen Gewichts nicht zu \textit{idGrid} und \textit{processed
 eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren, dass das zuletzt hinzugefügte Item zu schwer für das
 aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid} und \textit{processedItems} unverändert und enthalten
 daher nicht die ID 9. Im Hintergrund sieht daher das \textit{idGrid} dementsprechend folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={Item zu schwer für das Inventar}, label=code:controller_savedIDs]
+\begin{lstlisting}[style=csharp, caption={Item zu schwer fuer das Inventar}, label=code:controller_savedIDs]
 int idGrid = [[0, 0, 0],
               [5, 0, 0],
               [1, 3, 0]];
@@ -1272,7 +1285,170 @@ private bool ContainsId(int id)
 }
 \end{lstlisting}\\
 
-\subsection{Knapsack Algorithmus Definition}
+%HIER EVENTMANAGER EINBAUEN HIHI
+
+\subsection{Knapsack Algorithmus Game Objekt}
+Das \textit{Knapsack Algirhtmus} Game Objekt spielt die Hauptrolle um Berechnungn durchzuführen.
+Durch das angehängte \textit{KnapsackScript.cs} Script wird die \textit{KnapsackScript} Klasse reasliert. Diese
+Klasse ist verantworlich für die Berechnung der perfekten Lösung und ebenfalls für die Berechnung des selbst
+zusammengestellten Inventars des Benutzers.
+
+Durch die Interaktion zwischen der \textit{InventoryController}, der \textit{KnapsackScript} Klasse und der
+\textit{EventManager} Klasse wird bei jedem neuen Item stets gewährleistet, dass das Inventar mit dem gerechnet wird
+stets das aktuelle ist.\\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/knapsackEditor}
+    \caption{Knapsack Algorithmus Objekt im Editor}
+    \label{fig:Knapsack_Editor}
+\end{figure}
+
+Die Abbildung \ref{fig:Knapsack_Editor} zeigt das \textit{KnapsackAlgo}-Ojekt im Unity Editor. Hier können verschiedene
+Einestellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
+Unity Editor selbst und die angehängte Komponente \textit{KnapsackScript.cs}. Zudem sind vordefinierte Werte für
+bestimmte Variablen sichtbar. Diese Variablen umfassen:
+
+\begin{itemize}
+    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
+    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Capacity:} Integer Wert der die Kapazität für den \textit{Knapsack Algorithmus} festlegt.
+    \item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
+    dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
+\end{itemize}
+
+\subsubsection{Klassenvariablen KnapsackScript}
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen des KnapsackScripts}, label=code:Klassenvariablen_kn]
+public GameObject QRCodeManager;
+public TextMeshPro ownMesh;
+public TextMeshPro maxMesh;
+public TextMeshPro infoMesh;
+
+public int[,] usedItems;
+public int capacity = 120;
+public Dictionary<int, QRData> items;
+public int maxItems = 9;
+
+private int[,] inventory;
+\end{lstlisting}\\
+Die in Codeabschnitt \ref{code:Klassenvariablen_kn} präsentierten Klassenvariablen gehören zur Klasse \textit{KnapsackScript}.
+Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben
+werden oder von anderen Klassen für die Funktionalität benötigt werden. Diese Bereitstellung ermöglicht einen direkten
+Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse. Das \textit{2D int Array inventory} spielt eine
+entscheidende Rolle bei der Verarbeitung und Berechnung des Werts des individuellen Inventars.\\
+
+\subsubsection{Start des KnapsackScripts}
+\begin{lstlisting}[style=csharp, caption={Start Funktion des KnapsackScripts}, label=code:kn_start]
+void Start()
+{
+    items = new QRItem(0).items;
+    EventManager.OnGridUpdate += SetInventory;
+}
+\end{lstlisting}\\
+In dem Codeabschnitt \ref{code:kn_start} ist die Lebenszyklusfunktion \textbf{Start()} zu sehen. Diese Funktion versichert
+das erfolgreiche setzen aller Items in dem \textit{Items-Dictionary} und ebenfalls, dass wenn im \textit{EventManager}
+das \textit{OnGridUpdate} Event ausgelöst wurde, dass die \textbf{SetInventory()} Funktion aufgerufen wird.
+
+\subsubsection{Set Inventory und Start der Berechnung}
+\begin{lstlisting}[style=csharp, caption={Setzen des Inventars und starten der Berechnung}, label=code:kn_setInv]
+public void SetInventory(int[,] newInventory)
+{
+    inventory = newInventory;
+    CalculateKnapsack();
+}
+\end{lstlisting}\\
+Die in Codeabschnitt \ref{code:kn_setInv} vom \textit{EventManager} aufgerufene Funktion \textbf{SetInventory}
+kümmert sich darum, dass das von dem \textit{InventoryController} zusammengestellte Inventar an das \textit{KnapsackScript}
+übergeben wird und ruft anschließend die \textbf{CalculateKnapsack()} Funktion auf, die die Berechnung startet.
+
+\subsubsection{Start der Berechnung}
+\begin{lstlisting}[style=csharp, caption={Setzen des Inventars und starten der Berechnung}, label=code:kn_startCalc]
+void CalculateKnapsack()
+{
+    int maxValue = KnapsackMaxValue(out usedItems);
+    int inventoryValue = -1;
+    maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
+    try
+    {
+        inventoryValue = KnapsackInventoryValue(inventory);
+        if (maxValue == inventoryValue)
+        {
+            infoMesh.color = Color.green;
+            infoMesh.text = "Maximale Punktzahl erreicht";
+        }
+        else
+        {
+            infoMesh.text = "";
+        }
+        ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
+
+    }
+    catch (Exception e)
+    {
+        Debug.LogError("Error calculating inventory value: " + e.Message);
+    }
+}
+\end{lstlisting}\\
+Um jetzt den Knapsack Algorithmus zu starten und ebenfalls den Wert des eigenen Inventars zu berechnen wird in Codeabschnitt
+\ref{code:kn_startCalc} zu begin der Integer Wert \textit{maxValue} definiert. Dieser Wert wird dann mittels der Funktion
+\textbf{KnapsackMaxValue} befüllt. Anschließend wird der Text von dem \textit{maxMesh} gesetzt um diesen Wert dem Benutzer
+anzuzeigen.
+
+Um jegliche Fehler bei der Berechnung des eigenen Inventars zu vermeiden wird vor der tatsächlichen Berechnung des eigenen
+Inventars das \textit{inventoryValue} auf -1 gesetzt um im Fehlerfall einen Program-Cash zu vermeiden.
+Anschließend wird jetzt in einem \textit{Try/Catch} Block der Wert des eigenen Inventars mittels der \textbf{KnapsackInvenotryValue}
+Funktion berechnet. Anschließend werden mehrere Überprüfungen durchlaufen um zu überprüfen ob der Benutzer den maximal erreichbaren
+Wert erzielt hat oder nicht. Wenn dies der Fall ist wird in dem \textit{infoMesh} angezeigt, dass der maximale Wert erreicht wurde.
+Wenn dies aber nicht der Fall ist wird einfach der erreichte Wert angezeigt ohne zusätzliche Informationen\\
+
+\subsubsection{Wert des eigenen Inventars}
+\begin{lstlisting}[style=csharp, caption={Wert des selbst zusammengestellten Inventars berechnen}, label=code:kn_startCalcOwn]
+public int KnapsackInventoryValue(int[,] inventory)
+{
+    if (inventory == null)
+    {
+        throw new System.Exception("Inventory is null");
+    }
+
+    int totalValue = 0;
+
+    foreach (var item in items.Values)
+    {
+        int itemId = item.id;
+        int itemValue = item.value;
+
+        for (int j = 0; j < inventory.GetLength(0); j++)
+        {
+            for (int k = 0; k < inventory.GetLength(1); k++)
+            {
+                if (inventory[j, k] == itemId)
+                {
+                    totalValue += itemValue;
+                }
+            }
+        }
+    }
+
+    return totalValue;
+}
+\end{lstlisting}\\
+Die in Codebaschnitt \ref{code:kn_startCalc} aufgerufene Funktion \textbf{KnapsackInventoryValue()} ist hier in Codebaschnitt
+\ref{code:kn_startCalcOwn} zu sehen. Zu Start dieser Funktion wird überprüft ob das Inventar \textit{null} ist um zusätzliche
+Sicherheit zu gewhärleisten, falls irgendwo ein Fehler unterläuft. In diesem Fall wird dann eine \textit{System Exception}
+geworfen.
+
+Wenn kein Fehler geworfen wird, wird anschließend ein Integer Wert \textit{totalValue} mit 0 initialisiert. Nun werden allen
+Items die in dem \textit{items} dictionary vorhanden sind mit einer \textit{foreach} Schleife durchlaufen und bei jedem
+Durchlauf wird von diesem Item die \textit{id} und das \textit{value} gespeichert. Der letzte Schritt ist jetzt mit
+einer \textit{for}-Schleife durch das \textit{inventory} zu iterieren und and der Stelle \textit{inventory[i,k]} zu überprüfen
+ob die id an dieser Stelle des Inventars gleich der id des aktuellen Items ist. Wenn das der Fall ist wird das Value des
+Items zu dem \textit{totalValue} dazu addiert.
+
+Nach Abschluss der \textit{foreach}-Schleife wird nun das kalkulierte \textit{totalValue} zurückgegeben.\\
+
+\subsubsection{Knapsack Algorithmus Definition}
 Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die
 Unterschiede der beiden möglichen Algorithmen erläutert. Außerdem wird darauf eingegangen, warum er so wichtig ist
 und in welchen Anwendungen er zum Einsatz kommt.
@@ -1304,248 +1480,211 @@ Ressourcenmanagement und Netzwerkoptimierung. Beispielsweise kann er verwendet w
 Transport von Gütern mit begrenzten Kapazitäten zu planen oder in der Finanzplanung, um das Portfolio von
 Investitionen zu optimieren.
 
-\subsection{Knapsack Algorithmus Implementierung}
-Der folgende Abschnitt beschreibt das \textit{KnapsackScript.cs} und den darin geschriebenen Code für die Umsetzung des
-dynamischen Knapsack-Algorithmus in C-Sharp unter Verwendung von Unity. Die Implementierung umfasst den Funktionsaufruf, die
-Initialisierung der Variablen für den Algorithmus, den eigentlichen Algorithmus, das Backtracking zur
-Identifizierung der ausgewählten Gegenstände für die perfekte Lösung, die Berechnung der Gruppengröße, die Konvertierung
-der temporären Liste in ein 2D-Array, die Rückgabe des Gesamtwerts, sowie die Darstellung der perfekten Lösung und die
-Berechnung des eigenen Inventars.
+\subsubsection{Knapsack Algorithmus Implementierung}
+Der folgende Abschnitt beschreibt die \textbf{KnapsackMaxValue()} Funktion die den maximal erreichbaren Wert berechnet
+und zusätzlich einer der vielen perfekten Lösungen speichert um sie später anzeigen zu können.\\
 
-\subsubsection{Funktionsaufruf}
-\begin{lstlisting}[style=csharp, caption={}, label=code:init]
-int maxValue = KnapsackMaxValue(out usedItems, out int coveredCapacity);
-int inventoryValue = -1;
-maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
-\end{lstlisting}
-\textbf{Erklärung:} In diesem Codeabschnitt erfolgt der Aufruf der Funktion \textit{KnapsackMaxValue}. Die beiden
-\textit{out}-Parameter (\textit{usedItems} und \textit{coveredCapacity}) dienen dazu, Werte aus der Funktion
-herauszugeben, und werden nach dem Funktionsaufruf mit den berechneten Werten aktualisiert. Der Rückgabewert
-\textit{maxValue} enthält den maximal erreichbaren Wert des Rucksacks. Dieser Wert wird dann im TextMesh \textit{maxMesh}
-dargestellt, um dem Benutzer die Information über den maximal erreichbaren Wert anzuzeigen.
-
-\subsubsection{Initialisierung der Variablen für den Algorithmus}
-\begin{lstlisting}[style=csharp, caption={}, label=code:variable]
-int n = items.Count;
-int[,] dp = new int[n + 1, capacity + 1];
-bool[,] selected = new bool[n + 1, capacity + 1];
-\end{lstlisting}
-\textbf{Erklärung:} Die Initialisierung erstellt die notwendigen Arrays für die dynamische Programmierung.\\
-
-\subsubsection{Dynamischer Knapsack Algorithmus}
-\begin{lstlisting}[style=csharp, caption={}, label=code:dynamic]
-for (int i = 0; i <= n; i++)
+\begin{lstlisting}[style=csharp, caption={Knapsack Algorithmus / Item Backtracking}, label=code:startKnapsack]
+public int KnapsackMaxValue(out int[,] usedItems)
 {
-    for (int w = 0; w <= capacity; w++)
-    {
-        % Initialisierung der DP-Tabelle
-        if (i == 0 || w == 0)
-            dp[i, w] = 0;
-        else if (items[i].weight <= w && i <= maxItems)
+    int n = items.Count;
+    int[,] dp = new int[n + 1, capacity + 1];
+    bool[,] selected = new bool[n + 1, capacity + 1];
+
+    for (int i = 0; i <= n; i++)
         {
-            % Berechnung des neuen Werts, wenn das Item ausgewählt wird
-            int newValue = items[i].value + dp[i - 1, w - items[i].weight];
-            if (newValue > dp[i - 1, w])
+        for (int w = 0; w <= capacity; w++)
             {
-                dp[i, w] = newValue;
-                selected[i, w] = true;
+            if (i == 0 || w == 0)
+            dp[i, w] = 0;
+            else if (i <= maxItems && items[i].weight <= w)
+                {
+                int newValue = items[i].value + dp[i - 1, w - items[i].weight];
+                if (newValue > dp[i - 1, w])
+                    {
+                    dp[i, w] = newValue;
+                    selected[i, w] = true;
+                }
+                else
+                    {
+                    dp[i, w] = dp[i - 1, w];
+                    selected[i, w] = false;
+                }
             }
             else
-            {
+                {
                 dp[i, w] = dp[i - 1, w];
                 selected[i, w] = false;
             }
         }
-        else
+    }
+
+    // Backtrack to find selected items
+    int[,] tempUsedItems = new int[3, 3];
+    int row = n;
+    int col = capacity;
+    int rowIndex = 0;
+    int colIndex = 0;
+
+    while (row > 0 && col > 0 && rowIndex < 3 && colIndex < 3)
         {
-            dp[i, w] = dp[i - 1, w];
-            selected[i, w] = false;
-        }
-    }
-}
-\end{lstlisting}
-
-\textbf{Erklärung:}
-\begin{enumerate}
-    \item \textbf{Iterationen durch die Items und Kapazität:} Die äußere Schleife durchläuft jedes Item
-    (\texttt{i}) von 0 bis zur Gesamtanzahl der Items (\texttt{n}). Die innere Schleife durchläuft jede mögliche
-    Kapazität (\texttt{w}) von 0 bis zur maximalen Kapazität des Rucksacks.
-
-    \item \textbf{Initialisierung der DP-Tabelle:} Wenn \texttt{i} oder \texttt{w} 0 ist, wird der Wert in der
-    DP-Tabelle auf 0 gesetzt. Dies liegt daran, dass es keine Items gibt oder die Kapazität des Rucksacks 0 ist.
-
-    \item \textbf{Überprüfung, ob das Item ausgewählt werden kann:} Wenn das aktuelle Item ausgewählt werden
-    kann (basierend auf Gewicht und maximaler Anzahl von Items), wird der neue Wert berechnet, wenn das Item
-    ausgewählt wird.
-
-    \item \textbf{Vergleich und Auswahl:} Der neue Wert wird mit dem Wert verglichen, wenn das Item nicht
-    ausgewählt wird. Wenn der neue Wert größer ist, wird das Item ausgewählt (\texttt{selected[i, w] = true}),
-    andernfalls wird das vorherige Ergebnis beibehalten (\texttt{selected[i, w] = false}).
-
-    \item \textbf{Falls Item nicht ausgewählt wird:} Wenn das aktuelle Item nicht ausgewählt wird, wird der
-    Wert in der DP-Tabelle auf den Wert gesetzt, den das Rucksack ohne das aktuelle Item in der vorherigen
-    Iteration erreicht hat.\\
-\end{enumerate}
-
-\textbf{Bedeutung der DP-Tabelle:}
-Die DP-Tabelle (dp) dient dazu, Teilprobleme zu lösen und die besten Ergebnisse für verschiedene Kombinationen
-von Items und Kapazitäten zu speichern. Jeder Eintrag in der Tabelle repräsentiert den maximal erreichbaren Wert
-für eine bestimmte Menge von ausgewählten Items und eine bestimmte Kapazität des Rucksacks.
-
-Insgesamt ermöglicht dieser Algorithmus, die optimale Auswahl von Gegenständen zu finden, die in den Rucksack
-passt, um den Gesamtwert zu maximieren.
-
-
-\subsubsection{Backtracking, um ausgewählte Items und perfekt Lösung zu finden}
-\begin{lstlisting}[style=csharp, caption={}, label=code:backtrack]
-List<List<int>> tempUsedItems = new List<List<int>>();
-int row = n;
-int col = capacity;
-while (row > 0 && col > 0)
-{
-    List<int> group = new List<int>();
-    while (row > 0 && col > 0 && selected[row, col])
-    {
-        // Item zu ausgewählter Gruppe hinzufügen
-        group.Add(items[row].id);
-        col -= items[row].weight;
-        row--;
-    }
-
-    // Hinzufügen der Gruppe zur Liste
-    if (group.Count > 0)
-    {
-        tempUsedItems.Add(group);
-    }
-
-    // Fortfahren mit dem Backtracking
-    if (row > 0 && col > 0)
-    {
-        row--;
-    }
-}
-\end{lstlisting}
-
-\textbf{Erklärung:}
-\begin{enumerate}
-    \item \textbf{Initialisierung von Zeilen- und Spaltenindizes:} Die Variablen \texttt{row} und \texttt{col} werden auf die letzte Zeile und Spalte der DP-Tabelle gesetzt.
-
-    \item \textbf{Hauptschleife für Backtracking:} Die äußere Schleife wird durchlaufen, solange die Zeile und die Spalte größer als 0 sind.
-
-    \item \textbf{Innere Schleife für Gruppenbildung:} Solange die Zeile und die Spalte größer als 0 sind und das Item in der DP-Tabelle ausgewählt wurde (\texttt{selected[row, col]}), wird das Item zur aktuellen Gruppe hinzugefügt, das Gewicht von der aktuellen Kapazität abgezogen, und die Zeile wird dekrementiert.
-
-    \item \textbf{Hinzufügen der Gruppe zur Liste:} Wenn die Gruppe mindestens ein Item enthält, wird die Gruppe zur temporären Liste \texttt{tempUsedItems} hinzugefügt.
-
-    \item \textbf{Fortfahren mit dem Backtracking:} Die Zeile wird dekrementiert, um das nächste ausgewählte Item zu finden.
-\end{enumerate}
-
-Diese Schritte werden wiederholt, bis alle ausgewählten Items gefunden sind und die temporäre Liste \texttt{tempUsedItems} alle ausgewählten Gruppen enthält.\\
-
-\subsubsection{Gruppengröße berechnen}
-\begin{lstlisting}[style=csharp, caption={}, label=code:maxgroup]
-int maxGroupSize = 0;
-foreach (var group in tempUsedItems)
-{
-    if (group.Count > maxGroupSize)
-        maxGroupSize = group.Count;
-}
-\end{lstlisting}
-\textbf{Erklärung:} Findet die maximale Gruppengröße.\\
-
-\subsubsection{Temporäres Array umwandeln und das usedItems Array befüllen}
-\begin{lstlisting}[style=csharp, caption={}, label=code:convert]
-usedItems = new int[tempUsedItems.Count, maxGroupSize];
-for (int i = 0; i < tempUsedItems.Count; i++)
-{
-    for (int j = 0; j < tempUsedItems[i].Count; j++)
-    {
-        usedItems[i, j] = tempUsedItems[i][j];
-    }
-}
-\end{lstlisting}
-\textbf{Erklärung:} Konvertiert die temporäre Liste von Gruppen in ein 2D-Array, um die ausgewählten Items also die perfekt Lösung zu speichern.\\
-
-\subsubsection{Rückgabewert}
-\begin{lstlisting}[style=csharp, caption={}, label=code:return]
-return dp[n, capacity];
-\end{lstlisting}
-\textbf{Erklärung:} Gibt den Gesamtwert des besten Rucksacks zurück.\\
-
-\subsubsection{Darstellung der perfekten Lösung}
-Um die perfekt Lösung nach der Berechnung erfolgreich darzustellen wird in diesem Abschnitt auf die \texit{PLACEHOLDES} Funktion des
-\textit{KnapsackScript.cs} eingegangen um die errechnete Lösung nach dem drücken des \textit{SolveButton} anzugeigen
-
-\subsubsection{Berechnen des eigenen Inventars}
-In diesem Abschnitt wird auf die Funktion \textit{KnapsackInventoryValue} des \texit{KnapsackScript.cs} eingegangen. Diese Funktion
-berechnet das Inventar Value des selbst gebauten Inventars.
-
-\subsubsection{Funktionsaufruf}
-\begin{lstlisting}[style=csharp, caption={}, label=code:aufruf]
-inventoryValue = KnapsackInventoryValue(inventory);
-if (maxValue == inventoryValue)
-{
-    infoMesh.color = Color.green;
-    infoMesh.text = "Maximale Punktzahl erreicht";
-}
-else
-{
-    infoMesh.text = "";
-}
-ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
-\end{lstlisting}
-\textbf{Erklärung:}
-\begin{enumerate}
-    \item \textbf{Inventar Wert berechnen:} Die Funktion KnapsackInventoryValue wird mit dem übergebenem invetory aufgerufen und der Inventar Wert berechnet.
-    \item \textbf{Ergebnis Handling:} Wenn der eigene Wert gleich dem Maximalen errechnetem Wert enspricht hat der Benutzer gewonnen. Anderenfalls wird dem \texit{infoMesh} der aktuelle Wert zugewiesen.
-\end{enumerate}
-
-\subsubsection{Code für die Berechnung des eigenen Inventars}
-\begin{lstlisting}[style=csharp, caption={}, label=code:ownInventory]
-int KnapsackInventoryValue(int[,] inventory)
-{
-    if(inventory == null)
-    {
-        throw new System.Exception("Inventory is null");
-    }
-
-    int totalValue = 0;
-
-    foreach (var item in items.Values)
-    {
-        int itemId = item.id;
-        int itemValue = item.value;
-
-        for (int j = 0; j < inventory.GetLength(0); j++)
-        {
-            for (int k = 0; k < inventory.GetLength(1); k++)
+        if (selected[row, col] && colIndex < maxItems)
             {
-                if (inventory[j, k] == itemId)
+            tempUsedItems[rowIndex, colIndex] = items[row].id;
+            col -= items[row].weight;
+            row--;
+
+            colIndex++;
+            if (colIndex >= 3)
                 {
-                    totalValue += itemValue;
-                }
+                colIndex = 0;
+                rowIndex++;
             }
         }
+        else
+            {
+            row--;
+        }
     }
 
-    return totalValue;
+    usedItems = tempUsedItems;
+
+    return dp[n, capacity];
 }
-\end{lstlisting}
-\textbf{Erklärung:}
+\end{lstlisting}\\
 \begin{enumerate}
-    \item \textbf{Überprüfung auf Null:} Die Funktion überprüft, ob das übergebene Inventar null ist. Falls ja, wird eine Ausnahme ausgelöst.
+    \item \textbf{Initialisierung der Matrizen:}
+    \begin{itemize}
+        \item Die Funktion beginnt mit der Initialisierung der Matrizen \textit{dp}, \textit{selected} und \textit{n}
+        \item \textit{dp[i, w]} repräsentiert den maximalen Gesamtwert mit den ersten \textit{i} Gegenständen und einer begrenzten Kapazität von \textit{w}.
+        \item \textit{selected[i, w]} gibt an, ob der Gegenstand \textit{i} in der optimalen Auswahl enthalten ist.
+        \item \textit{n} ist die Anzahl der Items, die im \textit{items}-Dictionary enthalten sind.
+    \end{itemize}
 
-    \item \textbf{Initialisierung des Gesamtwerts:} Die Variable \texttt{totalValue} wird auf 0 initialisiert. Hier wird der Gesamtwert des Rucksackinventars gespeichert.
+    \[
+        \text{Initialisierung der }\textbf{dp}\text{-Matrix:}
+        \begin{bmatrix}
+            0 & 0 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0 \\
+        \end{bmatrix}
+    \]
 
-    \item \textbf{Durchlauf aller Gegenstände:} Die Funktion durchläuft alle Gegenstände im globalen \texttt{items}-Dictionary.
+    \[
+        \text{Initialisierung der }\textbf{selected}\text{-Matrix:}
+        \begin{bmatrix}
+            \text{false} & \text{false} & \cdots & \text{false} \\
+            \text{false} & \text{false} & \cdots & \text{false} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            \text{false} & \text{false} & \cdots & \text{false} \\
+        \end{bmatrix}
+    \]
 
-    \item \textbf{Extrahierung von Informationen:} Für jeden Gegenstand werden die ID (\texttt{itemId}) und der Wert (\texttt{itemValue}) extrahiert.
+    \item \textbf{Füllen der Matrizen:}
+    \begin{itemize}
+        \item Die äußere Schleife iteriert über die Gegenstände (\textit{i}), und die innere Schleife über die Kapazitäten des Rucksacks (\textti{w}).
+        \item Der Wert in der \textit{dp}-Matrix wird durch den Vergleich zweier Möglichkeiten aktualisiert:
+        \begin{enumerate}
+            \item Wert des aktuellen Gegenstands + Wert mit verbleibender Kapazität nach Abzug des aktuellen Gegenstands.
+            \item Wert ohne Einbeziehung des aktuellen Gegenstands.\\
+        \end{enumerate}
+        Hier wird entschieden, ob es vorteilhafter ist, den aktuellen Gegenstand einzuschließen oder nicht.
+    \end{itemize}
 
-    \item \textbf{Durchlauf des Inventars:} Die doppelte Schleife durchläuft das gesamte Inventar (\texttt{inventory}) und prüft, ob der aktuelle Gegenstand vorhanden ist.
+    \[
+        \text{Aktualisierte }\textbf{dp}\text{-Matrix:}
+        \begin{bmatrix}
+            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+        \end{bmatrix}
+    \]
 
-    \item \textbf{Berechnung des Gesamtwerts:} Wenn der Gegenstand im Inventar gefunden wird, wird sein Wert zum Gesamtwert (\texttt{totalValue}) addiert.
+    \[
+        \text{Aktualisierte }\textbf{selected}\text{-Matrix:}
+        \begin{bmatrix}
+            \text{false} & \text{false} & \cdots & \text{false} & \text{false} & \cdots & \text{true} \\
+            \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
+        \end{bmatrix}
+    \]
 
-    \item \textbf{Rückgabe des Gesamtwerts:} Am Ende wird der Gesamtwert des Rucksackinventars zurückgegeben.
+    \item \textbf{Backtracking:}
+    \begin{itemize}
+        \item Nach dem Füllen der Matrizen erfolgt der Backtracking-Schritt, um die ausgewählten Gegenstände zu ermitteln.
+        \item Beginnend von \textit{dp[n, capacity]} (maximaler Wert) wird rückwärts durch die \textit{selected}-Matrix
+        navigiert, um die ausgewählten Gegenstände zu identifizieren.
+    \end{itemize}
+
+    \item \textbf{Speicherung der ausgewählten Gegenstände:}
+    \begin{itemize}
+        \item Die ausgewählten Gegenstände werden in der Matrix \textit{tempUsedItems} gespeichert.
+        \item \textit{usedItems} bekommt die Werte von \textit{tempUsedItems}.
+    \end{itemize}
+
+    \item \textbf{Rückgabe des Ergebnisses:}
+    \begin{itemize}
+        \item Die Funktion gibt den maximal erreichbaren Gesamtwert zurück.\\
+    \end{itemize}
 \end{enumerate}
+
+\subsubsection{Knapsack Beispiel}
+In diesem Beispiel ist ein Rucksack mit \textit{capacity: 120} und folgenden Gegenständen gegeben:
+\[
+    \begin{align*}
+        1 & : \text{"Laptop", 50, 100} \\
+        2 & : \text{"Router", 25, 50} \\
+        3 & : \text{"Maus", 20, 30} \\
+        4 & : \text{"Block", 10, 15} \\
+        5 & : \text{"Stifte", 10, 5} \\
+        6 & : \text{"Kopfhörer", 25, 50} \\
+        7 & : \text{"Taschenrechner", 10, 10} \\
+        8 & : \text{"Redbull", 5, 50} \\
+        9 & : \text{"USB-Stick", 5, 15} \\
+        10 & : \text{"Verteiler", 20, 15} \\
+        11 & : \text{"Handy", 30, 100} \\
+    \end{align*}
+\]
+\\
+\\
+Die Matrizen werden entsprechend aktualisiert, und nach dem Backtracking ergibt sich die Auswahl der Gegenstände für den
+maximalen Gesamtwert:
+\[
+    \text{Aktualisierte }\textbf{dp}\text{-Matrix:}
+    \begin{bmatrix}
+        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+    \end{bmatrix}
+\]
+
+\[
+    \text{Aktualisierte }\textbf{selected}\text{-Matrix:}
+    \begin{bmatrix}
+        \text{false} & \text{false} & \cdots & \text{false} & \text{false} & \cdots & \text{true} \\
+        \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
+    \end{bmatrix}
+\]
+\\
+Nach ausführung des Knapsack Algorithmus ergibt sich ein maximaler Wert von \textit{280}.\\
+\\
+Die Items die in der perfekte Lösung ausgewählt wurde sind die folgenden:
+\begin{itemize}
+    \item Gegenstand 1: Laptop - Wert: 100, Gewicht: 50
+    \item Gegenstand 2: Router - Wert: 50, Gewicht: 25
+    \item Gegenstand 3: Maus - Wert: 30, Gewicht: 20
+    \item Gegenstand 4: Block - Wert: 15, Gewicht: 10
+    \item Gegenstand 5: Stifte - Wert: 5, Gewicht: 10
+    \item Gegenstand 6: Kopfhörer - Wert: 50, Gewicht: 25
+    \item Gegenstand 10: Verteiler - Wert: 15, Gewicht: 20
+\end{itemize}
+
 
 \subsection{Unit-Tests}
 Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus
