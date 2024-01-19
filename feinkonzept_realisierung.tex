@@ -179,14 +179,14 @@ Bei der Erstellung von 3D-Modellen für Augmented Reality (AR) ist die Optimieru
 Erfahrung auf Geräten wie der Hololens 2 zu gewährleisten. In Blender können verschiedene Techniken angewendet werden,
 um die Modelle für AR zu optimieren.\\
 \\
-Eine dieser Techniken ist die Polygonreduktion, bei der die Anzahl der Polygone in den Modellen reduziert wird, um die
+Eine dieser Techniken ist die \textbf{Polygonreduktion}, bei der die Anzahl der Polygone in den Modellen reduziert wird, um die
 Belastung für die Hardware zu verringern. Blender bietet Werkzeuge wie den Decimate Modifier, um die Anzahl der Polygone
 effizient zu reduzieren, ohne die visuelle Qualität stark zu beeinträchtigen. Es ist essentiell, von Anfang an eine
 Modellierungspraxis mit geringer Polygonanzahl zu berücksichtigen. Ein erfahrener Modellierer kann identische Figuren
 mit reduziertem Polygonaufwand im Vergleich zu einem Anfänger erstellen, aufgrund seines fundierten Wissens über die
 Modellierung von Formen.\\
 \\
-Bei der Texturenoptimierung sollte auf die Größe und Qualität der Texturen geachtet werden, da übermäßig große Texturen
+Bei der \textbf{Texturenoptimierung} sollte auf die Größe und Qualität der Texturen geachtet werden, da übermäßig große Texturen
 die Leistung beeinträchtigen können. Blender ermöglicht die Anpassung von Texturauflösung und -komprimierung. Im Verlauf
 der Texturierung wurde die Hololens mehrmals in Verbindung mit den Texturen integriert, um sicherzustellen, dass keine
 signifikanten Leistungseinbußen auftreten. Wenn Beeinträchtigungen festgestellt wurden, wurden Anpassungen vorgenommen,
@@ -199,23 +199,19 @@ erstellt werden. \textbf{(hab ich nicht gemacht, vielleicht mach ichs aber noch 
 \subsection{Export- und Integrationsprozess}
 Die nahtlose Integration von Blender-Modellen in AR-Entwicklungsumgebungen ist entscheidend. Es sollten folgende
 Aspekte berücksichtigt werden:\\
-\\
 \textbf{Dateiformat}\\
 Blender unterstützt einige Dateiformate für den Export, aber da wir Unity nutzen, haben wir uns für Filmbox (FBX)
 entschieden. Das FBX-Dateiformat (Filmbox) ist ein proprietäres Dateiformat, das von Autodesk entwickelt
 wurde. Es dient dem Austausch von 3D-Modellen, Animationen, Texturen und anderen Szenendaten zwischen verschiedenen
 3D-Anwendungen. FBX speichert Informationen über geometrische Formen, Materialien, Animationen, Kameras und
 Lichtquellen in einer hierarchischen Struktur.\\
-\\
 Das FBX-Format basiert auf einer offenen Architektur, die es ermöglicht, komplexe 3D-Szenen mit verschiedenen
 Softwareanwendungen zu teilen. Es unterstützt dabei nicht nur die Geometrie und Materialien, sondern auch Animationen
 und andere wichtige Parameter. FBX verwendet eine hierarchische Struktur aus sogenannten Nodes, die verschiedene
 Elemente der 3D-Szene repräsentieren.\\
-\\
 FBX-Dateien können sowohl binäre als auch ASCII-Formate haben. Das binäre Format ist kompakter und speichert die
 Daten in einem für Maschinen optimierten Binärformat. Im Gegensatz dazu ist das ASCII-Format besser lesbar für
-Menschen und erleichtert die Handbearbeitung von Dateien.\\
-\\
+Menschen und erleichtert die Handbearbeitung von Dateien.
 \textbf{Koordinatensysteme}\\
 Vor und während der Modellierung wurde oft geprüft, ob die Modelle eine sinnvolle Größenrelation zueinander haben.
 Zudem wurden alle Objekte am Ursprungspunkt und in dieselbe Richtung modelliert, um eine einheitliche Sammlung an
@@ -224,7 +220,7 @@ fertigen Modellen zu erhalten und Verwirrungen zu vermeiden.
 
 \subsection{Blender-Add-Ons und Plugins}
 Es wurden einige Blender-Add-Ons und Plug-Ins verwendet, insbesondere aber das Plug-In LoopTools \footnote{Blender \cite{LoopTools}}
-und das Import-Export Add-On Images as Planes \footnote{Blender \cite{Images as Planes}} verwendet.
+und das Import-Export Add-On Images as Planes \footnote{Blender \cite{Images as Planes}}.
 
 \subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
 
@@ -241,45 +237,146 @@ Plug-ins trug dazu bei, den Arbeitsprozess zu beschleunigen und die Gesamtqualit
 Mit dem Plugin war es außerdem möglich, Vorschaubilder für die Modellierung hinter meinem Objekt zu platzieren, um das
 reale Objekt näher und realistischer zu modellieren.
 
-\section{Hauptmenu}
-Das Hauptmenü dient als Implementierung des Basic UI/UX Systems. Nach umfassender Recherche und internen
-Abstimmungen im Team haben wir uns für die Umsetzung einer freibeweglichen Menüleiste entschieden, wie in
-Abbildung \ref{fig:menübar} dargestellt.
-\\
-Diese Menüstruktur ermöglicht es dem Benutzer, sich im Raum frei zu bewegen, während das Menü stets
-auf Hüfthöhe mitfliegt.
+\subsection{Blender - Modes}
+In Blender gibt es zahlreiche verschiedene Modi \footnote{Blender \cite{Modi}} die es dir erlauben verscheidene Aspekte
+eines Objekts zu bearbeiten.
+\begin{itemize}
+\item \textbf{Object Mode:} Der Default Modus, welcher für alle Objekt-typen zur verfügung steht. Erlaubt die bearbeitung
+von Position, Rotation, Skalierung, Duplizierung und so weiter.
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{images/defaultobjectmode.png}
+\caption{Standard Ansicht im Object Mode}
+\label{fig:defaultobjectmode}
+\end{figure}
+
+\item \textbf{Edit Mode:} Ist ein Modus für das Editieren einer Objektform mit verschiedensten Werkzeugen. Man kann die
+einzelnen Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen auf Basis von verschiedenen Kontrollpunkten bearbeiten.
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{images/calculatoreditmode.png}
+\caption{Edit Mode Ansicht auf das Calculator Objekt}
+\label{fig:calculatoreditmode}
+\end{figure}
+
+\item \textbf{Texture Paint Mode:} Ein Mesh-Only \footnote{Blender \cite{Mesh}} Modus der es dir ermöglicht Texturen direkt auf das Model im 3D-Viewport
+zu zeichnen.
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{images/texturepaintmode.png}
+\caption{Standard Ansicht im Texture Paint Mode}
+\label{fig:texturepaintmode}
+\end{figure}
+\end{itemize}
+
+\subsection{Blender - Hierarchie}
+Im folgenden Abschnitt wird erklärt, wie Blender aufgebaut ist und wie die einzelnen verwendeten Werkzeuge und Modifier
+\footnote{Blender \cite{Modifier}} funktionieren. Es wurden einige Modelle erstellt, aber für ein einfacheres Verständnis
+wurde für alle Beispielbilder das Taschenrechner-Modell verwendet.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/blenderhierarchy.png}
+\caption{Ansicht auf die Hierarchie des Taschenrechner Modells}
+\label{fig:blenderhierarchy}
+\end{figure}
+
+In dieser Abbildung ist die Hierarchie und der Inhalt des Hauptmenüs zu sehen. Wie zu sehen ist, besteht die Szene aus
+vielen wichtigen Komponenten die zusammenspielen, um die gewünschte Funktion zu erzielen. Darunter sind folgende Objekte:
+
+\begin{itemize}
+\item \textbf{Scene Collection:} Die umfassende Collection enthält das gesamte Modell mit allen Teilen. Collections
+werden mehrmals in der Abbildung verwendet, um die Hierarchie besser zu strukturieren. Sie haben jedoch keinen Einfluss
+auf das Objekt selbst.
+\item \textbf{Plane:} Das Mesh dient zur groben Formgebung des Taschenrechners.
+\item \textbf{Circles/Cubes:} Die Circles und Cubes sind die einzelnen Buttons.
+\end{itemize}
+
+In der Abbildung ist zu erkennen, dass einige Formen mit einem blauen/grünen Zeichen markiert sind.
+Das blaue Zeichen kennzeichnet einen Modifier, das heißt, das Objekt hat einen oder mehrere Modifier.
+Das grüne Zeichen steht für Data Properties und zeigt an, dass sich diese verändert haben.
+
+\subsubsection{Blender - Modifier}
+Im vorherigen Abschnitt wurden erwähnt das Modifier verwendet werden. Modifier ermöglichen verschiedene zusätzliche
+Funktionen an einem Objekt.
 
 \begin{figure}[h]
 \centering
+\includegraphics[width=0.8\textwidth]{images/blendermodifier.png}
+\caption{Darstellung des benutzen Modifier im Taschenrechnermodell}
+\label{fig:blendermodifier}
+\end{figure}
+
+In der Abbildung ist der Array Modifier zweimal zu sehen. Dieser wurde verwendet, um nicht jeden Knopf des Taschenrechners
+einzeln modellieren zu müssen, sondern nur einen bestimmten Knopf horizontal oder vertikal mit beliebiger Versetzung zu
+kopieren. Dabei haben die einzelnen Zeilen verschiedene Funktionen.
+\begin{itemize}
+\item \textbf{Fit Type:} Es besteht die Möglichkeit, entweder eine feste Anzahl von Objektkopien auszuwählen oder eine
+Länge anzugeben, die dem Array entspricht.
+\item \textbf{Count:} In dem Feld rechts daneben steht die Anzahl, wie oft das Objekt kopiert werden soll.
+\item \textbf{Relative Offset:} Die relative Verschiebung basiert immer auf dem zuvor kopierten Modell und hat drei
+Faktoren, die jeweils eine der drei Koordinaten darstellen. In diesem Fall soll es um 1.520 auf der x-Achse nach rechts
+verschoben werden.
+\end{itemize}
+
+\section{Menü}
+Die Implementierung des UI/UX-Systems erfolgt über das Menü. Aufgrund einer umfassenden Recherche über verschiedene
+Menüarten wurde die Wahl für die Realisierung eines NearMenus getroffen. Dabei handelt es sich um eine frei
+bewegliche Menüleiste, die sich auf Hüfthöhe des Benutzers befindet und synchron mit dessen Bewegungen mitfließt.
+
+Das Ziel ist es, das Menü so einfach wie möglich zu gestalten und trotzdem alle notwendigen Funktionen zu integrieren.
+\begin{figure}[h]
+\centering
 \includegraphics[width=0.8\textwidth]{images/menubar.png}
-\caption{Die Menüleiste besteht aus drei Buttons, einem Pin-Button und einer Grab-Bar.}
+\caption{Darstellung des Hauptmenüs ohne Debugmenü im Unity Editor}
 \label{fig:menübar}
 \end{figure}
 
-\subsection{Beschreiben der Buttons}
-Die Funktionalitäten der Buttons sind wie folgt:
+\subsection{Menü-Hierarchie}
+In dem folgendem Abschnitt wird darauf eingegangen wie das Menü im Unity Editor aufgebaut ist und wie die einzelnen
+Buttons Grundsätzlich funktionieren.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/menuHierarchy.png}
+\caption{Hauptmenühierarchie im Unity Editor}
+\label{fig:menühierarchy}
+\end{figure}
+
+
+In dieser Abbildung ist die Hierarchie und der Inhalt des Hauptmenüs zu sehen. Wie zu sehen ist, besteht die Szene aus
+vielen wichtigen Komponenten die zusammenspielen, um die gewünschte Funktion zu erzielen. Darunter sind folgende Objekte:
 
 \begin{itemize}
-\item \textbf{Debug-Button}\\
-Der Debug-Button ist ausschließlich für Entwickler vorgesehen. Beim Aktivieren öffnet sich ein erweitertes
-Menü oberhalb des Hauptmenüs, das zusätzliche Funktionen für das Bugfixing während des Betriebs bereitstellt.
-Vorhandene Optionen umfassen einen Reset-Button für Level 2, der bei Problemen mit der Platzierung von
-Inventarobjekten verwendet werden kann.
-
-\item \textbf{Pin-Button}\\
-Der Pin-Button ermöglicht das Fixieren des Menüs an einer geeigneten Stelle. Dies ist besonders nützlich,
+\item \textbf{Menü:} Das Prefab, dem alle einzenen Buttons etc. zugewiesen sind.
+\item \textbf{ManipulationBar:} Ist ein GameObject, dem das \textit{ObjectManipulator.cs} Skript zugewiesen ist, welches
+die händische Menüführung ermöglicht.
+\item \textbf{Debug-Button:} Der Debug-Button ist ausschließlich für das Entwicklerteam vorgesehen. Beim Aktivieren öffnet
+sich ein erweitertes Menü oberhalb des Hauptmenüs, das zusätzliche Funktionen für das Bugfixing während des Betriebs
+bereitstellt.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/debugmenubar.png}
+\caption{Darstellung des Debug Menüs im Unity Editor}
+\label{fig:debugmenübar}
+\end{figure}
+\item \textbf{Skrepek:} Das Prefab ist ein Button der für Skrepek vorbereitet ist, um mögliche Skripts für Bugfixing
+während des Betriebes einzubringen.
+\item \textbf{Haylaz:} Das Prefab ist ein Button der für Haylaz vorbereitet ist, um mögliche Skripts für Bugfixing
+während des Betriebes einzubringen.
+\item \textbf{Schoditsch:} Das Prefab ist ein Button der für Schoditsch vorbereitet ist, um mögliche Skripts für Bugfixing
+während des Betriebes einzubringen.
+\item \textbf{Level 1/2-Button:} Diese Prefabs stellen die Buttons für das Level wechseln da, ihnen ist das
+\textit{SceneChange.cs} Skript zugewiesen.
+\item \textbf{Pin-Button:} Der Pin-Button ermöglicht das Fixieren des Menüs an einer geeigneten Stelle. Dies ist besonders nützlich,
 wenn der Benutzer sich an einen Tisch setzt und das Menü entsprechend positionieren möchte. Die
-Positionierung erfolgt mithilfe der Grab-Bar.
-
-\item \textbf{Grab-Bar}\\
-Die weiße Leiste (Grab-Bar) kann festgehalten werden, um das Menü frei zu bewegen. In Kombination mit dem
-Pin-Button ist eine präzisere Platzierung möglich.
+Positionierung erfolgt mithilfe der ManipulationsBar.
 \end{itemize}
 
 \subsection{Laden der Level}
-Das Betätigen eines dieser Buttons (Level 1, Level 2) löst das Skript SceneChanger aus. Dieser Code wechselt die geladene
-Szene entsprechend. Die zu ladende Szene wird durch die Variable sceneToLoad definiert, die in Unity
-festgelegt wird und das gewünschte Level angibt.
+Im vorherigen Abschnitt wurde bereits die grobe Funktionalität der Buttons erklärt. Das Drücken eines der Level-Buttons
+(Level 1, Level 2) löst das \textit{SceneChange.cs} Skript aus.Dieser Code ist für die Änderung der aktuellen Szene
+verantwortlich. Die zu ladende Szene wird durch die Variable sceneToLoad definiert, die in Unity festgelegt wird und das
+gewünschte Level angibt.
 
 \begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln.]
 using UnityEngine;
@@ -297,27 +394,34 @@ Debug.Log("Button clicked. Loading scene: " + sceneToLoad);
 }
 \end{lstlisting}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{images/sceneToLoad.png}
+\caption{Darstellung der SceneToLoad Variable, anhand des Level_1 Buttons.}
+\label{fig:scenetoload}
+\end{figure}
+
 \subsection{UI/UX}
-\textbf{Blickzentrierung und Interaktionsmodelle}\\
+Im folgenden Abschnitt werden die Ziele genannt, auf die sich bei der Menüerstellung konzentriert wurde.
+\begin{itemize}
+\item \textbf{Blickzentrierung und Interaktionsmodelle:}
 Die Menüleiste bewegt sich auf Hüfthöhe mit dem Benutzer mit und ermöglicht so eine natürliche und intuitive Interaktion.
 Der Benutzer kann die Bedienelemente einfach durch Blickkontakt auswählen, was die Benutzerfreundlichkeit erhöht und die
-Bedienung der Anwendung erleichtert.\\
-\\
-\textbf{Konsistenz im Design}\\
+Bedienung der Anwendung erleichtert.
+\item \textbf{Konsistenz im Design:}
 Die klare Gestaltung der Buttons mit aussagekräftigen Symbolen trägt zur Konsistenz und Benutzerfreundlichkeit bei.
 Eine einheitliche visuelle Sprache erleichtert es dem Benutzer, die Funktionen der Buttons zu verstehen, selbst wenn er
-sie zum ersten Mal verwendet.\\
-\\
-\textbf{Kontextsensitive Funktionen}\\
+sie zum ersten Mal verwendet.
+\item \textbf{Kontextsensitive Funktionen:}
 Der Debug-Button bietet erweiterte Funktionen, die speziell für Entwickler relevant sind. Diese kontextsensitiven
 Optionen sind wichtig für die Fehlersuche und tragen dazu bei, die Entwicklungszeit zu optimieren. Gleichzeitig bleibt
-die Benutzeroberfläche für den Endbenutzer sauber und übersichtlich.\\
-\\
-\textbf{Anpassungsmöglichkeiten für den Benutzer}\\
+die Benutzeroberfläche für den Endbenutzer sauber und übersichtlich.
+\item \textbf{Anpassungsmöglichkeiten für den Benutzer:}
 Die Option, das Menü mit dem Pin-Button zu fixieren und mit der Grab-Bar frei zu bewegen, gibt dem Benutzer die
 Kontrolle über die Positionierung des Menüs. Diese Anpassungsmöglichkeiten tragen dazu bei, die Anwendung an
 verschiedene Nutzerszenarien anzupassen und die individuellen Bedürfnisse der Benutzer zu berücksichtigen.
 Feedback und Animationen
+\end{itemize}
 
 \section{Ping Level}
 In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
