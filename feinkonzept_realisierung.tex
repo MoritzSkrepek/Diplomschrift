@@ -127,10 +127,6 @@ Interaktionen programmieren.
 \subsection*{Foto der umgebung schießen}
 Nach betätigen des Knopfes am anfang, wird ein Foto von der Umgebung gemacht.
 \begin{lstlisting}[style=csharp, caption={}, label=code:takingPicture]
-void takingPicture()
-{
-    if (!takingNewPicture)
-    {
         redPixelCoordinates.Clear();
         takingNewPicture = true;
 
@@ -157,8 +153,6 @@ void takingPicture()
                 }
             }
         });
-    }
-}
 \end{lstlisting}
 \textbf{Erklärung:}
 \begin{enumerate}
@@ -188,6 +182,81 @@ void onCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result, PhotoCaptur
     \item \textbf{photoCaptureObject.StopPhotoModeAsync(onStoppedPhotoMode):} Beendet die instanz des Photocapture und ruft dannach die funktion onStoppedPhotoMode.
 \end{enumerate}
 
+\subsection*{Foto verarbeitung}
+Um die Position des Kabels in einer Koordinatensystem zu ermitteln, wird überprüft wo
+in den geschossenen Bild Rote Pixel existieren. Diese x und y Positionen werden dann
+in einer jeweilige \textit{List<int>} gegeben.
+\begin{lstlisting}[style=csharp, caption={}, label=code:editTexture]
+    Color[] pixels = textureToEdit.GetPixels();
+
+    int textureWidth = textureToEdit.width;
+
+    List<int> yCoordinates = new List<int>();
+    List<int> xCoordinates = new List<int>();
+
+    for (int y = 0; y < textureToEdit.height; y++)
+    {
+        for (int x = 0; x < textureWidth; x++)
+        {
+            int index = y * textureWidth + x;
+
+            // Check if the pixel is predominantly red (you can adjust the threshold)
+            if (pixels[index].r > redComponentThreshold && pixels[index].g < 0.5f && pixels[index].b < 0.5f)
+            {
+                pixels[index] = Color.red;
+
+                yCoordinates.Add(y);
+                xCoordinates.Add(x);
+            }
+            else
+            {
+                pixels[index] = Color.black; // Set non-red pixels to black
+            }
+        }
+    }
+    if ( yCoordinates.Count == 0 || xCoordinates.Count == 0 )
+    {
+        return textureToEdit;
+    }
+\end{lstlisting}
+Da man noch die z-Achse, also die Tiefe, zu ermitteln, um das visuelle Paket angemessen zu platzieren, werden
+im späteren Verlauf RayCasts verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
+für jede Position verbunden wäre, um die z-Achse für jede Koordinate zu erhalten, wird eine Optimierung angestrebt.
+Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
+anfangspunkt des Kabels (am ersten PC), der mittelpunkt des Kabels und das endpunkt des Kabels (am zweiten PC).\\
+
+\begin{lstlisting}[style=csharp, caption={}, label=code:getSideCoordinate]
+Vector2 getSideCoordinate(List<int> list,bool min, int averageY)
+ {
+     list.Sort();
+     int sumOfSelectedValues = 0;
+     if (min)
+     {
+         for (int i = 0; i < list.Count/10; i++)
+         {
+             sumOfSelectedValues += list[i];
+         }
+     }
+     else
+     {
+         int cal = list.Count - (list.Count / 10);
+         for (int i = 0; i < list.Count / 10; i++)
+         {
+             sumOfSelectedValues += list[cal + i];
+         }
+     }
+     return new Vector2(sumOfSelectedValues / (list.Count / 10), averageY);
+ }
+\end{lstlisting}
+
+Die vorliegende Code-Implementierung berechnet eine Seitenkoordinate auf Basis der Liste der aller xy
+Koordinaten von Roten Pixeln Ganzzahlen. Die Methode getSideCoordinate bekommt drei Parameter: die
+Liste von Ganzzahlen (list), einen booleschen Wert (min), der angibt, ob der Mindestwert verwendet werden soll, und den Durchschnittswert der
+y-Koordinaten (averageY). Die Methode sortiert die Liste (list.Sort()) und berechnet dann die Summe der
+ausgewählten Werte basierend auf dem booleschen Parameter min. Falls min wahr ist, werden die ersten 10\% der
+sortierten Liste verwendet, andernfalls die letzten 10\% . Die berechnete Summe wird durch die Anzahl der
+ausgewählten Werte geteilt, und das Ergebnis wird zusammen mit dem Durchschnittswert der y-Koordinaten als ein
+neuer Vektor vom Typ Vector2 zurückgegeben.
 
 
 
