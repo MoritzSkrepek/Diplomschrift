@@ -1595,10 +1595,11 @@ public int KnapsackMaxValue(out int[,] usedItems)
     \[
         \text{Aktualisierte }\textbf{dp}\text{-Matrix:}
         \begin{bmatrix}
-            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
-            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
-            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+            a11 & a12 & \cdots & a15 & a16 & \cdots & a19 & \cdots & a1n \\
+            a21 & a22 & \cdots & a25 & a26 & \cdots & a29 & \cdots & a2n \\
+            a31 & a32 & \cdots & a35 & a36 & \cdots & a39 & \cdots & a3n \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            am1 & am2 & \cdots & am3 & am6 & \cdots & 0am9 & \cdots & \text{MaxValue} \\
         \end{bmatrix}
     \]
 
@@ -1631,60 +1632,125 @@ public int KnapsackMaxValue(out int[,] usedItems)
     \end{itemize}
 \end{enumerate}
 
-\subsubsection{Knapsack Beispiel}
-In diesem Beispiel ist ein Rucksack mit \textit{capacity: 120} und folgenden Gegenständen gegeben:
+\subsubsection*{Knapsack Beispiel}
+Betrachten wir das Knapsack-Problem, bei dem ein Rucksack mit begrenzter Kapazität optimal gefüllt werden soll, um den
+Gesamtwert der enthaltenen Gegenstände zu maximieren. Die Kapazität des Rucksacks beträgt \textit{13}. Die Liste der
+verfügbaren Gegenstände ist wie folgt definiert:
+\begin{center}
+\begin{array}{|c|c|c|c|}
+    \hline
+    \text{ID} & \text{Name} & \text{Gewicht} & \text{Wert} \\
+    \hline
+    1 & \text{Laptop} & 5 & 10 \\
+    2 & \text{Router} & 2 & 5 \\
+    3 & \text{Maus} & 2 & 3 \\
+    4 & \text{Block} & 1 & 2 \\
+    5 & \text{Stifte} & 1 & 1 \\
+    6 & \text{Kopfhörer} & 3 & 5 \\
+    7 & \text{Taschenrechner} & 1 & 1 \\
+    8 & \text{Redbull} & 1 & 5 \\
+    9 & \text{USB-Stick} & 1 & 2 \\
+    10 & \text{Verteiler} & 2 & 2 \\
+    11 & \text{Handy} & 3 & 10 \\
+    \hline
+\end{array}
+\end{center}
+\\
+Nach Anwendung der dynamischen Programmierung, um die maximale Werttabelle und die Tabelle der ausgewählten Items zu
+erstellen sieht die \textit{dp}-Matrix dementsprechend so aus:
 \[
-    \begin{align*}
-        1 & : \text{"Laptop", 50, 100} \\
-        2 & : \text{"Router", 25, 50} \\
-        3 & : \text{"Maus", 20, 30} \\
-        4 & : \text{"Block", 10, 15} \\
-        5 & : \text{"Stifte", 10, 5} \\
-        6 & : \text{"Kopfhörer", 25, 50} \\
-        7 & : \text{"Taschenrechner", 10, 10} \\
-        8 & : \text{"Redbull", 5, 50} \\
-        9 & : \text{"USB-Stick", 5, 15} \\
-        10 & : \text{"Verteiler", 20, 15} \\
-        11 & : \text{"Handy", 30, 100} \\
-    \end{align*}
+    \text{dp-Matrix:}
+    \begin{bmatrix}
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 10 & \cdots & 10 & 10 & 10 \\
+        0 & 0 & 5 & 5 & 5 & 10 & \cdots & 15 & 15 & 15 \\
+        0 & 0 & 5 & 5 & 8 & 10 & \cdots & 18 & 18 & 18 \\
+        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 20 & 20 & 20 \\
+        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 21 & 21 & 21 \\
+        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 22 & 23 & 25 \\
+        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 22 & 23 & 25 \\
+        0 & 5 & 7 & 10 & 12 & 13 & \cdots & 23 & 27 & 28 \\
+        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
+        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
+        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
+    \end{bmatrix}
 \]
 \\
-\\
-Die Matrizen werden entsprechend aktualisiert, und nach dem Backtracking ergibt sich die Auswahl der Gegenstände für den
-maximalen Gesamtwert:
+Die zugehörige \textit{selected}-Matrix für die \textit{ausgewählten Gegenstände} lautet:
 \[
-    \text{Aktualisierte }\textbf{dp}\text{-Matrix:}
+    \text{selected-Matrix:}
     \begin{bmatrix}
-        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
-        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
-        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-        0 & 0 & \cdots & 0 & 30 & \cdots & 280 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 1 & 1 & \cdots & 1 & 1 & 1 \\
+        0 & 0 & 1 & 1 & 0 & 0 & \cdots & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 1 & 1 & 1 \\
+        0 & 1 & 0 & 1 & 0 & 1 & \cdots & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+        0 & 1 & 1 & 1 & 1 & 1 & \cdots & 1 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 1 & 0 & \cdots & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
     \end{bmatrix}
 \]
 
+\subsubsection*{Interpretation der DP-Matrix:}
+Die DP-Matrix repräsentiert die maximalen Werte für verschiedene Gewichtsbeschränkungen. Ein Eintrag \textit{(i, j)} gibt
+den maximal erreichbaren Gesamtwert an, wenn die Gewichtsbeschränkung \texit{j} unter Verwendung der Gegenstände \textit{1} bis
+\textitt{i} berücksichtigt wird.
+
+Nehmen wir als Beispiel den Eintrag an der Position \textit{(2, 5)}. Der Wert \textit{10} an dieser Stelle bedeutet, dass bei
+einer Gewichtsbeschränkung von \textit{5} und unter Verwendung der Gegenstände \textit{1} und \textit{2} der maximale Gesamtwert \textit{10}
+erreicht wird. Dieser Prozess lässt sich durch die Betrachtung der dazugehörigen Zeile in der DP-Matrix veranschaulichen:
+
 \[
-    \text{Aktualisierte }\textbf{selected}\text{-Matrix:}
-    \begin{bmatrix}
-        \text{false} & \text{false} & \cdots & \text{false} & \text{false} & \cdots & \text{true} \\
-        \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
-        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-        \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
-    \end{bmatrix}
+    \text{DP-Matrix - Zeile 2: } [0, 0, 0, 0, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10]
 \]
+
+Diese Zeile gibt an, dass für eine Gewichtsbeschränkung von \textit{5} und unter Verwendung der Gegenstände \textit{1} und \textit{2}
+der maximale Gesamtwert \textit{10} erreicht wird. Die weiteren Einträge in der Zeile zeigen die maximal erreichbaren Werte
+für andere Gewichtsbeschränkungen. Dieser Prozess wiederholt sich für jede Zeile der DP-Matrix und ermöglicht die
+Identifikation des maximal erreichbaren Gesamtwerts für unterschiedliche Gewichtsbeschränkungen.
+
+\subsubsection*{Interpretation der ausgewählten Matrix:}
+Jeder Eintrag \textit{(i, j)} in der ausgewählten Matrix gibt an, ob der Gegenstand mit der ID \textit{i} in der optimalen Lösung
+enthalten ist, wenn die Gewichtsbeschränkung \textit{j} erreicht wird. Ein Eintrag von \textit{1} bedeutet, dass der Gegenstand
+in der Lösung enthalten ist, während \textit{0} besagt, dass er ausgeschlossen ist.
+
+Nehmen wir als Beispiel den Eintrag an der Position \textit{(2, 5)}. Das Vorhandensein von \textit{1} an dieser Stelle bedeutet,
+dass der Router (Gegenstand \textit{2} in der optimalen Lösung enthalten ist, wenn die Gewichtsbeschränkung \textit{5} erreicht
+wird. Um dies zu verdeutlichen, betrachten wir die dazugehörige Zeile in der ausgewählten Matrix:
+
+\[
+    \text{Ausgewählte Matrix - Zeile 2: } [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+\]
+
+Diese Zeile gibt an, dass für eine Gewichtsbeschränkung von \textit{5} der Router in der optimalen Lösung enthalten ist.
+Die weiteren Einträge in der Zeile zeigen die Auswahl der anderen Gegenstände für diese spezifische Gewichtsbeschränkung.
+Dieser Prozess wiederholt sich für jede Zeile der ausgewählten Matrix und ermöglicht die Identifikation der optimalen
+Gegenstandsbelegung für unterschiedliche Gewichtsbeschränkungen.
+
+\subsubsection*{Ergebnisse}
+\textbf{Maximaler Wert:} 29\\
 \\
-Nach ausführung des Knapsack Algorithmus ergibt sich ein maximaler Wert von \textit{280}.\\
-\\
-Die Items die in der perfekte Lösung ausgewählt wurde sind die folgenden:
+\textbf{Verwendete Gegenstände:}
 \begin{itemize}
-    \item Gegenstand 1: Laptop - Wert: 100, Gewicht: 50
-    \item Gegenstand 2: Router - Wert: 50, Gewicht: 25
-    \item Gegenstand 3: Maus - Wert: 30, Gewicht: 20
-    \item Gegenstand 4: Block - Wert: 15, Gewicht: 10
-    \item Gegenstand 5: Stifte - Wert: 5, Gewicht: 10
-    \item Gegenstand 6: Kopfhörer - Wert: 50, Gewicht: 25
-    \item Gegenstand 10: Verteiler - Wert: 15, Gewicht: 20
+    \item Gegenstand 9 (USB-Stick) mit einem Gewicht von 1 und einem Wert von 2
+    \item Gegenstand 8 (Redbull) mit einem Gewicht von 1 und einem Wert von 5
+    \item Gegenstand 6 (Kopfhörer) mit einem Gewicht von 3 und einem Wert von 5
+    \item Gegenstand 4 (Block) mit einem Gewicht von 1 und einem Wert von 2
+    \item Gegenstand 2 (Router) mit einem Gewicht von 2 und einem Wert von 5
+    \item Gegenstand 1 (Laptop) mit einem Gewicht von 5 und einem Wert von 10\\
 \end{itemize}
-
+\[
+    \textbf{usedItems:}
+    \begin{bmatrix}
+        9 & 8 & 6 \\
+        4 & 2 & 1 \\
+        0 & 0 & 0 \\
+    \end{bmatrix}
+\]
 
 \subsection{Unit-Tests}
 Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus

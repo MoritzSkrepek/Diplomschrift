@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  19 JAN 2024 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  23 JAN 2024 10:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -8142,61 +8142,109 @@ Underfull \hbox (badness 10000) in paragraph at lines 1590--1591
 
  []
 
+
+Overfull \hbox (16.45122pt too wide) detected at line 1604
+[][][] []
+ []
+
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 1630--1631
+Underfull \hbox (badness 10000) in paragraph at lines 1631--1632
 
  []
 
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:164
-9: Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
+0: Missing $ inserted.
+<inserted text> 
+                $
+l.1640 \begin{array}{|c|c|c|c|}
+                               
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-See the amsmath package documentation for explanation.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:165
+6: Missing $ inserted.
+<inserted text> 
+                $
+l.1656 \end{array}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:165
+9: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1649     \end{align*}
-                       
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+l.1659 N
+        ach Anwendung der dynamischen Programmierung, um die maximale Wertta...
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1650--1655
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1673--1679
-
- []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 [48]
-Overfull \hbox (3.87924pt too wide) in paragraph at lines 1690--1693
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:170
+0: Undefined control sequence.
+l.1700 ...n, wenn die Gewichtsbeschränkung \texit
+                                                  {j} unter Verwendung der G...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:170
+1: Undefined control sequence.
+l.1701 \textitt
+               {i} berücksichtigt wird.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1735--1739
+
+ []
+
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1744--1745
+
+ []
+
+
+Overfull \hbox (3.87924pt too wide) in paragraph at lines 1756--1759
 [][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
 m-ple-men-tier-te Knappsack-Algorithmus
  []
 
-) [49] [50 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blendermodifi
-er.png>] [51 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menubar.png
+) [50] [51 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blendermodifi
+er.png>] [52 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menubar.png
 > <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menuHierarchy.png> <C:
 /Users/Moritz/Documents/GitHub/Diplomschrift/images/debugmenubar.png> <C:/Users
-/Moritz/Documents/GitHub/Diplomschrift/images/sceneToLoad.png>] [52 <C:/Users/M
+/Moritz/Documents/GitHub/Diplomschrift/images/sceneToLoad.png>] [53 <C:/Users/M
 oritz/Documents/GitHub/Diplomschrift/images/Level2Hirarchy.png> <C:/Users/Morit
-z/Documents/GitHub/Diplomschrift/images/bestSolPref.png>] [53 <C:/Users/Moritz/
+z/Documents/GitHub/Diplomschrift/images/bestSolPref.png>] [54 <C:/Users/Moritz/
 Documents/GitHub/Diplomschrift/images/invPlace_Editor.png> <C:/Users/Moritz/Doc
 uments/GitHub/Diplomschrift/images/invCon_Editor.png> <C:/Users/Moritz/Document
-s/GitHub/Diplomschrift/images/extendedBounds.png>] [54 <C:/Users/Moritz/Documen
+s/GitHub/Diplomschrift/images/extendedBounds.png>] [55 <C:/Users/Moritz/Documen
 ts/GitHub/Diplomschrift/images/itemAdded.png> <C:/Users/Moritz/Documents/GitHub
 /Diplomschrift/images/itemToHeavy.png> <C:/Users/Moritz/Documents/GitHub/Diplom
-schrift/images/itemEntfernt.png>] [55 <C:/Users/Moritz/Documents/GitHub/Diploms
+schrift/images/itemEntfernt.png>] [56 <C:/Users/Moritz/Documents/GitHub/Diploms
 chrift/images/knapsackEditor.png>]
 \openout2 = `zmfs_abschluss.aux'.
 
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/zmfs_abschluss.tex
 Kapitel 5.
-) [56
+) [57
 
 
 
@@ -8206,7 +8254,7 @@ Kapitel 5.
 
  (C:/Users/Moritz/Documents/GitHub/Diplomschrift/anhang_a.tex
 Anhang A.
-) [57
+) [58
 
 
 
@@ -8275,7 +8323,7 @@ Overfull \hbox (38.23976pt too wide) in paragraph at lines 21--22
 e-sucht am 15.01.2024). 
  []
 
-[58
+[59
 
 
 
@@ -8368,7 +8416,7 @@ Overfull \hbox (3.32607pt too wide) in paragraph at lines 43--44
 95 https : / / learn . microsoft . com / en -[] us / samples / microsoft /
  []
 
-[59]
+[60]
 Overfull \hbox (6.11157pt too wide) in paragraph at lines 44--45
 [][][]\T1/cmr/m/n/10.95 Unity. QR-Code Tracking Over-view. URL: [][]$[][]\T1/cm
 ss/m/n/10.95 https : / / learn . microsoft . com / de -[] de / windows /
@@ -8387,7 +8435,7 @@ Overfull \hbox (4.91667pt too wide) in paragraph at lines 45--46
 = mixedreality -[] openxr -[] plugin -[] 1 . 9$[][] \T1/cmr/m/n/10.95 (be-
  []
 
-) [60] (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.gls)
+) [61] (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.gls)
 runsystem(makeindex allgemein.idx)...executed safely (allowed).
 
 
@@ -8431,7 +8479,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 34E2BE6793AF11C4E428F5CAB047AC12;11388.
+(rerunfilecheck)             Checksum: F16BA9CA1D9AE7FDC9BCFE16226DFC13;11388.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -8442,10 +8490,10 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34652 strings out of 474267
- 628941 string characters out of 5751464
+ 34649 strings out of 474267
+ 628870 string characters out of 5751464
  2716558 words of memory out of 5000000
- 55144 multiletter control sequences out of 15000+600000
+ 55137 multiletter control sequences out of 15000+600000
  580756 words of font info for 86 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2333b,2716s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -8470,10 +8518,10 @@ fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type
 1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/c
 m-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (72 pages, 3968025 bytes).
+pdf (73 pages, 3971277 bytes).
 PDF statistics:
- 1791 PDF objects out of 2073 (max. 8388607)
- 1587 compressed objects within 16 object streams
- 743 named destinations out of 1000 (max. 500000)
+ 1801 PDF objects out of 2073 (max. 8388607)
+ 1596 compressed objects within 16 object streams
+ 747 named destinations out of 1000 (max. 500000)
  779 words of extra memory for PDF output out of 10000 (max. 10000000)
 
