@@ -507,12 +507,6 @@ zu erzielen. Darunter sind folgende Objekte:
     In jeder Zelle des Inventars ist ein eigenes QRCode Prefab um anschließend die berechnete perfekte Lösung darstellen zu können.
     Diesem Objekt ist das \textit{PerfectSolutionVisualizer.cs} Script zugewiesen, dass sich darum kümmert die perfekte Lösung
     anzuzeigen.
-    \begin{figure}[h]
-        \centering
-        \includegraphics[scale=0.8]{images/bestSolPref}
-        \caption{bestSolutionPrefab Objekt Hirarchie.}
-        \label{fig:bestSolutionPrefab_hirarchie}
-    \end{figure}
     \item \textbf{InfoObject:} Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird bei platzieren
     des Inventars neben dem Inventar mitplatziert. Bei den Objekten handelt es sich hierbei um den \textit{BestSolutionButton},
     der bei Knopfdruck einer der mehreren besten Lösungen visuell veranschaulicht, und drei \textit{TextMeshes}, um die
@@ -1751,6 +1745,206 @@ Gegenstandsbelegung für unterschiedliche Gewichtsbeschränkungen.
         0 & 0 & 0 \\
     \end{bmatrix}
 \]
+
+\subsection{Best Solution Prefab Game Objekt}
+Das \textit{best solution prefab} spielt eine wichtige Rolle im weiteren Verlauf der Applikation. Durch das angehängt
+\textit{PerfectSolutionVisualizer.cs} Script wird das visualisieren der zuvor berechneten perfekten Lösung
+realisiert. Dies is wichtig um den Benutzer tatsächlich zu zeigen, welche die best mögliche Lösung ist, wie sie aussieht
+und welche Items in dieser Lösung enthalten sind.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/bestSolPref_Editor}
+    \caption{bestSolutionPrefab im Unity Editor}
+    \label{fig:bestSol_Editor}
+\end{figure}
+
+In der Abbildung \ref{fig:bestSol_Editor} ist das \textit{bestSolutionPrefab} um Unity Editor zu sehen. Hier können verschiedene
+Einestellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
+Unity Editor selbst und die angehängte Komponente \textit{PerfectSolutionVisualizer.cs}. Zudem sind vordefinierte Werte für
+bestimmte Variablen sichtbar. Diese Variablen umfassen:
+\begin{itemize}
+    \item \textbf{Inventory Object:} Eine Referenz auf das Prefab für die perfekte Lösung.
+    \item \textbf{Inventory Placement Object:} Eine Referenz auf das \textit{inventoryPlacement} Game Objekt.
+    \item \textbf{Knapsack Algo Object:} Eine Referenz auf das \textit{KnapsackAlgo} Game Objekt.
+    \item \textbf{Inventory:} Eine Referenz auf das \textit{Inventory} Modell, welches in dem Best Solution Prefab enthalten ist
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/bestSolPref}
+    \caption{Inventar Prefab Hirarchie im Unity Editor}
+    \label{fig:InvPref}
+\end{figure}
+
+Abbildung \ref{fig:InvPref} zeigt den Aufbau beziehungsweise die Hirarchie des Prefabs für die perfekte Lösung. Hier ist
+zu sehen, dass in dem Haupt Game Objekt das Game Objekt \textit{Inventory} untergeordnet ist. Dieses Game Objekt ist
+das 3D-Modell für das Inventars. Zusätzlich hat dieses \textit{Inventory}-Game Objekt mehrere Untergeordnete Prefabs.
+Diese \textit{QRItem}-Prefabs sind wichtig um anhand der \textit{ID} das richtige Modell anzuzeigen. Dieses Das Gesamt-Prefab
+sieht dann im Unity-Editor folgendermaßen aus:
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{images/prefShow}
+    \caption{Inventar Prefab im Unity Editor}
+    \label{fig:InvPrefUn}
+\end{figure}
+
+In dieser Abbildung ist zu sehen, dass das \textit{QRItem1}-Prefab in der linken oberen Ecke platziert ist. Weitergehend
+ist jedes der \textit{QRItems} in einer Zelle des Inventars platziert um dann später anhand eines \textit{Indexes} das
+\textit{Array} in dem die perfekte Lösung gespeichert ist zu durchlaufen um dann tatsächlich die zugehörigen Modelle
+in dem zugehörigen \textit{QRItem} zu aktivieren und anzuzeigen.
+
+\subsubsection{Script aufruf}
+Um die perfekte Lösung anzuzeigen, wird das Skript \textit{PerfectSolutionVisualizer.cs} durch Betätigen eines Knopfes
+aufgerufen. Der zugehörige Knopf, der das Auslösen dieses Skripts bewirkt, ist im Objekt \textit{infoObject} enthalten.
+Der Aufruf dieses Skripts ist in der folgenden Abbildung dargestellt:
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/perfSolBut}
+    \caption{Script Aufruf bei Knopfdruck}
+    \label{fig:ScrAuf}
+\end{figure}
+
+In Abbildung \ref{fig:ScrAuf} sind die Komponenten des \textit{BestSolutionButton} zu sehen. Der wesentliche Teil dieser
+Abbildung ist das Skript \textit{PressableButton}. Dieses Skript stellt die Funktion \textbf{OnClicked()} zur Verfügung,
+die einen einfachen Knopfdruck implementiert. In dieser Funktion wird in diesem Fall die \textit{Start()}-Funktion des
+Skripts \textit{PerfectSolutionVisualizer.cs} aufgerufen, um das Skript zu starten.
+
+\subsubsection{Klassenvariablen PerfectSolutionVisualizer}
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen des PerfectSolutionVisualizer}, label=code:Klassenvariablen_PSV]
+public GameObject inventoryObject;
+public GameObject inventoryPlacementObject;
+public GameObject KnapsackAlgoObject;
+public Transform inventory;
+
+private PlaceObjectOnLookedAtDesk anchorScript;
+private KnapsackScript knapsackScript;
+private Vector3 originalInventoryPosition;
+private int[,] perfectSolution;
+private bool isClicked = false;
+private int numRows = 3;
+private int numColumns = 3;
+\end{lstlisting}\\
+Im Codeabschnitt \ref{code:Klassenvariablen_PSV} sind die Klassenvariablen der Klasse \textit{PerfectSolutionVisualizer}
+aufgeführt. Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und
+übergeben werden oder von anderen Klassen für die Funktionalität benötigt werden. Diese Bereitstellung ermöglicht einen
+direkten Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse.
+
+Besonders wichtig ist der Zugriff auf die Variablen \textit{inventoryPlacementObject} und \textit{KnapsackAlgoObject},
+um im weiteren Verlauf dieses Skripts auf die beiden angehängten Skripte dieser Game-Objekte zuzugreifen. Diese Skripte
+speichern die Position des Inventars und das \textit{usedItems}-Array, die für die Anzeige der perfekten Lösung benötigt
+werden. Die Position des originalen Inventars ist notwendig, um die perfekte Lösung korrekt zu platzieren, während das
+\textit{usedItems}-Array später benötigt wird, um das \textit{bestSolutionPrefab} anhand der gespeicherten Werte zu befüllen.
+
+\subsubsection{Start des PerfectSolutionVisualizer}
+\begin{lstlisting}[style=csharp, caption={PerfectSolutionVisualizer Start}, label=code:Start_PSV]
+public void Start()
+{
+    isClicked = !isClicked;
+    if (isClicked == true)
+        {
+        anchorScript = inventoryPlacementObject.GetComponent<PlaceObjectOnLookedAtDesk>();
+        originalInventoryPosition = anchorScript.objectPosition;
+        knapsackScript = KnapsackAlgoObject.GetComponent<KnapsackScript>();
+        perfectSolution = knapsackScript.usedItems;
+        printItems();
+        setNewPosition();
+        inventoryObject.SetActive(true);
+        fillInventory();
+    }
+    else
+        {
+        inventoryObject.SetActive(false);
+    }
+}
+\end{lstlisting}\\
+Im Codeabschnitt (\ref{code:Start_PSV}) wird die Lebenszyklusmethode \textbf{Start()} aufgerufen, die bei einem Knopfdruck
+ausgeführt wird. Innerhalb dieser Funktion wird zunächst die Klassenvariable \textit{isClicked} negiert, um sicherzustellen,
+dass bei erneutem Klicken des Knopfes das Objekt deaktiviert wird und die Lösung nicht mehr sichtbar ist.
+
+Falls \textit{isClicked} true ist, werden anschließend die \textit{objectPosition} der Klasse \textit{PlaceObjectOnLookedAtDesk}
+und das \textit{usedItems}-Array der Klasse \textit{KnapsackScript} gespeichert. Im weiteren Verlauf werden dann die
+Funktionen \textbf{setNewPosition()} und \textbf{fillInventory()} aufgerufen. Die genauen Details dieser beiden Funktionen
+werden in den folgenden beiden Abschnitten näher erläutert.
+
+\subsubsection{Setzen der neuen Position der perfekten Lösung}
+\begin{lstlisting}[style=csharp, caption={Neue Position setzen}, label=code:newPos_PSV]
+private void setNewPosition()
+{
+    Vector3 newPosition = originalInventoryPosition + Vector3.forward * 0.5f + Vector3.up * 0.205f;
+    inventoryObject.transform.position = newPosition;
+    Quaternion objectRotation = Quaternion.Euler(-45f, 0f, 0f);
+    inventoryObject.transform.rotation = objectRotation;
+}
+\end{lstlisting}\\
+Die im Codeabschnitt \ref{code:Start_PSV} aufgerufene Funktion \textbf{setNewPosition()} spielt eine entscheidende Rolle
+für die korrekte Platzierung der perfekten Lösung. Um dieses Ziel zu erreichen, wird die ursprüngliche Position des
+Inventars verwendet. Anschließend wird durch das Hinzufügen von Vektoren die Position der perfekten Lösung so angepasst,
+dass sie direkt an das originale Inventar angrenzt.
+
+\subsubsection{Perfekte Lösung füllen}
+Die Funktion \textbf{fillInventory()} die nach Aktivierung des Inventars in Codeabschnitt \ref{code:Start_PSV} aufgerufen
+wird ist dafür verantwortlich, dass das die korrekten Modelle des zugehörigen \textit{QRItem}-Prefabs aktiviert
+und dadurch auch angezeigt wird.
+
+\begin{lstlisting}[style=csharp, caption={Inventar füllen}, label=code:invFül_PSV]
+private void fillInventory()
+{
+    for (int i = 0; i < numRows; i++)
+    {
+        for (int j = 0; j < numColumns; j++)
+        {
+            int id = perfectSolution[i, j];
+            if (perfectSolution[i, j] == 0)
+                continue;
+            else
+            {
+                string qrCodeName = "QRCode" + (i * numColumns + j + 1);
+                Transform qrCodeTransform = inventory.Find(qrCodeName);
+                if (qrCodeTransform != null)
+                {
+                    Transform childTransform = qrCodeTransform.Find(id.ToString());
+                    Debug.Log(childTransform.name);
+                    if (childTransform != null)
+                    {
+                        childTransform.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        Debug.LogError($"Child with id {id} not found in QRCode {qrCodeName}");
+                    }
+                }
+                else
+                {
+                    Debug.LogError($"QRCode {qrCodeName} not found in the inventory");
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}\\
+Die Funktion \texttt{fillInventory()} durchläuft ein 2D-Array \texttt{perfectSolution}, das vermutlich die Lösung für
+das Inventar repräsentiert. Zu Beginn wird der Wert an der Stelle $[i, j]$ des Arrays abgerufen und für spätere Verwendung
+gespeichert. An jeder Position $[i, j]$ wird zunächst überprüft, ob der Wert im \texttt{perfectSolution}-Array gleich $0$
+ist oder eine andere Zahl enthält. Im Fall, dass der Wert $0$ ist, wird die Schleife mit \texttt{continue} übersprungen,
+da die \textit{ID: 0} darauf hinweist, dass diese Stelle im Array leer ist.
+
+Wenn der Wert an der Stelle $[i, j]$ größer als Null ist, bedeutet dies, dass anhand dieser gespeicherten ID das
+entsprechende \textit{QRItem} anhand des Namens und des darin enthaltenen Modells gefunden werden muss. Um das passende
+\textit{QRItem} zu identifizieren, wird der String \texttt{QRCode} durch die Berechnung $i \times \text{numColumns} + j + 1$
+zusammengesetzt. Dadurch wird anhand der Position $[i, j]$ das zugehörige \textit{QRItem} bestimmt.\\
+
+\textbf{Beispiel:}
+Angenommen in der Schleife hat $i$ den Wert $1$ und $j$ den Wert $1$. Dies bedeutet, dass das Array momentan an der Stelle $[1, 1]$
+steht. Das \texttt{bestSolutionPrefab} ist so strukturiert, dass der Index nicht mit $0$, sondern mit $1$ beginnt. Daher
+wird in der Berechnung am Ende $+ 1$ hinzugefügt, um dies zu berücksichtigen. Somit wird an der Stelle $[i, j]$ das
+\textit{QRItem5} dem Array zugeordnet.\\
+
+Nachdem das richtige \textit{QRItem} identifiziert wurde, wird das untergeordnete Element mit dem gefundenen Namen im
+\texttt{inventory} gespeichert. Wenn dieses Objekt ungleich Null ist, ist sichergestellt, dass das Objekt existiert.
+Anschließend wird nach dem Objekt mit der zu Beginn des Schleifendurchlaufs gespeicherten \textit{ID} im Kontext des
+gefundenen \textit{QRItem}s gesucht. Wenn dieses Objekt existiert, wird es aktiviert, um es im Inventar anzuzeigen.
+Andernfalls wird eine Fehlermeldung in die Logdatei geschrieben.
 
 \subsection{Unit-Tests}
 Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus
