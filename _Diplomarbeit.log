@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  30 JAN 2024 10:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  2 FEB 2024 09:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1220,6 +1220,9 @@ Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.aux)
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.aux
 
+LaTeX Warning: Label `fig:calculatoreditmode' multiply defined.
+
+
 LaTeX Warning: Label `code:controller_savedID' multiply defined.
 
 
@@ -1754,36 +1757,110 @@ Overfull \hbox (3.29195pt too wide) in paragraph at lines 69--72
 Die Sprint Re-tro-spec-ti-ve dient pri-mär da-zu, dass das Scrum-
  []
 
-[4] [5]
+[4] [5] [6]
 
-LaTeX Warning: Citation 'Buehner' on page 6 undefined on input line 143.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/grundlagen.tex:186: LaTeX Error:
+ There's no line here to end.
 
-
-LaTeX Warning: Citation 'Mayer' on page 6 undefined on input line 144.
-
-[6]
-
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 162.
-
-
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 170.
-
-
-LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 175.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186 
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
-LaTeX Warning: Citation 'Buehner' on page 7 undefined on input line 179.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/grundlagen.tex:202: LaTeX Error:
+ There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 
+      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
-LaTeX Warning: Citation 'Mayer' on page 7 undefined on input line 182.
+LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 7 undefi
+ned on input line 213.
 
-) [7]
+[7]
+<images/calculatoreditmode.png, id=558, 1156.32pt x 595.023pt>
+File: images/calculatoreditmode.png Graphic file (type png)
+<use images/calculatoreditmode.png>
+Package pdftex.def Info: images/calculatoreditmode.png  used on input line 218.
+
+(pdftex.def)             Requested size: 426.79135pt x 219.61938pt.
+
+
+LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
+ned on input line 229.
+
+
+LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
+ned on input line 242.
+
+
+LaTeX Warning: Citation 'Einfuehrung in die Test- und Fragebogenkonstruktion' o
+n page 8 undefined on input line 246.
+
+[8 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/calculatoreditmode.pn
+g>]
+Overfull \hbox (0.47345pt too wide) in paragraph at lines 257--258
+[][][]\T1/cmr/m/n/10.95 Verwendung von ein-fa-chem Vo-ka-bu-lar oh-ne Ver-wen-d
+ung von Fach-aus-drücken, Fremd-
+ []
+
+
+LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 9 undefi
+ned on input line 263.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+[9]
+
+LaTeX Warning: Citation 'Die Befragung' on page 10 undefined on input line 292.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
+
+ []
+
+
+LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 10 undef
+ined on input line 306.
+
+
+LaTeX Warning: Citation 'Buehner' on page 10 undefined on input line 312.
+
+
+LaTeX Warning: Citation 'Buehner' on page 10 undefined on input line 316.
+
+
+LaTeX Warning: Citation 'Mayer' on page 10 undefined on input line 319.
+
+) [10]
 \openout2 = `produktspezifikationen.aux'.
 
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.tex
 Kapitel 3.
-<images/AblaufdiagrammLevel2.png, id=563, 1304.875pt x 682.55pt>
+<images/AblaufdiagrammLevel2.png, id=596, 1304.875pt x 682.55pt>
 File: images/AblaufdiagrammLevel2.png Graphic file (type png)
 <use images/AblaufdiagrammLevel2.png>
 Package pdftex.def Info: images/AblaufdiagrammLevel2.png  used on input line 18
@@ -1795,7 +1872,7 @@ LaTeX Warning: Float too large for page by 1.70558pt on input line 21.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8
+[11
 
 
 
@@ -1845,9 +1922,9 @@ Overfull \hbox (8.45325pt too wide) in paragraph at lines 84--87
  be-lieb-ten Blueprint-Scripting-Systems
  []
 
-[9]
+[12]
 
-LaTeX Warning: Citation 'MRTK3' on page 10 undefined on input line 118.
+LaTeX Warning: Citation 'MRTK3' on page 13 undefined on input line 118.
 
 
 Overfull \hbox (28.4704pt too wide) in paragraph at lines 123--128
@@ -1855,16 +1932,16 @@ Overfull \hbox (28.4704pt too wide) in paragraph at lines 123--128
 -nut-ze-rer-fah-run-gen in AR-Anwendungen
  []
 
-[10]
+[13]
 Overfull \hbox (0.69455pt too wide) in paragraph at lines 132--135
 \T1/cmr/m/n/10.95 MRTK3 bie-tet ei-ne ein-fa-che Kon-fi-gu-ra-ti-on und An-pas-
 sung über die Unity-Oberfläche.
  []
 
 
-LaTeX Warning: Citation 'OpenXR' on page 11 undefined on input line 138.
+LaTeX Warning: Citation 'OpenXR' on page 14 undefined on input line 138.
 
-[11]) [12] [13 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Ablaufdia
+[14]) [15] [16 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Ablaufdia
 grammLevel2.png>]
 \openout2 = `feinkonzept_realisierung.aux'.
 
@@ -1881,7 +1958,7 @@ Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
 Kapitel 4.
-[14
+[17
 
 
 
@@ -1896,15 +1973,15 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 8
 9.
 (c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [15]
+) [18]
 
-LaTeX Warning: Citation 'Managers' on page 16 undefined on input line 118.
+LaTeX Warning: Citation 'Managers' on page 19 undefined on input line 118.
 
 
-LaTeX Warning: Citation 'RaycastManager' on page 16 undefined on input line 137
+LaTeX Warning: Citation 'RaycastManager' on page 19 undefined on input line 137
 .
 
-[16]
+[19]
 Overfull \hbox (2.4266pt too wide) in paragraph at lines 152--156
 [][]\T1/cmr/m/n/10.95 Die er-folg-rei-che Um-set-zung der funk-tio-na-len An-fo
 r-de-run-gen in den spe-zi-fi-schen Augmented-
@@ -1925,22 +2002,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 178--198
 
  []
 
-[17]
+[20]
 
-LaTeX Warning: Citation 'LoopTools' on page 18 undefined on input line 222.
+LaTeX Warning: Citation 'LoopTools' on page 21 undefined on input line 222.
 
 
-LaTeX Warning: Citation 'Images as Planes' on page 18 undefined on input line 2
+LaTeX Warning: Citation 'Images as Planes' on page 21 undefined on input line 2
 23.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
+ [21]
 
-LaTeX Warning: Citation 'Modi' on page 19 undefined on input line 241.
+LaTeX Warning: Citation 'Modi' on page 22 undefined on input line 241.
 
-<images/defaultobjectmode.png, id=640, 1156.32pt x 598.03426pt>
+<images/defaultobjectmode.png, id=672, 1156.32pt x 598.03426pt>
 File: images/defaultobjectmode.png Graphic file (type png)
 <use images/defaultobjectmode.png>
 Package pdftex.def Info: images/defaultobjectmode.png  used on input line 248.
@@ -1949,9 +2026,8 @@ Package pdftex.def Info: images/defaultobjectmode.png  used on input line 248.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Vertices' on page 19 undefined on input line 254.
+LaTeX Warning: Citation 'Vertices' on page 22 undefined on input line 254.
 
-<images/calculatoreditmode.png, id=642, 1156.32pt x 595.023pt>
 File: images/calculatoreditmode.png Graphic file (type png)
 <use images/calculatoreditmode.png>
 Package pdftex.def Info: images/calculatoreditmode.png  used on input line 257.
@@ -1961,9 +2037,9 @@ Package pdftex.def Info: images/calculatoreditmode.png  used on input line 257.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Mesh' on page 19 undefined on input line 262.
+LaTeX Warning: Citation 'Mesh' on page 22 undefined on input line 262.
 
-<images/texturepaintmode.png, id=644, 1156.32pt x 578.16pt>
+<images/texturepaintmode.png, id=675, 1156.32pt x 578.16pt>
 File: images/texturepaintmode.png Graphic file (type png)
 <use images/texturepaintmode.png>
 Package pdftex.def Info: images/texturepaintmode.png  used on input line 266.
@@ -1972,9 +2048,9 @@ Package pdftex.def Info: images/texturepaintmode.png  used on input line 266.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Modifier' on page 19 undefined on input line 274.
+LaTeX Warning: Citation 'Modifier' on page 22 undefined on input line 274.
 
-<images/blenderhierarchy.png, id=646, 199.34476pt x 196.93575pt>
+<images/blenderhierarchy.png, id=677, 199.34476pt x 196.93575pt>
 File: images/blenderhierarchy.png Graphic file (type png)
 <use images/blenderhierarchy.png>
 Package pdftex.def Info: images/blenderhierarchy.png  used on input line 278.
@@ -1982,8 +2058,8 @@ Package pdftex.def Info: images/blenderhierarchy.png  used on input line 278.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19]
-<images/blendermodifier.png, id=660, 206.57175pt x 519.1395pt>
+[22]
+<images/blendermodifier.png, id=690, 206.57175pt x 519.1395pt>
 File: images/blendermodifier.png Graphic file (type png)
 <use images/blendermodifier.png>
 Package pdftex.def Info: images/blendermodifier.png  used on input line 304.
@@ -1995,13 +2071,12 @@ LaTeX Warning: Float too large for page by 207.36546pt on input line 307.
 
 Underfull \vbox (badness 3333) has occurred while \output is active []
 
- [20 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/defaultobjectmode.p
-ng> <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/calculatoreditmode.p
+ [23 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/defaultobjectmode.p
 ng>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menubar.png, id=669, 482.40225pt x 166.82326pt>
+<images/menubar.png, id=698, 482.40225pt x 166.82326pt>
 File: images/menubar.png Graphic file (type png)
 <use images/menubar.png>
 Package pdftex.def Info: images/menubar.png  used on input line 329.
@@ -2009,7 +2084,7 @@ Package pdftex.def Info: images/menubar.png  used on input line 329.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menuHierarchy.png, id=670, 269.20575pt x 168.63pt>
+<images/menuHierarchy.png, id=699, 269.20575pt x 168.63pt>
 File: images/menuHierarchy.png Graphic file (type png)
 <use images/menuHierarchy.png>
 Package pdftex.def Info: images/menuHierarchy.png  used on input line 340.
@@ -2017,9 +2092,9 @@ Package pdftex.def Info: images/menuHierarchy.png  used on input line 340.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/texturepaintmode.png
+[24 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/texturepaintmode.png
 >]
-<images/debugmenubar.png, id=678, 331.83975pt x 133.09724pt>
+<images/debugmenubar.png, id=707, 331.83975pt x 133.09724pt>
 File: images/debugmenubar.png Graphic file (type png)
 <use images/debugmenubar.png>
 Package pdftex.def Info: images/debugmenubar.png  used on input line 358.
@@ -2034,7 +2109,7 @@ Overfull \hbox (4.5885pt too wide) in paragraph at lines 376--380
 s \T1/cmr/m/it/10.95 SceneChange.cs \T1/cmr/m/n/10.95 Skript aus.Dieser
  []
 
-[22 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blenderhierarchy.png
+[25 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blenderhierarchy.png
 >]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:381
 : Illegal parameter number in definition of \lst@temp.
@@ -2188,7 +2263,7 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 (c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<images/sceneToLoad.png, id=685, 257.763pt x 51.19125pt>
+<images/sceneToLoad.png, id=716, 257.763pt x 51.19125pt>
 File: images/sceneToLoad.png Graphic file (type png)
 <use images/sceneToLoad.png>
 Package pdftex.def Info: images/sceneToLoad.png  used on input line 399.
@@ -2239,7 +2314,7 @@ Overfull \hbox (1.96169pt too wide) in paragraph at lines 407--411
 mr/m/n/10.95 Die Menü-leis-te be-wegt sich auf Hüft-
  []
 
-[23]
+[26]
 Overfull \hbox (20.33443pt too wide) in paragraph at lines 466--468
 [][][]\T1/cmr/m/n/10.95 Wenn der Bau-klotz er-folg-reich plat-ziert wur-de, wir
 d au-to-ma-tisch der Knapsack-Algorithmus
@@ -2250,7 +2325,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 473--475
 
  []
 
-<images/Level2Hirarchy.png, id=706, 285.4665pt x 325.215pt>
+<images/Level2Hirarchy.png, id=737, 285.4665pt x 325.215pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 478.
@@ -2259,16 +2334,16 @@ Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 478.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Scene' on page 24 undefined on input line 483.
+LaTeX Warning: Citation 'Scene' on page 27 undefined on input line 483.
 
 
-LaTeX Warning: Citation 'Plane' on page 24 undefined on input line 489.
+LaTeX Warning: Citation 'Plane' on page 27 undefined on input line 489.
 
-[24]
+[27]
 
-LaTeX Warning: Citation 'Prefab' on page 25 undefined on input line 505.
+LaTeX Warning: Citation 'Prefab' on page 28 undefined on input line 505.
 
-[25]
+[28]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:544
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
@@ -2409,8 +2484,8 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 544.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [26]
-<images/invPlace_Editor.png, id=756, 380.622pt x 286.671pt>
+) [29]
+<images/invPlace_Editor.png, id=785, 380.622pt x 286.671pt>
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
 Package pdftex.def Info: images/invPlace_Editor.png  used on input line 607.
@@ -2561,7 +2636,7 @@ l.631 ...kedAtDesk Klasse}, label=code:anchor_var]
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[27]
+[30]
 Package csquotes Info: Input encoding change on input line 631.
  (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
@@ -2851,7 +2926,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 668.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [28]
+) [31]
 Underfull \hbox (badness 10000) in paragraph at lines 683--688
 
  []
@@ -2996,7 +3071,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 689.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [29]
+) [32]
 Underfull \hbox (badness 10000) in paragraph at lines 725--730
 
  []
@@ -3581,7 +3656,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 767--769
 
  []
 
-[30]
+[33]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:770
 : Illegal parameter number in definition of \lst@temp.
 <to be read again> 
@@ -4017,7 +4092,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 796.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [31]
+) [34]
 Underfull \hbox (badness 10000) in paragraph at lines 828--830
 
  []
@@ -4167,7 +4242,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 843.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [32]
+) [35]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:884
 : LaTeX Error: There's no line here to end.
@@ -4187,7 +4262,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 900--904
 
  []
 
-<images/invCon_Editor.png, id=926, 379.4175pt x 209.583pt>
+<images/invCon_Editor.png, id=955, 379.4175pt x 209.583pt>
 File: images/invCon_Editor.png Graphic file (type png)
 <use images/invCon_Editor.png>
 Package pdftex.def Info: images/invCon_Editor.png  used on input line 907.
@@ -4195,9 +4270,9 @@ Package pdftex.def Info: images/invCon_Editor.png  used on input line 907.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33]
+[36]
 
-LaTeX Warning: Citation 'Bounds' on page 34 undefined on input line 920.
+LaTeX Warning: Citation 'Bounds' on page 37 undefined on input line 920.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 920--921
@@ -4489,7 +4564,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 953.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [34]
+) [37]
 Underfull \hbox (badness 10000) in paragraph at lines 964--967
 
  []
@@ -4781,7 +4856,7 @@ Package csquotes Info: Input encoding change on input line 985.
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-LaTeX Warning: Citation 'Renderer' on page 35 undefined on input line 992.
+LaTeX Warning: Citation 'Renderer' on page 38 undefined on input line 992.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 992--996
@@ -4925,12 +5000,12 @@ l.998 ...ern}, label=code:controller_extendBounds]
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[35]
+[38]
 Package csquotes Info: Input encoding change on input line 998.
  (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-<images/extendedBounds.png, id=1007, 502.2765pt x 403.5075pt>
+<images/extendedBounds.png, id=1038, 502.2765pt x 403.5075pt>
 File: images/extendedBounds.png Graphic file (type png)
 <use images/extendedBounds.png>
 Package pdftex.def Info: images/extendedBounds.png  used on input line 1011.
@@ -5234,7 +5309,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1045--1048
 
  []
 
-[36]
+[39]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:105
 0: Illegal parameter number in definition of \lst@temp.
 <to be read again> 
@@ -5375,7 +5450,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1050.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [37]
+) [40]
 Underfull \hbox (badness 10000) in paragraph at lines 1096--1100
 
  []
@@ -5395,7 +5470,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1109--1112
 
  []
 
-<images/itemAdded.png, id=1087, 506.49225pt x 322.806pt>
+<images/itemAdded.png, id=1116, 506.49225pt x 322.806pt>
 File: images/itemAdded.png Graphic file (type png)
 <use images/itemAdded.png>
 Package pdftex.def Info: images/itemAdded.png  used on input line 1121.
@@ -5718,12 +5793,12 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-<images/itemToHeavy.png, id=1090, 507.0945pt x 322.806pt>
+<images/itemToHeavy.png, id=1119, 507.0945pt x 322.806pt>
 File: images/itemToHeavy.png Graphic file (type png)
 <use images/itemToHeavy.png>
 Package pdftex.def Info: images/itemToHeavy.png  used on input line 1148.
 (pdftex.def)             Requested size: 304.25903pt x 193.68509pt.
-[38]
+[41]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -6049,7 +6124,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1171--1176
 
  []
 
-<images/itemEntfernt.png, id=1104, 510.10574pt x 323.40825pt>
+<images/itemEntfernt.png, id=1133, 510.10574pt x 323.40825pt>
 File: images/itemEntfernt.png Graphic file (type png)
 <use images/itemEntfernt.png>
 Package pdftex.def Info: images/itemEntfernt.png  used on input line 1179.
@@ -6508,7 +6583,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1200.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [39]
+) [42]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:120
 5: Illegal parameter number in definition of \lst@temp.
 <to be read again> 
@@ -6964,7 +7039,7 @@ l.1249 ...fernen}, label=code:controller_removeID]
 The language is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[40]
+[43]
 Package csquotes Info: Input encoding change on input line 1249.
  (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
@@ -7144,7 +7219,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1290--1293
 
  []
 
-<images/knapsackEditor.png, id=1151, 381.22424pt x 258.9675pt>
+<images/knapsackEditor.png, id=1181, 381.22424pt x 258.9675pt>
 File: images/knapsackEditor.png Graphic file (type png)
 <use images/knapsackEditor.png>
 Package pdftex.def Info: images/knapsackEditor.png  used on input line 1296.
@@ -7152,7 +7227,7 @@ Package pdftex.def Info: images/knapsackEditor.png  used on input line 1296.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41]
+[44]
 Underfull \hbox (badness 10000) in paragraph at lines 1312--1314
 
  []
@@ -7614,7 +7689,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1349.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [42]
+) [45]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:135
 6: LaTeX Error: There's no line here to end.
@@ -7791,7 +7866,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1393--1399
 
  []
 
-[43]
+[46]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:140
 1: Illegal parameter number in definition of \lst@temp.
 <to be read again> 
@@ -7956,7 +8031,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1443--1444
 
 Underfull \vbox (badness 7704) has occurred while \output is active []
 
- [44]
+ [47]
 Underfull \hbox (badness 10000) in paragraph at lines 1478--1480
 
  []
@@ -8101,10 +8176,10 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1481.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [45]
+) [48]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [46]
+ [49]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:154
 9: LaTeX Error: There's no line here to end.
@@ -8139,7 +8214,7 @@ Overfull \hbox (10.97621pt too wide) detected at line 1598
 [][][] []
  []
 
-[47]
+[50]
 Underfull \hbox (badness 10000) in paragraph at lines 1625--1626
 
  []
@@ -8180,7 +8255,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[48]
+[51]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:169
 4: Undefined control sequence.
 l.1694 ...n, wenn die GewichtsbeschrÃ¤nkung \texit
@@ -8206,12 +8281,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1729--1733
 
  []
 
-[49]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 1738--1739
 
  []
 
-<images/bestSolPref_Editor.png, id=1400, 380.622pt x 269.808pt>
+<images/bestSolPref_Editor.png, id=1429, 380.622pt x 269.808pt>
 File: images/bestSolPref_Editor.png Graphic file (type png)
 <use images/bestSolPref_Editor.png>
 Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 1757
@@ -8220,7 +8295,7 @@ Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 1757
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/bestSolPref.png, id=1402, 285.4665pt x 133.09724pt>
+<images/bestSolPref.png, id=1431, 285.4665pt x 133.09724pt>
 File: images/bestSolPref.png Graphic file (type png)
 <use images/bestSolPref.png>
 Package pdftex.def Info: images/bestSolPref.png  used on input line 1775.
@@ -8228,7 +8303,7 @@ Package pdftex.def Info: images/bestSolPref.png  used on input line 1775.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/prefShow.png, id=1404, 1158.12675pt x 524.55975pt>
+<images/prefShow.png, id=1433, 1158.12675pt x 524.55975pt>
 File: images/prefShow.png Graphic file (type png)
 <use images/prefShow.png>
 Package pdftex.def Info: images/prefShow.png  used on input line 1787.
@@ -8236,12 +8311,12 @@ Package pdftex.def Info: images/prefShow.png  used on input line 1787.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/perfSolBut.png, id=1405, 380.622pt x 334.851pt>
+<images/perfSolBut.png, id=1434, 380.622pt x 334.851pt>
 File: images/perfSolBut.png Graphic file (type png)
 <use images/perfSolBut.png>
 Package pdftex.def Info: images/perfSolBut.png  used on input line 1803.
 (pdftex.def)             Requested size: 304.49799pt x 267.88115pt.
-[50]
+[53]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -8548,7 +8623,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1840.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [51]
+) [54]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:186
 1: LaTeX Error: There's no line here to end.
@@ -8860,7 +8935,7 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 1890.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [52]
+) [55]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:192
 6: LaTeX Error: There's no line here to end.
@@ -8886,27 +8961,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 1937--1942
 
  []
 
-[53]
+[56]
 Overfull \hbox (3.87924pt too wide) in paragraph at lines 1950--1953
 [][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
 m-ple-men-tier-te Knappsack-Algorithmus
  []
 
-) [54] [55 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blendermodifi
-er.png>] [56 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menubar.png
+) [57] [58 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/blendermodifi
+er.png>] [59 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menubar.png
 > <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/menuHierarchy.png> <C:
 /Users/Moritz/Documents/GitHub/Diplomschrift/images/debugmenubar.png> <C:/Users
-/Moritz/Documents/GitHub/Diplomschrift/images/sceneToLoad.png>] [57 <C:/Users/M
+/Moritz/Documents/GitHub/Diplomschrift/images/sceneToLoad.png>] [60 <C:/Users/M
 oritz/Documents/GitHub/Diplomschrift/images/Level2Hirarchy.png> <C:/Users/Morit
-z/Documents/GitHub/Diplomschrift/images/invPlace_Editor.png>] [58 <C:/Users/Mor
+z/Documents/GitHub/Diplomschrift/images/invPlace_Editor.png>] [61 <C:/Users/Mor
 itz/Documents/GitHub/Diplomschrift/images/invCon_Editor.png> <C:/Users/Moritz/D
 ocuments/GitHub/Diplomschrift/images/extendedBounds.png> <C:/Users/Moritz/Docum
-ents/GitHub/Diplomschrift/images/itemAdded.png>] [59 <C:/Users/Moritz/Documents
+ents/GitHub/Diplomschrift/images/itemAdded.png>] [62 <C:/Users/Moritz/Documents
 /GitHub/Diplomschrift/images/itemToHeavy.png> <C:/Users/Moritz/Documents/GitHub
-/Diplomschrift/images/itemEntfernt.png>] [60 <C:/Users/Moritz/Documents/GitHub/
+/Diplomschrift/images/itemEntfernt.png>] [63 <C:/Users/Moritz/Documents/GitHub/
 Diplomschrift/images/knapsackEditor.png> <C:/Users/Moritz/Documents/GitHub/Dipl
 omschrift/images/bestSolPref_Editor.png> <C:/Users/Moritz/Documents/GitHub/Dipl
-omschrift/images/bestSolPref.png>] [61 <C:/Users/Moritz/Documents/GitHub/Diplom
+omschrift/images/bestSolPref.png>] [64 <C:/Users/Moritz/Documents/GitHub/Diplom
 schrift/images/prefShow.png> <C:/Users/Moritz/Documents/GitHub/Diplomschrift/im
 ages/perfSolBut.png>]
 \openout2 = `zmfs_abschluss.aux'.
@@ -8914,7 +8989,7 @@ ages/perfSolBut.png>]
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/zmfs_abschluss.tex
 Kapitel 5.
-) [62
+) [65
 
 
 
@@ -8924,7 +8999,7 @@ Kapitel 5.
 
  (C:/Users/Moritz/Documents/GitHub/Diplomschrift/anhang_a.tex
 Anhang A.
-) [63
+) [66
 
 
 
@@ -8993,7 +9068,7 @@ Overfull \hbox (38.23976pt too wide) in paragraph at lines 21--22
 e-sucht am 15.01.2024). 
  []
 
-[64
+[67
 
 
 
@@ -9086,7 +9161,7 @@ Overfull \hbox (3.32607pt too wide) in paragraph at lines 43--44
 95 https : / / learn . microsoft . com / en -[] us / samples / microsoft /
  []
 
-[65]
+[68]
 Overfull \hbox (6.11157pt too wide) in paragraph at lines 44--45
 [][][]\T1/cmr/m/n/10.95 Unity. QR-Code Tracking Over-view. URL: [][]$[][]\T1/cm
 ss/m/n/10.95 https : / / learn . microsoft . com / de -[] de / windows /
@@ -9105,7 +9180,7 @@ Overfull \hbox (4.91667pt too wide) in paragraph at lines 45--46
 = mixedreality -[] openxr -[] plugin -[] 1 . 9$[][] \T1/cmr/m/n/10.95 (be-
  []
 
-) [66] (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.gls)
+) [69] (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.gls)
 runsystem(makeindex allgemein.idx)...executed safely (allowed).
 
 
@@ -9149,7 +9224,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 4B0D2D2E65C21D4245FB92D7E28F9412;11620.
+(rerunfilecheck)             Checksum: D3EED363ED3149BAAA2F304D85DAA8AB;11647.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -9160,10 +9235,10 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34836 strings out of 474267
- 633323 string characters out of 5751464
+ 34855 strings out of 474267
+ 633537 string characters out of 5751464
  2715558 words of memory out of 5000000
- 55202 multiletter control sequences out of 15000+600000
+ 55204 multiletter control sequences out of 15000+600000
  580756 words of font info for 86 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2333b,2716s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -9188,10 +9263,10 @@ fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type
 1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/c
 m-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (78 pages, 4159818 bytes).
+pdf (81 pages, 4173975 bytes).
 PDF statistics:
- 1943 PDF objects out of 2073 (max. 8388607)
- 1725 compressed objects within 18 object streams
- 837 named destinations out of 1000 (max. 500000)
+ 1976 PDF objects out of 2073 (max. 8388607)
+ 1755 compressed objects within 18 object streams
+ 854 named destinations out of 1000 (max. 500000)
  802 words of extra memory for PDF output out of 10000 (max. 10000000)
 
