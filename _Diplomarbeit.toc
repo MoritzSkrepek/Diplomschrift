@@ -28,97 +28,95 @@
 \contentsline {subsection}{\numberline {2.4.4}Struktur und Gliederung von Fragebögen}{10}{subsection.53}%
 \contentsline {subsection}{\numberline {2.4.5}Mögliche Verfälschung des Resultats}{11}{subsection.54}%
 \contentsline {subsection}{\numberline {2.4.6}Auswertung von Fragebögen}{11}{subsection.57}%
-\contentsline {chapter}{\numberline {3}Produktspezifikationen}{12}{chapter.59}%
-\contentsline {section}{\numberline {3.1}Anforderungen und Spezifikationen}{12}{section.60}%
-\contentsline {subsection}{\numberline {3.1.1}Use Cases}{12}{subsection.61}%
-\contentsline {section}{\numberline {3.2}Design}{12}{section.62}%
-\contentsline {subsection}{\numberline {3.2.1}Abläufe}{12}{subsection.63}%
-\contentsline {subsection}{\numberline {3.2.2}Mockups}{12}{subsection.65}%
-\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{12}{section.66}%
-\contentsline {subsection}{\numberline {3.3.1}Kriterien}{12}{subsection.67}%
-\contentsline {subsection}{\numberline {3.3.2}Game Engine: Konzeption und Funktion}{12}{subsection.68}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}Game Engine Auswahl und Wechsel im Projektverlauf}{13}{subsubsection.69}%
-\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{14}{subsection.75}%
-\contentsline {subsubsection}{\numberline {3.3.3.1}MRTK3}{14}{subsubsection.76}%
-\contentsline {subsubsection}{\numberline {3.3.3.2}Microsoft OpenXR Plugin}{15}{subsubsection.78}%
-\contentsline {subsection}{\numberline {3.3.4}Modellierungsprogramm}{15}{subsection.80}%
-\contentsline {subsubsection}{\numberline {3.3.4.1}Wie funktioniert Blender im Allgemeinen?}{16}{subsubsection.81}%
-\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{18}{chapter.82}%
-\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{18}{section.83}%
-\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{18}{subsection.84}%
-\contentsline {subsection}{\numberline {4.1.2}Unity}{18}{subsection.85}%
-\contentsline {subsubsection}{\numberline {4.1.2.1}Multidisziplinäre Unterstützung und Integration}{18}{subsubsection.86}%
-\contentsline {subsubsection}{\numberline {4.1.2.2}Szenengestaltung und Asset-Management}{18}{subsubsection.87}%
-\contentsline {subsubsection}{\numberline {4.1.2.3}Programmierung und Skripterstellung}{19}{subsubsection.88}%
-\contentsline {subsubsection}{\numberline {4.1.2.4}Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{19}{subsubsection.89}%
-\contentsline {subsubsection}{\numberline {4.1.2.5}Erweiterte Debugging- und Profiling-Werkzeuge}{19}{subsubsection.90}%
-\contentsline {subsection}{\numberline {4.1.3}Aufbau einer Unity-Applikation}{19}{subsection.91}%
-\contentsline {subsection}{\numberline {4.1.4}Lebenszyklusmethoden in Unity}{19}{subsection.92}%
-\contentsline {subsection}{\numberline {4.1.5}Manager in Unity}{20}{subsection.93}%
-\contentsline {section}{\numberline {4.2}Objektdesign mittels Blender}{21}{section.96}%
-\contentsline {subsection}{\numberline {4.2.1}Rendering und Optimierung für AR}{21}{subsection.97}%
-\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{22}{subsection.98}%
-\contentsline {subsection}{\numberline {4.2.3}Blender-Add-Ons und Plugins}{23}{subsection.99}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Looptools: Optimierung von Topologie und Oberflächen}{23}{subsubsection.102}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Images as Planes: Effiziente Integration von Texturen}{23}{subsubsection.103}%
-\contentsline {subsection}{\numberline {4.2.4}Blender - Modes}{23}{subsection.104}%
-\contentsline {subsection}{\numberline {4.2.5}Blender - Hierarchie}{23}{subsection.111}%
-\contentsline {subsubsection}{\numberline {4.2.5.1}Blender - Modifier}{25}{subsubsection.114}%
-\contentsline {section}{\numberline {4.3}Menü}{25}{section.116}%
-\contentsline {subsection}{\numberline {4.3.1}Menü-Hierarchie}{25}{subsection.118}%
-\contentsline {subsection}{\numberline {4.3.2}Laden der Level}{27}{subsection.121}%
-\contentsline {subsection}{\numberline {4.3.3}UI/UX}{27}{subsection.137}%
-\contentsline {section}{\numberline {4.4}Ping Level}{27}{section.138}%
-\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{28}{subsection.139}%
-\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{28}{subsection.140}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Level}{28}{section.141}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Level Hirarchie}{28}{subsection.142}%
-\contentsline {subsection}{\numberline {4.5.2}Verwendung von QR-Codes}{30}{subsection.147}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Inhalt der QR-Codes}{30}{subsubsection.148}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code Tracking}{31}{subsubsection.177}%
-\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Game Objekt}{31}{subsection.178}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}PlacedObjectOnLookedAtDesk Klassenvariablen}{32}{subsubsection.180}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{32}{subsubsection.197}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{33}{subsubsection.209}%
-\contentsline {subsubsection}{\numberline {4.5.3.4}Das am kürzesten entfernte Plane finden}{35}{subsubsection.272}%
-\contentsline {subsubsection}{\numberline {4.5.3.5}Berechnung der Position und Aktivierung/Deaktivierung sämtlicher Objekte}{36}{subsubsection.293}%
-\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{37}{subsection.318}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{38}{subsubsection.321}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{38}{subsubsection.342}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Neue Bounds setzen}{39}{subsubsection.353}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{39}{subsubsection.364}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{40}{subsubsection.372}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{40}{subsubsection.380}%
-\contentsline {subsubsection}{\numberline {4.5.4.7}Update Funktion}{40}{subsubsection.386}%
-\contentsline {subsubsection}{\numberline {4.5.4.8}Funktion für neue Items innerhalb des Bounds}{41}{subsubsection.392}%
-\contentsline {subsubsection}{\numberline {4.5.4.9}Berechnen der Position im idGrid anhand der Koordinaten}{44}{subsubsection.465}%
-\contentsline {subsubsection}{\numberline {4.5.4.10}Hilfsfunktionen}{44}{subsubsection.475}%
-\contentsline {subsection}{\numberline {4.5.5}Knapsack Algorithmus Game Objekt}{45}{subsection.506}%
-\contentsline {subsubsection}{\numberline {4.5.5.1}Klassenvariablen KnapsackScript}{46}{subsubsection.508}%
-\contentsline {subsubsection}{\numberline {4.5.5.2}Start des KnapsackScripts}{46}{subsubsection.521}%
-\contentsline {subsubsection}{\numberline {4.5.5.3}Set Inventory und Start der Berechnung}{47}{subsubsection.528}%
-\contentsline {subsubsection}{\numberline {4.5.5.4}Start der Berechnung}{47}{subsubsection.535}%
-\contentsline {subsubsection}{\numberline {4.5.5.5}Wert des eigenen Inventars}{48}{subsubsection.562}%
-\contentsline {subsubsection}{\numberline {4.5.5.6}Knapsack Algorithmus Definition}{49}{subsubsection.592}%
-\contentsline {subsubsection}{\numberline {4.5.5.7}Problemstellung}{49}{subsubsection.593}%
-\contentsline {subsubsection}{\numberline {4.5.5.8}Algorithmus}{49}{subsubsection.594}%
-\contentsline {subsubsection}{\numberline {4.5.5.9}Anwendungen}{49}{subsubsection.595}%
-\contentsline {subsubsection}{\numberline {4.5.5.10}Knapsack Algorithmus Implementierung}{49}{subsubsection.596}%
-\contentsline {subsection}{\numberline {4.5.6}Best Solution Prefab Game Objekt}{54}{subsection.675}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Script aufruf}{55}{subsubsection.679}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Klassenvariablen PerfectSolutionVisualizer}{55}{subsubsection.681}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Start des PerfectSolutionVisualizer}{55}{subsubsection.695}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Setzen der neuen Position der perfekten Lösung}{56}{subsubsection.716}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Perfekte Lösung füllen}{56}{subsubsection.725}%
-\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{58}{subsection.761}%
-\contentsline {section}{\numberline {4.6}Performance}{58}{section.762}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{66}{chapter.763}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{66}{section.764}%
-\contentsline {section}{\numberline {5.2}Abnahme}{66}{section.765}%
-\contentsline {section}{\numberline {5.3}Zukunft}{66}{section.766}%
-\contentsline {chapter}{\numberline {A}Mockups}{67}{appendix.767}%
-\contentsline {section}{\numberline {A.1}UI/UX}{67}{section.768}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{67}{section.769}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{67}{section.770}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{67}{section.771}%
-\contentsline {chapter}{\numberline {B}Literatur}{68}{appendix.772}%
+\contentsline {chapter}{\numberline {3}Produktspezifikationen}{13}{chapter.58}%
+\contentsline {section}{\numberline {3.1}Anforderungen und Spezifikationen}{13}{section.59}%
+\contentsline {subsection}{\numberline {3.1.1}Use Cases}{13}{subsection.60}%
+\contentsline {section}{\numberline {3.2}Design}{13}{section.61}%
+\contentsline {subsection}{\numberline {3.2.1}Abläufe}{13}{subsection.62}%
+\contentsline {subsection}{\numberline {3.2.2}Mockups}{13}{subsection.64}%
+\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{13}{section.65}%
+\contentsline {subsection}{\numberline {3.3.1}Kriterien}{13}{subsection.66}%
+\contentsline {subsection}{\numberline {3.3.2}Game Engine: Konzeption und Funktion}{13}{subsection.67}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Game Engine Auswahl und Wechsel im Projektverlauf}{14}{subsubsection.68}%
+\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{15}{subsection.74}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}MRTK3}{15}{subsubsection.75}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}Microsoft OpenXR Plugin}{16}{subsubsection.77}%
+\contentsline {subsection}{\numberline {3.3.4}Modellierungsprogramm}{16}{subsection.79}%
+\contentsline {subsubsection}{\numberline {3.3.4.1}Wie funktioniert Blender im Allgemeinen?}{17}{subsubsection.80}%
+\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{19}{chapter.81}%
+\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{19}{section.82}%
+\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{19}{subsection.83}%
+\contentsline {subsection}{\numberline {4.1.2}Unity}{19}{subsection.84}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Multidisziplinäre Unterstützung und Integration}{19}{subsubsection.85}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}Szenengestaltung und Asset-Management}{19}{subsubsection.86}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}Programmierung und Skripterstellung}{20}{subsubsection.87}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{20}{subsubsection.88}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}Erweiterte Debugging- und Profiling-Werkzeuge}{20}{subsubsection.89}%
+\contentsline {subsection}{\numberline {4.1.3}Aufbau einer Unity-Applikation}{20}{subsection.90}%
+\contentsline {subsection}{\numberline {4.1.4}Lebenszyklusmethoden in Unity}{20}{subsection.91}%
+\contentsline {subsection}{\numberline {4.1.5}Manager in Unity}{21}{subsection.92}%
+\contentsline {section}{\numberline {4.2}Objektdesign mittels Blender}{22}{section.95}%
+\contentsline {subsection}{\numberline {4.2.1}Rendering und Optimierung für AR}{22}{subsection.96}%
+\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{23}{subsection.97}%
+\contentsline {subsection}{\numberline {4.2.3}Blender-Add-Ons und Plugins}{24}{subsection.98}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Looptools: Optimierung von Topologie und Oberflächen}{24}{subsubsection.101}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Images as Planes: Effiziente Integration von Texturen}{24}{subsubsection.102}%
+\contentsline {subsection}{\numberline {4.2.4}Blender - Modes}{24}{subsection.103}%
+\contentsline {subsection}{\numberline {4.2.5}Blender - Hierarchie}{24}{subsection.110}%
+\contentsline {subsubsection}{\numberline {4.2.5.1}Blender - Modifier}{26}{subsubsection.113}%
+\contentsline {section}{\numberline {4.3}Menü}{26}{section.115}%
+\contentsline {subsection}{\numberline {4.3.1}Menü-Hierarchie}{26}{subsection.117}%
+\contentsline {subsection}{\numberline {4.3.2}Laden der Level}{28}{subsection.120}%
+\contentsline {subsection}{\numberline {4.3.3}UI/UX}{28}{subsection.136}%
+\contentsline {section}{\numberline {4.4}Ping Level}{28}{section.137}%
+\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{29}{subsection.138}%
+\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{29}{subsection.139}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Level}{29}{section.140}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Level Hirarchie}{29}{subsection.141}%
+\contentsline {subsection}{\numberline {4.5.2}Verwendung von QR-Codes}{31}{subsection.146}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Inhalt der QR-Codes}{31}{subsubsection.147}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code Tracking}{32}{subsubsection.176}%
+\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Controller Game Objekt}{32}{subsection.177}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}InventoryPlacementController Klassenvariablen}{33}{subsubsection.179}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{33}{subsubsection.196}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{34}{subsubsection.208}%
+\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{38}{subsection.338}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{39}{subsubsection.341}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{39}{subsubsection.359}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}Neue Bounds setzen}{40}{subsubsection.370}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{40}{subsubsection.381}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{41}{subsubsection.389}%
+\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{41}{subsubsection.397}%
+\contentsline {subsubsection}{\numberline {4.5.4.7}Update Funktion}{41}{subsubsection.403}%
+\contentsline {subsubsection}{\numberline {4.5.4.8}Funktion für neue Items innerhalb des Bounds}{42}{subsubsection.409}%
+\contentsline {subsubsection}{\numberline {4.5.4.9}Berechnen der Position im idGrid anhand der Koordinaten}{45}{subsubsection.482}%
+\contentsline {subsubsection}{\numberline {4.5.4.10}Hilfsfunktionen}{46}{subsubsection.492}%
+\contentsline {subsection}{\numberline {4.5.5}Knapsack Solver Game Objekt}{46}{subsection.523}%
+\contentsline {subsubsection}{\numberline {4.5.5.1}Klassenvariablen KnapsackScript}{47}{subsubsection.525}%
+\contentsline {subsubsection}{\numberline {4.5.5.2}Start des KnapsackScripts}{47}{subsubsection.538}%
+\contentsline {subsubsection}{\numberline {4.5.5.3}Set Inventory und Start der Berechnung}{48}{subsubsection.545}%
+\contentsline {subsubsection}{\numberline {4.5.5.4}Start der Berechnung}{48}{subsubsection.552}%
+\contentsline {subsubsection}{\numberline {4.5.5.5}Wert des eigenen Inventars}{49}{subsubsection.579}%
+\contentsline {subsubsection}{\numberline {4.5.5.6}Knapsack Algorithmus Definition}{50}{subsubsection.609}%
+\contentsline {subsubsection}{\numberline {4.5.5.7}Problemstellung}{50}{subsubsection.610}%
+\contentsline {subsubsection}{\numberline {4.5.5.8}Algorithmus}{50}{subsubsection.611}%
+\contentsline {subsubsection}{\numberline {4.5.5.9}Anwendungen}{50}{subsubsection.612}%
+\contentsline {subsubsection}{\numberline {4.5.5.10}Knapsack Algorithmus Implementierung}{50}{subsubsection.613}%
+\contentsline {subsection}{\numberline {4.5.6}Best Solution Prefab Game Objekt}{55}{subsection.692}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Script aufruf}{56}{subsubsection.696}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Klassenvariablen PerfectSolutionVisualizer}{56}{subsubsection.698}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Start des PerfectSolutionVisualizer}{56}{subsubsection.712}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Setzen der neuen Position der perfekten Lösung}{57}{subsubsection.733}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Perfekte Lösung füllen}{57}{subsubsection.742}%
+\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{59}{subsection.778}%
+\contentsline {section}{\numberline {4.6}Performance}{59}{section.779}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{67}{chapter.780}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{67}{section.781}%
+\contentsline {section}{\numberline {5.2}Abnahme}{67}{section.782}%
+\contentsline {section}{\numberline {5.3}Zukunft}{67}{section.783}%
+\contentsline {chapter}{\numberline {A}Mockups}{68}{appendix.784}%
+\contentsline {section}{\numberline {A.1}UI/UX}{68}{section.785}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{68}{section.786}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{68}{section.787}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{68}{section.788}%
+\contentsline {chapter}{\numberline {B}Literatur}{69}{appendix.789}%
