@@ -1,27 +1,48 @@
 \setcounter{secnumdepth}{4}
-\lstdefinestyle{csharp}{
-    language=C#,
-    basicstyle=\ttfamily\small,
-    commentstyle=\color{green!40!black},
-    keywordstyle=\color{blue},
-    numberstyle=\tiny\color{gray},
-    numbers=left,
-    stepnumber=1,
-    numbersep=5pt,
-    backgroundcolor=\color{white},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2,
-    frame=single,
-    rulecolor=\color{black},
-    captionpos=b,
-    breaklines=true,
-    breakatwhitespace=false,
-    title=\lstname,
-    escapeinside={\%*}{*)},
-    morekeywords={var},
+% Define colors
+\definecolor{keywordcolor}{RGB}{255,0,0}
+\definecolor{Classcolor}{RGB}{90, 90, 90}
+\definecolor{Funcolor}{RGB}{191, 64, 191}
+\definecolor{Logiccolor}{RGB}{51, 179, 255}
+\definecolor{commentcolor}{RGB}{0,128,0}
+\definecolor{stringcolor}{RGB}{163,21,21}
+
+% Language definition
+\lstdefinelanguage{CS}{
+    language=C,
+    morekeywords=
+        {using, public, private, class, yield, return, new, if, else, out, try, catch, for, while, throw, foreach, in, using},
+    morekeywords=[2]
+        {ARRaycastManager, ARPlaneManager, GameObject, InventoryController, Vector3, ARPlane, Ray, RaycastHit, GetComponent, MeshRenderer, Quaternion},
+    morekeywords=[3]
+        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast},
+    morekeywords=[4]
+        {+, -, /, *, !, =, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null, true, false}, % Define symbols as keywords
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    sensitive=true
 }
+
+% Listings settings
+\lstset{
+    language=CS,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{keywordcolor}\bfseries,
+    keywordstyle=[2]\color{Classcolor},
+    keywordstyle=[3]\color{Funcolor},
+    keywordstyle=[4]\color{Logiccolor},
+    commentstyle=\color{commentcolor},
+    stringstyle=\color{stringcolor},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=4,
+    captionpos=b
+}
+
 
 \chapter{Feinkonzept und Realisierung}
 
@@ -600,13 +621,14 @@ Hier eine kurze Übersicht:
 %TODO: Übersicht einfügen
 
 \subsection{Inventory Placement Controller Game Objekt}
-Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
-Kamera erforderlich, um die physische Umgebung zu erfassen. Durch die Analyse der erfassten Daten können Ebenen
-identifiziert werden, die entscheidend sind, um eine genaue Platzierung von Inventargegenständen zu erreichen.
+Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die Kamera
+erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können relevante
+Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
 
-In diesem Abschnitt wird das \textit{Inventory Placement Controller} Game Objekt mit dem angehängten \textit{InventoryPlacementController.cs}
-behandelt. Dieses Script enthält die \textbf{InventoryPlacementController} Klasse, welche alle Funktionen für das Berechnen
-der Position und Platzierung des Inventars beinhaltet. Diese Funktionen werden in diesem Abschnitten detailliert erläutert.
+In diesem Abschnitt wird das \textit{Inventory Placement Controller} Game Objekt mit dem angehängten
+\textit{InventoryPlacementController.cs} Script behandelt. Letzteres beinhaltet die \textbf{InventoryPlacementController}
+Klasse, welche sämtliche Funktionen zur Berechnung und Platzierung des Inventars umfasst. Diese Funktionalitäten werden
+im Folgenden detailliert erläutert.
 
 \begin{figure}[h]
     \centering
@@ -615,23 +637,30 @@ der Position und Platzierung des Inventars beinhaltet. Diese Funktionen werden i
     \label{fig:inventoryPlacementController_Editor}
 \end{figure}
 
-Die Abbildung \ref{fig:inventoryPlacementController_Editor} zeigt das \textit{inventoryPlacementController}-Objekt im Unity Editor. Hier
-können verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten
-im Unity Editor und die angehängte Komponente \textit{InventoryPlacementController.cs}. Zudem sind vordefinierte Werte für bestimmte
-Variablen sichtbar. Diese Variablen umfassen:
+Die Darstellung des \textit{inventoryPlacementController}-Objekts im Unity Editor, wie sie in
+Abbildung \ref{fig:inventoryPlacementController_Editor} gezeigt wird, bietet eine Schnittstelle zur Konfiguration
+verschiedener Parameter. Hierzu zählen insbesondere die Zuweisung der Ebenenposition, die Feinjustierung der Koordinaten
+innerhalb des Unity Editors sowie die Verbindung mit der Komponente \textit{InventoryPlacementController.cs}. Zusätzlich
+werden voreingestellte Werte für Schlüsselvariablen angezeigt, die für die Ausführung des Codes von entscheidender Bedeutung
+sind. Diese Auflistung und Erläuterung dieser Variablen umfasst:
 
 \begin{itemize}
-    \item \textbf{Raycast Manager:} Referent auf das Game Objekt des \textit{ARRaycastManagers} aus der Level 2 Szene.
-    \item \textbf{Plane Manager:} Referenz auf das Game Objekt des \textit{ARPlanesManagers} aus der Level 2 Szene.
-    \item \textbf{Inventory Object:} Referenz auf das 3D-Modell des \textit{Inventars} aus dem Prefab Ordner.
-    \item \textbf{Inventory Controller:} Referenz auf das Script des \textit{InventoryControllers}.
-    \item \textbf{QR Codes Manager:} Referenz auf das Game Objekt des \textit{QRCodeManagers} aus der Level 2 Szene.
-    \item \textbf{Info Object:} Referenz auf das \textit{infoObject} Game Objekt aus der Level 2 Szene.
-    \item \textbf{Required Look Time:} Die vorgeschriebene Zeit, die der Benutzer auf ein Plane schauen muss, damit das
-    Inventar platziert wird.
+    \item \textbf{Raycast Manager:} Diese Variable dient als Verweis auf das Game Objekt des \textit{ARRaycastManagers}
+    aus der Szene Level 2.
+    \item \textbf{Plane Manager:} Hierbei handelt es sich um eine Zuweisung zum Game Objekt des \textit{ARPlanesManagers}
+    aus der Szene Level 2.
+    \item \textbf{Inventory Object:} Diese Referenz ist mit dem 3D-Modell des Inventars aus dem Prefab-Ordner verknüpft.
+    \item \textbf{Inventory Controller:} Diese Variable ist mit dem Skript des \textit{InventoryControllers} verbunden.
+    \item \textbf{QR Codes Manager:} Hierbei handelt es sich um einen Verweis auf das Game Objekt des \textit{QRCodeManagers}
+    aus der Szene Level 2.
+    \item \textbf{Info Object:} Diese Referenz ist mit dem Game Objekt \textit{infoObject} aus der Szene Level 2 verbunden.
+    \item \textbf{Required Look Time:} Diese Variable gibt die vorgeschriebene Zeitdauer an, für die der Benutzer auf ein
+    Plane blicken muss, damit das Inventar platziert wird.
 \end{itemize}
 
-Im Unity Editor können die Werte dieser Variablen direkt verändert werden, was Auswirkungen auf die Ausführung des Codes hat.\\
+Durch den Unity Editor besteht die Möglichkeit, die Werte dieser Variablen direkt zu manipulieren, was direkte Auswirkungen
+auf die Ausführung des Codes hat. Diese direkte Manipulation bietet eine intuitive und effiziente Möglichkeit, die
+Einstellungen anzupassen und die Funktionalität des Programms entsprechend anzupassen.
 
 \subsubsection{InventoryPlacementController Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryPlacementController Klasse}, label=code:anchor_var]
@@ -652,24 +681,38 @@ private float heightOffset = 0.001f;
 private bool canStartScript = false;
 \end{lstlisting}
 
-Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind Teil der \textit{PlaceObjectOnLookedAtDesk} Klasse.
-Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden
-oder von anderen Klassen für die funktionalität gebraucht werden. Dies ermöglicht einen direkten Zugriff auf diese Objekte in der
-eigenen oder einer anderen Klasse. Die Vektor-Variable \textit{objectPosition} spielt eine
-entscheidende Rolle für die präzise Platzierung der perfekten Lösung. Die privaten (\textbf{private}) Variablen dienen
-der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.
+Die dargestellten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind integraler Bestandteil der
+\textit{PlaceObjectOnLookedAtDesk}-Klasse. Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte, die
+im Unity Editor festgelegt und übergeben werden können oder von anderen Klassen für die Funktionalität benötigt werden.
+Dies ermöglicht einen direkten Zugriff auf diese Objekte sowohl innerhalb der eigenen Klasse als auch von anderen Klassen
+aus. Die Vektor-Variable \textit{objectPosition} spielt dabei eine entscheidende Rolle für die präzise Platzierung der
+Objekte.
+
+Hingegen dienen die privaten (\textbf{private}) Variablen der lokalen Speicherung von Werten, die ausschließlich innerhalb
+der Klasse benötigt werden und von keiner anderen Klasse verwendet werden sollen.
+
+Dieser Ansatz der Kapselung von Daten erlaubt eine klare Trennung zwischen öffentlich zugänglichen Daten und internen
+Variablen, was eine effiziente und strukturierte Entwicklung und Wartung des Codes ermöglicht.
 
 \subsubsection{Startverzögerung}
-\begin{lstlisting}[style=csharp, caption={Beginn des Anchor Scripts}, label=code:Start]
+\begin{lstlisting}[style=csharp, caption={Beginn des Inventory Placement Controllers}, label=code:Start]
 void Start()
 {
     StartCoroutine(DelayedStart());
 }
 \end{lstlisting}
-Zu Beginn des Levels für das "Knapsack-Problem" wird die Lebenszyklusmethode \textbf{Start()} aufgerufen. Diese Funktion
-startet dann die Coroutine \textbf{DelayedStart()}. Die Startverzögerung wird hier verwendet, um dem \textit{ARPlaneManager}
-ausreichend Zeit zu geben, um Ebenen in der Umgebung des Benutzers zu scannen und zu markieren. Dies ist von Bedeutung,
-um eine solide Grundlage für die spätere präzise Platzierung des Inventars zu gewährleisten.\\
+Die Lebenszyklusmethode \textbf{Start()} wird zu Beginn des Levels für das "Knapsack-Problem" aufgerufen, wie im
+Codeausschnitt \ref{code:Start} gezeigt. Diese Methode initiiert die Coroutine \textbf{DelayedStart()}, die eine Verzögerung
+einleitet, bevor das eigentliche Skript fortgesetzt wird.
+
+Die Verzögerung wird gezielt eingesetzt, um dem \textit{ARPlaneManager} ausreichend Zeit zu geben, die Ebenen in der
+Umgebung des Benutzers zu scannen und zu markieren. Dieser Schritt ist entscheidend, um eine stabile Grundlage für die
+spätere präzise Platzierung des Inventars in der virtuellen Umgebung zu schaffen.
+
+Die Verwendung der Coroutine ermöglicht eine zeitgesteuerte Ausführung des Codes, wodurch die Umgebungserfassung des
+\textit{ARPlaneManager} abgeschlossen werden kann, bevor das Platzierungsskript aktiviert wird. Diese sorgfältig abgestimmte
+Startsequenz gewährleistet eine zuverlässige Erfassung der ARPlanes und legt somit den Grundstein für eine erfolgreiche
+Platzierung des Inventar-Objekts.
 
 \begin{lstlisting}[style=csharp, caption={Verzoegerter Start}, label=code:DelayedStart]
 private IEnumerator DelayedStart()
@@ -678,51 +721,41 @@ private IEnumerator DelayedStart()
     canStartScript = true;
 }
 \end{lstlisting}
-Die in Codeabschnitt \ref{code:Start} aufgerufene Funktion \textbf{DelayedStart()} führt dazu, dass vor weiterarbeiten
-des Scripts eine Verzögerung von 3 Sekunden gewährleistet wird. Diese Verzögerung ermöglicht es dem \textit{ARPlaneManager},
-ungestört die Umgebung zu scannen. Die Aktivierung von \textit{canStartScript} markiert den Zeitpunkt, ab dem die
-\textbf{Update()} Methode ihre Ausführung fortsetzen kann. Dieser gestaffelte Startprozess gewährleistet eine reibungslose
-Erfassung von AR-Planes und legt somit einen soliden Grundstein für die präzise Platzierung von Inventargegenständen
-in der augmentierten Realität.
+Die Funktion \textbf{DelayedStart()} (siehe Codeabschnitt \ref{code:DelayedStart}) wird im Kontext der Lebenszyklusmethode
+\textbf{Start()} aufgerufen, um eine initialisierte Verzögerung von 3 Sekunden zu gewährleisten, bevor das Skript seine
+Ausführung fortsetzt. Diese gezielte Verzögerung ist von entscheidender Bedeutung, um dem \textit{ARPlaneManager} genügend
+Zeit zu geben, um die Umgebung ungestört zu scannen. Durch die Aktivierung der Variable \textit{canStartScript} wird der
+Zeitpunkt markiert, ab dem die Methode \textbf{Update()} ihre Ausführung fortsetzen kann.
 
 \subsubsection{Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}
-Da in der Umgebung mehrere AR-Planes gescannt und markiert werden, ist es notwendig, ständig zu aktualisieren, welcher
-der markierten und gescannten Planes tatsächlich das beabsichtigte ist. Um dieses Verhalten zu erreichen, wird die
-Lebenszyklusmethode \textit{Update()} verwendet. Diese Methode sorgt dafür, dass stets das gewünschte AR-Plane
-ausgewählt ist. Falls der Benutzer seinen Blick auf einen anderen, näher gelegenen Plane richtet, wird dieser als der
-neue ausgewählte Plane betrachtet.\\
+Angesichts der potenziell vielfältigen Umgebung von gescannten und markierten ARPlanes ist eine kontinuierliche Aktualisierung
+erforderlich, um sicherzustellen, dass das gewünschte ARPlane stets identifiziert wird. Dieser Prozess wird durch die
+Anwendung der Lebenszyklusmethode \textbf{Update()} realisiert. Diese Methode überwacht und steuert den Auswahlvorgang
+des ARPlanes, um sicherzustellen, dass das korrekte ARPlane ausgewählt wird, selbst wenn der Benutzer seinen Blick auf
+ein andere ARPlane lenkt.
 
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
-    void Update()
+void Update()
+{
+    if (!objectPlaced && canStartScript)
     {
-        if (!objectPlaced && canStartScript)
+        if (IsPointerOverPlane())
         {
-            if (IsPointerOverPlane())
-            {
-                ARPlane currentPlane = GetCurrentPlaneUnderGaze();
+            ARPlane currentPlane = GetCurrentPlaneUnderGaze();
 
-                if (currentPlane != null)
+            if (currentPlane != null)
+            {
+                if (selectedDeskPlane == null || selectedDeskPlane != currentPlane)
                 {
-                    if (selectedDeskPlane == null || selectedDeskPlane != currentPlane)
-                    {
-                        SetPlaneColor(currentPlane, Color.red);
-                        selectedDeskPlane = currentPlane;
-                        lookStartTime = Time.time;
-                    }
-                    float timeLookedAtPlane = Time.time - lookStartTime;
-                    if (timeLookedAtPlane >= requiredLookTime)
-                    {
-                        PlaceObjectOnDesk(selectedDeskPlane);
-                        objectPlaced = true;
-                    }
+                    SetPlaneColor(currentPlane, Color.red);
+                    selectedDeskPlane = currentPlane;
+                    lookStartTime = Time.time;
                 }
-                else
+                float timeLookedAtPlane = Time.time - lookStartTime;
+                if (timeLookedAtPlane >= requiredLookTime)
                 {
-                    if (selectedDeskPlane != null)
-                    {
-                        SetPlaneColor(selectedDeskPlane, Color.blue);
-                    }
-                    selectedDeskPlane = null;
+                    PlaceObjectOnDesk(selectedDeskPlane);
+                    objectPlaced = true;
                 }
             }
             else
@@ -734,25 +767,42 @@ neue ausgewählte Plane betrachtet.\\
                 selectedDeskPlane = null;
             }
         }
+        else
+        {
+            if (selectedDeskPlane != null)
+            {
+                SetPlaneColor(selectedDeskPlane, Color.blue);
+            }
+            selectedDeskPlane = null;
+        }
     }
+}
 \end{lstlisting}
-Die \textbf{Update()} Funktion aus Codeabschnitt \ref{code:Update} bildet das Herzstück des \textit{InventoryPlacementControllers},
-dass die kontinuiriche Interaktion zwischen der realen und augmentierten Realität orchestriet. Der Ablauf beginnt mit einer
-sorgfälltigen Überprüfung, ob das Inventar-Objekt bereits platziert wurde (\textit{!objectPlaced}) und, ob das Skript für
-den weiteren Verlauf bereit ist (\textit{canStartScript}). Diese Bedingungen dienen dazu, dass der Platzierungsprozess nur
-startet, wenn diese beiden Vorraussetzungen erfüllt werden und im anderen Fall kein Ressourcenverbrauchender Code abläuft.\\
+
+Die \textbf{Update()} Funktion, wie in Codeabschnitt \ref{code:Update} dargestellt, stellt das Kernelement des
+\textit{InventoryPlacementControllers} dar, das die nahtlose Interaktion zwischen der realen und augmentierten Realität
+orchestriert. Sie überwacht kontinuierlich den Prozess der AR-Plane-Identifikation und Aktualisierung. Der Ablauf beginnt
+mit einer sorgfältigen Überprüfung, ob das Inventar-Objekt bereits platziert wurde (\textit{!objectPlaced}) und ob das
+Skript für den weiteren Verlauf bereit ist (\textit{canStartScript}). Diese präzise Kontrolle gewährleistet, dass der
+Platzierungsprozess nur bei Erfüllung spezifischer Bedingungen einsetzt und unnötige Ressourcenverwendung vermieden wird.\\
 
 \begin{lstlisting}[style=csharp, caption={Raycasting}, label=code:Raycasting]
-if(IsPointerOverPlane()){
+if(IsPointerOverPlane())
+{
     //...
 }
 \end{lstlisting}
-Um dem Benutzer zu gewährleisten, dass das Inventar tatsächlich dort platziert wird, wo es gewünscht ist dient hierzu
-die nächste \textit{If-Überprüfung}. Hier wird in Codeabschnitt \ref{code:Raycasting} mittels der Funktion \textbf{IsPointerOverPlane()}
-(Codeabschnitt \ref{code:getPlaneFromGaze}) überprüft ob der Benutzer momentan auf ein \textit{ARPlane} blickt oder nicht. Diese Funktion
-simmuliert einen Raycast in richtung der Blickrichtung des Benutzers und übprüft anhand der getroffenen Raycasts (\textit{hits})
-ob der hit ein \textit{ARPlane} ist oder nicht. In dem Fall, dass es ein \textit{ARPlane} ist wird anschließend \textit{true}
-zurückgegeben was bedeutet, dass der registrierte hit ein ARPlane ist und der Benutzer daher auf ein \textit{ARPlane} blickt.
+Eine weitere kritische Überprüfung, um sicherzustellen, dass das Inventar genau an der gewünschten Stelle platziert wird,
+wird durch die folgende \textit{If-Überprüfung} durchgeführt. In Codeabschnitt \ref{code:Raycasting} wird mittels der
+Funktion \textbf{IsPointerOverPlane()} (siehe Codeabschnitt \ref{code:getPlaneFromGaze}) festgestellt, ob der Benutzer
+seinen Blick derzeit auf ein \textit{ARPlane} gerichtet hat.
+
+Die Funktion \textbf{IsPointerOverPlane()} (siehe Codeabschnitt \ref{code:getPlaneFromGaze}) führt eine Raycast-Berechnung
+durch, um festzustellen, ob der Benutzer auf ein \textit{ARPlane} blickt oder nicht. Ein Raycast wird von der aktuellen
+Position der Kamera ausgeführt, die durch \textit{Input.mousePosition} definiert ist. Wenn der Raycast auf ein Objekt
+trifft, wird die Information über den getroffenen Punkt in der Variablen \textit{hit} gespeichert. Anschließend wird
+überprüft, ob das getroffene Objekt eine Instanz eines \textit{ARPlane} ist. Falls ja, wird \textit{true} zurückgegeben,
+andernfalls \textit{false}.
 
 \begin{lstlisting}[style=csharp, caption={Blick-Ueberpreufungs Funktion}, label=code:getPlaneFromGaze]
 bool IsPointerOverPlane()
@@ -768,12 +818,9 @@ bool IsPointerOverPlane()
 }
 \end{lstlisting}\\
 
-Im weiteren Verlauf der \textit{Update()}-Funktion wird das aktuelle \textit{ARPlane}, auf das der Benutzer blickt, mittels
-der \textbf{GetCurrentPlaneUnderGaze()}-Funktion (siehe Codeausschnitt \ref{code:getPlane}) ermittelt und gespeichert.
-Diese Funktion simuliert erneut einen Raycast in Richtung des Benutzerblicks und speichert anhand der Informationen über
-Kollisionen (\textit{hits}) und der Funktion \textbf{GetComponent<ARPlane>()} die ARPlane-Komponente, die mit dem
-getroffenen Collider assoziiert ist. Dies dient dazu, stets das korrekte \textit{ARPlane} zu speichern, auf das der
-Benutzer blickt, um eine präzise Platzierung des Inventars sicherzustellen.
+Im weiteren Verlauf der \textbf{Update()}-Funktion wird das aktuelle \textit{ARPlane}, auf das der Benutzer blickt,
+mittels der \textbf{GetCurrentPlaneUnderGaze()}-Funktion (siehe Codeausschnitt \ref{code:getPlane}) ermittelt und
+gespeichert.
 
 \begin{lstlisting}[style=csharp, caption={Das gewollte ARPlane ermitteln}, label=code:getPlane]
 ARPlane GetCurrentPlaneUnderGaze()
@@ -789,21 +836,34 @@ ARPlane GetCurrentPlaneUnderGaze()
 }
 \end{lstlisting}
 
+Die Funktion \textbf{GetCurrentPlaneUnderGaze()} (siehe Codeabschnitt \ref{code:getPlane}) wird verwendet, um das aktuelle
+\textit{ARPlane} zu ermitteln, auf das der Benutzer blickt. Sie führt einen Raycast in Richtung des Benutzerblicks aus,
+indem sie die Bildschirmkoordinaten der Mausposition in eine 3D-Weltkoordinate umwandelt. Anschließend wird überprüft,
+ob der Raycast auf ein Objekt trifft. Wenn ja, wird die ARPlane-Komponente des getroffenen Colliders extrahiert und
+zurückgegeben. Dadurch wird sichergestellt, dass stets das korrekte \textit{ARPlane} identifiziert wird, auf das der
+Benutzer blickt, um eine präzise Platzierung des Inventars in der augmentierten Realität zu ermöglichen.\\
+
 \begin{lstlisting}[style=csharp, caption={Plane auswaehlen und timer starten}, label=code:TimeMeasurement]
 if (selectedDeskPlane == null || selectedDeskPlane != currentPlane)
 {
-    SetPlaneColor(currentPlane, Color.red); // Change plane color to red
+    SetPlaneColor(currentPlane, Color.red);
     selectedDeskPlane = currentPlane;
     lookStartTime = Time.time;
 }
 \end{lstlisting}
-Nach Abschluss der \textbf{GetCurrentPlaneUnderGaze()}-Funktion (Codeabschnitt \ref{code:getPlane}) wird anschließend (Codeabschnitt \ref{code:TimeMeasurement})
-überprüft ob das \textit{selectedDeskPlane} gleich \textit{null} ist, oder ob das \textit{selectedDeskPlane} ungleich dem
-\textit{currentPlane} ist. Wenn das der Fall ist, sprich, dass zu dem aktuellen Zeitpunkt noch kein ARPlane gesetzt wurde,
-wird anschließend die \textbf{SetPlaneColor}-Funktion(\ref{code:colorPlane}) aufgerufen um dem Benutzer zu visualisieren,
-welches \textit{ARPlane} momentan selektiert ist. Zuletzt wird dann das \textit{selectedDeskPlane} gesetzt und der
-Timer für das platzieren des Inventars gestartet.\\
+Nach Abschluss der \textbf{GetCurrentPlaneUnderGaze()}-Funktion (siehe Codeabschnitt \ref{code:getPlane}) wird im
+Codeausschnitt \ref{code:TimeMeasurement} überprüft, ob das \textit{selectedDeskPlane} gleich \textit{null} ist oder ob
+es ungleich dem aktuellen \textit{currentPlane} ist. Diese Bedingung prüft, ob bereits ein ARPlane ausgewählt wurde oder
+ob ein neues ARPlane ausgewählt werden muss. Wenn diese Bedingung erfüllt ist, was bedeutet, dass zum aktuellen Zeitpunkt
+noch kein ARPlane ausgewählt wurde, wird die \textbf{SetPlaneColor}-Funktion (siehe Codeabschnitt \ref{code:colorPlane})
+aufgerufen, um dem Benutzer visuell anzuzeigen, welches ARPlane ausgewählt ist. Anschließend wird das \textit{selectedDeskPlane}
+auf den aktuellen \textit{currentPlane} gesetzt, und der Timer für das Platzieren des Inventars wird gestartet.
 
+Die \textbf{SetPlaneColor}-Funktion (siehe Codeabschnitt \ref{code:colorPlane}) wird verwendet, um die Farbe des ausgewählten
+ARPlane zu ändern und dem Benutzer visuell anzuzeigen, welches ARPlane selektiert ist. Diese Funktion akzeptiert zwei
+Parameter: das ARPlane-Objekt \textit{plane}, dessen Farbe geändert werden soll, und die gewünschte Farbe \textit{color}.
+Die Funktion sucht nach der MeshRenderer-Komponente im übergebenen ARPlane-Objekt, um die Materialfarbe zu ändern. Wenn
+der MeshRenderer gefunden wird, wird die Materialfarbe auf die angegebene Farbe \textit{color} gesetzt.
 \begin{lstlisting}[style=csharp, caption={Ausgewaehltes ARPlane kennzeichnen}, label=code:colorPlane]
 void SetPlaneColor(ARPlane plane, Color color)
 {
@@ -815,29 +875,42 @@ void SetPlaneColor(ARPlane plane, Color color)
 }
 \end{lstlisting}\\
 
-Um die tatsächlich Blickzeit auf das ausgewählte \textit{ARPlane} zu errechnen wird in jedem Frame, in dem der Benutzer
-auf das selbe ARPlane blickt folgender Code ausgeführt:
+%HIER NOCH BILD VON DEM EINGEFÄRBTEN PLANE MACHEN UND EINFÜGEN!
+Nach Ausführung des bereitgestellten Codes wird das markierte AR-Plane wie in Abbildung \ref{fig:colPlane} dargestellt.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/coloredPlane}
+    \caption{Gekennzeichnetes ARPlane}
+    \label{fig:colPlane}
+\end{figure}
+
+Um die tatsächliche Blickzeit auf das ausgewählte \textit{ARPlane} zu berechnen, wird in jedem Frame, in dem der Benutzer
+auf dasselbe ARPlane blickt, folgender Code ausgeführt:
 \begin{lstlisting}[style=csharp, caption={Blickzeit messen}, label=code:TimeUpdate]
 float timeLookedAtPlane = Time.time - lookStartTime;
-\end{lstlisting}\\
+\end{lstlisting}
 
-Als letzter Schritt in der \textbf{Update()}-Funktion (Codeabschnitt \ref{code:Update}) wird abschließend überprüft,
-ob die aktuell gemessene Blickzeit die erforderliche Blickzeit überschreitet. Wenn dies der Fall ist wird die Funktion
-\textbf{PlaceObjektOnDesk()} mit dem aktuell selektiertem \textit{ARPlane} aufgerufen, um das Inventar-Objekt auf diesem
-zu platzeren. Zusätzlich wird \textit{objectPlaced} auf \textit{true} gesetzt um zu signalisieren, dass das Objekt
-platzieret wurde und weitere Überprüfungen somit gestoppt werden sollen. Dies ist in folgendem Codeabschnitt \ref{code:Placement}
-zu sehen:ö
-\begin{lstlisting}[style=csharp, caption={Platzier-Funktion aufrufen}, label=code:Placement]
+Dieser Code berechnet die vergangene Zeit seit Beginn des Blicks auf das ARPlane, indem die aktuelle Zeit (\textit{Time.time})
+von der Zeit abgezogen wird, zu der der Blick auf das ARPlane gestartet wurde (\textit{lookStartTime}). Das Ergebnis \textit{timeLookedAtPlane}
+ist die Differenz in Sekunden und repräsentiert die tatsächliche Blickdauer des Benutzers auf das ARPlane seit dem Beginn des Blicks.\\
+
+Als letzter Schritt in der \textbf{Update()}-Funktion (siehe Codeausschnitt \ref{code:Update}) wird abschließend überprüft,
+ob die aktuell gemessene Blickzeit die erforderliche Blickzeit überschreitet. Wenn dies der Fall ist, wird die Funktion
+\textbf{PlaceObjectOnDesk()} mit dem aktuell ausgewählten \textit{ARPlane} aufgerufen, um das Inventar-Objekt auf diesem
+zu platzieren. Zusätzlich wird die Variable \textit{objectPlaced} auf \textit{true} gesetzt, um zu signalisieren, dass das
+Objekt platziert wurde und weitere Überprüfungen somit gestoppt werden sollen. Dies ist im folgenden Codeabschnitt dargestellt:
+\begin{lstlisting}[style=csharp, caption={Platzierungsfunktion aufrufen}, label=code:Placement]
 if (timeLookedAtPlane >= requiredLookTime)
 {
     PlaceObjectOnDesk(selectedDeskPlane);
     objectPlaced = true;
 }
-\end{lstlisting}\\
+\end{lstlisting}
 
-Die in Codebabschnitt \ref{code:Placement} aufgerufene Funtkion \textbf{PlaceObjectOnDesk()} stellt den Abschluss des
-\textit{InventoryPlacementControllers} dar. Diese Funktion kümmert sich darum, dass das Inventar-Objekt platziert und
-weitere Objekte deaktiviert / aktiviert werden um den weiteren Ablauf der Applikation zu versichern.
+
+Die in Codeabschnitt \ref{code:placeobject} aufgerufene Funktion \textbf{PlaceObjectOnDesk()} markiert den Abschluss des
+\textit{InventoryPlacementControllers}. Diese Funktion ist dafür verantwortlich, das Inventar-Objekt zu platzieren und
+weitere Objekte zu aktivieren oder zu deaktivieren, um einen reibungslosen Ablauf der Anwendung zu gewährleisten.
 
 \begin{lstlisting}[style=csharp, caption={Inventar platzier - Funktion}, label=code:placeobject]
 void PlaceObjectOnDesk(ARPlane deskPlane)
@@ -858,43 +931,52 @@ void PlaceObjectOnDesk(ARPlane deskPlane)
 \end{lstlisting}
 
 \begin{enumerate}
-    \item \textbf{Aktivierung des QR-Code Managers}\\
-    Die Funktion startet damit, den QR-Code Manager zu aktivieren, was das Tracken von QR-Codes ermöglicht.
-    \item \textbf{Berechnung der Objektposition und Rotation}\\
-    Anschließend wird die Position des Inventar-Objekts berechnet. Dazu wird die Flächenmitte des ausgewählten AR-Planes
-    genutzt, und die Rotation des Objekts wird auf der x-Achse festgelegt.
-    \item \textbf{Instantiierung des Objekts}\\ Das Inventar-Objekt wird dann durch die Verwendung der \textbf{Instantiate}-Funktion
-    erstellt und auf eine bestimmte Größe skaliert.
-    \item \textbf{Platzierung des Info-Objects}\\
-    Die Position des Info-Objects, das aus TextMeshes und Buttons besteht, wird ebenfalls berechnet und aktiviert, um für
-    den Benutzer sichtbar zu sein.
-    \item \textbf{Setzen des Inventar-Objekts im InventoryController}\\
-    Das platzierte Inventar-Objekt wird an den \textit{InventoryController} weitergeleitet und dort als aktuelles Inventarobjekt
-    festgelegt um sicherzustellen, dass hier dann in Folge auf das selbe Objekt zugegriffen wird.
-    \item \textbf{Aktivierung des InventoryControllers}\\
-    Nach der erfolgreichen Platzierung des Inventar-Objekts und Aktivierung des Info-Objects wird der \textit{InventoryController}
-    aktiviert, um die Inventarverwaltung zu starten.
-    \item \textbf{Sichtbarkeit der Planes ausschalten}\\
-    Da die AR-Planes nach erfolgreicher Platzierung der Objekte nicht mehr sichtbar sein sollen, weil sie nichtmehr gebraucht
-    \item werden, werden diese deaktiviert.
-    \item \textbf{Deaktivierung des Skripts}\\
-    Schließlich wird das \textit{AnchorScript.cs} deaktiviert, um weitere ressourcenintensive Aktualisierungen zu stoppen.\\
-\end{enumerate}\\
+    \item \textbf{Aktivierung des QR-Code Managers:} Die Funktion beginnt damit, den QR-Code Manager zu aktivieren, der
+    für das Tracking von QR-Codes zuständig ist.
+    \item \textbf{Berechnung der Objektposition und -rotation:} Anschließend wird die Position des Inventar-Objekts
+    berechnet. Hierbei wird die Flächenmitte des ausgewählten AR-Planes als Referenzpunkt verwendet, und die Rotation des
+    Objekts wird auf der x-Achse festgelegt.
+    \item \textbf{Instantiierung des Objekts:} Das Inventar-Objekt wird durch die Verwendung der \textbf{Instantiate}-
+    Funktion erstellt und auf eine bestimmte Größe skaliert.
+    \item \textbf{Platzierung des Info-Objects:} Die Position des Info-Objects, das aus TextMeshes und Buttons besteht,
+    wird ebenfalls berechnet und aktiviert, um für den Benutzer sichtbar zu sein.
+    \item \textbf{Setzen des Inventar-Objekts im InventoryController:} Das platzierte Inventar-Objekt wird an den \textit{InventoryController}
+    übergeben und dort als aktuelles Inventarobjekt festgelegt, um sicherzustellen, dass darauf später zugegriffen werden
+    kann.
+    \item \textbf{Aktivierung des InventoryControllers:} Nach der erfolgreichen Platzierung des Inventar-Objekts und der
+    Aktivierung des Info-Objects wird der \textit{InventoryController} aktiviert, um die Verwaltung des Inventars zu starten.
+    \item \textbf{Sichtbarkeit der Planes ausschalten:} Da die AR-Planes nach der erfolgreichen Platzierung der Objekte
+    nicht mehr sichtbar sein sollen, werden diese deaktiviert.
+    \item \textbf{Deaktivierung des Skripts:} Schließlich wird das Skript \textit{AnchorScript.cs} deaktiviert, um weitere
+    ressourcenintensive Aktualisierungen zu stoppen.\\
+\end{enumerate}
 
 In den beiden \textit{else}-Zweigen (Codeabschnitt \ref{code:NoPlaneHit}) der \textbf{Update()}-Funktion (Codebaschnitt \ref{code:Update})
-wird das \textit{selectedDeskPlane}auf null gesetzt, um sicherzustellen, dass keine vorherigen Auswahlinformationen
-beibehalten werden und ebenfalls, dass\textit{ARPlanes} auf die der Benutzer geblickt hat mittels der \textbf{SetPlaneColor()}-Funktion
-(Codeabschnitt \ref{code:colorPlane}) wieder auf die Standardfarbe gefärbt werden.
-\begin{lstlisting}[style=csharp, caption={Ausgewaehltes Plane und Farbe zurücksetzen}, label=code:NoPlaneHit]
+werden spezifische Aktionen ausgeführt, wenn kein \textit{ARPlane} getroffen wurde. Dabei wird das \textit{selectedDeskPlane}
+auf null gesetzt, um sicherzustellen, dass keine vorherigen Auswahlinformationen beibehalten werden. Des Weiteren werden
+\textit{ARPlanes}, auf die der Benutzer zuvor geblickt hat, mithilfe der \textbf{SetPlaneColor()}-Funktion (Codeabschnitt \ref{code:colorPlane})
+auf die Standardfarbe zurückgesetzt.
+\begin{lstlisting}[style=csharp, caption={Ausgewaehltes Plane und Farbe zuruecksetzen}, label=code:NoPlaneHit]
 else
 {
     if (selectedDeskPlane != null)
     {
-        SetPlaneColor(selectedDeskPlane, Color.blue); // Reset previous plane color
+        SetPlaneColor(selectedDeskPlane, Color.blue);
     }
     selectedDeskPlane = null;
 }
-\end{lstlisting}
+\end{lstlisting}\\
+
+% HIER BILD NACH PLATZIEREN DES INVENTARS EINFÜGEN
+Nachdem das \textit{InventoryPlacementController}-Skript ordnungsgemäß beendet und deaktiviert wurde, wird dem Betrachter
+in Abbildung \ref{fig:inventoryPlaced} die Perspektive des Benutzers unmittelbar nach der Platzierung des Inventarobjekts
+präsentiert.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.8]{images/invPlace_Editor}
+    \caption{Sicht des Benutzers nach Platzierung des Inventars}
+    \label{fig:inventoryPlaced}
+\end{figure}
 
 \subsection{Inventory Controller Game Objekt}
 Das \textit{Inventory Controller} Game Objekt spielt eine entscheidende Rolle bei der Überwachung und Verwaltung des
