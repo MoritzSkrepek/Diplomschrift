@@ -339,55 +339,27 @@ Faktoren, die jeweils eine der drei Koordinaten darstellen. In diesem Fall soll 
 verschoben werden.
 \end{itemize}
 
-%Neu beschrieben idk
 \section{Menü}
 Im folgenden Abschnitt wird erläutert, wie das Menü in Unity hierarchisch aufgebaut ist und welche Schritte bis zur
 endgültigen Version durchlaufen wurden.
 
-\subsection{Menü version 1}
+\subsection{Version 1}
 Ursprünglich war geplant, das UI/UX System mit einem Nahmenü zu implementieren, das dem Benutzer folgt und aus drei
 Hauptbuttons und einem Pin-Button besteht. Der einfache Menüblock, der in Hüfthöhe schwebt, hat eine gewisse
 innovative/neuartige Wirkung auf den Benutzer.
 
-\subsubsection{Probleme bei Version 1}
-Am Anfang war das Ziel, das Menü so einfach wie möglich zu gestalten. Trotzdem sollten alle notwendigen Funktionen integriert werden.
-Nach mehreren Durchläufen und Tests mit projektunabhängigen Personen haben wir jedoch festgestellt, dass das ursprüngliche
-Ziel ein großes Problem hat, es fehlt eine Dokumentation/Übersicht/Erklärung der Level. Als Benutzer wird man einfach ins
-Hauptmenü geworfen, wo man nicht mehr sieht als die zwei klickbaren Levelbuttons.
-
-\subsubsection{Menü version 2}
-Die Lösung für das vorherige Problem der fehlenden Übersicht soll das neue Menü sein. Man hat sich dabei an den derzeit
-populären und trendigen AR/VR-Spielen orientiert und geschaut, warum die Benutzer Erfahrung deutlich besser ist als die,
-die wir in der Version 1 erfahren haben. Das Design wurde komplett abgeändert und vom Nahmenü ist nichtsmehr vorhanden,
-stattdessen haben wir jetzt im Hauptmenü, also das Level in das man lädt, vormodellierte von Blender importierte Objekte,
-mit denen der Nutzer interagieren kann. Dabei handelt es sich wie in der Abbildung ersichtlich, um zwei Tafeln die von
-unserem Diplomarbeitslogo getrennt sind. Die Tafeln ausgestattet mit einem Text und einem dazugehörigen Level-Titel,
-darunter ist der Startbutton in Blender vormodelliert. In Unity wurde dann ein Unsichtbarer aber klickbarer Button mit
-genau den selben Maßen an die Stelle eingefügt.
-
-%alt
-
-Die Implementierung des UI/UX-Systems erfolgt über das Menü. Aufgrund einer umfassenden Recherche über verschiedene
-Menüarten wurde die Wahl für die Realisierung eines NearMenus getroffen. Dabei handelt es sich um eine frei
-bewegliche Menüleiste, die sich auf Hüfthöhe des Benutzers befindet und synchron mit dessen Bewegungen mitfließt.
-
-Das Ziel ist es, das Menü so einfach wie möglich zu gestalten und trotzdem alle notwendigen Funktionen zu integrieren.
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{images/menubar.png}
-\caption{Darstellung des Hauptmenüs ohne Debugmenü im Unity Editor}
-\label{fig:menübar}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/menubar.png}
+    \caption{Darstellung des Hauptmenüs im Unity Editor}
+    \label{fig:menübar}
 \end{figure}
 
-\subsection{Menü-Hierarchie}
-In dem folgendem Abschnitt wird darauf eingegangen wie das Menü im Unity Editor aufgebaut ist und wie die einzelnen
-Buttons Grundsätzlich funktionieren.
-
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{images/menuHierarchy.png}
-\caption{Hauptmenühierarchie im Unity Editor}
-\label{fig:menühierarchy}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/menuHierarchy.png}
+    \caption{Hauptmenühierarchie im Unity Editor}
+    \label{fig:menühierarchy}
 \end{figure}
 
 
@@ -395,59 +367,138 @@ In dieser Abbildung ist die Hierarchie und der Inhalt des Hauptmenüs zu sehen. 
 vielen wichtigen Komponenten die zusammenspielen, um die gewünschte Funktion zu erzielen. Darunter sind folgende Objekte:
 
 \begin{itemize}
-\item \textbf{Menü:} Das Prefab, dem alle einzenen Buttons etc. zugewiesen sind.
-\item \textbf{ManipulationBar:} Ist ein GameObject, dem das \textit{ObjectManipulator.cs} Skript zugewiesen ist, welches
-die händische Menüführung ermöglicht.
-\item \textbf{Debug-Button:} Der Debug-Button ist ausschließlich für das Entwicklerteam vorgesehen. Beim Aktivieren öffnet
-sich ein erweitertes Menü oberhalb des Hauptmenüs, das zusätzliche Funktionen für das Bugfixing während des Betriebs
-bereitstellt.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{images/debugmenubar.png}
-\caption{Darstellung des Debug Menüs im Unity Editor}
-\label{fig:debugmenübar}
-\end{figure}
-\item \textbf{Skrepek:} Das Prefab ist ein Button der für Skrepek vorbereitet ist, um mögliche Skripts für Bugfixing
-während des Betriebes einzubringen.
-\item \textbf{Haylaz:} Das Prefab ist ein Button der für Haylaz vorbereitet ist, um mögliche Skripts für Bugfixing
-während des Betriebes einzubringen.
-\item \textbf{Schoditsch:} Das Prefab ist ein Button der für Schoditsch vorbereitet ist, um mögliche Skripts für Bugfixing
-während des Betriebes einzubringen.
-\item \textbf{Level 1/2-Button:} Diese Prefabs stellen die Buttons für das Level wechseln da, ihnen ist das
-\textit{SceneChange.cs} Skript zugewiesen.
-\item \textbf{Pin-Button:} Der Pin-Button ermöglicht das Fixieren des Menüs an einer geeigneten Stelle. Dies ist besonders nützlich,
-wenn der Benutzer sich an einen Tisch setzt und das Menü entsprechend positionieren möchte. Die
-Positionierung erfolgt mithilfe der ManipulationsBar.
+    \item \textbf{Menü:} Das Prefab, dem alle einzenen Buttons etc. zugewiesen sind.
+    \item \textbf{ManipulationBar:} Ist ein GameObject, dem das \textit{ObjectManipulator.cs} Skript zugewiesen ist, welches
+    die händische Menüführung ermöglicht.
+    \item \textbf{Debug-Button:} Der Debug-Button ist ausschließlich für das Entwicklerteam vorgesehen. Beim Aktivieren öffnet
+    sich ein erweitertes Menü oberhalb des Hauptmenüs, das zusätzliche Funktionen für das Bugfixing während des Betriebs
+    bereitstellt.
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/debugmenubar.png}
+        \caption{Darstellung des Debug Menüs im Unity Editor}
+        \label{fig:debugmenübar}
+    \end{figure}
+    \item \textbf{Skrepek:} Das Prefab ist ein Button der für Skrepek vorbereitet ist, um mögliche Skripts für Bugfixing
+    während des Betriebes einzubringen.
+    \item \textbf{Haylaz:} Das Prefab ist ein Button der für Haylaz vorbereitet ist, um mögliche Skripts für Bugfixing
+    während des Betriebes einzubringen.
+    \item \textbf{Schoditsch:} Das Prefab ist ein Button der für Schoditsch vorbereitet ist, um mögliche Skripts für Bugfixing
+    während des Betriebes einzubringen.
+    \item \textbf{Level 1/2-Button:} Diese Prefabs stellen die Buttons für das Level wechseln da, ihnen ist das
+    \textit{SceneChange.cs} Skript zugewiesen.
+    \item \textbf{Pin-Button:} Der Pin-Button ermöglicht das Fixieren des Menüs an einer geeigneten Stelle. Dies ist besonders nützlich,
+    wenn der Benutzer sich an einen Tisch setzt und das Menü entsprechend positionieren möchte. Die
+    Positionierung erfolgt mithilfe der ManipulationsBar.
 \end{itemize}
 
-\subsection{Laden der Level}
-Im vorherigen Abschnitt wurde bereits die grobe Funktionalität der Buttons erklärt. Das Drücken eines der Level-Buttons
-(Level 1, Level 2) löst das \textit{SceneChange.cs} Skript aus.Dieser Code ist für die Änderung der aktuellen Szene
-verantwortlich. Die zu ladende Szene wird durch die Variable sceneToLoad definiert, die in Unity festgelegt wird und das
-gewünschte Level angibt.
+\subsubsection{Probleme bei Version 1}
+Am Anfang war das Ziel, das Menü so einfach wie möglich zu gestalten. Trotzdem sollten alle notwendigen Funktionen integriert werden.
+Nach mehreren Durchläufen und Tests mit projektunabhängigen Personen haben wir jedoch festgestellt, dass das ursprüngliche
+Ziel ein großes Problem hat, es fehlt eine Dokumentation/Übersicht/Erklärung der Level. Als Benutzer wird man einfach ins
+Hauptmenü geworfen, wo man nicht mehr sieht als die zwei klickbaren Levelbuttons.
 
-\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln.]
+\subsection{Version 2} %TODO: abbildung einfügen
+Die Lösung für das vorherige Problem der fehlenden Übersicht ist das neue Menü. Dabei hat man sich an den derzeit
+populären und trendigen AR/VR-Spielen orientiert und analysiert, warum die Benutzererfahrung dort deutlich besser ist
+als in der vorherigen Version. Das Design wurde komplett überarbeitet, und das Nahmenü wurde entfernt. Stattdessen sind
+im Hauptmenü, also dem Ladebildschirm, vormodellierte Objekte importiert, die mit Blender erstellt wurden und mit denen
+der Nutzer interagieren kann. Diese Objekte, wie in der Abbildung ersichtlich, bestehen aus zwei Tafeln, die von unserem
+Diplomarbeitslogo getrennt sind. Jede Tafel ist mit einem Text und einem dazugehörigen Titel des Levels ausgestattet.
+Darunter befindet sich der Startbutton, der ebenfalls in Blender vormodelliert wurde. In Unity wurde ein unsichtbarer,
+aber klickbarer Button mit genau denselben Maßen an die Stelle des Startbuttons eingefügt. An diesen Button ist das
+\textit{SceneChange.cs}-Skript angehängt, welches im nächsten Punkt näher beschrieben wird.
+
+Wenn ein Level in Version 2 geladen wird, gibt es im Gegensatz zu Version 1 ein anderes Menü. Das Ziel war es, die volle
+Aufmerksamkeit des Benutzers auf das Level und die dortige Tätigkeit zu lenken. Daher wurde entschieden, auch das Nahmenü
+aus den Leveln zu entfernen und stattdessen ein simples Handmenü einzubauen. Dieses Menü beinhaltet lediglich einen
+Zurückknopf für das Hauptmenü. Die Idee hinter diesem Handmenü ist, dass es nur sichtbar ist, wenn der Benutzer es benötigt.
+Das bedeutet, dass das Menü, also in diesem Fall nur der Zurückknopf, erst dann sichtbar wird, wenn der Benutzer seine
+linke Hand umdreht und auf die Handfläche schaut.
+
+
+\subsection{Laden der Level}
+Der Button der im vorherigen Abschnitt bereits genannt wurde, wird im folgende Punkt näher beschrieben. Wenn man auf einen
+beiden Start Knöpfe drückt, dann wird das Skript \textit{SceneChange.cs} ausgeführt. Dieser Code ist für die Änderung auf
+eine andere/neue Szene verantwortlich. Die zu ladende Szene wird dabei in Unity Inspector selbst festgelegt, der Code greift
+dann auf die Variable mit den jeweiligen Szenennamen zu. Bei dem linken Knopf ist es die Szene \textit{Level1} und bei dem
+rechten Knopf ist es die Szene \textit{Level2}.
+
+\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln. label=code:scenechange]
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class SceneChanger : MonoBehaviour
 {
-public string sceneToLoad;
+    public string sceneToLoad;
 
-// Assign this method to the button's onClick event in the Unity Editor.
-public void ChangeScene()
-{
-SceneManager.LoadScene(sceneToLoad);
-Debug.Log("Button clicked. Loading scene: " + sceneToLoad);
-}
+    public void ChangeScene()
+    {
+        if(SceneManager.GetActiveScene().name != sceneToLoad)
+        {
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+        }
+    }
 }
 \end{lstlisting}
 
+Die Hauptkomponenten des Codes sind:
+\begin{itemize}
+\item{sceneToLoad:} Dies ist eine öffentliche Variable vom Typ String, die den Namen der zu ladenden Szene enthält. Sie
+kann im Unity-Inspector definiert werden, um die Zielszene anzugeben (siehe Zeile 6).
+\item{ChangeScene():} Dies ist eine öffentliche Methode, die aufgerufen wird, um die Szene zu wechseln. Sie prüft dass
+die aktive Szene nicht mit der in \textit{sceneToLoad} angegebenen Szene identisch ist.
+\item{SceneManager.GetActiveScene().name:} Dies ruft den Namen der aktuell geladenen Szene ab.
+\item{PlayerPrefs.DeleteAll():} Diese Methode löscht alle gespeicherten PlayerPrefabs, was hilfreich sein kann, um
+sicherzustellen, dass keine alten Daten zwischen den Szenenwechseln erhalten bleiben (siehe Zeile 12). Ist vor allem wichtig,
+da wir ohne das Löschen der PlayerPrefabs Probleme mit dem HoloLens Cache beim Wechseln innerhalb der Szenen hatten.
+\item{SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single):} Diese Methode lädt die in \textit{sceneToLoad}
+gespeicherte Szene im Single-Modus, d.h. die aktuelle Szene wird entladen und die neue Szene geladen (siehe Zeile 13).
+\end{itemize}
+
+%idk
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{images/sceneToLoad.png}
 \caption{Darstellung der SceneToLoad Variable, anhand des Level_1 Buttons.}
 \label{fig:scenetoload}
 \end{figure}
+
+\subsection{Setzen des Menüs}
+Da sich das alte Menü in Version 1 automatisch mit dem Benutzer bewegte, war es kein Problem, es in das Hauptmenü zu laden,
+aber bei den neuen Modellen in Version 2 muss man das Menü selbst platzieren. Dafür gibt es das Skript \textit{MenuSpawn.cs}.
+
+\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln. label=code:spawnmenu]
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpawnPrefab : MonoBehaviour
+{
+    public GameObject menu;
+
+    void Start()
+    {
+        SpawnPrefabMenu();
+    }
+
+    void SpawnPrefabMenu()
+    {
+        Vector3 cameraPosition = Camera.main.transform.position;
+        Vector3 spawnPosition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z + 1f);
+        Instantiate(menu, spawnPosition, Quaternion.identity);
+        menu.SetActive(true);
+    }
+}
+\end{lstlisting}
+
+Beim Start der Anwendung wird die Methode \textit{SpawnPrefabMenu()} ausgeführt. Diese Methode ist für die Positionierung
+des Menüs verantwortlich. Die im Codeabschnitt \ref{code:spawnmenu} ersichtlichen Positionsvektoren sind einerseits dafür
+zuständig, die aktuelle Kameraposition zu ermitteln, aber auch eine neue Spawnposition zu setzen, die um 1 auf der z-Achse
+versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der \textit{Instantiate} ist dafür verantwortlich, dass das Menü
+an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \textit{menu.SetActive(true)}
+aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
 
 \subsection{UI/UX}
 Im folgenden Abschnitt werden die Ziele genannt, auf die sich bei der Menüerstellung konzentriert wurde.
