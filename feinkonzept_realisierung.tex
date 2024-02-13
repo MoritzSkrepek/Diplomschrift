@@ -637,7 +637,7 @@ möchten wir näher darauf eingehen, wie genau diese QR-Codes generiert werden u
 Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Generierung der Codes erfolgt
 und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
-\subsubsection{Inhalt der QR-Codes}
+\subsubsection{Struktur und Inhalt eines QR-Codes}
 Die Informationen, die in einem QR-Code gespeichert werden können, sind begrenzt. In unserem Anwendungsfall wird lediglich
 eine einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsentieren die 11 verschiedenen Modelle, die
 wir unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
@@ -691,12 +691,60 @@ Diese Informationen spielen eine wesentliche Rolle in der weiteren Berechnung de
 \subsubsection{QR-Code-Tracking}
 Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein Singleton, das
 die Erkennung und Verfolgung der QR-Codes steuert.
-Das folgende UML-Diagramm zeigt die wichtigsten Methoden und zusammenhängenden Klassen:
-%TODO: Abbildung einfügen
+
 Nach der Erkennung eines QR-Codes erfolgen eine Reihe von Schritten, um diese Informationen zu speichern, verarbeiten
 und zuletzt darzustellen.
 Hier eine kurze Übersicht:
 %TODO: Übersicht einfügen
+\begin{itemize}
+
+\item \textbf{Initialisierung des QR-Tracking-Systems:}
+Zur Aktivierung des QR-Tracking-Systems werden die erforderlichen Ressourcen und Komponenten gestartet, um die Erkennung
+von QR-Codes zu ermöglichen. Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung
+von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
+
+\item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
+Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
+gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
+zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
+
+\item \textbf{Einrichtung des QR-Trackings:}
+Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
+Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
+Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
+
+\item \textbf{Starten des QR-Trackings:}
+Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
+Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
+markiert den Beginn des fortlaufenden Erkennungsprozesses.
+
+\item \textbf{Erkennung eines QR-Codes (Event):}
+Sobald die Kamera einen QR-Code erfasst, wird dieser erkannt. Das Ereignis signalisiert, dass ein QR-Code erkannt wurde
+und gibt Informationen über den erkannten QR-Code, wie seine Daten und Position, weiter.
+
+\item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
+Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
+ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
+
+\item \textbf{Instanzierung des QRCode-Objekts:}
+Anschließend wird ein Objekt instanziiert, das den erkannten QR-Code repräsentiert. Dieses Objekt wird oft als
+QR-Objekt bezeichnet und enthält visuelle Darstellungen, Interaktionsmöglichkeiten und weitere Informationen über das
+zugeordnete Objekt enthalten. Durch die Instanzierung kann der erkannte QR-Code in die virtuelle Umgebung integriert werden.
+
+\item \textbf{Aktualisierung der Eigenschaftenanzeige:}
+Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
+aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
+Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
+repräsentierte Objekt erhalten.
+
+\end{itemize}
+
+\subsubsection{Bestimmen der Position QR-Codes}
+% Auch die events add remove und update erklären vom qrWatcher
+
+\subsubsection{Visualisierung und Interaktion mit QR-Codes}
+
+\subsubsection{Zugriff auf QR-Codes erteilen}
 
 \subsection{Inventory Placement Controller Game Objekt}
 Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die Kamera

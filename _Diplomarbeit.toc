@@ -1,10 +1,10 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.1}%
-\contentsline {chapter}{Vorwort}{iv}{chapter*.3}%
-\contentsline {chapter}{Diplomarbeit Dokumentation}{v}{chapter*.4}%
-\contentsline {chapter}{Diploma Thesis Documentation}{vii}{chapter*.5}%
-\contentsline {chapter}{Kurzfassung}{ix}{chapter*.6}%
-\contentsline {chapter}{Abstract}{x}{chapter*.7}%
+\contentsline {chapter}{Vorwort}{v}{chapter*.3}%
+\contentsline {chapter}{Diplomarbeit Dokumentation}{vi}{chapter*.4}%
+\contentsline {chapter}{Diploma Thesis Documentation}{viii}{chapter*.5}%
+\contentsline {chapter}{Kurzfassung}{x}{chapter*.6}%
+\contentsline {chapter}{Abstract}{xi}{chapter*.7}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
@@ -65,58 +65,61 @@
 \contentsline {subsection}{\numberline {4.2.5}Blender - Hierarchie}{24}{subsection.110}%
 \contentsline {subsubsection}{\numberline {4.2.5.1}Blender - Modifier}{26}{subsubsection.113}%
 \contentsline {section}{\numberline {4.3}Menü}{26}{section.115}%
-\contentsline {subsection}{\numberline {4.3.1}Menü-Hierarchie}{26}{subsection.117}%
-\contentsline {subsection}{\numberline {4.3.2}Laden der Level}{28}{subsection.120}%
-\contentsline {subsection}{\numberline {4.3.3}UI/UX}{28}{subsection.136}%
-\contentsline {section}{\numberline {4.4}Ping Level}{28}{section.137}%
-\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{29}{subsection.138}%
-\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{29}{subsection.139}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Level}{29}{section.140}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Level Hirarchie}{29}{subsection.141}%
-\contentsline {subsection}{\numberline {4.5.2}Verwendung von QR-Codes}{31}{subsection.146}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Inhalt der QR-Codes}{31}{subsubsection.147}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code Tracking}{32}{subsubsection.176}%
-\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Controller Game Objekt}{32}{subsection.177}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}InventoryPlacementController Klassenvariablen}{33}{subsubsection.179}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{33}{subsubsection.196}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{34}{subsubsection.208}%
-\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{39}{subsection.340}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{39}{subsubsection.343}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{40}{subsubsection.361}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Neue Bounds setzen}{40}{subsubsection.372}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{41}{subsubsection.383}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{41}{subsubsection.391}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{42}{subsubsection.399}%
-\contentsline {subsubsection}{\numberline {4.5.4.7}Update Funktion}{42}{subsubsection.405}%
-\contentsline {subsubsection}{\numberline {4.5.4.8}Funktion für neue Items innerhalb des Bounds}{42}{subsubsection.411}%
-\contentsline {subsubsection}{\numberline {4.5.4.9}Berechnen der Position im idGrid anhand der Koordinaten}{45}{subsubsection.484}%
-\contentsline {subsubsection}{\numberline {4.5.4.10}Hilfsfunktionen}{46}{subsubsection.494}%
-\contentsline {subsection}{\numberline {4.5.5}Knapsack Solver Game Objekt}{46}{subsection.525}%
-\contentsline {subsubsection}{\numberline {4.5.5.1}Klassenvariablen KnapsackScript}{47}{subsubsection.527}%
-\contentsline {subsubsection}{\numberline {4.5.5.2}Start des KnapsackScripts}{47}{subsubsection.540}%
-\contentsline {subsubsection}{\numberline {4.5.5.3}Set Inventory und Start der Berechnung}{48}{subsubsection.547}%
-\contentsline {subsubsection}{\numberline {4.5.5.4}Start der Berechnung}{48}{subsubsection.554}%
-\contentsline {subsubsection}{\numberline {4.5.5.5}Wert des eigenen Inventars}{49}{subsubsection.581}%
-\contentsline {subsubsection}{\numberline {4.5.5.6}Knapsack Algorithmus Definition}{50}{subsubsection.611}%
-\contentsline {subsubsection}{\numberline {4.5.5.7}Problemstellung}{50}{subsubsection.612}%
-\contentsline {subsubsection}{\numberline {4.5.5.8}Algorithmus}{50}{subsubsection.613}%
-\contentsline {subsubsection}{\numberline {4.5.5.9}Anwendungen}{50}{subsubsection.614}%
-\contentsline {subsubsection}{\numberline {4.5.5.10}Knapsack Algorithmus Implementierung}{50}{subsubsection.615}%
-\contentsline {subsection}{\numberline {4.5.6}Best Solution Prefab Game Objekt}{55}{subsection.694}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Script aufruf}{56}{subsubsection.698}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Klassenvariablen PerfectSolutionVisualizer}{56}{subsubsection.700}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Start des PerfectSolutionVisualizer}{56}{subsubsection.714}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Setzen der neuen Position der perfekten Lösung}{57}{subsubsection.735}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Perfekte Lösung füllen}{57}{subsubsection.744}%
-\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{59}{subsection.780}%
-\contentsline {section}{\numberline {4.6}Performance}{59}{section.781}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{67}{chapter.782}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{67}{section.783}%
-\contentsline {section}{\numberline {5.2}Abnahme}{67}{section.784}%
-\contentsline {section}{\numberline {5.3}Zukunft}{67}{section.785}%
-\contentsline {chapter}{\numberline {A}Mockups}{68}{appendix.786}%
-\contentsline {section}{\numberline {A.1}UI/UX}{68}{section.787}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{68}{section.788}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{68}{section.789}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{68}{section.790}%
-\contentsline {chapter}{\numberline {B}Literatur}{69}{appendix.791}%
+\contentsline {subsection}{\numberline {4.3.1}Version 1}{26}{subsection.116}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Probleme bei Version 1}{28}{subsubsection.120}%
+\contentsline {subsection}{\numberline {4.3.2}Version 2}{28}{subsection.121}%
+\contentsline {subsection}{\numberline {4.3.3}Laden der Level}{28}{subsection.122}%
+\contentsline {subsection}{\numberline {4.3.4}Setzen des Menüs}{29}{subsection.141}%
+\contentsline {subsection}{\numberline {4.3.5}UI/UX}{30}{subsection.164}%
+\contentsline {section}{\numberline {4.4}Ping Level}{30}{section.165}%
+\contentsline {subsection}{\numberline {4.4.1}Object Tracking}{30}{subsection.166}%
+\contentsline {subsection}{\numberline {4.4.2}Kurvenberechnung}{30}{subsection.167}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Level}{31}{section.168}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Level Hirarchie}{31}{subsection.169}%
+\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{32}{subsection.174}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Inhalt der QR-Codes}{33}{subsubsection.175}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{34}{subsubsection.204}%
+\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Controller Game Objekt}{35}{subsection.205}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}InventoryPlacementController Klassenvariablen}{35}{subsubsection.207}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{36}{subsubsection.224}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{37}{subsubsection.236}%
+\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{41}{subsection.368}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{42}{subsubsection.371}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{42}{subsubsection.389}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}Neue Bounds setzen}{43}{subsubsection.400}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{43}{subsubsection.411}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{44}{subsubsection.419}%
+\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{44}{subsubsection.427}%
+\contentsline {subsubsection}{\numberline {4.5.4.7}Update Funktion}{44}{subsubsection.433}%
+\contentsline {subsubsection}{\numberline {4.5.4.8}Funktion für neue Items innerhalb des Bounds}{45}{subsubsection.439}%
+\contentsline {subsubsection}{\numberline {4.5.4.9}Berechnen der Position im idGrid anhand der Koordinaten}{48}{subsubsection.512}%
+\contentsline {subsubsection}{\numberline {4.5.4.10}Hilfsfunktionen}{48}{subsubsection.522}%
+\contentsline {subsection}{\numberline {4.5.5}Knapsack Solver Game Objekt}{49}{subsection.553}%
+\contentsline {subsubsection}{\numberline {4.5.5.1}Klassenvariablen KnapsackScript}{50}{subsubsection.555}%
+\contentsline {subsubsection}{\numberline {4.5.5.2}Start des KnapsackScripts}{50}{subsubsection.568}%
+\contentsline {subsubsection}{\numberline {4.5.5.3}Set Inventory und Start der Berechnung}{50}{subsubsection.575}%
+\contentsline {subsubsection}{\numberline {4.5.5.4}Start der Berechnung}{51}{subsubsection.582}%
+\contentsline {subsubsection}{\numberline {4.5.5.5}Wert des eigenen Inventars}{51}{subsubsection.609}%
+\contentsline {subsubsection}{\numberline {4.5.5.6}Knapsack Algorithmus Definition}{52}{subsubsection.639}%
+\contentsline {subsubsection}{\numberline {4.5.5.7}Problemstellung}{52}{subsubsection.640}%
+\contentsline {subsubsection}{\numberline {4.5.5.8}Algorithmus}{53}{subsubsection.641}%
+\contentsline {subsubsection}{\numberline {4.5.5.9}Anwendungen}{53}{subsubsection.642}%
+\contentsline {subsubsection}{\numberline {4.5.5.10}Knapsack Algorithmus Implementierung}{53}{subsubsection.643}%
+\contentsline {subsection}{\numberline {4.5.6}Best Solution Prefab Game Objekt}{57}{subsection.722}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Script aufruf}{58}{subsubsection.726}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Klassenvariablen PerfectSolutionVisualizer}{58}{subsubsection.728}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Start des PerfectSolutionVisualizer}{59}{subsubsection.742}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Setzen der neuen Position der perfekten Lösung}{59}{subsubsection.763}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Perfekte Lösung füllen}{60}{subsubsection.772}%
+\contentsline {subsection}{\numberline {4.5.7}Unit-Tests}{61}{subsection.808}%
+\contentsline {section}{\numberline {4.6}Performance}{61}{section.809}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{69}{chapter.810}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{69}{section.811}%
+\contentsline {section}{\numberline {5.2}Abnahme}{69}{section.812}%
+\contentsline {section}{\numberline {5.3}Zukunft}{69}{section.813}%
+\contentsline {chapter}{\numberline {A}Mockups}{70}{appendix.814}%
+\contentsline {section}{\numberline {A.1}UI/UX}{70}{section.815}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{70}{section.816}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{70}{section.817}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{70}{section.818}%
+\contentsline {chapter}{\numberline {B}Literatur}{71}{appendix.819}%
