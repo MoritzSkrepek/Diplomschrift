@@ -339,7 +339,34 @@ Faktoren, die jeweils eine der drei Koordinaten darstellen. In diesem Fall soll 
 verschoben werden.
 \end{itemize}
 
+%Neu beschrieben idk
 \section{Menü}
+Im folgenden Abschnitt wird erläutert, wie das Menü in Unity hierarchisch aufgebaut ist und welche Schritte bis zur
+endgültigen Version durchlaufen wurden.
+
+\subsection{Menü version 1}
+Ursprünglich war geplant, das UI/UX System mit einem Nahmenü zu implementieren, das dem Benutzer folgt und aus drei
+Hauptbuttons und einem Pin-Button besteht. Der einfache Menüblock, der in Hüfthöhe schwebt, hat eine gewisse
+innovative/neuartige Wirkung auf den Benutzer.
+
+\subsubsection{Probleme bei Version 1}
+Am Anfang war das Ziel, das Menü so einfach wie möglich zu gestalten. Trotzdem sollten alle notwendigen Funktionen integriert werden.
+Nach mehreren Durchläufen und Tests mit projektunabhängigen Personen haben wir jedoch festgestellt, dass das ursprüngliche
+Ziel ein großes Problem hat, es fehlt eine Dokumentation/Übersicht/Erklärung der Level. Als Benutzer wird man einfach ins
+Hauptmenü geworfen, wo man nicht mehr sieht als die zwei klickbaren Levelbuttons.
+
+\subsubsection{Menü version 2}
+Die Lösung für das vorherige Problem der fehlenden Übersicht soll das neue Menü sein. Man hat sich dabei an den derzeit
+populären und trendigen AR/VR-Spielen orientiert und geschaut, warum die Benutzer Erfahrung deutlich besser ist als die,
+die wir in der Version 1 erfahren haben. Das Design wurde komplett abgeändert und vom Nahmenü ist nichtsmehr vorhanden,
+stattdessen haben wir jetzt im Hauptmenü, also das Level in das man lädt, vormodellierte von Blender importierte Objekte,
+mit denen der Nutzer interagieren kann. Dabei handelt es sich wie in der Abbildung ersichtlich, um zwei Tafeln die von
+unserem Diplomarbeitslogo getrennt sind. Die Tafeln ausgestattet mit einem Text und einem dazugehörigen Level-Titel,
+darunter ist der Startbutton in Blender vormodelliert. In Unity wurde dann ein Unsichtbarer aber klickbarer Button mit
+genau den selben Maßen an die Stelle eingefügt.
+
+%alt
+
 Die Implementierung des UI/UX-Systems erfolgt über das Menü. Aufgrund einer umfassenden Recherche über verschiedene
 Menüarten wurde die Wahl für die Realisierung eines NearMenus getroffen. Dabei handelt es sich um eine frei
 bewegliche Menüleiste, die sich auf Hüfthöhe des Benutzers befindet und synchron mit dessen Bewegungen mitfließt.
