@@ -2278,15 +2278,6 @@ public class AlgoTest
         Assert.AreEqual(maxValueComp, maxValue);
     }
 
-    // Ein UnityTest verhält sich wie ein Coroutine im Play Mode. Im Edit Mode kann `yield return null;` verwendet werden, um einen Frame zu überspringen.
-    [UnityTest]
-    public IEnumerator AlgoTestWithEnumeratorPasses()
-    {
-        // Die Assert-Klasse wird verwendet, um Bedingungen zu testen.
-        // Verwende yield, um einen Frame zu überspringen.
-        yield return null;
-    }
-
     // Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
     public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
     {
@@ -2313,6 +2304,36 @@ public class AlgoTest
     }
 }
 \end{lstlisting}\\
+Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet.
+
+Die Klasse AlgoTest enthält Testfunktionen für zwei verschiedene Knapsack-Algorithmen.
+
+Es werden mehrere Variablen definiert, darunter ein testObject, das zu testende knapsackScript und capacity, die maximale
+Größe des Rucksacks, die für die Tests benötigt wird. Die Methoden SetUp und TearDown sind mit den Attributen [SetUp] und
+[TearDown] versehen. Diese Attribute werden vom Framework erkannt und dienen dazu, nach jedem Test die Umgebung zu reinigen
+und neu aufzusetzen.Es wird eine Instanz des KnapsackScript erstellt und wieder zerstört, um sicherzustellen, dass die
+Tests in einer sauberen Umgebung ausgeführt werden.
+
+Der Unit-Test KnapsackMaxValue_ReturnsCorrectValue testet die Methode KnapsackMaxValue des KnapsackScript. Es werden
+verschiedene Gegenstands-Konfigurationen in einen Rucksack platziert. Anschließend wird die Ausführungszeit sowohl der
+iterativen (KnapsackMaxValue) als auch der rekursiven (KnapsackMaxValueRecursive) Implementierung des Knapsack-Algorithmus
+gemessen. Schließlich wird überprüft, ob beide Implementierungen denselben Wert zurückgeben.
+
+Die Methode KnapsackMaxValueRecursive ist eine rekursive Implementierung des Knapsack-Algorithmus. Der maximale Wert, den
+der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekursiv entweder eingeschlossen oder ausgeschlossen werden.
+Es wurde darauf geachtet, verschiedene Implementierungen zu testen, um sicherzustellen, dass die optimale Implementierung verwendet wird.
+%TODO Grafik der Testergebnisse und unterschiede der Laufzeiten von rekurisver und iterativer Implementierung erklären
+
+Die Testmethode KnapsackMaxValue_ReturnsCorrectValue wird für jede Konfiguration von Gegenständen im Rucksack ausgeführt,
+um sicherzustellen, dass die Implementierung des Knapsack-Algorithmus korrekt funktioniert.
+
+Dabei wird die rekursive Implementierung KnapsackMaxValueRecursive als Vergleich verwendet, um sicherzustellen, dass
+auch die iterative Implementierung KnapsackMaxValue korrekt ist.
+
+
+
+
+
 
 %TODO Beschreibung der Unit-Tests
 
