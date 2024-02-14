@@ -704,7 +704,7 @@ von QR-Codes zu ermöglichen. Dabei werden Tracking-Algorithmen gestartet, die f
 von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
-%Hier Bild von "Camera acess needed" einfügen
+%TODO: Hier Bild von "Camera acess needed" einfügen
 Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
 gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
 zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
@@ -741,7 +741,7 @@ repräsentierte Objekt erhalten.
 \end{itemize}
 
 \subsubsection{Interaktion mit QR-Codes}
-%Bild einfügen von bauklötzen und QR-Codes
+%TODO: Bild einfügen von bauklötzen und QR-Codes
 Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
 Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen als Repräsentationen
 der realen Objekte, die wir in der virtuellen Welt darstellen möchten.
@@ -757,10 +757,10 @@ Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein
 zu ermöglichen.
 
 \subsubsection{Bestimmen der Position QR-Codes}
-% Auch die events add remove und update erklären vom qrWatcher
+%TODO: Auch die events add remove und update erklären vom qrWatcher
 
 \subsubsection{Visualisierung von QR-Codes}
-% Bild von einem QR Prefab einfügen
+%TODO: Bild von einem QR Prefab einfügen
 
 \subsubsection{Zugriff auf QR-Codes erteilen}
 
@@ -2209,109 +2209,111 @@ Leistung zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überw
 Algorithmus zuverlässig und effizient arbeitet.
 
 \begin{lstlisting}[style=csharp, caption={Inventar füllen}, label=code:invFül_PSV]
-
 public class AlgoTest
 {
-GameObject testObject;
-KnapsackScript knapsackScript;
-int[,] usedItems;
-int capacity = 120;
+    GameObject testObject;
+    KnapsackScript knapsackScript;
+    int[,] usedItems;
+    int capacity = 120;
 
-[SetUp]
-public void Setup()
-{
+    [SetUp]
+    public void Setup()
+    {
+        // Vor jedem Test eine Instanz von KnapsackScript erstellen
+        testObject = new GameObject();
+        knapsackScript = testObject.AddComponent<KnapsackScript>();
+    }
 
-// Create an instance of KnapsackScript before each test
-testObject = new GameObject();
-knapsackScript = testObject.AddComponent<KnapsackScript>();
-}
+    [TearDown]
+    public void Teardown()
+    {
+        // Das Test-GameObject nach jedem Test zerstören
+        GameObject.DestroyImmediate(testObject);
+    }
 
-[TearDown]
-public void Teardown()
-{
-// Destroy the test GameObject after each test
-GameObject.DestroyImmediate(testObject);
-}
+    // Ein Test verhält sich wie eine normale Methode
+    [Test]
+    public void KnapsackMaxValue_ReturnsCorrectValue()
+    {
+        // Gibt eine Menge von Gegenständen für den Rucksack an
+        Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
+        {1, new QRData { id = 1, weight = 50, value = 100 }},
+        {2, new QRData { id = 2, weight = 25, value = 50 }},
+        {3, new QRData { id = 3, weight = 20, value = 30 }},
+        {4, new QRData { id = 4, weight = 10, value = 15 }},
+        {5, new QRData { id = 5, weight = 10, value = 5 }},
+        {6, new QRData { id = 6, weight = 25, value = 50 }},
+        {7, new QRData { id = 7, weight = 10, value = 10 }},
+        {8, new QRData { id = 8, weight = 5, value = 50 }},
+        {9, new QRData { id = 9, weight = 5, value = 15 }},
+        {10, new QRData { id = 10, weight = 20, value = 15 }},
+        };
 
-// A Test behaves as an ordinary method
-[Test]
-public void KnapsackMaxValue_ReturnsCorrectValue()
-{
+        System.Random random = new System.Random();
+        for (int i = 11; i <= 100; i++)
+        {
+        int randomWeight = random.Next(1, 51);
+        int randomValue = random.Next(1, 101);
 
-Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
-{1, new QRData { id = 1, weight = 50, value = 100 }},
-{2, new QRData { id = 2, weight = 25, value = 50 }},
-{3, new QRData { id = 3, weight = 20, value = 30 }},
-{4, new QRData { id = 4, weight = 10, value = 15 }},
-{5, new QRData { id = 5, weight = 10, value = 5 }},
-{6, new QRData { id = 6, weight = 25, value = 50 }},
-{7, new QRData { id = 7, weight = 10, value = 10 }},
-{8, new QRData { id = 8, weight = 5, value = 50 }},
-{9, new QRData { id = 9, weight = 5, value = 15 }},
-{10, new QRData { id = 10, weight = 20, value = 15 }},
-};
+        items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
+        }
 
-System.Random random = new System.Random();
-for (int i = 11; i <= 100; i++)
-{
-int randomWeight = random.Next(1, 51);
-int randomValue = random.Next(1, 101);
+        knapsackScript.capacity = capacity;
+        knapsackScript.maxItems = items.Count;
+        knapsackScript.items = items;
 
-items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
-}
+        // Messung der Ausführungszeit für KnapsackMaxValue
+        System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
+        int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
+        knapsackMaxValueStopwatch.Stop();
+        Debug.Log($"Die Ausführungszeit von KnapsackMaxValue beträgt: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
 
-knapsackScript.capacity = capacity;
-knapsackScript.maxItems = items.Count;
-knapsackScript.items = items;
+        // Messung der Ausführungszeit für KnapsackMaxValueRecursive
+        System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
+        int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
+        recursiveStopwatch.Stop();
+        Debug.Log($"Die Ausführungszeit von KnapsackMaxValueRecursive beträgt: {recursiveStopwatch.ElapsedMilliseconds} ms");
 
-System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
-int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
-knapsackMaxValueStopwatch.Stop();
-Debug.Log($"Time taken by KnapsackMaxValue: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
+        // Überprüfen, ob die Werte übereinstimmen
+        Assert.AreEqual(maxValueComp, maxValue);
+    }
 
-System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
-int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
-recursiveStopwatch.Stop();
-Debug.Log($"Time taken by KnapsackMaxValueRecursive: {recursiveStopwatch.ElapsedMilliseconds} ms");
+    // Ein UnityTest verhält sich wie ein Coroutine im Play Mode. Im Edit Mode kann `yield return null;` verwendet werden, um einen Frame zu überspringen.
+    [UnityTest]
+    public IEnumerator AlgoTestWithEnumeratorPasses()
+    {
+        // Die Assert-Klasse wird verwendet, um Bedingungen zu testen.
+        // Verwende yield, um einen Frame zu überspringen.
+        yield return null;
+    }
 
-Assert.AreEqual(maxValueComp, maxValue);
-}
+    // Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
+    public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
+    {
+        if (n == 0 || remainingCapacity == 0)
+            return 0;
 
-// A UnityTest behaves like a coroutine in Play Mode. In Edit Mode, you can use
-// `yield return null;` to skip a frame.
-[UnityTest]
-public IEnumerator AlgoTestWithEnumeratorPasses()
-{
-// Use the Assert class to test conditions.
-// Use yield to skip a frame.
-yield return null;
-}
+        if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
+            return memoizedValue;
 
-public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
-{
-if (n == 0 || remainingCapacity == 0)
-return 0;
+        if (items[n].weight > remainingCapacity)
+        {
+            memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+            return memo[(n, remainingCapacity)];
+        }
 
-if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
-return memoizedValue;
+        int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
+        int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
 
-if (items[n].weight > remainingCapacity)
-{
-memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
-return memo[(n, remainingCapacity)];
-}
+        int result = Math.Max(includedValue, excludedValue);
 
-int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
-int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+        memo[(n, remainingCapacity)] = result;
 
-int result = Math.Max(includedValue, excludedValue);
-
-memo[(n, remainingCapacity)] = result;
-
-return result;
-}
+        return result;
+    }
 }
 \end{lstlisting}\\
 
+%TODO Beschreibung der Unit-Tests
 
 %Performance-Messung
