@@ -704,6 +704,7 @@ von QR-Codes zu ermöglichen. Dabei werden Tracking-Algorithmen gestartet, die f
 von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
+%Hier Bild von "Camera acess needed" einfügen
 Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
 gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
 zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
@@ -739,10 +740,27 @@ repräsentierte Objekt erhalten.
 
 \end{itemize}
 
+\subsubsection{Interaktion mit QR-Codes}
+%Bild einfügen von bauklötzen und QR-Codes
+Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
+Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen als Repräsentationen
+der realen Objekte, die wir in der virtuellen Welt darstellen möchten.
+
+Wie in Abbildung 1 zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
+die der Benutzer in sein Inventar aufnehmen kann. Wenn der Benutzer einen Bauklotz aufhebt und ihn der HoloLens nähert, wird
+der QR-Code gescannt. Dadurch werden Informationen wie das zugehörige 3D-Modell, der Wert, das Gewicht und der Name des
+Gegenstands angezeigt. Auf diese Weise können wir eine nahtlose Verbindung zwischen der realen und der virtuellen Welt
+herstellen und dem Benutzer eine interaktive Erfahrung bieten.
+
+Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren, aufzuheben und zu fühlen. Diese sensorische
+Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
+zu ermöglichen.
+
 \subsubsection{Bestimmen der Position QR-Codes}
 % Auch die events add remove und update erklären vom qrWatcher
 
-\subsubsection{Visualisierung und Interaktion mit QR-Codes}
+\subsubsection{Visualisierung von QR-Codes}
+% Bild von einem QR Prefab einfügen
 
 \subsubsection{Zugriff auf QR-Codes erteilen}
 
@@ -2166,5 +2184,134 @@ Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Al
 richtig und performant funktioniert.
 %Genauere Erklärung + Custom Code der UnitTests
 
-\section{Performance}
-Performance-Messung
+\section{Performance und Qualtitätssicherung}
+\subsection{Unit-Tests}
+Unit-Tests sind ein wichtiger Bestandteil der Qualitätssicherung. Sie ermöglichen die Überprüfung der korrekten
+Funktionalität einzelner Komponenten und stellen sicher, dass sie wie erwartet arbeiten. Im Rahmen dieses Projekts wurden
+Unit-Tests verwendet, um den Knapsack-Algorithmus zu überprüfen.  Die Tests wurden mithilfe des Unity Test Frameworks
+erstellt und ausgeführt. Dieses Tool wurde speziell für die Erstellung und Ausführung von Unit-Tests in Unity entwickelt.
+Durch die sorgfältige Gestaltung der Tests wurde sichergestellt, dass der Algorithmus nicht nur die erwarteten Ergebnisse
+zurückgibt, sondern auch die vorgegebene Laufzeit einhält. Die Tests wurden innerhalb der Entwicklungsumgebung von Unity
+durchgeführt. Die Ergebnisse wurden genau überwacht, um sicherzustellen, dass der Algorithmus zuverlässig funktioniert.
+
+\subsection{Unity Test Framework}
+Das Unity Test Framework bietet eine breite Palette von Funktionen, mit denen Entwickler umfassende Tests für ihre
+Unity-Skripte schreiben und ausführen können. Dabei können verschiedene Aspekte der Skripte auf ihre korrekte Funktionalität
+überprüft werden. Dazu gehören das Testen von Variablen, das Aufrufen von Funktionen und das Überprüfen von erwarteten
+Ergebnissen. Entwickler können dank dieser umfangreichen Funktionen sicherstellen, dass ihre Unity-Anwendungen robust
+und zuverlässig sind. So schaffen sie eine solide Grundlage für die Qualitätssicherung.
+
+\subsection{Performance-Messung}
+Die Performance des Knapsack-Algorithmus wurde mithilfe von Unit-Tests überprüft. Dabei wurde die Laufzeit des Algorithmus
+für verschiedene Eingabegrößen gemessen. Die Ergebnisse wurden sorgfältig analysiert, um sicherzustellen, dass der Algorithmus
+die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implementierungen getestet, um die optimale
+Leistung zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überwacht, um sicherzustellen, dass der
+Algorithmus zuverlässig und effizient arbeitet.
+
+\begin{lstlisting}[style=csharp, caption={Inventar füllen}, label=code:invFül_PSV]
+
+public class AlgoTest
+{
+GameObject testObject;
+KnapsackScript knapsackScript;
+int[,] usedItems;
+int capacity = 120;
+
+[SetUp]
+public void Setup()
+{
+
+// Create an instance of KnapsackScript before each test
+testObject = new GameObject();
+knapsackScript = testObject.AddComponent<KnapsackScript>();
+}
+
+[TearDown]
+public void Teardown()
+{
+// Destroy the test GameObject after each test
+GameObject.DestroyImmediate(testObject);
+}
+
+// A Test behaves as an ordinary method
+[Test]
+public void KnapsackMaxValue_ReturnsCorrectValue()
+{
+
+Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
+{1, new QRData { id = 1, weight = 50, value = 100 }},
+{2, new QRData { id = 2, weight = 25, value = 50 }},
+{3, new QRData { id = 3, weight = 20, value = 30 }},
+{4, new QRData { id = 4, weight = 10, value = 15 }},
+{5, new QRData { id = 5, weight = 10, value = 5 }},
+{6, new QRData { id = 6, weight = 25, value = 50 }},
+{7, new QRData { id = 7, weight = 10, value = 10 }},
+{8, new QRData { id = 8, weight = 5, value = 50 }},
+{9, new QRData { id = 9, weight = 5, value = 15 }},
+{10, new QRData { id = 10, weight = 20, value = 15 }},
+};
+
+System.Random random = new System.Random();
+for (int i = 11; i <= 100; i++)
+{
+int randomWeight = random.Next(1, 51);
+int randomValue = random.Next(1, 101);
+
+items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
+}
+
+knapsackScript.capacity = capacity;
+knapsackScript.maxItems = items.Count;
+knapsackScript.items = items;
+
+System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
+int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
+knapsackMaxValueStopwatch.Stop();
+Debug.Log($"Time taken by KnapsackMaxValue: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
+
+System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
+int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
+recursiveStopwatch.Stop();
+Debug.Log($"Time taken by KnapsackMaxValueRecursive: {recursiveStopwatch.ElapsedMilliseconds} ms");
+
+Assert.AreEqual(maxValueComp, maxValue);
+}
+
+// A UnityTest behaves like a coroutine in Play Mode. In Edit Mode, you can use
+// `yield return null;` to skip a frame.
+[UnityTest]
+public IEnumerator AlgoTestWithEnumeratorPasses()
+{
+// Use the Assert class to test conditions.
+// Use yield to skip a frame.
+yield return null;
+}
+
+public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
+{
+if (n == 0 || remainingCapacity == 0)
+return 0;
+
+if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
+return memoizedValue;
+
+if (items[n].weight > remainingCapacity)
+{
+memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+return memo[(n, remainingCapacity)];
+}
+
+int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
+int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+
+int result = Math.Max(includedValue, excludedValue);
+
+memo[(n, remainingCapacity)] = result;
+
+return result;
+}
+}
+\end{lstlisting}\\
+
+
+%Performance-Messung
