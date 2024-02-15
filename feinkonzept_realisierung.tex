@@ -1158,7 +1158,7 @@ anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt)
 \subsection{Inventory Controller Game Objekt}
 Das \textit{Inventory Controller} Game Objekt nimmt eine essenzielle Rolle bei der Überwachung und Verwaltung des Inventars
 in der Augmented Reality (AR)-Anwendung ein. Durch das angehängte Skript \textit{InventoryController.cs} wird die
-\textbf{InventoryController}-Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
+\textbf{InventoryController} Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
 erkennen, den verfügbaren Platz zu überprüfen, die Zellenposition anhand der QR-Code-Koordinaten zu berechnen und die
 Positionen dieser Gegenstände in einem \textit{2D Array} zu speichern.
 
@@ -1353,8 +1353,8 @@ void Update()
 
 \subsubsection{Neue oder entfernte Items erkennen}
 Das Kernstück des \textit{InventoryController} stellt die \textbf{UpdateGrid()} dar. Diese Funktion ist hauptverantwortlich
-dafür, dass neue \textit{Items} innerhalb des Inventars erkannt werden, \textit{Items} die aus dem Inventar entfernt
-wurden dementsprechend entfernt werden und auch, dass bei jedem neuem oder entferntem \textit{Item} das Invetar neu
+dafür, dass neue \textit{Gegenstände} innerhalb des Inventars erkannt werden, \textit{Items} die aus dem Inventar entfernt
+wurden dementsprechend entfernt werden und auch, dass bei jedem neuem oder entferntem \textit{Gegentand} das Invetar neu
 berechnet wird und darauffolgend die drei \textit{TextMeshes} innerhalb des \textit{infoObjects} aktualisiert werden, um
 dem Benutzer immer  die aktuellen Inventarwerte und potentielle Fehlermeldungen anzuzeigen. Der Code zu dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Neue / Entfernte Items erkennen}, label=code:controller_updateGrid]
@@ -1675,37 +1675,36 @@ processedItems = [5, 3];
 
 \subsection{Knapsack Solver Game Objekt}
 Das \textit{Knapsack Solver} Game Objekt spielt die Hauptrolle um Berechnungn durchzuführen.
-Durch das angehängte \textit{KnapsackSolver.cs} Script wird die \textit{KnapsackSolver} Klasse reasliert. Diese
+Durch das angehängte \textit{KnapsackSolver.cs} Script wird die \textbf{KnapsackSolver} Klasse reasliert. Diese
 Klasse ist verantworlich für die Berechnung der perfekten Lösung und ebenfalls für die Berechnung des selbst
 zusammengestellten Inventars des Benutzers.
 
-Durch die Interaktion zwischen der \textit{InventoryController}, der \textit{KnapsackScript} Klasse und der
-\textit{EventManager} Klasse wird bei jedem neuen Item stets gewährleistet, dass das Inventar mit dem gerechnet wird
-stets das aktuelle ist.\\
+Durch die Interaktion zwischen dem \textit{InventoryController}, \textit{KnapsackSolver} und der
+\textit{EventManager} Klasse wird bei jedem neuen Item stets gewährleistet, dass das Inventar, mit dem gerechnet wird, stets das aktuelle ist.\\
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.8]{images/knapsackEditor}
-    \caption{Knapsack Algorithmus Objekt im Editor}
-    \label{fig:Knapsack_Editor}
+\centering
+\includegraphics[scale=0.8]{images/knapsackEditor}
+\caption{Knapsack Algorithmus Objekt im Editor}
+\label{fig:Knapsack_Editor}
 \end{figure}
 
-Die Abbildung \ref{fig:Knapsack_Editor} zeigt das \textit{KnapsackAlgo}-Ojekt im Unity Editor. Hier können verschiedene
-Einestellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
+Die Abbildung \ref{fig:Knapsack_Editor} zeigt das \textit{KnapsackSolver}-Ojekt im Unity Editor. Hier können verschiedene
+Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
 Unity Editor selbst und die angehängte Komponente \textit{KnapsackScript.cs}. Zudem sind vordefinierte Werte für
 bestimmte Variablen sichtbar. Diese Variablen umfassen:
 
 \begin{itemize}
-    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
-    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-    \item \textbf{Capacity:} Integer Wert der die Kapazität für den \textit{Knapsack Algorithmus} festlegt.
-    \item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
-    dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
+\item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
+\item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+\item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+\item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+\item \textbf{Capacity:} Integer Wert der die Kapazität für den \textit{Knapsack Algorithmus} festlegt.
+\item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
+dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
 \end{itemize}
 
-\subsubsection{Klassenvariablen KnapsackScript}
+\subsubsection{KnapsackSolver Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen des KnapsackSolvers}, label=code:Klassenvariablen_kn]
 public GameObject QRCodeManager;
 public TextMeshPro ownMesh;
@@ -1719,38 +1718,49 @@ public int maxItems = 9;
 
 private int[,] inventory;
 \end{lstlisting}\\
-Die in Codeabschnitt \ref{code:Klassenvariablen_kn} präsentierten Klassenvariablen gehören zur Klasse \textit{KnapsackScript}.
-Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben
-werden oder von anderen Klassen für die Funktionalität benötigt werden. Diese Bereitstellung ermöglicht einen direkten
-Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse. Das \textit{2D int Array inventory} spielt eine
-entscheidende Rolle bei der Verarbeitung und Berechnung des Werts des individuellen Inventars.\\
+\\
+Die im Codeabschnitt \ref{code:Klassenvariablen_kn} gezeigten Klassenvariablen gehören zur \textit{KnapsackSolver}-Klasse.
+Diese Variablen werden verwendet, um Objekte und Werte innerhalb des Unity Editors zu repräsentieren, die entweder direkt
+festgelegt und übergeben werden oder von anderen Klassen aus Funktionalitätsgründen benötigt werden. Die öffentlichen
+(\textit{public}) Variablen ermöglichen einen direkten Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse.
 
-\subsubsection{Start des KnapsackScripts}
-\begin{lstlisting}[style=csharp, caption={Start Funktion des KnapsackScripts}, label=code:kn_start]
+Das \textit{2D int Array inventory} spielt eine entscheidende Rolle im Verlauf des \textit{KnapsackSolvers}, da es verwendet
+wird, um das individuell vom Benutzer zusammengestellte Inventar zu verarbeiten und zu berechnen.
+
+Die privaten (\textit{private}) Klassenvariablen dienen hauptsächlich dem lokalen Speichern von Werten, die nur innerhalb
+der \textit{KnapsackSolver}-Klasse benötigt werden und keinen Zugriff von außen erfordern.
+
+\subsubsection{Start des KnapsackSolvers}
+Die \textbf{Start()} Funktion, die in folgendem Codeabschnitt \ref{code:kn_start} abgebildet ist, ist der Startpunkt d
+es \textit{KnapsackSolvers}.
+
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:kn_start]
 void Start()
 {
     items = new QRItem(0).items;
     EventManager.OnGridUpdate += SetInventory;
 }
 \end{lstlisting}\\
-In dem Codeabschnitt \ref{code:kn_start} ist die Lebenszyklusfunktion \textbf{Start()} zu sehen. Diese Funktion versichert
-das erfolgreiche setzen aller Items in dem \textit{Items-Dictionary} und ebenfalls, dass wenn im \textit{EventManager}
-das \textit{OnGridUpdate} Event ausgelöst wurde, dass die \textbf{SetInventory()} Funktion aufgerufen wird.
-
-\subsubsection{Set Inventory und Start der Berechnung}
-\begin{lstlisting}[style=csharp, caption={Setzen des Inventars und starten der Berechnung}, label=code:kn_setInv]
+\\
+Zu Beginn der Funktion wird dem Dictionary \textit{items} ein neues Objekt des Typs \textit{QRitem} zugewisen, wobei die
+\textit{ID} 0 übergeben wird. Dies ermöglicht den Zugriff auf das Dictionary in der \textit{QRItem} Klasse welches alle
+Daten der einzelnen Items enthält. Anschließend wird das Event \textit{OnGridUpdate} des \textit{EventManagers} ausgelöst
+und die Funktion \textbf{SetInventory()} aufgerufen. Letztere ist eine Rückruffunktion, die als Reaktion auf das Ereignis
+aufgerufen wird und die Aufgabe hat, das Inventar zu aktualisieren. Diese Funktion sieht wie folgt aus:
+\begin{lstlisting}[style=csharp, caption={Inventar setzen}, label=code:kn_start]
 public void SetInventory(int[,] newInventory)
 {
     inventory = newInventory;
     CalculateKnapsack();
 }
-\end{lstlisting}\\
-Die in Codeabschnitt \ref{code:kn_setInv} vom \textit{EventManager} aufgerufene Funktion \textbf{SetInventory}
-kümmert sich darum, dass das von dem \textit{InventoryController} zusammengestellte Inventar an das \textit{KnapsackScript}
-übergeben wird und ruft anschließend die \textbf{CalculateKnapsack()} Funktion auf, die die Berechnung startet.
+\end{lstlisting}
 
-\subsubsection{Start der Berechnung}
-\begin{lstlisting}[style=csharp, caption={Start der Berechnung}, label=code:kn_startCalc]
+\subsubsection{Starten der Berechnung}
+Um stets mit dem aktuellen Inventar zu rechnen, wird bei jedem mal, bei dem die \textbf{SetInventory()} Funktion
+aufgerufen wird, das aktuelle Inventar (\textit{inventory}) mit dem neuen Inventar in dem ein neues Item enthalten ist
+(\textit{newInventory}) aktualisiert. Um anschließend die tatsächlichen Werte zu berechnen, wird die \textbf{CalculateKnapsack()}
+Funktion aufgerufen. Der Code zu dieser Funktion:
+\begin{lstlisting}[style=csharp, caption={Berechnungsfunktion}, label=code:kn_calc]
 void CalculateKnapsack()
 {
     int maxValue = KnapsackMaxValue(out usedItems);
@@ -1769,7 +1779,6 @@ void CalculateKnapsack()
             infoMesh.text = "";
         }
         ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
-
     }
     catch (Exception e)
     {
@@ -1777,128 +1786,259 @@ void CalculateKnapsack()
     }
 }
 \end{lstlisting}\\
-Um jetzt den Knapsack Algorithmus zu starten und ebenfalls den Wert des eigenen Inventars zu berechnen wird in Codeabschnitt
-\ref{code:kn_startCalc} zu begin der Integer Wert \textit{maxValue} definiert. Dieser Wert wird dann mittels der Funktion
-\textbf{KnapsackMaxValue} befüllt. Anschließend wird der Text von dem \textit{maxMesh} gesetzt um diesen Wert dem Benutzer
-anzuzeigen.
+\\
+Die Funktion \textbf{CalculateKnapsack()} startet den Algorithmus zur Berechnung des Knapsackproblems. Zunächst wird eine
+Variable \textit{maxValue} initialisiert, welche den maximal erreichbaren Wert des Rucksacks repräsentiert. Diese wird
+durch den Aufruf der Funktion \textbf{KnapsackMaxValue()} initialisiert, wobei auch eine Liste von \textit{usedItems}
+als Ausgabe zurückgegeben wird. Diese Liste repräsentiert die in der \textit{perfekten Lösung} enthaltenen Items.
 
-Um jegliche Fehler bei der Berechnung des eigenen Inventars zu vermeiden wird vor der tatsächlichen Berechnung des eigenen
-Inventars das \textit{inventoryValue} auf -1 gesetzt um im Fehlerfall einen Program-Cash zu vermeiden.
-Anschließend wird jetzt in einem \textit{Try/Catch} Block der Wert des eigenen Inventars mittels der \textbf{KnapsackInvenotryValue}
-Funktion berechnet. Anschließend werden mehrere Überprüfungen durchlaufen um zu überprüfen ob der Benutzer den maximal erreichbaren
-Wert erzielt hat oder nicht. Wenn dies der Fall ist wird in dem \textit{infoMesh} angezeigt, dass der maximale Wert erreicht wurde.
-Wenn dies aber nicht der Fall ist wird einfach der erreichte Wert angezeigt ohne zusätzliche Informationen\\
+Anschließend wird die Variable \textit{inventoryValue} initialisiert und auf -1 gesetzt, um in dem Fall eines Fehlers
+keinen Programm-Crash zu verursachen. Die Funktion \textbf{KnapsackMaxValue()} wird anhand eines \textit{try-catch} Blocks
+versucht auszuführen, wobei der Wert des aktuellen Inventars als Argument übergeben wird. Falls dieser Wert erfolgreich
+berechnet wird, wird er der Variable \textbf{inventoryValue} zugewiesen.
 
-\subsubsection{Wert des eigenen Inventars}
-\begin{lstlisting}[style=csharp, caption={Wert des selbst zusammengestellten Inventars berechnen}, label=code:kn_startCalcOwn]
-public int KnapsackInventoryValue(int[,] inventory)
-{
-    if (inventory == null)
-    {
-        throw new System.Exception("Inventory is null");
-    }
+Nach der Berechnung des maximal erreichbaren Werts (\textit{maxValue}) des Rucksacks wird geprüft, ob dieser Wert mit dem
+Wert des aktuellen Inventars (\textit{inventoryValue}) übereinstimmt. Eine solche Übereinstimmung deutet darauf hin, dass
+der Benutzer eine perfekte Lösung gefunden hat. Diese Optimalität wird visuell durch die Farbänderung des \textit{infoMesh}
+auf Grün und die Anzeige einer entsprechenden Erfolgsmeldung verdeutlicht. Im Gegensatz dazu wird bei Abweichungen zwischen
+dem maximal erreichbaren Wert und dem Wert des aktuellen Inventars der Text des \textit{infoMesh} gelöscht, um vorherige
+Meldungen zu entfernen und das Feedbackfeld zu bereinigen.
 
-    int totalValue = 0;
+Nachdem der Wert des zusammengestellten Inventars berechnet wurde, wird dieser im \textit{ownMesh} angezeigt. Sollte während
+dieser Berechnung ein Fehler auftreten, wird eine entsprechende Fehlermeldung in die \textit{Log-Datei} geschrieben, um
+die Fehlerbehandlung und -verfolgung zu unterstützen.\\
+\\
+Um den beschriebenen Zustand der Erreichung einer perfekten Lösung zu verdeutlichen, wird im Folgenden ein Beispiel herangezogen.
 
-    foreach (var item in items.Values)
-    {
-        int itemId = item.id;
-        int itemValue = item.value;
+\begin{quote}
+Wie der beschriebene Ablauf, des findens einer perfekten Lösung aussieht, ist in folgender Abbildung \ref{fig:foundperfsol}
+zu sehen.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{images/foundperfsol}
+\caption{Sicht des Benutzers nach finden einer perfekten Lösung}
+\label{fig:foundperfsol}
+\end{figure}
 
-        for (int j = 0; j < inventory.GetLength(0); j++)
-        {
-            for (int k = 0; k < inventory.GetLength(1); k++)
-            {
-                if (inventory[j, k] == itemId)
-                {
-                    totalValue += itemValue;
-                }
-            }
-        }
-    }
+% TODO: Bild machen mit perfekten Lösung und in folgendem Text IDs einfügen
+Auf dieser Abbildung ist zu sehen, dass das Inventar mit den Gegenständen mit folgenden \textit{IDs}: ., .,. ,. ,. befüllt
+ist und der errechnete Wert dieses Inventars dem der perfekten Lösung gleicht. Diese Erkenntnis ist anhand des \textit{infoMesh}
+zu erkennen in dem eine Erfolgsnachricht in grüner Farbe dargestellt ist.
+\end{quote}
 
-    return totalValue;
-}
+\subsubsection{Knapsack-Algorithmus}
+Der Knapsack-Algorithmus ist ein grundlegendes Werkzeug in der Informatik, das sich mit der optimalen Ressourcenallokation
+befasst, insbesondere wenn es darum geht, eine begrenzte Menge an Ressourcen effizient zu nutzen, um einen bestimmten
+Nutzen oder Gewinn zu maximieren. Der Begriff \textbf{Knapsack} bezieht sich dabei auf die metaphorische Idee, einen
+Rucksack mit einer beschränkten Kapazität mit Gegenständen zu füllen, die jeweils unterschiedliche Werte und Gewichte
+aufweisen.
+
+\subsubsection*{Problemstellung}
+In der Problemstellung des Knapsack-Algorithmus wird ein Rucksack mit begrenzter Kapazität vorgegeben, sowie eine Menge
+von Gegenständen, von denen jeder einen spezifischen Wert und ein spezifisches Gewicht besitzt. Das Ziel besteht darin,
+eine Auswahl dieser Gegenstände zu treffen, die in den Rucksack passt und gleichzeitig den Gesamtwert maximiert.
+
+\subsubsection*{Unterschiedliche Ansätze zur Lösung des Knapsack-Problems}
+Der Knapsack-Algorithmus kann auf verschiedene Weisen implementiert werden, wobei zwei der gängigsten Ansätze der
+dynamische Programmieransatz und der Greedy-Ansatz sind.
+
+\subsubsection*{Dynamischer Programmieransatz}
+Bei dem \textit{dynamischen Programmieransatz} wird eine Tabelle erstellt, um Teilprobleme zu lösen und die optimale
+Lösung zu berechnen. Dies geschieht durch die systematische Aufteilung des Problems in kleinere, leichter zu lösende
+Teilprobleme. Dieser Ablauf ist in dem folgenden Pseudocode zu sehen:
+\begin{lstlisting}[style=csharp, caption={Dynamischer Algorithmus}]
+FUNCTION knapsackDynamic(weights[], values[], capacity)
+    n = length(weights)
+    DECLARE Tabelle[n + 1][capacity + 1]
+    FOR i FROM 0 TO n DO
+        FOR w FROM 0 TO capacity DO
+            IF i == 0 OR w == 0 THEN
+                Tabelle[i][w] = 0
+            ELSE IF weights[i-1] <= w THEN
+                Tabelle[i][w] = MAX(values[i-1] + Tabelle[i-1][w - weights[i-1]], Tabelle[i-1][w])
+            ELSE
+                Tabelle[i][w] = Tabelle[i-1][w]
+            END IF
+        END FOR
+    END FOR
+    RETURN Tabelle[n][capacity]
+END FUNCTION
 \end{lstlisting}\\
-Die in Codebaschnitt \ref{code:kn_startCalc} aufgerufene Funktion \textbf{KnapsackInventoryValue()} ist hier in Codebaschnitt
-\ref{code:kn_startCalcOwn} zu sehen. Zu Start dieser Funktion wird überprüft ob das Inventar \textit{null} ist um zusätzliche
-Sicherheit zu gewhärleisten, falls irgendwo ein Fehler unterläuft. In diesem Fall wird dann eine \textit{System Exception}
-geworfen.
+\\
+Die Funktion \textbf{knapsackDynamic} nimmt drei Parameter an: ein Array von Gewichten (\textit{weights}), ein Array von
+Werten (\textit{values}) und die Kapazität des Rucksacks (\textit{capacity}). Zunächst wird die Länge des Gewichtsarrays
+als \textit{n} gespeichert, und eine Tabelle \textit{Tabelle} mit \textit{n+1} Zeilen und \textit{capacity+1} Spalten wird
+erstellt.
 
-Wenn kein Fehler geworfen wird, wird anschließend ein Integer Wert \textit{totalValue} mit 0 initialisiert. Nun werden allen
-Items die in dem \textit{items} dictionary vorhanden sind mit einer \textit{foreach} Schleife durchlaufen und bei jedem
-Durchlauf wird von diesem Item die \textit{id} und das \textit{value} gespeichert. Der letzte Schritt ist jetzt mit
-einer \textit{for}-Schleife durch das \textit{inventory} zu iterieren und and der Stelle \textit{inventory[i,k]} zu überprüfen
-ob die id an dieser Stelle des Inventars gleich der id des aktuellen Items ist. Wenn das der Fall ist wird das Value des
-Items zu dem \textit{totalValue} dazu addiert.
+Anschließend werden zwei verschachtelte Schleifen verwendet, um alle möglichen Kombinationen von Gegenständen und Gewichten
+zu durchlaufen. In jedem Schritt wird überprüft, ob der aktuelle Gegenstand in den Rucksack passt (d.h. ob sein Gewicht
+kleiner oder gleich der aktuellen Kapazität ist). Falls ja, wird der Wert dieses Gegenstands zu dem Wert addiert, der
+erreicht werden kann, wenn der Rucksack ohne diesen Gegenstand gefüllt wird (Tabelle[i-1][w - weights[i-1]]. Andernfalls
+wird der Wert aus der vorherigen Zeile der Tabelle übernommen.
 
-Nach Abschluss der \textit{foreach}-Schleife wird nun das kalkulierte \textit{totalValue} zurückgegeben.\\
+Schließlich wird der Wert in der untersten rechten Zelle der Tabelle zurückgegeben, der den maximal erreichbaren Gesamtwert
+des Rucksacks darstellt.
 
-\subsubsection{Knapsack Algorithmus Definition}
-Im folgenden Abschnitt wird der Knapsack-Algorithmus allgemein erklärt, die Problemstellung verdeutlicht und die
-Unterschiede der beiden möglichen Algorithmen erläutert. Außerdem wird darauf eingegangen, warum er so wichtig ist
-und in welchen Anwendungen er zum Einsatz kommt.
+\subsubsection*{Aufbau und Interpretation der Tabelle der Teillösungen}
+Die folgende Matrix stellt die Tabelle der Teillösungen dar, die im Verlauf der Berechnung des Knapsack-Problems generiert
+wird.
 
-Der Knapsack-Algorithmus ist ein häufig verwendetes Werkzeug in der Informatik, um das Problem der optimalen
-Ressourcenallokation zu lösen. Dieses Problem tritt auf, wenn eine begrenzte Menge an Ressourcen so effizient wie
-möglich genutzt werden soll, um einen bestimmten Nutzen oder Gewinn zu maximieren. Der Begriff "Knapsack" leitet sich
-von der Idee ab, dass man versucht, einen Rucksack mit begrenztem Fassungsvermögen mit Gegenständen zu füllen, die
-unterschiedliche Werte und Gewichte haben.
+\[
+\left[
+\begin{array}{ccccc}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn} \\
+\end{array}
+\right]
+\]
 
-\subsubsection{Problemstellung}
-Gegeben sei ein Rucksack mit begrenzter Kapazität und eine Menge von Gegenständen, von denen jeder einen bestimmten
-Wert und ein bestimmtes Gewicht hat. Das Ziel besteht darin, die Gegenstände auszuwählen, die in den Rucksack passen
-und den Gesamtwert maximieren.
+Jede \textit{Zeile} der obrigen Matrix entspricht den verschiedenen verfügbaren Gewichtskapazitäten des Rucksacks, beginnend
+bei \textit{null} und schrittweise bis zur \textit{maximalen Kapazität}.
 
-\subsubsection{Algorithmus}
-Der Knapsack-Algorithmus kann in verschiedenen Varianten implementiert werden, darunter der dynamische
-Programmieransatz und der Greedy-Ansatz. Im dynamischen Programmieransatz wird eine Tabelle erstellt, um
-Teilprobleme zu lösen und die optimale Lösung zu berechnen. Der Greedy-Ansatz hingegen wählt Gegenstände basierend
-auf bestimmten Kriterien aus, um eine lokale Optimierung zu erreichen.
+Jede \textit{Spalte} in der Matrix repräsentiert die Anzahl der bereits \textit{berücksichtigten Gegenstände}, wobei jede
+Spalte die \textit{Teilprobleme} für eine zunehmende Anzahl von Gegenständen darstellt.\\
 
-In unserem Kontext wurde der dynamische Programmieransatz implementiert, um den Knapsack-Algorithmus umzusetzen.
-Der Code dafür ist in der Datei \textit{KnapsackScript.cs} zu finden, welche den maximal erreichbaren Wert und
-die optimale Lösung berechnet.
+Um anschließend eine Zelle \( a_{mn} \) dieser Matrix zu interpretieren, ist Folgendes wichtig zu wissen:
+\begin{enumerate}
+    \item \textbf{m} gibt an, wie viel \textit{Gewicht} bereits im Rucksack verbraucht wurde. Je weiter fortgeschritten dieser
+    Wert ist, daher desto weiter unten in der Tabelle und desto mehr Gewicht wurde bereits verwendet.
+    \item \textbf{n} gibt an, wie viele \textit{Gegenstände} bereits betrachtet wurden. Je weiter fortgeschritten, daher,
+    desto weiter rechts in der Tabelle und desto mehr Gegenstände wurden bereits berücksichtigt.
+\end{enumerate}
 
-\subsubsection{Anwendungen}
-Der Knapsack-Algorithmus findet Anwendung in verschiedenen Bereichen, darunter Logistik, Finanzplanung,
-Ressourcenmanagement und Netzwerkoptimierung. Beispielsweise kann er verwendet werden, um den effizientesten
-Transport von Gütern mit begrenzten Kapazitäten zu planen oder in der Finanzplanung, um das Portfolio von
-Investitionen zu optimieren.
+Die Einträge in der Matrix werden durch den \textit{dynamischen Programmieransatz} berechnet, indem die optimalen Werte für
+Teilprobleme \textit{schrittweise kombiniert} werden, um den Wert für größere Teilprobleme zu bestimmen.
 
-\subsubsection{Knapsack Algorithmus Implementierung}
-Der folgende Abschnitt beschreibt die \textbf{KnapsackMaxValue()} Funktion die den maximal erreichbaren Wert berechnet
-und zusätzlich einer der vielen perfekten Lösungen speichert um sie später anzeigen zu können.\\
+\subsubsection*{Greedy-Ansatz}
+Im Gegensatz zu der Dynamischen Lösung, wählt der Greedy-Ansatz Gegenstände basierend auf bestimmten Kriterien aus, um eine
+lokale Optimierung zu erreichen. Hierbei wird in jedem Schritt diejenige Entscheidung getroffen, die im Moment am
+vorteilhaftesten erscheint, ohne jedoch die Gesamtoptimierung im Auge zu behalten. Dieser Ablauf ist in dem folgenden P
+seudocode zu sehen:
+\begin{lstlisting}[style=csharp, caption={Greedy Algorithmus}]
+FUNCTION knapsackGreedy(weights[], values[], capacity)
+    n = length(weights)
+    DECLARE items[n]
+    FOR i FROM 0 TO n DO
+        items[i] = (values[i] / weights[i], weights[i], values[i])
+    END FOR
+    SORT items by ratio in descending order
+    totalValue = 0
+    currentWeight = 0
 
+    FOR i FROM 0 TO n DO
+        IF currentWeight + items[i].weight <= capacity THEN
+            currentWeight += items[i].weight
+            totalValue += items[i].value
+        ELSE
+            ratio = (capacity - currentWeight) / items[i].weight
+            totalValue += ratio * items[i].value
+            BREAK
+        END IF
+    END FOR
+    RETURN totalValue
+END FUNCTION
+\end{lstlisting}
+    Die Funktion \textbf{knapsackGreedy()} nimmt gleich wie der dynamische Ansatz drei Parameter an: ein Array von Gewichten
+    (\textit{weights}), ein Array von Werten (\textit{values}) und die Kapazität des Rucksacks (\textit{capacity}). Die
+    Funktionsweise dieses Ansatzes ist wie folgt:
+    \begin{enumerate}
+    \item Zunächst wird für jeden Gegenstand das \textit{Verhältnis} von \textit{Wert zu Gewicht} berechnet und in einer Liste
+    von \textit{Tupeln} gespeichert. Jedes Tupel enthält das Wert-Gewichts-Verhältnis sowie das Gewicht und den Wert des
+    entsprechenden Gegenstands.
+    \item Die Liste der Gegenstände wird basierend auf dem Verhältnis von Wert zu Gewicht in \textit{absteigender Reihenfolge
+    sortiert}, um die Gegenstände mit dem höchsten Verhältnis zuerst zu betrachten.
+    \item Der Algorithmus durchläuft die sortierte Liste der Gegenstände und versucht, jeden Gegenstand dem Rucksack hinzuzufügen.
+    Dabei wird überprüft, ob das Hinzufügen des Gegenstands das \textit{Gewichtslimit} des Rucksacks überschreitet. Falls dies
+    der Fall ist, wird ein Teil des Gegenstands entsprechend dem verbleibenden verfügbaren Gewicht im Rucksack hinzugefügt.
+    \item Nachdem alle Gegenstände überprüft wurden, wird der Gesamtwert der im Rucksack enthaltenen Gegenstände zurückgegeben.
+    Dies stellt die Lösung des Problems dar.
+\end{enumerate}
+
+\subsubsection*{Anwendungen} %Quelle: https://www.studysmarter.de/schule/informatik/theoretische-informatik/knapsack-problem/#:~:text=Das%20Knapsack%20Problem%20ist%20ein%20Optimierungsproblem%20der%20Informatik%2C%20bei%20dem,passt%20und%20den%20Gesamtwert%20maximiert.
+Der Knapsack-Algorithmus, ein fundamentales Werkzeug der Informatik, findet in einer Vielzahl von Anwendungsbereichen
+Anwendung, darunter:
+
+\begin{enumerate}
+    \item \textbf{Logistik}: In der Logistik wird der Knapsack-Algorithmus verwendet, um den effizientesten Transport von Gütern
+    mit begrenzten Kapazitäten zu planen. Durch die Auswahl der optimalen Kombination von Gütern können Logistikunternehmen
+    ihre Transportkosten minimieren und die Effizienz ihrer Lieferketten verbessern.
+    \item \textbf{Finanzplanung}: In der Finanzplanung wird der Knapsack-Algorithmus genutzt, um das Portfolio von Investitionen
+    zu optimieren. Investoren können mithilfe des Algorithmus eine Auswahl von Wertpapieren treffen, die das Risiko minimieren
+    und gleichzeitig den erwarteten Ertrag maximieren.
+    \item \textbf{Ressourcenmanagement}: Der Knapsack-Algorithmus wird auch im Ressourcenmanagement eingesetzt, um die effiziente
+    Nutzung von begrenzten Ressourcen zu maximieren. Dies kann beispielsweise in der Produktion oder im Projektmanagement
+    erfolgen, um die Nutzung von Arbeitskräften, Maschinen oder Zeit zu optimieren.
+    \item \textbf{Netzwerkoptimierung}: In der Netzwerkoptimierung findet der Knapsack-Algorithmus Anwendung bei der Planung
+    und Optimierung von Netzwerken, wie beispielsweise bei der Routenplanung in Transportnetzwerken oder bei der Zuweisung
+    von Ressourcen in Computernetzwerken.
+\end{enumerate}
+
+Durch seine Vielseitigkeit und Effektivität ist der Knapsack-Algorithmus zu einem unverzichtbaren Werkzeug in verschiedenen
+Bereichen der Informatik und angewandten Mathematik geworden. Seine Fähigkeit, komplexe Probleme der Ressourcenzuweisung
+und Optimierung zu lösen, macht ihn zu einem wichtigen Bestandteil vieler industrieller Anwendungen und wissenschaftlicher
+Forschungsprojekte.
+
+\subsubsection*{Auswahl des Ansatzes für die Knapsack-Algorithmus Implementierung}
+Bei der Implementierung des Knapsack-Algorithmus in dieser Applikation wurde bewusst der dynamische Ansatz gewählt. Diese
+Entscheidung basiert auf einer Reihe von Gründen, die im Folgenden erläutert werden:
+
+\begin{enumerate}
+    \item \textbf{Optimale Lösungsgarantie}: Der dynamische Ansatz bietet die Möglichkeit, eine optimale Lösung für das
+    Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige Lösung
+    erforderlich ist, um optimale Entscheidungen zu treffen.
+    \item \textbf{Effizienz}: Obwohl der dynamische Ansatz im Vergleich zum Greedy-Ansatz einen höheren Rechenaufwand erfordert,
+    bietet er dennoch eine effiziente Lösung für das Knapsack-Problem. Durch die Verwendung von dynamischer Programmierung
+    können Teilprobleme effizient gelöst und die Gesamtlösung optimiert werden.
+    \item \textbf{Flexibilität}: Der dynamische Ansatz ist flexibel und kann auf verschiedene Varianten des Knapsack-Problems
+    angewendet werden, einschließlich 0/1-Knapsack, unbeschränktem Knapsack und anderen Variationen. Dadurch ist er vielseitig
+    einsetzbar und kann an die spezifischen Anforderungen einer Anwendung angepasst werden.
+    \item \textbf{Genauigkeit}: Durch die Verwendung des dynamischen Ansatzes können exakte Werte für den maximal erreichbaren
+    Wert des Rucksacks und die optimale Auswahl von Gegenständen berechnet werden. Dies ermöglicht eine präzise Bewertung und
+    Planung basierend auf den berechneten Ergebnissen.
+\end{enumerate}
+
+In Anbetracht dieser Überlegungen wurde der dynamische Ansatz als die geeignete Methode zur Implementierung des
+Knapsack-Algorithmus in dieser Applikation gewählt. Seine Fähigkeit, eine optimale Lösung zu garantieren, kombiniert mit
+seiner Effizienz und Flexibilität, macht ihn zu einer idealen Wahl für die Behandlung des Knapsack-Problems in diesem Kontext.
+
+\subsubsection*{Knapsack-Algorithmus Implementierung}
+Der folgende Abschnitt beschreibt die Funktion \textbf{KnapsackMaxValue()}. Diese implementiert den dynamischen Ansatz
+des Knapsack-Problems und gibt zusätzlich ein 2D-Array zurück, in dem eine perfekte Lösung gespeichert ist. Die Funktion
+besteht im Wesentlichen aus zwei Teilen. Der erste Teil beinhaltet die Implementierung des Knapsack-Algorithmus. Der
+zweite Teil dient dazu, die verwendeten Items zur Erreichung des maximalen Wertes zu verfolgen und daraus die perfekte
+Lösung in Form des \textit{usedItems} Array zusammenzustellen. Der Code dieser Funktion lautet:
 \begin{lstlisting}[style=csharp, caption={Knapsack Algorithmus / Item Backtracking}, label=code:startKnapsack]
 public int KnapsackMaxValue(out int[,] usedItems)
 {
     int n = items.Count;
     int[,] dp = new int[n + 1, capacity + 1];
     bool[,] selected = new bool[n + 1, capacity + 1];
-
     for (int i = 0; i <= n; i++)
-        {
+    {
         for (int w = 0; w <= capacity; w++)
-            {
+        {
             if (i == 0 || w == 0)
-            dp[i, w] = 0;
+                dp[i, w] = 0;
             else if (i <= maxItems && items[i].weight <= w)
-                {
+            {
                 int newValue = items[i].value + dp[i - 1, w - items[i].weight];
                 if (newValue > dp[i - 1, w])
-                    {
+                {
                     dp[i, w] = newValue;
                     selected[i, w] = true;
                 }
                 else
-                    {
+                {
                     dp[i, w] = dp[i - 1, w];
                     selected[i, w] = false;
                 }
             }
             else
-                {
+            {
                 dp[i, w] = dp[i - 1, w];
                 selected[i, w] = false;
             }
@@ -1911,232 +2051,168 @@ public int KnapsackMaxValue(out int[,] usedItems)
     int col = capacity;
     int rowIndex = 0;
     int colIndex = 0;
-
     while (row > 0 && col > 0 && rowIndex < 3 && colIndex < 3)
-        {
+    {
         if (selected[row, col] && colIndex < maxItems)
-            {
+        {
             tempUsedItems[rowIndex, colIndex] = items[row].id;
             col -= items[row].weight;
             row--;
-
             colIndex++;
             if (colIndex >= 3)
-                {
+            {
                 colIndex = 0;
                 rowIndex++;
             }
         }
         else
-            {
+        {
             row--;
         }
     }
-
     usedItems = tempUsedItems;
-
     return dp[n, capacity];
 }
-\end{lstlisting}\\
+\end{lstlisting}
+Die Implementierung des Knapsack-Algorithmus in den Zeilen drei bis 32 der Funktion \textbf{KnapsackMaxValue()} dieses
+Abschnitts entspricht im Wesentlichen dem bereits erklärten Pseudocode. Ein wesentlicher Unterschied besteht jedoch darin,
+dass diese spezielle Implementierung eine zusätzliche Bedingung berücksichtigt. Diese Bedingung besagt, dass zur Berechnung
+des maximalen Werts und damit der optimalen Lösung maximal 9 Gegenstände in die Berechnung miteinbezogen werden können.
+Dies ist darauf zurückzuführen, dass im vorliegenden Inventar-Objekt nur 9 verfügbare Zellen vorhanden sind, in die ein
+Gegenstand eingefügt werden kann. Die Erfüllung dieser Bedingung wird in dem
+\textit{else-if}-Zweig $i \leq \text{maxItems} \land \text{items}[i].\text{weight} \leq w$ gewährleistet.
+
+Zusätzlich wird ein Array von booleschen Werten namens \textit{selected} erstellt, um im Verlauf der Berechnung diejenigen
+Gegenstände zu markieren, die ausgewählt wurden (\textit{selected = true}). Dieses Array wird verwendet, um im zweiten
+Teil der Funktion die perfekte Lösung zusammenzustellen.\\
+
+Der zweite Teil dieses Codes, der sich um das \textit{Backtracking} der in der perfekten Lösung verwendeten Items kümmert,
+beginnt damit, dass Variablen initialisiert werden, um den aktuellen Zeilen- und Spaltenindex in dem \textit{selected}
+Array zu verfolgen, sowie \textit{Indezes} für das temporäre Array, die die ausgewählten Gegenstände speichert. Zunächst
+wird eine Schleife gestartet, um durch das \textit{selected} Array
+zu iterieren und die ausgewählten Gegenstände zu identifizieren.
+
+Während der Iteration werden Bedingungen überprüft, um zu entscheiden, ob ein Gegenstand ausgewählt wurde. Wenn ein
+Gegenstand ausgewählt wird, wird seine \textit{ID} in das temporäre Array (\textit{tempUsedItems})eingefügt, und die
+Position in der Tabelle wird aktualisiert, indem das Gewicht des ausgewählten Gegenstands von der aktuellen Kapazität
+subtrahiert wird. Die Schleife durchläuft die Tabelle und fährt fort, bis entweder die erste Zeile oder Spalte erreicht
+wird oder die maximal zulässige Anzahl von ausgewählten Gegenständen erreicht ist.
+
+Wenn ein Gegenstand ausgewählt wird, wird seine ID in die temporäre Matrix eingefügt, um die ausgewählten Gegenstände zu
+speichern. Die Indizes der temporären Matrix werden aktualisiert, um den nächsten verfügbaren Speicherplatz zu zeigen.
+Andernfalls wird der Zeilenindex dekrementiert, um zur vorherigen Zeile in des \textit{selected} Arrays zu gehen.
+
+Am Ende der Funktion wird der Wert von \textit{usedItems} mit dem ermittelten Array \textit{tempUsedItems} überschrieben
+und der maximale Wert des Rucksacks wird zurückgegeben.
+\subsubsection*{Aufbau und Interpretation der selected Tabelle}
+Angenommen, es sind die folgenden  5 Gegenstände (indiziert von 1 bis 5) mit den folgenden Werten und Gewichten gegeben:
+\[
+\begin{array}{|c|c|c|}
+\hline
+\text{Gegenstand} & \text{Wert} & \text{Gewicht} \\
+\hline
+1 & 10 & 5 \\
+\hline
+2 & 6 & 4 \\
+\hline
+3 & 8 & 3 \\
+\hline
+4 & 3 & 2 \\
+\hline
+5 & 7 & 1 \\
+\hline
+\end{array}
+\]
+\\
+Und die \textit{Kapazität} des Rucksacks liegt bei 5. Aufgrund dieser Angaben wird die \textit{selected}-Matrix nach
+Ausführung des Knapsack-Algorithmus basierend auf den ausgewählten Gegenständen gefüllt. Diese Matrix sieht dann folgendermaßen
+aus:
+
+\[
+\begin{array}{|c|c|c|c|c|c|}
+\hline
+& 0 & 1 & 2 & 3 & 4 \\
+\hline
+0 & \text{false} & \text{false} & \text{false} & \text{false} & \text{false} \\
+\hline
+1 & \text{false} & \text{false} & \text{false} & \text{false} & \text{true} \\
+\hline
+2 & \text{false} & \text{false} & \text{false} & \text{true} & \text{true} \\
+\hline
+3 & \text{false} & \text{false} & \text{true} & \text{true} & \text{true} \\
+\hline
+4 & \text{false} & \text{true} & \text{true} & \text{true} & \text{true} \\
+\hline
+5 & \text{false} & \text{true} & \text{true} & \text{true} & \text{true} \\
+\hline
+\end{array}
+\]
+Für die Interpretation der \textit{selected}-Matrix ist es wichtig zu verstehen, wie sie funktioniert. Jede Zelle in dieser
+Matrix gibt an, ob der entsprechende Gegenstand in der perfekten Lösung des Knapsack-Problems enthalten ist (\textit{true})
+oder nicht (\textit{false}). Als Beispiel zeigt die Zelle $selected[4][3]$, dass der Gegenstand 4 in der perfekten Lösung
+miteinbezogen wurde, als die Kapazität des Rucksacks 3 betrug. Diese Informationen ermöglichen folgende Schlussfolgerungen:
 \begin{enumerate}
-    \item \textbf{Initialisierung der Matrizen:}
-    \begin{itemize}
-        \item Die Funktion beginnt mit der Initialisierung der Matrizen \textit{dp}, \textit{selected} und \textit{n}
-        \item \textit{dp[i, w]} repräsentiert den maximalen Gesamtwert mit den ersten \textit{i} Gegenständen und einer begrenzten Kapazität von \textit{w}.
-        \item \textit{selected[i, w]} gibt an, ob der Gegenstand \textit{i} in der optimalen Auswahl enthalten ist.
-        \item \textit{n} ist die Anzahl der Items, die im \textit{items}-Dictionary enthalten sind.
-    \end{itemize}
-
-    \[
-        \text{Initialisierung der }\textbf{dp}\text{-Matrix:}
-        \begin{bmatrix}
-            0 & 0 & \cdots & 0 \\
-            0 & 0 & \cdots & 0 \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0 & 0 & \cdots & 0 \\
-        \end{bmatrix}
-    \]
-
-    \[
-        \text{Initialisierung der }\textbf{selected}\text{-Matrix:}
-        \begin{bmatrix}
-            \text{false} & \text{false} & \cdots & \text{false} \\
-            \text{false} & \text{false} & \cdots & \text{false} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            \text{false} & \text{false} & \cdots & \text{false} \\
-        \end{bmatrix}
-    \]
-
-    \item \textbf{Füllen der Matrizen:}
-    \begin{itemize}
-        \item Die äußere Schleife iteriert über die Gegenstände (\textit{i}), und die innere Schleife über die Kapazitäten des Rucksacks (\textti{w}).
-        \item Der Wert in der \textit{dp}-Matrix wird durch den Vergleich zweier Möglichkeiten aktualisiert:
-        \begin{enumerate}
-            \item Wert des aktuellen Gegenstands + Wert mit verbleibender Kapazität nach Abzug des aktuellen Gegenstands.
-            \item Wert ohne Einbeziehung des aktuellen Gegenstands.\\
-        \end{enumerate}
-        Hier wird entschieden, ob es vorteilhafter ist, den aktuellen Gegenstand einzuschließen oder nicht.
-    \end{itemize}
-
-    \[
-        \text{Aktualisierte }\textbf{dp}\text{-Matrix:}
-        \begin{bmatrix}
-            a11 & a12 & \cdots & a15 & a16 & \cdots & a19 & \cdots & a1n \\
-            a21 & a22 & \cdots & a25 & a26 & \cdots & a29 & \cdots & a2n \\
-            a31 & a32 & \cdots & a35 & a36 & \cdots & a39 & \cdots & a3n \\
-            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
-            am1 & am2 & \cdots & am3 & am6 & \cdots & am9 & \cdots & \text{MaxValue} \\
-        \end{bmatrix}
-    \]
-
-    \[
-        \text{Aktualisierte }\textbf{selected}\text{-Matrix:}
-        \begin{bmatrix}
-            \text{false} & \text{false} & \cdots & \text{false} & \text{false} & \cdots & \text{true} \\
-            \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
-            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-            \text{false} & \text{false} & \cdots & \text{true} & \text{false} & \cdots & \text{true} \\
-        \end{bmatrix}
-    \]
-
-    \item \textbf{Backtracking:}
-    \begin{itemize}
-        \item Nach dem Füllen der Matrizen erfolgt der Backtracking-Schritt, um die ausgewählten Gegenstände zu ermitteln.
-        \item Beginnend von \textit{dp[n, capacity]} (maximaler Wert) wird rückwärts durch die \textit{selected}-Matrix
-        navigiert, um die ausgewählten Gegenstände zu identifizieren.
-    \end{itemize}
-
-    \item \textbf{Speicherung der ausgewählten Gegenstände:}
-    \begin{itemize}
-        \item Die ausgewählten Gegenstände werden in der Matrix \textit{tempUsedItems} gespeichert.
-        \item \textit{usedItems} bekommt die Werte von \textit{tempUsedItems}.
-    \end{itemize}
-
-    \item \textbf{Rückgabe des Ergebnisses:}
-    \begin{itemize}
-        \item Die Funktion gibt den maximal erreichbaren Gesamtwert zurück.\\
-    \end{itemize}
+    \item Der Index \textbf{i} in $selected[i][j]$ repräsentiert den Gegenstand, der in Betracht gezogen wird.
+    \item Der Index \textbf{j} in $selected[i][j]$ gibt die Kapazität des Rucksacks an, die für diese Teillösung verwendet
+    wurde.
 \end{enumerate}
 
-\subsubsection*{Knapsack Beispiel}
-Betrachten wir das Knapsack-Problem, bei dem ein Rucksack mit begrenzter Kapazität optimal gefüllt werden soll, um den
-Gesamtwert der enthaltenen Gegenstände zu maximieren. Die Kapazität des Rucksacks beträgt \textit{13}. Die Liste der
-verfügbaren Gegenstände ist wie folgt definiert:
-\begin{center}
-\begin{array}{|c|c|c|c|}
-    \hline
-    \text{ID} & \text{Name} & \text{Gewicht} & \text{Wert} \\
-    \hline
-    1 & \text{Laptop} & 5 & 10 \\
-    2 & \text{Router} & 2 & 5 \\
-    3 & \text{Maus} & 2 & 3 \\
-    4 & \text{Block} & 1 & 2 \\
-    5 & \text{Stifte} & 1 & 1 \\
-    6 & \text{Kopfhörer} & 3 & 5 \\
-    7 & \text{Taschenrechner} & 1 & 1 \\
-    8 & \text{Redbull} & 1 & 5 \\
-    9 & \text{USB-Stick} & 1 & 2 \\
-    10 & \text{Verteiler} & 2 & 2 \\
-    11 & \text{Handy} & 3 & 10 \\
-    \hline
-\end{array}
-\end{center}
-\\
-Nach Anwendung der dynamischen Programmierung, um die maximale Werttabelle und die Tabelle der ausgewählten Items zu
-erstellen sieht die \textit{dp}-Matrix dementsprechend so aus:
-\[
-    \text{dp-Matrix:}
-    \begin{bmatrix}
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 10 & \cdots & 10 & 10 & 10 \\
-        0 & 0 & 5 & 5 & 5 & 10 & \cdots & 15 & 15 & 15 \\
-        0 & 0 & 5 & 5 & 8 & 10 & \cdots & 18 & 18 & 18 \\
-        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 20 & 20 & 20 \\
-        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 21 & 21 & 21 \\
-        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 22 & 23 & 25 \\
-        0 & 2 & 5 & 7 & 8 & 10 & \cdots & 22 & 23 & 25 \\
-        0 & 5 & 7 & 10 & 12 & 13 & \cdots & 23 & 27 & 28 \\
-        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
-        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
-        0 & 5 & 7 & 10 & 12 & 14 & \cdots & 25 & 27 & 29 \\
-    \end{bmatrix}
-\]
-\\
-Die zugehörige \textit{selected}-Matrix für die \textit{ausgewählten Gegenstände} lautet:
-\[
-    \text{selected-Matrix:}
-    \begin{bmatrix}
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 1 & 1 & \cdots & 1 & 1 & 1 \\
-        0 & 0 & 1 & 1 & 0 & 0 & \cdots & 1 & 1 & 1 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 1 & 1 & 1 \\
-        0 & 1 & 0 & 1 & 0 & 1 & \cdots & 1 & 1 & 1 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 1 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-        0 & 1 & 1 & 1 & 1 & 1 & \cdots & 1 & 1 & 1 \\
-        0 & 0 & 0 & 0 & 1 & 0 & \cdots & 0 & 0 & 1 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-    \end{bmatrix}
-\]
+\subsubsection{Berechnung des eigenen Inventars}
+Die letzte Berechnugn die in dem \textit{KnapsackSolver} durchgeführt wird, ist die Berechnung des eigenen Inventars. Dies
+wird mittels der \textbf{KnapsackInventoryValue()} Funktion erreicht. Der Code dieser Funktion:
+\begin{lstlisting}[style=csharp, caption={Funktion um eigenes Inventar zu brechnen}]
+public int KnapsackInventoryValue(int[,] inventory)
+{
+    if (inventory == null)
+    {
+        throw new System.Exception("Inventory is null");
+    }
+    int totalValue = 0;
+    foreach (var item in items.Values)
+    {
+        int itemId = item.id;
+        int itemValue = item.value;
+        for (int j = 0; j < inventory.GetLength(0); j++)
+        {
+            for (int k = 0; k < inventory.GetLength(1); k++)
+            {
+                if (inventory[j, k] == itemId)
+                {
+                    totalValue += itemValue;
+                }
+            }
+        }
+    }
+    return totalValue;
+}
+\end{lstlisting}
+In dieser Funktion wird der Gesamtwert des aktuellen Inventars berechnet, welches durch das zweidimensionales Array
+(\textit{inventory}) repräsentiert wird. Zunächst wird überprüft, ob das übergebene Inventar korrekt gesetzt wurde und
+ob es \textit{null} ist oder nicht. Falls es \textit{null} ist, wird eine \textit{Exception} geworfen. Falls das Inventar
+nicht leer ist, wird die Variable \textit{totalValue} initialisiert, um den Gesamtwert des Inventars zu speichern.
+Anschließend wird eine \textit{foreach}-Schleife über jedes Element des Dictionaries \textit{items} durchgeführt, wobei
+die \textit{ID} und der Wert \textit{value} jedes Elements ermittelt und in \textit{itemId} und \textit{itemValue}
+gespeichert werden.
 
-\subsubsection*{Interpretation der DP-Matrix:}
-Die DP-Matrix repräsentiert die maximalen Werte für verschiedene Gewichtsbeschränkungen. Ein Eintrag \textit{(i, j)} gibt
-den maximal erreichbaren Gesamtwert an, wenn die Gewichtsbeschränkung \texit{j} unter Verwendung der Gegenstände \textit{1} bis
-\textitt{i} berücksichtigt wird.
+Anschließend werden zwei verschachtelte \textit{for}-Schleifen verwendet, um jedes Element im \textit{inventory}-Array
+zu durchlaufen. Wenn die \textit{ID} des Gegenstands im \textit{inventory}-Array gefunden wird, wird der Wert dieses
+Gegenstands zum Gesamtwert \textit{totalValue} addiert. Nach Abschluss der beiden \textit{for}-Schleifen wird dieser
+ert schließlich zurückgegeben.
 
-Nehmen wir als Beispiel den Eintrag an der Position \textit{(2, 5)}. Der Wert \textit{10} an dieser Stelle bedeutet, dass bei
-einer Gewichtsbeschränkung von \textit{5} und unter Verwendung der Gegenstände \textit{1} und \textit{2} der maximale Gesamtwert \textit{10}
-erreicht wird. Dieser Prozess lässt sich durch die Betrachtung der dazugehörigen Zeile in der DP-Matrix veranschaulichen:
+\subsubsection{InfoMesh aktualisieren}
+Der \textit{KnapsackSolver} enthält zwei Funktionen, die sowohl in der Klasse selbst als auch in der
+\textit{InventoryController} Klasse gebraucht werden. Die Funktion \textbf{SetInventory()} wurde bereits erklärt und
+die zweite Funktion ist die folgende:
 
-\[
-    \text{DP-Matrix - Zeile 2: } [0, 0, 0, 0, 0, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-\]
-
-Diese Zeile gibt an, dass für eine Gewichtsbeschränkung von \textit{5} und unter Verwendung der Gegenstände \textit{1} und \textit{2}
-der maximale Gesamtwert \textit{10} erreicht wird. Die weiteren Einträge in der Zeile zeigen die maximal erreichbaren Werte
-für andere Gewichtsbeschränkungen. Dieser Prozess wiederholt sich für jede Zeile der DP-Matrix und ermöglicht die
-Identifikation des maximal erreichbaren Gesamtwerts für unterschiedliche Gewichtsbeschränkungen.
-
-\subsubsection*{Interpretation der ausgewählten Matrix:}
-Jeder Eintrag \textit{(i, j)} in der ausgewählten Matrix gibt an, ob der Gegenstand mit der ID \textit{i} in der optimalen Lösung
-enthalten ist, wenn die Gewichtsbeschränkung \textit{j} erreicht wird. Ein Eintrag von \textit{1} bedeutet, dass der Gegenstand
-in der Lösung enthalten ist, während \textit{0} besagt, dass er ausgeschlossen ist.
-
-Nehmen wir als Beispiel den Eintrag an der Position \textit{(2, 5)}. Das Vorhandensein von \textit{1} an dieser Stelle bedeutet,
-dass der Router (Gegenstand \textit{2} in der optimalen Lösung enthalten ist, wenn die Gewichtsbeschränkung \textit{5} erreicht
-wird. Um dies zu verdeutlichen, betrachten wir die dazugehörige Zeile in der ausgewählten Matrix:
-
-\[
-    \text{Ausgewählte Matrix - Zeile 2: } [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-\]
-
-Diese Zeile gibt an, dass für eine Gewichtsbeschränkung von \textit{5} der Router in der optimalen Lösung enthalten ist.
-Die weiteren Einträge in der Zeile zeigen die Auswahl der anderen Gegenstände für diese spezifische Gewichtsbeschränkung.
-Dieser Prozess wiederholt sich für jede Zeile der ausgewählten Matrix und ermöglicht die Identifikation der optimalen
-Gegenstandsbelegung für unterschiedliche Gewichtsbeschränkungen.
-
-\subsubsection*{Ergebnisse}
-\textbf{Maximaler Wert:} 29\\
-\\
-\textbf{Verwendete Gegenstände:}
-\begin{itemize}
-    \item Gegenstand 9 (USB-Stick) mit einem Gewicht von 1 und einem Wert von 2
-    \item Gegenstand 8 (Redbull) mit einem Gewicht von 1 und einem Wert von 5
-    \item Gegenstand 6 (Kopfhörer) mit einem Gewicht von 3 und einem Wert von 5
-    \item Gegenstand 4 (Block) mit einem Gewicht von 1 und einem Wert von 2
-    \item Gegenstand 2 (Router) mit einem Gewicht von 2 und einem Wert von 5
-    \item Gegenstand 1 (Laptop) mit einem Gewicht von 5 und einem Wert von 10\\
-\end{itemize}
-\[
-    \textbf{usedItems:}
-    \begin{bmatrix}
-        9 & 8 & 6 \\
-        4 & 2 & 1 \\
-        0 & 0 & 0 \\
-    \end{bmatrix}
-\]
+\begin{lstlisting}[style=csharp, caption={Funktion um InfoMesh zu verändern}]
+public void UpdateInfoMesh(string input)
+{
+    infoMesh.color = Color.red;
+    infoMesh.text = input;
+}
+\end{lstlisting}
+Diese Funktion wird von der Klasse \textit{InventoryController} verwendet und sie dient dazu, das \textit{infoMehs} mit
+einem neuen Text zu aktualisieren und rot zu färben, um dem Benutzer Fehler anzuzeigen.
 
 \subsection{Best Solution Prefab Game Objekt}
 Das \textit{best solution prefab} spielt eine wichtige Rolle im weiteren Verlauf der Applikation. Durch das angehängt
