@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  15 FEB 2024 12:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  15 FEB 2024 13:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1210,7 +1210,27 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 
-(C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.aux
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/vorwort.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/dokumentation.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/kurzfassung.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/abstract.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/einleitung.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/grundlagen.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.aux
+
+LaTeX Warning: Label `code:isPOP' multiply defined.
+
+
+LaTeX Warning: Label `code:kn_start' multiply defined.
+
+
+LaTeX Warning: Label `code:invFül_PSV' multiply defined.
+
+) (C:/Users/Moritz/Documents/GitHub/Diplomschrift/zmfs_abschluss.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/anhang_a.aux)
+(C:/Users/Moritz/Documents/GitHub/Diplomschrift/literatur.aux))
 \openout1 = `_Diplomarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
@@ -1768,10 +1788,6 @@ or  <return>  to continue without it.
 
 [7]
 
-LaTeX Warning: Reference `fig:GrundgesamtheitStichprobe' on page 8 undefined on
- input line 209.
-
-
 LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
 ned on input line 216.
 
@@ -1856,7 +1872,7 @@ LaTeX Warning: Citation 'Einfuehrung in die TEst und Fragebogenkonstruktion' on
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/produktspezifikationen.tex
 Kapitel 3.
-<images/AblaufdiagrammLevel2.png, id=635, 1304.875pt x 682.55pt>
+<images/AblaufdiagrammLevel2.png, id=636, 1304.875pt x 682.55pt>
 File: images/AblaufdiagrammLevel2.png Graphic file (type png)
 <use images/AblaufdiagrammLevel2.png>
 Package pdftex.def Info: images/AblaufdiagrammLevel2.png  used on input line 18
@@ -2009,7 +2025,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Warning: Citation 'Modi' on page 23 undefined on input line 262.
 
-<images/defaultobjectmode.png, id=711, 1156.32pt x 598.03426pt>
+<images/defaultobjectmode.png, id=712, 1156.32pt x 598.03426pt>
 File: images/defaultobjectmode.png Graphic file (type png)
 <use images/defaultobjectmode.png>
 Package pdftex.def Info: images/defaultobjectmode.png  used on input line 269.
@@ -2020,7 +2036,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: Citation 'Vertices' on page 23 undefined on input line 275.
 
-<images/calculatoreditmode.png, id=713, 1156.32pt x 595.023pt>
+<images/calculatoreditmode.png, id=714, 1156.32pt x 595.023pt>
 File: images/calculatoreditmode.png Graphic file (type png)
 <use images/calculatoreditmode.png>
 Package pdftex.def Info: images/calculatoreditmode.png  used on input line 278.
@@ -2032,7 +2048,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: Citation 'Mesh' on page 23 undefined on input line 283.
 
-<images/texturepaintmode.png, id=715, 1156.32pt x 578.16pt>
+<images/texturepaintmode.png, id=716, 1156.32pt x 578.16pt>
 File: images/texturepaintmode.png Graphic file (type png)
 <use images/texturepaintmode.png>
 Package pdftex.def Info: images/texturepaintmode.png  used on input line 287.
@@ -2043,7 +2059,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: Citation 'Modifier' on page 23 undefined on input line 295.
 
-<images/blenderhierarchy.png, id=717, 199.34476pt x 196.93575pt>
+<images/blenderhierarchy.png, id=718, 199.34476pt x 196.93575pt>
 File: images/blenderhierarchy.png Graphic file (type png)
 <use images/blenderhierarchy.png>
 Package pdftex.def Info: images/blenderhierarchy.png  used on input line 299.
@@ -2052,7 +2068,7 @@ Package pdftex.def Info: images/blenderhierarchy.png  used on input line 299.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [23]
-<images/blendermodifier.png, id=731, 206.57175pt x 519.1395pt>
+<images/blendermodifier.png, id=732, 206.57175pt x 519.1395pt>
 File: images/blendermodifier.png Graphic file (type png)
 <use images/blendermodifier.png>
 Package pdftex.def Info: images/blendermodifier.png  used on input line 325.
@@ -2070,7 +2086,7 @@ ng>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menubar.png, id=741, 482.40225pt x 166.82326pt>
+<images/menubar.png, id=742, 482.40225pt x 166.82326pt>
 File: images/menubar.png Graphic file (type png)
 <use images/menubar.png>
 Package pdftex.def Info: images/menubar.png  used on input line 353.
@@ -2078,7 +2094,7 @@ Package pdftex.def Info: images/menubar.png  used on input line 353.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menuHierarchy.png, id=742, 269.20575pt x 168.63pt>
+<images/menuHierarchy.png, id=743, 269.20575pt x 168.63pt>
 File: images/menuHierarchy.png Graphic file (type png)
 <use images/menuHierarchy.png>
 Package pdftex.def Info: images/menuHierarchy.png  used on input line 360.
@@ -2088,7 +2104,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [25 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/texturepaintmode.png
 >]
-<images/debugmenubar.png, id=750, 331.83975pt x 133.09724pt>
+<images/debugmenubar.png, id=751, 331.83975pt x 133.09724pt>
 File: images/debugmenubar.png Graphic file (type png)
 <use images/debugmenubar.png>
 Package pdftex.def Info: images/debugmenubar.png  used on input line 378.
@@ -2143,7 +2159,7 @@ Overfull \hbox (1.44159pt too wide) in paragraph at lines 456--458
 ingle): Die-se Me-tho-de l�dt
  []
 
-<images/sceneToLoad.png, id=777, 257.763pt x 51.19125pt>
+<images/sceneToLoad.png, id=778, 257.763pt x 51.19125pt>
 File: images/sceneToLoad.png Graphic file (type png)
 <use images/sceneToLoad.png>
 Package pdftex.def Info: images/sceneToLoad.png  used on input line 463.
@@ -2239,7 +2255,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--574
 
  []
 
-<images/Level2Hirarchy.png, id=811, 285.4665pt x 325.215pt>
+<images/Level2Hirarchy.png, id=812, 285.4665pt x 325.215pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 577.
@@ -2303,7 +2319,7 @@ LaTeX Warning: Reference `Unity Prefabs' on page 34 undefined on input line 792
 .
 
 [34]
-<images/invPlace_Editor.png, id=873, 380.622pt x 292.6935pt>
+<images/invPlace_Editor.png, id=874, 380.622pt x 292.6935pt>
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
 Package pdftex.def Info: images/invPlace_Editor.png  used on input line 816.
@@ -2311,10 +2327,6 @@ Package pdftex.def Info: images/invPlace_Editor.png  used on input line 816.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:inventoryPlacementController_Editor' on page 35 u
-ndefined on input line 821.
 
 [35]
 
@@ -2349,10 +2361,6 @@ Package csquotes Info: Input encoding change on input line 845.
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-LaTeX Warning: Reference `code:anchor_var' on page 36 undefined on input line 8
-63.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:877
 : Package Listings Error: Couldn't load requested style.
 
@@ -2383,10 +2391,6 @@ Package csquotes Info: Input encoding change on input line 877.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-
-LaTeX Warning: Reference `code:Start' on page 36 undefined on input line 884.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 891--895
 
  []
@@ -2423,10 +2427,6 @@ Package csquotes Info: Input encoding change on input line 896.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-
-LaTeX Warning: Reference `code:DelayedStart' on page 37 undefined on input line
- 903.
-
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:915
 : Package Listings Error: Couldn't load requested style.
@@ -2576,10 +2576,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-LaTeX Warning: Reference `fig:colPlane' on page 40 undefined on input line 1072
-.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:107
 5: LaTeX Error: File `images/coloredPlaneExample' not found.
 
@@ -2630,10 +2626,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1128--1137
 
  []
 
-
-LaTeX Warning: Reference `fig:inventoryPlaced' on page 41 undefined on input li
-ne 1150.
-
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
 Package pdftex.def Info: images/invPlace_Editor.png  used on input line 1153.
@@ -2652,17 +2644,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1138--1157
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/invCon_Editor.png, id=1028, 379.4175pt x 209.583pt>
+<images/invCon_Editor.png, id=1037, 379.4175pt x 209.583pt>
 File: images/invCon_Editor.png Graphic file (type png)
 <use images/invCon_Editor.png>
 Package pdftex.def Info: images/invCon_Editor.png  used on input line 1176.
 (pdftex.def)             Requested size: 303.53441pt x 167.66661pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:InventoryController_Editor' on page 42 undefined 
-on input line 1181.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:119
@@ -2711,10 +2699,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-LaTeX Warning: Reference `code:controller_var' on page 43 undefined on input li
-ne 1211.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:122
 6: Package Listings Error: Couldn't load requested style.
 
@@ -2761,10 +2745,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-LaTeX Warning: Reference `code:controller_var' on page 43 undefined on input li
-ne 1244.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:125
 2: Package Listings Error: Couldn't load requested style.
 
@@ -2795,10 +2775,6 @@ Package csquotes Info: Input encoding change on input line 1252.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 ) [43]
-
-LaTeX Warning: Reference `code:controller_start' on page 44 undefined on input 
-line 1267.
-
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:127
 9: Package Listings Error: Couldn't load requested style.
@@ -2844,18 +2820,6 @@ l.1286 D
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
-
-
-LaTeX Warning: Reference `code:controller_getBounds' on page 44 undefined on in
-put line 1286.
-
-
-LaTeX Warning: Reference `code:controller_updateBounds' on page 44 undefined on
- input line 1287.
-
-
-LaTeX Warning: Reference `code:controller_extendBounds' on page 44 undefined on
- input line 1292.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
@@ -2911,25 +2875,14 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 [44]
-
-LaTeX Warning: Reference `code:controller_updateBounds' on page 45 undefined on
- input line 1311.
-
-
-LaTeX Warning: Reference `fig:extended_inventoryBounds' on page 45 undefined on
- input line 1312.
-
-<images/extendedBounds.png, id=1097, 502.2765pt x 403.5075pt>
+<images/extendedBounds.png, id=1117, 502.2765pt x 403.5075pt>
 File: images/extendedBounds.png Graphic file (type png)
 <use images/extendedBounds.png>
 Package pdftex.def Info: images/extendedBounds.png  used on input line 1315.
 (pdftex.def)             Requested size: 200.90704pt x 161.40013pt.
 
+
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `code:controller_initialize' on page 45 undefined on i
-nput line 1333.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:133
@@ -3106,11 +3059,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1509--1514
 
  []
 
-
-LaTeX Warning: Reference `fig:controller_itemAdded' on page 49 undefined on inp
-ut line 1517.
-
-<images/itemAdded.png, id=1184, 506.49225pt x 322.806pt>
+<images/itemAdded.png, id=1207, 506.49225pt x 322.806pt>
 File: images/itemAdded.png Graphic file (type png)
 <use images/itemAdded.png>
 Package pdftex.def Info: images/itemAdded.png  used on input line 1521.
@@ -3228,21 +3177,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1541--1547
 
  []
 
-
-LaTeX Warning: Reference `fig:controller_itemToHeavy' on page 49 undefined on i
-nput line 1550.
-
-<images/itemToHeavy.png, id=1185, 507.0945pt x 322.806pt>
+<images/itemToHeavy.png, id=1209, 507.0945pt x 322.806pt>
 File: images/itemToHeavy.png Graphic file (type png)
 <use images/itemToHeavy.png>
 Package pdftex.def Info: images/itemToHeavy.png  used on input line 1555.
 (pdftex.def)             Requested size: 304.25903pt x 193.68509pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:controller_itemToHeavy' on page 49 undefined on i
-nput line 1560.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:156
@@ -3353,15 +3294,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 1624--1632
  []
 
 [50]
-
-LaTeX Warning: Reference `fig:controller_itemEntfernt' on page 51 undefined on 
-input line 1634.
-
-<images/itemEntfernt.png, id=1236, 510.10574pt x 323.40825pt>
+<images/itemEntfernt.png, id=1264, 510.10574pt x 323.40825pt>
 File: images/itemEntfernt.png Graphic file (type png)
 <use images/itemEntfernt.png>
 Package pdftex.def Info: images/itemEntfernt.png  used on input line 1639.
 (pdftex.def)             Requested size: 306.0658pt x 194.04643pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -3428,10 +3366,6 @@ Package csquotes Info: Input encoding change on input line 1653.
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-LaTeX Warning: Reference `fig:controller_itemEntfernt' on page 51 undefined on 
-input line 1657.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:166
 4: Package Listings Error: Couldn't load requested style.
 
@@ -3497,17 +3431,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1682--1684
 
  []
 
-<images/knapsackEditor.png, id=1237, 380.622pt x 257.16075pt>
+<images/knapsackEditor.png, id=1266, 380.622pt x 257.16075pt>
 File: images/knapsackEditor.png Graphic file (type png)
 <use images/knapsackEditor.png>
 Package pdftex.def Info: images/knapsackEditor.png  used on input line 1687.
 (pdftex.def)             Requested size: 304.49799pt x 205.72887pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:Knapsack_Editor' on page 51 undefined on input li
-ne 1692.
 
 [51]
 Underfull \hbox (badness 10000) in paragraph at lines 1703--1705
@@ -3573,14 +3503,6 @@ l.1722 D
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
-
-
-LaTeX Warning: Reference `code:Klassenvariablen_kn' on page 52 undefined on inp
-ut line 1722.
-
-
-LaTeX Warning: Reference `code:kn_start' on page 52 undefined on input line 173
-4.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:173
@@ -3744,10 +3666,6 @@ Overfull \hbox (10.19608pt too wide) in paragraph at lines 1790--1794
 Underfull \hbox (badness 10000) in paragraph at lines 1807--1812
 
  []
-
-
-LaTeX Warning: Reference `fig:foundperfsol' on page 54 undefined on input line 
-1814.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:181
@@ -3969,22 +3887,18 @@ If that doesn't work, type  X <return>  to quit.
 Package csquotes Info: Input encoding change on input line 2207.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [61]
-<images/bestSolPref_Editor.png, id=1516, 380.622pt x 269.808pt>
+)
+<images/bestSolPref_Editor.png, id=1519, 380.622pt x 269.808pt>
 File: images/bestSolPref_Editor.png Graphic file (type png)
 <use images/bestSolPref_Editor.png>
 Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 2225
 .
 (pdftex.def)             Requested size: 304.49799pt x 215.8467pt.
-
+ [61]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Reference `fig:bestSol_Editor' on page 62 undefined on input lin
-e 2230.
-
-<images/bestSolPref.png, id=1517, 285.4665pt x 133.09724pt>
+<images/bestSolPref.png, id=1554, 285.4665pt x 133.09724pt>
 File: images/bestSolPref.png Graphic file (type png)
 <use images/bestSolPref.png>
 Package pdftex.def Info: images/bestSolPref.png  used on input line 2243.
@@ -3992,11 +3906,7 @@ Package pdftex.def Info: images/bestSolPref.png  used on input line 2243.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Reference `fig:InvPref' on page 62 undefined on input line 2248.
-
-
-<images/prefShow.png, id=1518, 1158.12675pt x 524.55975pt>
+<images/prefShow.png, id=1556, 1158.12675pt x 524.55975pt>
 File: images/prefShow.png Graphic file (type png)
 <use images/prefShow.png>
 Package pdftex.def Info: images/prefShow.png  used on input line 2255.
@@ -4004,26 +3914,30 @@ Package pdftex.def Info: images/prefShow.png  used on input line 2255.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/perfSolBut.png, id=1519, 380.622pt x 334.851pt>
+<images/perfSolBut.png, id=1558, 380.622pt x 334.851pt>
 File: images/perfSolBut.png Graphic file (type png)
 <use images/perfSolBut.png>
-Package pdftex.def Info: images/perfSolBut.png  used on input line 2271.
+Package pdftex.def Info: images/perfSolBut.png  used on input line 2270.
 (pdftex.def)             Requested size: 304.49799pt x 267.88115pt.
+
+Overfull \hbox (0.53757pt too wide) in paragraph at lines 2265--2278
+[][]\T1/cmr/m/n/10.95 Um die per-fek-te L�-sung zu vi-sua-li-sie-ren, wird das 
+\T1/cmr/m/it/10.95 Per-fect-So-lu-tion-Vi-sua-li-zer.cs\T1/cmr/m/n/10.95 -Skrip
+t durch
+ []
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:ScrAuf' on page 62 undefined on input line 2276.
-
-
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:228
-2: Package Listings Error: Couldn't load requested style.
+0: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2282 ...lizer}, label=code:Klassenvariablen_PSV]
+l.2280 ...lizer}, label=code:Klassenvariablen_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4031,42 +3945,38 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:228
-2: Package Listings Error: style csharp undefined.
+0: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2282 ...lizer}, label=code:Klassenvariablen_PSV]
+l.2280 ...lizer}, label=code:Klassenvariablen_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2282.
+Package csquotes Info: Input encoding change on input line 2280.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 ) [62]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:229
-6: LaTeX Error: There's no line here to end.
+4: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2296 I
-        m Codeabschnitt \ref{code:Klassenvariablen_PSV} sind die Klassenvari...
+l.2294 D
+        ie in Codeabschnitt \ref{code:Klassenvariablen_PSV} gezeigten Klasse...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-LaTeX Warning: Reference `code:Klassenvariablen_PSV' on page 63 undefined on in
-put line 2296.
-
-
-Overfull \hbox (30.79782pt too wide) in paragraph at lines 2301--2306
+Overfull \hbox (30.79782pt too wide) in paragraph at lines 2300--2305
 [][][]\T1/cmr/m/n/10.95 Besonders wich-tig ist der Zu-griff auf die Va-ria-blen
  \T1/cmr/m/it/10.95 in-ven-to-ry-Pla-ce-ment-Ob-ject \T1/cmr/m/n/10.95 und \T1/
 cmr/m/it/10.95 KnapsackAl-
@@ -4074,13 +3984,13 @@ cmr/m/it/10.95 KnapsackAl-
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:230
-8: Package Listings Error: Couldn't load requested style.
+9: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2308 ...Visualizer Start}, label=code:Start_PSV]
+l.2309 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4088,208 +3998,210 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:230
-8: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2308 ...Visualizer Start}, label=code:Start_PSV]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 2308.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:232
-9: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2329 I
-        m Codeabschnitt (\ref{code:Start_PSV}) wird die Lebenszyklusmethode ...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-LaTeX Warning: Reference `code:Start_PSV' on page 63 undefined on input line 23
-29.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:233
-9: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2339 ...Position setzen}, label=code:newPos_PSV]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:233
 9: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2339 ...Position setzen}, label=code:newPos_PSV]
+l.2309 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[63]
-Package csquotes Info: Input encoding change on input line 2339.
- (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+Package csquotes Info: Input encoding change on input line 2309.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:234
-8: LaTeX Error: There's no line here to end.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:233
+0: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2348 D
-        ie im Codeabschnitt \ref{code:Start_PSV} aufgerufene Funktion \textb...
+l.2330 U
+        m sicherzustellen, dass der Benutzer die perfekte Lösung sowohl anz...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+[63]
 
-LaTeX Warning: Reference `code:Start_PSV' on page 64 undefined on input line 23
-48.
-
-
-LaTeX Warning: Reference `code:Start_PSV' on page 64 undefined on input line 23
-54.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:235
-8: Package Listings Error: Couldn't load requested style.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:234
+5: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2358 ...ventar füllen}, label=code:invFül_PSV]
+l.2345 ...Position setzen}, label=code:newPos_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:235
-8: Package Listings Error: style csharp undefined.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:234
+5: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2358 ...ventar füllen}, label=code:invFül_PSV]
+l.2345 ...Position setzen}, label=code:newPos_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2358.
+Package csquotes Info: Input encoding change on input line 2345.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [64]
+)
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:239
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:235
 4: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2394 D
-        ie Funktion \texttt{fillInventory()} durchläuft ein 2D-Array \textt...
+l.2354 Z
+        unächst wird eine neue Position (\textit{newPosition}) für das Inv...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2400--2404
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2405--2410
-
- []
-
-
-Overfull \hbox (3.87924pt too wide) in paragraph at lines 2418--2421
-[][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
-m-ple-men-tier-te Knappsack-Algorithmus
- []
-
-
-Underfull \vbox (badness 1466) has occurred while \output is active []
-
- [65]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:244
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:236
 6: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2446 ...ventar füllen}, label=code:invFül_PSV]
+l.2366 ...ventar füllen}, label=code:invFül_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:244
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:236
 6: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2446 ...ventar füllen}, label=code:invFül_PSV]
+l.2366 ...ventar füllen}, label=code:invFül_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2446.
+Package csquotes Info: Input encoding change on input line 2366.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [64]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:239
+7: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2397 D
+        ie vorliegende Funktion durchläuft das zweidimensionale Array \text...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2402--2411
+
+ []
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:242
+6: LaTeX Error: File `images/perfSolUserPOV' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2426 ...aphics[scale=0.8]{images/perfSolUserPOV}
+                                                  
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps,.ep
+s
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (3.87924pt too wide) in paragraph at lines 2432--2435
+[][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
+m-ple-men-tier-te Knappsack-Algorithmus
+ []
+
+
+Underfull \vbox (badness 1496) has occurred while \output is active []
+
+ [65]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:246
+0: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2460 ...ventar füllen}, label=code:invFül_PSV]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:246
+0: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2460 ...ventar füllen}, label=code:invFül_PSV]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2460.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-2465.
+2479.
 
 (c:/texlive/2023/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ) [66]
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:251
-2: Package inputenc Error: Keyboard character used is undefined
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:252
+6: Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `latin1'.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2512         // Ü
+l.2526         // Ü
                     berprüfen, ob die Werte übereinstimmen
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
@@ -4299,23 +4211,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [67]
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:254
-2: LaTeX Error: There's no line here to end.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:255
+6: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2542 D
+l.2556 D
         ies ist eine Testklasse in C#, welche den Knapsack-Algorithmus imple...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:254
-2: You can't use `macro parameter character #' in horizontal mode.
-l.2542 Dies ist eine Testklasse in C#
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:255
+6: You can't use `macro parameter character #' in horizontal mode.
+l.2556 Dies ist eine Testklasse in C#
                                      , welche den Knapsack-Algorithmus imple...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -4323,49 +4235,49 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Overfull \hbox (8.41487pt too wide) in paragraph at lines 2544--2545
+Overfull \hbox (8.41487pt too wide) in paragraph at lines 2558--2559
 [][][]\T1/cmr/m/n/10.95 Die Klas-se Al-go-Test ent-h�lt Test-funk-tio-nen f�r z
 wei ver-schie-de-ne Knapsack-Algorithmen. 
  []
 
 
-Overfull \hbox (8.67937pt too wide) in paragraph at lines 2546--2551
+Overfull \hbox (8.67937pt too wide) in paragraph at lines 2560--2565
 [][][]\T1/cmr/m/n/10.95 Es wer-den meh-re-re Va-ria-blen de-fi-niert, dar-un-te
 r ein test-Ob-ject, das zu tes-ten-de knapsack-
  []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:255
-2: Missing $ inserted.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:256
+6: Missing $ inserted.
 <inserted text> 
                 $
-l.2552 Der Unit-Test KnapsackMaxValue_
+l.2566 Der Unit-Test KnapsackMaxValue_
                                       ReturnsCorrectValue testet die Methode...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \ss invalid in math mode on input line 2553.
+LaTeX Warning: Command \ss invalid in math mode on input line 2567.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2553.
+LaTeX Warning: Command \" invalid in math mode on input line 2567.
 
 
-LaTeX Warning: Command \ss invalid in math mode on input line 2555.
+LaTeX Warning: Command \ss invalid in math mode on input line 2569.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2555.
+LaTeX Warning: Command \" invalid in math mode on input line 2569.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2555.
+LaTeX Warning: Command \" invalid in math mode on input line 2569.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2555.
+LaTeX Warning: Command \" invalid in math mode on input line 2569.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:255
-6: Missing $ inserted.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:257
+0: Missing $ inserted.
 <inserted text> 
                 $
-l.2556 
+l.2570 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4377,14 +4289,14 @@ Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr10!
 
-Overfull \hbox (330.81917pt too wide) in paragraph at lines 2552--2556
+Overfull \hbox (330.81917pt too wide) in paragraph at lines 2566--2570
 [][][]\T1/cmr/m/n/10.95 Der Unit-Test KnapsackMaxValue$[][][]\OML/cmm/m/it/10.9
 5 eturnsCorrectValuetestetdieMethodeKnapsackMaxValuedesKnapsackScript:Eswerdenv
 erschiedeneGegenstands \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (607.65894pt too wide) in paragraph at lines 2552--2556
+Overfull \hbox (607.65894pt too wide) in paragraph at lines 2566--2570
 \OML/cmm/m/it/10.95 KonfigurationenineinenRucksackplatziert:AnschlieendwirddieA
 usfhrungszeitsowohlderiterativen\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Knapsac
 kMaxValue\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 alsauchderrekursiven\OT1/cmr/m
@@ -4393,40 +4305,40 @@ kMaxValue\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 alsauchderrekursiven\OT1/cmr/m
  []
 
 
-Overfull \hbox (64.43178pt too wide) in paragraph at lines 2552--2556
+Overfull \hbox (64.43178pt too wide) in paragraph at lines 2566--2570
 \OML/cmm/m/it/10.95 Algorithmusgemessen:Schlielichwirdberprft; obbeideImplement
 ierungendenselbenWertzurckgeben:$ 
  []
 
 
-Overfull \hbox (25.18118pt too wide) in paragraph at lines 2557--2561
+Overfull \hbox (25.18118pt too wide) in paragraph at lines 2571--2575
 [][][]\T1/cmr/m/n/10.95 Die Me-tho-de Knapsack-Ma-xVa-lu-e-Re-cur-si-ve ist ei-
 ne re-kur-si-ve Im-ple-men-tie-rung des Knapsack-
  []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:256
-2: Missing $ inserted.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:257
+6: Missing $ inserted.
 <inserted text> 
                 $
-l.2562 Die Testmethode KnapsackMaxValue_
+l.2576 Die Testmethode KnapsackMaxValue_
                                         ReturnsCorrectValue wird für jede K...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2562.
+LaTeX Warning: Command \" invalid in math mode on input line 2576.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2562.
+LaTeX Warning: Command \" invalid in math mode on input line 2576.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2562.
+LaTeX Warning: Command \" invalid in math mode on input line 2576.
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:256
-4: Missing $ inserted.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:257
+8: Missing $ inserted.
 <inserted text> 
                 $
-l.2564 
+l.2578 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4435,7 +4347,7 @@ Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr10!
 Missing character: There is no � in font cmr10!
 
-Overfull \hbox (491.99884pt too wide) in paragraph at lines 2562--2564
+Overfull \hbox (491.99884pt too wide) in paragraph at lines 2576--2578
 [][][]\T1/cmr/m/n/10.95 Die Test-me-tho-de KnapsackMaxValue$[][][]\OML/cmm/m/it
 /10.95 eturnsCorrectValuewirdfrjedeKonfigurationvonGegenstndenimRucksackausgefh
 rt; umsicherzustellen; dassdieImplementierungdesKnapsack \OMS/cmsy/m/n/10.95 ^^
@@ -4696,16 +4608,10 @@ L3 programming layer <2023-11-09>
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
-
-Package rerunfilecheck Warning: File `_Diplomarbeit.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `_Diplomarbeit.out':
-(rerunfilecheck)             Before: A44153F140634BB9567FFA653CEF09A9;12700
-(rerunfilecheck)             After:  B83E02BB18995D53BDECCCE06C215662;12700.
+Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
+(rerunfilecheck)             Checksum: 6AD4B5AA3BAEB4B020B3AB7E4A190D81;12700.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -4716,75 +4622,39 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35302 strings out of 474267
- 628852 string characters out of 5751464
- 2650558 words of memory out of 5000000
- 55751 multiletter control sequences out of 15000+600000
+ 35356 strings out of 474267
+ 631293 string characters out of 5751464
+ 2709558 words of memory out of 5000000
+ 55796 multiletter control sequences out of 15000+600000
  579199 words of font info for 84 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2333b,2791s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{appendix.930} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.929} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix.925} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.924} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter.921} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.825} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.822} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.821} has been referenced but does not ex
-ist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.735} has been referenced but does not ex
-ist, replaced by a fixed one
-
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texli
-ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sf
-bx0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb
-><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texli
-ve/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/te
-xmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2023/texmf-dist/f
-onts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2023/texmf-dist/fonts/type1
-/public/cm-super/sfrm0600.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm
--super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfr
-m0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-<c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texliv
-e/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/tex
-mf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2023/texmf-dist/fo
-nts/type1/public/cm-super/sfss1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/
-public/cm-super/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-
-super/sftt0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt
-1095.pfb>
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/
+sfbx0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.p
+fb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/tex
+live/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/
+texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2023/texmf-dist
+/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2023/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm0600.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/
+cm-super/sfrm0800.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/s
+frm0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pf
+b><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texl
+ive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2023/texmf-dist/
+fonts/type1/public/cm-super/sfss1095.pfb><c:/texlive/2023/texmf-dist/fonts/type
+1/public/cm-super/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/c
+m-super/sftt0900.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sf
+tt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (93 pages, 4250868 bytes).
+pdf (93 pages, 4253239 bytes).
 PDF statistics:
- 2217 PDF objects out of 2487 (max. 8388607)
- 1980 compressed objects within 20 object streams
- 1032 named destinations out of 1200 (max. 500000)
+ 2233 PDF objects out of 2487 (max. 8388607)
+ 1996 compressed objects within 20 object streams
+ 1019 named destinations out of 1200 (max. 500000)
  858 words of extra memory for PDF output out of 10000 (max. 10000000)
 
