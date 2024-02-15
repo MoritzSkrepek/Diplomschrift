@@ -629,6 +629,27 @@ Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
+\subsection{Unity Prefabs}
+Unity bietet eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten, Prefabs. Prefabs sind
+vorgefertigte Bausteine, die als Vorlagen dienen. Sie ermöglichen es, einmal erstellte Objekte als standardisierte Vorlagen
+zu speichern und dann beliebig oft in verschiedenen Szenen oder Projekten zu verwenden.
+
+Diese Vorlagen bieten eine Reihe von Vorteilen. Einerseits ermöglichen Prefabs eine effiziente und konsistente Gestaltung
+von Spielen, indem sie die Wiederverwendung von Designelementen erleichtern. Stellen Sie sich vor, Sie haben eine komplexe
+Szene mit verschiedenen Objekten erstellt, darunter Charaktere, Umgebungen und Effekte. Anstatt jedes Mal von Grund auf
+neu zu beginnen, können Sie diese Elemente als Prefabs speichern und sie dann einfach in neuen Szenen wiederverwenden.
+Durch die Verwendung von Prefabs können Sie nicht nur Zeit sparen, sondern auch sicherstellen, dass Ihr Spiel eine
+konsistente Designästhetik aufweist.
+
+Außerdem ermöglichen Prefabs eine einfache Aktualisierung und Iteration von Game-Objekten. Wenn Sie beispielsweise
+Änderungen an einem bestimmten Objekt vornehmen müssen, können Sie einfach das entsprechende Prefab bearbeiten. Diese
+Änderungen werden automatisch auf alle Instanzen dieses Prefabs angewendet, die in Ihrer Szene verwendet werden. Prefabs
+sind ein unverzichtbares Werkzeug für die effektive Spieleentwicklung in Unity, da
+
+sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich effizienter machen. Durch ihre Verwendung
+können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
+von Game-Objekten optimieren.
+
 \subsection{Nutzung von QR-Codes}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente
 zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu
@@ -728,9 +749,12 @@ Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwe
 ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
 
 \item \textbf{Instanzierung des QRCode-Objekts:}
-Anschließend wird ein Objekt instanziiert, das den erkannten QR-Code repräsentiert. Dieses Objekt wird oft als
-QR-Objekt bezeichnet und enthält visuelle Darstellungen, Interaktionsmöglichkeiten und weitere Informationen über das
-zugeordnete Objekt enthalten. Durch die Instanzierung kann der erkannte QR-Code in die virtuelle Umgebung integriert werden.
+Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
+
+Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
+Darstellungen, Interaktionsmöglichkeiten und weitere relevante Informationen über den zugehörigen QR-Code. Die Instanziierung
+ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
+von QR-Codes finden Sie in Abschnitt \ref{sec:qr_visualization}.
 
 \item \textbf{Aktualisierung der Eigenschaftenanzeige:}
 Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
@@ -746,11 +770,11 @@ Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstel
 Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen als Repräsentationen
 der realen Objekte, die wir in der virtuellen Welt darstellen möchten.
 
-Wie in Abbildung 1 zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
+Wie in Abbildung X zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
 die der Benutzer in sein Inventar aufnehmen kann. Wenn der Benutzer einen Bauklotz aufhebt und ihn der HoloLens nähert, wird
 der QR-Code gescannt. Dadurch werden Informationen wie das zugehörige 3D-Modell, der Wert, das Gewicht und der Name des
 Gegenstands angezeigt. Auf diese Weise können wir eine nahtlose Verbindung zwischen der realen und der virtuellen Welt
-herstellen und dem Benutzer eine interaktive Erfahrung bieten.
+herstellen und dem Benutzer eine interaktive Erfahrung bieten. %TODO Abbildung X umbenennen
 
 Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren, aufzuheben und zu fühlen. Diese sensorische
 Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
@@ -761,6 +785,20 @@ zu ermöglichen.
 
 \subsubsection{Visualisierung von QR-Codes}
 %TODO: Bild von einem QR Prefab einfügen
+Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, steht die Aufgabe an, ihre Visualisierung in der virtuellen Welt umzusetzen.
+
+Hierfür wird die Funktionalität von Unity Prefabs genutzt. Diese ermöglichen die Erstellung visueller Repräsentationen
+der QR-Codes und ihre nahtlose Integration in die virtuelle Umgebung. Weitere Informationen zu Prefabs und ihrer Funktionsweise
+finden Sie im Abschnitt \ref{Unity Prefabs}.
+
+Innerhalb jedes Prefabs sind alle relevanten Informationen enthalten, die für die korrekte Darstellung des QR-Codes
+erforderlich sind. Dazu gehören nicht nur das 3D-Modell des QR-Codes, sondern auch zugehörige Daten wie Name, Wert und
+Gewicht. Diese Daten sind entscheidend für die Interaktionen innerhalb der virtuellen Umgebung.
+
+Um die Funktionalität des QR-Codes in der virtuellen Welt zu gewährleisten, wird dem Prefab das Skript '\textit{QRCodes.cs} zugewiesen.
+Dieses Skript steuert die visuelle Darstellung des QR-Codes sowie sämtliche Interaktionen, die damit verbunden sind. Durch
+die Zuweisung dieses Skripts wird sichergestellt, dass die QR-Codes nicht nur korrekt angezeigt, sondern auch innerhalb
+der virtuellen Umgebung interaktiv sind.
 
 \subsubsection{Zugriff auf QR-Codes erteilen}
 
@@ -2330,11 +2368,5 @@ um sicherzustellen, dass die Implementierung des Knapsack-Algorithmus korrekt fu
 Dabei wird die rekursive Implementierung KnapsackMaxValueRecursive als Vergleich verwendet, um sicherzustellen, dass
 auch die iterative Implementierung KnapsackMaxValue korrekt ist.
 
-
-
-
-
-
-%TODO Beschreibung der Unit-Tests
 
 %Performance-Messung
