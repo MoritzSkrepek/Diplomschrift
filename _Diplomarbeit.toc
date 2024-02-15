@@ -89,45 +89,44 @@
 \contentsline {subsubsection}{\numberline {4.5.4.2}Startverzögerung}{36}{subsubsection.229}%
 \contentsline {subsubsection}{\numberline {4.5.4.3}Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}{37}{subsubsection.241}%
 \contentsline {subsection}{\numberline {4.5.5}Inventory Controller Game Objekt}{42}{subsection.337}%
-\contentsline {subsubsection}{\numberline {4.5.5.1}InventoryController Klassenvariablen}{42}{subsubsection.340}%
-\contentsline {subsubsection}{\numberline {4.5.5.2}Start des InventoryControllers}{43}{subsubsection.358}%
-\contentsline {subsubsection}{\numberline {4.5.5.3}Neue Bounds setzen}{43}{subsubsection.369}%
-\contentsline {subsubsection}{\numberline {4.5.5.4}Bounds des Inventars ermitteln}{44}{subsubsection.380}%
-\contentsline {subsubsection}{\numberline {4.5.5.5}Inventory Bounds erweitern}{44}{subsubsection.388}%
-\contentsline {subsubsection}{\numberline {4.5.5.6}ID Grid Initialisierung}{45}{subsubsection.396}%
-\contentsline {subsubsection}{\numberline {4.5.5.7}Update Funktion}{45}{subsubsection.402}%
-\contentsline {subsubsection}{\numberline {4.5.5.8}Funktion für neue Items innerhalb des Bounds}{45}{subsubsection.408}%
-\contentsline {subsubsection}{\numberline {4.5.5.9}Berechnen der Position im idGrid anhand der Koordinaten}{48}{subsubsection.481}%
-\contentsline {subsubsection}{\numberline {4.5.5.10}Hilfsfunktionen}{49}{subsubsection.491}%
-\contentsline {subsection}{\numberline {4.5.6}Knapsack Solver Game Objekt}{50}{subsection.522}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Klassenvariablen KnapsackScript}{50}{subsubsection.524}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Start des KnapsackScripts}{51}{subsubsection.537}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Set Inventory und Start der Berechnung}{51}{subsubsection.544}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Start der Berechnung}{51}{subsubsection.551}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Wert des eigenen Inventars}{52}{subsubsection.578}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Knapsack Algorithmus Definition}{53}{subsubsection.608}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Problemstellung}{53}{subsubsection.609}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Algorithmus}{53}{subsubsection.610}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}Anwendungen}{53}{subsubsection.611}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Knapsack Algorithmus Implementierung}{53}{subsubsection.612}%
-\contentsline {subsection}{\numberline {4.5.7}Best Solution Prefab Game Objekt}{58}{subsection.691}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Script aufruf}{59}{subsubsection.695}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}Klassenvariablen PerfectSolutionVisualizer}{59}{subsubsection.697}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{60}{subsubsection.711}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Setzen der neuen Position der perfekten Lösung}{60}{subsubsection.732}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Perfekte Lösung füllen}{61}{subsubsection.741}%
-\contentsline {subsection}{\numberline {4.5.8}Unit-Tests}{62}{subsection.777}%
-\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{62}{section.778}%
-\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{62}{subsection.779}%
-\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{62}{subsection.780}%
-\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{62}{subsection.781}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{73}{chapter.877}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{73}{section.878}%
-\contentsline {section}{\numberline {5.2}Abnahme}{73}{section.879}%
-\contentsline {section}{\numberline {5.3}Zukunft}{73}{section.880}%
-\contentsline {chapter}{\numberline {A}Mockups}{74}{appendix.881}%
-\contentsline {section}{\numberline {A.1}UI/UX}{74}{section.882}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{74}{section.883}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{74}{section.884}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{74}{section.885}%
-\contentsline {chapter}{\numberline {B}Literatur}{75}{appendix.886}%
+\contentsline {subsubsection}{\numberline {4.5.5.1}InventoryController Klassenvariablen}{42}{subsubsection.339}%
+\contentsline {subsubsection}{\numberline {4.5.5.2}Start des InventoryControllers}{43}{subsubsection.357}%
+\contentsline {subsubsection}{\numberline {4.5.5.3}Bounds des Inventars aktuallisieren}{43}{subsubsection.368}%
+\contentsline {subsubsection}{\numberline {4.5.5.4}Bounds des Inventars ermitteln}{44}{subsubsection.379}%
+\contentsline {subsubsection}{\numberline {4.5.5.5}Inventory Bounds erweitern}{44}{subsubsection.386}%
+\contentsline {subsubsection}{\numberline {4.5.5.6}ID Grid Initialisierung}{45}{subsubsection.394}%
+\contentsline {subsubsection}{\numberline {4.5.5.7}Update-Funktion}{45}{subsubsection.400}%
+\contentsline {subsubsection}{\numberline {4.5.5.8}Neue oder entfernte Items erkennen}{46}{subsubsection.406}%
+\contentsline {subsection}{\numberline {4.5.6}EventManager}{51}{subsection.517}%
+\contentsline {subsection}{\numberline {4.5.7}Knapsack Solver Game Objekt}{51}{subsection.518}%
+\contentsline {subsubsection}{\numberline {4.5.7.1}Klassenvariablen KnapsackScript}{52}{subsubsection.520}%
+\contentsline {subsubsection}{\numberline {4.5.7.2}Start des KnapsackScripts}{52}{subsubsection.533}%
+\contentsline {subsubsection}{\numberline {4.5.7.3}Set Inventory und Start der Berechnung}{52}{subsubsection.540}%
+\contentsline {subsubsection}{\numberline {4.5.7.4}Start der Berechnung}{53}{subsubsection.547}%
+\contentsline {subsubsection}{\numberline {4.5.7.5}Wert des eigenen Inventars}{53}{subsubsection.574}%
+\contentsline {subsubsection}{\numberline {4.5.7.6}Knapsack Algorithmus Definition}{54}{subsubsection.604}%
+\contentsline {subsubsection}{\numberline {4.5.7.7}Problemstellung}{55}{subsubsection.605}%
+\contentsline {subsubsection}{\numberline {4.5.7.8}Algorithmus}{55}{subsubsection.606}%
+\contentsline {subsubsection}{\numberline {4.5.7.9}Anwendungen}{55}{subsubsection.607}%
+\contentsline {subsubsection}{\numberline {4.5.7.10}Knapsack Algorithmus Implementierung}{55}{subsubsection.608}%
+\contentsline {subsection}{\numberline {4.5.8}Best Solution Prefab Game Objekt}{60}{subsection.687}%
+\contentsline {subsubsection}{\numberline {4.5.8.1}Script aufruf}{60}{subsubsection.691}%
+\contentsline {subsubsection}{\numberline {4.5.8.2}Klassenvariablen PerfectSolutionVisualizer}{60}{subsubsection.693}%
+\contentsline {subsubsection}{\numberline {4.5.8.3}Start des PerfectSolutionVisualizer}{61}{subsubsection.707}%
+\contentsline {subsubsection}{\numberline {4.5.8.4}Setzen der neuen Position der perfekten Lösung}{62}{subsubsection.728}%
+\contentsline {subsubsection}{\numberline {4.5.8.5}Perfekte Lösung füllen}{62}{subsubsection.737}%
+\contentsline {subsection}{\numberline {4.5.9}Unit-Tests}{63}{subsection.773}%
+\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{63}{section.774}%
+\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{63}{subsection.775}%
+\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{64}{subsection.776}%
+\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{64}{subsection.777}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{74}{chapter.873}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{74}{section.874}%
+\contentsline {section}{\numberline {5.2}Abnahme}{74}{section.875}%
+\contentsline {section}{\numberline {5.3}Zukunft}{74}{section.876}%
+\contentsline {chapter}{\numberline {A}Mockups}{75}{appendix.877}%
+\contentsline {section}{\numberline {A.1}UI/UX}{75}{section.878}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{75}{section.879}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{75}{section.880}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{75}{section.881}%
+\contentsline {chapter}{\numberline {B}Literatur}{76}{appendix.882}%

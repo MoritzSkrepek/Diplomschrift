@@ -1156,37 +1156,37 @@ anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt)
 \end{figure}
 
 \subsection{Inventory Controller Game Objekt}
-Das \textit{Inventory Controller} Game Objekt spielt eine entscheidende Rolle bei der Überwachung und Verwaltung des
-Inventars in der Augmented Reality (AR)-Anwendung. Durch das angehängte \textit{InventoryController.cs} Script wird die
-\textbf{InventoryController} Klasse realisiert. Diese Klasse ist verantwortlich für die Erkennung neuer Gegenstände im
-Inventar, die Überprüfung auf verfügbaren Platz im Inventar, die Berechnung der Zellenposition anhand der QR-Code-Koordinaten
-und die Speicherung der Positionen dieser Items in einem \textit{2D Array}.
+Das \textit{Inventory Controller} Game Objekt nimmt eine essenzielle Rolle bei der Überwachung und Verwaltung des Inventars
+in der Augmented Reality (AR)-Anwendung ein. Durch das angehängte Skript \textit{InventoryController.cs} wird die
+\textbf{InventoryController}-Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
+erkennen, den verfügbaren Platz zu überprüfen, die Zellenposition anhand der QR-Code-Koordinaten zu berechnen und die
+Positionen dieser Gegenstände in einem \textit{2D Array} zu speichern.
 
-Der Zugriff auf die Begrenzungen (\textit{Bounds}) des Inventarmodells ermöglicht es, ständig zu überwachen, ob der
-Benutzer ein neues Element in das Inventar gelegt hat. Dieser Ansatz gewährleistet eine präzise Kontrolle über die
+Der Zugriff auf die Begrenzungen (\textit{Bounds}) des Inventar-Modells ermöglicht eine kontinuierliche Überwachung, ob
+der Benutzer ein neues Element in das Inventar gelegt hat. Dieser Ansatz gewährleistet eine präzise Kontrolle über die
 Platzierung von Gegenständen im Inventar.
 
-Das \textit{InventoryController.cs} Script interagiert dabei aktiv mit den AR-Elementen, insbesondere den QR-Codes, um
-den Platzbedarf der Gegenstände zu überwachen und ihre Positionen im Inventar festzulegen. Zusätzlich interagiert der
-\textit{InventoryController} auch mit dem \textit{KnapsackAlgo} Game Objekt, in dem es das verspeicherte \textit{2D Array}
-immer weitergibt um damit rechnen zu können.\\
+Das Skript \textit{InventoryController.cs} interagiert aktiv mit den AR-Elementen, insbesondere den QR-Codes, um den
+Platzbedarf der Gegenstände zu überwachen und ihre Positionen im Inventar festzulegen. Zusätzlich kommuniziert der
+\textit{InventoryController} auch mit dem Game Objekt \textit{KnapsackSolver}, indem er das gespeicherte \textit{2D Array}
+weitergibt, um entsprechende Berechnungen durchführen zu können.
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.8]{images/invCon_Editor}
-    \caption{IventoryController Objekt im Editor}
-    \label{fig:InventoryController_Editor}
+\centering
+\includegraphics[scale=0.8]{images/invCon_Editor}
+\caption{InventoryController Objekt im Editor}
+\label{fig:InventoryController_Editor}
 \end{figure}
 
-Die Abbildung \ref{fig:InventoryController_Editor} zeigt das \textit{iventoryController}-Objekt im Unity Editor.  Hier
-können verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten
-im Unity Editor und die angehängte Komponente \textit{InventoryController.cs}. Zudem sind vordefinierte Werte für bestimmte
+Abbildung \ref{fig:InventoryController_Editor} zeigt das \textit{InventoryController}-Objekt im Unity Editor. Hier können
+verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten im Unity
+Editor und die angehängte Komponente \textit{InventoryController.cs}. Zudem sind vordefinierte Werte für bestimmte
 Variablen sichtbar. Diese Variablen umfassen:
-
 \begin{itemize}
-    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
-    \item \textbf{Knapsack Solver Game Objekt:} Referenz auf das \textit{KnapsackAlgo} Game Objekt aus der Level 2 Szene.
-    \item \textbf{Vertical Offset:} Float Wert um den die Bounds\footnote{Unity \cite{Bounds}} des Inventory Objekts auf der X-Achso erweitert werden.\\
+    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager}-Game-Objekt aus der Level 2 Szene.
+    \item \textbf{Knapsack Solver Game Objekt:} Referenz auf das \textit{KnapsackAlgo}-Game-Objekt aus der Level 2 Szene.
+    \item \textbf{Vertical Offset:} Float-Wert, um den die Begrenzungen (\textit{Bounds}) des Inventory-Objekts auf der
+    X-Achse erweitert werden.
 \end{itemize}
 
 \subsubsection{InventoryController Klassenvariablen}
@@ -1202,36 +1202,53 @@ private Bounds inventoryBounds;
 private int numRows = 3;
 private int numColumns = 3;
 private int[,] idGrid;
-private KnapsackScript knapsackScript;
+private KnapsackSolver knapsackSolver;
 private int cap;
 private int currWeight = 0;
 private string message;
 private HashSet<int> processedItems;
-\end{lstlisting}
-Die gezeigten Klassenvariablen in Codeabschnitt \ref{code:controller_var} sind Teil der \textit{InventoryController} Klasse.
-Öffentliche(\textbf{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben werden
-oder von anderen Klassen für die funktionalität gebraucht werden. Dies ermöglicht einen direkten Zugriff auf diese Objekte in der
-eigenen oder einer anderen Klasse. Die float-Variable \textit{verticalOffset} spielt hier eine
-wichtige Rolle, für die erweiterung der \textit{Bounds} von dem Inventar Modell. Die privaten (\textbf{private}) Variablen dienen
-der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt werden.\\
+\end{lstlisting}\\
+Die gezeigten Klassenvariablen im Codeabschnitt \ref{code:controller_var} sind Teil der \textit{InventoryController} Klasse.
+Öffentliche (\textit{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben
+werden oder von anderen Klassen für die Funktionalität benötigt werden. Dies ermöglicht einen direkten Zugriff auf diese
+Objekte in der eigenen oder einer anderen Klasse. Die Float-Variable \textit{verticalOffset} spielt hier eine wichtige
+Rolle für die Erweiterung der Begrenzungen (\textit{Bounds}) des Inventar-Modells.
+
+Die privaten (\textit{private}) Variablen dienen der lokalen Speicherung von Werten, die von keiner anderen Klasse
+benötigt werden.
 
 \subsubsection{Start des InventoryControllers}
+
+Die \textbf{Start()} Funktion spielt eine Schlüsselrolle beim Initialisieren der erforderlichen Objekte und Skripte für
+den erfolgreichen Start des \textit{InventoryControllers}. Diese Funktion wird zu Beginn des \textit{InventoryControllers}
+aufgerufen und ist verantwortlich für die Deklaration und Einrichtung der notwendigen Komponenten. Entsprechender Code
+dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Start Funktion des InventoryControllers}, label=code:controller_start]
 void Start()
 {
     activeQRObjects = QRCodeManager.GetComponent<QRCodesVisualizer>().qrCodesObjectsList;
-    knapsackScript = knapsackSolverGameObject.GetComponent<KnapsackScript>();
-    cap = knapsackScript.capacity;
+    knapsackSolver = knapsackSolverGameObject.GetComponent<KnapsackSolver>();
+    cap = knapsackSolver.capacity;
     processedItems = new HashSet<int>();
     UpdateInventoryBounds();
     InitializeIDGrid();
 }
-\end{lstlisting}
-Die \textbf{Start()} Funktion wird zu Beginn des Inventory Controllers aufgerufen und aufgeführt. Hier werden die
-wichtigen Objekte die für den weiteren Verlauf des Programms notwendig sind deklariert beziehungsweise erstellt und
-ebenfalls werden die beiden Funktionen \textbf{UpdateInventoryBounds()} und \textbf{InitializeIDGRid()} aufgerufen.\\
+\end{lstlisting}\\
+Die Objekte, die in dieser Funktion initialisiert werden, umfassen \textit{activeQRObjects}, die für das Erkennen neuer
+Objekte im Inventar entscheidend sind. Zur Weitergabe des aktualisierten Inventars im späteren Verlauf des
+\textit{InventoryController} wird das \textit{KnapsackSolver}-Objekt benötigt. Des Weiteren werden die Kapazität
+(\textit{cap}) des \textit{KnapsackSolver}-Objekts gespeichert und ein \textit{processedItems-HashSet} erstellt, um zu
+verfolgen, welche Objekte im Inventar bereits verarbeitet wurden. Am Ende der \textbf{Start()} Funktion werden die beiden
+Funktionen \textbf{UpdateInventoryBounds()} und \textbf{InitializeGrid()} aufgerufen.
 
-\subsubsection{Neue Bounds setzen}
+Es ist wichtig zu betonen, dass diese Funktion unmittelbar auf den vorherigen Codeabschnitt \ref{code:controller_var}
+verweist, wo die relevanten Variablen der \textit{InventoryController}-Klasse definiert sind. Dies stellt sicher, dass
+die Funktionalitäten, die in der \textbf{Start()} Funktion verwendet werden, korrekt initialisiert und verwendet werden
+können.
+
+\subsubsection{Bounds des Inventars aktuallisieren}
+Um sicherzustellen, dass ein Item innerhalb der Grenzen des Inventars platziert werden kann, werden in der\textbf{UpdateInventoryBounds()}
+Funktion einige Änderungen an dem Inventar-Objekt vorgenommen um dies zu realisieren.
 \begin{lstlisting}[style=csharp, caption={Funktion um Inventar Bounds zu erweitern}, label=code:controller_updateBounds]
 private void UpdateInventoryBounds()
 {
@@ -1243,77 +1260,104 @@ private void UpdateInventoryBounds()
     }
 }
 \end{lstlisting}
-Um zu erreichen, dass man ein Item wirklich in die Bounds des Inventars legen kann wird in der \textbf{UpdateInventoryBounds()}
-Funktion genau dies ausgeführt. Es werden die aktuellen Bounds des Inventars gespeichert und diese werden dann mittels
-der \textbf{ExtendBounds()} Funktion erweitert und anschließend werden diese Bounds als neue Bounds gespeichert.\\
+Zunächst werden die aktuellen Begrenzungen des Inventar-Objekts gespeichert, und dann werden sie mittels der \textbf{ExtendBounds()}
+Funktion erweitert. Schließlich werden diese aktualisierten Begrenzungen als neue Begrenzungen gespeichert.
+
+Diese Funktion wird in einem größeren Kontext verwendet, insbesondere in der \textbf{Start()} Funktion des \textit{InventoryControllers},
+wie in Codeabschnitt \ref{code:controller_start} zu sehen ist. Dies stellt sicher, dass die Begrenzungen des Inventars
+korrekt aktualisiert werden, bevor das Inventar für den weiteren Gebrauch vorbereitet wird.
 
 \subsubsection{Bounds des Inventars ermitteln}
+Um erfolgreich auf die Begrenzungen des Inventar-Objekts zugreifen zu können, wird die Funktion \textbf{GetBounds()}
+aufgerufen.
+
+Diese Funktion ist entscheidend, da sie den \textit{Renderer} des Inventar-Modells verwendet, um die Begrenzungen zu ermitteln.
+Der Renderer ist verantwortlich für die Darstellung des Modells im Spiel. Wenn der Renderer vorhanden ist
+(\textit{renderer != null}), gibt die Funktion die Begrenzungen des Modells zurück. Andernfalls wird eine neue Bounds-Instanz
+erstellt, die die Position des Objekts und eine Einheitsgröße hat.
+
 \begin{lstlisting}[style=csharp, caption={Funktion um Bounds zu ermitteln}, label=code:controller_getBounds]
 private Bounds GetBounds(GameObject obj)
 {
     Renderer renderer = obj.GetComponent<Renderer>();
     return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
 }
-\end{lstlisting}
-Die von \ref{code:controller_updateBounds} aufgerufene Funktion \textbf{GetBounds()} greift auf den Renderer\footnote{Unity \cite{Renderer}}
-des Inventar Modells zu um dadurch auf die Bounds zuzugreifen zu können, denn der Renderer ist dafür verantwortlich,
-dass das Modell überhaupt sichtbar ist. Wenn dieser Renderer ungleich \textbf{null} ist, gibt er die neuenn Bounds zurück und speichert
-sie in \textit{localBounds} von Codeabschnitt \ref{code:controller_updateBounds}.\\
+\end{lstlisting}\\
+Die Funktion \textbf{GetBounds()}, wie in Codeabschnitt \ref{code:controller_getBounds} dargestellt, wird von
+Codeabschnitt \ref{code:controller_updateBounds} aufgerufen, um die aktuellen Begrenzungen des Inventars zu erhalten.
+Diese Begrenzungen werden dann verwendet, um die Bounds des Inventars zu erweitern.
 
 \subsubsection{Inventory Bounds erweitern}
+Im weiteren Verlauf der \textbf{UpdateInventoryBounds()} Funktion, also nach dem Abschluss des Aufrufs der \textbf{GetBounds()}
+Funktion, wird anschließend die Funktion \textbf{ExtendBounds()} aufgerufen (siehe Codeabschnitt \ref{code:controller_extendBounds}),
+die sich darum kümmert, dass die \textit{Bounds} tatsächlich erweitert werden. Der zugehörige Code dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Funktion um Bounds zu erweitern}, label=code:controller_extendBounds]
 private void ExtendBounds(ref Bounds bounds, float offset)
 {
     bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
     bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
 }
-\end{lstlisting}
-Um anschließend diese Bounds zu erweitern um zu erkennen ob QR-Koordinaten innerhalb von diesen Bounds ist wird die von
-\ref{code:controller_updateBounds} aufgerufene Funktion \textbf{ExtendBounds()} ausgeführt. Diese Funktion erzielt, dass die
-Bounds von dem Inventar Modell auf der X-Achso um das \textit{Vertical Offset} erweitert werden. Nach Abschluss dieser Funktion
-sehen die Bounds von diesem Modell dann folgendermaßen aus:
+\end{lstlisting}\\
+Diese Funktion nimmt zwei Parameter an. Der erste Parameter ist eine \textit{Referenz} auf die \textit{Bounds} des
+Inventar-Objekts. Die Verwendung der Referenz ermöglicht es, die Änderungen direkt an den ursprünglichen Bounds des
+Inventar-Objekts vorzunehmen, was effizienter ist als die Rückgabe einer neuen Bounds-Instanz. Der zweite Parameter ist
+das \textit{Offset}, um das die \textit{Bounds} des Objekts erweitert werden sollen.
+
+Der Code der Funktion erweitert die Grenzen (\textit{Bounds}) des Inventar-Objekts um das angegebene Offset. Dies geschieht,
+indem der Mittelpunkt der Bounds und ihre Ausdehnung entsprechend modifiziert werden. Die Höhe der Bounds wird um die
+Hälfte des Offset-Werts erhöht, um die Bounds sowohl nach oben als auch nach unten zu erweitern, während die anderen
+Dimensionen unverändert bleiben.
+
+Nach Abschluss der \textbf{UpdateInventoryBounds()} (siehe Codeabschnitt \ref{code:controller_updateBounds}) sehen die
+aktualisierten Bounds im Hintergrund dann wie auf Abbildung \ref{fig:extended_inventoryBounds} zu sehen aus.
 \begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{images/extendedBounds}
-    \caption{Erweiterte Bounds des Inventar Modells}
-    \label{fig:extended_inventoryBounds}
+\centering
+\includegraphics[scale=0.4]{images/extendedBounds}
+\caption{Erweiterte Bounds des Inventar Modells}
+\label{fig:extended_inventoryBounds}
 \end{figure}
+Diese Abbildung zeigt eine schematische Darstellung des zweidimensionalen Inventars. Die blaue Umrandung repräsentiert
+die \textit{Bounds} des Inventar-Objekts vor der Ausführung der Funktion \textbf{UpdateInventoryBounds()}. Nach ausführung
+der Funktion und erweiterung der \textit{Bounds} ist nun anhand der blauen Umrandung deutlich, dass insbesondere die
+\textit{Bounds} entlang der X-Achse erweitert wurden.
 
-Auf der Abbildung \ref{fig:extended_inventoryBounds} ist eine einfache schematische Zeichnung des zweidimensionalen Inventars zu sehen. Die
-blaue Umrandung repräsentiert die Begrenzungen (Bounds) vor der Ausführung der Funktion \textbf{UpdateInventoryBounds()}
-aus dem Codeabschnitt \ref{code:controller_updateBounds}. Nachdem die Funktion ausgeführt wurde, wird die rote Umrandung
-dargestellt. Durch die neuen Bounds wird deutlich, dass insbesondere die Begrenzung entlang der X-Achse erweitert wurde.
-
-Die Erweiterung der Bounds ist von entscheidender Bedeutung, da nicht erweiterte Bounds die Höhe der Bauklötze nicht
-berücksichtigen würden. Dies könnte dazu führen, dass ein QR-Code, der sich tatsächlich innerhalb der Bounds befindet,
-als außerhalb betrachtet wird, wenn die Höhe der Bauklötze nicht angemessen einbezogen wird.
+Die Erweiterung der Bounds ist von entscheidender Bedeutung, da die standard \textit{Bounds} des Inventar-Objekts die
+Höhe des Objekts, auf dem der QRCode befestigt ist, nicht berücksichtigen. Dies könnte dazu führen, dass ein Gegenstand,
+der sich tatsächlich innerhalb der Bounds befindet, als außerhalb betrachtet wird.
 
 Diese Anpassungen sind wichtig, um sicherzustellen, dass die Begrenzungen des Inventars korrekt erfasst werden und somit
-eine präzise Verortung von QR-Codes innerhalb der Augmented-Reality-Anwendung gewährleistet ist.\\
+eine präzise Verortung von QR-Codes innerhalb der Augmented-Reality-Anwendung gewährleistet ist.
 
 \subsubsection{ID Grid Initialisierung}
+Als Abschluss der \textbf{Start()} Funktion wird die \textbf{InitializeIDGrid()} Funktion die, im folgenden Codeabschnitt
+\ref{code:controller_initialize} dargestellt ist, aufgerufen.
 \begin{lstlisting}[style=csharp, caption={Initialisierung des idGrids}, label=code:controller_initialize]
 private void InitializeIDGrid()
 {
     idGrid = new int[numRows, numColumns];
 }
-\end{lstlisting}
-Die in Codeabschnitt \ref{code:controller_start} aufgerufene Funktion initialisiert das idGrid mit \textit{numRows} und
-\textit{numColumns} also wird das idGrid als \textit{int [3,3]} initialisiert.\\
+\end{lstlisting}\\
+Diese Funktion initialisiert das \textit{idGrid}, das ein zweidimensionales Array darstellt und dazu dient, die Positionen
+der Gegenstände im Inventar zu speichern. Die Größe des Arrays wird durch die Variablen \textit{numRows} und \textit{numColumns}
+festgelegt, die zuvor in der Klasse definiert wurden.
 
-\subsubsection{Update Funktion}
+\subsubsection{Update-Funktion}
+Um stets den aktuellen Zustand des Inventars und der darin enthaltenen \textit{Items} zu erhalten, wird hier die \textbf{Update()}
+Funktion verwendet. Diese Funktion wird jeden Frame neu aufgerufen. Der zugehörige Code dazu:
 \begin{lstlisting}[style=csharp, caption={Initialisierung des idGrids}, label=code:controller_update]
 void Update()
 {
     UpdateGrid();
 }
 \end{lstlisting}
-Nach Abschluss des Codes aus Codeabschnitt \ref{code:controller_start} wird anschließend die \textit{Lebenszyklusmethode}
-\textbf{Update()} ausgeführt. Diese Funktion ruft jeden Frame die \textbf{UpdateGrid()} Funktion auf, auf die im nächsten
-Abschnitt genau eingegangen wird.\\
 
-\subsubsection{Funktion für neue Items innerhalb des Bounds}
-\begin{lstlisting}[style=csharp, caption={Code fuer ueberpruefen neuer Items im Inventar}, label=code:controller_check]
+\subsubsection{Neue oder entfernte Items erkennen}
+Das Kernstück des \textit{InventoryController} stellt die \textbf{UpdateGrid()} dar. Diese Funktion ist hauptverantwortlich
+dafür, dass neue \textit{Items} innerhalb des Inventars erkannt werden, \textit{Items} die aus dem Inventar entfernt
+wurden dementsprechend entfernt werden und auch, dass bei jedem neuem oder entferntem \textit{Item} das Invetar neu
+berechnet wird und darauffolgend die drei \textit{TextMeshes} innerhalb des \textit{infoObjects} aktualisiert werden, um
+dem Benutzer immer  die aktuellen Inventarwerte und potentielle Fehlermeldungen anzuzeigen. Der Code zu dieser Funktion:
+\begin{lstlisting}[style=csharp, caption={Neue / Entfernte Items erkennen}, label=code:controller_updateGrid]
 void UpdateGrid()
 {
     lock (activeQRObjects)
@@ -1322,11 +1366,9 @@ void UpdateGrid()
         {
             QRCode qRCode = item.GetComponent<QRCode>();
             Vector3 worldPosition = item.transform.TransformPoint(qRCode.item.qrData.position);
-
             if (item != null && inventoryBounds.Contains(worldPosition))
             {
                 int itemId = qRCode.item.qrData.id;
-
                 if (!processedItems.Contains(itemId))
                 {
                     if (currWeight + qRCode.item.qrData.weight <= cap)
@@ -1335,14 +1377,14 @@ void UpdateGrid()
                         message = " ";
                         Vector2 startGridPosition = CalculateGridPosition(worldPosition);
                         idGrid[(int)startGridPosition.x, (int)startGridPosition.y] = itemId;
-                        knapsackScript?.UpdateInfoMesh(message);
+                        knapsackSolver?.UpdateInfoMesh(message);
                         currWeight += qRCode.item.qrData.weight;
                         EventManager.GridUpdate(idGrid);
                     }
                     else
                     {
                         message = "Item hat zu viel Gewicht!";
-                        knapsackScript?.UpdateInfoMesh(message);
+                        knapsackSolver?.UpdateInfoMesh(message);
                     }
                 }
             }
@@ -1355,132 +1397,93 @@ void UpdateGrid()
                 EventManager.GridUpdate(idGrid);
             }
         }
-        PrintGrid();
     }
 }
-\end{lstlisting}
-Die vorliegende Funktion, \texttt{UpdateGrid()}, ist maßgeblich für die Überwachung und Verwaltung von neu hinzugefügten
-oder entfernten Items im Inventar verantwortlich. Zu Beginn eines jeden Frames wird das \texttt{activeQRObjects}-Dictionary
-gesperrt, um Thread-Sicherheit zu gewährleisten. Anschließend erfolgt eine Iteration durch jedes Element in diesem Dictionary
-mittels einer \texttt{foreach}-Schleife.\\
-
-Innerhalb dieser Schleife wird für jedes Objekt die zugehörige \texttt{QRCode}-Komponente extrahiert, und die Weltposition
-des Objekts wird durch Transformation der lokalen Position des QR-Codes unter Berücksichtigung der Transformation des
-übergeordneten Objekts berechnet.\\
-
-Die Hauptüberprüfung erfolgt daraufhin, ob das aktuelle Item nicht null ist und ob seine Weltposition innerhalb der durch
-\texttt{inventoryBounds} definierten Grenzen liegt. Wenn diese Bedingungen erfüllt sind, wird das Item als "hinzugefügt"
-betrachtet.\\
-
-Im weiteren Verlauf wird überprüft, ob die ID des Items bereits in der Menge der verarbeiteten Items (\texttt{processedItems})
-vorhanden ist. Falls nicht, wird überprüft, ob das Hinzufügen des Items das aktuelle Gesamtgewicht (\texttt{currWeight})
-zusammen mit dem Gewicht des Items unter die maximale Kapazität (\texttt{cap}) bringt.\\
-
-Wenn diese Bedingungen erfüllt sind, wird das Item in die Menge der verarbeiteten Items aufgenommen, eine Nachricht wird
-auf Leer gesetzt, das \textit{currWeight} wird um das Gewicht des verarbeiteten Items erweitertund die Position des
-Items im zweidimensionalen Array \texttt{idGrid} wird aktualisiert. Zusätzlich wird die Anzeige des Inventars durch den
-Aufruf der Methode \texttt{UpdateInfoMesh} des \texttt{knapsackScript}aktualisiert, und das aktuelle Gewicht des Inventars
-wird entsprechend angepasst. Schließlich wird das Event\textbf{GridUpdate()} des \textit{EventManager} ausgelöst. Dieses
-Event ist maßgäblich für das Übergeben des \textit{idGrid}and das \textit{knapsackScript} für die weitere Verarbeitung.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.6]{images/itemAdded}
-    \caption{Item zu Inventar hinzugefügt}
-    \label{fig:controller_itemAdded}
-\end{figure}
-
-In Abbildung \ref{fig:controller_itemAdded} ist der Zustand nach dem Hinzufügen eines Items dargestellt. In Zelle 7 wurde
-das Item mit der \textit{ID: 1} hinzugefügt. Nach dem Hinzufügen des Items wird der \textit{Knapsack Algorithmus} ausgelöst
-und anschließend die beiden TextMehes aktualisiert, indem in dem oberen TextMesh der maximal erreichbare Wert angezeigt wird
-und in dem unteren der Wert des selbst zusammengestellten Inventars.\\
-
-Nachdem das Item im Inventar platziert wurde sieht nun dass \textit{idGrid} folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
-int idGrid = [[0, 0, 0],
-              [0, 0, 0],
-              [1, 0, 0]];
 \end{lstlisting}\\
+Zu Beginn der Funktion wird eine Sperre mittels einer \textit{lock}-Anweisung auf das \textit{Dictionary} der aktiven
+QR-Objekte (\textit{activeQRObjects}) angewendet. Diese Maßnahme zielt darauf ab, die Datenkonsistenz zu gewährleisten,
+indem verhindert wird, dass mehrere \textit{Threads} gleichzeitig auf dieses \textit{Dictionary} zugreifen und dabei
+gleichzeitig Änderungen vornehmen. Ohne diese Sperre könnte es zu einem sogenannten Wettlaufzustand (\textit{race condition})
+kommen, bei dem mehrere Threads versuchen, gleichzeitig auf dasselbe Datenobjekt zuzugreifen und es möglicherweise in
+einen inkonsistenten Zustand bringen könnten.
 
-Das Hashset \textit{processedItems} sieht nach platzieren des Items dann so aus:
-\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
-processedItems = [1];
-\end{lstlisting}\\
+\subsubsection*{Definition einer race condition}
+Ein Wettlaufzustand kann verschiedene Probleme verursachen, darunter inkonsistente oder fehlerhafte Datenoperationen.
+Als Beispiel könnten Threads gleichzeitig versuchen, ein Element aus dem \textit{Dictionary} zu entfernen oder hinzuzufügen,
+was zu inkonsistenten Datenzuständen führen könnte. Durch die Anwendung der \textit{lock}-Anweisung wird sichergestellt,
+dass jeweils nur ein Thread gleichzeitig auf das \textit{Dictionary} zugreifen kann, wodurch potenzielle Konflikte
+vermieden werden und die Datenintegrität gewährleistet ist.\\
 
-Sollte das Gewicht des hinzugefügten Items die Kapazität überschreiten, wird eine Fehlermeldung generiert, und die
-Aktualisierung des Grids wird unterbunden. Die Fehlermeldung und der resultierende Zustand des Grids sind in Abbildung
-\ref{fig:controller_itemToHeavy} dargestellt.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.6]{images/itemToHeavy}
-    \caption{Item zu schwer}
-    \label{fig:controller_itemToHeavy}
-\end{figure}
+Nachdem die Sperre angewendet wurde, durchläuft die Funktion eine \textit{foreach}-Schleife, um jedes Objekt im Dictionary
+\textit{activeQRObjects} zu durchlaufen. Für jedes dieser Objekte wird die zugehörige \textit{QRCode}-Komponente mittels
+der \textit{GetComponent<QRCode>()} Funktion abgerufen, um auf die spezifischen Informationen des QR-Codes zuzugreifen.
+Die \textit{Weltposition} des Objekts wird anschließend berechnet, indem die \textit{lokale Position} des Objekts in
+seine Weltposition umgerechnet wird.
 
-In Abbildung \ref{fig:controller_itemToHeavy} sind vier verschiedene Items im Inventar enthalten, mit den IDs
-\textit{1, 3, 5, 9}. Die Reihenfolge ihres Hinzufügens zum Inventar war 1, 5, 9, 3. Das Item mit der ID 9 wurde jedoch
-aufgrund seines zu hohen Gewichts nicht zu \textit{idGrid} und \textit{processedItems} hinzugefügt. Gleichzeitig wird
-eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren, dass das zuletzt hinzugefügte Item zu schwer für das
-aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid} und \textit{processedItems} unverändert und enthalten
-daher nicht die ID 9. Im Hintergrund sieht daher das \textit{idGrid} dementsprechend folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={Item zu schwer fuer das Inventar}, label=code:controller_savedIDs]
-int idGrid = [[0, 0, 0],
-              [5, 0, 0],
-              [1, 3, 0]];
-\end{lstlisting}\\
-Das HashSet \textit{processedItems} sieht nach platzieren des Items dann so aus:
-\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedID]
-processedItems = [1, 5, 9];
-\end{lstlisting}\\
-Sobald der Benutzer dieses Item wieder aus dem Inventar entfernt wird die Fehlermeldung nicht mehr angezeigt und es kann
-ein passendes Item hinzugefügt werden.\\
+\subsubsection*{Definition Lokale und Weltposition}
+In Unity bezieht sich die \textit{lokale Position} eines Objekts auf seine Position relativ zu seinem Elternobjekt oder
+dem Koordinatenursprung, wenn es kein Elternobjekt hat. Diese Position wird in Bezug auf die Achsen des Objekts selbst
+angegeben, unabhängig von der Umgebung.
 
-Im alternativen Zweig der Hauptbedingung wird überprüft, ob das Item außerhalb der Inventargrenzen liegt, aber zuvor
-als verarbeitet markiert wurde und weiterhin in \texttt{processedItems} und \texttt{idGrid} vorhanden ist. Dies deutet
-darauf hin, dass das Item aus dem Inventar entfernt wurde. In diesem Fall wird die ID des Items aus \texttt{processedItems}
-und \texttt{idGrid} entfernt, und das Gewicht des Inventars wird entsprechend angepasst. Auch hier wird ein
-\texttt{GridUpdate}-Ereignis ausgelöst.\\
+Die \textit{Weltposition} eines Objekts ist hingegen seine Position im \textit{globalen Koordinatensystem} der Szene. Sie
+berücksichtigt die Position des Objekts \textit{relativ zum Koordinatenursprung der Szene und alle Transformationen},
+die auf das Objekt angewendet wurden, einschließlich der \textit{Verschiebung, Drehung und Skalierung}.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.6]{images/itemEntfernt}
-    \caption{Item aus Inventar entfernt}
-    \label{fig:controller_itemEntfernt}
-\end{figure}
+Die Berechnung der Weltposition eines Objekts erfolgt, indem seine lokale Position relativ zu seiner Elternobjekt oder
+zum Koordinatenursprung in die Szene umgerechnet wird. Dies ermöglicht es, die tatsächliche Position des Objekts in der
+Welt zu bestimmen und mit anderen Objekten oder Koordinaten in der Szene zu interagieren.
 
-In Abbilding \ref{fig:controller_itemEntfernt} ist der aktuelle Zustand eines selbst zusamengestellten Inventars zu sehen. In
-diesem Inventar sind die beiden Items mit den IDs \textit{5, 3} enthalten. Im Hintergrund sieht das \textit{idGrid} jedoch so aus:
-\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDitemEntferntGrid]
-int idGrid = [[0, 0, 0],
-              [5, 0, 0],
-              [1, 3, 0]];
-\end{lstlisting}\\
-Und das HashSet \textit{processedItems} sieht so aus:
-\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDItemEntferntHash]
-processedItems = [1, 5, 3];
-\end{lstlisting}\\
-Anhand der Abbildung \ref{fig:controller_itemEntfernt} und den beiden Codeabschnitten \ref{code:controller_savedIDitemEntferntGrid}
-und \ref{code:controller_savedIDItemEntferntHash} ist aber zu sehen, dass hier noch die ID \textit{1} gespeichert ist.
-Dies bedeutet, dass das Item mit der ID \textit{1} in einem vorherigen Zustand im Inventar platziert wurde aber jetzt außerhalb
-der Bounds des Iventars liegt. Anhand dieser Erkenntnis wird anschließend diese ID aus dem \textit{idGrid} und \textit{processedItems}
-entfernt und das \textit{currWeight} angepasst. Diese sehen nach der Entfernung dieser ID folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={ID trotz nicht vorhandenem Item gespeichert}, label=code:controller_savedIDgg]
-int idGrid = [[0, 0, 0],
-              [5, 0, 0],
-              [0, 3, 0]];
-\end{lstlisting}
-\begin{lstlisting}[style=csharp, caption={ID verspeichert}, label=code:controller_savedIDID]
-processedItems = [5, 3];
-\end{lstlisting}\\
-Schließlich erfolgt der Aufruf der Funktion \textbf{PrintGrid()}, die Testweise für das Debugging enthalten ist
-um aus den Logs herauslesen zu können, wie das \textit{idGrid} aufgebaut ist und welche Items enthalten sind und ob
-die Berechnung und Platzierung richtig abgelaufen ist.
+\begin{quote}
+Angenommen, gegeben ist ein Game Objekt namens \textit{childObject}, dessen lokale Position relativ zu seinem Elternobjekt
+oder zum Koordinatenursprung (0, 0, 0) wie folgt definiert ist:
+\[
+\text{localPosition} = (x_{\text{local}}, y_{\text{local}}, z_{\text{local}})
+\]
+\\
+Die Weltposition des Elternobjekts (oder des Ursprungs) ist gegeben durch:
+\[
+\text{parentWorldPosition} = (x_{\text{parent}}, y_{\text{parent}}, z_{\text{parent}})
+\]
+\\
+Um die Weltposition des \textit{childObjects} zu berechnen, wird stets die \textit{lokale Position} des Objekts zu der
+\textit{Welt Position} seines zugehörigen Elternobjekts addiert.
 
-\subsubsection{Berechnen der Position im idGrid anhand der Koordinaten}
-In Codeabschnitt \ref{code:controller_check} wird bei platzieren eines Items innerhalb des Inventars die Funktion
-\textbf{CalculateGridPosition()} aufgerufen. Diese Funktion kümmert sich darum, dass anhand der gegebenen Koordinaten des
-Items innerhalb des Inventar Modells ein Vektor Berechnet wird an welcher Stelle dieses Item im \textit{idGrid} liegt.
-Diese Funktion sieht folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={Stelle im idGrid anhand Koordinaten berechnen}, label=code:controller_calcPos]
+\[
+\text{worldPosition} = \text{parentWorldPosition} + \text{localPosition}
+\]
+Dies ergibt die Weltposition des childObject im globalen Koordinatensystem.
+\\
+\\
+\textbf{Beispiel:}
+Angenommen, das Elternobjekt liegt im globalen Koordinatensystem bei $(2, 0, 0)$ und die lokale Position des childObject
+ist als $(0, 1, 0)$ definiert. Dann lautet die Berechnung wie folgt:
+
+\[
+\text{worldPosition} = (2, 0, 0) + (0, 1, 0) = (2, 1, 0)
+\]
+\\
+Dies bedeutet, dass die Weltposition des \texit{childObject} im globalen Koordinatensystem (2, 1, 0) ist.\\
+\end{quote}
+
+Der folgende Schritt in der Funktion \textbf{UpdateGrid()} beinhaltet die Überprüfung der Gültigkeit des QR-Objekts
+(\textit{item != null}) sowie die Feststellung, ob die berechnete Weltpositione innerhalb der definierten Begrenzungen
+des Inventars liegen (\textit{inventoryBounds.Contains(worldPosition)}). Im Falle der Erfüllung dieser Bedingungen
+(\textit{true}), wird das QR-Objekt weiteren Analysen unterzogen.
+
+Zunächst wird von dem aktuellen Item die \textit{ID} mittels \textit{qRCode.item.qrData.id} gespeichert, um im weiteren
+Verlauf mit dieser \textit{ID} weiterarbeiten zu können. Nach diesem Schritt wird überprüft, ob die \textit{ID} des
+Items bereits in der Liste der verarbeiteten Items \textit{processedItems} enthalten ist. Wenn diese \textit{ID} neu ist
+und noch nicht verarbeitet wurde, wird weiter überprüft, ob das Hinzufügen des Items die Maximale Kapazität (\textit{cap})
+des Inventars überschritten wird.
+
+Im Falle, dass das Gewicht des Items zusammen mit dem aktuellen Gesamtgewicht (\textit{currWeight}) die maximale Kapazität
+(\textit{cap}) nicht überschreitet, wird die ID des Items zur Liste der verarbeiteten Items (\textit{processedItems})
+hinzugefügt, um es als verarbeitet zu markieren. Des Weiteren wird die Position dieses Items innerhalb des Inventars
+mithilfe der Funktion \textbf{CalculateGridPosition()} berechnet und anschließend dem \textit{idGrid} hinzugefügt. Zuletzt
+werden das \textit{InfoMesh} aktualisiert sowie das aktuelle Gewicht (\textit{currWeight}) und das Event \textbf{GridUpdate}
+des \textit{EventManagers} mit dem aktualisierten \textit{idGrid} ausgelöst. Der Code, um die Position des Items
+innerhalb des Inventars zu berechnen:
+\begin{lstlisting}[caption={Position des Items berechnen}, label=code:controller_calcPos, language={[Sharp]C}]
 private Vector2 CalculateGridPosition(Vector3 objectPosition)
 {
     float cellWidth = inventoryBounds.size.x / numColumns;
@@ -1489,30 +1492,102 @@ private Vector2 CalculateGridPosition(Vector3 objectPosition)
     int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
     return new Vector2(row, col);
 }
+\end{lstlisting}
+Die Funktion beginnt damit, die Länge einer einzelnen Zelle anhand der \textit{Bounds} in der X- und Y-Achse zu berechnen.
+Die Variable \textit{cellWidth} repräsentiert die Breite jeder Zelle, während \textit{cellHeight} die Höhe jeder Zelle
+im Raster des Inventars darstellt.
+
+Anschließend werden die 2D-Koordinaten der Position des übergebenen Objekts im Raster des Inventars berechnet. Hierzu
+wird die X-Koordinate des Objekts relativ zur minimalen X-Grenze der Inventar-Bounds genommen und durch die Breite einer
+Zelle (\textit{cellWidth}) geteilt. Der resultierende Wert wird auf die nächstgelegene ganze Zahl abgerundet (\textit{Mathf.FloorToInt})
+und repräsentiert somit die Spalte (\textit{col}) im Raster.
+
+Ebenso wird die Z-Koordinate des Objekts relativ zur maximalen Z-Grenze der Inventar-Bounds herbeigezogen und durch die
+Höhe einer Zelle (\textit{cellHeight}) geteilt. Auch dieser Wert wird auf die nächstgelegene ganze Zahl abgerundet und
+repräsentiert die Zeile (\textit{row}) im Raster.
+
+Abschließend werden die berechneten Zeilen- und Spaltenwerte als 2D-Vektor (\textit{Vector2}) zurückgegeben. Dieser
+Vektor repräsentiert die Position des Objekts im Inventar-Raster.\\
+\\
+Um diesen Ablauf des hinzufügen eines Gegenstandes aus der Sicht des Benutzers als auch wie dieser Prozess dann im
+Hintergrund abläuft, wird hierfür ein Beispiel herangezogen.
+
+\begin{quote}
+Die visuelle Darstellung für den Benutzer, nachdem dieser einen Gegenstand in das Inventar hinzugefügt hat ist in
+folgender Abbildung \ref{fig:controller_itemAdded} zu sehen.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{images/itemAdded}
+\caption{Item zu Inventar hinzugefügt}
+\label{fig:controller_itemAdded}
+\end{figure}
+
+Auf dieser Abbilding ist zu sehen, dass in \textit{Zelle: 7} das Item mit der \textit{ID: 1} hinzugefügt wurde.
+
+Nachdem das Item im Inventar platziert wurde, sieht das \textit{idGrid} folgendermaßen aus:
+\begin{lstlisting}[style=csharp label=code:controller_savedID]
+idGrid = [[0, 0, 0],
+          [0, 0, 0],
+          [1, 0, 0]];
 \end{lstlisting}\\
-Die Funktion beginnt damit, dass sie sich anhand der Länge der Bounds in X- und Y-Achse die Länge einer einzelnen Zelle
-berechnet. Die Variable \texttt{cellWidth} repräsentiert die Breite jeder Zelle, und \texttt{cellHeight} repräsentiert
-die Höhe jeder Zelle im Inventar-Raster.
 
-Anschließend werden die 2D-Koordinaten der Position des übergebenen Objekts im Inventar-Raster berechnet. Dazu wird
-zuerst die X-Koordinate des Objekts relativ zur minimalen X-Grenze der Inventar-Bounds genommen und durch die Breite
-einer Zelle (\texttt{cellWidth}) geteilt. Dieser Wert wird dann auf die nächste ganze Zahl abgerundet
-(\texttt{Mathf.FloorToInt}) und repräsentiert die Spalte (\texttt{col}) im Raster.
+Das Hashset \textit{processedItems} sieht nach dem platzieren des Items dann folgendermaßen aus:
+\begin{lstlisting}[style=csharp label=code:controller_savedID]
+processedItems = [1];
+\end{lstlisting}\\
+\end{quote}
+\\
+In dem anderen Fall, dass das Gewicht des Items zusammen mit dem aktuellen Gesamtgewicht (\textit{currWeight}) die maximale
+Kapazität (\textit{cap}) überschreitet wird das TexMesh (\textit{InfoMesh}) mit der Nachricht, dass das Item zu schwer
+ist aktualisiert.\\
+\\
+Um diesen Ablauf, in dem eine Vielzahl an Gegenständen in das Inventar hinzugefügt werden, wobei dar zuletzt hinzugefügte
+Gegenstand zu schwer ist, wird hierfür erneut ein Beispiel herangezogen.
 
-Ebenso wird die Z-Koordinate des Objekts relativ zur maximalen Z-Grenze der Inventar-Bounds genommen und durch die Höhe
-einer Zelle (\texttt{cellHeight}) geteilt. Auch dieser Wert wird auf die nächste ganze Zahl abgerundet und repräsentiert
-die Zeile (\texttt{row}) im Raster.
+\begin{quote}
+Der Zustand, indem der Benutzer mehrere Gegenstände zu dem Inventar hinzugefügt hat, wobei dar zuletzt hinzugefügte
+Gegenstand zu schwer ist, ist in folgender Abbildung \ref{fig:controller_itemToHeavy} zu sehen. Darauf folgend ist auch
+angegeben, wie dieser Ablauf im Hintergrund aussieht.
 
-Abschließend werden die berechneten Zeilen- und Spaltenwerte als 2D-Vektor (\texttt{Vector2}) zurückgegeben, der die
-Position des Objekts im Inventar-Raster repräsentiert.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{images/itemToHeavy}
+\caption{Item zu schwer für das Inventar}
+\label{fig:controller_itemToHeavy}
+\end{figure}
 
-\subsubsection{Hilfsfunktionen}
-Im Codeabschnitt \ref{code:controller_check} werden die Funktionen \textbf{RemoveItem} und \textbf{ContainsID} für die
-Entfernung eines Items aus dem \textit{idGrid} und die Überprüfung, ob eine bestimmte Item-ID im \textit{idGrid}
-vorhanden ist, verwendet. Die Funktion \textbf{RemoveItem} hat den Zweck, ein Item anhand seiner ID aus dem \textit{idGrid} zu entfernen.
-Die Funktion \textbf{ContainsID} wird verwendet, um zu überprüfen, ob eine bestimmte Item-ID bereits im \textit{idGrid}
-vorhanden ist. Die Implementierungen dieser Funktionen sind entsprechend:
-\begin{lstlisting}[style=csharp, caption={ID aus idGrid entfernen}, label=code:controller_removeID]
+In Abbildung \ref{fig:controller_itemToHeavy} sind vier verschiedene Gegenstände im Inventar enthalten. Diese haben
+folgende \textit{IDs}: 1, 3, 5, 9. Die Reihenfolge, in der diese zum Inventar hinzugefügt wurden, lautet 1, 5, 3, 9. Das
+Item mit der \textit{ID: 9} wurde jedoch aufgrund seines zu hohen Gewichts nicht zu dem \textit{idGrid} und
+\textit{processedItems} hinzugefügt. Gleichzeitig wird eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren,
+dass der zuletzt hinzugefügte Gegenstand zu schwer für das aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid}
+und \textit{processedItems} unverändert und enthalten daher nicht die \textit{ID: 9}. Im Hintergrund sieht daher das
+\textit{idGrid} dementsprechend folgendermaßen aus:
+\begin{lstlisting}[style=csharp label=code:controller_savedIDs]
+idGrid = [[0, 0, 0],
+          [5, 0, 0],
+          [1, 3, 0]];
+\end{lstlisting}
+
+Das HashSet \textit{processedItems} sieht nach dem Platzieren des Items dann so aus:
+\begin{lstlisting}[style=csharp, label=code:controller_savedID]
+processedItems = [1, 5, 3];
+\end{lstlisting}
+
+Sobald der Benutzer dieses Item wieder aus dem Inventar entfernt, wird die Fehlermeldung nicht mehr angezeigt, und es
+kann ein passendes Item hinzugefügt werden.\\
+\end{quote}
+
+Wenn sich das Item außerhalb der definierten Bounds befindet, jedoch zuvor im Inventar platziert wurde und sowohl in der
+Liste der verarbeiteten Items (\textit{processedItems}) als auch im \textit{idGrid} enthalten ist, deutet dies darauf hin,
+dass der Benutzer das Item aus dem Inventar entfernt hat. In diesem Fall wird die ID des Items aus der Liste der
+verarbeiteten Items (\textit{processedItems}) sowie aus dem \textit{idGrid} entfernt. Zusätzlich wird das aktuelle
+Gesamtgewicht (\textit{currWeight}) aktualisiert und das Event \textbf{GridUpdate} des EventManagers mit dem aktualisierten
+idGrid ausgelöst. Wichtig anzumerken ist hier noch, dass in diesem \textit{else-if}-Zweig die zwei Funktionen
+\textbf{RemoveItem()} und \textbf{ContainsId()} mit der aktuellen Item \textit{ID} aufgerufen werden. Der zugehörige
+Code der beiden Funktionen:
+\begin{lstlisting}[caption={Item aus Liste entfernen}, label=code:controller_removeItem, language={[Sharp]C}]
 private void RemoveItem(int id)
 {
     for (int i = 0; i < numRows; i++)
@@ -1527,8 +1602,9 @@ private void RemoveItem(int id)
         }
     }
 }
-\end{lstlisting}\\
-\begin{lstlisting}[style=csharp, caption={Ueberpruefen ob ID in idGrid enthalten ist}, label=code:controller_contains ID]
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Überprüfen ob ID in Liste enthalten ist}, label=code:controller_checkid, language={[Sharp]C}]
 private bool ContainsId(int id)
 {
     for (int i = 0; i < numRows; i++)
@@ -1543,9 +1619,59 @@ private bool ContainsId(int id)
     }
     return false;
 }
-\end{lstlisting}\\
+\end{lstlisting}
 
-%HIER EVENTMANAGER EINBAUEN HIHI
+Beide Funktionen operieren im Wesentlichen auf ähnliche Weise. Sie durchlaufen die Liste der verarbeiteten Items mithilfe
+einer verschachtelten \textit{for-Schleife} und überprüfen, ob die als Parameter übergebene ID enthalten ist. Wenn dies
+der Fall ist, wird die \textbf{RemoveItem()} Funktion die ID an dieser Stelle durch den Wert 0 ersetzen, der keinen
+Inhalt repräsentiert. Die \textbf{ContainsId} Funktion hingegen überprüft lediglich, ob die ID in der Liste enthalten
+ist, und gibt den boolschen Wert \textit{true} zurück, falls dies zutrifft, andernfalls \textit{false}.\\
+\\
+Der Fall, indem der Benutzer einen Gegenstand aus dem Inventar entfernt, wird in folgendem Beispiel veranschaulicht und
+erklärt, wie dieser Ablauf im Hintergrund abläuft.
+
+\begin{quote}
+In folgender Abbildung \ref{fig:controller_itemEntfernt} ist der aktuelle Zustand eines selbst zusammengestellten Inventars
+zu sehen. In diesem Inventar sind die beiden Gegenstände mit den \textit{IDs} 5 und 3 enthalten
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{images/itemEntfernt}
+\caption{Item aus Inventar entfernt}
+\label{fig:controller_itemEntfernt}
+\end{figure}
+Im Hintergrund sieht das \textit{idGrid} jedoch wie folgt aus:
+
+\begin{lstlisting}[style=csharp label=code:controller_savedIDitemEntferntGrid]
+idGrid = [[0, 0, 0],
+          [5, 0, 0],
+          [1, 3, 0]];
+\end{lstlisting}
+
+Das HashSet \textit{processedItems} sieht wie folgt aus:
+
+\begin{lstlisting}[style=csharp label=code:controller_savedIDItemEntferntHash]
+processedItems = [1, 5, 3];
+\end{lstlisting}
+
+Anhand der Abbildung \ref{fig:controller_itemEntfernt} und den gespeicherten \textit{IDs} in \textit{processedItems} und
+\textit{idGrid} ist jedoch zu erkennen, dass hier noch die ID \textit{1} gespeichert ist. Dies bedeutet, dass das Item
+mit der ID \textit{1} in einem früheren Zustand im Inventar platziert wurde, aber jetzt außerhalb der Grenzen des Inventars
+liegt. Folglich wird diese ID aus dem \textit{idGrid} und \textit{processedItems} entfernt, und das \textit{currWeight}
+wird entsprechend angepasst. Nach dem entfernen dieser ID sehen das \textit{idGrid} und das \textit{processedItems} Array
+wie folgt aus:
+
+\begin{lstlisting}[style=csharp label=code:controller_savedIDgg]
+idGrid = [[0, 0, 0],
+          [5, 0, 0],
+          [0, 3, 0]];
+\end{lstlisting}
+\begin{lstlisting}[style=csharp label=code:controller_savedIDID]
+processedItems = [5, 3];
+\end{lstlisting}
+\end{quote}
+
+\subsection{EventManager}
 
 \subsection{Knapsack Solver Game Objekt}
 Das \textit{Knapsack Solver} Game Objekt spielt die Hauptrolle um Berechnungn durchzuführen.
