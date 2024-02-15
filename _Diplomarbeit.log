@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  15 FEB 2024 10:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  15 FEB 2024 10:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1257,7 +1257,7 @@ Package csquotes Info: Redefining alias 'default' -> 'ngerman'.
 (kurzfassung.aux) (abstract.aux) (einleitung.aux) (grundlagen.aux)
 (produktspezifikationen.aux) (feinkonzept_realisierung.aux
 
-LaTeX Warning: Label `fig:calculatoreditmode' multiply defined.
+LaTeX Warning: Label `code:isPOP' multiply defined.
 
 
 LaTeX Warning: Label `code:controller_savedID' multiply defined.
@@ -1802,13 +1802,13 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-grundlagen.tex:204: LaTeX Error: There's no line here to end.
+grundlagen.tex:205: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.204 
+l.205 
       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -1817,29 +1817,37 @@ or  <return>  to continue without it.
 [7]
 
 LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
-ned on input line 215.
+ned on input line 216.
 
-<images/calculatoreditmode.png, id=588, 1156.32pt x 595.023pt>
-File: images/calculatoreditmode.png Graphic file (type png)
-<use images/calculatoreditmode.png>
-Package pdftex.def Info: images/calculatoreditmode.png  used on input line 220.
 
-(pdftex.def)             Requested size: 426.79135pt x 219.61938pt.
+grundlagen.tex:221: LaTeX Error: File `images/zsmhGrundStich' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221 ...width=1\textwidth]{images/zsmhGrundStich}
+                                                  
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps,.ep
+s
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 
 LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
-ned on input line 231.
+ned on input line 232.
 
 
 LaTeX Warning: Citation 'Interview und schriftliche Befragung' on page 8 undefi
-ned on input line 244.
+ned on input line 245.
 
-[8 <./images/calculatoreditmode.png>]
 
 LaTeX Warning: Citation 'Einfuehrung in die Test- und Fragebogenkonstruktion' o
-n page 9 undefined on input line 248.
+n page 8 undefined on input line 249.
 
-
-Overfull \hbox (0.47345pt too wide) in paragraph at lines 259--261
+[8]
+Overfull \hbox (0.47345pt too wide) in paragraph at lines 260--261
 [][][]\T1/cmr/m/n/10.95 Verwendung von ein-fa-chem Vo-ka-bu-lar oh-ne Ver-wen-d
 ung von Fach-aus-drücken, Fremd-
  []
@@ -1854,44 +1862,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 266--267
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
+
+ []
+
+
+LaTeX Warning: Citation 'Die Befragung' on page 9 undefined on input line 295.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 [9]
 
-LaTeX Warning: Citation 'Die Befragung' on page 10 undefined on input line 296.
+LaTeX Warning: Citation 'Die Befragung' on page 10 undefined on input line 309.
 
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
-
- []
-
-
-LaTeX Warning: Citation 'Die Befragung' on page 10 undefined on input line 310.
-
-
-[10]
 
 LaTeX Warning: Citation 'Einfuehrung in die TEst und Fragebogenkonstruktion' on
- page 11 undefined on input line 348.
+ page 10 undefined on input line 348.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 345--349
 
  []
 
+[10]
 
 LaTeX Warning: Citation 'Einfuehrung in die TEst und Fragebogenkonstruktion' on
  page 11 undefined on input line 354.
 
-) [11] [12]
+) [11]
 \openout2 = `produktspezifikationen.aux'.
 
  (produktspezifikationen.tex
 Kapitel 3.
-<images/AblaufdiagrammLevel2.png, id=633, 1304.875pt x 682.55pt>
+<images/AblaufdiagrammLevel2.png, id=626, 1304.875pt x 682.55pt>
 File: images/AblaufdiagrammLevel2.png Graphic file (type png)
 <use images/AblaufdiagrammLevel2.png>
 Package pdftex.def Info: images/AblaufdiagrammLevel2.png  used on input line 18
@@ -1903,7 +1910,7 @@ LaTeX Warning: Float too large for page by 1.70558pt on input line 21.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13
+[12
 
 
 
@@ -1953,9 +1960,9 @@ Overfull \hbox (8.45325pt too wide) in paragraph at lines 84--87
  be-lieb-ten Blueprint-Scripting-Systems
  []
 
-[14]
+[13]
 
-LaTeX Warning: Citation 'MRTK3' on page 15 undefined on input line 118.
+LaTeX Warning: Citation 'MRTK3' on page 14 undefined on input line 118.
 
 
 Overfull \hbox (28.4704pt too wide) in paragraph at lines 123--128
@@ -1963,16 +1970,16 @@ Overfull \hbox (28.4704pt too wide) in paragraph at lines 123--128
 -nut-ze-rer-fah-run-gen in AR-Anwendungen
  []
 
-[15]
+[14]
 Overfull \hbox (0.69455pt too wide) in paragraph at lines 132--135
 \T1/cmr/m/n/10.95 MRTK3 bie-tet ei-ne ein-fa-che Kon-fi-gu-ra-ti-on und An-pas-
 sung über die Unity-Oberfläche.
  []
 
 
-LaTeX Warning: Citation 'OpenXR' on page 16 undefined on input line 138.
+LaTeX Warning: Citation 'OpenXR' on page 15 undefined on input line 138.
 
-[16]) [17] [18 <./images/AblaufdiagrammLevel2.png>]
+[15]) [16] [17 <./images/AblaufdiagrammLevel2.png>]
 \openout2 = `feinkonzept_realisierung.aux'.
 
 
@@ -1984,7 +1991,7 @@ File: lstlang1.sty 2023/02/27 1.9 listings language file
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
 Kapitel 4.
-[19
+[18
 
 
 
@@ -2000,15 +2007,15 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-[20]
+[19]
 
-LaTeX Warning: Citation 'Managers' on page 21 undefined on input line 139.
+LaTeX Warning: Citation 'Managers' on page 20 undefined on input line 139.
 
 
-LaTeX Warning: Citation 'RaycastManager' on page 21 undefined on input line 158
+LaTeX Warning: Citation 'RaycastManager' on page 20 undefined on input line 158
 .
 
-[21]
+[20]
 Overfull \hbox (2.4266pt too wide) in paragraph at lines 173--177
 [][]\T1/cmr/m/n/10.95 Die er-folg-rei-che Um-set-zung der funk-tio-na-len An-fo
 r-de-run-gen in den spe-zi-fi-schen Augmented-
@@ -2029,22 +2036,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--219
 
  []
 
-[22]
+[21]
 
-LaTeX Warning: Citation 'LoopTools' on page 23 undefined on input line 243.
+LaTeX Warning: Citation 'LoopTools' on page 22 undefined on input line 243.
 
 
-LaTeX Warning: Citation 'Images as Planes' on page 23 undefined on input line 2
+LaTeX Warning: Citation 'Images as Planes' on page 22 undefined on input line 2
 44.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
+ [22]
 
-LaTeX Warning: Citation 'Modi' on page 24 undefined on input line 262.
+LaTeX Warning: Citation 'Modi' on page 23 undefined on input line 262.
 
-<images/defaultobjectmode.png, id=707, 1156.32pt x 598.03426pt>
+<images/defaultobjectmode.png, id=702, 1156.32pt x 598.03426pt>
 File: images/defaultobjectmode.png Graphic file (type png)
 <use images/defaultobjectmode.png>
 Package pdftex.def Info: images/defaultobjectmode.png  used on input line 269.
@@ -2053,8 +2060,9 @@ Package pdftex.def Info: images/defaultobjectmode.png  used on input line 269.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Vertices' on page 24 undefined on input line 275.
+LaTeX Warning: Citation 'Vertices' on page 23 undefined on input line 275.
 
+<images/calculatoreditmode.png, id=704, 1156.32pt x 595.023pt>
 File: images/calculatoreditmode.png Graphic file (type png)
 <use images/calculatoreditmode.png>
 Package pdftex.def Info: images/calculatoreditmode.png  used on input line 278.
@@ -2064,9 +2072,9 @@ Package pdftex.def Info: images/calculatoreditmode.png  used on input line 278.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Mesh' on page 24 undefined on input line 283.
+LaTeX Warning: Citation 'Mesh' on page 23 undefined on input line 283.
 
-<images/texturepaintmode.png, id=710, 1156.32pt x 578.16pt>
+<images/texturepaintmode.png, id=706, 1156.32pt x 578.16pt>
 File: images/texturepaintmode.png Graphic file (type png)
 <use images/texturepaintmode.png>
 Package pdftex.def Info: images/texturepaintmode.png  used on input line 287.
@@ -2075,9 +2083,9 @@ Package pdftex.def Info: images/texturepaintmode.png  used on input line 287.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Modifier' on page 24 undefined on input line 295.
+LaTeX Warning: Citation 'Modifier' on page 23 undefined on input line 295.
 
-<images/blenderhierarchy.png, id=712, 199.34476pt x 196.93575pt>
+<images/blenderhierarchy.png, id=708, 199.34476pt x 196.93575pt>
 File: images/blenderhierarchy.png Graphic file (type png)
 <use images/blenderhierarchy.png>
 Package pdftex.def Info: images/blenderhierarchy.png  used on input line 299.
@@ -2085,8 +2093,8 @@ Package pdftex.def Info: images/blenderhierarchy.png  used on input line 299.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[24]
-<images/blendermodifier.png, id=726, 206.57175pt x 519.1395pt>
+[23]
+<images/blendermodifier.png, id=721, 206.57175pt x 519.1395pt>
 File: images/blendermodifier.png Graphic file (type png)
 <use images/blendermodifier.png>
 Package pdftex.def Info: images/blendermodifier.png  used on input line 325.
@@ -2098,11 +2106,11 @@ LaTeX Warning: Float too large for page by 207.36546pt on input line 328.
 
 Underfull \vbox (badness 3333) has occurred while \output is active []
 
- [25 <./images/defaultobjectmode.png>]
+ [24 <./images/defaultobjectmode.png> <./images/calculatoreditmode.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menubar.png, id=734, 482.40225pt x 166.82326pt>
+<images/menubar.png, id=731, 482.40225pt x 166.82326pt>
 File: images/menubar.png Graphic file (type png)
 <use images/menubar.png>
 Package pdftex.def Info: images/menubar.png  used on input line 353.
@@ -2110,7 +2118,7 @@ Package pdftex.def Info: images/menubar.png  used on input line 353.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/menuHierarchy.png, id=735, 269.20575pt x 168.63pt>
+<images/menuHierarchy.png, id=732, 269.20575pt x 168.63pt>
 File: images/menuHierarchy.png Graphic file (type png)
 <use images/menuHierarchy.png>
 Package pdftex.def Info: images/menuHierarchy.png  used on input line 360.
@@ -2118,8 +2126,8 @@ Package pdftex.def Info: images/menuHierarchy.png  used on input line 360.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26 <./images/texturepaintmode.png>]
-<images/debugmenubar.png, id=743, 331.83975pt x 133.09724pt>
+[25 <./images/texturepaintmode.png>]
+<images/debugmenubar.png, id=740, 331.83975pt x 133.09724pt>
 File: images/debugmenubar.png Graphic file (type png)
 <use images/debugmenubar.png>
 Package pdftex.def Info: images/debugmenubar.png  used on input line 378.
@@ -2131,7 +2139,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Underfull \vbox (badness 3260) has occurred while \output is active []
 
- [27 <./images/blenderhierarchy.png>]
+ [26 <./images/blenderhierarchy.png>]
 
 feinkonzept_realisierung.tex:427: Package Listings Error: Couldn't load request
 ed style.
@@ -2168,13 +2176,13 @@ File: latin1.def 2021/02/14 v1.3d Input encoding file
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 428.
 
-[28]
+[27]
 Overfull \hbox (1.44159pt too wide) in paragraph at lines 456--458
 [][][]\T1/cmr/m/n/10.95 SceneManager.LoadScene(sceneToLoad, Load-Sce-ne-Mo-de.S
 ingle): Die-se Me-tho-de lädt
  []
 
-<images/sceneToLoad.png, id=770, 257.763pt x 51.19125pt>
+<images/sceneToLoad.png, id=767, 257.763pt x 51.19125pt>
 File: images/sceneToLoad.png Graphic file (type png)
 <use images/sceneToLoad.png>
 Package pdftex.def Info: images/sceneToLoad.png  used on input line 463.
@@ -2246,16 +2254,16 @@ Package csquotes Info: Input encoding change on input line 472.
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-LaTeX Warning: Reference `code:spawnmenu' on page 29 undefined on input line 49
+LaTeX Warning: Reference `code:spawnmenu' on page 28 undefined on input line 49
 7.
 
-[29]
+[28]
 Overfull \hbox (1.96169pt too wide) in paragraph at lines 506--510
 [][][]\T1/cmr/bx/n/10.95 Blickzentrierung und In-ter-ak-ti-ons-mo-del-le: \T1/c
 mr/m/n/10.95 Die Menü-leis-te be-wegt sich auf Hüft-
  []
 
-[30]
+[29]
 Overfull \hbox (20.33443pt too wide) in paragraph at lines 565--567
 [][][]\T1/cmr/m/n/10.95 Wenn der Bau-klotz er-folg-reich plat-ziert wur-de, wir
 d au-to-ma-tisch der Knapsack-Algorithmus
@@ -2266,7 +2274,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--574
 
  []
 
-<images/Level2Hirarchy.png, id=805, 285.4665pt x 325.215pt>
+<images/Level2Hirarchy.png, id=801, 285.4665pt x 325.215pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 577.
@@ -2275,21 +2283,21 @@ Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 577.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Scene' on page 31 undefined on input line 582.
+LaTeX Warning: Citation 'Scene' on page 30 undefined on input line 582.
 
 
-LaTeX Warning: Citation 'Plane' on page 31 undefined on input line 590.
+LaTeX Warning: Citation 'Plane' on page 30 undefined on input line 590.
 
-[31]
+[30]
 Overfull \hbox (0.93288pt too wide) in paragraph at lines 601--605
 \T1/cmr/m/n/10.95 Ab-schluss des In-ven-to-ry-Pla-ce-ment Scripts ak-ti-viert w
 ird. Die-ses Ob-jekt ist die Haupt-
  []
 
 
-LaTeX Warning: Citation 'Prefab' on page 32 undefined on input line 610.
+LaTeX Warning: Citation 'Prefab' on page 31 undefined on input line 610.
 
-[32]
+[31]
 
 feinkonzept_realisierung.tex:670: Package Listings Error: Couldn't load request
 ed style.
@@ -2321,362 +2329,280 @@ Package csquotes Info: Input encoding change on input line 670.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[33] [34]
+[32] [33]
 
-LaTeX Warning: Reference `sec:qr_visualization' on page 35 undefined on input l
+LaTeX Warning: Reference `sec:qr_visualization' on page 34 undefined on input l
 ine 757.
 
 
-LaTeX Warning: Reference `Unity Prefabs' on page 35 undefined on input line 792
+LaTeX Warning: Reference `Unity Prefabs' on page 34 undefined on input line 792
 .
 
-[35]
-<images/invPlace_Editor.png, id=865, 380.622pt x 292.6935pt>
+[34]
+<images/invPlace_Editor.png, id=862, 380.622pt x 292.6935pt>
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
-Package pdftex.def Info: images/invPlace_Editor.png  used on input line 817.
+Package pdftex.def Info: images/invPlace_Editor.png  used on input line 816.
 (pdftex.def)             Requested size: 304.49799pt x 234.1551pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[35]
+
+feinkonzept_realisierung.tex:845: Package Listings Error: Couldn't load request
+ed style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.845 ...ontroller Klasse}, label=code:anchor_var]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:845: Package Listings Error: style csharp undefine
+d.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.845 ...ontroller Klasse}, label=code:anchor_var]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 845.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+feinkonzept_realisierung.tex:877: Package Listings Error: Couldn't load request
+ed style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.877 ...Placement Controllers}, label=code:Start]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:877: Package Listings Error: style csharp undefine
+d.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.877 ...Placement Controllers}, label=code:Start]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 877.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 891--895
+
+ []
+
 [36]
 
-feinkonzept_realisierung.tex:848: Package Listings Error: Couldn't load request
+feinkonzept_realisierung.tex:896: Package Listings Error: Couldn't load request
 ed style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.848 ...ontroller Klasse}, label=code:anchor_var]
+l.896 ...oegerter Start}, label=code:DelayedStart]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:848: Package Listings Error: style csharp undefine
+feinkonzept_realisierung.tex:896: Package Listings Error: style csharp undefine
 d.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.848 ...ontroller Klasse}, label=code:anchor_var]
+l.896 ...oegerter Start}, label=code:DelayedStart]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 848.
+Package csquotes Info: Input encoding change on input line 896.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:880: Package Listings Error: Couldn't load request
+feinkonzept_realisierung.tex:915: Package Listings Error: Couldn't load request
 ed style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.880 ...Placement Controllers}, label=code:Start]
+l.915 ...ion={Update Funktion}, label=code:Update]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:880: Package Listings Error: style csharp undefine
+feinkonzept_realisierung.tex:915: Package Listings Error: style csharp undefine
 d.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.880 ...Placement Controllers}, label=code:Start]
+l.915 ...ion={Update Funktion}, label=code:Update]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 880.
+Package csquotes Info: Input encoding change on input line 915.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Overfull \hbox (7.55197pt too wide) in paragraph at lines 886--889
-[][]\T1/cmr/m/n/10.95 Die Le-bens-zy-klus-me-tho-de \T1/cmr/bx/n/10.95 Start() 
-\T1/cmr/m/n/10.95 wird zu Be-ginn des Le-vels für das "Knapsack-Problemäuf-
- []
-
 [37]
 
-feinkonzept_realisierung.tex:899: Package Listings Error: Couldn't load request
+feinkonzept_realisierung.tex:958: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.958 D
+       iese \textbf{Update()} Funktion wird jeden Frame der Applikation aufg...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+feinkonzept_realisierung.tex:965: Package Listings Error: Couldn't load request
 ed style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.899 ...oegerter Start}, label=code:DelayedStart]
+l.965 ...er auf ARPlane blickt}, label=code:isPOP]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:899: Package Listings Error: style csharp undefine
+feinkonzept_realisierung.tex:965: Package Listings Error: style csharp undefine
 d.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.899 ...oegerter Start}, label=code:DelayedStart]
+l.965 ...er auf ARPlane blickt}, label=code:isPOP]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 899.
+
+Underfull \hbox (badness 10000) in paragraph at lines 958--965
+
+ []
+
+Package csquotes Info: Input encoding change on input line 965.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:919: Package Listings Error: Couldn't load request
-ed style.
+feinkonzept_realisierung.tex:977: Package inputenc Error: Keyboard character us
+ed is undefined
+(inputenc)                in inputencoding `latin1'.
 
-See the Listings package documentation for explanation.
+See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.919 ...ion={Update Funktion}, label=code:Update]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
+l.977 \end{lstlisting}
+                      
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
 
 
-feinkonzept_realisierung.tex:919: Package Listings Error: style csharp undefine
-d.
+feinkonzept_realisierung.tex:977: Package inputenc Error: Keyboard character us
+ed is undefined
+(inputenc)                in inputencoding `latin1'.
 
-See the Listings package documentation for explanation.
+See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.919 ...ion={Update Funktion}, label=code:Update]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+l.977 \end{lstlisting}
+                      
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
 
-Package csquotes Info: Input encoding change on input line 919.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 964--970
+Underfull \hbox (badness 10000) in paragraph at lines 995--1002
 
  []
 
 
-feinkonzept_realisierung.tex:971: Package Listings Error: Couldn't load request
-ed style.
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1019
 
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.971 ...tion={Raycasting}, label=code:Raycasting]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:971: Package Listings Error: style csharp undefine
-d.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.971 ...tion={Raycasting}, label=code:Raycasting]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 971.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Overfull \hbox (16.73367pt too wide) in paragraph at lines 982--988
-\T1/cmr/m/n/10.95 Ray-cast wird von der ak-tu-el-len Po-si-ti-on der Ka-me-ra a
-us-ge-führt, die durch \T1/cmr/m/it/10.95 In-put.mousePosition
  []
 
-
-feinkonzept_realisierung.tex:989: Package Listings Error: Couldn't load request
-ed style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.989 ...s Funktion}, label=code:getPlaneFromGaze]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:989: Package Listings Error: style csharp undefine
-d.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.989 ...s Funktion}, label=code:getPlaneFromGaze]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 989.
+Package csquotes Info: Input encoding change on input line 1019.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1045
+
+ []
+
 [39]
+Package csquotes Info: Input encoding change on input line 1048.
+ (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
 
-feinkonzept_realisierung.tex:1002: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1058: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1002 
-       
+l.1058 Z
+        unÃ¤chst wird die \textit{MeshRenderer}-Komponente des Ã¼bergebenen ...
+
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1007: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1007 ...ARPlane ermitteln}, label=code:getPlane]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1007: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1007 ...ARPlane ermitteln}, label=code:getPlane]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1007.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1027
-
- []
-
-
-feinkonzept_realisierung.tex:1028: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1028 ...er starten}, label=code:TimeMeasurement]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1028: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1028 ...er starten}, label=code:TimeMeasurement]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1028.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-feinkonzept_realisierung.tex:1049: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1049 ...ne kennzeichnen}, label=code:colorPlane]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1049: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1049 ...ne kennzeichnen}, label=code:colorPlane]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1049.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-[40]
-
-feinkonzept_realisierung.tex:1059: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1075: LaTeX Error: File `images/coloredPlaneExampl
+e' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1059 
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-feinkonzept_realisierung.tex:1064: LaTeX Error: File `images/coloredPlane' not 
-found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1064 ...graphics[scale=0.8]{images/coloredPlane}
+l.1075 ...s[scale=0.8]{images/coloredPlaneExample}
                                                   
 I could not locate the file with any of these extensions:
 .pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps,.ep
@@ -2688,544 +2614,477 @@ If that doesn't work, type  X <return>  to quit.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-feinkonzept_realisierung.tex:1071: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1071 ...lickzeit messen}, label=code:TimeUpdate]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1071: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1071 ...lickzeit messen}, label=code:TimeUpdate]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1071.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 1075--1078
-
+Overfull \hbox (1.10133pt too wide) in paragraph at lines 1093--1098
+[][][]\T1/cmr/m/n/10.95 Der \T1/cmr/m/it/10.95 MeshRen-de-rer \T1/cmr/m/n/10.95
+ ren-dert das \T1/cmr/m/it/10.95 Mesh \T1/cmr/m/n/10.95 ei-nes Ob-jekts un-ter 
+Be-rück-sich-ti-gung sei-ner \T1/cmr/m/it/10.95 Trans-
  []
 
 
-feinkonzept_realisierung.tex:1084: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1084 ...unktion aufrufen}, label=code:Placement]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1084: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1084 ...unktion aufrufen}, label=code:Placement]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1084.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-feinkonzept_realisierung.tex:1097: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1097 ...ier - Funktion}, label=code:placeobject]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1097: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1097 ...ier - Funktion}, label=code:placeobject]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1097.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 1132--1134
+Underfull \hbox (badness 10000) in paragraph at lines 1099--1108
 
  []
 
-
-feinkonzept_realisierung.tex:1141: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1141 ...e zuruecksetzen}, label=code:NoPlaneHit]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1141: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1141 ...e zuruecksetzen}, label=code:NoPlaneHit]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \hbox (8.41624pt too wide) in paragraph at lines 1136--1141
-[][][]\T1/cmr/m/n/10.95 In den bei-den \T1/cmr/m/it/10.95 el-se\T1/cmr/m/n/10.9
-5 -Zweigen (Co-deab-schnitt [][]4.15[][]) der \T1/cmr/bx/n/10.95 Up-da-te()\T1/
-cmr/m/n/10.95 -Funktion (Co-de-baschnitt
- []
-
-Package csquotes Info: Input encoding change on input line 1141.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+[40]
+Package csquotes Info: Input encoding change on input line 1108.
+ (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
+feinkonzept_realisierung.tex:1134: Undefined control sequence.
+l.1134 ...ktionen werden ebenfalls mit dem \textif
+                                                  {infoObject} vorgenommen m...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-feinkonzept_realisierung.tex:1151: LaTeX Error: There's no line here to end.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1151 
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+Underfull \hbox (badness 10000) in paragraph at lines 1128--1137
+
+ []
 
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
-Package pdftex.def Info: images/invPlace_Editor.png  used on input line 1158.
+Package pdftex.def Info: images/invPlace_Editor.png  used on input line 1153.
 (pdftex.def)             Requested size: 304.49799pt x 234.1551pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[42]
-Underfull \hbox (badness 10000) in paragraph at lines 1174--1178
+Underfull \hbox (badness 10000) in paragraph at lines 1138--1157
 
  []
 
-<images/invCon_Editor.png, id=1080, 379.4175pt x 209.583pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1138--1157
+
+ []
+
+[41]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1173
+
+ []
+
+<images/invCon_Editor.png, id=1024, 379.4175pt x 209.583pt>
 File: images/invCon_Editor.png Graphic file (type png)
 <use images/invCon_Editor.png>
-Package pdftex.def Info: images/invCon_Editor.png  used on input line 1181.
+Package pdftex.def Info: images/invCon_Editor.png  used on input line 1176.
 (pdftex.def)             Requested size: 303.53441pt x 167.66661pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Citation 'Bounds' on page 43 undefined on input line 1194.
+LaTeX Warning: Citation 'Bounds' on page 42 undefined on input line 1189.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1194--1195
+Underfull \hbox (badness 10000) in paragraph at lines 1189--1190
 
  []
 
 
-feinkonzept_realisierung.tex:1198: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1193: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1198 ...ller Klasse}, label=code:controller_var]
+l.1193 ...ller Klasse}, label=code:controller_var]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1198: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1193: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1198 ...ller Klasse}, label=code:controller_var]
+l.1193 ...ller Klasse}, label=code:controller_var]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1198.
+Package csquotes Info: Input encoding change on input line 1193.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1216--1222
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 1211--1217
+
+ []
+
+
+feinkonzept_realisierung.tex:1219: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1219 ...ntrollers}, label=code:controller_start]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1219: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1219 ...ntrollers}, label=code:controller_start]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1219.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1230--1233
+
+ []
+
+
+feinkonzept_realisierung.tex:1235: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1235 ...rn}, label=code:controller_updateBounds]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1235: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1235 ...rn}, label=code:controller_updateBounds]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1235.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1246--1249
 
  []
 
 [43]
 
-feinkonzept_realisierung.tex:1224: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1251: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1224 ...ntrollers}, label=code:controller_start]
+l.1251 ...tteln}, label=code:controller_getBounds]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1224: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1251: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1224 ...ntrollers}, label=code:controller_start]
+l.1251 ...tteln}, label=code:controller_getBounds]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1224.
+Package csquotes Info: Input encoding change on input line 1251.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1235--1238
+
+LaTeX Warning: Citation 'Renderer' on page 44 undefined on input line 1258.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1258--1262
 
  []
 
 
-feinkonzept_realisierung.tex:1240: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1264: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1240 ...rn}, label=code:controller_updateBounds]
+l.1264 ...rn}, label=code:controller_extendBounds]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1240: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1264: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1240 ...rn}, label=code:controller_updateBounds]
+l.1264 ...rn}, label=code:controller_extendBounds]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1240.
+Package csquotes Info: Input encoding change on input line 1264.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1251--1254
-
- []
-
-
-feinkonzept_realisierung.tex:1256: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1256 ...tteln}, label=code:controller_getBounds]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1256: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1256 ...tteln}, label=code:controller_getBounds]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1256.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-[44]
-
-LaTeX Warning: Citation 'Renderer' on page 45 undefined on input line 1263.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1263--1267
-
- []
-
-
-feinkonzept_realisierung.tex:1269: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1269 ...rn}, label=code:controller_extendBounds]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1269: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1269 ...rn}, label=code:controller_extendBounds]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1269.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-<images/extendedBounds.png, id=1145, 502.2765pt x 403.5075pt>
+<images/extendedBounds.png, id=1084, 502.2765pt x 403.5075pt>
 File: images/extendedBounds.png Graphic file (type png)
 <use images/extendedBounds.png>
-Package pdftex.def Info: images/extendedBounds.png  used on input line 1282.
+Package pdftex.def Info: images/extendedBounds.png  used on input line 1277.
 (pdftex.def)             Requested size: 200.90704pt x 161.40013pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1296--1298
+Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
 
  []
 
+[44]
 
-feinkonzept_realisierung.tex:1300: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1295: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1300 ...rids}, label=code:controller_initialize]
+l.1295 ...rids}, label=code:controller_initialize]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1300: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1295: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1300 ...rids}, label=code:controller_initialize]
+l.1295 ...rids}, label=code:controller_initialize]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1300.
+Package csquotes Info: Input encoding change on input line 1295.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1306--1308
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1303
 
  []
 
+
+feinkonzept_realisierung.tex:1305: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1305 ... idGrids}, label=code:controller_update]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1305: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1305 ... idGrids}, label=code:controller_update]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1305.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1311--1314
+
+ []
+
+
+feinkonzept_realisierung.tex:1316: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1316 ... Inventar}, label=code:controller_check]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1316: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1316 ... Inventar}, label=code:controller_check]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1316.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
 [45]
-
-feinkonzept_realisierung.tex:1310: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1310 ... idGrids}, label=code:controller_update]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1310: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1310 ... idGrids}, label=code:controller_update]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1310.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1319
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1366
 
  []
 
 
-feinkonzept_realisierung.tex:1321: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1321 ... Inventar}, label=code:controller_check]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1321: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1321 ... Inventar}, label=code:controller_check]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1321.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-[46]
-Underfull \hbox (badness 10000) in paragraph at lines 1367--1371
+Underfull \hbox (badness 10000) in paragraph at lines 1367--1370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1372--1375
+Underfull \hbox (badness 10000) in paragraph at lines 1371--1374
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1376--1379
+Underfull \hbox (badness 10000) in paragraph at lines 1375--1378
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1380--1383
-
- []
-
-<images/itemAdded.png, id=1215, 506.49225pt x 322.806pt>
+<images/itemAdded.png, id=1147, 506.49225pt x 322.806pt>
 File: images/itemAdded.png Graphic file (type png)
 <use images/itemAdded.png>
-Package pdftex.def Info: images/itemAdded.png  used on input line 1392.
+Package pdftex.def Info: images/itemAdded.png  used on input line 1387.
 (pdftex.def)             Requested size: 303.89769pt x 193.68509pt.
+[46]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1397--1401
+Underfull \hbox (badness 10000) in paragraph at lines 1392--1396
 
  []
 
 
-feinkonzept_realisierung.tex:1403: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1398: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1403 ...eichert}, label=code:controller_savedID]
+l.1398 ...eichert}, label=code:controller_savedID]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1403: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1398: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1403 ...eichert}, label=code:controller_savedID]
+l.1398 ...eichert}, label=code:controller_savedID]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1403.
+Package csquotes Info: Input encoding change on input line 1398.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[47]
+
+feinkonzept_realisierung.tex:1403: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1403 
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+feinkonzept_realisierung.tex:1405: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1405 ...eichert}, label=code:controller_savedID]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1405: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1405 ...eichert}, label=code:controller_savedID]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1405.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
 
 feinkonzept_realisierung.tex:1408: LaTeX Error: There's no line here to end.
 
@@ -3239,97 +3098,53 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-feinkonzept_realisierung.tex:1410: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1410 ...eichert}, label=code:controller_savedID]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1410: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1410 ...eichert}, label=code:controller_savedID]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1410.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-feinkonzept_realisierung.tex:1413: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1413 
-       
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-<images/itemToHeavy.png, id=1237, 507.0945pt x 322.806pt>
+<images/itemToHeavy.png, id=1178, 507.0945pt x 322.806pt>
 File: images/itemToHeavy.png Graphic file (type png)
 <use images/itemToHeavy.png>
-Package pdftex.def Info: images/itemToHeavy.png  used on input line 1419.
+Package pdftex.def Info: images/itemToHeavy.png  used on input line 1414.
 (pdftex.def)             Requested size: 304.25903pt x 193.68509pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-feinkonzept_realisierung.tex:1430: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1425: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1430 ...ventar}, label=code:controller_savedIDs]
+l.1425 ...ventar}, label=code:controller_savedIDs]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1430: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1425: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1430 ...ventar}, label=code:controller_savedIDs]
+l.1425 ...ventar}, label=code:controller_savedIDs]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1430.
+Package csquotes Info: Input encoding change on input line 1425.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1435: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1430: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1435 D
+l.1430 D
         as HashSet \textit{processedItems} sieht nach platzieren des Items d...
 
 Your command was ignored.
@@ -3337,44 +3152,44 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1436: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1431: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1436 ...eichert}, label=code:controller_savedID]
+l.1431 ...eichert}, label=code:controller_savedID]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1436: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1431: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1436 ...eichert}, label=code:controller_savedID]
+l.1431 ...eichert}, label=code:controller_savedID]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1436.
+Package csquotes Info: Input encoding change on input line 1431.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1439: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1434: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1439 S
+l.1434 S
         obald der Benutzer dieses Item wieder aus dem Inventar entfernt wird...
 
 Your command was ignored.
@@ -3382,112 +3197,144 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1439--1441
+Underfull \hbox (badness 10000) in paragraph at lines 1434--1436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1442--1447
+Underfull \hbox (badness 10000) in paragraph at lines 1437--1442
 
  []
 
-<images/itemEntfernt.png, id=1239, 510.10574pt x 323.40825pt>
+<images/itemEntfernt.png, id=1180, 510.10574pt x 323.40825pt>
 File: images/itemEntfernt.png Graphic file (type png)
 <use images/itemEntfernt.png>
-Package pdftex.def Info: images/itemEntfernt.png  used on input line 1450.
+Package pdftex.def Info: images/itemEntfernt.png  used on input line 1445.
 (pdftex.def)             Requested size: 306.0658pt x 194.04643pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-feinkonzept_realisierung.tex:1457: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1452: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1457 ...code:controller_savedIDitemEntferntGrid]
+l.1452 ...code:controller_savedIDitemEntferntGrid]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1457: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1452: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1457 ...code:controller_savedIDitemEntferntGrid]
+l.1452 ...code:controller_savedIDitemEntferntGrid]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1457.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+[47]
+Package csquotes Info: Input encoding change on input line 1452.
+ (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1462: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1457: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1462 U
+l.1457 U
         nd das HashSet \textit{processedItems} sieht so aus:
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1463: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1458: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1463 ...code:controller_savedIDItemEntferntHash]
+l.1458 ...code:controller_savedIDItemEntferntHash]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1463: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1458: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1463 ...code:controller_savedIDItemEntferntHash]
+l.1458 ...code:controller_savedIDItemEntferntHash]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1463.
+Package csquotes Info: Input encoding change on input line 1458.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1466: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1461: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1466 A
+l.1461 A
         nhand der Abbildung \ref{fig:controller_itemEntfernt} und den beiden...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+
+feinkonzept_realisierung.tex:1466: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1466 ...chert}, label=code:controller_savedIDgg]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:1466: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1466 ...chert}, label=code:controller_savedIDgg]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1466.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
 
 feinkonzept_realisierung.tex:1471: Package Listings Error: Couldn't load reques
 ted style.
@@ -3496,7 +3343,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1471 ...chert}, label=code:controller_savedIDgg]
+l.1471 ...chert}, label=code:controller_savedIDID]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3510,55 +3357,23 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1471 ...chert}, label=code:controller_savedIDgg]
+l.1471 ...chert}, label=code:controller_savedIDID]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[48]
 Package csquotes Info: Input encoding change on input line 1471.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-feinkonzept_realisierung.tex:1476: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1476 ...chert}, label=code:controller_savedIDID]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:1476: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1476 ...chert}, label=code:controller_savedIDID]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1476.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1479: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1474: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1479 S
+l.1474 S
         chlieÃŸlich erfolgt der Aufruf der Funktion \textbf{PrintGrid()}, di...
 
 Your command was ignored.
@@ -3566,96 +3381,95 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1488: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1483: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1488 ...rechnen}, label=code:controller_calcPos]
+l.1483 ...rechnen}, label=code:controller_calcPos]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1488: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1483: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1488 ...rechnen}, label=code:controller_calcPos]
+l.1483 ...rechnen}, label=code:controller_calcPos]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1488.
+Package csquotes Info: Input encoding change on input line 1483.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1498: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1493: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1498 D
+l.1493 D
         ie Funktion beginnt damit, dass sie sich anhand der LÃ¤nge der Bound...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-Overfull \hbox (1.96356pt too wide) in paragraph at lines 1507--1510
+[48]
+Overfull \hbox (1.96356pt too wide) in paragraph at lines 1502--1505
 [][][]\T1/cmr/m/n/10.95 Ebenso wird die Z-Koordinate des Ob-jekts re-la-tiv zur
  ma-xi-ma-len Z-Grenze der Inventar-
  []
 
 
-feinkonzept_realisierung.tex:1520: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1515: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1520 ...fernen}, label=code:controller_removeID]
+l.1515 ...fernen}, label=code:controller_removeID]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1520: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1515: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1520 ...fernen}, label=code:controller_removeID]
+l.1515 ...fernen}, label=code:controller_removeID]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[49]
-Package csquotes Info: Input encoding change on input line 1520.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+Package csquotes Info: Input encoding change on input line 1515.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1536: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1531: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1536 \begin
+l.1531 \begin
              {lstlisting}[style=csharp, caption={Ueberpruefen ob ID in idGri...
 
 Your command was ignored.
@@ -3663,106 +3477,106 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1536: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1531: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1536 ...ist}, label=code:controller_contains ID]
+l.1531 ...ist}, label=code:controller_contains ID]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1536: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1531: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1536 ...ist}, label=code:controller_contains ID]
+l.1531 ...ist}, label=code:controller_contains ID]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1536.
+Package csquotes Info: Input encoding change on input line 1531.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1552: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1547: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1552 
+l.1547 
        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1561--1564
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1556--1559
 
  []
 
-<images/knapsackEditor.png, id=1287, 381.22424pt x 258.9675pt>
+<images/knapsackEditor.png, id=1268, 381.22424pt x 258.9675pt>
 File: images/knapsackEditor.png Graphic file (type png)
 <use images/knapsackEditor.png>
-Package pdftex.def Info: images/knapsackEditor.png  used on input line 1567.
+Package pdftex.def Info: images/knapsackEditor.png  used on input line 1562.
 (pdftex.def)             Requested size: 304.97981pt x 207.17426pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 1583--1585
+
+Underfull \hbox (badness 10000) in paragraph at lines 1578--1580
 
  []
 
 
-feinkonzept_realisierung.tex:1588: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1583: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1588 ...olvers}, label=code:Klassenvariablen_kn]
+l.1583 ...olvers}, label=code:Klassenvariablen_kn]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1588: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1583: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1588 ...olvers}, label=code:Klassenvariablen_kn]
+l.1583 ...olvers}, label=code:Klassenvariablen_kn]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1588.
+Package csquotes Info: Input encoding change on input line 1583.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1601: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1596: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1601 D
+l.1596 D
         ie in Codeabschnitt \ref{code:Klassenvariablen_kn} prÃ¤sentierten Kl...
 
 Your command was ignored.
@@ -3770,49 +3584,50 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1601--1606
+Underfull \hbox (badness 10000) in paragraph at lines 1596--1601
 
  []
 
 
-feinkonzept_realisierung.tex:1608: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1603: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1608 ...s KnapsackScripts}, label=code:kn_start]
+l.1603 ...s KnapsackScripts}, label=code:kn_start]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1608: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1603: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1608 ...s KnapsackScripts}, label=code:kn_start]
+l.1603 ...s KnapsackScripts}, label=code:kn_start]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1608.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+[50]
+Package csquotes Info: Input encoding change on input line 1603.
+ (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1615: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1610: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1615 I
+l.1610 I
         n dem Codeabschnitt \ref{code:kn_start} ist die Lebenszyklusfunktion...
 
 Your command was ignored.
@@ -3820,45 +3635,44 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1620: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1615: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1620 ...n der Berechnung}, label=code:kn_setInv]
+l.1615 ...n der Berechnung}, label=code:kn_setInv]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1620: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1615: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1620 ...n der Berechnung}, label=code:kn_setInv]
+l.1615 ...n der Berechnung}, label=code:kn_setInv]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[51]
-Package csquotes Info: Input encoding change on input line 1620.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+Package csquotes Info: Input encoding change on input line 1615.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1627: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1622: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1627 D
+l.1622 D
         ie in Codeabschnitt \ref{code:kn_setInv} vom \textit{EventManager} a...
 
 Your command was ignored.
@@ -3866,159 +3680,160 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-feinkonzept_realisierung.tex:1632: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1627: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1632 ...er Berechnung}, label=code:kn_startCalc]
+l.1627 ...er Berechnung}, label=code:kn_startCalc]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1632: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1627: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1632 ...er Berechnung}, label=code:kn_startCalc]
+l.1627 ...er Berechnung}, label=code:kn_startCalc]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1632.
+Package csquotes Info: Input encoding change on input line 1627.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1659: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1654: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1659 U
+l.1654 U
         m jetzt den Knapsack Algorithmus zu starten und ebenfalls den Wert d...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1664--1670
+[51]
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1665
 
  []
 
 
-feinkonzept_realisierung.tex:1672: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1667: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1672 ... berechnen}, label=code:kn_startCalcOwn]
+l.1667 ... berechnen}, label=code:kn_startCalcOwn]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1672: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1667: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1672 ... berechnen}, label=code:kn_startCalcOwn]
+l.1667 ... berechnen}, label=code:kn_startCalcOwn]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[52]
-Package csquotes Info: Input encoding change on input line 1672.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+Package csquotes Info: Input encoding change on input line 1667.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:1702: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1697: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1702 D
+l.1697 D
         ie in Codebaschnitt \ref{code:kn_startCalc} aufgerufene Funktion \te...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1709--1710
 
-Underfull \hbox (badness 10000) in paragraph at lines 1714--1715
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1744--1746
 
  []
 
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 1749--1751
 
- []
-
-
-feinkonzept_realisierung.tex:1752: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:1747: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1752 ...Backtracking}, label=code:startKnapsack]
+l.1747 ...Backtracking}, label=code:startKnapsack]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:1752: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:1747: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1752 ...Backtracking}, label=code:startKnapsack]
+l.1747 ...Backtracking}, label=code:startKnapsack]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1752.
+Package csquotes Info: Input encoding change on input line 1747.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[54]
+Underfull \vbox (badness 1237) has occurred while \output is active []
 
-feinkonzept_realisierung.tex:1820: LaTeX Error: There's no line here to end.
+ [54]
+
+feinkonzept_realisierung.tex:1815: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1820 \begin
+l.1815 \begin
              {enumerate}
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[55]
-feinkonzept_realisierung.tex:1851: Undefined control sequence.
-l.1851 ... die KapazitÃ¤ten des Rucksacks (\textti
+feinkonzept_realisierung.tex:1846: Undefined control sequence.
+l.1846 ... die KapazitÃ¤ten des Rucksacks (\textti
                                                   {w}).
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4027,33 +3842,32 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1855--1856
+Underfull \hbox (badness 10000) in paragraph at lines 1850--1851
 
  []
 
 
-Overfull \hbox (10.97621pt too wide) detected at line 1869
+Overfull \hbox (10.97621pt too wide) detected at line 1864
 [][][] []
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1896--1897
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
 
  []
 
-[56]
-feinkonzept_realisierung.tex:1905: Missing $ inserted.
+feinkonzept_realisierung.tex:1900: Missing $ inserted.
 <inserted text> 
                 $
-l.1905 \begin{array}{|c|c|c|c|}
+l.1900 \begin{array}{|c|c|c|c|}
                                
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-feinkonzept_realisierung.tex:1921: Missing $ inserted.
+feinkonzept_realisierung.tex:1916: Missing $ inserted.
 <inserted text> 
                 $
-l.1921 \end{array}
+l.1916 \end{array}
                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4062,21 +3876,25 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-feinkonzept_realisierung.tex:1924: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:1919: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1924 N
+l.1919 N
         ach Anwendung der dynamischen Programmierung, um die maximale Wertta...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-feinkonzept_realisierung.tex:1965: Undefined control sequence.
-l.1965 ...n, wenn die GewichtsbeschrÃ¤nkung \texit
+
+Underfull \vbox (badness 3354) has occurred while \output is active []
+
+ [56]
+feinkonzept_realisierung.tex:1960: Undefined control sequence.
+l.1960 ...n, wenn die GewichtsbeschrÃ¤nkung \texit
                                                   {j} unter Verwendung der G...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4084,8 +3902,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-feinkonzept_realisierung.tex:1966: Undefined control sequence.
-l.1966 \textitt
+feinkonzept_realisierung.tex:1961: Undefined control sequence.
+l.1961 \textitt
                {i} berÃ¼cksichtigt wird.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4094,90 +3912,89 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 2000--2004
+Underfull \hbox (badness 10000) in paragraph at lines 1995--1999
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2009--2010
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
 
  []
 
-[58]
-<images/bestSolPref_Editor.png, id=1535, 380.622pt x 269.808pt>
+<images/bestSolPref_Editor.png, id=1480, 380.622pt x 269.808pt>
 File: images/bestSolPref_Editor.png Graphic file (type png)
 <use images/bestSolPref_Editor.png>
-Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 2028
+Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 2023
 .
 (pdftex.def)             Requested size: 304.49799pt x 215.8467pt.
 
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/bestSolPref.png, id=1537, 285.4665pt x 133.09724pt>
+[58]
+<images/bestSolPref.png, id=1488, 285.4665pt x 133.09724pt>
 File: images/bestSolPref.png Graphic file (type png)
 <use images/bestSolPref.png>
-Package pdftex.def Info: images/bestSolPref.png  used on input line 2046.
+Package pdftex.def Info: images/bestSolPref.png  used on input line 2041.
 (pdftex.def)             Requested size: 228.37349pt x 106.47792pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/prefShow.png, id=1539, 1158.12675pt x 524.55975pt>
+<images/prefShow.png, id=1490, 1158.12675pt x 524.55975pt>
 File: images/prefShow.png Graphic file (type png)
 <use images/prefShow.png>
-Package pdftex.def Info: images/prefShow.png  used on input line 2058.
+Package pdftex.def Info: images/prefShow.png  used on input line 2053.
 (pdftex.def)             Requested size: 347.4407pt x 157.36913pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/perfSolBut.png, id=1540, 380.622pt x 334.851pt>
+<images/perfSolBut.png, id=1491, 380.622pt x 334.851pt>
 File: images/perfSolBut.png Graphic file (type png)
 <use images/perfSolBut.png>
-Package pdftex.def Info: images/perfSolBut.png  used on input line 2074.
+Package pdftex.def Info: images/perfSolBut.png  used on input line 2069.
 (pdftex.def)             Requested size: 304.49799pt x 267.88115pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-feinkonzept_realisierung.tex:2085: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:2080: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2085 ...lizer}, label=code:Klassenvariablen_PSV]
+l.2080 ...lizer}, label=code:Klassenvariablen_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:2085: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:2080: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2085 ...lizer}, label=code:Klassenvariablen_PSV]
+l.2080 ...lizer}, label=code:Klassenvariablen_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2085.
+Package csquotes Info: Input encoding change on input line 2080.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[59]
 
-feinkonzept_realisierung.tex:2099: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:2094: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2099 I
+l.2094 I
         m Codeabschnitt \ref{code:Klassenvariablen_PSV} sind die Klassenvari...
 
 Your command was ignored.
@@ -4185,52 +4002,98 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (30.79782pt too wide) in paragraph at lines 2104--2109
+Overfull \hbox (30.79782pt too wide) in paragraph at lines 2099--2104
 [][][]\T1/cmr/m/n/10.95 Besonders wich-tig ist der Zu-griff auf die Va-ria-blen
  \T1/cmr/m/it/10.95 in-ven-to-ry-Pla-ce-ment-Ob-ject \T1/cmr/m/n/10.95 und \T1/
 cmr/m/it/10.95 KnapsackAl-
  []
 
+[59]
 
-feinkonzept_realisierung.tex:2111: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:2106: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2111 ...Visualizer Start}, label=code:Start_PSV]
+l.2106 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:2111: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:2106: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2111 ...Visualizer Start}, label=code:Start_PSV]
+l.2106 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2111.
+Package csquotes Info: Input encoding change on input line 2106.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:2132: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:2127: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2132 I
+l.2127 I
         m Codeabschnitt (\ref{code:Start_PSV}) wird die Lebenszyklusmethode ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+feinkonzept_realisierung.tex:2137: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2137 ...Position setzen}, label=code:newPos_PSV]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:2137: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2137 ...Position setzen}, label=code:newPos_PSV]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2137.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+feinkonzept_realisierung.tex:2146: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2146 D
+        ie im Codeabschnitt \ref{code:Start_PSV} aufgerufene Funktion \textb...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4238,90 +4101,44 @@ or  <return>  to continue without it.
 
 [60]
 
-feinkonzept_realisierung.tex:2142: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:2156: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2142 ...Position setzen}, label=code:newPos_PSV]
+l.2156 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:2142: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:2156: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2142 ...Position setzen}, label=code:newPos_PSV]
+l.2156 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2142.
+Package csquotes Info: Input encoding change on input line 2156.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-feinkonzept_realisierung.tex:2151: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:2192: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2151 D
-        ie im Codeabschnitt \ref{code:Start_PSV} aufgerufene Funktion \textb...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-feinkonzept_realisierung.tex:2161: Package Listings Error: Couldn't load reques
-ted style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2161 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-feinkonzept_realisierung.tex:2161: Package Listings Error: style csharp undefin
-ed.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2161 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 2161.
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-[61]
-
-feinkonzept_realisierung.tex:2197: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2197 D
+l.2192 D
         ie Funktion \texttt{fillInventory()} durchlÃ¤uft ein 2D-Array \textt...
 
 Your command was ignored.
@@ -4329,62 +4146,63 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2203--2207
+Underfull \hbox (badness 10000) in paragraph at lines 2198--2202
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2208--2213
+Underfull \hbox (badness 10000) in paragraph at lines 2203--2208
 
  []
 
-
-Overfull \hbox (3.87924pt too wide) in paragraph at lines 2221--2224
+[61]
+Overfull \hbox (3.87924pt too wide) in paragraph at lines 2216--2219
 [][]\T1/cmr/m/n/10.95 Durch Hil-fe von Unit-Tests wird ver-si-chert, dass der i
 m-ple-men-tier-te Knappsack-Algorithmus
  []
 
-[62]
 
-feinkonzept_realisierung.tex:2249: Package Listings Error: Couldn't load reques
+feinkonzept_realisierung.tex:2244: Package Listings Error: Couldn't load reques
 ted style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2249 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
+l.2244 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-feinkonzept_realisierung.tex:2249: Package Listings Error: style csharp undefin
+feinkonzept_realisierung.tex:2244: Package Listings Error: style csharp undefin
 ed.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2249 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
+l.2244 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2249.
+Package csquotes Info: Input encoding change on input line 2244.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
+[62]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-2268.
-
-(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+2263.
+ (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-[63]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-feinkonzept_realisierung.tex:2315: Package inputenc Error: Keyboard character u
+ [63]
+
+feinkonzept_realisierung.tex:2310: Package inputenc Error: Keyboard character u
 sed is undefined
 (inputenc)                in inputencoding `latin1'.
 
@@ -4392,32 +4210,28 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2315         // Ãœ
+l.2310         // Ãœ
                     berprÃ¼fen, ob die Werte Ã¼bereinstimmen
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [64]
-
-feinkonzept_realisierung.tex:2345: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:2340: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2345 D
+l.2340 D
         ies ist eine Testklasse in C#, welche den Knapsack-Algorithmus imple...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-feinkonzept_realisierung.tex:2345: You can't use `macro parameter character #' 
+feinkonzept_realisierung.tex:2340: You can't use `macro parameter character #' 
 in horizontal mode.
-l.2345 Dies ist eine Testklasse in C#
+l.2340 Dies ist eine Testklasse in C#
                                      , welche den Knapsack-Algorithmus imple...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -4425,47 +4239,47 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Overfull \hbox (8.41487pt too wide) in paragraph at lines 2347--2348
+Overfull \hbox (8.41487pt too wide) in paragraph at lines 2342--2343
 [][][]\T1/cmr/m/n/10.95 Die Klas-se Al-go-Test ent-hält Test-funk-tio-nen für z
 wei ver-schie-de-ne Knapsack-Algorithmen. 
  []
 
 
-Overfull \hbox (8.67937pt too wide) in paragraph at lines 2349--2354
+Overfull \hbox (8.67937pt too wide) in paragraph at lines 2344--2349
 [][][]\T1/cmr/m/n/10.95 Es wer-den meh-re-re Va-ria-blen de-fi-niert, dar-un-te
 r ein test-Ob-ject, das zu tes-ten-de knapsack-
  []
 
-feinkonzept_realisierung.tex:2355: Missing $ inserted.
+feinkonzept_realisierung.tex:2350: Missing $ inserted.
 <inserted text> 
                 $
-l.2355 Der Unit-Test KnapsackMaxValue_
+l.2350 Der Unit-Test KnapsackMaxValue_
                                       ReturnsCorrectValue testet die Methode...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \ss invalid in math mode on input line 2356.
+LaTeX Warning: Command \ss invalid in math mode on input line 2351.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2356.
+LaTeX Warning: Command \" invalid in math mode on input line 2351.
 
 
-LaTeX Warning: Command \ss invalid in math mode on input line 2358.
+LaTeX Warning: Command \ss invalid in math mode on input line 2353.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2358.
+LaTeX Warning: Command \" invalid in math mode on input line 2353.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2358.
+LaTeX Warning: Command \" invalid in math mode on input line 2353.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2358.
+LaTeX Warning: Command \" invalid in math mode on input line 2353.
 
-feinkonzept_realisierung.tex:2359: Missing $ inserted.
+feinkonzept_realisierung.tex:2354: Missing $ inserted.
 <inserted text> 
                 $
-l.2359 
+l.2354 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4477,14 +4291,14 @@ Missing character: There is no ü in font cmr10!
 Missing character: There is no ü in font cmr10!
 Missing character: There is no ü in font cmr10!
 
-Overfull \hbox (330.81917pt too wide) in paragraph at lines 2355--2359
+Overfull \hbox (330.81917pt too wide) in paragraph at lines 2350--2354
 [][][]\T1/cmr/m/n/10.95 Der Unit-Test KnapsackMaxValue$[][][]\OML/cmm/m/it/10.9
 5 eturnsCorrectValuetestetdieMethodeKnapsackMaxValuedesKnapsackScript:Eswerdenv
 erschiedeneGegenstands \OMS/cmsy/m/n/10.95 ^^@
  []
 
 
-Overfull \hbox (607.65894pt too wide) in paragraph at lines 2355--2359
+Overfull \hbox (607.65894pt too wide) in paragraph at lines 2350--2354
 \OML/cmm/m/it/10.95 KonfigurationenineinenRucksackplatziert:AnschlieendwirddieA
 usfhrungszeitsowohlderiterativen\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Knapsac
 kMaxValue\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 alsauchderrekursiven\OT1/cmr/m
@@ -4493,38 +4307,38 @@ kMaxValue\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 alsauchderrekursiven\OT1/cmr/m
  []
 
 
-Overfull \hbox (64.43178pt too wide) in paragraph at lines 2355--2359
+Overfull \hbox (64.43178pt too wide) in paragraph at lines 2350--2354
 \OML/cmm/m/it/10.95 Algorithmusgemessen:Schlielichwirdberprft; obbeideImplement
 ierungendenselbenWertzurckgeben:$ 
  []
 
-
-Overfull \hbox (25.18118pt too wide) in paragraph at lines 2360--2364
+[64]
+Overfull \hbox (25.18118pt too wide) in paragraph at lines 2355--2359
 [][][]\T1/cmr/m/n/10.95 Die Me-tho-de Knapsack-Ma-xVa-lu-e-Re-cur-si-ve ist ei-
 ne re-kur-si-ve Im-ple-men-tie-rung des Knapsack-
  []
 
-feinkonzept_realisierung.tex:2365: Missing $ inserted.
+feinkonzept_realisierung.tex:2360: Missing $ inserted.
 <inserted text> 
                 $
-l.2365 Die Testmethode KnapsackMaxValue_
+l.2360 Die Testmethode KnapsackMaxValue_
                                         ReturnsCorrectValue wird fÃ¼r jede K...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2365.
+LaTeX Warning: Command \" invalid in math mode on input line 2360.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2365.
+LaTeX Warning: Command \" invalid in math mode on input line 2360.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2365.
+LaTeX Warning: Command \" invalid in math mode on input line 2360.
 
-feinkonzept_realisierung.tex:2367: Missing $ inserted.
+feinkonzept_realisierung.tex:2362: Missing $ inserted.
 <inserted text> 
                 $
-l.2367 
+l.2362 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4533,7 +4347,7 @@ Missing character: There is no ü in font cmr10!
 Missing character: There is no ä in font cmr10!
 Missing character: There is no ü in font cmr10!
 
-Overfull \hbox (491.99884pt too wide) in paragraph at lines 2365--2367
+Overfull \hbox (491.99884pt too wide) in paragraph at lines 2360--2362
 [][][]\T1/cmr/m/n/10.95 Die Test-me-tho-de KnapsackMaxValue$[][][]\OML/cmm/m/it
 /10.95 eturnsCorrectValuewirdfrjedeKonfigurationvonGegenstndenimRucksackausgefh
 rt; umsicherzustellen; dassdieImplementierungdesKnapsack \OMS/cmsy/m/n/10.95 ^^
@@ -4775,7 +4589,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: C3858909B66547B21677822DDB203CFB;12580.
+(rerunfilecheck)             Checksum: 7B10F685E9D20F7C5BCA702850776E1C;12580.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -4786,10 +4600,10 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35226 strings out of 474586
- 636653 string characters out of 5745680
- 2666558 words of memory out of 5000000
- 55633 multiletter control sequences out of 15000+600000
+ 35207 strings out of 474586
+ 636603 string characters out of 5745680
+ 2759558 words of memory out of 5000000
+ 55660 multiletter control sequences out of 15000+600000
  580756 words of font info for 86 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2335b,2791s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -4822,9 +4636,9 @@ s/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
 C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
 y10.pfb>
 Output written on C:/Users\hayla\Desktop\Diplomarbeit\Diplomschrift\_Diplomarbe
-it.pdf (90 pages, 4292664 bytes).
+it.pdf (90 pages, 4287938 bytes).
 PDF statistics:
- 2993 PDF objects out of 3580 (max. 8388607)
- 1013 named destinations out of 1200 (max. 500000)
+ 2941 PDF objects out of 2984 (max. 8388607)
+ 977 named destinations out of 1000 (max. 500000)
  850 words of extra memory for PDF output out of 10000 (max. 10000000)
 
