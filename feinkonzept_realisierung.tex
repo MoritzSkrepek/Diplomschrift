@@ -1519,11 +1519,11 @@ um die Position des Items innerhalb des Inventars zu berechnen:
 \begin{lstlisting}[caption={Position des Items berechnen}, label=code:controller_calcPos, language={[Sharp]C}]
 private Vector2 CalculateGridPosition(Vector3 objectPosition)
 {
-float cellWidth = inventoryBounds.size.x / numColumns;
-float cellHeight = inventoryBounds.size.z / numRows;
-int col = Mathf.FloorToInt((objectPosition.x - inventoryBounds.min.x) / cellWidth);
-int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
-return new Vector2(row, col);
+    float cellWidth = inventoryBounds.size.x / numColumns;
+    float cellHeight = inventoryBounds.size.z / numRows;
+    int col = Mathf.FloorToInt((objectPosition.x - inventoryBounds.min.x) / cellWidth);
+    int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
+    return new Vector2(row, col);
 }
 \end{lstlisting}
 Die Funktion beginnt damit, die Länge einer einzelnen Zelle anhand der \textit{Bounds} in der X- und Y-Achse zu berechnen.
@@ -1561,8 +1561,8 @@ Auf dieser Abbilding ist zu sehen, dass in \textit{Zelle: 7} das Item mit der \t
 Nachdem das Item im Inventar platziert wurde, sieht das \textit{idGrid} folgendermaßen aus:
 \begin{lstlisting}[style=csharp label=code:controller_savedID]
 idGrid = [[0, 0, 0],
-[0, 0, 0],
-[1, 0, 0]];
+          [0, 0, 0],
+          [1, 0, 0]];
 \end{lstlisting}\\
 
 Das Hashset \textit{processedItems} sieht nach dem platzieren des Items dann folgendermaßen aus:
@@ -1598,8 +1598,8 @@ Gegenstand zu schwer für das aktuelle Inventar ist. Als Konsequenz bleiben \tex
 unverändert und enthalten daher nicht die \textit{ID: 9}. Im Hintergrund sieht daher das \textit{idGrid} dementsprechend folgendermaßen aus:
 \begin{lstlisting}[style=csharp label=code:controller_savedIDs]
 idGrid = [[0, 0, 0],
-[5, 0, 0],
-[1, 3, 0]];
+          [5, 0, 0],
+          [1, 3, 0]];
 \end{lstlisting}
 
 Das HashSet \textit{processedItems} sieht nach dem Platzieren des Items dann so aus:
@@ -1666,17 +1666,17 @@ In folgender Abbildung \ref{fig:controller_itemEntfernt} ist der aktuelle Zustan
 zu sehen. In diesem Inventar sind die beiden Gegenstände mit den \textit{IDs} 5 und 3 enthalten
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{images/itemEntfernt}
-\caption{Item aus Inventar entfernt}
-\label{fig:controller_itemEntfernt}
+    \centering
+    \includegraphics[scale=0.6]{images/itemEntfernt}
+    \caption{Item aus Inventar entfernt}
+    \label{fig:controller_itemEntfernt}
 \end{figure}
 Im Hintergrund sieht das \textit{idGrid} jedoch wie folgt aus:
 
 \begin{lstlisting}[style=csharp label=code:controller_savedIDitemEntferntGrid]
 idGrid = [[0, 0, 0],
-[5, 0, 0],
-[1, 3, 0]];
+          [5, 0, 0],
+          [1, 3, 0]];
 \end{lstlisting}
 
 Das HashSet \textit{processedItems} sieht wie folgt aus:
@@ -1694,8 +1694,8 @@ wie folgt aus:
 
 \begin{lstlisting}[style=csharp label=code:controller_savedIDgg]
 idGrid = [[0, 0, 0],
-[5, 0, 0],
-[0, 3, 0]];
+          [5, 0, 0],
+          [0, 3, 0]];
 \end{lstlisting}
 \begin{lstlisting}[style=csharp label=code:controller_savedIDID]
 processedItems = [5, 3];
