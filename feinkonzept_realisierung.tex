@@ -880,13 +880,14 @@ der virtuellen Umgebung interaktiv sind.
 \subsubsection{Zugriff auf QR-Codes erteilen}
 
 \subsection{Inventory Placement Controller Game Objekt}
-Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die Kamera
-erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können relevante
-Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
+Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
+Kamera erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können
+relevante Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
 
-In diesem Abschnitt wird das \textit{Inventory Placement Controller} Game Objekt mit dem angehängten \textit{InventoryPlacementController.cs}
-Script behandelt. Letzteres beinhaltet die \textbf{InventoryPlacementController} Klasse, welche sämtliche Funktionen zur
-Berechnung und Platzierung des Inventars umfasst. Diese Funktionalitäten werden im Folgenden detailliert erläutert.
+In diesem Abschnitt wird das \textit{Inventory Placement Controller} Game Objekt mit dem angehängten
+\textit{InventoryPlacementController.cs} Script behandelt. Letzteres beinhaltet die \textbf{InventoryPlacementController}
+Klasse, welche sämtliche Funktionen zur Berechnung und Platzierung des Inventars umfasst. Diese Funktionalitäten werden
+im Folgenden detailliert erläutert.
 
 \begin{figure}[H]
 \centering
@@ -900,9 +901,8 @@ gezeigt wird, bietet eine Schnittstelle zur Konfiguration verschiedener Paramete
 der Ebenenposition, die Feinjustierung der Koordinaten innerhalb des Unity Editors sowie die Verbindung mit der Komponente
 \textit{InventoryPlacementController.cs}. Zusätzlich werden voreingestellte Werte für Schlüsselvariablen angezeigt, die
 für die Ausführung des Codes von entscheidender Bedeutung sind. Diese Auflistung und Erläuterung dieser Variablen umfasst:
+
 \begin{itemize}
-    \item \textbf{Raycast Manager:} Diese Variable dient als Verweis auf das Game Objekt des \textit{ARRaycastManagers}
-    aus der Szene Level 2.
     \item \textbf{Plane Manager:} Hierbei handelt es sich um eine Zuweisung zum Game Objekt des \textit{ARPlanesManagers}
     aus der Szene Level 2.
     \item \textbf{Inventory Object:} Diese Referenz ist mit dem 3D-Modell des Inventars aus dem Prefab-Ordner verknüpft.
@@ -910,22 +910,24 @@ für die Ausführung des Codes von entscheidender Bedeutung sind. Diese Auflistu
     \item \textbf{QR Codes Manager:} Hierbei handelt es sich um einen Verweis auf das Game Objekt des \textit{QRCodeManagers}
     aus der Szene Level 2.
     \item \textbf{Info Object:} Diese Referenz ist mit dem Game Objekt \textit{infoObject} aus der Szene Level 2 verbunden.
+    \item \textbf{User Info:} Referenz auf das TextMesh in der \textit{Main Camera}, dass zur Anzeige von Anweisungen und
+    Tipps dient.
     \item \textbf{Required Look Time:} Diese Variable gibt die vorgeschriebene Zeitdauer an, für die der Benutzer auf ein
     Plane blicken muss, damit das Inventar platziert wird.
 \end{itemize}
 
 Durch den Unity Editor besteht die Möglichkeit, die Werte dieser Variablen direkt zu manipulieren, was direkte Auswirkungen
-auf die Ausführung des Codes hat. Diese direkte Manipulation bietet eine intuitive und effiziente Möglichkeit, die Einstellungen
-anzupassen und die Funktionalität des Programms entsprechend anzupassen.
+auf die Ausführung des Codes hat. Diese direkte Manipulation bietet eine intuitive und effiziente Möglichkeit, die
+Einstellungen anzupassen und die Funktionalität des Programms entsprechend anzupassen.
 
 \subsubsection{InventoryPlacementController Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryPlacementController Klasse}, label=code:anchor_var]
-public ARRaycastManager raycastManager;
 public ARPlaneManager planeManager;
 public GameObject inventoryObject;
 public InventoryController inventoryController;
 public GameObject qrCodesManager;
 public GameObject infoObject;
+public TextMeshPro userInfo;
 public float requiredLookTime = 5.0f;
 public Vector3 objectPosition;
 
@@ -938,28 +940,30 @@ private bool canStartScript = false;
 \end{lstlisting}
 
 Die dargestellten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind integraler Bestandteil der
-\textit{PlaceObjectOnLookedAtDesk}-Klasse. Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte, die
-im Unity Editor festgelegt und übergeben werden können oder von anderen Klassen für die Funktionalität benötigt werden.
+\textit{InventoryPlacementController} Klasse. Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte,
+die im Unity Editor festgelegt und übergeben werden können oder von anderen Klassen für die Funktionalität benötigt werden.
 Dies ermöglicht einen direkten Zugriff auf diese Objekte sowohl innerhalb der eigenen Klasse als auch von anderen Klassen
-aus. Die Vektor-Variable \textit{objectPosition} spielt dabei eine entscheidende Rolle für die präzise Platzierung der
-Objekte.
+aus. Die Vektor-Variable \textit{objectPosition} spielt dabei eine entscheidende Rolle für die präzise Platzierung des
+Inventar-Objekts und ebenfalls spielt das TextMesh \textit{userInfo} eine wichtige Rolle um dem Benutzer im Laufe der
+Applikation Anweisung und Tips zu geben.
 
 Hingegen dienen die privaten (\textbf{private}) Variablen der lokalen Speicherung von Werten, die ausschließlich innerhalb
 der Klasse benötigt werden und von keiner anderen Klasse verwendet werden sollen.
 
 Dieser Ansatz der Kapselung von Daten erlaubt eine klare Trennung zwischen öffentlich zugänglichen Daten und internen
 Variablen, was eine effiziente und strukturierte Entwicklung und Wartung des Codes ermöglicht.
-
 \subsubsection{Startverzögerung}
 \begin{lstlisting}[style=csharp, caption={Beginn des Inventory Placement Controllers}, label=code:Start]
 void Start()
 {
+    userInfo.text = "Schauen Sie auf einen Tisch";
     StartCoroutine(DelayedStart());
 }
 \end{lstlisting}
 Die \textbf{Start()} Funktion wird zu Beginn des Levels für das "Knapsack-Problem" aufgerufen, wie im Codeausschnitt
-\ref{code:Start} gezeigt. Diese Methode initiiert die Coroutine \textbf{DelayedStart()}, die eine Verzögerung einleitet,
-bevor das eigentliche Skript fortgesetzt wird.
+\ref{code:Start} gezeigt. Diese Methode setzt den Text des \textit{userInfo} TextMeshes um den Benutzer den Ablauf anhand
+einer Anweisung zu erleichtern. Zusätzlich wird die Coroutine \textbf{DelayedStart()} initiiert, die eine Verzögerung
+einleitet, bevor das eigentliche Skript fortgesetzt wird.
 
 Die Verzögerung wird gezielt eingesetzt, um dem \textit{ARPlaneManager} ausreichend Zeit zu geben, die Ebenen in der
 Umgebung des Benutzers zu scannen und zu markieren. Dieser Schritt ist entscheidend, um eine stabile Grundlage für die
@@ -1001,44 +1005,40 @@ void Update()
             {
                 if (selectedDeskPlane == null || selectedDeskPlane != currentPlane)
                 {
-                    SetPlaneColor(currentPlane, Color.red);
                     selectedDeskPlane = currentPlane;
                     lookStartTime = Time.time;
                 }
                 float timeLookedAtPlane = Time.time - lookStartTime;
+                userInfo.text = ((int)requiredLookTime - (int)timeLookedAtPlane).ToString();
                 if (timeLookedAtPlane >= requiredLookTime)
                 {
                     PlaceObjectOnDesk(selectedDeskPlane);
                     objectPlaced = true;
+                    userInfo.text = "";
                 }
             }
             else
             {
-                if (selectedDeskPlane != null)
-                {
-                    SetPlaneColor(selectedDeskPlane, Color.blue);
-                }
                 selectedDeskPlane = null;
+                userInfo.text = "Schauen Sie auf einen Tisch";
             }
         }
         else
         {
-            if (selectedDeskPlane != null)
-            {
-                SetPlaneColor(selectedDeskPlane, Color.blue);
-            }
             selectedDeskPlane = null;
+            userInfo.text = "Schauen Sie auf einen Tisch";
         }
     }
 }
-\end{lstlisting}\\
+\end{lstlisting}
+\\
 Diese \textbf{Update()} Funktion wird jeden Frame der Applikation aufgerufen, um den Status des Objekts stets aktuell zu
 halten. Wenn die zwei Bedingungen \textit{!objectPlaced} und \textit{canStartScript} in der \textit{Haupt if-Bedingung}
-den boolschen Wert \textit{true} liefern kann das die Funktion weiter ablaufen um das Inventar-Objekt zu platzieren.
+den boolschen Wert \textit{true} liefern kann das die Funktion weiter ablaufen, um das Inventar-Objekt zu platzieren.
 \\
 \\
-Zunächst wird in der nächsten \textit{if}-Bedingung überprüft ob der Benutzer aktuell auf ein \textit{ARPlane} blickt. Um
-dies zu Überprüfen wird hierzu die \textbf{IsPointerOverPlane()} aufgerufen. Der dazugehörige Code dieser Funktion:
+Zunächst wird in der nächsten \textit{if}-Bedingung überprüft ob der Benutzer aktuell auf ein \textit{ARPlane} blickt.
+Um dies zu Überprüfen wird hierzu die \textbf{IsPointerOverPlane()} aufgerufen. Der dazugehörige Code dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Überprüfen ob Benutzer auf ARPlane blickt}, label=code:isPOP]
 private bool IsPointerOverPlane()
 {
@@ -1073,17 +1073,17 @@ In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Ob
 \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und
 das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt
 trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
-\\
+
 Im nächsten Schritt wird ein \textit{RaycastHit}-Objekt initialisiert, das dazu dient, relevante Informationen über
 potenzielle Kollisionen zwischen dem generierten Ray und den Objekten in der Szene zu erfassen.
 
 Anschließend wird der Ray in die Szene "geschossen", wobei währenddessen geprüft wird, ob eine Kollision mit einem Objekt
-stattfindet. Sollte eine Kollision detektiert werden, werden sämtliche Details über diese Kollision in das
-\textit{RaycastHit}-Objekt übertragen.
+stattfindet. Sollte eine Kollision detektiert werden, werden sämtliche Details über diese Kollision in das \textit{RaycastHit}-Objekt
+übertragen.
 
 Im weiteren Verlauf wird überprüft, ob das kollidierte Objekt eine spezifische Art von Objekt repräsentiert, nämlich ein
 \textit{ARPlane}. Diese Überprüfung erfolgt durch den Zugriff auf die \textit{ARPlane}-Komponente des kollidierten Objekts
-mittels der \textit{GetComponent<ARPlane>()} Methode. Wenn diese Komponente vorhanden ist, signalisiert die
+mittels der Methode \textit{hit.collider.GetComponent<ARPlane>()}. Wenn diese Komponente vorhanden ist, signalisiert die
 Rückgabe des Wertes \textit{true}, dass der Benutzer zum gegenwärtigen Zeitpunkt auf ein \textit{ARPlane} blickt.
 
 Falls jedoch keine Kollision mit einem \textit{ARPlane} festgestellt wird oder das kollidierte Objekt keine
@@ -1115,73 +1115,17 @@ Nach Abschluss der beiden Funktionen \textbf{GetCurrentPlaneUnderGaze()} und \te
 ob eine aktuelle Ebene gefunden wurde (\textit{currentPlane != null}). Wenn dies der Fall ist, wird weiterhin geprüft, ob
 es sich um ein neues \textit{ARPlane} handelt oder ob es sich um dieselbe Ebene handelt, die bereits ausgewählt wurde
 (\textit{selectedDeskPlane == null || selectedDeskPlane != currentPlane}). Wenn diese \textit{if}-Bedingung den boolschen
-Wert \textit{true} ergibt, wird dieses \textit{ARPlane} mit der Funktion \textbf{SetPlaneColor()} eingefärbt, um dem
-Benutzer visuell zu signalisieren, wo das Inventar-Objekt aktuell platziert werden würde. Zusätzlich wird ein Timer
-gestartet, um zu messen, wie lange bereits auf dieses spezifische \textit{ARPlane} geblickt wurde. Dies wird durch die
-Zuweisung des aktuellen Zeitstempels an die Variable \textit{lookStartTime} mit \textit{lookStartTime = Time.time} erreicht.
+Wert \textit{true} ergibt, wird das momentan selektierte \textit{ARPlane} der Variable \textit{selectedDeskPlane} zugewiesen
+und der Timer \textit{timer} wird gestartet, um aufzuzeichnen, wie lange der Benutzer auf dieses \textit{ARPlane} blickt.
+Um dann abschließend noch zu visualisieren, wie lange er noch auf dieses \textit{ARPlane} blicken muss, wird der Text
+des \textit{userInfos} TextMeshes auf die aktuelle Blickzeit geändert.
 
-Die Funktion zur Einfärbung eines \textit{ARPlanes} ist folgendermaßen definiert:
-
-\begin{lstlisting}[caption={ARPlane färben}, label=code:color]
-private void SetPlaneColor(ARPlane plane, Color color)
-{
-    MeshRenderer planeRenderer = plane.GetComponentInChildren<MeshRenderer>();
-    if (planeRenderer != null)
-    {
-        planeRenderer.material.color = color;
-    }
-}
-\end{lstlisting}\\
-Zunächst wird die \textit{MeshRenderer}-Komponente des übergebenen \textit{ARPlanes} \textit{plane} abgerufen. Die
-\textit{MeshRenderer}-Komponente ist von entscheidender Bedeutung, da sie das Rendering der Oberfläche des\textit{ARPlanes}
-ermöglicht.
-
-Durch die Überprüfung des \textit{MeshRenderer}-Objekts wird sichergestellt, dass das \textit{ARPlane} gerendert werden
-kann. Sollte dies jedoch keine \textit{MeshRenderer}-Komponente besitzen, wird dieser Schritt übersprungen, um potenzielle
-Fehler zu vermeiden.
-
-Wenn die \textit{MeshRenderer}-Komponente vorhanden ist, wird die Farbe des Materials, das von der
-\textit{MeshRenderer}-Komponente verwendet wird, auf den angegebenen Farbwert \textit{color} gesetzt. Dadurch wird die
-tatsächliche Farbe des \textit{ARPlanes} geändert.
-
-Diese Funktion ist wichtig für die visuelle Rückmeldung des Benutzers, da sie die Farbe der \textit{AR-Ebene} entsprechend
-anpassen kann, um beispielsweise bestimmte Zustände oder Aktionen in einer \textit{Augmented-Reality}-Anwendung zu
-signalisieren. Wie dies aussehen könnte, ist in Abbildung \ref{fig:colPlane} dargestellst.
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.8]{images/coloredPlaneExample}
-    \caption{Gekennzeichnetes ARPlane}
-    \label{fig:colPlane}
-\end{figure}
-
-\subsubsection*{Meshrenderer Definition} %Source: https://docs.unity3d.com/Manual/class-MeshRenderer.html
-Der \textit{MeshRenderer} ist eine \textit{Komponente} in vielen 3D-Grafikanwendungen und -Engines, die für das \textit{Rendering}
-von 3D-Modellen verantwortlich ist. Seine Hauptfunktion besteht darin, die Oberfläche eines 3D-Modells zu rendern, indem
-es \textit{Materialien} und \textit{Texturen} auf das \textit{Mesh} (Netz) des Modells anwendet.
-
-Eine \textit{Mesh} ist eine Sammlung von \textit{Vertices} (Eckpunkten), die durch \textit{Kanten} verbunden sind, und die
-zusammen geometrische Formen bilden, wie beispielsweise \textit{Dreiecke} für polygonale Oberflächen. Ein 3D-Modell besteht
-aus einer oder mehreren \textit{Meshes}, die die äußeren Formen und Strukturen des Modells definieren.
-
-Der \textit{MeshRenderer} arbeitet in Verbindung mit dem \textit{MeshFilter}, der die tatsächlichen Geometriedaten des
-Modells enthält. Der \textit{MeshFilter} wird verwendet, um die \textit{Meshdaten} zu speichern und zu manipulieren,
-während der \textit{MeshRenderer} für die \textit{Darstellung} dieser Daten zuständig ist.
-
-Der \textit{MeshRenderer} rendert das \textit{Mesh} eines Objekts unter Berücksichtigung seiner \textit{Transformationen}
-(z.B. Position, Rotation, Skalierung) sowie der angewendeten \textit{Materialien} und \textit{Lichter}. Es ist wichtig zu
-beachten, dass der \textit{MeshRenderer} nur die \textit{geometrischen Daten} des Modells darstellt und nicht für die
-\textit{Berechnung} von \textit{Beleuchtung} oder \textit{Schatten} verantwortlich ist. Diese Aufgaben werden von anderen
-Komponenten wie \textit{Lights} und \textit{Shadow-Casting-Komponenten} übernommen.
-
-In \textit{Unity}, wird der \textit{MeshRenderer} verwendet, um 3D-Modelle in einer \textit{Szene} darzustellen und ermöglicht
-Entwicklern die Anpassung von \textit{Materialien}, \textit{Texturen} und \textit{Shader-Effekten}, um realistische und
-ansprechende \textit{visuelle Effekte} zu erzeugen.\\
-\\
 Abschließend wird überprüft, ob die Zeit, die der Benutzer zu dem aktuellen Zeitpunkt auf dieses spezifische \textit{ARPlane}
 geblickt hat, größer oder gleich der erforderlichen Blickzeit ist (\textit{timeLookedAtPlane >= requiredLookTime}). Falls
 diese Bedingung erfüllt ist, wird die Funktion \textbf{PlaceObjectOnDesk()} mit dem ausgewählten \textit{ARPlane} aufgerufen,
 um das Inventar-Objekt zu platzieren. Zusätzlich wird der Status der booleschen Variable \textit{objectPlaced} auf \textit{true}
-gesetzt, um zu signalisieren, dass das Inventar-Objekt platziert wurde. Der Code für das Platzieren dieses Objekts ist wie folgt:
+gesetzt, um zu signalisieren, dass das Inventar-Objekt platziert wurde und der Inhalt des \textit{userInfo} TextMeshes wird
+geleert. Der Code für das Platzieren dieses Objekts ist wie folgt:
 \begin{lstlisting}[caption={Inventar-Objekt platzieren}, label=code:placeObject]
 private void PlaceObjectOnDesk(ARPlane deskPlane)
 {
@@ -1204,12 +1148,11 @@ aktiviert um das erkennen und scannen von \textit{QRCodes} zu ermöglichen.
 
 Als nächstes wird die Mitte des \textit{ARPlanes} berechnet um das Inventar-Objekt dementsprechend passend auf diesem zu
 platzieren. Damit das Inventar-Objekt richtig rotiert ist wird dieser anschließend um \textit{90 Grad} auf der X-Achse
-rotiert, dass es flach liegt. Der nächste Schritt
-(\textit{GameObject instantiatedObject = Instantiate(inventoryObject, objectPosition, objectRotation)}) ist dafür
-verantwortlich, dass das Objekt für den Benutzer sichtbar wird. Diese Funktion instanziert das Inventar-Objekt an der
-definierten Position (\textit{objectPosition} und mit der definierten Rotation (\textit{objectRotation}). Zusätzlich wird
-es dann noch runterskaliert. Dieselben Aktionen werden ebenfalls mit dem \textif{infoObject} vorgenommen mit dem einzigen
-Unterschied, dass die Positon (\textit{infoObjectPosition}) anders berechnet wird, dass dieses neben dem Inventar-Objekt
+rotiert, dass es flach liegt. Der nächste Schritt (\textit{GameObject instantiatedObject = Instantiate(inventoryObject, objectPosition, objectRotation)})
+ist dafür verantwortlich, dass das Objekt für den Benutzer sichtbar wird. Diese Funktion instanziert das Inventar-Objekt
+an der definierten Position (\textit{objectPosition} und mit der definierten Rotation (\textit{objectRotation}). Zusätzlich
+wird es dann noch runterskaliert. Dieselben Aktionen werden ebenfalls mit dem \textif{infoObject} vorgenommen mit dem
+einzigen Unterschied, dass die Positon (\textit{infoObjectPosition}) anders berechnet wird, dass dieses neben dem Inventar-Objekt
 liegt. Diese Object wird dann mittels der Funktion \textbf{.SetActive(true)} sichtbar.\\
 
 Anschließend wird dem \textit{inventoryController} dieses Inventar-Objekt übergeben, damit dieser mit derselben Instanz
@@ -1218,24 +1161,25 @@ Das Ende des \textit{inventoryControllers} stellt die Zeile \textit{gameObject.S
 dass das \textit{inventoryPlacementController}-GameObject selbst deaktiviert wird.\\
 \\
 Wenn kein aktuelles \textit{ARPlane} gefunden wird oder, wenn der Blick des Benutzers nicht auf einem \textit{ARPlane}
-liegt, wird überprüft, ob zuvor bereits ein \textit{ARPlane} ausgewählt wurde. Wenn dies der Fall ist, wird von diesem
-\textit{ARPlane} die Sichtbarkeit wieder auf Unsichtbar gestellt und das ausgewählte \textit{ARPlane} wird wieder auf
-\textit{null} zurückgesetzt, um zuvor Gespeicherte Auswahlen und davon möglich auftretende Konflikte zu vermeiden.\\
+liegt, wird in den beiden \textit{else}-Zweigen das aktuelle ausgewählte \textit{ARPlane} auf null gesetzt, um zuvor
+gespeicherte Auswahlen und davon möglich auftretende Konflikte zu vermeiden. Zusätzlich wird der Inhalt des \textit{userInfo}
+TextMeshes wieder geändert, um dem Benutzer zu signalisieren, dass er wieder auf ein \textit{ARPlane} blicken muss.
+\\
 \\
 % HIER BILD NACH PLATZIEREN DES INVENTARS EINFÜGEN
-Nachdem das \textit{InventoryPlacementController}-Skript ordnungsgemäß deaktiviert und beendet wurde, wird dem Benutzer
-anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt) präsentiert.
+Nachdem das \textit{InventoryPlacementController} Skript ordnungsgemäß deaktiviert und beendet wurde, wird dem Benutzer
+anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt) Ansicht präsentiert.
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{images/invPlace_Editor}
-\caption{Sicht des Benutzers nach Platzierung des Inventars}
-\label{fig:inventoryPlaced}
+    \centering
+    \includegraphics[scale=0.8]{images/invPlace_Editor}
+    \caption{Sicht des Benutzers nach Platzierung des Inventars}
+    \label{fig:inventoryPlaced}
 \end{figure}
 
 \subsection{Inventory Controller Game Objekt}
 Das \textit{Inventory Controller} Game Objekt nimmt eine essenzielle Rolle bei der Überwachung und Verwaltung des Inventars
 in der Augmented Reality (AR)-Anwendung ein. Durch das angehängte Skript \textit{InventoryController.cs} wird die
-\textbf{InventoryController} Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
+\textbf{InventoryController}-Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
 erkennen, den verfügbaren Platz zu überprüfen, die Zellenposition anhand der QR-Code-Koordinaten zu berechnen und die
 Positionen dieser Gegenstände in einem \textit{2D Array} zu speichern.
 
@@ -1249,19 +1193,22 @@ Platzbedarf der Gegenstände zu überwachen und ihre Positionen im Inventar fest
 weitergibt, um entsprechende Berechnungen durchführen zu können.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{images/invCon_Editor}
-\caption{InventoryController Objekt im Editor}
-\label{fig:InventoryController_Editor}
+    \centering
+    \includegraphics[scale=0.8]{images/invCon_Editor}
+    \caption{InventoryController Objekt im Editor}
+    \label{fig:InventoryController_Editor}
 \end{figure}
 
 Abbildung \ref{fig:InventoryController_Editor} zeigt das \textit{InventoryController}-Objekt im Unity Editor. Hier können
 verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten im Unity
-Editor und die angehängte Komponente \textit{InventoryController.cs}. Zudem sind vordefinierte Werte für bestimmte
-Variablen sichtbar. Diese Variablen umfassen:
+Editor und die angehängte Komponente \textit{InventoryController.cs}. Zudem sind vordefinierte Werte für bestimmte Variablen
+sichtbar. Diese Variablen umfassen:
+
 \begin{itemize}
     \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager}-Game-Objekt aus der Level 2 Szene.
     \item \textbf{Knapsack Solver Game Objekt:} Referenz auf das \textit{KnapsackAlgo}-Game-Objekt aus der Level 2 Szene.
+    \item \textbf{User Info:} Referenz auf das TextMesh in der \textit{Main Camera}, dass zur Anzeige von Anweisungen und
+    Tipps dient.
     \item \textbf{Vertical Offset:} Float-Wert, um den die Begrenzungen (\textit{Bounds}) des Inventory-Objekts auf der
     X-Achse erweitert werden.
 \end{itemize}
@@ -1270,6 +1217,7 @@ Variablen sichtbar. Diese Variablen umfassen:
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:controller_var]
 public GameObject QRCodeManager;
 public GameObject knapsackSolverGameObject;
+public TextMeshPro userInfo;
 
 private SortedDictionary<System.Guid, GameObject> activeQRObjects;
 
@@ -1288,21 +1236,23 @@ private HashSet<int> processedItems;
 Die gezeigten Klassenvariablen im Codeabschnitt \ref{code:controller_var} sind Teil der \textit{InventoryController} Klasse.
 Öffentliche (\textit{public}) Variablen repräsentieren Objekte und Werte, die im Unity Editor festgelegt und übergeben
 werden oder von anderen Klassen für die Funktionalität benötigt werden. Dies ermöglicht einen direkten Zugriff auf diese
-Objekte in der eigenen oder einer anderen Klasse. Die Float-Variable \textit{verticalOffset} spielt hier eine wichtige
-Rolle für die Erweiterung der Begrenzungen (\textit{Bounds}) des Inventar-Modells.
+Objekte in der eigenen oder einer anderen Klasse. Die Float-Variable \textit{verticalOffset} spielt hier eine wichtige Rolle
+für die Erweiterung der Begrenzungen (\textit{Bounds}) des Inventar-Modells und das TextMeshPro \textit{userInfo} für das
+anzeigen von Anweisung und Tips für den Benutzer.
 
-Die privaten (\textit{private}) Variablen dienen der lokalen Speicherung von Werten, die von keiner anderen Klasse
-benötigt werden.
+Die privaten (\textit{private}) Variablen dienen der lokalen Speicherung von Werten, die von keiner anderen Klasse benötigt
+werden.
 
 \subsubsection{Start des InventoryControllers}
 
-Die \textbf{Start()} Funktion spielt eine Schlüsselrolle beim Initialisieren der erforderlichen Objekte und Skripte für
-den erfolgreichen Start des \textit{InventoryControllers}. Diese Funktion wird zu Beginn des \textit{InventoryControllers}
+Die \textbf{Start()} Funktion spielt eine Schlüsselrolle beim Initialisieren der erforderlichen Objekte und Skripte für den
+erfolgreichen Start des \textit{InventoryControllers}. Diese Funktion wird zu Beginn des \textit{InventoryControllers}
 aufgerufen und ist verantwortlich für die Deklaration und Einrichtung der notwendigen Komponenten. Entsprechender Code
 dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Start Funktion des InventoryControllers}, label=code:controller_start]
 void Start()
 {
+    userInfo.text = "Platzieren Sie nun Gegenstände im Inventar";
     activeQRObjects = QRCodeManager.GetComponent<QRCodesVisualizer>().qrCodesObjectsList;
     knapsackSolver = knapsackSolverGameObject.GetComponent<KnapsackSolver>();
     cap = knapsackSolver.capacity;
@@ -1312,11 +1262,12 @@ void Start()
 }
 \end{lstlisting}\\
 Die Objekte, die in dieser Funktion initialisiert werden, umfassen \textit{activeQRObjects}, die für das Erkennen neuer
-Objekte im Inventar entscheidend sind. Zur Weitergabe des aktualisierten Inventars im späteren Verlauf des
-\textit{InventoryController} wird das \textit{KnapsackSolver}-Objekt benötigt. Des Weiteren werden die Kapazität
-(\textit{cap}) des \textit{KnapsackSolver}-Objekts gespeichert und ein \textit{processedItems-HashSet} erstellt, um zu
-verfolgen, welche Objekte im Inventar bereits verarbeitet wurden. Am Ende der \textbf{Start()} Funktion werden die beiden
-Funktionen \textbf{UpdateInventoryBounds()} und \textbf{InitializeGrid()} aufgerufen.
+Objekte im Inventar entscheidend sind. Zur Weitergabe des aktualisierten Inventars im späteren Verlauf des \textit{InventoryController}
+wird das \textit{KnapsackSolver}-Objekt benötigt. Zu Beginn dieser Funktion wird der Inhalt von dem \textit{userInfo}
+TextMesh auf einen neuen Inhalt geändert um dem Benutzer einen Tip / eine Anweisung zu geben was, zu tun ist. Des Weiteren
+werden die Kapazität (\textit{cap}) des \textit{KnapsackSolver}-Objekts gespeichert und ein \textit{processedItems-HashSet}
+erstellt, um zu verfolgen, welche Objekte im Inventar bereits verarbeitet wurden. Am Ende der \textbf{Start()} Funktion
+werden die beiden Funktionen \textbf{UpdateInventoryBounds()} und \textbf{InitializeGrid()} aufgerufen.
 
 Es ist wichtig zu betonen, dass diese Funktion unmittelbar auf den vorherigen Codeabschnitt \ref{code:controller_var}
 verweist, wo die relevanten Variablen der \textit{InventoryController}-Klasse definiert sind. Dies stellt sicher, dass
@@ -1324,7 +1275,7 @@ die Funktionalitäten, die in der \textbf{Start()} Funktion verwendet werden, ko
 können.
 
 \subsubsection{Bounds des Inventars aktuallisieren}
-Um sicherzustellen, dass ein Item innerhalb der Grenzen des Inventars platziert werden kann, werden in der\textbf{UpdateInventoryBounds()}
+Um sicherzustellen, dass ein Item innerhalb der Grenzen des Inventars platziert werden kann, werden in der \textbf{UpdateInventoryBounds()}
 Funktion einige Änderungen an dem Inventar-Objekt vorgenommen um dies zu realisieren.
 \begin{lstlisting}[style=csharp, caption={Funktion um Inventar Bounds zu erweitern}, label=code:controller_updateBounds]
 private void UpdateInventoryBounds()
@@ -1344,12 +1295,13 @@ Diese Funktion wird in einem größeren Kontext verwendet, insbesondere in der \
 wie in Codeabschnitt \ref{code:controller_start} zu sehen ist. Dies stellt sicher, dass die Begrenzungen des Inventars
 korrekt aktualisiert werden, bevor das Inventar für den weiteren Gebrauch vorbereitet wird.
 
+
 \subsubsection{Bounds des Inventars ermitteln}
 Um erfolgreich auf die Begrenzungen des Inventar-Objekts zugreifen zu können, wird die Funktion \textbf{GetBounds()}
 aufgerufen.
 
-Diese Funktion ist entscheidend, da sie den \textit{Renderer} des Inventar-Modells verwendet, um die Begrenzungen zu ermitteln.
-Der Renderer ist verantwortlich für die Darstellung des Modells im Spiel. Wenn der Renderer vorhanden ist
+Diese Funktion ist entscheidend, da sie den \textit{Renderer} des Inventar-Modells verwendet, um die Begrenzungen zu
+ermitteln. Der Renderer ist verantwortlich für die Darstellung des Modells im Spiel. Wenn der Renderer vorhanden ist
 (\textit{renderer != null}), gibt die Funktion die Begrenzungen des Modells zurück. Andernfalls wird eine neue Bounds-Instanz
 erstellt, die die Position des Objekts und eine Einheitsgröße hat.
 
@@ -1359,10 +1311,11 @@ private Bounds GetBounds(GameObject obj)
     Renderer renderer = obj.GetComponent<Renderer>();
     return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
 }
-\end{lstlisting}\\
-Die Funktion \textbf{GetBounds()}, wie in Codeabschnitt \ref{code:controller_getBounds} dargestellt, wird von
-Codeabschnitt \ref{code:controller_updateBounds} aufgerufen, um die aktuellen Begrenzungen des Inventars zu erhalten.
-Diese Begrenzungen werden dann verwendet, um die Bounds des Inventars zu erweitern.
+\end{lstlisting}
+
+Die Funktion \textbf{GetBounds()}, wie in Codeabschnitt \ref{code:controller_getBounds} dargestellt, wird von Codeabschnitt
+\ref{code:controller_updateBounds} aufgerufen, um die aktuellen Begrenzungen des Inventars zu erhalten. Diese Begrenzungen
+werden dann verwendet, um die Bounds des Inventars zu erweitern.
 
 \subsubsection{Inventory Bounds erweitern}
 Im weiteren Verlauf der \textbf{UpdateInventoryBounds()} Funktion, also nach dem Abschluss des Aufrufs der \textbf{GetBounds()}
@@ -1387,12 +1340,14 @@ Dimensionen unverändert bleiben.
 
 Nach Abschluss der \textbf{UpdateInventoryBounds()} (siehe Codeabschnitt \ref{code:controller_updateBounds}) sehen die
 aktualisierten Bounds im Hintergrund dann wie auf Abbildung \ref{fig:extended_inventoryBounds} zu sehen aus.
+
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.4]{images/extendedBounds}
-\caption{Erweiterte Bounds des Inventar Modells}
-\label{fig:extended_inventoryBounds}
+    \centering
+    \includegraphics[scale=0.4]{images/extendedBounds}
+    \caption{Erweiterte Bounds des Inventar Modells}
+    \label{fig:extended_inventoryBounds}
 \end{figure}
+
 Diese Abbildung zeigt eine schematische Darstellung des zweidimensionalen Inventars. Die blaue Umrandung repräsentiert
 die \textit{Bounds} des Inventar-Objekts vor der Ausführung der Funktion \textbf{UpdateInventoryBounds()}. Nach ausführung
 der Funktion und erweiterung der \textit{Bounds} ist nun anhand der blauen Umrandung deutlich, dass insbesondere die
@@ -1421,6 +1376,7 @@ festgelegt, die zuvor in der Klasse definiert wurden.
 \subsubsection{Update-Funktion}
 Um stets den aktuellen Zustand des Inventars und der darin enthaltenen \textit{Items} zu erhalten, wird hier die \textbf{Update()}
 Funktion verwendet. Diese Funktion wird jeden Frame neu aufgerufen. Der zugehörige Code dazu:
+
 \begin{lstlisting}[style=csharp, caption={Initialisierung des idGrids}, label=code:controller_update]
 void Update()
 {
@@ -1430,10 +1386,10 @@ void Update()
 
 \subsubsection{Neue oder entfernte Items erkennen}
 Das Kernstück des \textit{InventoryController} stellt die \textbf{UpdateGrid()} dar. Diese Funktion ist hauptverantwortlich
-dafür, dass neue \textit{Gegenstände} innerhalb des Inventars erkannt werden, \textit{Items} die aus dem Inventar entfernt
-wurden dementsprechend entfernt werden und auch, dass bei jedem neuem oder entferntem \textit{Gegentand} das Invetar neu
-berechnet wird und darauffolgend die drei \textit{TextMeshes} innerhalb des \textit{infoObjects} aktualisiert werden, um
-dem Benutzer immer  die aktuellen Inventarwerte und potentielle Fehlermeldungen anzuzeigen. Der Code zu dieser Funktion:
+dafür, dass neue \textit{Items} innerhalb des Inventars erkannt werden, \textit{Items} die aus dem Inventar entfernt wurden
+dementsprechend entfernt werden und auch, dass bei jedem neuem oder entferntem \textit{Item} das Invetar neu berechnet
+wird und darauffolgend die drei \textit{TextMeshes} innerhalb des \textit{infoObjects} aktualisiert werden, um dem Benutzer
+immer  die aktuellen Inventarwerte und potentielle Fehlermeldungen anzuzeigen. Der Code zu dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Neue / Entfernte Items erkennen}, label=code:controller_updateGrid]
 void UpdateGrid()
 {
@@ -1450,8 +1406,9 @@ void UpdateGrid()
                 {
                     if (currWeight + qRCode.item.qrData.weight <= cap)
                     {
+                        userInfo.text = "";
                         processedItems.Add(itemId);
-                        message = " ";
+                        message = "";
                         Vector2 startGridPosition = CalculateGridPosition(worldPosition);
                         idGrid[(int)startGridPosition.x, (int)startGridPosition.y] = itemId;
                         knapsackSolver?.UpdateInfoMesh(message);
@@ -1477,19 +1434,19 @@ void UpdateGrid()
     }
 }
 \end{lstlisting}\\
-Zu Beginn der Funktion wird eine Sperre mittels einer \textit{lock}-Anweisung auf das \textit{Dictionary} der aktiven
-QR-Objekte (\textit{activeQRObjects}) angewendet. Diese Maßnahme zielt darauf ab, die Datenkonsistenz zu gewährleisten,
-indem verhindert wird, dass mehrere \textit{Threads} gleichzeitig auf dieses \textit{Dictionary} zugreifen und dabei
-gleichzeitig Änderungen vornehmen. Ohne diese Sperre könnte es zu einem sogenannten Wettlaufzustand (\textit{race condition})
-kommen, bei dem mehrere Threads versuchen, gleichzeitig auf dasselbe Datenobjekt zuzugreifen und es möglicherweise in
-einen inkonsistenten Zustand bringen könnten.
+Zu Beginn der Funktion wird eine Sperre mittels einer \textit{lock}-Anweisung auf das \textit{Dictionary} der aktiven QR-Objekte
+(\textit{activeQRObjects}) angewendet. Diese Maßnahme zielt darauf ab, die Datenkonsistenz zu gewährleisten, indem verhindert
+wird, dass mehrere \textit{Threads} gleichzeitig auf dieses \textit{Dictionary} zugreifen und dabei gleichzeitig Änderungen
+vornehmen. Ohne diese Sperre könnte es zu einem sogenannten Wettlaufzustand (\textit{race condition}) kommen, bei dem mehrere
+Threads versuchen, gleichzeitig auf dasselbe Datenobjekt zuzugreifen und es möglicherweise in einen inkonsistenten Zustand
+bringen könnten.
 
 \subsubsection*{Definition einer race condition}
-Ein Wettlaufzustand kann verschiedene Probleme verursachen, darunter inkonsistente oder fehlerhafte Datenoperationen.
-Als Beispiel könnten Threads gleichzeitig versuchen, ein Element aus dem \textit{Dictionary} zu entfernen oder hinzuzufügen,
+Ein Wettlaufzustand kann verschiedene Probleme verursachen, darunter inkonsistente oder fehlerhafte Datenoperationen. Als
+Beispiel könnten Threads gleichzeitig versuchen, ein Element aus dem \textit{Dictionary} zu entfernen oder hinzuzufügen,
 was zu inkonsistenten Datenzuständen führen könnte. Durch die Anwendung der \textit{lock}-Anweisung wird sichergestellt,
-dass jeweils nur ein Thread gleichzeitig auf das \textit{Dictionary} zugreifen kann, wodurch potenzielle Konflikte
-vermieden werden und die Datenintegrität gewährleistet ist.\\
+dass jeweils nur ein Thread gleichzeitig auf das \textit{Dictionary} zugreifen kann, wodurch potenzielle Konflikte vermieden
+werden und die Datenintegrität gewährleistet ist.\\
 
 Nachdem die Sperre angewendet wurde, durchläuft die Funktion eine \textit{foreach}-Schleife, um jedes Objekt im Dictionary
 \textit{activeQRObjects} zu durchlaufen. Für jedes dieser Objekte wird die zugehörige \textit{QRCode}-Komponente mittels
@@ -1497,19 +1454,18 @@ der \textit{GetComponent<QRCode>()} Funktion abgerufen, um auf die spezifischen 
 Die \textit{Weltposition} des Objekts wird anschließend berechnet, indem die \textit{lokale Position} des Objekts in
 seine Weltposition umgerechnet wird.
 
-\subsubsection*{Definition Lokale und Weltposition}
+\subsubsection*{Definition Lokale und Weltposition} %Quelle: https://medium.com/nerd-for-tech/local-space-vs-world-space-in-unity-6a9944470478#:~:text=Think%20about%20when%20you%20add,object%20related%20to%20another%20object.
 In Unity bezieht sich die \textit{lokale Position} eines Objekts auf seine Position relativ zu seinem Elternobjekt oder
 dem Koordinatenursprung, wenn es kein Elternobjekt hat. Diese Position wird in Bezug auf die Achsen des Objekts selbst
 angegeben, unabhängig von der Umgebung.
 
-Die \textit{Weltposition} eines Objekts ist hingegen seine Position im \textit{globalen Koordinatensystem} der Szene. Sie
-berücksichtigt die Position des Objekts \textit{relativ zum Koordinatenursprung der Szene und alle Transformationen},
+Die \textit{Weltposition} eines Objekts ist hingegen seine Position im \textit{globalen Koordinatensystem} der Szene.
+Sie berücksichtigt die Position des Objekts \textit{relativ zum Koordinatenursprung der Szene und alle Transformationen},
 die auf das Objekt angewendet wurden, einschließlich der \textit{Verschiebung, Drehung und Skalierung}.
 
-Die Berechnung der Weltposition eines Objekts erfolgt, indem seine lokale Position relativ zu seiner Elternobjekt oder
-zum Koordinatenursprung in die Szene umgerechnet wird. Dies ermöglicht es, die tatsächliche Position des Objekts in der
-Welt zu bestimmen und mit anderen Objekten oder Koordinaten in der Szene zu interagieren.
-
+Die Berechnung der Weltposition eines Objekts erfolgt, indem seine lokale Position relativ zu seinem Elternobjekt oder zum
+Koordinatenursprung in die Szene umgerechnet wird. Dies ermöglicht es, die tatsächliche Position des Objekts in der Welt
+zu bestimmen und mit anderen Objekten oder Koordinaten in der Szene zu interagieren.
 \begin{quote}
 Angenommen, gegeben ist ein Game Objekt namens \textit{childObject}, dessen lokale Position relativ zu seinem Elternobjekt
 oder zum Koordinatenursprung (0, 0, 0) wie folgt definiert ist:
@@ -1548,26 +1504,26 @@ des Inventars liegen (\textit{inventoryBounds.Contains(worldPosition)}). Im Fall
 (\textit{true}), wird das QR-Objekt weiteren Analysen unterzogen.
 
 Zunächst wird von dem aktuellen Item die \textit{ID} mittels \textit{qRCode.item.qrData.id} gespeichert, um im weiteren
-Verlauf mit dieser \textit{ID} weiterarbeiten zu können. Nach diesem Schritt wird überprüft, ob die \textit{ID} des
-Items bereits in der Liste der verarbeiteten Items \textit{processedItems} enthalten ist. Wenn diese \textit{ID} neu ist
-und noch nicht verarbeitet wurde, wird weiter überprüft, ob das Hinzufügen des Items die Maximale Kapazität (\textit{cap})
+Verlauf mit dieser \textit{ID} weiterarbeiten zu können. Nach diesem Schritt wird überprüft, ob die \textit{ID} des Items
+bereits in der Liste der verarbeiteten Items \textit{processedItems} enthalten ist. Wenn diese \textit{ID} neu ist und
+noch nicht verarbeitet wurde, wird weiter überprüft, ob das Hinzufügen des Items die Maximale Kapazität (\textit{cap})
 des Inventars überschritten wird.
 
 Im Falle, dass das Gewicht des Items zusammen mit dem aktuellen Gesamtgewicht (\textit{currWeight}) die maximale Kapazität
-(\textit{cap}) nicht überschreitet, wird die ID des Items zur Liste der verarbeiteten Items (\textit{processedItems})
-hinzugefügt, um es als verarbeitet zu markieren. Des Weiteren wird die Position dieses Items innerhalb des Inventars
-mithilfe der Funktion \textbf{CalculateGridPosition()} berechnet und anschließend dem \textit{idGrid} hinzugefügt. Zuletzt
-werden das \textit{InfoMesh} aktualisiert sowie das aktuelle Gewicht (\textit{currWeight}) und das Event \textbf{GridUpdate}
-des \textit{EventManagers} mit dem aktualisierten \textit{idGrid} ausgelöst. Der Code, um die Position des Items
-innerhalb des Inventars zu berechnen:
+(\textit{cap}) nicht überschreitet, wird der Text des \textit{infoMesh} geleert, die ID des Items zur Liste der
+verarbeiteten Items (\textit{processedItems}) hinzugefügt, um es als verarbeitet zu markieren. Des Weiteren wird die Position
+dieses Items innerhalb des Inventars mithilfe der Funktion \textbf{CalculateGridPosition()} berechnet und anschließend dem
+\textit{idGrid} hinzugefügt. Zuletzt werden das \textit{InfoMesh} aktualisiert sowie das aktuelle Gewicht (\textit{currWeight})
+und das Event \textbf{GridUpdate} des \textit{EventManagers} mit dem aktualisierten \textit{idGrid} ausgelöst. Der Code,
+um die Position des Items innerhalb des Inventars zu berechnen:
 \begin{lstlisting}[caption={Position des Items berechnen}, label=code:controller_calcPos, language={[Sharp]C}]
 private Vector2 CalculateGridPosition(Vector3 objectPosition)
 {
-    float cellWidth = inventoryBounds.size.x / numColumns;
-    float cellHeight = inventoryBounds.size.z / numRows;
-    int col = Mathf.FloorToInt((objectPosition.x - inventoryBounds.min.x) / cellWidth);
-    int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
-    return new Vector2(row, col);
+float cellWidth = inventoryBounds.size.x / numColumns;
+float cellHeight = inventoryBounds.size.z / numRows;
+int col = Mathf.FloorToInt((objectPosition.x - inventoryBounds.min.x) / cellWidth);
+int row = Mathf.FloorToInt((inventoryBounds.max.z - objectPosition.z) / cellHeight);
+return new Vector2(row, col);
 }
 \end{lstlisting}
 Die Funktion beginnt damit, die Länge einer einzelnen Zelle anhand der \textit{Bounds} in der X- und Y-Achse zu berechnen.
@@ -1576,8 +1532,8 @@ im Raster des Inventars darstellt.
 
 Anschließend werden die 2D-Koordinaten der Position des übergebenen Objekts im Raster des Inventars berechnet. Hierzu
 wird die X-Koordinate des Objekts relativ zur minimalen X-Grenze der Inventar-Bounds genommen und durch die Breite einer
-Zelle (\textit{cellWidth}) geteilt. Der resultierende Wert wird auf die nächstgelegene ganze Zahl abgerundet (\textit{Mathf.FloorToInt})
-und repräsentiert somit die Spalte (\textit{col}) im Raster.
+Zelle (\textit{cellWidth}) geteilt. Der resultierende Wert wird auf die nächstgelegene ganze Zahl abgerundet
+(\textit{Mathf.FloorToInt}) und repräsentiert somit die Spalte (\textit{col}) im Raster.
 
 Ebenso wird die Z-Koordinate des Objekts relativ zur maximalen Z-Grenze der Inventar-Bounds herbeigezogen und durch die
 Höhe einer Zelle (\textit{cellHeight}) geteilt. Auch dieser Wert wird auf die nächstgelegene ganze Zahl abgerundet und
@@ -1590,14 +1546,14 @@ Um diesen Ablauf des hinzufügen eines Gegenstandes aus der Sicht des Benutzers 
 Hintergrund abläuft, wird hierfür ein Beispiel herangezogen.
 
 \begin{quote}
-Die visuelle Darstellung für den Benutzer, nachdem dieser einen Gegenstand in das Inventar hinzugefügt hat ist in
-folgender Abbildung \ref{fig:controller_itemAdded} zu sehen.
+Die visuelle Darstellung für den Benutzer, nachdem dieser einen Gegenstand in das Inventar hinzugefügt hat ist in folgender
+Abbildung \ref{fig:controller_itemAdded} zu sehen.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{images/itemAdded}
-\caption{Item zu Inventar hinzugefügt}
-\label{fig:controller_itemAdded}
+    \centering
+    \includegraphics[scale=0.6]{images/itemAdded}
+    \caption{Item zu Inventar hinzugefügt}
+    \label{fig:controller_itemAdded}
 \end{figure}
 
 Auf dieser Abbilding ist zu sehen, dass in \textit{Zelle: 7} das Item mit der \textit{ID: 1} hinzugefügt wurde.
@@ -1605,8 +1561,8 @@ Auf dieser Abbilding ist zu sehen, dass in \textit{Zelle: 7} das Item mit der \t
 Nachdem das Item im Inventar platziert wurde, sieht das \textit{idGrid} folgendermaßen aus:
 \begin{lstlisting}[style=csharp label=code:controller_savedID]
 idGrid = [[0, 0, 0],
-          [0, 0, 0],
-          [1, 0, 0]];
+[0, 0, 0],
+[1, 0, 0]];
 \end{lstlisting}\\
 
 Das Hashset \textit{processedItems} sieht nach dem platzieren des Items dann folgendermaßen aus:
@@ -1616,8 +1572,8 @@ processedItems = [1];
 \end{quote}
 \\
 In dem anderen Fall, dass das Gewicht des Items zusammen mit dem aktuellen Gesamtgewicht (\textit{currWeight}) die maximale
-Kapazität (\textit{cap}) überschreitet wird das TexMesh (\textit{InfoMesh}) mit der Nachricht, dass das Item zu schwer
-ist aktualisiert.\\
+Kapazität (\textit{cap}) überschreitet wird das TexMesh (\textit{InfoMesh}) mit der Nachricht, dass das Item zu schwer ist
+aktualisiert.\\
 \\
 Um diesen Ablauf, in dem eine Vielzahl an Gegenständen in das Inventar hinzugefügt werden, wobei dar zuletzt hinzugefügte
 Gegenstand zu schwer ist, wird hierfür erneut ein Beispiel herangezogen.
@@ -1628,23 +1584,22 @@ Gegenstand zu schwer ist, ist in folgender Abbildung \ref{fig:controller_itemToH
 angegeben, wie dieser Ablauf im Hintergrund aussieht.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{images/itemToHeavy}
-\caption{Item zu schwer für das Inventar}
-\label{fig:controller_itemToHeavy}
+    \centering
+    \includegraphics[scale=0.6]{images/itemToHeavy}
+    \caption{Item zu schwer für das Inventar}
+    \label{fig:controller_itemToHeavy}
 \end{figure}
 
-In Abbildung \ref{fig:controller_itemToHeavy} sind vier verschiedene Gegenstände im Inventar enthalten. Diese haben
-folgende \textit{IDs}: 1, 3, 5, 9. Die Reihenfolge, in der diese zum Inventar hinzugefügt wurden, lautet 1, 5, 3, 9. Das
-Item mit der \textit{ID: 9} wurde jedoch aufgrund seines zu hohen Gewichts nicht zu dem \textit{idGrid} und
-\textit{processedItems} hinzugefügt. Gleichzeitig wird eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren,
-dass der zuletzt hinzugefügte Gegenstand zu schwer für das aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid}
-und \textit{processedItems} unverändert und enthalten daher nicht die \textit{ID: 9}. Im Hintergrund sieht daher das
-\textit{idGrid} dementsprechend folgendermaßen aus:
+In Abbildung \ref{fig:controller_itemToHeavy} sind vier verschiedene Gegenstände im Inventar enthalten. Diese haben folgende
+\textit{IDs}: 1, 3, 5, 9. Die Reihenfolge, in der diese zum Inventar hinzugefügt wurden, lautet 1, 5, 3, 9. Das Item mit der
+\textit{ID: 9} wurde jedoch aufgrund seines zu hohen Gewichts nicht zu dem \textit{idGrid} und \textit{processedItems}
+hinzugefügt. Gleichzeitig wird eine Fehlermeldung angezeigt, um dem Benutzer zu signalisieren, dass der zuletzt hinzugefügte
+Gegenstand zu schwer für das aktuelle Inventar ist. Als Konsequenz bleiben \textit{idGrid} und \textit{processedItems}
+unverändert und enthalten daher nicht die \textit{ID: 9}. Im Hintergrund sieht daher das \textit{idGrid} dementsprechend folgendermaßen aus:
 \begin{lstlisting}[style=csharp label=code:controller_savedIDs]
 idGrid = [[0, 0, 0],
-          [5, 0, 0],
-          [1, 3, 0]];
+[5, 0, 0],
+[1, 3, 0]];
 \end{lstlisting}
 
 Das HashSet \textit{processedItems} sieht nach dem Platzieren des Items dann so aus:
@@ -1658,12 +1613,11 @@ kann ein passendes Item hinzugefügt werden.\\
 
 Wenn sich das Item außerhalb der definierten Bounds befindet, jedoch zuvor im Inventar platziert wurde und sowohl in der
 Liste der verarbeiteten Items (\textit{processedItems}) als auch im \textit{idGrid} enthalten ist, deutet dies darauf hin,
-dass der Benutzer das Item aus dem Inventar entfernt hat. In diesem Fall wird die ID des Items aus der Liste der
-verarbeiteten Items (\textit{processedItems}) sowie aus dem \textit{idGrid} entfernt. Zusätzlich wird das aktuelle
-Gesamtgewicht (\textit{currWeight}) aktualisiert und das Event \textbf{GridUpdate} des EventManagers mit dem aktualisierten
-idGrid ausgelöst. Wichtig anzumerken ist hier noch, dass in diesem \textit{else-if}-Zweig die zwei Funktionen
-\textbf{RemoveItem()} und \textbf{ContainsId()} mit der aktuellen Item \textit{ID} aufgerufen werden. Der zugehörige
-Code der beiden Funktionen:
+dass der Benutzer das Item aus dem Inventar entfernt hat. In diesem Fall wird die ID des Items aus der Liste der verarbeiteten
+Items (\textit{processedItems}) sowie aus dem \textit{idGrid} entfernt. Zusätzlich wird das aktuelle Gesamtgewicht
+(\textit{currWeight}) aktualisiert und das Event \textbf{GridUpdate} des EventManagers mit dem aktualisierten idGrid
+ausgelöst. Wichtig anzumerken ist hier noch, dass in diesem \textit{else-if}-Zweig die zwei Funktionen \textbf{RemoveItem()}
+und \textbf{ContainsId()} mit der aktuellen Item \textit{ID} aufgerufen werden. Der zugehörige Code der beiden Funktionen:
 \begin{lstlisting}[caption={Item aus Liste entfernen}, label=code:controller_removeItem, language={[Sharp]C}]
 private void RemoveItem(int id)
 {
@@ -1690,19 +1644,19 @@ private bool ContainsId(int id)
         {
             if (idGrid[i, j] == id)
             {
-                return true;
-            }
+            return true;
         }
     }
-    return false;
+}
+return false;
 }
 \end{lstlisting}
 
 Beide Funktionen operieren im Wesentlichen auf ähnliche Weise. Sie durchlaufen die Liste der verarbeiteten Items mithilfe
 einer verschachtelten \textit{for-Schleife} und überprüfen, ob die als Parameter übergebene ID enthalten ist. Wenn dies
-der Fall ist, wird die \textbf{RemoveItem()} Funktion die ID an dieser Stelle durch den Wert 0 ersetzen, der keinen
-Inhalt repräsentiert. Die \textbf{ContainsId} Funktion hingegen überprüft lediglich, ob die ID in der Liste enthalten
-ist, und gibt den boolschen Wert \textit{true} zurück, falls dies zutrifft, andernfalls \textit{false}.\\
+der Fall ist, wird die \textbf{RemoveItem()} Funktion die ID an dieser Stelle durch den Wert 0 ersetzen, der keinen Inhalt
+repräsentiert. Die \textbf{ContainsId} Funktion hingegen überprüft lediglich, ob die ID in der Liste enthalten ist, und
+gibt den boolschen Wert \textit{true} zurück, falls dies zutrifft, andernfalls \textit{false}.\\
 \\
 Der Fall, indem der Benutzer einen Gegenstand aus dem Inventar entfernt, wird in folgendem Beispiel veranschaulicht und
 erklärt, wie dieser Ablauf im Hintergrund abläuft.
@@ -1721,8 +1675,8 @@ Im Hintergrund sieht das \textit{idGrid} jedoch wie folgt aus:
 
 \begin{lstlisting}[style=csharp label=code:controller_savedIDitemEntferntGrid]
 idGrid = [[0, 0, 0],
-          [5, 0, 0],
-          [1, 3, 0]];
+[5, 0, 0],
+[1, 3, 0]];
 \end{lstlisting}
 
 Das HashSet \textit{processedItems} sieht wie folgt aus:
@@ -1740,8 +1694,8 @@ wie folgt aus:
 
 \begin{lstlisting}[style=csharp label=code:controller_savedIDgg]
 idGrid = [[0, 0, 0],
-          [5, 0, 0],
-          [0, 3, 0]];
+[5, 0, 0],
+[0, 3, 0]];
 \end{lstlisting}
 \begin{lstlisting}[style=csharp label=code:controller_savedIDID]
 processedItems = [5, 3];
