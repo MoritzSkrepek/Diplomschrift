@@ -2577,102 +2577,16 @@ die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implemen
 Leistung zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überwacht, um sicherzustellen, dass der
 Algorithmus zuverlässig und effizient arbeitet.
 
-\begin{lstlisting}[style=csharp, caption={Inventar füllen}, label=code:invFül_PSV]
+\begin{lstlisting}[style=csharp, caption={Unit Test Klasse}, label=code:UnitTest]
 public class AlgoTest
 {
-    GameObject testObject;
-    KnapsackScript knapsackScript;
-    int[,] usedItems;
-    int capacity = 120;
-
-    [SetUp]
-    public void Setup()
-    {
-        // Vor jedem Test eine Instanz von KnapsackScript erstellen
-        testObject = new GameObject();
-        knapsackScript = testObject.AddComponent<KnapsackScript>();
-    }
-
-    [TearDown]
-    public void Teardown()
-    {
-        // Das Test-GameObject nach jedem Test zerstören
-        GameObject.DestroyImmediate(testObject);
-    }
-
-    // Ein Test verhält sich wie eine normale Methode
-    [Test]
-    public void KnapsackMaxValue_ReturnsCorrectValue()
-    {
-        // Gibt eine Menge von Gegenständen für den Rucksack an
-        Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
-        {1, new QRData { id = 1, weight = 50, value = 100 }},
-        {2, new QRData { id = 2, weight = 25, value = 50 }},
-        {3, new QRData { id = 3, weight = 20, value = 30 }},
-        {4, new QRData { id = 4, weight = 10, value = 15 }},
-        {5, new QRData { id = 5, weight = 10, value = 5 }},
-        {6, new QRData { id = 6, weight = 25, value = 50 }},
-        {7, new QRData { id = 7, weight = 10, value = 10 }},
-        {8, new QRData { id = 8, weight = 5, value = 50 }},
-        {9, new QRData { id = 9, weight = 5, value = 15 }},
-        {10, new QRData { id = 10, weight = 20, value = 15 }},
-        };
-
-        System.Random random = new System.Random();
-        for (int i = 11; i <= 100; i++)
-        {
-        int randomWeight = random.Next(1, 51);
-        int randomValue = random.Next(1, 101);
-
-        items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
-        }
-
-        knapsackScript.capacity = capacity;
-        knapsackScript.maxItems = items.Count;
-        knapsackScript.items = items;
-
-        // Messung der Ausführungszeit für KnapsackMaxValue
-        System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
-        int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
-        knapsackMaxValueStopwatch.Stop();
-        Debug.Log($"Die Ausführungszeit von KnapsackMaxValue beträgt: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
-
-        // Messung der Ausführungszeit für KnapsackMaxValueRecursive
-        System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
-        int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
-        recursiveStopwatch.Stop();
-        Debug.Log($"Die Ausführungszeit von KnapsackMaxValueRecursive beträgt: {recursiveStopwatch.ElapsedMilliseconds} ms");
-
-        // Überprüfen, ob die Werte übereinstimmen
-        Assert.AreEqual(maxValueComp, maxValue);
-    }
-
-    // Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
-    public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
-    {
-        if (n == 0 || remainingCapacity == 0)
-            return 0;
-
-        if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
-            return memoizedValue;
-
-        if (items[n].weight > remainingCapacity)
-        {
-            memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
-            return memo[(n, remainingCapacity)];
-        }
-
-        int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
-        int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
-
-        int result = Math.Max(includedValue, excludedValue);
-
-        memo[(n, remainingCapacity)] = result;
-
-        return result;
-    }
-}
+GameObject testObject;
+KnapsackScript knapsackScript;
+int[,] usedItems;
+int capacity = 120;
+...
 \end{lstlisting}\\
+
 Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet.
 
 Die Klasse AlgoTest enthält Testfunktionen für zwei verschiedene Knapsack-Algorithmen.
@@ -2683,10 +2597,76 @@ Größe des Rucksacks, die für die Tests benötigt wird. Die Methoden SetUp und
 und neu aufzusetzen.Es wird eine Instanz des KnapsackScript erstellt und wieder zerstört, um sicherzustellen, dass die
 Tests in einer sauberen Umgebung ausgeführt werden.
 
-Der Unit-Test KnapsackMaxValue_ReturnsCorrectValue testet die Methode KnapsackMaxValue des KnapsackScript. Es werden
-verschiedene Gegenstands-Konfigurationen in einen Rucksack platziert. Anschließend wird die Ausführungszeit sowohl der
-iterativen (KnapsackMaxValue) als auch der rekursiven (KnapsackMaxValueRecursive) Implementierung des Knapsack-Algorithmus
-gemessen. Schließlich wird überprüft, ob beide Implementierungen denselben Wert zurückgeben.
+\begin{lstlisting}[style=csharp, caption={Unit Test Methode}, label=code:Test Methode]
+// Ein Test verhält sich wie eine normale Methode
+[Test]
+public void KnapsackMaxValue_ReturnsCorrectValue()
+{
+    // Gibt eine Menge von Gegenständen für den Rucksack an
+    Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
+    {1, new QRData { id = 1, weight = 50, value = 100 }},
+    ... //weitere Testobjekte
+
+    System.Random random = new System.Random();
+    for (int i = 11; i <= 100; i++)
+    {
+        int randomWeight = random.Next(1, 51);
+        int randomValue = random.Next(1, 101);
+
+        items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
+    }
+\end{lstlisting}\\
+
+Der Unit-Test \textit{KnapsackMaxValue_ReturnsCorrectValue} testet die Methode KnapsackMaxValue des KnapsackScript. Es werden
+verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere Items mit zufälligen Werten in das
+Dictionary hinzugefügt, damit auch getestet wird ob der Algorithmen konsistent richtige Lösungen liefern.
+
+\begin{lstlisting}[style=csharp, caption={Zeitmessung}, label=code:Zeitmessung]
+// Messung der Ausführungszeit für KnapsackMaxValue
+System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
+int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
+knapsackMaxValueStopwatch.Stop();
+Debug.Log($"Die Ausführungszeit von KnapsackMaxValue beträgt: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
+
+// Messung der Ausführungszeit für KnapsackMaxValueRecursive
+System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
+int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
+recursiveStopwatch.Stop();
+Debug.Log($"Die Ausführungszeit von KnapsackMaxValueRecursive beträgt: {recursiveStopwatch.ElapsedMilliseconds} ms");
+
+// Überprüfen, ob die Werte übereinstimmen
+Assert.AreEqual(maxValueComp, maxValue);
+\end{lstlisting}\\
+Anschließend wird die Ausführungszeit sowohl der iterativen (KnapsackMaxValue) als auch der rekursiven (KnapsackMaxValueRecursive)
+Implementierung des Knapsack-Algorithmus gemessen. Schließlich wird überprüft, ob beide Implementierungen denselben Wert zurückgeben.
+
+
+\begin{lstlisting}[style=csharp, caption={Rekursiver Algorithmus}, label=code:Rekursiver Algorithmus]
+// Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
+public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
+{
+    if (n == 0 || remainingCapacity == 0)
+    return 0;
+
+    if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
+    return memoizedValue;
+
+    if (items[n].weight > remainingCapacity)
+    {
+    memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+    return memo[(n, remainingCapacity)];
+    }
+
+    int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
+    int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+
+    int result = Math.Max(includedValue, excludedValue);
+
+    memo[(n, remainingCapacity)] = result;
+
+    return result;
+}
+\end{lstlisting}\\
 
 Die Methode KnapsackMaxValueRecursive ist eine rekursive Implementierung des Knapsack-Algorithmus. Der maximale Wert, den
 der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekursiv entweder eingeschlossen oder ausgeschlossen werden.

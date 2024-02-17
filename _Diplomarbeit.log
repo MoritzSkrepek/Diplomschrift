@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  17 FEB 2024 12:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  17 FEB 2024 13:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1261,9 +1261,6 @@ LaTeX Warning: Label `code:isPOP' multiply defined.
 
 
 LaTeX Warning: Label `code:kn_start' multiply defined.
-
-
-LaTeX Warning: Label `code:invFÃ¼l_PSV' multiply defined.
 
 ) (zmfs_abschluss.aux) (anhang_a.aux) (literatur.aux))
 \openout1 = `_Diplomarbeit.aux'.
@@ -4140,7 +4137,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2580 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
+l.2580 ...{Unit Test Klasse}, label=code:UnitTest]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4154,7 +4151,7 @@ See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2580 ...ventar fÃ¼llen}, label=code:invFÃ¼l_PSV]
+l.2580 ...{Unit Test Klasse}, label=code:UnitTest]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -4164,45 +4161,22 @@ Package csquotes Info: Input encoding change on input line 2580.
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 [79]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-2599.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80]
-
-feinkonzept_realisierung.tex:2646: Package inputenc Error: Keyboard character u
-sed is undefined
-(inputenc)                in inputencoding `latin1'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2646         // Ãœ
-                    berprÃ¼fen, ob die Werte Ã¼bereinstimmen
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-feinkonzept_realisierung.tex:2676: LaTeX Error: There's no line here to end.
+feinkonzept_realisierung.tex:2589: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2676 D
-        ies ist eine Testklasse in C#, welche den Knapsack-Algorithmus imple...
-
+l.2589 
+       
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-feinkonzept_realisierung.tex:2676: You can't use `macro parameter character #' 
+feinkonzept_realisierung.tex:2590: You can't use `macro parameter character #' 
 in horizontal mode.
-l.2676 Dies ist eine Testklasse in C#
+l.2590 Dies ist eine Testklasse in C#
                                      , welche den Knapsack-Algorithmus imple...
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -4210,107 +4184,258 @@ If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
 
-Overfull \hbox (8.41487pt too wide) in paragraph at lines 2678--2679
+Overfull \hbox (8.41487pt too wide) in paragraph at lines 2592--2593
 [][][]\T1/cmr/m/n/10.95 Die Klas-se Al-go-Test ent-hält Test-funk-tio-nen für z
 wei ver-schie-de-ne Knapsack-Algorithmen. 
  []
 
 
-Overfull \hbox (8.67937pt too wide) in paragraph at lines 2680--2685
+Overfull \hbox (8.67937pt too wide) in paragraph at lines 2594--2599
 [][][]\T1/cmr/m/n/10.95 Es wer-den meh-re-re Va-ria-blen de-fi-niert, dar-un-te
 r ein test-Ob-ject, das zu tes-ten-de knapsack-
  []
 
-feinkonzept_realisierung.tex:2686: Missing $ inserted.
+
+feinkonzept_realisierung.tex:2600: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2600 ... Test Methode}, label=code:Test Methode]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:2600: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2600 ... Test Methode}, label=code:Test Methode]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2600.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+2601.
+
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+
+feinkonzept_realisierung.tex:2619: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2619 
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+feinkonzept_realisierung.tex:2620: Missing $ inserted.
 <inserted text> 
                 $
-l.2686 Der Unit-Test KnapsackMaxValue_
-                                      ReturnsCorrectValue testet die Methode...
+l.2620 ...it{KnapsackMaxValue_ReturnsCorrectValue}
+                                                   testet die Methode Knapsa...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-
-LaTeX Warning: Command \ss invalid in math mode on input line 2687.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 2687.
-
-
-LaTeX Warning: Command \ss invalid in math mode on input line 2689.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 2689.
-
-
-LaTeX Warning: Command \" invalid in math mode on input line 2689.
+feinkonzept_realisierung.tex:2620: Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.2620 ...it{KnapsackMaxValue_ReturnsCorrectValue}
+                                                   testet die Methode Knapsa...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2689.
+LaTeX Warning: Command \" invalid in math mode on input line 2621.
 
-feinkonzept_realisierung.tex:2690: Missing $ inserted.
+
+LaTeX Warning: Command \ss invalid in math mode on input line 2621.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 2621.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 2622.
+
+
+LaTeX Warning: Command \" invalid in math mode on input line 2622.
+
+feinkonzept_realisierung.tex:2623: Missing $ inserted.
 <inserted text> 
                 $
-l.2690 
+l.2623 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
+Missing character: There is no ä in font cmr10!
 Missing character: There is no ÿ in font cmr10!
+Missing character: There is no ä in font cmr10!
 Missing character: There is no ü in font cmr10!
-Missing character: There is no ÿ in font cmr10!
-Missing character: There is no ü in font cmr10!
-Missing character: There is no ü in font cmr10!
-Missing character: There is no ü in font cmr10!
+Missing character: There is no ö in font cmr10!
 
-Overfull \hbox (330.81917pt too wide) in paragraph at lines 2686--2690
-[][][]\T1/cmr/m/n/10.95 Der Unit-Test KnapsackMaxValue$[][][]\OML/cmm/m/it/10.9
-5 eturnsCorrectValuetestetdieMethodeKnapsackMaxValuedesKnapsackScript:Eswerdenv
-erschiedeneGegenstands \OMS/cmsy/m/n/10.95 ^^@
+Overfull \hbox (1235.1752pt too wide) in paragraph at lines 2620--2623
+[][][]\T1/cmr/m/n/10.95 Der Unit-Test \T1/cmr/m/it/10.95 KnapsackMaxValue$[][][
+]\OML/cmm/m/it/10.95 eturnsCorrectValuetestetdieMethodeKnapsackMaxValuedesKnaps
+ackScript:EswerdenverschiedeneGegenstndeindemDictionarydefiniert:Auerdemwerdenn
+ochweitereItemsmitzuflligenWertenindasDictionaryhinzugefgt; damitauchgetestetwi
+rdobderAlgorithmenkonsistentrichtigeLsungenliefern:$ 
  []
 
 
-Overfull \hbox (607.65894pt too wide) in paragraph at lines 2686--2690
-\OML/cmm/m/it/10.95 KonfigurationenineinenRucksackplatziert:AnschlieendwirddieA
-usfhrungszeitsowohlderiterativen\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Knapsac
-kMaxValue\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 alsauchderrekursiven\OT1/cmr/m
-/n/10.95 (\OML/cmm/m/it/10.95 KnapsackMaxValueRecursive\OT1/cmr/m/n/10.95 )\OML
-/cmm/m/it/10.95 ImplementierungdesKnapsack \OMS/cmsy/m/n/10.95 ^^@
+feinkonzept_realisierung.tex:2624: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2624 ...n={Zeitmessung}, label=code:Zeitmessung]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:2624: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2624 ...n={Zeitmessung}, label=code:Zeitmessung]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2624.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/it' in size <9> not available
+(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 2627.
+
+
+
+feinkonzept_realisierung.tex:2637: Package inputenc Error: Keyboard character u
+sed is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2637 // Ãœ
+            berprÃ¼fen, ob die Werte Ã¼bereinstimmen
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+[80]
+
+feinkonzept_realisierung.tex:2640: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2640 A
+        nschlieÃŸend wird die AusfÃ¼hrungszeit sowohl der iterativen (Knapsa...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+feinkonzept_realisierung.tex:2644: Package Listings Error: Couldn't load reques
+ted style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2644 ...mus}, label=code:Rekursiver Algorithmus]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+feinkonzept_realisierung.tex:2644: Package Listings Error: style csharp undefin
+ed.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2644 ...mus}, label=code:Rekursiver Algorithmus]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2644.
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+feinkonzept_realisierung.tex:2670: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2670 
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (22.92767pt too wide) in paragraph at lines 2671--2675
+[][][]\T1/cmr/m/it/10.95 Die Me-tho-de Knapsack-Ma-xVa-lu-e-Re-cur-si-ve ist ei
+-ne re-kur-si-ve Im-ple-men-tie-rung des Knapsack-
  []
 
-
-Overfull \hbox (64.43178pt too wide) in paragraph at lines 2686--2690
-\OML/cmm/m/it/10.95 Algorithmusgemessen:Schlielichwirdberprft; obbeideImplement
-ierungendenselbenWertzurckgeben:$ 
- []
-
-
-Overfull \hbox (25.18118pt too wide) in paragraph at lines 2691--2695
-[][][]\T1/cmr/m/n/10.95 Die Me-tho-de Knapsack-Ma-xVa-lu-e-Re-cur-si-ve ist ei-
-ne re-kur-si-ve Im-ple-men-tie-rung des Knapsack-
- []
-
-[81]
-feinkonzept_realisierung.tex:2696: Missing $ inserted.
+feinkonzept_realisierung.tex:2676: Missing $ inserted.
 <inserted text> 
                 $
-l.2696 Die Testmethode KnapsackMaxValue_
+l.2676 Die Testmethode KnapsackMaxValue_
                                         ReturnsCorrectValue wird fÃ¼r jede K...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2696.
+LaTeX Warning: Command \" invalid in math mode on input line 2676.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2696.
+LaTeX Warning: Command \" invalid in math mode on input line 2676.
 
 
-LaTeX Warning: Command \" invalid in math mode on input line 2696.
+LaTeX Warning: Command \" invalid in math mode on input line 2676.
 
-feinkonzept_realisierung.tex:2698: Missing $ inserted.
+feinkonzept_realisierung.tex:2678: Missing $ inserted.
 <inserted text> 
                 $
-l.2698 
+l.2678 
        
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -4319,19 +4444,19 @@ Missing character: There is no ü in font cmr10!
 Missing character: There is no ä in font cmr10!
 Missing character: There is no ü in font cmr10!
 
-Overfull \hbox (491.99884pt too wide) in paragraph at lines 2696--2698
-[][][]\T1/cmr/m/n/10.95 Die Test-me-tho-de KnapsackMaxValue$[][][]\OML/cmm/m/it
-/10.95 eturnsCorrectValuewirdfrjedeKonfigurationvonGegenstndenimRucksackausgefh
-rt; umsicherzustellen; dassdieImplementierungdesKnapsack \OMS/cmsy/m/n/10.95 ^^
-@
+Overfull \hbox (488.92175pt too wide) in paragraph at lines 2676--2678
+[][][]\T1/cmr/m/it/10.95 Die Test-me-tho-de KnapsackMaxValue$[][][]\OML/cmm/m/i
+t/10.95 eturnsCorrectValuewirdfrjedeKonfigurationvonGegenstndenimRucksackausgef
+hrt; umsicherzustellen; dassdieImplementierungdesKnapsack \OMS/cmsy/m/n/10.95 ^
+^@
  []
 
-) [82]
+) [81]
 \openout2 = `zmfs_abschluss.aux'.
 
  (zmfs_abschluss.tex
 Kapitel 5.
-) [83
+) [82
 
 
 
@@ -4341,7 +4466,7 @@ Kapitel 5.
 
  (anhang_a.tex
 Anhang A.
-) [84
+) [83
 
 
 
@@ -4352,177 +4477,221 @@ Anhang A.
  (literatur.tex
 Anhang B.
 
-Overfull \hbox (6.5393pt too wide) in paragraph at lines 7--8
-[][][]\T1/cmr/m/n/10.95 Scrum-Master.de Scrum-Rollen - Scrum Mas-ter. URL: [][]
-$[][]\T1/cmss/m/n/10.95 https : / / scrum -[] master . de / Scrum -[]
+Overfull \hbox (1.39716pt too wide) in paragraph at lines 5--6
+[][][]\T1/cmr/m/it/10.95 Scrum Al-lian-ce Inc. WHAT IS SCRUM? URL: [][]$[][]\T1
+/cmss/m/it/10.95 https : / / www . scrumalliance . org / about -[]
  []
 
 
-Overfull \hbox (0.62498pt too wide) in paragraph at lines 8--9
-[][][]\T1/cmr/m/n/10.95 Scrum-Master.de Scrum-Rollen - Team. URL: [][]$[][]\T1/
-cmss/m/n/10.95 https : / / scrum -[] master . de / Scrum -[] Rollen /
+Overfull \hbox (13.02966pt too wide) in paragraph at lines 7--8
+[][][]\T1/cmr/m/it/10.95 Scrum-Master.de Scrum-Rollen - Scrum Mas-ter. URL: [][
+]$[][]\T1/cmss/m/it/10.95 https : / / scrum -[] master . de / Scrum -[]
  []
 
 
-Overfull \hbox (28.70499pt too wide) in paragraph at lines 13--14
-[][]$[][]\T1/cmss/m/n/10.95 https : / / scrum -[] master . de / Scrum -[] Meeti
-ngs / Sprint _ Review _ Meeting$[][] \T1/cmr/m/n/10.95 (be-sucht am 10.11.2023)
-. 
+Overfull \hbox (7.65608pt too wide) in paragraph at lines 8--9
+[][][]\T1/cmr/m/it/10.95 Scrum-Master.de Scrum-Rollen - Team. URL: [][]$[][]\T1
+/cmss/m/it/10.95 https : / / scrum -[] master . de / Scrum -[] Rollen /
  []
 
 
-Overfull \hbox (35.37366pt too wide) in paragraph at lines 15--16
-[][][]\T1/cmr/m/n/10.95 Khronos Group. OPENXR. URL: [][]$[][]\T1/cmss/m/n/10.95
- https : / / www . khronos . org / openxr/$[][] \T1/cmr/m/n/10.95 (be-sucht am 
-05.11.2023). 
+Overfull \hbox (4.37102pt too wide) in paragraph at lines 10--11
+\T1/cmss/m/it/10.95 scrum -[] master . de / Scrum -[] Meetings / Sprint _ Plann
+ing _ Meeting$[][] \T1/cmr/m/it/10.95 (be-sucht am 10.11.2023). 
  []
 
 
-Overfull \hbox (31.19977pt too wide) in paragraph at lines 16--17
-[][][]\T1/cmr/m/n/10.95 Medium. CREA-TING MA-NA-GER CLAS-SES IN UNI-TY. URL: []
-[]$[][]\T1/cmss/m/n/10.95 https : / / sneakydaggergames .
+Overfull \hbox (35.36049pt too wide) in paragraph at lines 13--14
+[][]$[][]\T1/cmss/m/it/10.95 https : / / scrum -[] master . de / Scrum -[] Meet
+ings / Sprint _ Review _ Meeting$[][] \T1/cmr/m/it/10.95 (be-sucht am 10.11.202
+3). 
  []
 
 
-Overfull \hbox (24.96494pt too wide) in paragraph at lines 17--18
-[][][]\T1/cmr/m/n/10.95 Unity. AR Pla-ne Ma-na-ger. URL: [][]$[][]\T1/cmss/m/n/
-10.95 https : / / docs . unity . cn / Packages / com . unity . xr . arfoundatio
-n @
+Overfull \hbox (41.3342pt too wide) in paragraph at lines 15--16
+[][][]\T1/cmr/m/it/10.95 Khronos Group. OPENXR. URL: [][]$[][]\T1/cmss/m/it/10.
+95 https : / / www . khronos . org / openxr/$[][] \T1/cmr/m/it/10.95 (be-sucht 
+am 05.11.2023). 
  []
 
 
-Overfull \hbox (35.9132pt too wide) in paragraph at lines 18--19
-[][][]\T1/cmr/m/n/10.95 Unity. AR Ray-cast Ma-na-ger. URL: [][]$[][]\T1/cmss/m/
-n/10.95 https : / / docs . unity . cn / Packages / com . unity . xr . arfoundat
+Overfull \hbox (33.92601pt too wide) in paragraph at lines 16--17
+[][][]\T1/cmr/m/it/10.95 Medium. CREA-TING MA-NA-GER CLAS-SES IN UNI-TY. URL: [
+][]$[][]\T1/cmss/m/it/10.95 https : / / sneakydaggergames .
+ []
+
+
+Overfull \hbox (3.40256pt too wide) in paragraph at lines 16--17
+\T1/cmss/m/it/10.95 medium . com / creating -[] manager -[] classes -[] in -[] 
+unity -[] a77cf7edcba5$[][] \T1/cmr/m/it/10.95 (be-sucht am 05.11.2023). 
+ []
+
+
+Overfull \hbox (33.33438pt too wide) in paragraph at lines 17--18
+[][][]\T1/cmr/m/it/10.95 Unity. AR Pla-ne Ma-na-ger. URL: [][]$[][]\T1/cmss/m/i
+t/10.95 https : / / docs . unity . cn / Packages / com . unity . xr . arfoundat
 ion @
  []
 
 
-Overfull \hbox (13.26016pt too wide) in paragraph at lines 18--19
-\T1/cmss/m/n/10.95 5 . 0 / api / UnityEngine . XR . ARFoundation . ARRaycastMan
-ager . html$[][] \T1/cmr/m/n/10.95 (be-sucht am 05.11.2023). 
+Overfull \hbox (42.77458pt too wide) in paragraph at lines 18--19
+[][][]\T1/cmr/m/it/10.95 Unity. AR Ray-cast Ma-na-ger. URL: [][]$[][]\T1/cmss/m
+/it/10.95 https : / / docs . unity . cn / Packages / com . unity . xr . arfound
+ation @
  []
 
 
-Overfull \hbox (38.23976pt too wide) in paragraph at lines 21--22
-[][][]\T1/cmr/m/n/10.95 Unity. Pre-fabs. URL: [][]$[][]\T1/cmss/m/n/10.95 https
- : / / docs . unity3d . com / Manual / Prefabs . html$[][] \T1/cmr/m/n/10.95 (b
-e-sucht am 15.01.2024). 
+Overfull \hbox (18.30806pt too wide) in paragraph at lines 18--19
+\T1/cmss/m/it/10.95 5 . 0 / api / UnityEngine . XR . ARFoundation . ARRaycastMa
+nager . html$[][] \T1/cmr/m/it/10.95 (be-sucht am 05.11.2023). 
  []
 
-[85
+
+Overfull \hbox (4.59883pt too wide) in paragraph at lines 22--23
+[][][]\T1/cmr/m/it/10.95 Unity. Bounds. URL: [][]$[][]\T1/cmss/m/it/10.95 https
+ : / / docs . unity3d . com / ScriptReference / Bounds . html$[][] \T1/cmr/m/it
+/10.95 (be-sucht
+ []
+
+[84
 
 
 
 
 ]
-Overfull \hbox (16.06587pt too wide) in paragraph at lines 25--26
-[][][]\T1/cmr/m/n/10.95 Trackable Do-ku, URL: [][]$[][]\T1/cmss/m/n/10.95 https
- : / / docs . unity3d . com / 2019 . 2 / Documentation / ScriptReference /
+Overfull \hbox (23.26807pt too wide) in paragraph at lines 25--26
+[][][]\T1/cmr/m/it/10.95 Trackable Do-ku, URL: [][]$[][]\T1/cmss/m/it/10.95 htt
+ps : / / docs . unity3d . com / 2019 . 2 / Documentation / ScriptReference /
  []
 
 
-Overfull \hbox (21.96921pt too wide) in paragraph at lines 26--27
-[][][]\T1/cmr/m/n/10.95 ARRaycastHit Do-ku, URL: [][]$[][]\T1/cmss/m/n/10.95 ht
-tps : / / docs . unity3d . com / Packages / com . unity . xr . arfoundation @
- []
-
-
-Overfull \hbox (10.29378pt too wide) in paragraph at lines 26--27
-\T1/cmss/m/n/10.95 4 . 0 / api / UnityEngine . XR . ARFoundation . ARRaycastHit
- . html % 7D$[][] \T1/cmr/m/n/10.95 (be-sucht am 18.11.2023). 
- []
-
-
-Overfull \hbox (52.94038pt too wide) in paragraph at lines 27--28
-[][][]\T1/cmr/m/n/10.95 PhotoCaputre, URL: [][]$[][]\T1/cmss/m/n/10.95 https : 
-/ / docs . unity3d . com / ScriptReference / Windows . WebCam . PhotoCapture .
- []
-
-
-Overfull \hbox (2.03815pt too wide) in paragraph at lines 29--30
-[][][]\T1/cmr/m/n/10.95 Foto-/Videokamera in Uni-ty, URL: [][]$[][]\T1/cmss/m/n
-/10.95 https : / / learn . microsoft . com / de -[] de / windows / mixed -[]
- []
-
-
-Overfull \hbox (12.23587pt too wide) in paragraph at lines 30--31
-[][][]\T1/cmr/m/n/10.95 Microsoft. But-tons ^^V MRTK2. URL: [][]$[][]\T1/cmss/m
-/n/10.95 https : / / learn . microsoft . com / en -[] us / windows / mixed -[]
- []
-
-
-Overfull \hbox (18.15688pt too wide) in paragraph at lines 30--31
-\T1/cmss/m/n/10.95 reality / mrtk -[] unity / mrtk2 / features / ux -[] buildin
-g -[] blocks / button ? view = mrtkunity -[] 2022 -[] 05$[][] \T1/cmr/m/n/10.95
- (be-
- []
-
-
-Overfull \hbox (8.36134pt too wide) in paragraph at lines 31--32
-\T1/cmss/m/n/10.95 mixed -[] reality / mrtk -[] unity / mrtk2 / features / ux -
-[] building -[] blocks / near -[] menu ? view = mrtkunity -[]
- []
-
-
-Overfull \hbox (15.33037pt too wide) in paragraph at lines 33--34
-\T1/cmss/m/n/10.95 blender . stackexchange . com / questions / 162424 / cant -[
-] see -[] added -[] cube -[] on -[] my -[] scene -[] collection$[][]
- []
-
-
-Overfull \hbox (9.57149pt too wide) in paragraph at lines 35--36
-[][][]\T1/cmr/m/n/10.95 Blender. Mo-di-fier. URL: [][]$[][]\T1/cmss/m/n/10.95 h
-ttps : / / docs . blender . org / manual / en / latest / modeling / modi^^\ers 
-/
- []
-
-
-Overfull \hbox (14.10565pt too wide) in paragraph at lines 36--37
-[][][]\T1/cmr/m/n/10.95 Blender. Ob-ject Mo-des. URL: [][]$[][]\T1/cmss/m/n/10.
-95 https : / / docs . blender . org / manual / en / latest / editors / 3dview /
+Overfull \hbox (25.94678pt too wide) in paragraph at lines 26--27
+[][][]\T1/cmr/m/it/10.95 ARRaycastHit Do-ku, URL: [][]$[][]\T1/cmss/m/it/10.95 
+https : / / docs . unity3d . com / Packages / com . unity . xr . arfoundation @
 
  []
 
 
-Overfull \hbox (12.57866pt too wide) in paragraph at lines 38--39
-[][][]\T1/cmr/m/n/10.95 Blender. Ver-ti-ces. URL: [][]$[][]\T1/cmss/m/n/10.95 h
-ttps : / / docs . blender . org / manual / en / latest / scene _ layout / objec
-t /
+Overfull \hbox (15.3991pt too wide) in paragraph at lines 26--27
+\T1/cmss/m/it/10.95 4 . 0 / api / UnityEngine . XR . ARFoundation . ARRaycastHi
+t . html % 7D$[][] \T1/cmr/m/it/10.95 (be-sucht am 18.11.2023). 
  []
 
 
-Overfull \hbox (44.54578pt too wide) in paragraph at lines 40--41
-\T1/cmss/m/n/10.95 ENU / ?guid = FBX _ Developer _ Help _ welcome _ to _ the _ 
-fbx _ sdk _ html$[][] \T1/cmr/m/n/10.95 (be-sucht am 07.01.2024). 
+Overfull \hbox (56.39069pt too wide) in paragraph at lines 27--28
+[][][]\T1/cmr/m/it/10.95 PhotoCaputre, URL: [][]$[][]\T1/cmss/m/it/10.95 https 
+: / / docs . unity3d . com / ScriptReference / Windows . WebCam . PhotoCapture 
+.
  []
 
 
-Overfull \hbox (3.32607pt too wide) in paragraph at lines 43--44
-[][][]\T1/cmr/m/n/10.95 Unity. QR-Code Tracking. URL: [][]$[][]\T1/cmss/m/n/10.
-95 https : / / learn . microsoft . com / en -[] us / samples / microsoft /
- []
-
-[86]
-Overfull \hbox (6.11157pt too wide) in paragraph at lines 44--45
-[][][]\T1/cmr/m/n/10.95 Unity. QR-Code Tracking Over-view. URL: [][]$[][]\T1/cm
-ss/m/n/10.95 https : / / learn . microsoft . com / de -[] de / windows /
+Overfull \hbox (9.99693pt too wide) in paragraph at lines 29--30
+[][][]\T1/cmr/m/it/10.95 Foto-/Videokamera in Uni-ty, URL: [][]$[][]\T1/cmss/m/
+it/10.95 https : / / learn . microsoft . com / de -[] de / windows / mixed -[]
  []
 
 
-Overfull \hbox (31.27693pt too wide) in paragraph at lines 44--45
-\T1/cmss/m/n/10.95 mixed -[] reality / develop / advanced -[] concepts / qr -[]
- code -[] tracking -[] overview$[][] \T1/cmr/m/n/10.95 (be-sucht am 30.10.2023)
-. 
+Overfull \hbox (25.64891pt too wide) in paragraph at lines 30--31
+\T1/cmss/m/it/10.95 mixed -[] reality / mrtk -[] unity / mrtk2 / features / ux 
+-[] building -[] blocks / button ? view = mrtkunity -[] 2022 -[]
  []
 
 
-Overfull \hbox (4.91667pt too wide) in paragraph at lines 45--46
-\T1/cmss/m/n/10.95 microsoft . mixedreality . openxr . spatialgraphnode ? view 
-= mixedreality -[] openxr -[] plugin -[] 1 . 9$[][] \T1/cmr/m/n/10.95 (be-
+Overfull \hbox (5.9994pt too wide) in paragraph at lines 31--32
+[][][]\T1/cmr/m/it/10.95 Microsoft. Me-nü Na-he ^^V MRTK2. URL: [][]$[][]\T1/cm
+ss/m/it/10.95 https : / / learn . microsoft . com / de -[] de / windows /
  []
 
-) [87] (_Diplomarbeit.gls)
+
+Overfull \hbox (17.48877pt too wide) in paragraph at lines 31--32
+\T1/cmss/m/it/10.95 mixed -[] reality / mrtk -[] unity / mrtk2 / features / ux 
+-[] building -[] blocks / near -[] menu ? view = mrtkunity -[]
+ []
+
+
+Overfull \hbox (19.88644pt too wide) in paragraph at lines 33--34
+\T1/cmss/m/it/10.95 blender . stackexchange . com / questions / 162424 / cant -
+[] see -[] added -[] cube -[] on -[] my -[] scene -[] collection$[][]
+ []
+
+
+Overfull \hbox (21.06883pt too wide) in paragraph at lines 35--36
+[][][]\T1/cmr/m/it/10.95 Blender. Mo-di-fier. URL: [][]$[][]\T1/cmss/m/it/10.95
+ https : / / docs . blender . org / manual / en / latest / modeling / modi^^\er
+s /
+ []
+
+
+Overfull \hbox (22.74168pt too wide) in paragraph at lines 36--37
+[][][]\T1/cmr/m/it/10.95 Blender. Ob-ject Mo-des. URL: [][]$[][]\T1/cmss/m/it/1
+0.95 https : / / docs . blender . org / manual / en / latest / editors / 3dview
+ /
+ []
+
+
+Overfull \hbox (4.42348pt too wide) in paragraph at lines 37--38
+[][][]\T1/cmr/m/it/10.95 Blender. Loop Tools. URL: [][]$[][]\T1/cmss/m/it/10.95
+ https : / / docs . blender . org / manual / en / latest / addons / mesh /
+ []
+
+
+Overfull \hbox (7.10486pt too wide) in paragraph at lines 39--40
+[][][]\T1/cmr/m/it/10.95 Blender. Mes-hes. URL: [][]$[][]\T1/cmss/m/it/10.95 ht
+tps : / / docs . blender . org / manual / en / latest / modeling / meshes /
+ []
+
+
+Overfull \hbox (48.70447pt too wide) in paragraph at lines 40--41
+\T1/cmss/m/it/10.95 ENU / ?guid = FBX _ Developer _ Help _ welcome _ to _ the _
+ fbx _ sdk _ html$[][] \T1/cmr/m/it/10.95 (be-sucht am 07.01.2024). 
+ []
+
+
+Overfull \hbox (1.1091pt too wide) in paragraph at lines 41--42
+[][][]\T1/cmr/m/it/10.95 Autodesk FBX. URL: [][]$[][]\T1/cmss/m/it/10.95 https 
+: / / www . autodesk . com / products / fbx / overview$[][] \T1/cmr/m/it/10.95 
+(be-sucht am
+ []
+
+
+Overfull \hbox (4.33722pt too wide) in paragraph at lines 42--43
+[][][]\T1/cmr/m/it/10.95 Blender. Images as Pla-nes. URL: [][]$[][]\T1/cmss/m/i
+t/10.95 https : / / docs . blender . org / manual / en / latest / addons /
+ []
+
+
+Overfull \hbox (11.75224pt too wide) in paragraph at lines 43--44
+[][][]\T1/cmr/m/it/10.95 Unity. QR-Code Tracking. URL: [][]$[][]\T1/cmss/m/it/1
+0.95 https : / / learn . microsoft . com / en -[] us / samples / microsoft /
+ []
+
+[85]
+Overfull \hbox (12.44186pt too wide) in paragraph at lines 44--45
+[][][]\T1/cmr/m/it/10.95 Unity. QR-Code Tracking Over-view. URL: [][]$[][]\T1/c
+mss/m/it/10.95 https : / / learn . microsoft . com / de -[] de / windows /
+ []
+
+
+Overfull \hbox (37.65343pt too wide) in paragraph at lines 44--45
+\T1/cmss/m/it/10.95 mixed -[] reality / develop / advanced -[] concepts / qr -[
+] code -[] tracking -[] overview$[][] \T1/cmr/m/it/10.95 (be-sucht am 30.10.202
+3). 
+ []
+
+
+Overfull \hbox (4.52113pt too wide) in paragraph at lines 45--46
+[][][]\T1/cmr/m/it/10.95 Unity. Spa-ci-al-GraphNo-de Class. URL: [][]$[][]\T1/c
+mss/m/it/10.95 https : / / learn . microsoft . com / de -[] de / dotnet / api /
+
+ []
+
+
+Overfull \hbox (7.12099pt too wide) in paragraph at lines 45--46
+\T1/cmss/m/it/10.95 microsoft . mixedreality . openxr . spatialgraphnode ? view
+ = mixedreality -[] openxr -[] plugin -[] 1 . 9$[][] \T1/cmr/m/it/10.95 (be-
+ []
+
+) [86] (_Diplomarbeit.gls)
 runsystem(makeindex allgemein.idx)...executed safely (allowed).
 
  (allgemein.ind)
@@ -4555,7 +4724,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 844D9D256AFB3D31BBC0CC67B933E902;22407.
+(rerunfilecheck)             Checksum: 498E29F0002793D388EB2E9557962E18;22407.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -4564,47 +4733,54 @@ Package biblatex Warning: Please (re)run Biber on the file:
 Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 \openout1 = `_Diplomarbeit.run.xml'.
 
- ) 
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 2620 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 35447 strings out of 474586
- 640619 string characters out of 5745680
+ 35426 strings out of 474586
+ 640698 string characters out of 5745680
  2738558 words of memory out of 5000000
- 55823 multiletter control sequences out of 15000+600000
- 579199 words of font info for 84 fonts, out of 8000000 for 9000
+ 55821 multiletter control sequences out of 15000+600000
+ 581641 words of font info for 89 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  112i,47n,159p,2335b,2756s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
-0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ectt0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ectt1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecti1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\hayla\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\hayla\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\hayla\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\hayla\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\
-hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1095.pk> <C:\
-Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk
-> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
-095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1200.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx2074.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
-en/ec/dpi600\ecbx2488.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/hayla/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/hayla/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/hayla/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hayla/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/User
-s/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
-C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
-y10.pfb>
+ <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
+ec/dpi600\ecsi1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\tcit0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\ecit0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/p
+k/ljfour/jknappen/ec/dpi600\tctt0900.pk> <C:\Users\hayla\AppData\Local\MiKTeX\f
+onts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\hayla\AppData\Local\Mi
+KTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\hayla\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\hayla\AppD
+ata\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\hayl
+a\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\User
+s\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C
+:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.
+pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcr
+m1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi6
+00\ecbx1440.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ecss1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fonts/pk
+/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\hayla\AppData\Local\MiKTeX\fo
+nts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\hayla\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\Users\hayla\AppData\Loc
+al\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\hayla\AppDa
+ta\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\hayla
+\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/
+hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
+i10.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb>
 Output written on C:/Users\hayla\Desktop\Diplomarbeit\Diplomschrift\_Diplomarbe
-it.pdf (100 pages, 4378023 bytes).
+it.pdf (99 pages, 4412199 bytes).
 PDF statistics:
- 3206 PDF objects out of 3580 (max. 8388607)
- 1044 named destinations out of 1200 (max. 500000)
+ 3292 PDF objects out of 3580 (max. 8388607)
+ 1014 named destinations out of 1200 (max. 500000)
  1186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
