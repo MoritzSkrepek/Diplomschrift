@@ -241,133 +241,247 @@ können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und d
 von Game-Objekten optimieren.
 
 \section{Objektdesign mit Blender}
-Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte geachtet wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
+Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken
+Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte
+geachtet wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
 
 \subsection{Optimierung für Augmented Reality}
-Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung für Augmented Reality (AR). Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung.
+Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der
+Optimierung für Augmented Reality (AR). Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter
+die Polygonreduktion und die Texturoptimierung.
 
 \subsubsection{Polygonreduktion}
-Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen. Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf verschiedenen Plattformen.
+Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um
+die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen.
+Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf
+verschiedenen Plattformen.
 
-In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
+In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten
+Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert
+werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen
+effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
 
-Werkzeuge wie der Decimate Modifier in Blender bieten Möglichkeiten, die Anzahl der Polygone automatisch zu reduzieren und gleichzeitig visuelle Artefakte zu minimieren. Dennoch ist es ratsam, bereits während des Modellierungsprozesses darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die Polygonreduktion zu schaffen.
+Werkzeuge wie der Decimate Modifier in Blender bieten Möglichkeiten, die Anzahl der Polygone automatisch zu reduzieren
+und gleichzeitig visuelle Artefakte zu minimieren. Dennoch ist es ratsam, bereits während des Modellierungsprozesses
+darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die
+Polygonreduktion zu schaffen.
 
-Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten sind.
+Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die
+Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser
+Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient
+zu verarbeiten sind.
 
 \subsubsection{Texturenoptimierung}
-Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality (AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte Leistungsfähigkeit von AR-Geräten wie der Hololens 2.
+Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality
+(AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen
+muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte
+Leistungsfähigkeit von AR-Geräten wie der Hololens 2.
 
-Während des Texturierungsprozesses wurde die Hololens 2 mehrfach in die Texturen integriert, um mögliche Leistungseinbußen zu identifizieren. Wurden Beeinträchtigungen festgestellt, wurden entsprechende Anpassungen an den Texturen vorgenommen. Dies beinhaltete entweder die Suche nach alternativen Texturen oder die Komprimierung der vorhandenen Texturen, um eine geringere Auflösung zu erreichen. In einigen Fällen wurde auch der Reflexionsgrad angepasst, insbesondere wenn das Modell poliertes Metall oder ähnliches enthielt, um die Leistung der AR-Anwendung zu optimieren.
+Während des Texturierungsprozesses wurde die Hololens 2 mehrfach in die Texturen integriert, um mögliche Leistungseinbußen
+zu identifizieren. Wurden Beeinträchtigungen festgestellt, wurden entsprechende Anpassungen an den Texturen vorgenommen.
+Dies beinhaltete entweder die Suche nach alternativen Texturen oder die Komprimierung der vorhandenen Texturen, um eine
+geringere Auflösung zu erreichen. In einigen Fällen wurde auch der Reflexionsgrad angepasst, insbesondere wenn das Modell
+poliertes Metall oder ähnliches enthielt, um die Leistung der AR-Anwendung zu optimieren.
 
-Die Texturoptimierung ist ein iterativer Prozess, der eine ausgewogene Berücksichtigung der visuellen Qualität und der Leistungsfähigkeit der AR-Plattform erfordert. Durch die gezielte Optimierung von Texturen können AR-Anwendungen erstellt werden, die eine ansprechende visuelle Darstellung bieten und gleichzeitig ein flüssiges und immersives Benutzererlebnis gewährleisten.
+Die Texturoptimierung ist ein iterativer Prozess, der eine ausgewogene Berücksichtigung der visuellen Qualität und der
+Leistungsfähigkeit der AR-Plattform erfordert. Durch die gezielte Optimierung von Texturen können AR-Anwendungen erstellt
+werden, die eine ansprechende visuelle Darstellung bieten und gleichzeitig ein flüssiges und immersives Benutzererlebnis
+gewährleisten.
 
 \subsection{Export- und Integrationsprozess}
-In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des geeigneten Dateiformats und der Berücksichtigung verschiedener Koordinatensysteme.
+In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des
+geeigneten Dateiformats und der Berücksichtigung verschiedener Koordinatensysteme.
 
-Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die Zielumgebung integriert wird.
+Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der
+Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform
+oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt
+und funktional in die Zielumgebung integriert wird.
 
 \subsubsection{Dateiformat}
-Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX) gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt.
+Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX)
+gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über
+geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt.
 
-FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Szenen zu organisieren und zu übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie, Materialien, Animationen, Kameras und Lichtquellen.
+FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen
+entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Szenen zu organisieren und zu
+übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie,
+Materialien, Animationen, Kameras und Lichtquellen.
 
-Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet, erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine erfolgreiche Umsetzung des Projekts.
+Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen
+ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet,
+erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine erfolgreiche
+Umsetzung des Projekts.
 
 \subsubsection{Koordinatensysteme}
-Die Berücksichtigung und korrekte Handhabung von Koordinatensystemen während des Modellierungsprozesses ist ein entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt wurden spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
+Die Berücksichtigung und korrekte Handhabung von Koordinatensystemen während des Modellierungsprozesses ist ein
+entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt wurden
+spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
 
-Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export der Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise trägt dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform zu vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
+Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export der
+Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise trägt
+dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform zu
+vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
 
-Darüber hinaus wurden alle Modelle in der gleichen Ausrichtung modelliert, um zusätzliche Anpassungen in Unity zu vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten Orientierung vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren Arbeitsablauf gewährleistet.
+Darüber hinaus wurden alle Modelle in der gleichen Ausrichtung modelliert, um zusätzliche Anpassungen in Unity zu
+vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten Orientierung
+vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren Arbeitsablauf gewährleistet.
 
-Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert wurden, wurden entsprechende Korrekturen direkt im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der Modelle schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu verursachen.
+Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert wurden, wurden entsprechende Korrekturen direkt
+im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der Modelle
+schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu verursachen.
 
-Insgesamt zeigt die Berücksichtigung von Koordinatensystemen während des gesamten Workflows einen proaktiven Ansatz bei der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz des Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv vermeiden.
+Insgesamt zeigt die Berücksichtigung von Koordinatensystemen während des gesamten Workflows einen proaktiven Ansatz bei
+der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz des
+Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv vermeiden.
 
 \subsection{Add-Ons und Plugins}
-Während der Modellierungsphase wurden einige Add-ons und Plug-ins verwendet, um die Erfahrung zu verbessern und die Modellierung effizienter zu gestalten. Im folgenden Abschnitt werden die wichtigsten Add-ons und Plug-ins erläutert.
+Während der Modellierungsphase wurden einige Add-ons und Plug-ins verwendet, um die Erfahrung zu verbessern und die
+Modellierung effizienter zu gestalten. Im folgenden Abschnitt werden die wichtigsten Add-ons und Plug-ins erläutert.
 
 \subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
-Das Add-on Looptools \footnote{Blender \cite{LoopTools}} für Blender stellt eine wichtige Ergänzung für die Flächenmodellierung und Topologieoptimierung dar. Insbesondere bei der Umwandlung von rechteckigen oder quadratischen Flächen in kreisförmige Flächen erweist sich dieses Werkzeug als äußerst nützlich.
+Das Add-on Looptools \footnote{Blender \cite{LoopTools}} für Blender stellt eine wichtige Ergänzung für die
+Flächenmodellierung und Topologieoptimierung dar. Insbesondere bei der Umwandlung von rechteckigen oder quadratischen
+Flächen in kreisförmige Flächen erweist sich dieses Werkzeug als äußerst nützlich.
 
-Als Hauptwerkzeug wurde das so genannte "Circle"-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems entwickelt wurde. Mit dem "Circle"-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
+Als Hauptwerkzeug wurde das so genannte "Circle"-Werkzeug verwendet, das speziell zur Lösung des oben genannten
+Problems entwickelt wurde. Mit dem "Circle"-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie
+und der Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
 
-Das Circle-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
+Das Circle-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen
+Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
 
 \begin{itemize}
-    \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
-    \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
+    \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten
+Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
+    \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt
+entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
 \end{itemize}
 
-Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
+Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität,
+um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
 
-Insgesamt trägt das Looptools Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und Flächenoptimierung bereitstellt.
+Insgesamt trägt das Looptools Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der
+resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und
+Flächenoptimierung bereitstellt.
 
 \subsubsection{Images as Planes: Effiziente Integration von Texturen}
-Das Addon Images as Planes \footnote{Blender \cite{Images as Planes}} spielt eine entscheidende Rolle in der Modellierungspraxis, insbesondere im Bereich der realistischen Modellierung.
+Das Addon Images as Planes \footnote{Blender \cite{Images as Planes}} spielt eine entscheidende Rolle in der
+Modellierungspraxis, insbesondere im Bereich der realistischen Modellierung.
 
-Das Hauptanwendungsgebiet dieses Add-ons liegt in der Möglichkeit, Vorschaubilder für die Modellierung hinter Objekten zu platzieren, um eine realistischere und präzisere Modellierung zu ermöglichen. Diese Funktion bietet die Möglichkeit, reale Bilder als Referenz in Blender-Szenen zu integrieren und als Hintergrund für die Modellierung zu verwenden. Durch die direkte Integration von Bildern in die Arbeitsumgebung können feine Details und Proportionen besser beurteilt und reproduziert werden, was zu einer verbesserten Qualität der Modelle führt.
+Das Hauptanwendungsgebiet dieses Add-ons liegt in der Möglichkeit, Vorschaubilder für die Modellierung hinter Objekten
+zu platzieren, um eine realistischere und präzisere Modellierung zu ermöglichen. Diese Funktion bietet die Möglichkeit,
+reale Bilder als Referenz in Blender-Szenen zu integrieren und als Hintergrund für die Modellierung zu verwenden. Durch
+die direkte Integration von Bildern in die Arbeitsumgebung können feine Details und Proportionen besser beurteilt und
+reproduziert werden, was zu einer verbesserten Qualität der Modelle führt.
 
-Die Verwendung von "Images as Planes" trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenzen in den Modellierungsprozess zu integrieren. Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
+Die Verwendung von "Images as Planes" trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der
+Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenzen in den Modellierungsprozess zu integrieren.
+Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es
+dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
 
-Insgesamt ist das Addon "Images as Planes" ein unverzichtbares Werkzeug für die realistische Modellierung in Blender, das die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen Details erstellen.
+Insgesamt ist das Addon "Images as Planes" ein unverzichtbares Werkzeug für die realistische Modellierung in Blender, das
+die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern
+als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen Details
+erstellen.
 
 \subsection{Modi}
-In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
+In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte eines
+Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an
+Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
 
 \subsubsection{Object-Modus}
-Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere Objekteigenschaften bearbeitet werden.
+Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus
+können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere Objekteigenschaften
+bearbeitet werden.
 
 \subsubsection{Edit-Modus}
-Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener Werkzeuge und Kontrollpunkte einzelne Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von entscheidender Bedeutung ist.
+Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener
+Werkzeuge und Kontrollpunkte einzelne Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen des Objekts bearbeitet
+werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für
+die Modellierung von entscheidender Bedeutung ist.
 
 \subsubsection{Texture-Paint-Modus}
-Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh \footnote{Blender \cite{Mesh}} eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
+Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh \footnote{Blender \cite{Mesh}}
+eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive
+Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe
+Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
 
 \subsection{Hierarchie}
-In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
+In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder
+eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete
+Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten
+sowie bei der Definition von Beziehungen zwischen ihnen.
 
 \begin{itemize}
-    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle.
-    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
+    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten
+untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie
+Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten
+Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle.
+    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre
+Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben
+oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
 \end{itemize}
-Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden. Dies führt zu einer effizienteren Arbeitsweise und einer verbesserten Qualität der Ergebnisse.
+Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und
+Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden.
+Dies führt zu einer effizienteren Arbeitsweise und einer verbesserten Qualität der Ergebnisse.
 
 \subsection{Modifier}
-Modifier sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden, komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses.
+Modifier sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder
+Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden,
+komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger
+Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses.
 Die Verwendung von Modifiern bringt mehrere Vorteile mit sich:
 
 \begin{itemize}
-    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren.
+    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie
+zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren.
+    \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit
+weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart Zeit und Ressourcen.
 
-    \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart Zeit und Ressourcen.
-
-    \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne Angst vor irreversiblen Änderungen haben zu müssen.
+    \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder
+entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne Angst vor
+irreversiblen Änderungen haben zu müssen.
 \end{itemize}
 
-Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel, Array und Boolean. Jeder Modifier hat spezifische Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
+Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel, Array und Boolean. Jeder Modifier hat spezifische
+Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten
+bis zur Erstellung von komplexen Wiederholungsmustern.
 
-Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit, Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern kann den Modellierungsprozess rationalisieren und die Kreativität der Modellierenden fördern.
+Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit,
+Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern
+kann den Modellierungsprozess rationalisieren und die Kreativität der Modellierenden fördern.
 
 % vielleicht sachen dazu wie polygonanzahl oder arbeitsstunden oder sowas idk
 \subsection{Modellierung von Gegenständen für das Projekt}
 Dieser Abschnitt beschreibt die für das Projekt in Blender modellierten Gegenstände sowie die dabei aufgetretenen Herausforderungen.
 
-Zu Beginn des Projekts musste eine wichtige Entscheidung getroffen werden, nämlich wie viele Objekte modelliert werden sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine Herausforderung für die Spieler darstellt. Nach eingehenden Recherchen und internen Abstimmungen wurde sich auf 11 Gegenstände geeinigt. Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern einen Einblick in den Schulalltag bieten.
+Zu Beginn des Projekts musste eine wichtige Entscheidung getroffen werden, nämlich wie viele Objekte modelliert werden
+sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine Herausforderung
+für die Spieler darstellt. Nach eingehenden Recherchen und internen Abstimmungen wurde sich auf 11 Gegenstände geeinigt.
+Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern einen Einblick in den Schulalltag
+bieten.
 
 \subsubsection{Ping Paket}
-Das Modell des Ping-Pakets wurde speziell für Level 1 entworfen und ist daher nicht Teil der oben genannten 11 Gegenstände. Es veranschaulicht den Spielern das Konzept eines Pings, indem es die Datenübertragung zwischen zwei Laptops visualisiert.
+Das Modell des Ping-Pakets wurde speziell für Level 1 entworfen und ist daher nicht Teil der oben genannten 11 Gegenstände.
+Es veranschaulicht den Spielern das Konzept eines Pings, indem es die Datenübertragung zwischen zwei Laptops visualisiert.
 
-Das Modell ist relativ einfach, da ein Paket im Wesentlichen einem einfachen Quader ähnelt und daher leicht zu modellieren ist. Es wurden keine zusätzlichen Details wie Paketklebeband hinzugefügt, um das Modell realistischer zu gestalten. Als Referenz für die Texturierung wurde ein Amazon-Paket verwendet.
+Das Modell ist relativ einfach, da ein Paket im Wesentlichen einem einfachen Quader ähnelt und daher leicht zu modellieren
+ist. Es wurden keine zusätzlichen Details wie Paketklebeband hinzugefügt, um das Modell realistischer zu gestalten. Als
+Referenz für die Texturierung wurde ein Amazon-Paket verwendet.
 
 \subsubsection{Laptop}
-Der Laptop wurde als einer der ersten Gegenstände für Level 2 konzipiert, da er für Schüler ab der 3. Klasse ein unverzichtbares Werkzeug im Schulalltag ist. Die Modellierung dieses Gegenstands war anspruchsvoller als die des Ping-Pakets, da zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt werden mussten. Um Arbeitsaufwand zu sparen, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Modellierung von Tastatur und Bildschirm vermieden wurde. Als Referenz für das Modell diente der eigene Laptop eines Projektmitglieds.
+Der Laptop wurde als einer der ersten Gegenstände für Level 2 konzipiert, da er für Schüler ab der 3. Klasse ein unverzichtbares
+Werkzeug im Schulalltag ist. Die Modellierung dieses Gegenstands war anspruchsvoller als die des Ping-Pakets, da zusätzliche
+Details wie USB-Ports und der Laptopständer berücksichtigt werden mussten. Um Arbeitsaufwand zu sparen, wurde der Laptop im
+geschlossenen Zustand modelliert, wodurch die Modellierung von Tastatur und Bildschirm vermieden wurde. Als Referenz für das
+Modell diente der eigene Laptop eines Projektmitglieds.
 
 \subsubsection{Router}
-Die Modellierung des Routers war eine iterative Aufgabe. Es wurden mehrere Versionen erstellt, um ein möglichst realistisches und ansprechendes Modell zu erhalten. Das finale Modell stellt einen komplexen Gaming-Router dar, der durch viele Anschlüsse und Knöpfe gekennzeichnet ist. Die Modellierung war aufgrund der Vielzahl an Details sehr anspruchsvoll und zeitaufwendig.
+Die Modellierung des Routers war eine iterative Aufgabe. Es wurden mehrere Versionen erstellt, um ein möglichst realistisches
+und ansprechendes Modell zu erhalten. Das finale Modell stellt einen komplexen Gaming-Router dar, der durch viele Anschlüsse
+und Knöpfe gekennzeichnet ist. Die Modellierung war aufgrund der Vielzahl an Details sehr anspruchsvoll und zeitaufwendig.
 
-% da weiter
+% TODO: da weiter
 \subsubsection{Maus}
 \subsubsection{Block}
 \subsubsection{Stift}
@@ -377,6 +491,8 @@ Die Modellierung des Routers war eine iterative Aufgabe. Es wurden mehrere Versi
 \subsubsection{USB-Stick}
 \subsubsection{Verteiler}
 \subsubsection{Handy}
+%
+
 
 \section{Menü}
 Im folgenden Abschnitt wird die hierarchische Struktur des Menüs in Unity erläutert und die Schritte beschrieben, die
