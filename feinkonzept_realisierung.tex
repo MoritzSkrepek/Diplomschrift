@@ -240,150 +240,7 @@ sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich eff
 können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
 von Game-Objekten optimieren.
 
-\section{Objektdesign mittels Blender}
-\subsection{Rendering und Optimierung für AR}
-Bei der Erstellung von 3D-Modellen für Augmented Reality (AR) ist die Optimierung entscheidend, um eine reibungslose
-Erfahrung auf Geräten wie der Hololens 2 zu gewährleisten. In Blender können verschiedene Techniken angewendet werden,
-um die Modelle für AR zu optimieren.\\
-\\
-Eine dieser Techniken ist die \textbf{Polygonreduktion}, bei der die Anzahl der Polygone in den Modellen reduziert wird, um die
-Belastung für die Hardware zu verringern. Blender bietet Werkzeuge wie den Decimate Modifier, um die Anzahl der Polygone
-effizient zu reduzieren, ohne die visuelle Qualität stark zu beeinträchtigen. Es ist essentiell, von Anfang an eine
-Modellierungspraxis mit geringer Polygonanzahl zu berücksichtigen. Ein erfahrener Modellierer kann identische Figuren
-mit reduziertem Polygonaufwand im Vergleich zu einem Anfänger erstellen, aufgrund seines fundierten Wissens über die
-Modellierung von Formen.\\
-\\
-Bei der \textbf{Texturenoptimierung} sollte auf die Größe und Qualität der Texturen geachtet werden, da übermäßig große Texturen
-die Leistung beeinträchtigen können. Blender ermöglicht die Anpassung von Texturauflösung und -komprimierung. Im Verlauf
-der Texturierung wurde die Hololens mehrmals in Verbindung mit den Texturen integriert, um sicherzustellen, dass keine
-signifikanten Leistungseinbußen auftreten. Wenn Beeinträchtigungen festgestellt wurden, wurden Anpassungen vorgenommen,
-indem die Auflösung oder die Reflexionsstufen modifiziert wurden.\\
-\\
-Es ist empfehlenswert, verschiedene Detailstufen zu implementieren, insbesondere wenn sich der Betrachter von einem
-Modell entfernt. Dies kann erreicht werden, indem verschiedene Modellversionen mit unterschiedlichen Polygonanzahlen
-erstellt werden. \textbf{(hab ich nicht gemacht, vielleicht mach ichs aber noch deswegen lass ich das stehen)}
 
-\subsection{Export- und Integrationsprozess}
-Die nahtlose Integration von Blender-Modellen in AR-Entwicklungsumgebungen ist entscheidend. Es sollten folgende
-Aspekte berücksichtigt werden:\\
-\textbf{Dateiformat}\\
-Blender unterstützt einige Dateiformate für den Export, aber da wir Unity nutzen, haben wir uns für Filmbox (FBX)
-entschieden. Das FBX-Dateiformat (Filmbox) ist ein proprietäres Dateiformat, das von Autodesk entwickelt
-wurde. Es dient dem Austausch von 3D-Modellen, Animationen, Texturen und anderen Szenendaten zwischen verschiedenen
-3D-Anwendungen. FBX speichert Informationen über geometrische Formen, Materialien, Animationen, Kameras und
-Lichtquellen in einer hierarchischen Struktur.\\
-Das FBX-Format basiert auf einer offenen Architektur, die es ermöglicht, komplexe 3D-Szenen mit verschiedenen
-Softwareanwendungen zu teilen. Es unterstützt dabei nicht nur die Geometrie und Materialien, sondern auch Animationen
-und andere wichtige Parameter. FBX verwendet eine hierarchische Struktur aus sogenannten Nodes, die verschiedene
-Elemente der 3D-Szene repräsentieren.\\
-FBX-Dateien können sowohl binäre als auch ASCII-Formate haben. Das binäre Format ist kompakter und speichert die
-Daten in einem für Maschinen optimierten Binärformat. Im Gegensatz dazu ist das ASCII-Format besser lesbar für
-Menschen und erleichtert die Handbearbeitung von Dateien.
-\textbf{Koordinatensysteme}\\
-Vor und während der Modellierung wurde oft geprüft, ob die Modelle eine sinnvolle Größenrelation zueinander haben.
-Zudem wurden alle Objekte am Ursprungspunkt und in dieselbe Richtung modelliert, um eine einheitliche Sammlung an
-fertigen Modellen zu erhalten und Verwirrungen zu vermeiden.
-
-
-\subsection{Blender-Add-Ons und Plugins}
-Es wurden einige Blender-Add-Ons und Plug-Ins verwendet, insbesondere aber das Plug-In LoopTools \footnote{Blender \cite{LoopTools}}
-und das Import-Export Add-On Images as Planes \footnote{Blender \cite{Images as Planes}}.
-
-\subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
-
-Das Add-On Looptools hat sich bei der Optimierung der Topologie und der Oberflächen meiner 3D-Modelle als sehr nützlich
-erwiesen. Durch die Verwendung von Werkzeugen wie Circle konnte ich komplexere geometrische Formen aus einer einfachen Oberfläche
-extrahieren und gleichzeitig sicherstellen, dass die Topologie meiner Modelle sowohl ästhetisch ansprechend als auch für die weitere
-Bearbeitung geeignet ist.
-
-\subsubsection{Images as Planes: Effiziente Integration von Texturen}
-
-Das Add-On Images as Planes ermöglichte die nahtlose Integration von Texturen in meine 3D-Modelle. Durch die direkte
-Umwandlung von Bildern in ebene Flächen konnte ich realistische Texturen auf meine Modelle anwenden. Die Effizienz dieses
-Plug-ins trug dazu bei, den Arbeitsprozess zu beschleunigen und die Gesamtqualität meiner erstellten Objekte zu verbessern.
-Mit dem Plugin war es außerdem möglich, Vorschaubilder für die Modellierung hinter meinem Objekt zu platzieren, um das
-reale Objekt näher und realistischer zu modellieren.
-
-\subsection{Blender - Modes}
-In Blender gibt es zahlreiche verschiedene Modi \footnote{Blender \cite{Modi}} die es dir erlauben verscheidene Aspekte
-eines Objekts zu bearbeiten.
-\begin{itemize}
-\item \textbf{Object Mode:} Der Default Modus, welcher für alle Objekt-typen zur verfügung steht. Erlaubt die bearbeitung
-von Position, Rotation, Skalierung, Duplizierung und so weiter.
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{images/defaultobjectmode.png}
-\caption{Standard Ansicht im Object Mode}
-\label{fig:defaultobjectmode}
-\end{figure}
-
-\item \textbf{Edit Mode:} Ist ein Modus für das Editieren einer Objektform mit verschiedensten Werkzeugen. Man kann die
-einzelnen Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen auf Basis von verschiedenen Kontrollpunkten bearbeiten.
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{images/calculatoreditmode.png}
-\caption{Edit Mode Ansicht auf das Calculator Objekt}
-\label{fig:calculatoreditmode}
-\end{figure}
-
-\item \textbf{Texture Paint Mode:} Ein Mesh-Only \footnote{Blender \cite{Mesh}} Modus der es dir ermöglicht Texturen direkt auf das Model im 3D-Viewport
-zu zeichnen.
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\textwidth]{images/texturepaintmode.png}
-\caption{Standard Ansicht im Texture Paint Mode}
-\label{fig:texturepaintmode}
-\end{figure}
-\end{itemize}
-
-\subsection{Blender - Hierarchie}
-Im folgenden Abschnitt wird erklärt, wie Blender aufgebaut ist und wie die einzelnen verwendeten Werkzeuge und Modifier
-\footnote{Blender \cite{Modifier}} funktionieren. Es wurden einige Modelle erstellt, aber für ein einfacheres Verständnis
-wurde für alle Beispielbilder das Taschenrechner-Modell verwendet.
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/blenderhierarchy.png}
-\caption{Ansicht auf die Hierarchie des Taschenrechner Modells}
-\label{fig:blenderhierarchy}
-\end{figure}
-
-In dieser Abbildung ist die Hierarchie und der Inhalt des Hauptmenüs zu sehen. Wie zu sehen ist, besteht die Szene aus
-vielen wichtigen Komponenten die zusammenspielen, um die gewünschte Funktion zu erzielen. Darunter sind folgende Objekte:
-
-\begin{itemize}
-\item \textbf{Scene Collection:} Die umfassende Collection enthält das gesamte Modell mit allen Teilen. Collections
-werden mehrmals in der Abbildung verwendet, um die Hierarchie besser zu strukturieren. Sie haben jedoch keinen Einfluss
-auf das Objekt selbst.
-\item \textbf{Plane:} Das Mesh dient zur groben Formgebung des Taschenrechners.
-\item \textbf{Circles/Cubes:} Die Circles und Cubes sind die einzelnen Buttons.
-\end{itemize}
-
-In der Abbildung ist zu erkennen, dass einige Formen mit einem blauen/grünen Zeichen markiert sind.
-Das blaue Zeichen kennzeichnet einen Modifier, das heißt, das Objekt hat einen oder mehrere Modifier.
-Das grüne Zeichen steht für Data Properties und zeigt an, dass sich diese verändert haben.
-
-\subsubsection{Blender - Modifier}
-Im vorherigen Abschnitt wurden erwähnt das Modifier verwendet werden. Modifier ermöglichen verschiedene zusätzliche
-Funktionen an einem Objekt.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/blendermodifier.png}
-\caption{Darstellung des benutzen Modifier im Taschenrechnermodell}
-\label{fig:blendermodifier}
-\end{figure}
-
-In der Abbildung ist der Array Modifier zweimal zu sehen. Dieser wurde verwendet, um nicht jeden Knopf des Taschenrechners
-einzeln modellieren zu müssen, sondern nur einen bestimmten Knopf horizontal oder vertikal mit beliebiger Versetzung zu
-kopieren. Dabei haben die einzelnen Zeilen verschiedene Funktionen.
-\begin{itemize}
-\item \textbf{Fit Type:} Es besteht die Möglichkeit, entweder eine feste Anzahl von Objektkopien auszuwählen oder eine
-Länge anzugeben, die dem Array entspricht.
-\item \textbf{Count:} In dem Feld rechts daneben steht die Anzahl, wie oft das Objekt kopiert werden soll.
-\item \textbf{Relative Offset:} Die relative Verschiebung basiert immer auf dem zuvor kopierten Modell und hat drei
-Faktoren, die jeweils eine der drei Koordinaten darstellen. In diesem Fall soll es um 1.520 auf der x-Achse nach rechts
-verschoben werden.
-\end{itemize}
 
 \section{Menü}
 Im folgenden Abschnitt wird die hierarchische Struktur des Menüs in Unity erläutert und die Schritte beschrieben, die
@@ -623,6 +480,9 @@ zuständig, die aktuelle Kameraposition zu ermitteln, aber auch eine neue Spawnp
 versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der \textit{Instantiate} ist dafür verantwortlich, dass das Menü
 an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \textit{menu.SetActive(true)}
 aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
+
+Dieses Skript ist dafür verantwortlich, dass es keine Probleme beim Laden des Spiels gibt. Wäre das Menü in Unity selbst
+fixiert, gäbe es Probleme zwischen den Benutzerwechseln, da die Größe der Benutzer nicht berücksichtigt wird.
 
 \subsection{UI/UX}
 Im folgenden Abschnitt werden die Ziele genannt, auf die sich bei der Menüerstellung konzentriert wurde.
