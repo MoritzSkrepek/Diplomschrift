@@ -92,14 +92,14 @@ von Anwendungen zu optimieren. Durch Echtzeit-Inspektion, Fehlerverfolgung und R
 Editor Entwickler bei der Identifizierung und Behebung von Problemen, um eine reibungslose Ausführung der Anwendungen
 sicherzustellen.
 
-\subsection{Aufbau einer Unity-Applikation}
+\subsubsection{Aufbau einer Unity-Applikation}
 Die Struktur einer Unity-Applikation ist entscheidend für eine effektive Entwicklung und Organisation von 3D-Anwendungen
 und Spielen. Eine typische Unity-Anwendung besteht aus verschiedenen Schlüsselelementen, darunter Szenen, GameObjects,
 Komponenten, Skripte und Assets. Diese werden koordiniert durch die Hauptkomponente der Anwendung, die sogenannte
 "GameManager" oder "MainScene". In diesem Abschnitt werden die grundlegenden Bausteine einer Unity-Anwendung sowie
 bewährte Praktiken für die Strukturierung und Verwaltung dieser Elemente beleuchtet.
 
-\subsection{Lebenszyklusmethoden in Unity}
+\subsubsection{Lebenszyklusmethoden in Unity}
 Die Entwicklung von Augmented Reality (AR)-Applikationen in Unity erfordert ein tiefgreifendes Verständnis der
 Lebenszyklusmethoden, die in MonoBehaviour-Klassen implementiert werden können. Diese Methoden regeln den Fluss der
 Programmlogik und ermöglichen Entwicklern, spezifische Aktionen zu bestimmten Zeitpunkten im Lebenszyklus einer
@@ -130,68 +130,115 @@ Anwendung auszuführen.
     einzurichten oder abzubrechen, oder um andere vorbereitende oder aufräumende Maßnahmen durchzuführen.
 \end{itemize}
 
-\subsection{Manager in Unity}
-Für eine präzise und immersive Umsetzung von Augmented-Reality-(AR-)Applikationen werden spezielle Manager eingesetzt.
-Diese Manager bieten essenzielle Funktionen, die für eine erfolgreiche Umsetzung der verschiedenen Szenarien unerlässlich
-sind.
+\subsubsection{Unity Szenen}
+Unity-Szenen bilden das grundlegende Gerüst für die Gestaltung von Inhalten in der Unity-Entwicklungsumgebung. Sie stellen
+Assets dar, die alle oder einen Teil eines Spiels oder einer Anwendung enthalten. Szenen bieten eine strukturierte Möglichkeit,
+verschiedene Elemente wie \textit{Umgebungen}, \textit{Charaktere}, \textit{Hindernisse}, \textit{Dekorationen} und
+\textit{Benutzeroberflächen} zu organisieren und miteinander zu verknüpfen.
+
+Ein wichtiger Aspekt von Unity-Szenen ist ihre Flexibilität. In einem Projekt können \textit{beliebig viele} Szenen erstellt werden,
+um die Organisation und Entwicklung des Spiels zu erleichtern. Durch das modulare Konzept von Szenen können Entwickler
+einzelne Teile des Spiels separat \textit{bearbeiten} und \textit{optimieren}, was die Zusammenarbeit im Team und die
+Wartung des Projekts vereinfacht.
+
+Unity-Szenen dienen nicht nur der Darstellung von Inhalten, sondern auch der \textit{Steuerung} des Spielablaufs. Durch die gezielte
+Aktivierung und Deaktivierung von Szenen können verschiedene Abschnitte des Spiels geladen und entladen werden, was die
+Leistung und Ressourcennutzung optimiert.
+
+Insgesamt bieten Unity-Szenen eine leistungsstarke und flexible Möglichkeit, Spiele und Anwendungen zu \textit{strukturieren}, zu
+\textit{organisieren} und zu \textit{verwalten}. Sie bilden das Grundgerüst für die Entwicklung von Inhalten in Unity und ermöglichen es
+Entwicklern, ihre Visionen zu verwirklichen und ansprechende Spielerlebnisse zu schaffen.\footnote{Unity Dokumentation \cite{Scenes}}
+
+\subsubsection{Unity Manager}
+Die präzise und immersive Umsetzung von Augmented-Reality-(AR-)Applikationen erfordert den Einsatz spezialisierter Manager,
+die grundlegende Funktionen bereitstellen, die für die erfolgreiche Umsetzung verschiedener Szenarien unerlässlich sind.
+In dieser Applikation werden zwei Manager aus der breiten Palette von Unity bereitgestellten Managern verwendet. Diese
+sind die folgenden:
 \begin{itemize}
-    \item \textbf{ARPlaneManager\footnote{Unity \cite{Managers}}:}
-    Der ARPlaneManager in Unity ist eine Komponente, die im Kontext von Augmented Reality (AR) eingesetzt wird, um
-    horizontale Flächen in der realen Welt zu erkennen und zu verfolgen. Diese Flächen können beispielsweise Böden,
-    Tische oder andere flache Oberflächen sein. Der ARPlaneManager gehört zum Unity-eigenen Mixed Reality Toolkit 3.
-    Bietet Funktionen zur erleichterten Integration von AR-Elementen in die reale Umgebung.
+    \item \textbf{ARPlaneManager\footnote{Unity Dokumentation\cite{PlaneManager}}:}
+    Der ARPlaneManager ist ein bedeutender Bestandteil von Unity's Augmented Reality (AR)-Entwicklungsumgebung. Als Teil
+    des Unity-eigenen \textit{Mixed Reality Toolkit 3} bietet der ARPlaneManager essenzielle Funktionen zur nahtlosen
+    Integration von AR-Elementen in die reale Umgebung. Seine Hauptaufgaben umfassen die automatische Erkennung von
+    \textit{horizontalen} und \textit{vertikalen} Flächen in der Umgebung des Benutzers, was die \textit{präzise Platzierung}
+    virtueller Objekte auf diesen Flächen ermöglicht. Diese Flächen können verschiedene Strukturen wie \textit{Böden},
+    \textit{Tische} oder andere \textit{flache Oberflächen} umfassen. Nach der Erkennung \textit{überwacht} der ARPlaneManager
+    \textit{kontinuierlich} die Bewegungen der Flächen in Echtzeit, was essenziell ist, um die \textit{Stabilität}
+    virtueller Inhalte auf den realen Flächen zu gewährleisten. Erkannte Flächen können durch \textit{Texturmarkierungen}
+    visuell hervorgehoben werden, um dem Benutzer die Grenzen dieser Flächen deutlicher zu zeigen und die Integration von
+    virtuellen Objekten zu verbessern. Zudem erleichtert der ARPlaneManager das Platzieren virtueller 3D-Objekte in der
+    realen Welt, indem er eine Referenz für die Position und Ausrichtung der erkannten Flächen bereitstellt.
 
-    Die Hauptaufgaben des ARPlaneManagers umfassen:
-    \begin{itemize}
-        \item \textbf{Erkennung horizontaler Flächen:} Der Manager identifiziert automatisch horizontale Flächen in der
-        Umgebung des Benutzers. Dies ermöglicht es, virtuelle Objekte präzise auf diesen Flächen zu platzieren.
-        \item \textbf{Verfolgung der Flächenbewegung:} Sobald Flächen erkannt wurden, verfolgt der ARPlaneManager ihre
-        Bewegungen in Echtzeit. Dies ist besonders wichtig, um virtuelle Inhalte stabil auf den realen Flächen zu halten.
-        \item \textbf{Texturmarkierung der Flächen:} Die erkannten Flächen können mit Texturen markiert werden, um ihre
-        Grenzen für den Benutzer sichtbar zu machen und die Integration von virtuellen Objekten zu verbessern.
-        \item \textbf{Unterstützung beim Platzieren von Objekten:} Der ARPlaneManager erleichtert das Platzieren von
-        virtuellen 3D-Objekten in der realen Welt, indem er eine Referenz für die Position und Ausrichtung der erkannten
-        Flächen bereitstellt.
-    \end{itemize}
-
-    \item \textbf{ARRaycastManager\footnote{Unity \cite{RaycastManager}}:}
-    Der ARRaycastManager in Unity ist eine Komponente, die im Kontext von Augmented Reality (AR) genutzt wird, um Raycasts von
-    einem Ursprungspunkt, wie beispielsweise der Kamera der HoloLens 2, durchzuführen. Diese Raycasts treffen
-    auf zuvor markierte und verfolgte Ebenen. Der ARRaycastManager ist Teil des Unity-eigenen Mixed Reality Toolkit 3.
-    Und erlaubt die präzise Positionierung von virtuellen 3D-Objekten in der realen Welt.
-
-    Die Hauptaufgaben des ARRaycastManagers umfassen:
-    \begin{itemize}
-        \item \textbf{Durchführung von Raycasts:} Der Manager führt Raycasts von einem Ursprungspunkt aus, um
-        Kollisionen mit bereits markierten und verfolgten Ebenen zu identifizieren.
-        \item \textbf{Genauigkeit bei der Platzierung von Objekten:} Durch die Nutzung von Raycasts ermöglicht der
-        ARRaycastManager eine genaue Platzierung von virtuellen 3D-Objekten in der realen Welt, basierend auf
-        Benutzerinteraktionen.
-    \end{itemize}
+    \item \textbf{ARRaycastManager\footnote{Unity Dokumentation\cite{RaycastManager}}:}
+    Der ARRaycastManager in Unity ist eine wichtige Komponente für die Entwicklung von Augmented Reality (AR)-Anwendungen.
+    Er ermöglicht es, \textit{Raycasts} von einem \textit{festgelegten Ursprungspunkt} aus durchzuführen, um \textit{Kollisionen}
+    oder \textit{Treffer} mit Objekten in der AR-Umgebung zu erkennen. Diese Funktionalität ist entscheidend für die
+    genaue Platzierung virtueller 3D-Objekte in der realen Welt, basierend auf den Interaktionen des Benutzers. Der
+    ARRaycastManager bietet somit eine grundlegende Funktionalität zur nahtlosen Integration von virtuellen Elementen
+    in die physische Umgebung.
 \end{itemize}
-Die erfolgreiche Umsetzung der funktionalen Anforderungen in den spezifischen Augmented-Reality-(AR-) Anwendungsszenarien
-des \textit{Knappsack Problem Levels} sowie des \textit{Ping Levels} hängt maßgeblich von der Integration und
-Anwendung der Manager ab, insbesondere des ARPlaneManagers und ARRaycastManagers. Diese Manager sind von grundlegender
-Bedeutung für die Schaffung einer qualitativ hochwertigen, präzisen und immersiven Benutzererfahrung.
+Die erfolgreiche Umstzung der funktionalen Anforderungen in den spezifischen Augmented-Reality-(AR)-Anwendungsszenarien
+des \textit{Knapsack Problems} sowie des \textit{Pings} hängt maßgäblich von der Integration und Anwendung der zwei
+genannten Manager, für die Schaffung einer qualitativ \textit{hochwertigen}, \textit{präzisen} und \textit{immersiven}
+Benutzererfahrung.
 
-Im Kontext des \textit{Knappsack-Problem-Levels} spielt der ARPlaneManager eine zentrale Rolle. Er identifiziert und
-markiert horizontale Flächen in der Benutzerumgebung, die entscheidend für die genaue Platzierung von virtuellem Inventar
-sind. Die automatische Erkennung und kontinuierliche Verfolgung dieser Flächen durch den ARPlaneManager gewährleisten
-eine stabile Integration von AR-Elementen in die reale Umgebung.
+Im Kontext des \textit{Knapsack Problem} Anwendungsszenarios spielt der ARPlaneManager eine zentrale Rolle. Durch die
+Markierung von horizontalen Flächen in der Benutzerumgebung garantiert dieser eine präzise Platzierung des virtuellen
+Inventar-Objekts und gewährleistet dadurch eine stabile Integration in die reale Umgebung.
 
-Der ARRaycastManager führt Raycasts von der HoloLens 2-Kamera aus und identifiziert Kollisionen mit markierten Ebenen.
-Diese Funktionalität ist entscheidend für die präzise Positionierung von virtuellen 3D-Objekten in der realen Welt,
-insbesondere im Anwendungsfall des \textit{Knappsack Problem Levels}. Der ARRaycastManager ermöglicht eine exakte
-Platzierung des Inventars basierend auf Benutzerinteraktionen.
+Im Kontext des Anwendungsszenarios des \textit{Ping} spielen beide Manager eine wichtige Rolle. Der ARPlaneManager erkennt
+die ARPlanes in der Umgebung und der ARRaycastManager erkennt anhand eines Rays, auf welchem ARPlane das reale Kabel, über
+das das Ping-Paket visualisiert wird, liegt.
 
-Im speziellen Anwendungsfall des \textit{Ping Levels} spielt der PlaneManager eine kritische Rolle. Er identifiziert
-die Fläche, auf der der Raycast auftrifft, um eine präzise Interaktion und Platzierung von AR-Elementen entsprechend
-den Benutzeraktionen zu ermöglichen.
-
-Insgesamt sind diese Manager wichtige Ressourcen, die die technische Umsetzbarkeit und Effektivität von AR-Anwendungen
+Insgesamt sind diese Manager wichtige Ressourcen, da sie die technische Umsetzbarkeit und Effektivität von AR-Anwendungen
 maßgeblich beeinflussen. Durch ihre integrierte Anwendung wird eine nahtlose Verschmelzung von virtuellen und physischen
-Elementen realisiert, was eine immersive und präzise AR-Benutzererfahrung sowohl auf dem \textit{Knappsack-Problem-Level}
-als auch auf dem \textit{Ping-Level} gewährleistet.
+Elementen realisiert, was eine immersive und präzise AR-Benutzererfahrung sowohl in dem Knappsack-Problem als auch auf
+dem Ping Anwendungsszenarios gewährleistet.
+
+\subsubsection{Unity GameObjects}
+Die Konzeption und Verwaltung von GameObjects stellt einen essenziellen Bestandteil der Entwicklungsumgebung von Unity dar.
+Ein \textit{GameObject} repräsentiert in dieser Umgebung jede \textit{Entität} innerhalb eines \textit{digitalen Szenarios},
+sei es ein \textit{Charakter}, eine \textit{Umgebungskomponente} oder ein \textit{Effekt}. Diese grundlegenden Objekte
+agieren als \textit{Behälter für Komponenten}, welche die \textit{Funktionalität} und das \textit{Verhalten} definieren.
+
+Im Kontext von Unity bilden GameObjects die grundlegenden Bausteine einer Szene. Sie sind abstrakte Entitäten, die allein
+nicht aktiv handeln können, sondern erst durch das \textit{Hinzufügen} von \textit{Komponenten} zu funktionalen Einheiten werden. Die Zuweisung
+von \textit{Eigenschaften} und \textit{Verhalten} erfolgt durch das Anbringen spezifischer Komponenten an ein GameObject.
+Beispielsweise kann einem GameObject, das das Konzept einer Lichtquelle repräsentiert, eine Lichtkomponente zugewiesen werden.
+
+Die Flexibilität von Unity zeigt sich in der Vielfalt der verfügbaren Komponenten. Neben den vordefinierten Komponenten
+bietet Unity die Möglichkeit, \textit{maßgeschneiderte Komponenten} mithilfe der Unity Scripting API zu erstellen. Dies ermöglicht
+eine hohe Anpassbarkeit und erlaubt es Entwicklern, spezifische Verhaltensweisen zu implementieren, die über die Standardfunktionalität
+hinausgehen.
+
+Ein zentrales Beispiel für die Verwendung von GameObjects und deren Komponenten ist die Erstellung von Spielszenarien.
+Durch das Kombinieren verschiedener GameObjects mit entsprechenden Komponenten können komplexe und interaktive Umgebungen
+geschaffen werden. Beispielsweise kann ein GameObject, das einen Charakter repräsentiert, mit Komponenten wie \textit{Animation},
+\textit{Physik} und \textit{Kollision} versehen werden, um eine realistische Interaktion mit der Spielwelt zu ermöglichen.
+
+Insgesamt bilden GameObjects und deren Komponenten das Rückgrat der Entwicklung von Spielen und interaktiven Anwendungen in
+Unity. Ihr Verständnis und ihre effektive Verwaltung sind entscheidend für die erfolgreiche Umsetzung digitaler Szenarien
+und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebnisse bei.\footnote{Unity Dokumentation \cite{GameObjects}}.
+
+\subsubsection{Unity Prefabs}
+Unity bietet eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten, Prefabs. Prefabs sind
+vorgefertigte Bausteine, die als Vorlagen dienen. Sie ermöglichen es, einmal erstellte Objekte als standardisierte Vorlagen
+zu speichern und dann beliebig oft in verschiedenen Szenen oder Projekten zu verwenden.
+
+Diese Vorlagen bieten eine Reihe von Vorteilen. Einerseits ermöglichen Prefabs eine effiziente und konsistente Gestaltung
+von Spielen, indem sie die Wiederverwendung von Designelementen erleichtern. Stellen Sie sich vor, Sie haben eine komplexe
+Szene mit verschiedenen Objekten erstellt, darunter Charaktere, Umgebungen und Effekte. Anstatt jedes Mal von Grund auf
+neu zu beginnen, können Sie diese Elemente als Prefabs speichern und sie dann einfach in neuen Szenen wiederverwenden.
+Durch die Verwendung von Prefabs können Sie nicht nur Zeit sparen, sondern auch sicherstellen, dass Ihr Spiel eine
+konsistente Designästhetik aufweist.
+
+Außerdem ermöglichen Prefabs eine einfache Aktualisierung und Iteration von Game-Objekten. Wenn Sie beispielsweise
+Änderungen an einem bestimmten Objekt vornehmen müssen, können Sie einfach das entsprechende Prefab bearbeiten. Diese
+Änderungen werden automatisch auf alle Instanzen dieses Prefabs angewendet, die in Ihrer Szene verwendet werden. Prefabs
+sind ein unverzichtbares Werkzeug für die effektive Spieleentwicklung in Unity, da
+
+sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich effizienter machen. Durch ihre Verwendung
+können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
+von Game-Objekten optimieren.
 
 \section{Objektdesign mittels Blender}
 \subsection{Rendering und Optimierung für AR}
@@ -619,35 +666,24 @@ Kurve von einem PC zum anderen läuft.
 %Hier dann noch code zur Kurvenberechnung einfügen
 
 \section{Knapsack Problem Level}
-Im zweiten Level dieses Projekts steht das Knapsack-Problem im Fokus.
-Ziel ist es, diesen Programmieralgorithmus mithilfe von Augmented Reality
-(AR) visuell darzustellen. Dieser Algorithmus wird nicht nur in der Höheren
-Technischen Lehranstalt (HTL) vermittelt, sondern die Benutzer sollen
-ihn auch selbst programmieren können.
+Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
+dieses Szenarios ist es, dieses Informatikproblem mithilfe von Augmented Reality (AR) visuell und spielerisch darzustellen.
+Das Knapsack-Problem ist ein klassisches Problem der Informatik, das nicht nur an der Höheren Technischen Lehranstalt (HTL)
+vermittelt wird, sondern auch von Schülern eigenständig programmiert werden soll. Dieser Ansatz dient dazu, den Anwendern
+einen Einblick in die Informatik zu geben und möglicherweise Interessen für den Bereich zu wecken.
 
-Der Level beginnt damit, dass der Benutzer aufgefordert wird, auf eine
-horizontale, flache Oberfläche zu schauen. Diese Oberfläche kann ein Tisch,
-der Boden oder ähnliches sein. Der Benutzer wird dann gebeten, für eine bestimmte
-vorgegebene Zeit auf diese Oberfläche zu schauen. Nach Ablauf der vorgeschriebenen
-Zeit wird dann das Inventar als auch das \textit{infoObjekt} platziert.
+Das Unity-Anwendungsszenario für die HoloLens 2 bietet insgesamt eine interaktive und visuelle Erfahrung, bei der der
+Benutzer nicht nur das Knapsack-Problem verstehen, sondern auch praktisch anwenden kann. Die Integration von AR ermöglicht
+es dem Benutzer, das Problem in einer realen Umgebung zu erleben und die Optimierungsmöglichkeiten direkt zu visualisieren
+und zu manipulieren. Diese immersive Herangehensweise kann dazu beitragen, das Verständnis des Knapsack-Problems zu vertiefen
+und das Interesse an der Informatik zu fördern.
 
-Das Inventar wird durch ein 3x3 zweidimensionales Gitter repräsentiert, ähnlich
-wie das Inventar in einem Spiel. Zusätzlich befinden sich auf der Oberfläche 11 Bauklötze,
-die mit QR-Codes versehen sind. Diese Bauklötze repräsentieren die Items, die der Benutzer
-in das Inventar legen kann. Durch Aufheben und Nahheranhalten an die HoloLens wird der QR-Code gescannt.
-Dadurch werden das dazugehörige 3D-Modell, der Wert, Gewicht und der Name des Items angezeigt.
-Diese Informationen sind für den Benutzer wichtig, um das Gewicht des Items und
-seinen Einfluss auf das Inventar zu verstehen.
+In diesem Abschnitt werden alle \textit{GameObjects}, \textit{Komponenten}, \textit{Scripts} und \textit{Klassen} genauer
+erklärt, die in der Unity-Szene des Knapsack-Problems verwendet werden, um dieses zu realisieren.
 
-Wenn der Bauklotz erfolgreich platziert wurde, wird automatisch der Knapsack-Algorithmus für die perfekte Lösung,
-und die Berechnung des eigenen Inventars gestartet um stets den aktuellen Wert zu sehen.
-
-Insgesamt bietet dieses Unity Level für die HoloLens 2 eine interaktive und visuelle Erfahrung,
-bei der die Benutzer das Knapsack-Problem nicht nur verstehen, sondern auch praktisch anwenden können.
-
-\subsection{Knapsack-Problem Level Hirarchie}
-In dem folgendem Abschnitt wird darauf eingegangen wie eine Szene in dem Unity Editor aufgebaut ist und wie diese Grundsätzlich
-funktionieren.\\
+\subsection{Knapsack-Problem Anwendungsszenario Hirarchie}
+Um genauer zu veranschaulichen, wie dieses Anwendungsszenario aufgebaut ist, wird in diesem Abschnitt anhand einer Abbildung
+der Hierarchie der Szene aus dem Unity Editor eingegangen und jedes Objekt erklärt, welche Aufgabe dieses trägt.
 
 \begin{figure}[H]
     \centering
@@ -656,9 +692,9 @@ funktionieren.\\
     \label{fig:level2_hierarchy}
 \end{figure}
 
-In dieser Abbildung ist die Hirarchie und der Inhalt des Knapsack-Problem Levels / Szene-2\footnote{Unity \cite{Scene}} zu sehen.
-Wie zu sehen ist, besteht die Szene aus vielen wichtigen Komponenten die zusammenspielen, um das gewünschte Ergebnis
-zu erzielen. Darunter sind folgende Objekte:
+In der Abbildung \ref{fig:level2_hierarchy} ist die Hirarchie und der Inhalt des Knapsack-Problem Anwendungsszenarios
+zu sehen. Anhand dieser Abbildung ist zu sehen, dass die Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen,
+um das gewünschte Ergebnis zu erzielen. Darunter sind folgende Objekte:
 
 \begin{itemize}
     \item \textbf{level-2}\\
@@ -697,7 +733,7 @@ zu erzielen. Darunter sind folgende Objekte:
     Objekt wird hier dann als \textit{parent} bezeichnet.
 \end{itemize}
 
-In der Abbildung ist zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
+In der Abbildung ist ausßredem zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
 Wenn ein Game Objekt im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObjekt und somit alle angehängiten Scripts von diesem Game Objekt deaktiviert sind.
 Das bedeutet, dass dieses Game Objekt samt allen Scripts zu Szenenbeginn nicht aufgerufen und somit auch nicht ausgeführt werden. Nicht ausgegraute Game Objekte widerum sind
 daher genau das Gegenteil. Das beudetet, dass das Game Objekt selbst samt allen angehängiten Scripts alle aktiviert sind und somit zu Szenenbeginn aufgerufen und ausgeführt werden.
@@ -705,27 +741,6 @@ daher genau das Gegenteil. Das beudetet, dass das Game Objekt selbst samt allen 
 Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das nur, dass dieses Game Objekt im Unity Editor nicht zu sehen ist. Andererseits, wenn kein Zeichen
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
-
-\subsection{Unity Prefabs}
-Unity bietet eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten, Prefabs. Prefabs sind
-vorgefertigte Bausteine, die als Vorlagen dienen. Sie ermöglichen es, einmal erstellte Objekte als standardisierte Vorlagen
-zu speichern und dann beliebig oft in verschiedenen Szenen oder Projekten zu verwenden.
-
-Diese Vorlagen bieten eine Reihe von Vorteilen. Einerseits ermöglichen Prefabs eine effiziente und konsistente Gestaltung
-von Spielen, indem sie die Wiederverwendung von Designelementen erleichtern. Stellen Sie sich vor, Sie haben eine komplexe
-Szene mit verschiedenen Objekten erstellt, darunter Charaktere, Umgebungen und Effekte. Anstatt jedes Mal von Grund auf
-neu zu beginnen, können Sie diese Elemente als Prefabs speichern und sie dann einfach in neuen Szenen wiederverwenden.
-Durch die Verwendung von Prefabs können Sie nicht nur Zeit sparen, sondern auch sicherstellen, dass Ihr Spiel eine
-konsistente Designästhetik aufweist.
-
-Außerdem ermöglichen Prefabs eine einfache Aktualisierung und Iteration von Game-Objekten. Wenn Sie beispielsweise
-Änderungen an einem bestimmten Objekt vornehmen müssen, können Sie einfach das entsprechende Prefab bearbeiten. Diese
-Änderungen werden automatisch auf alle Instanzen dieses Prefabs angewendet, die in Ihrer Szene verwendet werden. Prefabs
-sind ein unverzichtbares Werkzeug für die effektive Spieleentwicklung in Unity, da
-
-sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich effizienter machen. Durch ihre Verwendung
-können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
-von Game-Objekten optimieren.
 
 \subsection{Nutzung von QR-Codes}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente
