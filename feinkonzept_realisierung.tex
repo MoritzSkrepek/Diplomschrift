@@ -236,6 +236,71 @@ sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich eff
 können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
 von Game-Objekten optimieren.
 
+\subsection{Deployment der Anwendung}
+
+Die Entwicklung unserer Anwendung findet auf unseren Laptops statt. Allerdings ist es auf diesen Geräten nur begrenzt
+möglich, die AR-Funktionalitäten zu testen. Um die Anwendung vollständig auf einem AR-fähigen Gerät zu überprüfen, muss
+sie auf dieses Gerät geladen werden. In diesem Abschnitt wird der genaue Prozess beschrieben, wann und wie die Anwendung
+auf ein AR-fähiges Gerät deployt wird.
+
+\subsubsection{Voraussetzungen für das Deployment}
+
+Damit die Bereitstellung der Anwendung auf einem AR-fähigen Gerät erfolgreich ist, müssen bestimmte Voraussetzungen erfüllt sein:
+
+\begin{itemize}
+    \item \textbf{Kompiliertes Unity-Projekt:} Im Rahmen des Build-Prozesses werden alle erforderlichen Dateien und
+    Ressourcen der Anwendung zu einem ausführbaren Unity-Paket kompiliert.
+
+    \item \textbf{Netzwerkverbindung:} Es ist erforderlich, dass sowohl das AR-fähige Gerät als auch der Computer, auf
+    dem der Build durchgeführt wurde, sich im selben Netzwerk befinden. Nur so kann das Unity-Paket über das Netzwerk
+    auf das AR-fähige Gerät übertragen werden.
+
+    \item \textbf{Authentifizierung:} Die AR-Brille muss authentifiziert werden, damit sie dem Computer die Berechtigung
+    erteilt, das Unity-Paket auf die Brille zu übertragen. Diese Authentifizierung gewährleistet, dass nur autorisierte
+    Geräte Zugriff auf die Brille haben und die Übertragung sicher erfolgt.
+
+\end{itemize}
+
+\subsubsection{Deployment-Prozess}
+
+%TODO: Ein UML-Ablaufdiagramm zum Build-Prozess wird hier eingefügt.
+
+Der erste Schritt ist die Kompilierung des Unity-Projekts, die auf dem Computer durchgeführt wird, auf dem sich das
+Unity-Projekt befindet. Um in Unity zu den Build-Einstellungen zu gelangen, kann der Tastenkürzel \textit{Strg + Umschalt + B}
+verwendet werden. In den Build-Einstellungen wird die Zielplattform ausgewählt, auf die die Anwendung bereitgestellt
+werden soll. In unserem Fall ist dies die \textit{Universal Windows Platform (UWP)}. Weitere Build-Einstellungen können
+Sie aus der folgenden Grafik entnehmen. Besonders wichtig sind die Einstellungen für die \textit{Architektur} und
+die \textit{Build-Konfiguration}.
+
+%TODO: Ein Screenshot der Build-Einstellungen wird hier eingefügt.
+
+Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dateien für das Deployment. Der nächste
+Schritt erfolgt in der Visual Studio Solution, in unserem Fall \textit{AARIE.sln}. Nach dem Öffnen der Datei müssen die
+Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Nachdem die Konfigurationen
+vorgenommen wurden, muss die \textit{Machine Name} auf die lokale IPv4-Adresse der HoloLens gesetzt werden. Dies erfolgt in
+den \textit{Projekteigenschaften} unter Debugging. Die IP-Adresse der HoloLens kann auf der Brille in den \textit{Einstellungen}
+unter \textit{Netzwerk} gefunden werden.
+
+Außerdem muss der \textit{Authentication Mode} auf \textit{Universal (Unencrypted Protocol)} gesetzt werden, um
+sicherzustellen, dass die Kommunikation zwischen dem Computer und der HoloLens reibungslos erfolgt.
+
+Nachdem alle Einstellungen vorgenommen wurden, kann die Anwendung auf die HoloLens deployt werden. Dazu muss die
+Solution mit \textit{Start without Debugging} gestartet werden. Nach einem längeren Ladevorgang wird die Anwendung auf der
+HoloLens geladen und gestartet.
+
+Falls die Anwendung beendet wird, kann sie auf der HoloLens unter
+\textit{Start} $\rightarrow$ \textit{Alle Apps} $\rightarrow$ \textit{AARIE} erneut gestartet werden.
+Falls Änderungen an der Anwendung auf den Computern vorgenommen wurden, muss der gesamte Prozess erneut durchgeführt werden.
+Die Anwendung wird nicht automatisch aktualisiert!
+
+\subsubsection{Erstmaliges Deployment}
+Beim erstmaligen Deployment auf die HoloLens kann es zu Problemen kommen, die durch die Authentifizierung der HoloLens
+verursacht werden. In diesem Fall muss der neue Computer sich auf der HoloLens erneut authentifizieren. Dazu werden Sie nach
+dem Starten des Deployments aufgefordert. Auf dem Computer wird ein Authentifizierungscode angezeigt, der auf der HoloLens unter
+\textit{Einstellungen} $\rightarrow$ \textit{Update & Sicherheit} $\rightarrow$ \textit{Für Entwickler} $\rightarrow$ \textit{Koppeln}
+eingegeben wird. Nachdem die Authentifizierung erfolgreich abgeschlossen wurde, kann das Deployment erneut gestartet werden.
+
+
 \section{Objektdesign mit Blender}
 Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken
 Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte
