@@ -9,11 +9,11 @@ da somit das Projekt dynamischer geplant und durchgeführt werden kann. Die Ausw
 stand direkt bei Projektbegin fest. In dem folgenden Abscnhitt wird dieses
 Vorgehendsmodell genauer erklärt und unsere Entscheidung anschließend begründet.
 
-\section{Scrum}
-Scrum\footnote{Quelle: Scrum Alliance \cite{WHAT-IS-SCRUM}} repräsentiert ein agiles Projektmanagement-Framework,
+\subsection{Scrum}
+Scrum repräsentiert ein agiles Projektmanagement-Framework,
 das auf die effiziente Entwicklung von Produkten und Software abzielt. Es legt besonderen Wert auf Zusammenarbeit,
 Anpassungsfähigkeit und die kontinuierliche Bereitstellung funktionsfähiger Inkremente innerhalb kurzer Entwicklungszyklen,
-den sogenannten Sprints. \\
+den sogenannten Sprints.\footnote{Quelle: Scrum Alliance \cite{WHAT-IS-SCRUM}} \\
 
 Die zuvor skizzierte Definition gewährt einen knappen Einblick in das agile Vorgehensmodell Scrum. Die herausragenden Merkmale dieses Modells sind:
 
@@ -27,51 +27,51 @@ Die zuvor skizzierte Definition gewährt einen knappen Einblick in das agile Vor
 
 \subsection{Die drei Rollen in Scrum}
 \begin{itemize}
-    \item \textbf{Product Owner}\footnote{Scrum-Rolle \cite{Product-Owner}}: Der Product Owner trägt die Verantwortung
+    \item \textbf{Product Owner}: Der Product Owner trägt die Verantwortung
     für die Pflege des Product Backlogs und vertritt dabei die fachliche Auftraggeberseite sowie sämtliche Stakeholder.
     Ein zentrales Anliegen ist die Priorisierung der Elemente im Product Backlog, um den geschäftlichen Wert des
     Produkts zu maximieren und die Möglichkeit für frühe Veröffentlichungen essenzieller Funktionalitäten zu schaffen.
     Der Product Owner nimmt nach Möglichkeit an den täglichen Scrum-Meetings teil, um auf passive Weise Einblicke zu
-    gewinnen. Zudem steht er dem Team für Rückfragen zur Verfügung, um einen reibungslosen Informationsaustausch zu gewährleisten.
-    \item \textbf{Scrum Master}\footnote{Scrum-Rolle \cite{Scrum-Master}}: Der Scrum Master übernimmt eine zentrale
+    gewinnen. Zudem steht er dem Team für Rückfragen zur Verfügung, um einen reibungslosen Informationsaustausch zu gewährleisten.\footnote{Scrum-Rolle \cite{Product-Owner}}
+    \item \textbf{Scrum Master}: Der Scrum Master übernimmt eine zentrale
     Rolle im Scrum-Prozess und ist für die korrekte Umsetzung desselben verantwortlich. Als Vermittler und Unterstützer
     fungiert er als Facilitator, der darauf abzielt, einen maximalen Nutzen zu erzielen und kontinuierliche Optimierung
     sicherzustellen. Ein zentrales Anliegen ist die Beseitigung von Hindernissen, um ein reibungsloses Voranschreiten
     des Teams zu gewährleisten. Der Scrum Master sorgt für einen effizienten Informationsfluss zwischen dem Product Owner
     und dem Team, moderiert Scrum-Meetings und behält die Aktualität der Scrum-Artefakte wie Product Backlog,
     Sprint Backlog und Burndown Charts im Blick. Darüber hinaus liegt in seiner Verantwortung, das Team vor
-    unberechtigten Eingriffen während des Sprints zu schützen.
-    \item \textbf{Team}\footnote{Scrum-Rolle \cite{Team}}: Das Team, bestehend aus vier bis zehn Mitgliedern,
+    unberechtigten Eingriffen während des Sprints zu schützen.\footnote{Scrum-Rolle \cite{Scrum-Master}}
+    \item \textbf{Team}: Das Team, bestehend aus vier bis zehn Mitgliedern,
     idealerweise sieben, zeichnet sich durch eine interdisziplinäre Zusammensetzung aus, die Entwickler, Architekten,
     Tester und technische Redakteure einschließt. Durch Selbstorganisation agiert das Team eigenständig und übernimmt
     die Verantwortung als sein eigener Manager. Es besitzt die Befugnis, autonom über die Aufteilung von Anforderungen
     in Aufgaben zu entscheiden und diese auf die einzelnen Mitglieder zu verteilen, wodurch der Sprint Backlog aus dem
-    aktuellen Teil des Product Backlog entsteht.
+    aktuellen Teil des Product Backlog entsteht.\footnote{Scrum-Rolle \cite{Team}}
 \end{itemize}
-
-\noindent Alle Anforderungen an das Produkt werden in sogenannten User Stories, vorrangig erstellt durch den Product
+\\
+Alle Anforderungen an das Produkt werden in sogenannten User Stories, vorrangig erstellt durch den Product
 Owner, im Product Backlog gesammelt. In einem Intervall, bezeichnet als Sprint, werden die User Stories abgearbeitet.
 Die Projektentwicklung nach Scrum besteht aus fünf zentralen Elementen:
 \begin{itemize}
-    \item \textbf{Sprint: Planning Meeting}\footnote{Scrum-Meetings \cite{Sprint-planing-meeting}}: Im Sprint Planning
+    \item \textbf{Sprint: Planning Meeting}: Im Sprint Planning
     Meeting wird das Ziel des folgenden Sprints definiert. Hierbei werden die Anforderungen im Project Backlog, die in
-    diesem Sprint umgesetzt werden sollen, in einzelne Aufgaben zerlegt und anschließend im Sprint Backlog gesammelt.
-    \item \textbf{Sprint}\footnote{Scrum-Meetings \cite{Sprint}}: Ein Sprint repräsentiert eine Entwicklungsphase,
+    diesem Sprint umgesetzt werden sollen, in einzelne Aufgaben zerlegt und anschließend im Sprint Backlog gesammelt.\footnote{Scrum-Meetings \cite{Sprint-planing-meeting}}
+    \item \textbf{Sprint}: Ein Sprint repräsentiert eine Entwicklungsphase,
     während der eine voll funktionsfähige und potenziell veröffentlichte Software entsteht. Die Dauer eines solchen
-    Sprints beträgt typischerweise zwischen 1 und 4 Wochen.
-    \item \textbf{Daily Scrum}\footnote{Scrum-Meetings \cite{Daily-Scrum}}: Der Daily Scrum ist ein kurzes Teammeeting,
+    Sprints beträgt typischerweise zwischen 1 und 4 Wochen.\footnote{Scrum-Meetings \cite{Sprint}}
+    \item \textbf{Daily Scrum}: Der Daily Scrum ist ein kurzes Teammeeting,
     in dem Teammitglieder darüber informieren, welche Aufgaben seit dem letzten Meeting abgeschlossen wurden, woran bis
     zum nächsten Meeting gearbeitet werden muss und wo momentane Probleme existieren. Auf diese Weise sind alle Teammitglieder
-    stets auf dem aktuellen Stand, was die Lösung aufkommender Probleme erleichtert.
-    \item \textbf{Sprint Review}\footnote{Scrum-Meetings \cite{Sprint-Review}}: In diesem Meeting präsentiert das
+    stets auf dem aktuellen Stand, was die Lösung aufkommender Probleme erleichtert. \footnote{Scrum-Meetings \cite{Daily-Scrum}}
+    \item \textbf{Sprint Review}: In diesem Meeting präsentiert das
     Entwicklungsteam die im Sprint abgeschlossenen Arbeitsergebnisse, beispielsweise fertige Produktinkremente, den
-    Stakeholdern, zu denen Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen gehören.
-    \item \textbf{Sprint Retrospective}\footnote{Scrum-Meetings \cite{Sprint-Retroperspektiv}}: Die Sprint Retrospective
+    Stakeholdern, zu denen Produktbesitzer, Kunden, Führungskräfte und andere Interessengruppen gehören.\footnote{Scrum-Meetings \cite{Sprint-Review}}
+    \item \textbf{Sprint Retrospective}: Die Sprint Retrospective
     dient primär dazu, dass das Scrum-Team (bestehend aus dem Entwicklungsteam, dem Scrum Master und dem Product Owner)
-    gemeinsam den abgeschlossenen Sprint reflektiert und Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.
+    gemeinsam den abgeschlossenen Sprint reflektiert und Möglichkeiten zur kontinuierlichen Verbesserung identifiziert.\footnote{Scrum-Meetings \cite{Sprint-Retroperspektiv}}
 \end{itemize}
 
-\noindent Durch diese Elemente kann ein optimaler Projektablauf gewährleistet werden. Das Projekt bleibt jederzeit
+Durch diese Elemente kann ein optimaler Projektablauf gewährleistet werden. Das Projekt bleibt jederzeit
 offen für Änderungen, und durch eine enge Zusammenarbeit mit dem Kunden können Missverständnisse und Probleme
 frühzeitig behandelt und kommuniziert werden.
 
