@@ -728,119 +728,129 @@ Das Handymodell orientierte sich an modernen iPhones von Apple und erforderte au
 Kameras, Tasten und Mikrofoneinlässe eine sorgfältige Modellierung und Texturierung, um einen realistischen Eindruck zu erzeugen.
 
 
-\section{Menü}
-Im folgenden Abschnitt wird die hierarchische Struktur des Menüs in Unity erläutert und die Schritte beschrieben, die
-zur Finalisierung der implementierung durchlaufen wurden.
-
+\section{Hauptmenü}
+Im folgenden Abschnitt werden die Entwicklungsphasen beim Entwerfen des Menüs erläutert. So wie die dabei aufgetretenen
+Probleme und abschließend auch auf was beim User interface UI under bei der Benutzererfahrung UX geachtet wurde.
 Die iterative Entwicklung des Menüs durchlief mehrere Phasen, beginnend mit der Konzeption und Planung der
-Benutzeroberfläche bis hin zur finalen Umsetzung. Dieser Prozess umfasste die Entscheidungen zum Design des Layouts,
-des Farbschemas und der Interaktionselemente. Anschließend wurden die Funktionalitäten programmiert.
-
-Während der Entwicklung wurden regelmäßig Überprüfungen und Anpassungen vorgenommen, um sicherzustellen, dass das Menü
-den gestellten Anforderungen entspricht und eine optimale Benutzererfahrung bietet. Dabei wurden auch Rückmeldungen und
-Tests von Nutzern in die Iterationsschleife einbezogen, um mögliche Verbesserungspotenziale zu identifizieren und zu
-berücksichtigen.
-
+Benutzeroberfläche bis hin zur finalen Umsetzung. Dieser Prozess umfasste die Entscheidungen zum Design des Layouts, des
+Farbschemas und der Interaktionselemente. Während der Entwicklung wurden regelmäßig Überprüfungen und Anpassungen
+vorgenommen, um sicherzustellen, dass das Menü den gestellten Anforderungen entspricht und eine optimale Benutzererfahrung
+bietet. Dabei wurden auch Rückmeldungen und Tests von Nutzern in die Iterationsschleife einbezogen, um mögliche
+Verbesserungspotenziale zu identifizieren und zu berücksichtigen.
 Schließlich wurde das Menü in seiner finalen Version implementiert. Dabei wurde besonderes Augenmerk auf Funktionalität,
 Benutzerfreundlichkeit und Ästhetik gelegt. Durch diesen iterativen Entwicklungsprozess wurde sichergestellt, dass das
 Menü den Anforderungen entspricht und einen positiven Beitrag zur Gesamterfahrung des Spiels leistet.
 
 \subsection{Erstentwurf}
-Ursprünglich war geplant, das UI/UX-System mit einem sogenannten Nahmenü zu realisieren. Dieses folgt dem Nutzer in
-seiner Nähe und besteht aus drei primären Schaltflächen sowie einem Pin-Button. Das Nahmenü ist etwa auf Hüfthöhe des
-Benutzers positioniert und zeichnet sich durch eine vereinfachte Struktur aus, die eine intuitive Bedienung gewährleistet.
-Die Gestaltung des Menüs hat zum Ziel, Verwirrung zu vermeiden und dem Nutzer ohne umfassende Vorabinformationen klar zu
-machen, wie er es verwenden kann.
+Ursprünglich war geplant, das UI/UX-System mit einem sogenannten \textbf{Nahmenü} zu realisieren. Dieses folgt dem
+Nutzer in seiner Nähe und besteht in unserem Fall, aus drei primären Schaltflächen sowie einem Pin-Button. Das Nahmenü
+ist etwa auf Hüfthöhe des Benutzers positioniert und zeichnet sich durch eine vereinfachte Struktur aus, die eine
+intuitive Bedienung gewährleistet. Die Gestaltung des Menüs hat zum Ziel, Verwirrung zu vermeiden und dem Nutzer ohne
+umfassende Vorabinformationen klar zu machen, wie er es verwenden kann.
 
-Innerhalb von Unity bezeichnet der Begriff Nahmenü eine
-vordefinierte Konstruktion, die mit bestimmten Skripten ausgestattet ist, um sicherzustellen, dass das Menü dem Benutzer
-in alle Richtungen folgt. Es werden von Unity bereitgestellte Skripte verwendet, die es ermöglichen, das Menü dynamisch
-an die Position des Nutzers anzupassen.
+\subsubsection*{Nahmenü}
+Innerhalb von Unity bezeichnet der Begriff Nahmenü eine vordefinierte Konstruktion, die mit bestimmten Skripten
+ausgestattet ist, um sicherzustellen, dass das Menü dem Benutzer in alle Richtungen folgt. Es werden von Unity
+bereitgestellte Skripte verwendet, die es ermöglichen, das Menü dynamisch an die Position des Nutzers anzupassen.\\
+\\
+Im Erstentwurf wurde das gesamte Menü ausschließlich innerhalb der Unity-Umgebung konstruiert. Dabei wurden sämtliche
+vorhandenen Schaltflächen und Funktionen aus den nativen Ressourcen von Unity zusammengesetzt. Dieser Ansatz führte zu
+einer konsistenten visuellen Gestaltung des Menüs. Allerdings waren die Möglichkeiten zur kreativen Gestaltung und
+Anpassung im Rahmen unseres individuellen Projekts stark begrenzt. Durch die ausschließliche Verwendung der internen
+Ressourcen von Unity wurden gewisse Einschränkungen hinsichtlich der Flexibilität und Individualisierungsmöglichkeiten
+des Menüs in Kauf genommen.
 
+Obwohl diese Herangehensweise zu einem homogenen Erscheinungsbild des Menüs führte, war es wichtig, eine Balance
+zwischen visueller Einheitlichkeit und der Notwendigkeit individueller Anpassungsmöglichkeiten zu finden. Diese
+Herausforderung verdeutlicht die Bedeutung einer flexiblen und erweiterbaren Architektur für die Benutzeroberfläche,
+um den Anforderungen und Zielen des Projekts gerecht zu werden.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/menubarversion1.png}
-    \caption{Darstellung der Menübar im Unity Editor}
+    \caption{Darstellung des Erstentwurfes im Unity Editor}
     \label{fig:menübar}
 \end{figure}
 
 Die Abbildung \ref{fig:menübar} zeigt den ersten Entwurf des Menüs, das eine wichtige Schnittstelle für den Nutzer
 darstellt, um zwischen verschiedenen Szenarien zu navigieren. Die Struktur des Menüs bleibt unabhängig vom jeweiligen
-Spiellevel konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite dienen
-der Initiation des Ladevorgangs für die verschiedenen Spielstufen. Hervorzuheben ist der Pin-Button in Kombination mit
-dem begleitenden weißen Balken. Diese Funktion ermöglicht es dem Benutzer, das Menü an gewünschten Positionen zu verankern
-und bietet somit Flexibilität bei der Positionierung entsprechend individueller Präferenzen. Ein solcher Einsatz ist
-opportunistisch, wenn externe Objekte die Nutzbarkeit des Menüs beeinträchtigen könnten, wie zum Beispiel im Szenario
-des Platznehmens an einem Tisch, wo das Menü ungünstigerweise mit dem Tisch kollidieren könnte und somit die Nutzererfahrung
-beeinträchtigt würde.
-
-In der Entwurfsphase wurde das gesamte Menü ausschließlich innerhalb der Unity-Umgebung konstruiert. Dabei wurden
-sämtliche vorhandenen Schaltflächen und Funktionen aus den nativen Ressourcen von Unity zusammengesetzt. Dieser Ansatz
-führte zu einer konsistenten visuellen Gestaltung des Menüs. Allerdings waren die Möglichkeiten zur kreativen Gestaltung
-und Anpassung im Rahmen unseres individuellen Projekts stark begrenzt.
-
-Durch die ausschließliche Verwendung der internen Ressourcen von Unity wurden gewisse Einschränkungen hinsichtlich der
-Flexibilität und Individualisierungsmöglichkeiten des Menüs in Kauf genommen. Dies führte zu einer Abhängigkeit von den
-vorgefertigten Designelementen und Funktionalitäten, was möglicherweise die Einzigartigkeit und das spezifische
-Designkonzept des Projekts beeinträchtigte.
-
-Obwohl diese Herangehensweise zu einem homogenen Erscheinungsbild des Menüs führte, war es wichtig, eine Balance zwischen
-visueller Einheitlichkeit und der Notwendigkeit individueller Anpassungsmöglichkeiten zu finden. Diese Herausforderung
-verdeutlicht die Bedeutung einer flexiblen und erweiterbaren Architektur für die Benutzeroberfläche, um den Anforderungen
-und Zielen des Projekts gerecht zu werden.
+Spiellevel konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite
+dienen der Initiation des Ladevorgangs für die verschiedenen Spielszenarien. Hervorzuheben ist der Pin-Button in
+Kombination mit dem darunterliegenden weißen Balken. Diese beiden Funktionen gemeinsam ermöglichen es dem Benutzer,
+das Menü an gewünschten Positionen zu verankern und bietet somit Flexibilität bei der Positionierung entsprechend
+individueller Präferenzen. Ein solcher Einsatz ist von Vorteil, wenn externe Objekte die Nutzbarkeit des Menüs
+beeinträchtigen könnten, wie zum Beispiel im Szenario des Platznehmens an einem Tisch, wo das Menü ungünstigerweise
+mit dem Tisch kollidieren könnte und somit die Nutzererfahrung beeinträchtigt werden würde.
 
 \subsubsection{Probleme beim Erstentwurf}
-\textbf{Problem 1}: Das Hauptziel bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle erforderlichen
-Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Probanden, die nicht mit dem
-Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der Dokumentation und
-Erklärung der verschiedenen Spielstufen und ihrer jeweiligen Aufgaben aufweist. Es wurde bemängelt, dass Benutzer lediglich
-zwischen den einzelnen Leveln wechseln können, ohne klare Informationen darüber zu erhalten, worum es in den einzelnen
-Leveln geht und welche Aufgaben diese beinhalten.
+\subsubsection*{Problem 1 - Fehlende Dokumentation}
+Das Hauptziel bei dem Konzept des Ersten Menüs, bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle
+erforderlichen Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Testpersonen,
+die nicht mit dem Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der
+Dokumentation und Erklärung der verschiedenen Anwendungsszenarien und ihrer jeweiligen Aufgaben aufweist. Es wurde
+bemängelt, dass Benutzer lediglich zwischen den einzelnen Leveln wechseln können, ohne klare Informationen darüber zu
+erhalten, worum es in den einzelnen Leveln geht und welche Aufgaben diese beinhalten.
 
 Diese Feststellung verdeutlicht eine wesentliche Lücke in der Benutzerführung und -information innerhalb des Menüsystems.
-Die unzureichende Dokumentation der Level und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und kann
-sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch als
-Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
+Die unzureichende Dokumentation der Level und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und
+kann sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch
+als Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
 
 Die Identifizierung dieses Problems betont die Wichtigkeit einer umfassenden Benutzerforschung und -evaluation während
 des Designprozesses. Dadurch wird sichergestellt, dass das entwickelte Benutzeroberflächensystem den Bedürfnissen und
 Erwartungen der Zielgruppe entspricht. Eine zielgerichtete Überarbeitung des Menüs ist erforderlich, um die fehlende
-Dokumentation der Spiellevel und ihrer Aufgaben zu adressieren und somit die Benutzererfahrung zu verbessern.
+Dokumentation der Anwendungsszenarien und ihrer Aufgaben zu adressieren und somit die Benutzererfahrung zu verbessern.
 
-\textbf{Problem 2}: Während des Testprozesses stellte sich heraus, dass das Navigationsmenü oft eine Behinderung darstellte,
-insbesondere für Entwickler, die Funktionen wiederholt testeten und Levels neu luden. Das ständige Verschieben des Menüs
+Bei Testdurchführungen ohne Entwickler aus dem Projektteam kam es wiederholt zu Unklarheiten bei den Benutzern,
+insbesondere während des ersten Durchlaufs, bezüglich der zugewiesenen Aufgaben. Während der Nutzung der HoloLens-Anwendung
+gab es vermehrt Anfragen seitens der Benutzer an das Projektteam aufgrund von Unklarheiten. Dies lässt vermuten, dass
+die Anwesenheit von Entwicklern im Projektteam einen signifikanten Einfluss auf die Benutzererfahrung und Effektivität
+der HoloLens-Anwendung hat.
+
+
+\subsubsection*{Problem 2 - Falsche Wahl des Menütyps}
+Während des Testprozesses stellte sich heraus, dass das Navigationsmenü oft eine Behinderung darstellte, insbesondere
+für Entwickler, die Funktionen wiederholt testeten und Anwendungsszenarien neu luden. Das ständige Verschieben des Menüs
 zur Seite erwies sich als zeitraubend und störte den Arbeitsfluss erheblich. Die ursprüngliche Intention, das
-Navigationsmenü zur Erleichterung der Interaktion zwischen Benutzer und Spielumgebung einzuführen, erwies sich somit als
-kontraproduktiv.
+Navigationsmenü zur Erleichterung der Interaktion zwischen Benutzer und Spielumgebung einzuführen, erwies sich somit als kontraproduktiv.
 
 Es ist wichtig, die Auswirkungen von Benutzeroberflächenelementen auf den Entwicklungsprozess zu berücksichtigen, um ein
-reibungsloses Testen und Experimentieren zu gewährleisten. Eine effiziente und produktive Arbeitsweise des Entwicklerteams
-hängt davon ab. Die Notwendigkeit einer kontinuierlichen Evaluation und Optimierung von UI/UX-Komponenten während des gesamten
-Entwicklungszyklus wird durch dieses Problem verdeutlicht.
+reibungsloses Testen und Experimentieren zu gewährleisten. Eine effiziente und produktive Arbeitsweise des
+Entwicklerteams hängt davon ab. Die Notwendigkeit einer kontinuierlichen Evaluation und Optimierung von
+UI/UX-Komponenten während des gesamten Entwicklungszyklus wird durch dieses Problem verdeutlicht.
 
-Um dieses Problem zu lösen, war die Entwicklung eines neuen Konzepts notwendig, das die Schwächen des ursprünglichen
-Entwurfs anspricht und möglicherweise sogar vollständig beseitigt. Dazu mussten die Anforderungen und Ziele des Navigationsmenüs
-sorgfältig neu bewertet und kreativ neu gestaltet werden, um eine nahtlose Integration in den Entwicklungsprozess zu gewährleisten
-und die Produktivität des Teams zu steigern.
+Dieses Problem verdeutlicht, dass der Erstentwurf und die ursprüngliche Konzeption hauptsächlich auf die Innovation und
+Neuheit des Menüdesigns abzielten, anstatt den Fokus auf die funktionale Nützlichkeit zu legen. Der einfache und kompakte
+Menütyp erwies sich als unzureichend, um eine umfassende und übersichtliche Dokumentation der Anwendungsszenarien zu
+integrieren. Folglich war eine Migration zu einem alternativen Menüansatz erforderlich. Diese Beobachtung verdeutlicht
+die Bedeutung einer ausgewogenen Gestaltung von Benutzeroberflächen in Mixed-Reality-Systemen. Es ist wichtig, dass
+nicht nur ästhetische Innovationen verfolgt werden, sondern auch die tatsächliche Benutzererfahrung und -effizienz in
+Betracht gezogen wird. Die Reflexion über diesen Prozess bietet Einsichten in die iterative Entwicklung von
+Benutzerschnittstellen und die Anpassung an die Anforderungen und Rückmeldungen der Benutzer.
 
-\subsection{Finalversion} %TODO: abbildung einfügen
-Für das neue Konzept wurde eine Analyse populärer und trendiger AR/VR-Spiele durchgeführt, um die Gründe für die verbesserte
-Benutzererfahrung in diesen Spielen zu untersuchen. Dabei wurden spezifische Merkmale und Designentscheidungen identifiziert,
-die zu einer höheren Nutzerzufriedenheit führen. Auf dieser Grundlage wurde das Design des Menüsystems vollständig überarbeitet,
-wobei das bisherige Nahmenü entfernt wurde.
+\subsection{Finalversion des Menüs}
+Die endgültige Version des Menüs wurde entwickelt, um die Mängel des ursprünglichen Entwurfs anzugehen und idealerweise
+vollständig zu beheben. Dieses neue Konzept wurde durch eine umfassende Analyse populärer AR/VR-Spiele geleitet, um die
+Gründe für die verbesserte Benutzererfahrung in diesen Kontexten zu untersuchen. Dabei wurden spezifische Merkmale und
+Designentscheidungen identifiziert, die einen signifikanten Einfluss auf die Zufriedenheit der Anwender haben.
+
+Basierend auf vorangegangenen Recherchen wurde entschieden, das neue Menü in zwei klar definierte Bereiche zu unterteilen.
+Dies gewährleistet eine deutliche Unterscheidung des Hauptmenüs sowie eine klare Orientierung bezüglich der Navigation.
+Insbesondere innerhalb der Anwendungsszenarien wurde ein minimalistisches und unaufdringliches Menü implementiert, um
+den Fokus der Benutzer uneingeschränkt auf die auszuführenden Tätigkeiten zu lenken. Diese Designstrategie hat zum Ziel,
+die kognitive Belastung der Benutzer zu reduzieren und eine nahtlose Integration der Menüfunktionalitäten in den jeweiligen
+Nutzungskontext zu ermöglichen.
+
+Das Ergebnis ist ein ansprechendes und benutzerorientiertes Menükonzept, das die Gesamterfahrung des Spiels verbessert
+und den Erwartungen der Zielgruppe gerecht wird.
+
+\subsubsection{Finalversion Menü - Hauptmenü}
+Auf dieser Grundlage wurde das Design des Menüsystems vollständig überarbeitet, wobei der erste Schritt schonmal die
+vollständige Entfernung der Idee des Nahmenüs beinhaltet.
 
 Anstelle des Nahmenüs wurden vorgefertigte Objekte in das Hauptmenü integriert, welche zuvor mit Blender modelliert wurden.
-Diese Objekte ermöglichen es dem Nutzer, direkt mit der Spielumgebung zu interagieren, bevor das eigentliche Spiel gestartet
-wird. Durch diese Interaktionsmöglichkeiten wird dem Benutzer eine immersive Erfahrung geboten, die es ihm ermöglicht, sich
-bereits vor Spielbeginn mit der Welt vertraut zu machen und eine Verbindung zu ihr aufzubauen.
 Die Entscheidung, vorgefertigte Objekte aus Blender zu importieren, bietet eine breite Palette an Gestaltungsmöglichkeiten
 und ermöglicht es, das Menü visuell ansprechend und einladend zu gestalten. Außerdem trägt die Integration dieser Objekte
-dazu bei, das Menü intuitiver und zugänglicher zu machen, indem sie dem Benutzer klare Anhaltspunkte und Handlungsmöglichkeiten
-bieten.
-
-Diese Neuausrichtung des Menüdesigns basiert auf einer gründlichen Analyse aktueller Trends und bewährter Praktiken im
-Bereich der AR/VR-Spiele. Das Ergebnis ist ein ansprechendes und benutzerorientiertes Menükonzept, das die Gesamterfahrung
-des Spiels verbessert und den Erwartungen der Zielgruppe gerecht wird.
+dazu bei, das Menü intuitiver und zugänglicher zu machen, indem sie dem Benutzer klare Anhaltspunkte und Handlungsmöglichkeiten bieten.
 
 \begin{figure}[H]
     \centering
@@ -850,24 +860,35 @@ des Spiels verbessert und den Erwartungen der Zielgruppe gerecht wird.
 \end{figure}
 
 Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus zwei separaten Tafeln, die durch unser
-Diplomarbeitslogo voneinander getrennt sind. Jede Tafel enthält den Titel des Levels sowie einen vorgefertigten Startbutton.
-In Unity wurde ein unsichtbarer, aber dennoch klickbarer Button mit exakt denselben Dimensionen wie das Modell des Startbuttons
-an der entsprechenden Stelle platziert. Das Skript \textit{SceneChange.cs}, welches für die Szenenwechsel-Funktionalität
-verantwortlich ist, ist diesem Button angehängt.
+Diplomarbeitslogo voneinander getrennt sind. Jede Tafel enthält den Titel des Anwendungsszenarios sowie einen vorgefertigten
+Startbutton.  In Unity wurde ein unsichtbarer, aber dennoch klickbarer Button mit exakt denselben Dimensionen wie das
+Modell des Startbuttons an der entsprechenden Stelle platziert. Das Skript \textit{SceneChange.cs}, welches für die
+Szenenwechsel-Funktionalität verantwortlich ist, ist diesem Button angehängt.
 
-Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Spiellevel vorsah, weist diese Version eine
-Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Level anzupassen, wurde getroffen, um die volle
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/hierarchiemenuunity.png}
+    \caption{Darstellung der Hierarchie des finalen Menüs im Unity Editor}
+    \label{fig:hierarchiemenuunity}
+\end{figure}
+
+In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem
+Prefab \textbf{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \textbf{startbuttonclickable\_lv1/2} sind die
+in Unity erstellen unsichtbaren Button die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter
+zu sehen sind die 3 verschiedenen Assets welche aus blender importiert wurden. Diese bestehen jeweils aus den verschiedenen
+Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \textbf{BezierCurve} ist eine spezielle Art von Kurve
+welche in Blender für die leichte Wölbung der Tafeln genutzt wurde.
+
+\subsubsection{Finalversion Menü - Anwendungsszenario}
+Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine
+Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle
 Aufmerksamkeit des Benutzers auf das jeweilige Level und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund
-wurde ebenfalls das Nahmenü aus den Levels entfernt und durch ein simples Handmenü ersetzt.
-
-Die Neugestaltung des Menüs innerhalb der Spiellevel fördert die Immersion und Konzentration des Benutzers auf das
-Spielerlebnis, indem visuelle Ablenkungen minimiert werden. Die Verwendung eines Handmenüs ermöglicht eine unkomplizierte
-Interaktion, die nahtlos in das Spiel integriert ist und so die Benutzererfahrung verbessert.
+wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/backbutton.png}
-    \caption{Darstellung des Finalen Menüs im Unity Editor}
+    \caption{Darstellung des Finalen Menüs im Anwendungsszenario im Unity Editor}
     \label{fig:backbutton}
 \end{figure}
 
@@ -881,62 +902,13 @@ Bewegungserkennung und Blickrichtungserkennung genutzt, um das Handmenü nur dan
 nach einem Navigationsmittel sucht. Dadurch wird visuelle Ablenkung minimiert und die Benutzererfahrung optimiert, indem
 nur relevante Informationen und Interaktionselemente präsentiert werden, wenn sie benötigt werden.
 
-\subsection{Laden der Level}
-Um den Buttons eine Funktion zuzuweisen, wird ein Skript benötigt, das aktiviert wird, sobald ein Button gedrückt wird.
-Im vorliegenden Fall ist das Skript \textit{SceneChange.cs} für den Wechsel zwischen den verschiedenen Spielleveln verantwortlich.
-Wenn einer der Buttons im Hauptmenü gedrückt wird, wird dieses Skript ausgeführt. Die Spielszene wird im Unity Inspector
-festgelegt. Der Code greift auf die Variable zu, die den Namen der Szene enthält, wie sie zuvor im Inspector benannt wurde.
+\subsubsection{Setzen des Menüs}
+Bei dem Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü,
+jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen
+moment und an der richtigen Stelle in der richtige Szene selbstständig instanzieren, deshalb wurde extra für diesen Fall
+das \textit{MenuSpawn.cs} Skript geschrieben.
 
-Für den linken Button im Hauptmenü ist beispielsweise die Spielszene \textit{Level1} vorgesehen, während für den rechten
-Button die Szene \textit{Level2} zugewiesen ist. Durch diese Konfiguration im Inspector wird die Flexibilität gewährleistet,
-Szenen dynamisch anzupassen, ohne dass Änderungen am eigentlichen Skript vorgenommen werden müssen. Dies ermöglicht eine
-effiziente Verwaltung und Anpassung der Spielinhalte während des Entwicklungsprozesses.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/sceneToLoad.png}
-    \caption{Darstellung der SceneToLoad Variable, anhand des Level1 Buttons.}
-    \label{fig:scenetoload}
-\end{figure}
-
-\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln., label=code:scenechange]
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class SceneChanger : MonoBehaviour
-{
-    public string sceneToLoad;
-
-    public void ChangeScene()
-    {
-        if(SceneManager.GetActiveScene().name != sceneToLoad)
-        {
-            PlayerPrefs.DeleteAll();
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
-        }
-    }
-}
-\end{lstlisting}
-
-Die Hauptkomponenten des Codes sind:
-\begin{itemize}
-    \item{sceneToLoad:} Dies ist eine öffentliche Variable vom Typ String, die den Namen der zu ladenden Szene enthält. Sie
-    kann im Unity-Inspector definiert werden, um die Zielszene anzugeben (siehe Zeile 6).
-    \item{ChangeScene():} Dies ist eine öffentliche Methode, die aufgerufen wird, um die Szene zu wechseln. Sie prüft dass
-    die aktive Szene nicht mit der in \textit{sceneToLoad} angegebenen Szene identisch ist.
-    \item{SceneManager.GetActiveScene().name:} Dies ruft den Namen der aktuell geladenen Szene ab.
-    \item{PlayerPrefs.DeleteAll():} Diese Methode löscht alle gespeicherten PlayerPrefabs, was hilfreich sein kann, um
-    sicherzustellen, dass keine alten Daten zwischen den Szenenwechseln erhalten bleiben (siehe Zeile 12). Ist vor allem wichtig,
-    da wir ohne das Löschen der PlayerPrefabs Probleme mit dem HoloLens Cache beim Wechseln innerhalb der Szenen hatten.
-    \item{SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single):} Diese Methode lädt die in \textit{sceneToLoad}
-    gespeicherte Szene im Single-Modus, d.h. die aktuelle Szene wird entladen und die neue Szene geladen (siehe Zeile 13).
-\end{itemize}
-
-\subsection{Setzen des Menüs}
-Da sich das alte Menü in Version 1 automatisch mit dem Benutzer bewegte, war es kein Problem, es in das Hauptmenü zu laden,
-aber bei den neuen Modellen in Version 2 muss man das Menü selbst platzieren. Dafür gibt es das Skript \textit{MenuSpawn.cs}.
-
-\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln. label=code:spawnmenu]
+\begin{lstlisting}[style=csharp, caption=Menüinstanzierung bei Neuladen., label=code:spawnmenu]
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -967,30 +939,73 @@ versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der \textit{Instanti
 an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \textit{menu.SetActive(true)}
 aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
 
-Dieses Skript ist dafür verantwortlich, dass es keine Probleme beim Laden des Spiels gibt. Wäre das Menü in Unity selbst
-fixiert, gäbe es Probleme zwischen den Benutzerwechseln, da die Größe der Benutzer nicht berücksichtigt wird.
+%\subsection{Vergleich der Menüentwürfe} (vielleicht mach ich das noch)
+\subsection{Laden der Level}
+Um den Buttons eine Funktion zuzuweisen, wird ein Skript benötigt, das aktiviert wird, sobald ein Button gedrückt wird.
+Im vorliegenden Fall ist das Skript \textit{SceneChange.cs} für den Wechsel zwischen den verschiedenen Anwendungsszenarien verantwortlich.
+Wenn einer der Buttons im Hauptmenü gedrückt wird, wird dieses Skript ausgeführt. Die Spielszene wird im Unity Inspector
+festgelegt. Der Code greift auf die Variable zu, die den Namen der Szene enthält, wie sie zuvor im Inspector benannt wurde.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/sceneToLoad.png}
+    \caption{Darstellung der SceneToLoad Variable, anhand des Level1 Buttons.}
+    \label{fig:scenetoload}
+\end{figure}
+
+Für den linken Button im Hauptmenü ist beispielsweise die Spielszene \textit{Level1} vorgesehen, während für den rechten
+Button die Szene \textit{Level2} zugewiesen ist. Durch diese Konfiguration im Inspector wird die Flexibilität gewährleistet,
+Szenen dynamisch anzupassen, ohne dass Änderungen am eigentlichen Skript vorgenommen werden müssen. Dies ermöglicht eine
+effiziente Verwaltung und Anpassung der Spielinhalte während des Entwicklungsprozesses.
+
+\begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln., label=code:scenechange]
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneChanger : MonoBehaviour
+{
+    public string sceneToLoad;
+
+    public void ChangeScene()
+    {
+        if(SceneManager.GetActiveScene().name != sceneToLoad)
+        {
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+        }
+    }
+}
+\end{lstlisting}
+
+Das vorliegende Skript hat eine vergleichsweise einfache Struktur. Die Variable \textbf{public string sceneToLoad} dient
+als Empfänger für den Namen der zu ladenden Szene, welcher im Unity-Inspector individuell für jede Szene festgelegt werden
+kann. Um den Szenenwechsel zu initiieren, wird die Methode \textbf{ChangeScene()} aufgerufen. Zunächst wird in dieser
+Methode geprüft, ob die aktive Szene, die durch \textbf{SceneManager.GetActiveScene()} ermittelt wird, mit der zu ladenden
+Szene übereinstimmt. Falls dies nicht der Fall ist, werden alle gespeicherten PlayerPrefabs mittels
+\textbf{PlayerPrefs.DeleteAll()} gelöscht. Dieser Schritt ist von entscheidender Bedeutung, um potenzielle Komplikationen
+im Zusammenhang mit dem HoloLens-Cache während des Szenenwechsels zu vermeiden.
+
+Nachdem die Prefabs bereinigt wurden, wird die definierte Szene mit der Methode \textbf{SceneManager.LoadScene()}
+geladen. Dabei wird die Ladeoption \textbf{LoadSceneMode.Single} verwendet, um sicherzustellen, dass nur die angegebene
+Szene aktiv geladen wird und keine anderen Szenen im Hintergrund verbleiben. Diese präzise Steuerung des Ladevorgangs
+zielt darauf ab, die Performance und Stabilität der Anwendung auf der HoloLens-Plattform zu optimieren und potenzielle
+Konflikte zwischen Szeneninhalten zu vermeiden.
 
 \subsection{UI/UX}
-Im folgenden Abschnitt werden die Ziele genannt, auf die sich bei der Menüerstellung konzentriert wurde.
-\begin{itemize}
-\item \textbf{Blickzentrierung und Interaktionsmodelle:}
-Die Menüleiste bewegt sich auf Hüfthöhe mit dem Benutzer mit und ermöglicht so eine natürliche und intuitive Interaktion.
-Der Benutzer kann die Bedienelemente einfach durch Blickkontakt auswählen, was die Benutzerfreundlichkeit erhöht und die
-Bedienung der Anwendung erleichtert.
-\item \textbf{Konsistenz im Design:}
-Die klare Gestaltung der Buttons mit aussagekräftigen Symbolen trägt zur Konsistenz und Benutzerfreundlichkeit bei.
-Eine einheitliche visuelle Sprache erleichtert es dem Benutzer, die Funktionen der Buttons zu verstehen, selbst wenn er
-sie zum ersten Mal verwendet.
-\item \textbf{Kontextsensitive Funktionen:}
-Der Debug-Button bietet erweiterte Funktionen, die speziell für Entwickler relevant sind. Diese kontextsensitiven
-Optionen sind wichtig für die Fehlersuche und tragen dazu bei, die Entwicklungszeit zu optimieren. Gleichzeitig bleibt
-die Benutzeroberfläche für den Endbenutzer sauber und übersichtlich.
-\item \textbf{Anpassungsmöglichkeiten für den Benutzer:}
-Die Option, das Menü mit dem Pin-Button zu fixieren und mit der Grab-Bar frei zu bewegen, gibt dem Benutzer die
-Kontrolle über die Positionierung des Menüs. Diese Anpassungsmöglichkeiten tragen dazu bei, die Anwendung an
-verschiedene Nutzerszenarien anzupassen und die individuellen Bedürfnisse der Benutzer zu berücksichtigen.
-Feedback und Animationen
-\end{itemize}
+Die Gestaltung der Benutzeroberfläche und die damit verbundene Benutzererfahrung sind wesentliche Aspekte bei der
+Konzeption und Entwicklung von Software. Eine bewährte Strategie besteht darin, sich an populären und gleichgerichteten
+Anwendungen zu orientieren, insbesondere im Bereich der Augmented- oder Virtual Reality. Es wird darauf geachtet, komplexe
+und verwirrende Menüstrukturen zu vermeiden und eine konsistente Farbpalette über die gesamte Benutzeroberfläche hinweg zu verwenden.
+
+Diese Herangehensweise basiert auf der Erkenntnis, dass erfolgreiche Anwendungen in ähnlichen Domänen oft bewährte
+Designprinzipien und Interaktionsmuster aufweisen, die sich positiv auf die Benutzerakzeptanz und -zufriedenheit auswirken
+können. Durch die Anpassung an gängige Standards und Trends in der Branche kann das Risiko von Benutzerirritationen
+und -ablehnungen minimiert werden. Gleichzeitig wird eine vertraute und angenehme Benutzererfahrung gefördert.
+
+Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendungen nicht als direkte Kopie verstanden
+werden sollte, sondern vielmehr als Quelle für Anregungen und bewährte Praktiken, die in einem eigenständigen und angepassten
+Kontext implementiert werden können. Auf diese Weise kann die Effektivität und Attraktivität der Benutzeroberfläche
+optimiert werden, um die Bedürfnisse und Erwartungen der Zielgruppe bestmöglich zu erfüllen.
 
 \section{Ping Level}
 In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
