@@ -269,10 +269,16 @@ Der erste Schritt ist die Kompilierung des Unity-Projekts, die auf dem Computer 
 Unity-Projekt befindet. Um in Unity zu den Build-Einstellungen zu gelangen, kann der Tastenkürzel \textit{Strg + Umschalt + B}
 verwendet werden. In den Build-Einstellungen wird die Zielplattform ausgewählt, auf die die Anwendung bereitgestellt
 werden soll. In unserem Fall ist dies die \textit{Universal Windows Platform (UWP)}. Weitere Build-Einstellungen können
-Sie aus der folgenden Grafik entnehmen. Besonders wichtig sind die Einstellungen für die \textit{Architektur} und
+Sie aus der \ref{fig:build-settings} Grafik entnehmen. Besonders wichtig sind die Einstellungen für die \textit{Architektur} und
 die \textit{Build-Konfiguration}.
 
 %TODO: Ein Screenshot der Build-Einstellungen wird hier eingefügt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{images/build}
+    \caption{Build-Einstellungen in Unity}
+    \label{fig:build-settings}
+\end{figure}
 
 Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dateien für das Deployment. Der nächste
 Schritt erfolgt in der Visual Studio Solution, in unserem Fall \textit{AARIE.sln}. Nach dem Öffnen der Datei müssen die
@@ -981,7 +987,14 @@ die Erkennung und Verfolgung der QR-Codes steuert.
 Nach der Erkennung eines QR-Codes erfolgen eine Reihe von Schritten, um diese Informationen zu speichern, verarbeiten
 und zuletzt darzustellen.
 Hier eine kurze Übersicht:
-%TODO: Übersicht einfügen
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5, angle=0]{images/QRAblauf}
+\caption{Ablaufdiagramm des QR-Code-Trackings.}
+\label{fig:qrtracking}
+\end{figure}
+
 \begin{itemize}
 
 \item \textbf{Initialisierung des QR-Tracking-Systems:}
@@ -1030,16 +1043,21 @@ repräsentierte Objekt erhalten.
 \end{itemize}
 
 \subsubsection{Interaktion mit QR-Codes}
-%TODO: Bild einfügen von bauklötzen und QR-Codes
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5, angle=0]{images/bauklotz}
+\caption{Bauklötze mit QR-Codes}
+\label{fig:bauklotz}
+\end{figure}
 Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
 Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen als Repräsentationen
 der realen Objekte, die wir in der virtuellen Welt darstellen möchten.
 
-Wie in Abbildung X zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
+Wie in \ref{fig:bauklotz} zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
 die der Benutzer in sein Inventar aufnehmen kann. Wenn der Benutzer einen Bauklotz aufhebt und ihn der HoloLens nähert, wird
 der QR-Code gescannt. Dadurch werden Informationen wie das zugehörige 3D-Modell, der Wert, das Gewicht und der Name des
 Gegenstands angezeigt. Auf diese Weise können wir eine nahtlose Verbindung zwischen der realen und der virtuellen Welt
-herstellen und dem Benutzer eine interaktive Erfahrung bieten. %TODO Abbildung X umbenennen
+herstellen und dem Benutzer eine interaktive Erfahrung bieten.
 
 Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren, aufzuheben und zu fühlen. Diese sensorische
 Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
@@ -1064,6 +1082,8 @@ Um die Funktionalität des QR-Codes in der virtuellen Welt zu gewährleisten, wi
 Dieses Skript steuert die visuelle Darstellung des QR-Codes sowie sämtliche Interaktionen, die damit verbunden sind. Durch
 die Zuweisung dieses Skripts wird sichergestellt, dass die QR-Codes nicht nur korrekt angezeigt, sondern auch innerhalb
 der virtuellen Umgebung interaktiv sind.
+
+%TODO: Bild von einem gescannten QRCode einfügen
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
 Wie bereits im Abschnitt \ref{sec:KnapSackProblem} erwähnt, benötigen andere Teile der Anwendung Zugriff auf
