@@ -1,5 +1,3 @@
-\usepackage{wrapfig}
-
 % Define colors
 \definecolor{keywordcolor}{RGB}{255,0,0}
 \definecolor{Classcolor}{RGB}{90, 90, 90}
@@ -44,6 +42,7 @@
     captionpos=b
 }
 
+\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesubsection}{1em}{}[]
 
 \chapter{Feinkonzept und Realisierung}
 
@@ -1028,7 +1027,7 @@ und das Interesse an der Informatik zu fördern.
 In diesem Abschnitt werden alle \textit{GameObjects}, \textit{Komponenten}, \textit{Scripts} und \textit{Klassen} genauer
 erklärt, die in der Unity-Szene des Knapsack-Problems verwendet werden, um dieses zu realisieren.
 
-\subsection{Knapsack-Problem Szenrio Hirarchie}
+\subsection{Knapsack-Problem Szenrio Hirarchie} \marginpar{\small\(\rightarrow\) SKREPEK}
 Für einen sicheren und funktionalen Ablauf ist der Aufbau beziehungsweise die Hirarchie der Unity Szene von großer Bedeutung.
 In diesem Abschnitt wird anhand der Abbildung \ref{fig:level2_hierarchy} verdeutlich wie die Unity Szene für die Implementierung
 des zweiten Anwendungsszenarios für das Knapsack-Problem aufgebaut ist und es wird zusätzlich kurz darauf eingegangen
@@ -1070,7 +1069,7 @@ Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
-\subsection{Nutzung von QR-Codes}
+\subsection{Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) HAYLAZ}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente
 zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu
 den einzelnen Objekten zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt
@@ -1247,7 +1246,7 @@ müssen, um die Daten zu schützen, kann es zu einer Verzögerung kommen, bis di
 Nachteil in unserem Anwendungsfall nicht von großer Bedeutung da wir selten zur gleichen Zeit auf die Daten zugreifen und
 dadurch die Verzögerung nicht bemerkbar ist.
 
-\subsection{Inventory Placement Controller Game Objekt}
+\subsection{Inventory Placement Controller Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
 Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
 Kamera erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können
 relevante Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
@@ -1544,7 +1543,7 @@ anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt)
     \label{fig:inventoryPlaced}
 \end{figure}
 
-\subsection{Inventory Controller Game Objekt}
+\subsection{Inventory Controller Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
 Das \textit{Inventory Controller} Game Objekt nimmt eine essenzielle Rolle bei der Überwachung und Verwaltung des Inventars
 in der Augmented Reality (AR)-Anwendung ein. Durch das angehängte Skript \textit{InventoryController.cs} wird die
 \textbf{InventoryController}-Klasse implementiert. Diese Klasse ist dafür zuständig, neue Gegenstände im Inventar zu
@@ -2071,7 +2070,7 @@ processedItems = [5, 3];
 \end{quote}
 
 
-\subsection{EventManager}
+\subsection{EventManager} \marginpar{\small\(\rightarrow\) SKREPEK}
 
 Der \textit{EventManager} ist ein entscheidendes Game-Objekt, das als zentrales Kommunikationselement fungiert und die
 Interaktion zwischen verschiedenen Komponenten und Klassen innerhalb der Anwendung ermöglicht. Implementiert als Klasse
@@ -2150,7 +2149,7 @@ Insgesamt ermöglicht dieser simple Code eine lose Kopplung zwischen verschieden
 werden, um auf bestimmte Aktionen zu reagieren, ohne dass die beteiligten Teile voneinander wissen müssen. Dadurch wird die
 Modularität, Erweiterbarkeit und Wartbarkeit der Anwendung gefördert.
 
-\subsection{Knapsack Solver Game Objekt}
+\subsection{Knapsack Solver Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
 Dieser Abschnitt befasst sich mit allem Rund um das Knapsack-Problem und auch mit dem  \textit{KnapsackSolver} GameObjekt,
 welches die Hauptrolle bei der Implementierung des Knapsack Algorithmus und der Berechnung des selbst zusammengestellten
 Inventars spielt. Diesem Game Objekt ist die Komponente \textit{KnapsackSolver.cs} angehängt, welches die \textit{KnapsackSolver}
@@ -2838,7 +2837,7 @@ public void UpdateInfoMesh(string input)
 Diese Funktion wird von der Klasse \textit{InventoryController} verwendet und sie dient dazu, das \textit{infoMesh} mit
 einem neuen Text zu aktualisieren und rot zu färben, um dem Benutzer Fehler anzuzeigen.
 
-\subsection{Best Solution Prefab Game Objekt}
+\subsection{Best Solution Prefab Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
 Das \textit{best solution prefab} nimmt eine zentrale Rolle im weiteren Verlauf der Applikation ein. Mittels des angefügten
 \textit{PerfectSolutionVisualizer.cs} Skripts wird die \textbf{PerfectSolutionVisualizer} Klasse implementiert, die die
 Visualisierung der zuvor berechneten optimalen Lösung ermöglicht. Diese Visualisierung ist von entscheidender Bedeutung,
@@ -3069,7 +3068,7 @@ Unity-Skripte schreiben und ausführen können. Dabei können verschiedene Aspek
 Ergebnissen. Entwickler können dank dieser umfangreichen Funktionen sicherstellen, dass ihre Unity-Anwendungen robust
 und zuverlässig sind. So schaffen sie eine solide Grundlage für die Qualitätssicherung.
 
-\subsection{Performance-Messung}
+\subsection{Performance-Messung} \marginpar{\small\(\rightarrow\) SKREPEK}
 Die Performance des Knapsack-Algorithmus wurde mithilfe von Unit-Tests überprüft. Dabei wurde die Laufzeit des Algorithmus
 für verschiedene Eingabegrößen gemessen. Die Ergebnisse wurden sorgfältig analysiert, um sicherzustellen, dass der Algorithmus
 die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implementierungen getestet, um die optimale
