@@ -23,6 +23,14 @@
     sensitive=true
 }
 
+\lstdefinelanguage{JavaScript}{
+    morekeywords={async, await, break, case, catch, class, const, continue, debugger, default, delete, do, else, export, extends, finally, for, function, if, import, in, instanceof, let, new, return, super, switch, this, throw, try, typeof, var, void, while, with, yield},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]"
+}
+
 % Listings settings
 \lstset{
     language=CS,
@@ -371,7 +379,7 @@ geometrische Formen, Materialien, Animationen und andere Szenendaten zu speicher
 FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen
 entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Szenen zu organisieren und zu
 übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie,
-Materialien, Animationen, Kameras und Lichtquellen.
+Materialien, Animationen, Kameras und Lichtquellen. \footnote{Autodesk \cite{FBX. Getting started}}
 
 Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen
 ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet,
@@ -408,12 +416,12 @@ Während der Modellierungsphase wurden einige Add-ons und Plug-ins verwendet, um
 Modellierung effizienter zu gestalten. Im folgenden Abschnitt werden die wichtigsten Add-ons und Plug-ins erläutert.
 
 \subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
-Das Add-on Looptools \footnote{Blender \cite{LoopTools}} für Blender stellt eine wichtige Ergänzung für die
-Flächenmodellierung und Topologieoptimierung dar. Insbesondere bei der Umwandlung von rechteckigen oder quadratischen
-Flächen in kreisförmige Flächen erweist sich dieses Werkzeug als äußerst nützlich.
+Das Add-on Looptools für Blender stellt eine wichtige Ergänzung für die Flächenmodellierung und Topologieoptimierung dar.
+Insbesondere bei der Umwandlung von rechteckigen oder quadratischen Flächen in kreisförmige Flächen erweist sich dieses
+Werkzeug als äußerst nützlich.
 
-Als Hauptwerkzeug wurde das so genannte "Circle"-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems
-entwickelt wurde. Mit dem "Circle"-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der
+Als Hauptwerkzeug wurde das so genannte \textit{Circle}-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems
+entwickelt wurde. Mit dem Circle-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der
 Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
 
 Das Circle-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen
@@ -421,9 +429,9 @@ Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
 
 \begin{itemize}
     \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten
-    \item Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
+    Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt. \footnote{Blender \cite{LoopTools}}
     \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt
-    \item entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
+    entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
 \end{itemize}
 
 Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um
@@ -434,8 +442,8 @@ resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexible
 Flächenoptimierung bereitstellt.
 
 \subsubsection{Images as Planes: Effiziente Integration von Texturen}
-Das Addon Images as Planes \footnote{Blender \cite{Images as Planes}} spielt eine entscheidende Rolle in der
-Modellierungspraxis, insbesondere im Bereich der realistischen Modellierung.
+Das Addon Images as Planes spielt eine entscheidende Rolle in der Modellierungspraxis, insbesondere im Bereich der
+realistischen Modellierung.
 
 Das Hauptanwendungsgebiet dieses Add-ons liegt in der Möglichkeit, Vorschaubilder für die Modellierung hinter Objekten
 zu platzieren, um eine realistischere und präzisere Modellierung zu ermöglichen. Diese Funktion bietet die Möglichkeit,
@@ -443,20 +451,20 @@ reale Bilder als Referenz in Blender-Szenen zu integrieren und als Hintergrund f
 die direkte Integration von Bildern in die Arbeitsumgebung können feine Details und Proportionen besser beurteilt und
 reproduziert werden, was zu einer verbesserten Qualität der Modelle führt.
 
-Die Verwendung von "Images as Planes" trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der
+Die Verwendung von \textit{Images as Planes} trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der
 Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenzen in den Modellierungsprozess zu integrieren.
 Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es
 dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
 
-Insgesamt ist das Addon "Images as Planes" ein unverzichtbares Werkzeug für die realistische Modellierung in Blender,
+Insgesamt ist das Addon Images as Planes ein unverzichtbares Werkzeug für die realistische Modellierung in Blender,
 das die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern
 als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen
 Details erstellen.
 
 \subsection{Modi}
-In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte
-eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette
-an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
+In Blender stehen verschiedene Modi zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und
+manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen,
+mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können. \footnote{Blender \cite{Modi}}
 
 \subsubsection{Object-Modus}
 Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus
@@ -465,15 +473,15 @@ Objekteigenschaften bearbeitet werden.
 
 \subsubsection{Edit-Modus}
 Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener
-Werkzeuge und Kontrollpunkte einzelne Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen des Objekts
-bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was
-insbesondere für die Modellierung von entscheidender Bedeutung ist.
+Werkzeuge und Kontrollpunkte einzelne Vertices, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht
+detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von
+entscheidender Bedeutung ist. \footnote{Blender \cite{Vertices}}
 
 \subsubsection{Texture-Paint-Modus}
 Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh
-\footnote{Blender \cite{Mesh}} eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes
-beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die
-direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
+eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive
+Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können
+komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden. \footnote{Blender \cite{Mesh}}
 
 \subsection{Hierarchie}
 In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene
@@ -582,14 +590,14 @@ automatisch auf die rechte Seite gespiegelt, was eine symmetrische Form gewährl
 verleihen, wurde Extrudieren verwendet, um aus der ebenen Fläche eine dreidimensionale Struktur zu formen.
 
 \subsubsection*{Extrahieren als Modellierungswerkzeug}
-Extrahieren \footnote{Blender \cite{Extrahieren}} ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu,
-ausgewählte Punkte zu duplizieren und zu verschieben, während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
+Extrahieren ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu, ausgewählte Punkte zu duplizieren und zu verschieben,
+während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
 Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender
 sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell
 vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu
 vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht
 nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl der
-Vertices führen.
+Vertices führen. \footnote{Blender \cite{Extrahieren}}
 
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell
@@ -1012,6 +1020,138 @@ HoloLens getracked und mittels Kurvenberechnung wird dann eine
 unsichtbare Kurve über dieses Kabel gezeichnet. Wenn dann der Benutzer
 auf die Enter Taste auf einem PC drückt wird ein Ping-Paket simuliert
 und auf dieser Kurve von einem PC zu dem anderen geschickt.
+
+% Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
+\subsection{Frontend der Webseite}
+In diesem Abschnitt wird die Struktur und Entwicklung des Frontends der Webseite erläutert. Besonderes Augenmerk wird
+auf die zugrundeliegenden Entscheidungen bezüglich der Programmiersprachen sowie des Designprozesses gelegt.
+
+Nach mehreren Entwicklungszyklen im ersten Anwendungsszenario wurde entschieden, eine Webseite in das Projekt zu
+integrieren. Die Funktionalität der Webseite sollte nahtlos in das Szenario integriert werden. Hierzu können Nachrichten
+und Absender direkt auf der Webseite eingetragen werden, um sie anschließend in die HoloLens-Applikation zu übertragen.
+
+\subsubsection{Designprozess}
+Beim Entwurf einer Webseite ist es essentiell, vor der eigentlichen Umsetzung die Farbpalette und das generelle Aussehen
+der Seite zu konzipieren. Da der Fokus auf der Anwendung auf der HoloLens liegt, wurde bewusst darauf geachtet, der
+Webseite nicht zu viel Aufmerksamkeit zu schenken. Sie sollte lediglich die grundlegenden Funktionen erfüllen, ohne dabei
+komplex zu sein. Aus diesem Grund ist die Webseite simpel gestaltet und verfügt über wenige Eingabefelder und wenig Text.
+
+\subsubsection*{Webseitenprototyp}
+Der Prototyp der Webseite, wie in Abbildung \ref{fig:protfrontend} dargestellt, gibt einen Überblick über das
+Frontend-Design. Das Zahnrad links oben öffnet ein Fenster, in dem die IP-Adresse der HoloLens eingegeben werden kann,
+um Nachrichten korrekt zu versenden. Auf der Hauptseite gibt es Eingabefelder für Benutzername und Nachricht. Der zeitlich
+sortierte Nachrichtenverlauf wird am rechten Rand angezeigt.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=1\textwidth]{images/prototypefrontend.png}}
+    \caption{Prototypische Darstellung der Webseitenansicht aus Benutzersicht}
+    \label{fig:protfrontend}
+\end{figure}
+
+\subsubsection*{Ausprogrammierte Webseite}
+Die endgültige Version der Webseite, wie in Abbildung \ref{fig:frontend} gezeigt, enthält alle gewünschten Funktionen.
+Die Farbpalette orientiert sich stark am Hauptmenü und den Standardfarben der HoloLens. Es werden verschiedene Blautöne
+verwendet, um eine konsistente und benutzerfreundliche Benutzererfahrung zu gewährleisten.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/frontend.png}
+    \caption{Darstellung der fertigen Webseitenansicht aus Benutzersicht}
+    \label{fig:frontend}
+\end{figure}
+
+Die Umsetzung des Designs hat zum Ziel, Verwirrungen zu vermeiden und eine nahtlose Integration der Webseite in das
+Gesamtsystem zu gewährleisten.
+
+\subsubsection{Verwendete Programmiersprachen}
+Für die Entwicklung der Webseite wurden hauptsächlich die Programmiersprachen HTML, CSS und JavaScript verwendet. Zur
+Verbesserung des Designs und der Benutzererfahrung wurde außerdem das Framework Bootstrap eingesetzt.
+
+\subsubsection*{HTML (Hypertext Markup Language)}
+HTML ist die grundlegende Struktursprache des World Wide Web. Es ermöglicht die Erstellung von Webseiten durch die
+Definition von Strukturelementen wie Überschriften, Absätzen, Listen und Links. HTML verwendet Tags, um den Browsern
+mitzuteilen, wie die Inhalte einer Webseite strukturiert und präsentiert werden sollen. \footnote{Mozilla Developer Network \cite{HTML}}
+
+\subsubsection*{CSS (Cascading Style Sheets)}
+CSS ist eine Stylesheet-Sprache, die verwendet wird, um das Aussehen und die Formatierung von HTML-Dokumenten zu steuern.
+Es ermöglicht die Definition von Farben, Schriftarten, Layouts und anderen visuellen Eigenschaften einer Webseite. \footnote{Mozilla Developer Network \cite{CSS}}
+
+CSS funktioniert durch das Zuweisen von Regeln und Stilen zu HTML-Elementen. Diese Regeln können in einer externen
+CSS-Datei definiert oder direkt im HTML-Dokument eingebettet werden.
+
+\subsubsection*{JavaScript}
+JavaScript ist eine dynamische Programmiersprache, die hauptsächlich für die clientseitige Entwicklung von Webanwendungen
+verwendet wird. Sie ermöglicht die Interaktion mit dem Benutzer, das Ändern von Inhalten in Echtzeit und die Steuerung
+des Verhaltens einer Webseite. \footnote{Mozilla Developer Network \cite{Javascript}}
+
+JavaScript verbessert die Funktionalität einer Webseite, indem es auf Benutzerinteraktionen reagiert, Formulare validiert,
+Animationen erstellt und vieles mehr.
+
+\subsubsection*{Integration von Bootstrap}
+Bootstrap ist ein Open-Source-Framework für die Frontend-Entwicklung von Webseiten und Webanwendungen. Es bietet
+vorgefertigte HTML- und CSS-Vorlagen für Typografie, Formulare, Buttons, Navigation und andere UI-Komponenten. \footnote{Bootstrap Dokumentation \cite{Bootstrap}}
+
+Bootstrap erleichtert die Erstellung responsiver und ästhetisch ansprechender Webseiten, indem es eine Reihe von
+vorgefertigten Designelementen und Layoutoptionen bereitstellt.
+
+Die Integration von Bootstrap in eine HTML-Datei erfolgt durch das Einbinden der Bootstrap-Bibliotheksdateien in den
+<head>-Bereich des HTML-Dokuments. Dies kann entweder über ein CDN (Content Delivery Network) oder durch das Herunterladen
+und Einbinden der lokalen Bootstrap-Dateien erfolgen. \footnote{Bootstrap Dokumentation \cite{CDN-Links}}
+
+Anschließend können Bootstrap-Komponenten und -Klassen innerhalb der HTML-Datei verwendet werden, um das Design und
+die Funktionalität der Webseite zu verbessern.
+
+\subsubsection{Funktionen der Webseite}
+Die Eingabefelder des Frontends brauchen Javascript Funktionen, um die gewünschten Tätigkeiten durchzuführen und so zu
+funktionieren wie eigentlich geplant.
+
+\begin{lstlisting}[language=JavaScript, caption={Javascript | Überprüfung, ob die Eingabe eine Zahl oder "." ist}]
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+\end{lstlisting}
+
+Die Funktion überprüft, ob die gedrückte Taste eine Zahlentaste ist. Sie wird auf der Webseite zur Überprüfung der Eingabe
+von der IP-Adresse genutzt, um sicherzustellen, dass nur Zahlen eingegeben werden können.
+
+Die Funktion nimmt ein Event-Objekt als Parameter entgegen, das Informationen über das Tastaturereignis enthält. Der
+charCode wird aus dem Event-Objekt extrahiert, der den Unicode-Wert der gedrückten Taste darstellt. Die Funktion überprüft,
+ob die gedrückte Taste eine Zahl ist (der Unicode-Wert liegt im Bereich von 48 bis 57) oder der Punkt ist (der Unicode-Wert
+ist 46). Falls die gedrückte Taste im Bereich von 48 bis 57 liegt oder der Punkt ist, gibt die Funktion true zurück, was
+bedeutet, dass die Eingabe akzeptiert wird. Andernfalls gibt die Funktion false zurück, was bedeutet, dass die Eingabe
+nicht akzeptiert wird.
+
+\begin{lstlisting}[language=JavaScript, caption={Javascript | Validierung und Senden der Message}]
+async function validateAndSendMessage() {
+    var username = document.getElementById("username").value.trim();
+    var message = document.getElementById("message").value.trim();
+
+    if (username !== '' && message !== '') {
+        const messageSent = await sendMessage(username, message);
+
+        if (!messageSent) {
+            alert("Message could not be sent.");
+        }
+    } else {
+        alert("Please fill in both fields!");
+    }
+}
+\end{lstlisting}
+
+Die Funktion validiert die Eingaben in den Feldern für Benutzername und Nachricht und sendet die Nachricht nur ab, wenn
+beide Felder ausgefüllt sind.
+
+Zunächst ruft die Funktion die Werte der Formularfelder für Benutzername und Nachricht ab und entfernt führende und
+abschließende Leerzeichen mit der trim()-Methode. Anschließend überprüft sie, ob sowohl der Benutzername als auch die
+Nachricht nicht leer sind. Wenn beide Felder nicht leer sind, wird die Funktion sendMessage(username, message) aufgerufen,
+um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird nichts weiter unternommen. Andernfalls wird
+eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem
+Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
 \subsection{Object Tracking}
 Durch verwendung von bereitgestellten Technologien der HoloLens2
