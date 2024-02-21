@@ -152,7 +152,7 @@ Darüber hinaus bietet Jira eine umfassende Funktionalität für das Projektmana
 Aufgaben, der Planung von Sprints und der Erstellung von Berichten. Diese Features ermöglichen es dem Projektteam, den
 Fortschritt genau zu überwachen und eventuelle Herausforderungen frühzeitig zu identifizieren und anzugehen.
 
-\section{Konzeption von Fragebögen}
+\section{Konzeption von Fragebögen} \marginpar{\small\(\rightarrow\) SKREPEK}
 Bei jeder Umfrage werden Informationen von Personen oder Personengruppen zu der allgemeinen
 Umsetzung und dem Verständis der Applikation gesammelt. Diese werden im Anschluss ausgewertet und
 interpretiert. Wichtig ist hier den Zweck jeder Umfrage genau zu definieren. Durch präzise und
@@ -208,26 +208,6 @@ Aus diesem Grund müssen bereits im Vorfeld verschiedene Entscheidungen getroffe
 \end{enumerate}
 \\
 
-Um das Verständnis für die Gestaltung der Fragebögen und für die Formulierung der Fragen zu erleichtern, wird in diesem
-Abschnitt ein \textit{Fallbeispiel} vorgestellt, auf das bei der weiteren Erläuterung zurückgegriffen wird.
-\begin{quote}
-    Während des Tages der offenen Tür im Schuljahr 2023/2024 (25 Personen) und in einer Abschlussklasse (14 Personen)
-    einer Schule mit Matura wurde eine Umfrage durchgeführt, um die Nutzermeinungen zur aktuellen Anwendung zu erfassen.
-    Das Ziel dieser Umfrage bestand darin zu ermitteln, ob die zugrunde liegenden Konzepte verstanden wurden und ob
-    potenzielle Verbesserungsmöglichkeiten vorliegen. Eine quantitative Analyse hat ergeben, dass etwa ein Drittel der
-    Teilnehmer des Tages der offenen Tür die Konzeptionen verstanden hat und keine spezifischen Verbesserungsvorschläge
-    geäußert hat.
-
-    Anschließend wurden vier Personen (Stichprobe) der Abschlussklasse befragt, um potenzielle Verbesserungsvorschläge
-    zu ermitteln. Das Ziel dieser Umfragen bestand darin, Personen zu befragen, die bereits über grundlegendes IT-Wissen
-    verfügen und dadurch besser beurteilen können, welche Aspekte verbessert werden können. Die Ergebnisse zeigen, dass
-    die vermittelten Konzepte verstanden wurden. Allerdings wurden am Tag der offenen Tür im Vergleich zu den befragten
-    Personen viele Verbesserungsvorschläge geäußert. Die Befragten gaben an, dass diese Vorschläge aufgrund des frühen
-    Entwicklungsstadiums der Anwendung entstanden sind und einige essenzielle Aspekte noch nicht oder nur teilweise
-    implementiert waren, wodurch sie unklar blieben.
-\end{quote}
-\\
-
 Grundsätzlich werden die \textit{quantitative} und die \textit{qualitative Forschung} unterschieden, wobei Fragebögen zur
 \textit{quantitativen Forschung} aufgrund der besseren Vergleichbarkeit leichter zu interpretieren sind.
 
@@ -247,10 +227,6 @@ und Geschlecht.\footnote{Vgl. Mayer, \cite{Interview und schriftliche Befragung}
     \caption{Zusammenhang zwischen der \textit{Grundgesameheit} und \textit{Stichprobe}}
     \label{fig:GrundgesamtheitStichprobe}
 \end{figure}
-
-Anhand des Fallbeispiels wird verdeutlicht, dass es keinen Sinn macht, die Umfrage an sehr jungen Leuten durchzuführen,
-da diese Personen zum größten Teil noch nicht wirklich tiefer in die Informatik geblickt haben und dadurch keinerlei
-Verbesserungsvorschläge geben können.
 
 Die qualitative Forschung ist eine Methode zur Auswertung von Daten, die ausschließlich über Sprache (verbal) übermittelt
 werden. Diese Methode eignet sich vor allem zur näheren Beschreibung und Analyse von subjektiven Wahrnehmungen, persönlichen
@@ -398,3 +374,113 @@ Für eine angemessene grafische Darstellung der analysierten Daten sind Kreis-, 
 geeignet. Während Balken- und Säulendiagramme die absoluten Häufigkeiten der Antworten visualisieren und damit Unterschiede
 in der Anzahl der Antworten deutlich machen, eignen sich Kreisdiagramme besonders, um relative Häufigkeiten, ausgedrückt
 in Prozent, darzustellen.
+
+\subsubsection{Auswertung des erstellten Fragebogens}
+Um die Ergebnisse detailliert zu präsentieren, wird in diesem Abschnitt ein realer Fragebogen verwendet, der während des
+\textit{Tags der offenen Tür} eingesetzt wurde. Die Fragen werden zunächst aufgeführt, gefolgt von einer Analyse der
+Ergebnisse. Für diese Analyse wird das Tool \textit{Excel} verwendet, um die \textit{qualitativen} Antworten in \textit{quantitative}
+Werte umzurechnen.
+
+Diese Vorgehensweise ermöglicht es, die gesammelten Daten konkret zu veranschaulichen und deren Bedeutung für das Entwicklerteam
+besser verständlich zu machen.
+
+\begin{quote}
+    Während des Tages der offenen Tür im Schuljahr 2023/2024 (25 Personen) und in einer Abschlussklasse (14 Personen)
+    einer Schule mit Matura wurde eine Umfrage durchgeführt, um die Nutzermeinungen zur aktuellen Anwendung zu erfassen.
+    Das Ziel dieser Umfrage bestand darin zu ermitteln, ob die zugrunde liegenden Konzepte verstanden wurden und ob
+    potenzielle Verbesserungsmöglichkeiten vorliegen.
+
+    Anschließend wurden sieben Personen (Stichprobe) der Abschlussklasse befragt, um potenzielle Verbesserungsvorschläge
+    zu ermitteln. Das Ziel dieser Umfragen bestand darin, Personen zu befragen, die bereits über grundlegendes IT-Wissen
+    verfügen und dadurch besser beurteilen können, welche Aspekte verbessert werden können.
+\end{quote}
+
+Der durchgeführte Fragebogen bestand aus fünf geschlossenen Fragen, wobei bei zwei Fragen die Möglichkeit bestand, mehrere
+Antworten auszuwählen. Die Entscheidung, ausschließlich geschlossene Fragen zu verwenden, wurde getroffen, um das Feedback
+für das Projektteam leichter interpretierbar zu machen und um die Umsetzung von Verbesserungen im Nachhinein zu erleichtern.
+Zusätzlich basierte diese Entscheidung darauf, dass das Projektteam am besten einschätzen konnte, welche Bereiche tatsächlich
+Verbesserungsbedarf aufwiesen und ob diese Verbesserungen umsetzbar waren. Die Fragen samt Antwortmöglichkeiten und die
+zugehörige Auswertung sind wie folgt:
+\begin{itemize}
+    \item \textbf{1. Frage:} Wie leicht war es für Sie, dass Prinzip des \textit{Pingens} zwischen zwei PCs in der Applikation zu verstehen?
+    \\
+    \\
+    \textbf{Antwortmöglichkeiten:} \\
+    Sehr schwer(5), Schwer(4), Mittel(3), Leicht(2), Sehr leicht(1)
+    \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/AuswertungFrage1}
+        \caption{Auswertung Frage 1}
+        \label{fig:fr1}
+    \end{figure}
+    \\
+    \item \textbf{2. Frage:} Konnten Sie das Knapsack-Problem in der Applikation problemlos nachvollziehen?
+    \\
+    \\
+    \textbf{Antwortmöglichkeiten:}\\
+    Nein nicht wirklich(3), Ja mit einigen Schwierigkeiten(2), Ja problemlos(1)
+    \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/AuswertungFrage2}
+        \caption{Auswertung Frage 2}
+        \label{fig:fr2}
+    \end{figure}
+    \\
+    \item \textbf{3. Frage:} Wie sehr hat die AR-Technolgie Ihnen dabei geholfen die Informatik Prinzipien zu verstehen?
+    \\
+    \\
+    \textbf{Antwortmöglichkeiten:}\\
+    Sehr wenig(5), Wenig(4), Neutral(3), Gut(2), Sehr gut(1)
+    \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/AuswertungFrage3}
+        \caption{Auswertung Frage 3}
+        \label{fig:fr3}
+    \end{figure}
+    \\
+    \item \textbf{4. Frage:} Welche der folgenden Aspekte haben Ihnen am meisten gefallen? (Mehr als eine Auswahl möglich)
+    \\
+    \\
+    \textbf{Antwortmöglichkeiten:}\\
+    Lernfördernd, Benutzerfreundlichkeit, Kreativität, Innovativ, Interaktiv
+    \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/AuswertungFrage4}
+        \caption{Auswertung Frage 4}
+        \label{fig:fr4}
+    \end{figure}
+    \\
+    \item \textbf{5. Frage:} Welche der folgenden Aspekte sind noch verbesserungswürdig? (Mehr als eine Auswahl möglich)
+    \\
+    \\
+    \textbf{Antwortmöglichkeiten:}\\
+    Tips / Anweisungen, Leistungsfähigkeit, Inhalt, Stabilität, Übersichtlichkeit
+    \\
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/AuswertungFrage5}
+        \caption{Auswertung Frage 5}
+        \label{fig:fr5}
+    \end{figure}
+\end{itemize}
+
+Anhand der Auswertungen des Fragebogens wird deutlich, dass die Antworten der befragten Personen am Tag der offenen Tür
+und von den Personen der Abschlussklasse stark voneinander abweichen. Dies wird besonders bei den letzten beiden Fragen,
+die sich auf Aspekte, die dem Benutzer gefallen, und Verbesserungsmöglichkeiten beziehen, deutlich. Hier ist nämlich klar
+zu erkennen, dass die Personen der Abschlussklasse signifikant mehr Angaben gemacht haben. Dies lässt sich darauf
+zurückführen, dass sie über deutlich mehr Erfahrung im Bereich der Entwicklung von Applikationen verfügen und generell
+ein vertieftes Verständnis der Informatik besitzen. Ein erfreuliches Ergebnis ist jedoch, dass ein Großteil sowohl der
+am Tag der offenen Tür befragten als auch der in der Abschlussklasse befragten Personen die vermittelten Prinzipien der
+Informatik gut verstanden haben und auch, dass der Einsatz von AR-Technolgie dabei geholfen hat diese zu verdeutlichen.
+
+Zu erwähnen ist, dass bei der Auswertung insbesondere bei der vorletzten Frage festgestellt wurde, dass die Applikation
+als nicht benutzerfreundlich bewertet wurde. Dieses Ergebnis war jedoch erwartet, da zum Zeitpunkt der Befragung das Projekt
+noch in einem sehr frühen Entwicklungsstadium war und daher einige essenzielle Funktionen und Erweiterungen wie Anweisungen
+und Tipps, Performance und Inhalt fehlten.
+
+Darüber hinaus hat diese Befragung und Auswertung wichtige Ergebnisse geliefert, die dazu beigetragen haben, viele Aspekte
+der Applikation maßgeblich zu erweitern und zu verbessern.
