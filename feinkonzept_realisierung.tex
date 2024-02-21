@@ -2369,8 +2369,8 @@ es \textit{KnapsackSolvers}.
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:kn_start]
 void Start()
 {
-items = new QRItem(0).items;
-EventManager.OnGridUpdate += SetInventory;
+    items = new QRItem(0).items;
+    EventManager.OnGridUpdate += SetInventory;
 }
 \end{lstlisting}\\
 \\
@@ -2382,8 +2382,8 @@ aufgerufen wird und die Aufgabe hat, das Inventar zu aktualisieren. Diese Funkti
 \begin{lstlisting}[style=csharp, caption={Inventar setzen}, label=code:kn_start]
 public void SetInventory(int[,] newInventory)
 {
-inventory = newInventory;
-CalculateKnapsack();
+    inventory = newInventory;
+    CalculateKnapsack();
 }
 \end{lstlisting}
 
@@ -2395,27 +2395,27 @@ Funktion aufgerufen. Der Code zu dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Berechnungsfunktion}, label=code:kn_calc]
 void CalculateKnapsack()
 {
-int maxValue = KnapsackMaxValue(out usedItems);
-int inventoryValue = -1;
-maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
-try
-{
-inventoryValue = KnapsackInventoryValue(inventory);
-if (maxValue == inventoryValue)
-{
-infoMesh.color = Color.green;
-infoMesh.text = "Maximale Punktzahl erreicht";
-}
-else
-{
-infoMesh.text = "";
-}
-ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
-}
-catch (Exception e)
-{
-Debug.LogError("Error calculating inventory value: " + e.Message);
-}
+    int maxValue = KnapsackMaxValue(out usedItems);
+    int inventoryValue = -1;
+    maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
+    try
+    {
+        inventoryValue = KnapsackInventoryValue(inventory);
+        if (maxValue == inventoryValue)
+        {
+            infoMesh.color = Color.green;
+            infoMesh.text = "Maximale Punktzahl erreicht";
+        }
+        else
+        {
+            infoMesh.text = "";
+        }
+        ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
+    }
+    catch (Exception e)
+    {
+        Debug.LogError("Error calculating inventory value: " + e.Message);
+    }
 }
 \end{lstlisting}\\
 \\
