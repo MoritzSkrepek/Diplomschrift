@@ -1,3 +1,5 @@
+\usepackage{wrapfig}
+
 % Define colors
 \definecolor{keywordcolor}{RGB}{255,0,0}
 \definecolor{Classcolor}{RGB}{90, 90, 90}
@@ -309,8 +311,8 @@ eingegeben wird. Nachdem die Authentifizierung erfolgreich abgeschlossen wurde, 
 
 \section{Objektdesign mit Blender}
 Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken
-Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte
-geachtet wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
+Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte geachtet
+wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
 
 \subsection{Optimierung für Augmented Reality}
 Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der
@@ -323,26 +325,26 @@ die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen w
 Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf
 verschiedenen Plattformen.
 
-In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten
-Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert
-werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen
-effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
+In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz
+und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was
+zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter
+genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
 
 Werkzeuge wie der Decimate Modifier in Blender bieten Möglichkeiten, die Anzahl der Polygone automatisch zu reduzieren
 und gleichzeitig visuelle Artefakte zu minimieren. Dennoch ist es ratsam, bereits während des Modellierungsprozesses
 darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die
 Polygonreduktion zu schaffen.
 
-Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die
-Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser
-Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient
-zu verarbeiten sind.
+Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung
+von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik
+können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten
+sind.
 
 \subsubsection{Texturenoptimierung}
 Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality
 (AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen
-muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte
-Leistungsfähigkeit von AR-Geräten wie der Hololens 2.
+muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte Leistungsfähigkeit
+von AR-Geräten wie der Hololens 2.
 
 Während des Texturierungsprozesses wurde die Hololens 2 mehrfach in die Texturen integriert, um mögliche Leistungseinbußen
 zu identifizieren. Wurden Beeinträchtigungen festgestellt, wurden entsprechende Anpassungen an den Texturen vorgenommen.
@@ -359,10 +361,10 @@ gewährleisten.
 In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des
 geeigneten Dateiformats und der Berücksichtigung verschiedener Koordinatensysteme.
 
-Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der
-Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform
-oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt
-und funktional in die Zielumgebung integriert wird.
+Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions-
+oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung.
+Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die
+Zielumgebung integriert wird.
 
 \subsubsection{Dateiformat}
 Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX)
@@ -376,30 +378,33 @@ Materialien, Animationen, Kameras und Lichtquellen.
 
 Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen
 ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet,
-erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine erfolgreiche
-Umsetzung des Projekts.
+erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine
+erfolgreiche Umsetzung des Projekts.
 
 \subsubsection{Koordinatensysteme}
 Die Berücksichtigung und korrekte Handhabung von Koordinatensystemen während des Modellierungsprozesses ist ein
-entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt wurden
-spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
+entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt
+wurden spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
 
-Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export der
-Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise trägt
-dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform zu
-vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
+Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export
+der Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise
+trägt dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform
+zu vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
 
 Darüber hinaus wurden alle Modelle in der gleichen Ausrichtung modelliert, um zusätzliche Anpassungen in Unity zu
-vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten Orientierung
-vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren Arbeitsablauf gewährleistet.
+vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten
+Orientierung vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren
+Arbeitsablauf gewährleistet.
 
-Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert wurden, wurden entsprechende Korrekturen direkt
-im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der Modelle
-schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu verursachen.
+Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert wurden, wurden entsprechende Korrekturen
+direkt im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der
+Modelle schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu
+verursachen.
 
-Insgesamt zeigt die Berücksichtigung von Koordinatensystemen während des gesamten Workflows einen proaktiven Ansatz bei
-der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz des
-Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv vermeiden.
+Insgesamt zeigt die Berücksichtigung von Koordinatensystemen während des gesamten Workflows einen proaktiven Ansatz
+bei der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz
+des Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv
+vermeiden.
 
 \subsection{Add-Ons und Plugins}
 Während der Modellierungsphase wurden einige Add-ons und Plug-ins verwendet, um die Erfahrung zu verbessern und die
@@ -410,22 +415,22 @@ Das Add-on Looptools \footnote{Blender \cite{LoopTools}} für Blender stellt ein
 Flächenmodellierung und Topologieoptimierung dar. Insbesondere bei der Umwandlung von rechteckigen oder quadratischen
 Flächen in kreisförmige Flächen erweist sich dieses Werkzeug als äußerst nützlich.
 
-Als Hauptwerkzeug wurde das so genannte "Circle"-Werkzeug verwendet, das speziell zur Lösung des oben genannten
-Problems entwickelt wurde. Mit dem "Circle"-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie
-und der Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
+Als Hauptwerkzeug wurde das so genannte "Circle"-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems
+entwickelt wurde. Mit dem "Circle"-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der
+Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
 
 Das Circle-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen
 Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
 
 \begin{itemize}
     \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten
-Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
+    \item Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
     \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt
-entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
+    \item entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
 \end{itemize}
 
-Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität,
-um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
+Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um
+die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
 
 Insgesamt trägt das Looptools Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der
 resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und
@@ -446,47 +451,48 @@ Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenze
 Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es
 dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
 
-Insgesamt ist das Addon "Images as Planes" ein unverzichtbares Werkzeug für die realistische Modellierung in Blender, das
-die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern
-als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen Details
-erstellen.
+Insgesamt ist das Addon "Images as Planes" ein unverzichtbares Werkzeug für die realistische Modellierung in Blender,
+das die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern
+als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen
+Details erstellen.
 
 \subsection{Modi}
-In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte eines
-Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an
-Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
+In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte
+eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette
+an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
 
 \subsubsection{Object-Modus}
 Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus
-können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere Objekteigenschaften
-bearbeitet werden.
+können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere
+Objekteigenschaften bearbeitet werden.
 
 \subsubsection{Edit-Modus}
 Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener
-Werkzeuge und Kontrollpunkte einzelne Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen des Objekts bearbeitet
-werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für
-die Modellierung von entscheidender Bedeutung ist.
+Werkzeuge und Kontrollpunkte einzelne Vertices \footnote{Blender \cite{Vertices}}, Kanten und Flächen des Objekts
+bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was
+insbesondere für die Modellierung von entscheidender Bedeutung ist.
 
 \subsubsection{Texture-Paint-Modus}
-Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh \footnote{Blender \cite{Mesh}}
-eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive
-Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe
-Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
+Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh
+\footnote{Blender \cite{Mesh}} eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes
+beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die
+direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
 
 \subsection{Hierarchie}
-In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder
-eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete
-Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten
-sowie bei der Definition von Beziehungen zwischen ihnen.
+In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene
+oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte
+untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und
+Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
 
 \begin{itemize}
     \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten
-untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie
-Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten
-Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle.
+    untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie
+    Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten
+    Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder
+    hierarchische Modelle.
     \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre
-Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben
-oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
+    Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu
+    verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
 \end{itemize}
 Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und
 Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden.
@@ -500,19 +506,22 @@ Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktio
 Die Verwendung von Modifiern bringt mehrere Vorteile mit sich:
 
 \begin{itemize}
-    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie
-zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren.
+    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche
+    Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand
+    zurückzukehren.
+
     \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit
-weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart Zeit und Ressourcen.
+    weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart
+    Zeit und Ressourcen.
 
     \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder
-entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne Angst vor
-irreversiblen Änderungen haben zu müssen.
+    entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne
+    Angst vor irreversiblen Änderungen haben zu müssen.
 \end{itemize}
 
 Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel, Array und Boolean. Jeder Modifier hat spezifische
-Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten
-bis zur Erstellung von komplexen Wiederholungsmustern.
+Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von
+Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
 
 Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit,
 Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern
@@ -523,42 +532,201 @@ kann den Modellierungsprozess rationalisieren und die Kreativität der Modellier
 Dieser Abschnitt beschreibt die für das Projekt in Blender modellierten Gegenstände sowie die dabei aufgetretenen Herausforderungen.
 
 Zu Beginn des Projekts musste eine wichtige Entscheidung getroffen werden, nämlich wie viele Objekte modelliert werden
-sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine Herausforderung
-für die Spieler darstellt. Nach eingehenden Recherchen und internen Abstimmungen wurde sich auf 11 Gegenstände geeinigt.
-Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern einen Einblick in den Schulalltag
-bieten.
+sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine
+Herausforderung für die Spieler darstellt. Nach eingehenden Recherchen und internen Abstimmungen wurde sich auf 11
+Gegenstände geeinigt. Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern
+einen Einblick in den Schulalltag bieten.
 
-\subsubsection{Ping Paket}
-Das Modell des Ping-Pakets wurde speziell für Level 1 entworfen und ist daher nicht Teil der oben genannten 11 Gegenstände.
-Es veranschaulicht den Spielern das Konzept eines Pings, indem es die Datenübertragung zwischen zwei Laptops visualisiert.
-
-Das Modell ist relativ einfach, da ein Paket im Wesentlichen einem einfachen Quader ähnelt und daher leicht zu modellieren
-ist. Es wurden keine zusätzlichen Details wie Paketklebeband hinzugefügt, um das Modell realistischer zu gestalten. Als
-Referenz für die Texturierung wurde ein Amazon-Paket verwendet.
-
-\subsubsection{Laptop}
-Der Laptop wurde als einer der ersten Gegenstände für Level 2 konzipiert, da er für Schüler ab der 3. Klasse ein unverzichtbares
-Werkzeug im Schulalltag ist. Die Modellierung dieses Gegenstands war anspruchsvoller als die des Ping-Pakets, da zusätzliche
-Details wie USB-Ports und der Laptopständer berücksichtigt werden mussten. Um Arbeitsaufwand zu sparen, wurde der Laptop im
-geschlossenen Zustand modelliert, wodurch die Modellierung von Tastatur und Bildschirm vermieden wurde. Als Referenz für das
-Modell diente der eigene Laptop eines Projektmitglieds.
-
-\subsubsection{Router}
-Die Modellierung des Routers war eine iterative Aufgabe. Es wurden mehrere Versionen erstellt, um ein möglichst realistisches
-und ansprechendes Modell zu erhalten. Das finale Modell stellt einen komplexen Gaming-Router dar, der durch viele Anschlüsse
-und Knöpfe gekennzeichnet ist. Die Modellierung war aufgrund der Vielzahl an Details sehr anspruchsvoll und zeitaufwendig.
-
-% TODO: da weiter
-\subsubsection{Maus}
-\subsubsection{Block}
-\subsubsection{Stift}
-\subsubsection{Kopfhörer}
 \subsubsection{Taschenrechner}
-\subsubsection{Redbull}
-\subsubsection{USB-Stick}
-\subsubsection{Verteiler}
-\subsubsection{Handy}
-%
+Um den Modellierungsprozess am Beispiel des Taschenrechners zu veranschaulichen, werden spezifische Schritte und
+Überlegungen während des Prozesses erläutert. Der Prozess begann mit der Idee, den Taschenrechner als Teil des Projekts
+zu integrieren. Anschließend wurde der Modellierungsumfang und die Art des Taschenrechners festgelegt. Dabei diente das
+Casio FX-991 ESPLUS Modell als Referenz für das zu erstellende Modell.
+
+\subsubsection*{Ausgangslage}
+Im Modellierungsprogramm Blender war das Standardprojekt als Ausgangslage zu sehen. Es wurde bereits geringfügig
+angepasst. Die Standardkamera und Lichtquelle, die für das Rendering innerhalb von Blender verwendet werden, wurden
+entfernt, da sie für das finale Projekt in Unity nicht benötigt werden und unnötige Komplikationen verursachen könnten.
+Je nach Anforderung des Modells wird eine geeignete Grundform wie beispielsweise ein Würfel, eine Fläche oder ein Zylinder
+erstellt, um darauf aufbauend mit der eigentlichen Modellierung zu beginnen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/AusgangslageTaschenrechner.png}
+    \caption{Ausgangslage innerhalb von Blender}
+    \label{fig:Ausgangslage}
+\end{figure}
+
+Durch diesen Prozess der Initiierung wurde die Grundlage für die folgenden Schritte der Modellierung gelegt, die in
+weiteren Abschnitten detaillierter beschrieben werden.
+
+\subsubsection*{Erste Schritte nach der Erstellung}
+Nach Auswahl eines geeigneten Referenzbildes für das Taschenrechnermodell wurde dieses mithilfe des
+Add-Ons \textit{Images as Planes} in Blender eingefügt. Das Bild dient als Leitfaden für die Modellierung und wurde
+unterhalb des bereits vorhandenen Objekts platziert. Um eventuelle Unregelmäßigkeiten im Design zu vermeiden, wurde der
+Mirror Modifier aufgrund der symmetrischen Form des Taschenrechners angewendet. Durch diese Maßnahme werden alle
+Modellierungsaktionen, die auf einer Seite durchgeführt werden, automatisch auf die andere Seite gespiegelt. Dadurch
+wird die Effizienz des Modellierungsprozesses erhöht.
+
+Im Anschluss begann die Modellierung durch Extrudieren eines Eckpunkts der Fläche, um grob der Form des Referenzbildes zu folgen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/basis.png}
+    \caption{Taschenrechner mit Buttons in Blender}
+    \label{fig:Basis}
+\end{figure}
+
+
+Nach Abschluss dieser groben Modellierungsschritte entstand das Grundgerüst des Taschenrechnermodells, wie in
+Abbildung \ref{fig:Basis} dargestellt. Die verschiedenen Eckpunkte (Vertices) werden im Edit-Modus von Blender als
+schwarze Punkte dargestellt. Durch den Mirror Modifier wird die Bearbeitung auf der linken Seite des Modells
+automatisch auf die rechte Seite gespiegelt, was eine symmetrische Form gewährleistet. Um dem Modell mehr Tiefe zu
+verleihen, wurde Extrudieren verwendet, um aus der ebenen Fläche eine dreidimensionale Struktur zu formen.
+
+\subsubsection*{Extrahieren als Modellierungswerkzeug}
+Extrahieren \footnote{Blender \cite{Extrahieren}} ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu,
+ausgewählte Punkte zu duplizieren und zu verschieben, während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
+Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender
+sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell
+vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu
+vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht
+nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl der
+Vertices führen.
+
+\subsubsection*{Weiterführung beim Taschenrechnermodell}
+Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell
+weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da
+dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die
+Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
+
+\subsubsection*{Einschub Array-Modifier}
+Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei
+auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur
+Anpassung der Positionierung und Ausrichtung der Kopien.
+Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Vertices in benachbarten Kopien zusammenzuführen,
+insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den
+einzelnen Kopien hergestellt werden.
+Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert
+werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen.
+Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die
+Positionierung der Kopien weiter anzupassen.
+
+\subsubsection*{Weiterführung beim Taschenrechnermodell}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/taschenrechnermitbuttons.png}
+    \caption{Taschenrechner mit Buttons in Blender}
+    \label{fig:tcbuttons}
+\end{figure}
+
+Abbildung \ref{fig:tcbuttons} zeigt das Taschenrechnermodell in Blender mit den neu modellierten Buttons. Die
+dargestellten Farben dienen lediglich als visuelle Hilfestellung im Blender-Editor und stellen keine inhärenten
+Eigenschaften des Modells dar. Jedes neu erstellte Objekt wird automatisch mit einer zufälligen Farbe versehen, um eine
+einfachere Unterscheidung innerhalb der Szene zu ermöglichen.
+
+Einige der Buttons im Modell wurden mithilfe des Array-Modifiers vervielfältigt. Dies gilt insbesondere für Buttons, die
+im Referenzbild die gleiche Größe, Funktion und Farbe aufweisen. Durch diese Technik ist es möglich, wiederkehrende
+Elemente effizient zu modellieren, indem eine einzelne Vorlage kopiert und entsprechend der gewünschten Anordnung angepasst wird.
+
+Der aktuelle Stand des Modells lässt darauf schließen, dass die Modellierung größtenteils abgeschlossen ist. Der nächste
+Schritt besteht darin, dem Modell Farben oder Texturen hinzuzufügen, um ein realistischeres Aussehen zu erzielen. Dies
+kann durch Anwendung von Materialien und Texturen im Renderprozess erreicht werden, um dem Modell visuelle Tiefe und
+Detailtreue zu verleihen.
+
+Die Fortführung des Modellierungsprozesses umfasst somit die Umsetzung der texturierten Oberfläche sowie mögliche
+Feinanpassungen, um das Modell weiter zu verbessern und an die Referenzvorlage anzupassen.
+
+\subsubsection*{Hierarchie des fertiggestellten Modells}
+In Blender wird die Hierarchie eines Modells als Baumstruktur dargestellt. Dabei ermöglichen verschiedene Unterteilungen
+und Kategorien eine übersichtliche Organisation. Die Struktur wird in Abbildung
+\ref{fig:hierarchie} veranschaulicht. Das weiße Box-Symbol steht für eine Collection (Ordner).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/hierarchietaschenrechner.png}
+    \caption{Hierarchie des fertigen Taschenrechnermodells}
+    \label{fig:hierarchie}
+\end{figure}
+
+\begin{itemize}
+    \item Die \textbf{Scene Collection} ist die oberste Ebene, die das gesamte Modell enthält.
+    \item Die \textbf{Body Collection} enthält das Hauptmodell des Taschenrechners, also die grundlegende Form.
+    \item Die \textbf{Buttons Collection} umfasst alle Buttons, die auf dem Taschenrechner abgebildet sind.
+    \item Die untergeordnete Struktur mit den orangefarbenen Dreiecken repräsentiert die eigentlichen Objekte innerhalb der jeweiligen Collections.
+    \item Das \textbf{Referenzbild} ist ein importiertes Bild, an dem sich während des Modellierens orientiert wurde.
+\end{itemize}
+
+In Abbildung \ref{fig:hierarchie} ist zu erkennen, dass ein Objekt ausgegraut ist. Dies bedeutet in dem Fall, dass das
+Objekt ausgeblendet wurde, da das Hauptmodell bereits fertiggestellt wurde und das Referenzbild nicht mehr benötigt wird.
+Das Referenzbild kann jedoch bei Bedarf aktiviert werden, beispielsweise zu Hilfe- oder Veranschaulichungszwecken.
+
+Die hierarchische Darstellung der Elemente erleichtert die Organisation und Bearbeitung des Modells. Eine klare
+Strukturierung der verschiedenen Komponenten ermöglicht eine effiziente Arbeitsweise und hilft, den Überblick über die
+einzelnen Teile zu behalten.
+
+\subsubsection*{Textur und Farbe des Taschenrechnermodells}
+Für die Texturierung und Farbgebung des Modells wurde sich eng an dem Referenzbild orientiert.
+Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus dem Referenzbild auszuwählen und auf das
+entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst
+und dann auf den entsprechenden Bereich des Modells übertragen.
+
+Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen
+des Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente
+Umsetzung der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht.
+
+%TODO: maybe UV-Mapping wegen Tasten und dann viel zum schreiben
+
+\subsubsection{Restlichen Modelle}
+\subsubsection*{Ping-Paket-Modell}
+Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf Level 1 konzipiert, um Spielern das grundlegende Konzept
+eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise
+Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie
+Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
+
+\subsubsection*{Laptop-Modell}
+Der Laptop stellt einen unverzichtbaren Gegenstand auf Level 2 dar und ist ein essenzielles Werkzeug für Schüler ab der
+3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den
+Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und
+Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
+
+\subsubsection*{Router-Modell}
+Die Modellierung des Routers war eine iterative Aufgabe, die mehrere Versionen erforderte, um ein realistisches und
+ansprechendes Modell zu erzielen. Das finale Modell repräsentiert einen Gaming-Router mit vielen Anschlüssen und Bedienelementen.
+Aufgrund der Vielzahl an Details war die Modellierung sehr anspruchsvoll und zeitaufwendig.
+
+\subsubsection*{Maus-Modell}
+Die Modellierung der Maus war eine Standardaufgabe, bei der der Mirror Modifier effektiv eingesetzt wurde, um die
+symmetrische Natur des Objekts zu betonen. Eine einfache Büromaus diente als Referenz für das Modell.
+
+\subsubsection*{Block-Modell}
+Der Block ist ein wichtiger Gegenstand im schulischen Umfeld bis zur 3. Klasse, wenn noch keine Laptops verwendet werden.
+Während der Designphase ermöglichte der Array Modifier eine einfache Gestaltung der spiralförmigen Halterung der Blätter.
+
+\subsubsection*{Stift-Modell}
+Der Stift wurde einfach modelliert und erhielt eine unkomplizierte Texturierung mit einfachen Farben. Ein Buntstift
+diente als Referenz für das Modell.
+
+\subsubsection*{Kopfhörer-Modell}
+Die Modellierung der Kopfhörer erforderte aufgrund ihrer geschwungenen Form und der texturierten Oberfläche besondere
+Aufmerksamkeit. Das Modell durchlief zwei Phasen: zunächst eine Annäherung an das Referenzbild eines Gaming-Kopfhörers
+und dann eine Verfeinerung, einschließlich einer aufwendigen Lederstrukturtextur.
+
+\subsubsection*{Dose-Modell}
+Die Modellierung der Energydose begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde.
+Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein Redbull-Label als Referenz diente.
+
+\subsubsection*{USB-Stick-Modell}
+Der USB-Stick wurde mit einer integrierten Halterung für zusätzliche Komplexität modelliert. Die Texturierung betonte
+einen metallischen Effekt, insbesondere für die Halterung und das vordere Teil des USB-Sticks.
+
+\subsubsection*{Verteiler-Modell}
+Der Stromverteiler wurde mit fünf Steckplätzen und einem Ein/Aus-Schalter modelliert, wobei der Fokus auf einfacher
+Funktionalität lag. Die Texturierung orientierte sich an einfachen weißen Steckerleisten.
+
+\subsubsection*{Handy-Modell}
+Das Handymodell orientierte sich an modernen iPhones von Apple und erforderte aufgrund seiner zahlreichen Details wie
+Kameras, Tasten und Mikrofoneinlässe eine sorgfältige Modellierung und Texturierung, um einen realistischen Eindruck zu erzeugen.
 
 
 \section{Menü}
