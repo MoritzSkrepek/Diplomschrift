@@ -844,7 +844,7 @@ und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
 Kurve von einem PC zum anderen läuft.
 %Hier dann noch code zur Kurvenberechnung einfügen
 
-\section{Knapsack Problem Level}
+\section{Knapsack Problem Szenario}
 Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
 dieses Szenarios ist es, dieses Informatikproblem mithilfe von Augmented Reality (AR) visuell und spielerisch darzustellen.
 Das Knapsack-Problem ist ein klassisches Problem der Informatik, das nicht nur an der Höheren Technischen Lehranstalt (HTL)
@@ -860,56 +860,37 @@ und das Interesse an der Informatik zu fördern.
 In diesem Abschnitt werden alle \textit{GameObjects}, \textit{Komponenten}, \textit{Scripts} und \textit{Klassen} genauer
 erklärt, die in der Unity-Szene des Knapsack-Problems verwendet werden, um dieses zu realisieren.
 
-\subsection{Knapsack-Problem Anwendungsszenario Hirarchie}
-Um genauer zu veranschaulichen, wie dieses Anwendungsszenario aufgebaut ist, wird in diesem Abschnitt anhand einer Abbildung
-der Hierarchie der Szene aus dem Unity Editor eingegangen und jedes Objekt erklärt, welche Aufgabe dieses trägt.
-
+\subsection{Knapsack-Problem Szenrio Hirarchie}
+Für einen sicheren und funktionalen Ablauf ist der Aufbau beziehungsweise die Hirarchie der Unity Szene von großer Bedeutung.
+In diesem Abschnitt wird anhand der Abbildung \ref{fig:level2_hierarchy} verdeutlich wie die Unity Szene für die Implementierung
+des zweiten Anwendungsszenarios für das Knapsack-Problem aufgebaut ist und es wird zusätzlich kurz darauf eingegangen
+für was welches Objekt steht und welche Aufgabe dieses trägt.
+\\
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{images/Level2Hirarchy}
-    \caption{Knapsack-Problem Levels Hirarchie Unity Editor.}
+    \caption{Knapsack-Problem Szenario Hirarchie im Unity Editor.}
     \label{fig:level2_hierarchy}
 \end{figure}
-
-In der Abbildung \ref{fig:level2_hierarchy} ist die Hirarchie und der Inhalt des Knapsack-Problem Anwendungsszenarios
-zu sehen. Anhand dieser Abbildung ist zu sehen, dass die Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen,
-um das gewünschte Ergebnis zu erzielen. Darunter sind folgende Objekte:
-
+In dieser Abbildung ist die Hirarchie un der Inhalts des Knapsack-Problem Szenarios zu sehen. Anhand desen ist zu erkennen,
+dass diese Unity Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen, m das gewünschte Ergebnis
+zu erzielen. Darunter sind folgende Objekte:
 \begin{itemize}
-    \item \textbf{level-2}\\
-    Die Scene in der Alle Unity-Game-Objekte enthalten sind.
-    \item \textbf{AR Default Plane}\\
-    In der Augmented Reality (AR)-Entwicklung bezieht sich ein Plane\footnote{Unity \cite{Plane}} normalerweise
-    auf eine erkannte horizontale Fläche in der realen Welt, auf der virtuelle Objekte platziert werden können. Diese
-    Flächen können zum Beispiel Tische, Böden oder andere ebene Oberflächen sein. Das Erkennen und Tracking von Planes
-    ist entscheidend, um AR-Objekte realistisch in die Umgebung zu integrieren.
-    \item \textbf{ARSession}\\
-    In Unity und AR Foundation bezieht sich die ARSession im Allgemeinen auf die Hauptkomponente, die die AR-Funktionalitäten
-    steuert und koordiniert.
-    \item \textbf{InventoryPlacementController}\\
-    Ist ein Game Objekt, dem das \textit{InventoryPlacementController.cs} Script zugewiesen ist und
-    bei Szenen-Start aktiv ist. Dieses Game Objekt kümmert sich darum, dass das Inventar richtig in der Augmented Reality
-    Welt platziert wird.
-    \item \textbf{InventoryController}\\
-    Das Game Objekt, dem das \textit{InventorryController.cs} Script zugewiesen ist und nach Abschluss des InventoryPlacement
-    Scripts aktiviert wird. Dieses Objekt ist die Hauptschnittstelle zwischen den QR-Codes und dem 3D Inventar Modell und
-    kümmert sich darum neue QR-Codes innerhalb des Modells zu erkennen und zu verspeichern.
-    \item \textbf{KnapsackSolver}\\
-    GameObjekt, dem das \textit{KnapsackSolver.cs} Script zugewiesen ist und bei platzieren eines QR-Codes innerhalb des
-    Inventars auslöst, den maximalen erreichbaren Wert, die perfekte Lösung und den Wert des selbst erstellten Inventars
-    berechnet.
-    \item \textbf{bestSolutionPrefab}\\
-    Dieses Objekt ist das Prefab\footnote{Unity \cite{Prefab}} für die Perfekte Lösung. Diesem Objekt ist das 3D Modell
-    des Inventars untergeordnet und diesem Inventar sind Prefabs für QRCodes untergeordnet. In jeder Zelle des Inventars
-    ist ein eigenes QRCode Prefab um anschließend die berechnete perfekte Lösung darstellen zu können. Diesem Objekt ist
-    das \textit{PerfectSolutionVisualizer.cs} Script zugewiesen, dass sich darum kümmert die perfekte Lösung anzuzeigen.
-    \item \textbf{InfoObject}\\
-    Dieses Game Objekt ist eine Sammlung aus mehreren Unity Game Objekten. Dieses Objekt wird bei platzieren
-    des Inventars neben dem Inventar mitplatziert. Bei den Objekten handelt es sich hierbei um den \textit{BestSolutionButton},
-    der bei Knopfdruck einer der mehreren besten Lösungen visuell veranschaulicht, und drei \textit{TextMeshes}, um die
-    berechneten Werte, und auch Informationen anzuzeigen. Zusätzlich ist hier zusehen, dass diese 4 Objekte dem \textit{infoObject}
-    untergeordnet sind, was bedeutet, dass diese Objekte\textit{children} von dem \textit{infoObejct} sind. Das übergeordnete
-    Objekt wird hier dann als \textit{parent} bezeichnet.
+    \item \textbf{level-2:} Ist die Unity Szene selbst, in der alle Game-Objekte enthalten sind.
+    \item \textbf{MRTK XR Rig:} Grundbaustein für das Entwickeln einer XR-Applikation. Enthält wichtig Komponenten
+    wie Controller für das tracken der Hände, für den User Gaze, etc.
+    \item \textbf{UserInfo:} Text Objekt, dass in der \textit{main camera } liegt, damit dieses ständig im Sichtfeld des
+    Benutzers liegt.
+    \item \textbf{Managers:} Die drei Manager \textit{ARPlaneManager}, \textit{ARRaycastManager} und \textit{QRCodesManager}
+    sind wichtiger Bestandteil um ARPlanes zu scannen, Raycasting durchzuführen und QRCodes zu erkennen.
+    \item \textbf{HandMenu:} Knopf um in das Hauptmenu-Szenario zurück zu gelangen.
+    \item \textbf{AR Default Plane:} Ist das Grund-Objekt für das markieren von erkannten ARPlanes.
+    \item \textbf{ARSession:} Ist die Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
+    \item \textbf{InventoryPlacementController:} Game Objekt, welches das platzieren des Inventar-Objekts handhabt.
+    \item \textbf{InventoryController:} Game Objekt, welches das erkennen von neuen Objekten innerhalb des Inventar-Objekts handhabt.
+    \item \textbf{KnapsackSolver:} Game Objekt, welches den Knapsack Algorithmus implementiert und das eigene Inventar berechnet.
+    \item \textbf{bestSolutionPrefab:} Prefab, welches die perfekte Lösung wiederspiegelt.
+    \item \textbf{InfoObject:} Dient der visualisierung von berechneten Werten und Fehlermeldungen.
 \end{itemize}
 
 In der Abbildung ist ausßredem zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
@@ -1206,7 +1187,7 @@ fortsetzt. Diese gezielte Verzögerung ist von entscheidender Bedeutung, um dem 
 geben, um die Umgebung ungestört zu scannen. Durch die Aktivierung der Variable \textit{canStartScript} wird der Zeitpunkt
 markiert, ab dem die Methode \textbf{Update()} ihre Ausführung fortsetzen kann.
 
-\subsubsection{Frame-Aktualisierung zur Identifikation des gewünschten AR-Planes}
+\subsubsection{Identifikation des richtigen ARPlanes}
 Angesichts der potenziell vielfältigen Umgebung von gescannten und markierten ARPlanes ist eine kontinuierliche Aktualisierung
 erforderlich, um sicherzustellen, dass das gewünschte ARPlane stets identifiziert wird. Dieser Prozess wird durch die
 Anwendung der \textbf{Update()} Funktion realisiert. Diese Methode überwacht und steuert den Auswahlvorgang des ARPlanes,
@@ -2019,7 +2000,7 @@ innerhalb der Applikation.\\
 \label{fig:Knapsack_Editor}
 \end{figure}
 
-In obriger Abbildung \ref{fig:Knapsack_Editor} zeigt, dass \textit{KnapsackSolver} Game Objekt im Unity Editor. Hier können verschiedene
+Die obrige Abbildung \ref{fig:Knapsack_Editor} zeigt, dass \textit{KnapsackSolver} Game Objekt im Unity Editor. Hier können verschiedene
 Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
 Unity Editor selbst und die angehängte Komponente \textit{KnapsackScript.cs}. Zudem sind vordefinierte Werte für
 bestimmte Variablen sichtbar. Diese Variablen umfassen:
@@ -2033,128 +2014,6 @@ bestimmte Variablen sichtbar. Diese Variablen umfassen:
 \item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
 dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
 \end{itemize}
-
-\subsubsection{KnapsackSolver Klassenvariablen}
-\begin{lstlisting}[style=csharp, caption={Klassenvariablen des KnapsackSolvers}, label=code:Klassenvariablen_kn]
-public GameObject QRCodeManager;
-public TextMeshPro ownMesh;
-public TextMeshPro maxMesh;
-public TextMeshPro infoMesh;
-
-public int[,] usedItems;
-public int capacity = 120;
-public Dictionary<int, QRData> items;
-public int maxItems = 9;
-
-private int[,] inventory;
-\end{lstlisting}\\
-\\
-Die im Codeabschnitt \ref{code:Klassenvariablen_kn} gezeigten Klassenvariablen gehören zur \textit{KnapsackSolver}-Klasse.
-Diese Variablen werden verwendet, um Objekte und Werte innerhalb des Unity Editors zu repräsentieren, die entweder direkt
-festgelegt und übergeben werden oder von anderen Klassen aus Funktionalitätsgründen benötigt werden. Die öffentlichen
-(\textit{public}) Variablen ermöglichen einen direkten Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse.
-
-Das \textit{2D int Array inventory} spielt eine entscheidende Rolle im Verlauf des \textit{KnapsackSolvers}, da es verwendet
-wird, um das individuell vom Benutzer zusammengestellte Inventar zu verarbeiten und zu berechnen.
-
-Die privaten (\textit{private}) Klassenvariablen dienen hauptsächlich dem lokalen Speichern von Werten, die nur innerhalb
-der \textit{KnapsackSolver}-Klasse benötigt werden und keinen Zugriff von außen erfordern.
-
-\subsubsection{Start des KnapsackSolvers}
-Die \textbf{Start()} Funktion, die in folgendem Codeabschnitt \ref{code:kn_start} abgebildet ist, ist der Startpunkt d
-es \textit{KnapsackSolvers}.
-
-\begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:kn_start]
-void Start()
-{
-items = new QRItem(0).items;
-EventManager.OnGridUpdate += SetInventory;
-}
-\end{lstlisting}\\
-\\
-Zu Beginn der Funktion wird dem Dictionary \textit{items} ein neues Objekt des Typs \textit{QRitem} zugewisen, wobei die
-\textit{ID} 0 übergeben wird. Dies ermöglicht den Zugriff auf das Dictionary in der \textit{QRItem} Klasse welches alle
-Daten der einzelnen Items enthält. Anschließend wird das Event \textit{OnGridUpdate} des \textit{EventManagers} ausgelöst
-und die Funktion \textbf{SetInventory()} aufgerufen. Letztere ist eine Rückruffunktion, die als Reaktion auf das Ereignis
-aufgerufen wird und die Aufgabe hat, das Inventar zu aktualisieren. Diese Funktion sieht wie folgt aus:
-\begin{lstlisting}[style=csharp, caption={Inventar setzen}, label=code:kn_start]
-public void SetInventory(int[,] newInventory)
-{
-inventory = newInventory;
-CalculateKnapsack();
-}
-\end{lstlisting}
-
-\subsubsection{Starten der Berechnung}
-Um stets mit dem aktuellen Inventar zu rechnen, wird bei jedem mal, bei dem die \textbf{SetInventory()} Funktion
-aufgerufen wird, das aktuelle Inventar (\textit{inventory}) mit dem neuen Inventar in dem ein neues Item enthalten ist
-(\textit{newInventory}) aktualisiert. Um anschließend die tatsächlichen Werte zu berechnen, wird die \textbf{CalculateKnapsack()}
-Funktion aufgerufen. Der Code zu dieser Funktion:
-\begin{lstlisting}[style=csharp, caption={Berechnungsfunktion}, label=code:kn_calc]
-void CalculateKnapsack()
-{
-    int maxValue = KnapsackMaxValue(out usedItems);
-    int inventoryValue = -1;
-    maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
-    try
-    {
-        inventoryValue = KnapsackInventoryValue(inventory);
-        if (maxValue == inventoryValue)
-        {
-            infoMesh.color = Color.green;
-            infoMesh.text = "Maximale Punktzahl erreicht";
-        }
-        else
-        {
-            infoMesh.text = "";
-        }
-        ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
-    }
-    catch (Exception e)
-    {
-        Debug.LogError("Error calculating inventory value: " + e.Message);
-    }
-}
-\end{lstlisting}\\
-\\
-Die Funktion \textbf{CalculateKnapsack()} startet den Algorithmus zur Berechnung des Knapsackproblems. Zunächst wird eine
-Variable \textit{maxValue} initialisiert, welche den maximal erreichbaren Wert des Rucksacks repräsentiert. Diese wird
-durch den Aufruf der Funktion \textbf{KnapsackMaxValue()} initialisiert, wobei auch eine Liste von \textit{usedItems}
-als Ausgabe zurückgegeben wird. Diese Liste repräsentiert die in der \textit{perfekten Lösung} enthaltenen Items.
-
-Anschließend wird die Variable \textit{inventoryValue} initialisiert und auf -1 gesetzt, um in dem Fall eines Fehlers
-keinen Programm-Crash zu verursachen. Die Funktion \textbf{KnapsackMaxValue()} wird anhand eines \textit{try-catch} Blocks
-versucht auszuführen, wobei der Wert des aktuellen Inventars als Argument übergeben wird. Falls dieser Wert erfolgreich
-berechnet wird, wird er der Variable \textbf{inventoryValue} zugewiesen.
-
-Nach der Berechnung des maximal erreichbaren Werts (\textit{maxValue}) des Rucksacks wird geprüft, ob dieser Wert mit dem
-Wert des aktuellen Inventars (\textit{inventoryValue}) übereinstimmt. Eine solche Übereinstimmung deutet darauf hin, dass
-der Benutzer eine perfekte Lösung gefunden hat. Diese Optimalität wird visuell durch die Farbänderung des \textit{infoMesh}
-auf Grün und die Anzeige einer entsprechenden Erfolgsmeldung verdeutlicht. Im Gegensatz dazu wird bei Abweichungen zwischen
-dem maximal erreichbaren Wert und dem Wert des aktuellen Inventars der Text des \textit{infoMesh} gelöscht, um vorherige
-Meldungen zu entfernen und das Feedbackfeld zu bereinigen.
-
-Nachdem der Wert des zusammengestellten Inventars berechnet wurde, wird dieser im \textit{ownMesh} angezeigt. Sollte während
-dieser Berechnung ein Fehler auftreten, wird eine entsprechende Fehlermeldung in die \textit{Log-Datei} geschrieben, um
-die Fehlerbehandlung und -verfolgung zu unterstützen.\\
-\\
-Um den beschriebenen Zustand der Erreichung einer perfekten Lösung zu verdeutlichen, wird im Folgenden ein Beispiel herangezogen.
-
-\begin{quote}
-Wie der beschriebene Ablauf, des findens einer perfekten Lösung aussieht, ist in folgender Abbildung \ref{fig:foundperfsol}
-zu sehen.
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{images/foundperfsol}
-\caption{Sicht des Benutzers nach finden einer perfekten Lösung}
-\label{fig:foundperfsol}
-\end{figure}
-
-% TODO: Bild machen mit perfekten Lösung und in folgendem Text IDs einfügen
-Auf dieser Abbildung ist zu sehen, dass das Inventar mit den Gegenständen mit folgenden \textit{IDs}: ., .,. ,. ,. befüllt
-ist und der errechnete Wert dieses Inventars dem der perfekten Lösung gleicht. Diese Erkenntnis ist anhand des \textit{infoMesh}
-zu erkennen in dem eine Erfolgsnachricht in grüner Farbe dargestellt ist.
-\end{quote}
 
 \subsubsection{Knapsack-Algorithmus}
 Der Knapsack-Algorithmus ist ein grundlegendes Werkzeug in der Informatik, das sich mit der optimalen Ressourcenallokation
@@ -2449,17 +2308,15 @@ zu verbessern, Kosten zu senken und die Effizienz in verschiedenen Bereichen zu 
 \subsubsection{Auswahl des Implementierungsansatzes}
 Die Wahl des Implementierungsansatzes für den Knapsack-Algorithmus in dieser Anwendung ist von entscheidender Bedeutung
 für den Erfolg des Projekts. Moderne Softwaresysteme stehen vor einer Vielzahl von Herausforderungen und Anforderungen,
-die eine sorgfältige Auswahl eines geeigneten Algorithmus erforderlich machen. Diese Einleitung dient der detaillierten
-Erläuterung und Begründung der Entscheidung für den dynamischen Ansatz als Implementierungsstrategie für den Knapsack-Algorithmus.
+die eine sorgfältige Auswahl eines geeigneten Algorithmus erforderlich machen.
 
 Die Entscheidung für den Implementierungsansatz erfolgte nach einer eingehenden Analyse der Anforderungen der Anwendung
 und einer gründlichen Untersuchung der verfügbaren Algorithmen sowie ihrer Eigenschaften. Dabei wurden verschiedene
 Faktoren berücksichtigt, darunter die Notwendigkeit einer optimalen Lösung, die Effizienz der Algorithmusausführung, die
 Flexibilität in Bezug auf unterschiedliche Problemvarianten und die Genauigkeit der berechneten Ergebnisse.
 
-In diesem Abschnitt werden diese Überlegungen ausführlich diskutiert und die Gründe für die Wahl des dynamischen Ansatzes
-als Implementierungsstrategie für den Knapsack-Algorithmus erläutert.
-
+Diese überlegungen werden anschließend ausführlich diskutiert und die Gründe für die Wahl des dynamischen Ansatzes als
+Implementierungsstragie für den Knapsack-Algorithmus erläutert:
 \begin{enumerate}
     \item \textbf{Perfekte Lösungsgarantie}: Der dynamische Ansatz bietet die Möglichkeit, eine perfekte Lösung für das
     Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige
@@ -2478,6 +2335,128 @@ als Implementierungsstrategie für den Knapsack-Algorithmus erläutert.
 In Anbetracht dieser Überlegungen wurde der dynamische Ansatz als die geeignete Methode zur Implementierung des Knapsack-Algorithmus
 in dieser Applikation gewählt. Seine Fähigkeit, eine perfekte Lösung zu garantieren, kombiniert mit seiner Effizienz und
 Flexibilität, macht ihn zu einer idealen Wahl für die Behandlung des Knapsack-Problems in diesem Kontext.
+
+\subsubsection{KnapsackSolver Klassenvariablen}
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen des KnapsackSolvers}, label=code:Klassenvariablen_kn]
+public GameObject QRCodeManager;
+public TextMeshPro ownMesh;
+public TextMeshPro maxMesh;
+public TextMeshPro infoMesh;
+
+public int[,] usedItems;
+public int capacity = 120;
+public Dictionary<int, QRData> items;
+public int maxItems = 9;
+
+private int[,] inventory;
+\end{lstlisting}\\
+\\
+Die im Codeabschnitt \ref{code:Klassenvariablen_kn} gezeigten Klassenvariablen gehören zur \textit{KnapsackSolver}-Klasse.
+Diese Variablen werden verwendet, um Objekte und Werte innerhalb des Unity Editors zu repräsentieren, die entweder direkt
+festgelegt und übergeben werden oder von anderen Klassen aus Funktionalitätsgründen benötigt werden. Die öffentlichen
+(\textit{public}) Variablen ermöglichen einen direkten Zugriff auf diese Objekte in der eigenen oder einer anderen Klasse.
+
+Das \textit{2D int Array inventory} spielt eine entscheidende Rolle im Verlauf des \textit{KnapsackSolvers}, da es verwendet
+wird, um das individuell vom Benutzer zusammengestellte Inventar zu verarbeiten und zu berechnen.
+
+Die privaten (\textit{private}) Klassenvariablen dienen hauptsächlich dem lokalen Speichern von Werten, die nur innerhalb
+der \textit{KnapsackSolver}-Klasse benötigt werden und keinen Zugriff von außen erfordern.
+
+\subsubsection{Start des KnapsackSolvers}
+Die \textbf{Start()} Funktion, die in folgendem Codeabschnitt \ref{code:kn_start} abgebildet ist, ist der Startpunkt d
+es \textit{KnapsackSolvers}.
+
+\begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryController Klasse}, label=code:kn_start]
+void Start()
+{
+items = new QRItem(0).items;
+EventManager.OnGridUpdate += SetInventory;
+}
+\end{lstlisting}\\
+\\
+Zu Beginn der Funktion wird dem Dictionary \textit{items} ein neues Objekt des Typs \textit{QRitem} zugewisen, wobei die
+\textit{ID} 0 übergeben wird. Dies ermöglicht den Zugriff auf das Dictionary in der \textit{QRItem} Klasse welches alle
+Daten der einzelnen Items enthält. Anschließend wird das Event \textit{OnGridUpdate} des \textit{EventManagers} ausgelöst
+und die Funktion \textbf{SetInventory()} aufgerufen. Letztere ist eine Rückruffunktion, die als Reaktion auf das Ereignis
+aufgerufen wird und die Aufgabe hat, das Inventar zu aktualisieren. Diese Funktion sieht wie folgt aus:
+\begin{lstlisting}[style=csharp, caption={Inventar setzen}, label=code:kn_start]
+public void SetInventory(int[,] newInventory)
+{
+inventory = newInventory;
+CalculateKnapsack();
+}
+\end{lstlisting}
+
+\subsubsection{Starten der Berechnung}
+Um stets mit dem aktuellen Inventar zu rechnen, wird bei jedem mal, bei dem die \textbf{SetInventory()} Funktion
+aufgerufen wird, das aktuelle Inventar (\textit{inventory}) mit dem neuen Inventar in dem ein neues Item enthalten ist
+(\textit{newInventory}) aktualisiert. Um anschließend die tatsächlichen Werte zu berechnen, wird die \textbf{CalculateKnapsack()}
+Funktion aufgerufen. Der Code zu dieser Funktion:
+\begin{lstlisting}[style=csharp, caption={Berechnungsfunktion}, label=code:kn_calc]
+void CalculateKnapsack()
+{
+int maxValue = KnapsackMaxValue(out usedItems);
+int inventoryValue = -1;
+maxMesh.text = "Maximal erreichbarer Wert: " + maxValue.ToString();
+try
+{
+inventoryValue = KnapsackInventoryValue(inventory);
+if (maxValue == inventoryValue)
+{
+infoMesh.color = Color.green;
+infoMesh.text = "Maximale Punktzahl erreicht";
+}
+else
+{
+infoMesh.text = "";
+}
+ownMesh.text = "Erreichter Wert: " + inventoryValue.ToString();
+}
+catch (Exception e)
+{
+Debug.LogError("Error calculating inventory value: " + e.Message);
+}
+}
+\end{lstlisting}\\
+\\
+Die Funktion \textbf{CalculateKnapsack()} startet den Algorithmus zur Berechnung des Knapsackproblems. Zunächst wird eine
+Variable \textit{maxValue} initialisiert, welche den maximal erreichbaren Wert des Rucksacks repräsentiert. Diese wird
+durch den Aufruf der Funktion \textbf{KnapsackMaxValue()} initialisiert, wobei auch eine Liste von \textit{usedItems}
+als Ausgabe zurückgegeben wird. Diese Liste repräsentiert die in der \textit{perfekten Lösung} enthaltenen Items.
+
+Anschließend wird die Variable \textit{inventoryValue} initialisiert und auf -1 gesetzt, um in dem Fall eines Fehlers
+keinen Programm-Crash zu verursachen. Die Funktion \textbf{KnapsackMaxValue()} wird anhand eines \textit{try-catch} Blocks
+versucht auszuführen, wobei der Wert des aktuellen Inventars als Argument übergeben wird. Falls dieser Wert erfolgreich
+berechnet wird, wird er der Variable \textbf{inventoryValue} zugewiesen.
+
+Nach der Berechnung des maximal erreichbaren Werts (\textit{maxValue}) des Rucksacks wird geprüft, ob dieser Wert mit dem
+Wert des aktuellen Inventars (\textit{inventoryValue}) übereinstimmt. Eine solche Übereinstimmung deutet darauf hin, dass
+der Benutzer eine perfekte Lösung gefunden hat. Diese Optimalität wird visuell durch die Farbänderung des \textit{infoMesh}
+auf Grün und die Anzeige einer entsprechenden Erfolgsmeldung verdeutlicht. Im Gegensatz dazu wird bei Abweichungen zwischen
+dem maximal erreichbaren Wert und dem Wert des aktuellen Inventars der Text des \textit{infoMesh} gelöscht, um vorherige
+Meldungen zu entfernen und das Feedbackfeld zu bereinigen.
+
+Nachdem der Wert des zusammengestellten Inventars berechnet wurde, wird dieser im \textit{ownMesh} angezeigt. Sollte während
+dieser Berechnung ein Fehler auftreten, wird eine entsprechende Fehlermeldung in die \textit{Log-Datei} geschrieben, um
+die Fehlerbehandlung und -verfolgung zu unterstützen.\\
+\\
+Um den beschriebenen Zustand der Erreichung einer perfekten Lösung zu verdeutlichen, wird im Folgenden ein Beispiel herangezogen.
+
+\begin{quote}
+Wie der beschriebene Ablauf, des findens einer perfekten Lösung aussieht, ist in folgender Abbildung \ref{fig:foundperfsol}
+zu sehen.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{images/foundperfsol}
+\caption{Sicht des Benutzers nach finden einer perfekten Lösung}
+\label{fig:foundperfsol}
+\end{figure}
+
+% TODO: Bild machen mit perfekten Lösung und in folgendem Text IDs einfügen
+Auf dieser Abbildung ist zu sehen, dass das Inventar mit den Gegenständen mit folgenden \textit{IDs}: ., .,. ,. ,. befüllt
+ist und der errechnete Wert dieses Inventars dem der perfekten Lösung gleicht. Diese Erkenntnis ist anhand des \textit{infoMesh}
+zu erkennen in dem eine Erfolgsnachricht in grüner Farbe dargestellt ist.
+\end{quote}
 
 \subsubsection{Knapsack-Algorithmus Implementierung}
 Dieser Abschnitt behandelt die Implementierung der allgemeinen Variation des 0/1 Knapsack-Problems anhand des dynamischen
@@ -2904,11 +2883,6 @@ ist in der folgenden Abbildung \ref{fig:perfSolUserPOV} zu sehen.
     \caption{Perfekte Lösung}
     \label{fig:perfSolUserPOV}
 \end{figure}
-
-\subsection{Unit-Tests}
-Durch Hilfe von Unit-Tests wird versichert, dass der implementierte Knappsack-Algorithmus
-richtig und performant funktioniert.
-%Genauere Erklärung + Custom Code der UnitTests
 
 \section{Performance und Qualtitätssicherung}
 \subsection{Unit-Tests}
