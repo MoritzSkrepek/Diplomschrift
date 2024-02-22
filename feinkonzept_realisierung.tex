@@ -1021,8 +1021,11 @@ unsichtbare Kurve über dieses Kabel gezeichnet. Wenn dann der Benutzer
 auf die Enter Taste auf einem PC drückt wird ein Ping-Paket simuliert
 und auf dieser Kurve von einem PC zu dem anderen geschickt.
 
+\subsection{Starten und verwenden der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
+TODO
+
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
-\subsection{Frontend der Webseite}  \marginpar{\small\(\rightarrow\) LAMPEL}
+\subsection{Frontend der Webseite} \marginpar{\small\(\rightarrow\) LAMPEL}
 In diesem Abschnitt wird die Struktur und Entwicklung des Frontends der Webseite erläutert. Besonderes Augenmerk wird
 auf die zugrundeliegenden Entscheidungen bezüglich der Programmiersprachen sowie des Designprozesses gelegt.
 
@@ -1153,7 +1156,49 @@ um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird 
 eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem
 Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
-\subsection{Object Tracking}
+
+\subsection{Backend der Webseite}  \marginpar{\small\(\rightarrow\) HAYLAZ}
+In dem Absatz \ref{sec:FrontendWebseite} wurde der Designprozess der Webseite beschrieben, hier ist eine erweiterung zu dem Thema und enthält die beschreibung der Funktionalitäten und die Umsetzung davon.
+
+Die Webseite ist die Schnittstelle für die Kommunikation zwischen den 2 Laptops die wir für das Szenario brauchen. Diese Kommunikation geschieht über die Hololens, sie ist sozusagen der "Middleman" welches die übertragung von Daten ermöglicht.
+
+\subsubsection{Protokoll zur Datenübertragung}
+
+% Übertragungsprotokoll
+
+In der Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien wie solch eine Datenübertragung zustande kommen kann. Folgend werden die einzelnen Schritte und wozu sie dienen beschrieben.
+
+\begin{itemize}
+    \item \textbf{Start des Servers: } Auf der Holoens befindet sich ein Game-Objekt \textit{httpListener} mit einem \textit{RequestManager.cs} Skript. Beim Laden des ersten Szenarios wird ein http-listener in einem Thread gestartet. Erst wenn dieser läuft kann auf Anfragen der Webseite reagiert werden.
+    \item \textbf{Verbindungsaufbau: } Bevor ein Nachrichtenpaket versendet werden kann muss die IP-Addresse der HoloLens registriert werden. Um zu testen ob die richtige IP-Addresse eingegeben wurde oder der Server läuft wird ein \texttt{http get request} an den Endpoint \textit{connect} gesendet.
+    \item \textbf{Empfangen von Nachrichten: } Auf der Brille wird ein stand an aktuellen Nachrichten festgehalten. Die Webseite fragt alle fünf Sekunden, mit einem \textit{http get request} an den Endpoint \textit{get-messages}, diese Liste an Nachrichten ab.
+    \item \textbf{Versenden von Nachrichten: } Um eine Nachricht von einem Laptop auf den anderen zu bekommen muss ein \textit{http post request} an den Endpoint \textit{message} mit dem Benutzernamen und Nachricht, als Payload, gesendet werden.
+\end{itemize}
+Das senden von requests mag kompliziert wirken aber wie in dem Abschnitt \ref{sec:Frontend} zu sehen ist wird das alles mithilfe einer benutzerfrundlichen UI erreicht.
+
+Es ist festzuhalten das die beiden Laptops NIE direkt untereinander kommunizieren sondern alle Nachrichten über den Server, die HoloLens, laufen.
+
+\subsubsection{Anfragen bearbeiten}
+Das bearbeiten von Anfragen ist in dem \textit{RequestManager.cs} Skript erledigt. Der listener wird in einem eigenen Thread gestartet, da das warten auf Nachrichten den Thread auf dem der listener läuft blockiert. Nach dem erhalt von einem request wird ein neues \textit{HttpListenerContext} Objekt erstellt und die Verarbeitung des requests wird in dem Thread durchgeführt, der diesen Kontext bearbeitet.
+Wenn eine http Anfrage erhalten wird, ist der erste Schritt zu prüfen welche Art an Anfrage es ist. Ein POST und ein GET werden unterschiedlich verarbeitet, bei verwendung jeglicher anderen http Methode wird ein \textit{Method Not Allowed} Fehler zurück gesendet. Bei der Wahl des Endpoint passiert das selbe, jegliche nicht unterstützte Anfrage auf einen Endpoint, wird mit einem \textit{Not Found} Fehler geantwortet.
+
+Es werden in unserem Fall nur 3 Endpunkte unterstützt:
+
+
+\begin{itemize}
+    \item \textbf{Testen der Verbindung auf /connect}
+    \item \textbf{Erhalten von Nachrichten auf /get-messages}
+    \item \textbf{Senden einer Nachricht auf /message}
+\end{itemize}
+
+Um and den Server Erfolgreich eine Anfrage zu senden muss er an folgende Adresse gehen:
+\texttt{http://{IpAddresseDerBirlle}:{Port}/{endpoint}}
+
+Die IP-Addresse der Brille wird manuell auf der Webseite eingegeben.\\
+Der listener läuft standartmäßig auf dem port 9090. \\
+Die erlaubten endpoints sind Fallbasierend oben gelistet.
+
+\subsection{Object Tracking} \marginpar{\small\(\rightarrow\) SCHODITSCH}
 Durch verwendung von bereitgestellten Technologien der HoloLens2
 werden die zwei PCs und das Kabel getracked.
 %Hier dann noch code zum Object Tracking einfügen
@@ -1164,7 +1209,7 @@ und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
 Kurve von einem PC zum anderen läuft.
 %Hier dann noch code zur Kurvenberechnung einfügen
 
-\section{Knapsack Problem Szenario}
+\section{Knapsack Problem Szenario} \marginpar{\small\(\rightarrow\) SKREPEK}
 Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
 dieses Szenarios ist es, dieses Informatikproblem mithilfe von Augmented Reality (AR) visuell und spielerisch darzustellen.
 Das Knapsack-Problem ist ein klassisches Problem der Informatik, das nicht nur an der Höheren Technischen Lehranstalt (HTL)
