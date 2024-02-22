@@ -344,7 +344,7 @@ die \textit{Build-Konfiguration}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.8]{images/build}
+    \includegraphics[scale=0.6]{images/build}
     \caption{Build-Einstellungen in Unity}
     \label{fig:build-settings}
 \end{figure}
@@ -3567,9 +3567,10 @@ items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
 }
 \end{lstlisting}\\
 
-Der Unit-Test \texttt{KnapsackMaxValue_ReturnsCorrectValue} testet die Methode \texttt{KnapsackMaxValue} des
-\texttt{KnapsackScript}. Es werden verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere Items
-mit zufälligen Werten in das Dictionary hinzugefügt, damit auch getestet wird, ob der Algorithmus konsistent richtige Lösungen liefert.
+Der Unit-Test \texttt{KnapsackMaxValue-ReturnsCorrectValue} testet die Methode \texttt{KnapsackMaxValue} des
+\texttt{KnapsackScript}. Es werden verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere
+Items mit zufälligen Werten in das Dictionary hinzugefügt, damit auch getestet wird, ob der Algorithmus konsistent richtige
+Lösungen liefert.
 
 \begin{lstlisting}[style=csharp, caption={Zeitmessung}, label=code:Zeitmessung]
 // Messung der Ausführungszeit für KnapsackMaxValue
@@ -3626,7 +3627,7 @@ Wert, den der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekurs
 werden. Es wurde darauf geachtet, verschiedene Implementierungen zu testen, um sicherzustellen, dass die optimale
 Implementierung verwendet wird.
 
-TODO: Grafik der Testergebnisse und Unterschiede der Laufzeiten von rekursiver und iterativer Implementierung erklären
+TODO: Grafik der Testergebnisse und Unterschiede der Laufzeiten von rekursiver, iterativer und der neuen Implementierung erklären
 
 Dabei wird die rekursive Implementierung \texttt{KnapsackMaxValueRecursive} als Vergleich verwendet, um sicherzustellen, dass
 auch die iterative Implementierung \texttt{KnapsackMaxValue} korrekt ist.
