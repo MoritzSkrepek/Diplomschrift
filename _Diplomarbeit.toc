@@ -34,146 +34,146 @@
 \contentsline {section}{\numberline {3.1}Anforderungen und Spezifikationen}{16}{section.74}%
 \contentsline {subsection}{\numberline {3.1.1}Use Cases}{16}{subsection.75}%
 \contentsline {section}{\numberline {3.2}Design}{16}{section.76}%
-\contentsline {subsection}{\numberline {3.2.1}Abläufe}{18}{subsection.77}%
-\contentsline {subsection}{\numberline {3.2.2}Mockups}{19}{subsection.79}%
-\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{19}{section.80}%
-\contentsline {subsection}{\numberline {3.3.1}Kriterien}{19}{subsection.81}%
-\contentsline {subsection}{\numberline {3.3.2}Game Engine}{19}{subsection.82}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}Unity}{19}{subsubsection.83}%
-\contentsline {subsubsection}{\numberline {3.3.2.2}Unreal Engine}{19}{subsubsection.84}%
-\contentsline {subsubsection}{\numberline {3.3.2.3}Game Engine Auswahl und Wechsel im Projektverlauf}{20}{subsubsection.85}%
-\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{21}{subsection.92}%
-\contentsline {subsubsection}{\numberline {3.3.3.1}MRTK3}{21}{subsubsection.93}%
-\contentsline {subsubsection}{\numberline {3.3.3.2}Microsoft OpenXR Plugin}{21}{subsubsection.95}%
-\contentsline {subsubsection}{\numberline {3.3.3.3}Integrationsprozess der Plugins}{22}{subsubsection.97}%
-\contentsline {subsection}{\numberline {3.3.4}Modellierungsprogramm}{22}{subsection.98}%
-\contentsline {subsubsection}{\numberline {3.3.4.1}Wie funktioniert Blender im Allgemeinen?}{23}{subsubsection.99}%
-\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{24}{chapter.100}%
-\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{24}{section.101}%
-\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{24}{subsection.102}%
-\contentsline {subsection}{\numberline {4.1.2}Unity}{24}{subsection.103}%
-\contentsline {subsubsection}{\numberline {4.1.2.1}Multidisziplinäre Unterstützung und Integration}{24}{subsubsection.104}%
-\contentsline {subsubsection}{\numberline {4.1.2.2}Szenengestaltung und Asset-Management}{24}{subsubsection.105}%
-\contentsline {subsubsection}{\numberline {4.1.2.3}Programmierung und Skripterstellung}{25}{subsubsection.106}%
-\contentsline {subsubsection}{\numberline {4.1.2.4}Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{25}{subsubsection.107}%
-\contentsline {subsubsection}{\numberline {4.1.2.5}Erweiterte Debugging- und Profiling-Werkzeuge}{25}{subsubsection.108}%
-\contentsline {subsubsection}{\numberline {4.1.2.6}Aufbau einer Unity-Applikation}{25}{subsubsection.109}%
-\contentsline {subsubsection}{\numberline {4.1.2.7}Lebenszyklusmethoden in Unity}{25}{subsubsection.110}%
-\contentsline {subsubsection}{\numberline {4.1.2.8}Unity Szenen}{26}{subsubsection.111}%
-\contentsline {subsubsection}{\numberline {4.1.2.9}Unity Manager}{26}{subsubsection.113}%
-\contentsline {subsubsection}{\numberline {4.1.2.10}Unity GameObjects und Komponente}{27}{subsubsection.116}%
-\contentsline {subsubsection}{\numberline {4.1.2.11}Unity Canvas}{28}{subsubsection.118}%
-\contentsline {subsubsection}{\numberline {4.1.2.12}Unity Job System}{28}{subsubsection.120}%
-\contentsline {subsubsection}{\numberline {4.1.2.13}Photocapture Klasse}{29}{subsubsection.122}%
-\contentsline {subsubsection}{\numberline {4.1.2.14}Unity Prefabs}{29}{subsubsection.131}%
-\contentsline {subsection}{\numberline {4.1.3}Deployment der Anwendung}{30}{subsection.132}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Voraussetzungen für das Deployment}{30}{subsubsection.133}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}Deployment-Prozess}{30}{subsubsection.134}%
-\contentsline {subsubsection}{\numberline {4.1.3.3}Erstmaliges Deployment}{32}{subsubsection.136}%
-\contentsline {section}{\numberline {4.2}Objektdesign mit Blender}{32}{section.137}%
-\contentsline {subsection}{\numberline {4.2.1}Optimierung für Augmented Reality}{32}{subsection.138}%
-\contentsline {subsubsection}{\numberline {4.2.1.1}Polygonreduktion}{32}{subsubsection.139}%
-\contentsline {subsubsection}{\numberline {4.2.1.2}Texturenoptimierung}{33}{subsubsection.140}%
-\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{33}{subsection.141}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}Dateiformat}{33}{subsubsection.142}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}Koordinatensysteme}{34}{subsubsection.144}%
-\contentsline {subsection}{\numberline {4.2.3}Add-Ons und Plugins}{34}{subsection.145}%
-\contentsline {subsubsection}{\numberline {4.2.3.1}Looptools: Optimierung von Topologie und Oberflächen}{34}{subsubsection.146}%
-\contentsline {subsubsection}{\numberline {4.2.3.2}Images as Planes: Effiziente Integration von Texturen}{35}{subsubsection.148}%
-\contentsline {subsection}{\numberline {4.2.4}Modi}{35}{subsection.149}%
-\contentsline {subsubsection}{\numberline {4.2.4.1}Object-Modus}{35}{subsubsection.151}%
-\contentsline {subsubsection}{\numberline {4.2.4.2}Edit-Modus}{36}{subsubsection.152}%
-\contentsline {subsubsection}{\numberline {4.2.4.3}Texture-Paint-Modus}{36}{subsubsection.154}%
-\contentsline {subsection}{\numberline {4.2.5}Hierarchie}{36}{subsection.156}%
-\contentsline {subsection}{\numberline {4.2.6}Modifier}{36}{subsection.157}%
-\contentsline {subsection}{\numberline {4.2.7}Modellierung von Gegenständen für das Projekt}{37}{subsection.158}%
-\contentsline {subsubsection}{\numberline {4.2.7.1}Taschenrechner}{37}{subsubsection.159}%
-\contentsline {subsubsection}{\numberline {4.2.7.2}Restlichen Modelle}{42}{subsubsection.173}%
-\contentsline {section}{\numberline {4.3}Hauptmenü}{43}{section.185}%
-\contentsline {subsection}{\numberline {4.3.1}Erstentwurf}{44}{subsection.186}%
-\contentsline {subsubsection}{\numberline {4.3.1.1}Probleme beim Erstentwurf}{45}{subsubsection.189}%
-\contentsline {subsection}{\numberline {4.3.2}Finalversion des Menüs}{46}{subsection.192}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}Finalversion Menü - Hauptmenü}{46}{subsubsection.193}%
-\contentsline {subsubsection}{\numberline {4.3.2.2}Finalversion Menü - Anwendungsszenario}{48}{subsubsection.196}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{48}{subsubsection.198}%
-\contentsline {subsection}{\numberline {4.3.3}Laden der Level}{49}{subsection.221}%
-\contentsline {subsection}{\numberline {4.3.4}UI/UX}{50}{subsection.240}%
-\contentsline {section}{\numberline {4.4}Ping Scenario}{51}{section.241}%
-\contentsline {subsection}{\numberline {4.4.1}Aufbau von Ping Scenario}{51}{subsection.242}%
-\contentsline {subsection}{\numberline {4.4.2}Kabel erkennung}{52}{subsection.244}%
-\contentsline {subsubsection}{\numberline {4.4.2.1}Foto der umgebung schießen}{52}{subsubsection.245}%
-\contentsline {subsubsection}{\numberline {4.4.2.2}Foto verarbeitung}{52}{subsubsection.246}%
-\contentsline {subsubsection}{\numberline {4.4.2.3}Kabel finden}{53}{subsubsection.280}%
-\contentsline {subsubsection}{\numberline {4.4.2.4}Entfernung messen}{54}{subsubsection.328}%
-\contentsline {subsubsection}{\numberline {4.4.2.5}Bewegung des Packetes}{54}{subsubsection.329}%
-\contentsline {subsection}{\numberline {4.4.3}Starten und verwenden der Webseite}{54}{subsection.330}%
-\contentsline {subsection}{\numberline {4.4.4}Frontend der Webseite}{54}{subsection.331}%
-\contentsline {subsubsection}{\numberline {4.4.4.1}Designprozess}{55}{subsubsection.332}%
-\contentsline {subsubsection}{\numberline {4.4.4.2}Verwendete Programmiersprachen}{56}{subsubsection.337}%
-\contentsline {subsubsection}{\numberline {4.4.4.3}Funktionen der Webseite}{57}{subsubsection.347}%
-\contentsline {subsection}{\numberline {4.4.5}Backend der Webseite}{58}{subsection.371}%
-\contentsline {subsubsection}{\numberline {4.4.5.1}Protokoll zur Datenübertragung}{58}{subsubsection.372}%
-\contentsline {subsubsection}{\numberline {4.4.5.2}Bearbeitung von Anfragen}{59}{subsubsection.374}%
-\contentsline {subsection}{\numberline {4.4.6}Object Tracking}{60}{subsection.375}%
-\contentsline {subsection}{\numberline {4.4.7}Kurvenberechnung}{60}{subsection.376}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Szenario}{60}{section.377}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{60}{subsection.378}%
-\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{62}{subsection.380}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{62}{subsubsection.381}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{63}{subsubsection.410}%
-\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{66}{subsubsection.412}%
-\contentsline {subsubsection}{\numberline {4.5.2.4}Bestimmen der Position QR-Codes}{67}{subsubsection.414}%
-\contentsline {subsubsection}{\numberline {4.5.2.5}Visualisierung von QR-Codes}{67}{subsubsection.415}%
-\contentsline {subsubsection}{\numberline {4.5.2.6}Zugriff auf QR-Codes bereitstellen}{67}{subsubsection.416}%
-\contentsline {subsection}{\numberline {4.5.3}Platzieren des Inventar Objekts}{67}{subsection.417}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}Das inventoryPlacementController Game Objekt}{68}{subsubsection.418}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}User Gaze in AR-Anwendungen}{69}{subsubsection.420}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}InventoryPlacementController Klasse}{69}{subsubsection.424}%
-\contentsline {subsubsection}{\numberline {4.5.3.4}Verwendung des Usergazes}{70}{subsubsection.456}%
-\contentsline {subsubsection}{\numberline {4.5.3.5}Frame Aktualisierung}{71}{subsubsection.469}%
-\contentsline {subsubsection}{\numberline {4.5.3.6}Platzieren des Inventar Objekts}{72}{subsubsection.517}%
-\contentsline {subsubsection}{\numberline {4.5.3.7}Sicht des Benutzers nach Abschluss des Skripts}{73}{subsubsection.539}%
-\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{74}{subsection.541}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{75}{subsubsection.543}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{75}{subsubsection.561}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Bounds des Inventars aktuallisieren}{76}{subsubsection.573}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{76}{subsubsection.584}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{77}{subsubsection.591}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{78}{subsubsection.599}%
-\contentsline {subsubsection}{\numberline {4.5.4.7}Update-Funktion}{78}{subsubsection.605}%
-\contentsline {subsubsection}{\numberline {4.5.4.8}Neue oder entfernte Items erkennen}{79}{subsubsection.611}%
-\contentsline {subsection}{\numberline {4.5.5}EventManager}{85}{subsection.723}%
-\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{87}{subsection.754}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Knapsack-Algorithmus}{87}{subsubsection.755}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Problemstellung}{87}{subsubsection.756}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{87}{subsubsection.757}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Typen des Knapsack-Problems}{89}{subsubsection.764}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Ansätze zur Lösung des Knapsack-Problems}{90}{subsubsection.770}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Anwendungen des Knapsack-Problems}{93}{subsubsection.819}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Auswahl des Implementierungsansatzes}{94}{subsubsection.825}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Das KnapsackSolver Game Objekt}{94}{subsubsection.830}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}KnapsackSolver Klassenvariablen}{95}{subsubsection.832}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Start des KnapsackSolvers}{96}{subsubsection.845}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{98}{subsubsection.883}%
-\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des eigenen Inventars}{100}{subsubsection.947}%
-\contentsline {subsubsection}{\numberline {4.5.6.13}InfoMesh aktualisieren}{101}{subsubsection.973}%
-\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{101}{subsection.980}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{103}{subsubsection.983}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{104}{subsubsection.985}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{105}{subsubsection.999}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{105}{subsubsection.1020}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{106}{subsubsection.1029}%
-\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{107}{section.1061}%
-\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{107}{subsection.1062}%
-\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{108}{subsection.1063}%
-\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{108}{subsection.1064}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{111}{chapter.1131}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{111}{section.1132}%
-\contentsline {section}{\numberline {5.2}Abnahme}{111}{section.1133}%
-\contentsline {section}{\numberline {5.3}Zukunft}{111}{section.1134}%
-\contentsline {chapter}{\numberline {A}Mockups}{112}{appendix.1135}%
-\contentsline {section}{\numberline {A.1}UI/UX}{112}{section.1136}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{112}{section.1137}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{112}{section.1138}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{112}{section.1139}%
-\contentsline {chapter}{\numberline {B}Literatur}{113}{appendix.1140}%
+\contentsline {subsection}{\numberline {3.2.1}Abläufe}{16}{subsection.77}%
+\contentsline {subsection}{\numberline {3.2.2}Mockups}{16}{subsection.79}%
+\contentsline {section}{\numberline {3.3}Eingesetzte Technologien}{16}{section.80}%
+\contentsline {subsection}{\numberline {3.3.1}Kriterien}{16}{subsection.81}%
+\contentsline {subsection}{\numberline {3.3.2}Game Engine}{17}{subsection.82}%
+\contentsline {subsubsection}{\numberline {3.3.2.1}Unity}{17}{subsubsection.83}%
+\contentsline {subsubsection}{\numberline {3.3.2.2}Unreal Engine}{17}{subsubsection.84}%
+\contentsline {subsubsection}{\numberline {3.3.2.3}Game Engine Auswahl und Wechsel im Projektverlauf}{18}{subsubsection.85}%
+\contentsline {subsection}{\numberline {3.3.3}Unity foundation packages}{19}{subsection.92}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}MRTK3}{19}{subsubsection.93}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}Microsoft OpenXR Plugin}{19}{subsubsection.95}%
+\contentsline {subsubsection}{\numberline {3.3.3.3}Integrationsprozess der Plugins}{20}{subsubsection.97}%
+\contentsline {subsection}{\numberline {3.3.4}Modellierungsprogramm}{20}{subsection.98}%
+\contentsline {subsubsection}{\numberline {3.3.4.1}Wie funktioniert Blender im Allgemeinen?}{21}{subsubsection.99}%
+\contentsline {chapter}{\numberline {4}Feinkonzept und Realisierung}{22}{chapter.100}%
+\contentsline {section}{\numberline {4.1}Entwicklungsumgebungen}{22}{section.101}%
+\contentsline {subsection}{\numberline {4.1.1}Visual Studio 2022}{22}{subsection.102}%
+\contentsline {subsection}{\numberline {4.1.2}Unity}{22}{subsection.103}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}Multidisziplinäre Unterstützung und Integration}{22}{subsubsection.104}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}Szenengestaltung und Asset-Management}{22}{subsubsection.105}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}Programmierung und Skripterstellung}{23}{subsubsection.106}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}Unterstützung für Augmented Reality (AR) und Virtual Reality (VR)}{23}{subsubsection.107}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}Erweiterte Debugging- und Profiling-Werkzeuge}{23}{subsubsection.108}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}Aufbau einer Unity-Applikation}{23}{subsubsection.109}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}Lebenszyklusmethoden in Unity}{23}{subsubsection.110}%
+\contentsline {subsubsection}{\numberline {4.1.2.8}Unity Szenen}{24}{subsubsection.111}%
+\contentsline {subsubsection}{\numberline {4.1.2.9}Unity Manager}{24}{subsubsection.113}%
+\contentsline {subsubsection}{\numberline {4.1.2.10}Unity GameObjects und Komponente}{25}{subsubsection.116}%
+\contentsline {subsubsection}{\numberline {4.1.2.11}Unity Canvas}{26}{subsubsection.118}%
+\contentsline {subsubsection}{\numberline {4.1.2.12}Unity Job System}{26}{subsubsection.120}%
+\contentsline {subsubsection}{\numberline {4.1.2.13}Photocapture Klasse}{27}{subsubsection.122}%
+\contentsline {subsubsection}{\numberline {4.1.2.14}Unity Prefabs}{27}{subsubsection.131}%
+\contentsline {subsection}{\numberline {4.1.3}Deployment der Anwendung}{28}{subsection.132}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Voraussetzungen für das Deployment}{28}{subsubsection.133}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Deployment-Prozess}{28}{subsubsection.134}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}Erstmaliges Deployment}{30}{subsubsection.136}%
+\contentsline {section}{\numberline {4.2}Objektdesign mit Blender}{30}{section.137}%
+\contentsline {subsection}{\numberline {4.2.1}Optimierung für Augmented Reality}{30}{subsection.138}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Polygonreduktion}{30}{subsubsection.139}%
+\contentsline {subsubsection}{\numberline {4.2.1.2}Texturenoptimierung}{31}{subsubsection.140}%
+\contentsline {subsection}{\numberline {4.2.2}Export- und Integrationsprozess}{31}{subsection.141}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}Dateiformat}{31}{subsubsection.142}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}Koordinatensysteme}{32}{subsubsection.144}%
+\contentsline {subsection}{\numberline {4.2.3}Add-Ons und Plugins}{32}{subsection.145}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}Looptools: Optimierung von Topologie und Oberflächen}{32}{subsubsection.146}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}Images as Planes: Effiziente Integration von Texturen}{33}{subsubsection.148}%
+\contentsline {subsection}{\numberline {4.2.4}Modi}{33}{subsection.149}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}Object-Modus}{33}{subsubsection.151}%
+\contentsline {subsubsection}{\numberline {4.2.4.2}Edit-Modus}{34}{subsubsection.152}%
+\contentsline {subsubsection}{\numberline {4.2.4.3}Texture-Paint-Modus}{34}{subsubsection.154}%
+\contentsline {subsection}{\numberline {4.2.5}Hierarchie}{34}{subsection.156}%
+\contentsline {subsection}{\numberline {4.2.6}Modifier}{34}{subsection.157}%
+\contentsline {subsection}{\numberline {4.2.7}Modellierung von Gegenständen für das Projekt}{35}{subsection.158}%
+\contentsline {subsubsection}{\numberline {4.2.7.1}Taschenrechner}{35}{subsubsection.159}%
+\contentsline {subsubsection}{\numberline {4.2.7.2}Restlichen Modelle}{40}{subsubsection.173}%
+\contentsline {section}{\numberline {4.3}Hauptmenü}{41}{section.185}%
+\contentsline {subsection}{\numberline {4.3.1}Erstentwurf}{42}{subsection.186}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Probleme beim Erstentwurf}{43}{subsubsection.189}%
+\contentsline {subsection}{\numberline {4.3.2}Finalversion des Menüs}{44}{subsection.192}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Finalversion Menü - Hauptmenü}{44}{subsubsection.193}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}Finalversion Menü - Anwendungsszenario}{46}{subsubsection.196}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{46}{subsubsection.198}%
+\contentsline {subsection}{\numberline {4.3.3}Laden der Level}{47}{subsection.221}%
+\contentsline {subsection}{\numberline {4.3.4}UI/UX}{48}{subsection.240}%
+\contentsline {section}{\numberline {4.4}Ping Scenario}{49}{section.241}%
+\contentsline {subsection}{\numberline {4.4.1}Aufbau von Ping Scenario}{49}{subsection.242}%
+\contentsline {subsection}{\numberline {4.4.2}Kabel erkennung}{50}{subsection.244}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Foto der umgebung schießen}{50}{subsubsection.245}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}Foto verarbeitung}{50}{subsubsection.246}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}Kabel finden}{51}{subsubsection.280}%
+\contentsline {subsubsection}{\numberline {4.4.2.4}Entfernung messen}{52}{subsubsection.328}%
+\contentsline {subsubsection}{\numberline {4.4.2.5}Bewegung des Packetes}{52}{subsubsection.329}%
+\contentsline {subsection}{\numberline {4.4.3}Starten und verwenden der Webseite}{52}{subsection.330}%
+\contentsline {subsection}{\numberline {4.4.4}Frontend der Webseite}{52}{subsection.331}%
+\contentsline {subsubsection}{\numberline {4.4.4.1}Designprozess}{53}{subsubsection.332}%
+\contentsline {subsubsection}{\numberline {4.4.4.2}Verwendete Programmiersprachen}{54}{subsubsection.337}%
+\contentsline {subsubsection}{\numberline {4.4.4.3}Funktionen der Webseite}{55}{subsubsection.347}%
+\contentsline {subsection}{\numberline {4.4.5}Backend der Webseite}{56}{subsection.371}%
+\contentsline {subsubsection}{\numberline {4.4.5.1}Protokoll zur Datenübertragung}{56}{subsubsection.372}%
+\contentsline {subsubsection}{\numberline {4.4.5.2}Bearbeitung von Anfragen}{57}{subsubsection.374}%
+\contentsline {subsection}{\numberline {4.4.6}Object Tracking}{58}{subsection.375}%
+\contentsline {subsection}{\numberline {4.4.7}Kurvenberechnung}{58}{subsection.376}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Szenario}{58}{section.377}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{58}{subsection.378}%
+\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{60}{subsection.380}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{60}{subsubsection.381}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{61}{subsubsection.410}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{64}{subsubsection.412}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}Bestimmen der Position QR-Codes}{65}{subsubsection.414}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}Visualisierung von QR-Codes}{65}{subsubsection.415}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}Zugriff auf QR-Codes bereitstellen}{65}{subsubsection.416}%
+\contentsline {subsection}{\numberline {4.5.3}Platzieren des Inventar Objekts}{65}{subsection.417}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}Das inventoryPlacementController Game Objekt}{66}{subsubsection.418}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}User Gaze in AR-Anwendungen}{67}{subsubsection.420}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}InventoryPlacementController Klasse}{67}{subsubsection.424}%
+\contentsline {subsubsection}{\numberline {4.5.3.4}Verwendung des Usergazes}{68}{subsubsection.456}%
+\contentsline {subsubsection}{\numberline {4.5.3.5}Frame Aktualisierung}{69}{subsubsection.469}%
+\contentsline {subsubsection}{\numberline {4.5.3.6}Platzieren des Inventar Objekts}{70}{subsubsection.517}%
+\contentsline {subsubsection}{\numberline {4.5.3.7}Sicht des Benutzers nach Abschluss des Skripts}{71}{subsubsection.539}%
+\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{72}{subsection.541}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{73}{subsubsection.543}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{73}{subsubsection.561}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}Bounds des Inventars aktuallisieren}{74}{subsubsection.573}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{74}{subsubsection.584}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{75}{subsubsection.591}%
+\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{76}{subsubsection.599}%
+\contentsline {subsubsection}{\numberline {4.5.4.7}Update-Funktion}{76}{subsubsection.605}%
+\contentsline {subsubsection}{\numberline {4.5.4.8}Neue oder entfernte Items erkennen}{77}{subsubsection.611}%
+\contentsline {subsection}{\numberline {4.5.5}EventManager}{83}{subsection.723}%
+\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{85}{subsection.754}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Knapsack-Algorithmus}{85}{subsubsection.755}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Problemstellung}{85}{subsubsection.756}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{85}{subsubsection.757}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Typen des Knapsack-Problems}{87}{subsubsection.764}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Ansätze zur Lösung des Knapsack-Problems}{88}{subsubsection.770}%
+\contentsline {subsubsection}{\numberline {4.5.6.6}Anwendungen des Knapsack-Problems}{91}{subsubsection.819}%
+\contentsline {subsubsection}{\numberline {4.5.6.7}Auswahl des Implementierungsansatzes}{92}{subsubsection.825}%
+\contentsline {subsubsection}{\numberline {4.5.6.8}Das KnapsackSolver Game Objekt}{92}{subsubsection.830}%
+\contentsline {subsubsection}{\numberline {4.5.6.9}KnapsackSolver Klassenvariablen}{93}{subsubsection.832}%
+\contentsline {subsubsection}{\numberline {4.5.6.10}Start des KnapsackSolvers}{94}{subsubsection.845}%
+\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{96}{subsubsection.883}%
+\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des eigenen Inventars}{98}{subsubsection.947}%
+\contentsline {subsubsection}{\numberline {4.5.6.13}InfoMesh aktualisieren}{99}{subsubsection.973}%
+\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{99}{subsection.980}%
+\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{101}{subsubsection.983}%
+\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{102}{subsubsection.985}%
+\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{103}{subsubsection.999}%
+\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{103}{subsubsection.1020}%
+\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{104}{subsubsection.1029}%
+\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{105}{section.1061}%
+\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{105}{subsection.1062}%
+\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{106}{subsection.1063}%
+\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{106}{subsection.1064}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{109}{chapter.1131}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{109}{section.1132}%
+\contentsline {section}{\numberline {5.2}Abnahme}{109}{section.1133}%
+\contentsline {section}{\numberline {5.3}Zukunft}{109}{section.1134}%
+\contentsline {chapter}{\numberline {A}Mockups}{110}{appendix.1135}%
+\contentsline {section}{\numberline {A.1}UI/UX}{110}{section.1136}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{110}{section.1137}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{110}{section.1138}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{110}{section.1139}%
+\contentsline {chapter}{\numberline {B}Literatur}{111}{appendix.1140}%
