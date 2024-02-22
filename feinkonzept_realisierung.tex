@@ -1810,7 +1810,6 @@ private int[,] idGrid;
 private KnapsackSolver knapsackSolver;
 private int cap;
 private int currWeight = 0;
-private string message;
 private HashSet<int> processedItems;
 \end{lstlisting}\\
 Die gezeigten Klassenvariablen im Codeabschnitt \ref{code:controller_var} sind Teil der \textit{InventoryController} Klasse.
@@ -1979,26 +1978,26 @@ void UpdateGrid()
         {
             QRCode qRCode = item.GetComponent<QRCode>();
             Vector3 worldPosition = item.transform.TransformPoint(qRCode.item.qrData.position);
+
             if (item != null && inventoryBounds.Contains(worldPosition))
             {
                 int itemId = qRCode.item.qrData.id;
+
                 if (!processedItems.Contains(itemId))
                 {
                     if (currWeight + qRCode.item.qrData.weight <= cap)
                     {
                         userInfo.text = "";
                         processedItems.Add(itemId);
-                        message = "";
                         Vector2 startGridPosition = CalculateGridPosition(worldPosition);
                         idGrid[(int)startGridPosition.x, (int)startGridPosition.y] = itemId;
-                        knapsackSolver?.UpdateInfoMesh(message);
+                        knapsackSolver?.UpdateInfoMesh("", Color.white);
                         currWeight += qRCode.item.qrData.weight;
                         EventManager.GridUpdate(idGrid);
                     }
                     else
                     {
-                        message = "Item hat zu viel Gewicht!";
-                        knapsackSolver?.UpdateInfoMesh(message);
+                        knapsackSolver?.UpdateInfoMesh("Item hat zu viel Gewicht!", Color.red);
                     }
                 }
             }
@@ -2357,43 +2356,14 @@ EventManager.GridUpdate(idGrid);
 Das auslösen des \textit{OnGridUpdate} Events wird durch den obigen Codeabschnitt erreicht. Dieser Codeabschnitt befindet
 sich in der \textit{InventoryController} Klasse und wird aufgerufen, wenn ein neues Item hinzugefügt oder entfernt wird.
 
-
 Insgesamt ermöglicht dieser simple Code eine lose Kopplung zwischen verschiedenen Teilen des Programms, indem Ereignisse verwendet
 werden, um auf bestimmte Aktionen zu reagieren, ohne dass die beteiligten Teile voneinander wissen müssen. Dadurch wird die
 Modularität, Erweiterbarkeit und Wartbarkeit der Anwendung gefördert.
 
-\subsection{Knapsack Solver Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
-Dieser Abschnitt befasst sich mit allem Rund um das Knapsack-Problem und auch mit dem  \textit{KnapsackSolver} GameObjekt,
-welches die Hauptrolle bei der Implementierung des Knapsack Algorithmus und der Berechnung des selbst zusammengestellten
-Inventars spielt. Diesem Game Objekt ist die Komponente \textit{KnapsackSolver.cs} angehängt, welches die \textit{KnapsackSolver}
-Klasse realisiert.
-
-Die \textit{KnapsackSolver} Klasse operiert in enger Zusammenarbeit mit der \textit{InventoryController} Klasse, um
-sicherzustellen, dass die Berechnungen stets auf der Grundlage des aktuellen individuell zusammengestellten Inventars des
-Benutzers erfolgen. Diese Interaktion gewährleistet eine präzise und aktuelle Verarbeitung der inventarbezogenen Informationen
-innerhalb der Applikation.\\
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{images/knapsackEditor}
-\caption{Knapsack Algorithmus Objekt im Editor}
-\label{fig:Knapsack_Editor}
-\end{figure}
-
-Die obrige Abbildung \ref{fig:Knapsack_Editor} zeigt, dass \textit{KnapsackSolver} Game Objekt im Unity Editor. Hier können verschiedene
-Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt liegt, die Koordinaten des Objekts im
-Unity Editor selbst und die angehängte Komponente \textit{KnapsackScript.cs}. Zudem sind vordefinierte Werte für
-bestimmte Variablen sichtbar. Diese Variablen umfassen:
-
-\begin{itemize}
-\item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level 2 Szene.
-\item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-\item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-\item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
-\item \textbf{Capacity:} Integer Wert der die Kapazität für den \textit{Knapsack Algorithmus} festlegt.
-\item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
-dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
-\end{itemize}
+\subsection{Das Knapsack Problem} \marginpar{\small\(\rightarrow\) SKREPEK}
+Dieser Abschnitt befasst sich mit allem Rund um das Thema des bekannten Optimierungsproblems des Knapsack-Problems, die
+Problemstellung, welche Varianten und Typen des Problems es gibt, die zwei bekanntesten Algorithmen zum Lösen des Problems
+und anschließend die Implementierung um das Problem zu lösen.
 
 \subsubsection{Knapsack-Algorithmus}
 Der Knapsack-Algorithmus ist ein grundlegendes Werkzeug in der Informatik, das sich mit der optimalen Ressourcenallokation
@@ -2565,7 +2535,6 @@ Lösung des Knapsack-Problems zu finden. Durch die systematische Berechnung und 
 ermöglicht der dynamische Programmieransatz eine Zeitkomplexität von \( O(n \cdot capacity) \), was für viele praktische
 Anwendungen akzeptabel ist.
 
-
 \subsubsection*{Aufbau und Interpretation der Tabelle der Teilprobleme}
 Die Tabelle der Teilprobleme spielt eine entscheidende Rolle bei der systematischen Lösung des Knapsack-Problems mithilfe
 des dynamischen Programmieransatzes. Sie ist eine zweidimensionale Matrix, die während des Algorithmusverlaufs generiert
@@ -2636,15 +2605,15 @@ ein Array von Werten (\( \textit{values} \)) und die Kapazität des Rucksacks (\
 dieses Ansatzes ist wie folgt:
 
 \begin{enumerate}
-    \item Zunächst wird für jeden Gegenstand das Verhältnis von Wert zu Gewicht berechnet und in einer Liste von Tupeln
-    gespeichert. Jedes Tupel enthält das Wert-Gewichts-Verhältnis sowie das Gewicht und den Wert des entsprechenden Gegenstands.
-    \item Die Liste der Gegenstände wird basierend auf dem Verhältnis von Wert zu Gewicht in absteigender Reihenfolge
-    sortiert, um die Gegenstände mit dem höchsten Verhältnis zuerst zu betrachten.
-    \item Der Algorithmus durchläuft die sortierte Liste der Gegenstände und versucht, jeden Gegenstand dem Rucksack
-    hinzuzufügen. Dabei wird überprüft, ob das Hinzufügen des Gegenstands das Gewichtslimit des Rucksacks überschreitet.
-    Falls dies der Fall ist, wird ein Teil des Gegenstands entsprechend dem verbleibenden verfügbaren Gewicht im Rucksack hinzugefügt.
-    \item Nachdem alle Gegenstände überprüft wurden, wird der Gesamtwert der im Rucksack enthaltenen Gegenstände zurückgegeben.
-    Dies stellt die Lösung des Problems dar.
+\item Zunächst wird für jeden Gegenstand das Verhältnis von Wert zu Gewicht berechnet und in einer Liste von Tupeln
+gespeichert. Jedes Tupel enthält das Wert-Gewichts-Verhältnis sowie das Gewicht und den Wert des entsprechenden Gegenstands.
+\item Die Liste der Gegenstände wird basierend auf dem Verhältnis von Wert zu Gewicht in absteigender Reihenfolge
+sortiert, um die Gegenstände mit dem höchsten Verhältnis zuerst zu betrachten.
+\item Der Algorithmus durchläuft die sortierte Liste der Gegenstände und versucht, jeden Gegenstand dem Rucksack
+hinzuzufügen. Dabei wird überprüft, ob das Hinzufügen des Gegenstands das Gewichtslimit des Rucksacks überschreitet.
+Falls dies der Fall ist, wird ein Teil des Gegenstands entsprechend dem verbleibenden verfügbaren Gewicht im Rucksack hinzugefügt.
+\item Nachdem alle Gegenstände überprüft wurden, wird der Gesamtwert der im Rucksack enthaltenen Gegenstände zurückgegeben.
+Dies stellt die Lösung des Problems dar.
 \end{enumerate}
 
 Der Greedy-Algorithmus bietet eine einfache und effiziente Lösung für das Knapsack-Problem, die jedoch nicht immer die
@@ -2662,23 +2631,23 @@ hat das Knapsack-Problem einen entscheidenden Einfluss auf die moderne Technolog
 
 Die Anwendungen des Knapsack-Problems lassen sich in vier Hauptbereiche unterteilen:
 \begin{enumerate}
-    \item \textbf{Logistik}: Der Knapsack-Algorithmus wird in der Logistik angewendet, um den Transport von Gütern mit
-    begrenzten Kapazitäten zu optimieren. Indem er die bestmögliche Auswahl von Gütern trifft, ermöglicht er Logistikunternehmen,
-    ihre Transportkosten zu minimieren und die Effizienz ihrer Lieferketten zu steigern. Dies kann die Planung von LKW-Routen,
-    die Beladung von Containern oder die Organisation von Waren in Lagern umfassen.
-    \item \textbf{Finanzplanung}: In der Finanzplanung wird der Knapsack-Algorithmus genutzt, um Portfolios von Investitionen
-    zu optimieren. Investoren können mithilfe dieses Algorithmus eine Auswahl von Wertpapieren treffen, die das Risiko
-    minimieren und den erwarteten Ertrag maximieren. Dies kann die Diversifizierung von Anlagen, die Auswahl von Aktien
-    oder die Verwaltung von Fonds umfassen.
-    \item \textbf{Ressourcenmanagement}: Der Knapsack-Algorithmus wird im Ressourcenmanagement verwendet, um die effiziente
-    Nutzung begrenzter Ressourcen sicherzustellen. Dies kann in der Produktion erfolgen, wo Arbeitskräfte, Maschinen und
-    Materialien effizient zugewiesen werden müssen, oder im Projektmanagement, um Zeit und Budgets zu optimieren. Durch
-    die Anwendung des Knapsack-Problems können Unternehmen ihre Produktivität steigern und Kosten senken.
-    \item \textbf{Netzwerkoptimierung}: In der Netzwerkoptimierung spielt der Knapsack-Algorithmus eine wichtige Rolle
-    bei der Planung und Optimierung von verschiedenen Arten von Netzwerken. Dies kann die Optimierung von Transportrouten,
-    die Verteilung von Ressourcen in Computernetzwerken oder die Verbesserung der Bandbreitenauslastung in Telekommunikationsnetzen
-    umfassen. Der Einsatz des Knapsack-Problems ermöglicht es, die Leistung von Netzwerken zu verbessern und Engpässe zu
-    minimieren.\footnote{GeeksForGeeks, \cite{Introduction to Knapsack Problem, its Types and How to solve them}}
+\item \textbf{Logistik}: Der Knapsack-Algorithmus wird in der Logistik angewendet, um den Transport von Gütern mit
+begrenzten Kapazitäten zu optimieren. Indem er die bestmögliche Auswahl von Gütern trifft, ermöglicht er Logistikunternehmen,
+ihre Transportkosten zu minimieren und die Effizienz ihrer Lieferketten zu steigern. Dies kann die Planung von LKW-Routen,
+die Beladung von Containern oder die Organisation von Waren in Lagern umfassen.
+\item \textbf{Finanzplanung}: In der Finanzplanung wird der Knapsack-Algorithmus genutzt, um Portfolios von Investitionen
+zu optimieren. Investoren können mithilfe dieses Algorithmus eine Auswahl von Wertpapieren treffen, die das Risiko
+minimieren und den erwarteten Ertrag maximieren. Dies kann die Diversifizierung von Anlagen, die Auswahl von Aktien
+oder die Verwaltung von Fonds umfassen.
+\item \textbf{Ressourcenmanagement}: Der Knapsack-Algorithmus wird im Ressourcenmanagement verwendet, um die effiziente
+Nutzung begrenzter Ressourcen sicherzustellen. Dies kann in der Produktion erfolgen, wo Arbeitskräfte, Maschinen und
+Materialien effizient zugewiesen werden müssen, oder im Projektmanagement, um Zeit und Budgets zu optimieren. Durch
+die Anwendung des Knapsack-Problems können Unternehmen ihre Produktivität steigern und Kosten senken.
+\item \textbf{Netzwerkoptimierung}: In der Netzwerkoptimierung spielt der Knapsack-Algorithmus eine wichtige Rolle
+bei der Planung und Optimierung von verschiedenen Arten von Netzwerken. Dies kann die Optimierung von Transportrouten,
+die Verteilung von Ressourcen in Computernetzwerken oder die Verbesserung der Bandbreitenauslastung in Telekommunikationsnetzen
+umfassen. Der Einsatz des Knapsack-Problems ermöglicht es, die Leistung von Netzwerken zu verbessern und Engpässe zu
+minimieren.\footnote{GeeksForGeeks, \cite{Introduction to Knapsack Problem, its Types and How to solve them}}
 \end{enumerate}
 
 Die Untersuchung dieser Anwendungen veranschaulicht die Vielseitigkeit und Effektivität des Knapsack-Problems bei der Lösung
@@ -2698,23 +2667,53 @@ Flexibilität in Bezug auf unterschiedliche Problemvarianten und die Genauigkeit
 Diese überlegungen werden anschließend ausführlich diskutiert und die Gründe für die Wahl des dynamischen Ansatzes als
 Implementierungsstragie für den Knapsack-Algorithmus erläutert:
 \begin{enumerate}
-    \item \textbf{Perfekte Lösungsgarantie}: Der dynamische Ansatz bietet die Möglichkeit, eine perfekte Lösung für das
-    Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige
-    Lösung erforderlich ist, um optimale Entscheidungen zu treffen.
-    \item \textbf{Effizienz}: Obwohl der dynamische Ansatz im Vergleich zum Greedy-Ansatz einen höheren Rechenaufwand
-    erfordert, bietet er dennoch eine effiziente Lösung für das Knapsack-Problem. Durch die Verwendung von dynamischer
-    Programmierung können Teilprobleme effizient gelöst und die Gesamtlösung optimiert werden.
-    \item \textbf{Flexibilität}: Der dynamische Ansatz ist flexibel und kann auf verschiedene Varianten des Knapsack-Problems
-    angewendet werden, einschließlich 0/1-Knapsack, unbeschränktem Knapsack und anderen Typen. Dadurch ist er vielseitig
-    einsetzbar und kann an die spezifischen Anforderungen einer Anwendung angepasst werden.
-    \item \textbf{Genauigkeit}: Durch die Verwendung des dynamischen Ansatzes können exakte Werte für den maximal erreichbaren
-    Wert des Rucksacks und die optimale Auswahl von Gegenständen berechnet werden. Dies ermöglicht eine präzise Bewertung
-    und Planung basierend auf den berechneten Ergebnissen.
+\item \textbf{Perfekte Lösungsgarantie}: Der dynamische Ansatz bietet die Möglichkeit, eine perfekte Lösung für das
+Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige
+Lösung erforderlich ist, um optimale Entscheidungen zu treffen.
+\item \textbf{Effizienz}: Obwohl der dynamische Ansatz im Vergleich zum Greedy-Ansatz einen höheren Rechenaufwand
+erfordert, bietet er dennoch eine effiziente Lösung für das Knapsack-Problem. Durch die Verwendung von dynamischer
+Programmierung können Teilprobleme effizient gelöst und die Gesamtlösung optimiert werden.
+\item \textbf{Flexibilität}: Der dynamische Ansatz ist flexibel und kann auf verschiedene Varianten des Knapsack-Problems
+angewendet werden, einschließlich 0/1-Knapsack, unbeschränktem Knapsack und anderen Typen. Dadurch ist er vielseitig
+einsetzbar und kann an die spezifischen Anforderungen einer Anwendung angepasst werden.
+\item \textbf{Genauigkeit}: Durch die Verwendung des dynamischen Ansatzes können exakte Werte für den maximal erreichbaren
+Wert des Rucksacks und die optimale Auswahl von Gegenständen berechnet werden. Dies ermöglicht eine präzise Bewertung
+und Planung basierend auf den berechneten Ergebnissen.
 \end{enumerate}
 
 In Anbetracht dieser Überlegungen wurde der dynamische Ansatz als die geeignete Methode zur Implementierung des Knapsack-Algorithmus
 in dieser Applikation gewählt. Seine Fähigkeit, eine perfekte Lösung zu garantieren, kombiniert mit seiner Effizienz und
 Flexibilität, macht ihn zu einer idealen Wahl für die Behandlung des Knapsack-Problems in diesem Kontext.
+
+\subsubsection{Das KnapsackSolver Game Objekt}
+Das KnapsackSolver Unity Game Objekt in folgender Abbildung \ref{fig:Knapsack_Editor} ist hauptverantwortlich für die
+Realisierung des Knapsack Algorithmus. Dieses Objekt hat die angehängte Komponente \texit{KnapsackSolver.cs} welche das
+Skript für die Implementierung widerspiegelt und die \textbf{KnapsackSolver} Klasse implementiert.
+
+Diese Klasse operiertin enger Zusammenarbeit mit der \textit{InventoryController} Klasse, um sicherzustellen, dass die
+Berechnungen stets auf der Grundlage des aktuellen individuell zusammengestellten Inventars des Benutzers erfolgen. Diese
+Interaktion zwischen den beiden Klassen gewährleistet eine präzise und aktuelle Verarbeitung der inventarbezogenen
+Informationen innerhalb der Applikation.\\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{images/knapsackEditor}
+    \caption{KnapsackSolver Objekt im Editor}
+    \label{fig:Knapsack_Editor}
+\end{figure}
+
+Anzumerken auf dieser Abbildung sind die Werte des \textit{KnapsackSolver} Skripts, die direkt im Unity Inspektor verändert
+und übergeben werden können. Diese Werte und deren Beschreibung sind die folgenden:
+
+\begin{itemize}
+    \item \textbf{QRCodesManager:} Referenz auf das \textit{QRCodesManager} Game Objekt aus der Level-2 Szene.
+    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem \textit{infoObjekt} aus der Level 2 Szene.
+    \item \textbf{Capacity:} Integer Wert, der die Kapazität für den \textit{Knapsack Algorithmus} festlegt.
+    \item \textbf{Max Items:} Repräsentiert die maximale Anzahl an Items die in das Inventar gelegt werden können. Dies
+    dient als extra Bedingung für den \textit{Knapsack Algorithmus}.\\
+\end{itemize}
 
 \subsubsection{KnapsackSolver Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen des KnapsackSolvers}, label=code:Klassenvariablen_kn]
@@ -2766,11 +2765,10 @@ public void SetInventory(int[,] newInventory)
     CalculateKnapsack();
 }
 \end{lstlisting}
-
-\subsubsection{Starten der Berechnung}
+\\
 Um stets mit dem aktuellen Inventar zu rechnen, wird bei jedem mal, bei dem die \textbf{SetInventory()} Funktion
 aufgerufen wird, das aktuelle Inventar (\textit{inventory}) mit dem neuen Inventar in dem ein neues Item enthalten ist
-(\textit{newInventory}) aktualisiert. Um anschließend die tatsächlichen Werte zu berechnen, wird die \textbf{CalculateKnapsack()}
+(\textit{newInventory}) aktualisiert, um anschließend die tatsächlichen Werte zu berechnen, wird die \textbf{CalculateKnapsack()}
 Funktion aufgerufen. Der Code zu dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Berechnungsfunktion}, label=code:kn_calc]
 void CalculateKnapsack()
@@ -2783,8 +2781,7 @@ void CalculateKnapsack()
         inventoryValue = KnapsackInventoryValue(inventory);
         if (maxValue == inventoryValue)
         {
-            infoMesh.color = Color.green;
-            infoMesh.text = "Maximale Punktzahl erreicht";
+            UpdateInfoMesh("Optimale Lösung gefunden", Color.green);
         }
         else
         {
@@ -2799,43 +2796,37 @@ void CalculateKnapsack()
 }
 \end{lstlisting}\\
 \\
-Die Funktion \textbf{CalculateKnapsack()} startet den Algorithmus zur Berechnung des Knapsackproblems. Zunächst wird eine
-Variable \textit{maxValue} initialisiert, welche den maximal erreichbaren Wert des Rucksacks repräsentiert. Diese wird
-durch den Aufruf der Funktion \textbf{KnapsackMaxValue()} initialisiert, wobei auch eine Liste von \textit{usedItems}
-als Ausgabe zurückgegeben wird. Diese Liste repräsentiert die in der \textit{perfekten Lösung} enthaltenen Items.
+Diese Funktion stellt den Start des Knapsack-Algorithmus als auch der Berechnung des eigenen Inventars dar. Der berechnete
+maximale erreichbare Wert, der von Funktion \textbf{KnapsackMaxValue} errechnet und zurückgegeben wird, wird der Variable
+\textit{maxValue} zugewiesen für späteres vergleichen. Auch gibt diese Funktion das Array welches eine perfekte Lösung
+repräsentiert zurück (\textit{out usedItems}).
 
-Anschließend wird die Variable \textit{inventoryValue} initialisiert und auf -1 gesetzt, um in dem Fall eines Fehlers
-keinen Programm-Crash zu verursachen. Die Funktion \textbf{KnapsackMaxValue()} wird anhand eines \textit{try-catch} Blocks
-versucht auszuführen, wobei der Wert des aktuellen Inventars als Argument übergeben wird. Falls dieser Wert erfolgreich
-berechnet wird, wird er der Variable \textbf{inventoryValue} zugewiesen.
-
-Nach der Berechnung des maximal erreichbaren Werts (\textit{maxValue}) des Rucksacks wird geprüft, ob dieser Wert mit dem
-Wert des aktuellen Inventars (\textit{inventoryValue}) übereinstimmt. Eine solche Übereinstimmung deutet darauf hin, dass
-der Benutzer eine perfekte Lösung gefunden hat. Diese Optimalität wird visuell durch die Farbänderung des \textit{infoMesh}
-auf Grün und die Anzeige einer entsprechenden Erfolgsmeldung verdeutlicht. Im Gegensatz dazu wird bei Abweichungen zwischen
-dem maximal erreichbaren Wert und dem Wert des aktuellen Inventars der Text des \textit{infoMesh} gelöscht, um vorherige
-Meldungen zu entfernen und das Feedbackfeld zu bereinigen.
-
-Nachdem der Wert des zusammengestellten Inventars berechnet wurde, wird dieser im \textit{ownMesh} angezeigt. Sollte während
-dieser Berechnung ein Fehler auftreten, wird eine entsprechende Fehlermeldung in die \textit{Log-Datei} geschrieben, um
-die Fehlerbehandlung und -verfolgung zu unterstützen.\\
+Um dem Benutzer anzuzeigen, was der errechnte maximal erreichbare Wert ist, wird anschließend der Text des \textit{maxMash}
+geändert, um diesen anzuzeigen. Bei der Berechnung des individuell zusammengestellten Inventars wird hier aus Sicherheitsgründen
+ein \textit{try/catch} Block durchlaufen um potenzielle Fehler und einen dadurch verursachten Programmcrash zu vermeiden.
+In diesem Block wird versucht, das eigene Inventar anhand des zusammengestellten Inventars (\textit{inventory}) zu berechnen.
+Darauffolgend wird nun überprüft, ob der Benutzer mit seiner Lösung eine perfekte Lösung gefunden hat und in diesem Fall,
+wird das \textit{infoMesh} anhand der \textbf{UpdateInfoMesh} Funktion mit einer dementsprechenden Erfolgsmeldung und Farbe
+aktualisiert. Falls dies nicht der Fall ist, bleibt dieses einfach leer. Nach dieser Überpüfung der errechnete Wert des
+Inventars in dem \textit{ownMesh} dargestellt, um dem Benutzer zu zeigen, was dieser erreicht hat.
 \\
-Um den beschriebenen Zustand der Erreichung einer perfekten Lösung zu verdeutlichen, wird im Folgenden ein Beispiel herangezogen.
+\\
+Um den beschriebene Fall zu veranschaulichen, in dem der Benutzer eine perfekte Lösung gefunden hat, wird hierzu ein Beispiel
+herangezogen.
 
 \begin{quote}
-Wie der beschriebene Ablauf, des findens einer perfekten Lösung aussieht, ist in folgender Abbildung \ref{fig:foundperfsol}
-zu sehen.
+Angenommen, der Benutzer stellt ein Inventar zusammen, welches den maximal möglichen Wert erreicht. Nach erneutem Berechnen
+wird dem Benutzer wie in folgender Abbildung \ref{fig:foundperfsol} anschließend folgende Ansicht präsentiert:
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{images/foundperfsol}
-\caption{Sicht des Benutzers nach finden einer perfekten Lösung}
-\label{fig:foundperfsol}
+    \centering
+    \includegraphics[scale=0.6]{images/foundperfsol}
+    \caption{Eine perfekte Lösung gefunden}
+    \label{fig:foundperfsol}
 \end{figure}
-
-% TODO: Bild machen mit perfekten Lösung und in folgendem Text IDs einfügen
+TODO: Bild machen mit perfekten Lösung und in folgendem Text IDs einfügen\\
 Auf dieser Abbildung ist zu sehen, dass das Inventar mit den Gegenständen mit folgenden \textit{IDs}: ., .,. ,. ,. befüllt
 ist und der errechnete Wert dieses Inventars dem der perfekten Lösung gleicht. Diese Erkenntnis ist anhand des \textit{infoMesh}
-zu erkennen in dem eine Erfolgsnachricht in grüner Farbe dargestellt ist.
+zu erkennen, in dem eine Erfolgsnachricht in grüner Farbe dargestellt ist.
 \end{quote}
 
 \subsubsection{Knapsack-Algorithmus Implementierung}
@@ -2922,24 +2913,6 @@ Zusätzlich wird ein Array von booleschen Werten namens \textit{selected} erstel
 Gegenstände zu markieren, die ausgewählt wurden (\textit{selected = true}). Dieses Array wird verwendet, um im zweiten
 Teil der Funktion die perfekte Lösung zusammenzustellen.\\
 
-Der zweite Teil dieses Codes, der sich um das \textit{Backtracking} der in der perfekten Lösung verwendeten Items kümmert,
-beginnt damit, dass Variablen initialisiert werden, um den aktuellen Zeilen- und Spaltenindex in dem \textit{selected}
-Array zu verfolgen, sowie \textit{Indezes} für das temporäre Array, die die ausgewählten Gegenstände speichert. Zunächst
-wird eine Schleife gestartet, um durch das \textit{selected} Array
-zu iterieren und die ausgewählten Gegenstände zu identifizieren.
-
-Während der Iteration werden Bedingungen überprüft, um zu entscheiden, ob ein Gegenstand ausgewählt wurde. Wenn ein
-Gegenstand ausgewählt wird, wird seine \textit{ID} in das temporäre Array (\textit{tempUsedItems})eingefügt, und die
-Position in der Tabelle wird aktualisiert, indem das Gewicht des ausgewählten Gegenstands von der aktuellen Kapazität
-subtrahiert wird. Die Schleife durchläuft die Tabelle und fährt fort, bis entweder die erste Zeile oder Spalte erreicht
-wird oder die maximal zulässige Anzahl von ausgewählten Gegenständen erreicht ist.
-
-Wenn ein Gegenstand ausgewählt wird, wird seine ID in die temporäre Matrix eingefügt, um die ausgewählten Gegenstände zu
-speichern. Die Indizes der temporären Matrix werden aktualisiert, um den nächsten verfügbaren Speicherplatz zu zeigen.
-Andernfalls wird der Zeilenindex dekrementiert, um zur vorherigen Zeile in des \textit{selected} Arrays zu gehen.
-
-Am Ende der Funktion wird der Wert von \textit{usedItems} mit dem ermittelten Array \textit{tempUsedItems} überschrieben
-und der maximale Wert des Rucksacks wird zurückgegeben.
 \subsubsection*{Aufbau und Interpretation der selected Tabelle}
 Angenommen, es sind die folgenden  5 Gegenstände (indiziert von 1 bis 5) mit den folgenden Werten und Gewichten gegeben:
 \[
@@ -2988,17 +2961,36 @@ Matrix gibt an, ob der entsprechende Gegenstand in der perfekten Lösung des Kna
 oder nicht (\textit{false}). Als Beispiel zeigt die Zelle $selected[4][3]$, dass der Gegenstand 4 in der perfekten Lösung
 miteinbezogen wurde, als die Kapazität des Rucksacks 3 betrug. Diese Informationen ermöglichen folgende Schlussfolgerungen:
 \begin{enumerate}
-    \item Der Index \textbf{i} in $selected[i][j]$ repräsentiert den Gegenstand, der in Betracht gezogen wird.
-    \item Der Index \textbf{j} in $selected[i][j]$ gibt die Kapazität des Rucksacks an, die für diese Teillösung verwendet
-    wurde.
+\item Der Index \textbf{i} in $selected[i][j]$ repräsentiert den Gegenstand, der in Betracht gezogen wird.
+\item Der Index \textbf{j} in $selected[i][j]$ gibt die Kapazität des Rucksacks an, die für diese Teillösung verwendet
+wurde.
 \end{enumerate}
 
+Der zweite Teil der Funktion, der sich um das \textit{Backtracking} der in der perfekten Lösung verwendeten Items kümmert,
+beginnt damit, dass Variablen initialisiert werden, um den aktuellen Zeilen- und Spaltenindex in dem \textit{selected}
+Array zu verfolgen, sowie \textit{Indezes} für das temporäre Array, die die ausgewählten Gegenstände speichert. Zunächst
+wird eine Schleife gestartet, um durch das \textit{selected} Array
+zu iterieren und die ausgewählten Gegenstände zu identifizieren.
+
+Während der Iteration werden Bedingungen überprüft, um zu entscheiden, ob ein Gegenstand ausgewählt wurde. Wenn ein
+Gegenstand ausgewählt wird, wird seine \textit{ID} in das temporäre Array (\textit{tempUsedItems})eingefügt, und die
+Position in der Tabelle wird aktualisiert, indem das Gewicht des ausgewählten Gegenstands von der aktuellen Kapazität
+subtrahiert wird. Die Schleife durchläuft die Tabelle und fährt fort, bis entweder die erste Zeile oder Spalte erreicht
+wird oder die maximal zulässige Anzahl von ausgewählten Gegenständen erreicht ist.
+
+Wenn ein Gegenstand ausgewählt wird, wird seine ID in die temporäre Matrix eingefügt, um die ausgewählten Gegenstände zu
+speichern. Die Indizes der temporären Matrix werden aktualisiert, um den nächsten verfügbaren Speicherplatz zu zeigen.
+Andernfalls wird der Zeilenindex dekrementiert, um zur vorherigen Zeile in des \textit{selected} Arrays zu gehen.
+
+Am Ende der Funktion wird der Wert von \textit{usedItems} mit dem ermittelten Array \textit{tempUsedItems} überschrieben
+und der maximale Wert des Rucksacks wird zurückgegeben.
+
 \subsubsection{Berechnung des eigenen Inventars}
-Die letzte Berechnugn die in dem \textit{KnapsackSolver} durchgeführt wird, ist die Berechnung des eigenen Inventars. Dies
-wird mittels der \textbf{KnapsackInventoryValue()} Funktion erreicht. Der Code dieser Funktion:
+Die letzte Berechnung, die durchgeführt wird, ist die Berechnung des eigenen Inventars. Dies wird mittels der \textbf{KnapsackInventoryValue()}
+Funktion erreicht. Der Code dieser Funktion:
 \begin{lstlisting}[style=csharp, caption={Funktion um eigenes Inventar zu brechnen}]
 public int KnapsackInventoryValue(int[,] inventory)
-    {
+{
     if (inventory == null)
     {
         throw new System.Exception("Inventory is null");
@@ -3041,32 +3033,63 @@ Der \textit{KnapsackSolver} enthält zwei Funktionen, die sowohl in der Klasse s
 die zweite Funktion ist die folgende:
 
 \begin{lstlisting}[style=csharp, caption={Funktion um InfoMesh zu verändern}]
-public void UpdateInfoMesh(string input)
+public void UpdateInfoMesh(string input, Color color)
 {
-    infoMesh.color = Color.red;
+    infoMesh.color = color;
     infoMesh.text = input;
 }
 \end{lstlisting}
-Diese Funktion wird von der Klasse \textit{InventoryController} verwendet und sie dient dazu, das \textit{infoMesh} mit
-einem neuen Text zu aktualisieren und rot zu färben, um dem Benutzer Fehler anzuzeigen.
+Diese Funktion ist wichtig für das Ändern der Fehlermeldungen, Erfolgsmeldungen als auch der Farbe des Textes in dem
+\textit{infoMesh} und sie wird von dieser Klasse selbst auch im \textit{InventoryController} verwendet.
 
-\subsection{Best Solution Prefab Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
-Das \textit{best solution prefab} nimmt eine zentrale Rolle im weiteren Verlauf der Applikation ein. Mittels des angefügten
-\textit{PerfectSolutionVisualizer.cs} Skripts wird die \textbf{PerfectSolutionVisualizer} Klasse implementiert, die die
-Visualisierung der zuvor berechneten optimalen Lösung ermöglicht. Diese Visualisierung ist von entscheidender Bedeutung,
-um dem Benutzer die bestmögliche Lösung aufzuzeigen, ihr Erscheinungsbild zu veranschaulichen und die enthaltenen Elemente
-dieser Lösung deutlich zu machen.
+\subsection{Anzeigen der perfekten Lösung}\marginpar{\small\(\rightarrow\) SKREPEK}
+Im zweiten Anwendungsszenario ist das Anzeigen der perfekten Lösung von entscheidender Bedeutung. Es ermöglicht dem Benutzer,
+eine perfekte Lösung zu visualisieren, um zu verstehen, wie sie aussieht und welche Gegenstände sie enthält.
+
+Für die Umsetzung dieser Funktion wird das \textit{bestSolutionPrefab} verwendet. Dieses Prefab erfüllt nicht nur die
+Rolle eines allgemeinen Vorlagenobjekts für die perfekte Lösung, sondern dient auch als Träger einer wichtigen Komponente,
+nämlich des \textit{PerfectSolutionVisualizer.cs} Skripts. Durch die Implementierung der \textbf{PerfectSolutionVisualizer}
+Klasse bietet dieses Skript eine Vielzahl grundlegender Funktionen, die für die Darstellung der perfekten Lösung von
+entscheidender Bedeutung sind.
+
+Die Struktur und Hierarchie des Prefabs im Unity Editor sind entsprechend konzipiert, um eine effektive und übersichtliche
+Verwaltung zu gewährleisten. Die visuelle Darstellung sowie die logische Organisation der enthaltenen Elemente sind darauf
+ausgerichtet, dem Entwickler eine intuitive Handhabung und Anpassung zu ermöglichen.
+
+Eine sorgfältige Gestaltung und Implementierung des \textit{bestSolutionPrefab} und des zugehörigen \textit{PerfectSolutionVisualizer.cs}
+Skripts sind entscheidend, um dem Benutzer ein nahtloses und aussagekräftiges Erlebnis zu bieten. Durch die präzise
+Visualisierung und die transparente Darstellung der perfekten Lösung kann der Benutzer nicht nur die Optimierungsmöglichkeiten
+des Knapsack-Problems besser verstehen, sondern auch wichtige Einblicke in die Funktionsweise des Algorithmus gewinnen.
+Das Prefab welches dies erreicht, ist in folgender Abbildung \ref{fig:InvPref} zu sehen:
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.8]{images/bestSolPref_Editor}
-    \caption{bestSolutionPrefab im Unity Editor}
-    \label{fig:bestSol_Editor}
+\centering
+\includegraphics[scale=1]{images/bestSolPref}
+\caption{Prefab Hirarchie und Aufbau im Unity Editor}
+\label{fig:InvPref}
 \end{figure}
 
-In Abbildung \ref{fig:bestSol_Editor} ist das \textit{bestSolutionPrefab} im Unity Editor dargestellt. Hier können
-verschiedene Einstellungen vorgenommen werden, darunter die Ebene, in der dieses Objekt platziert ist, die Koordinaten
-des Objekts im Unity Editor selbst sowie die angehängte Komponente \textit{PerfectSolutionVisualizer.cs}. Des Weiteren
-sind vordefinierte Werte für bestimmte Variablen sichtbar. Diese Variablen umfassen:
+Auf dieser Abbildung ist sowohl die Hierarchie als auch der allgemeine Aufbau des Prefabs zu sehen. Die Hierarchie dieses
+Prefabs zeigt, dass es aus dem Inventar-Objekt besteht, unter dem mehrere einzelne \textit{QRCode} Prefabs angeordnet sind.
+Besonders wichtig ist die Anordnung der \textit{QRCode} Prefabs. In jeder einzelnen Zelle des Inventar-Objekts befindet
+sich jeweils ein Prefab, wie in der Abbildung dargestellt. Dies dient dazu, anhand der errechneten und gespeicherten
+perfekten Lösung das Prefab und die darin enthaltenen QRCode-Prefabs wie ein Array durchlaufen zu können. Mithilfe der
+eindeutigen ID jedes QRCode-Prefabs kann dann das darin gespeicherte Modell aktiviert werden. Dies stellt die Grundlage
+für das Anzeigen einer perfekten Lösung dar.
+\\
+\\
+Das dem Prefab angehängte Script benötigt Zugriff auf mehrere verschiedene Objekte, um erfolgreich zu funktionieren. In
+folgender Abbildung \ref{code:bestSol_Editor} ist das Game Objekt selbst in Unity zu sehen.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{images/bestSolPref_Editor}
+\caption{Game Objekt im Unity Editor}
+\label{fig:bestSol_Editor}
+\end{figure}
+
+Auf dieser Abbilding ist das \textit{bestSolutionPrefab} Game Objekt mit den zugehörigen Komponenten in Unity selbst zu
+sehen. An der Komponente welches das Skript repräsentiert ist zu sehen, dass dieses vier zu übergebende Objekte benötigt.
+Darunter sind die folgenden:
 \begin{itemize}
     \item \textbf{Inventory Object:} Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
     \item \textbf{Inventory Placement Object:} Eine Referenz auf das \textit{inventoryPlacement} Game Objekt.
@@ -3074,43 +3097,29 @@ sind vordefinierte Werte für bestimmte Variablen sichtbar. Diese Variablen umfa
     \item \textbf{Inventory:} Eine Referenz auf das \textit{Inventory} Modell, das im Best Solution Prefab enthalten ist.
 \end{itemize}
 
+\subsubsection{Auslöser des Skripts}
+Der Skript-Prozess zur Anzeige der perfekten Lösung wird durch einen simplen Knopfdruck ausgelöst. Der Knopf befindet
+sich innerhalb des \textit{infoObject}, welches als Container für verschiedene Informationen oder Steuerelemente betrachtet
+werden kann.
+
+Wenn der Benutzer auf diesen Knopf klickt, startet das Skript zur Darstellung der perfekten Lösung. Es führt die notwendigen
+Funktionen und Abläufe aus, um die perfekte Lösung zu visualisieren.
+
+Abbildung \ref{fig:ScrAuf} zeigt den Aufruf des Skripts und verdeutlicht den Zusammenhang zwischen dem Knopf im \textit{infoObject}
+und dem Start des Skripts. Durch diese klare Verbindung können Benutzer die perfekte Lösung leichter abrufen und verstehen,
+was den gesamten Prozess zugänglicher macht.
+
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.8]{images/bestSolPref}
-    \caption{Inventar Prefab Hirarchie im Unity Editor}
-    \label{fig:InvPref}
+\centering
+\includegraphics[scale=0.8]{images/perfSolBut}
+\caption{Script Aufruf bei Knopfdruck}
+\label{fig:ScrAuf}
 \end{figure}
 
-Abbildung \ref{fig:InvPref} zeigt die Struktur des Prefabs für die perfekte Lösung. Hierbei ist zu erkennen, dass das
-Haupt-Game-Objekt das Game-Objekt \textit{Inventory} enthält. Dieses \textit{Inventory}-Game-Objekt repräsentiert das
-3D-Modell des Inventars. Des Weiteren hat dieses \textit{Inventory}-Game-Objekt mehrere untergeordnete Prefabs. Diese
-\textit{QRItem}-Prefabs sind entscheidend, um basierend auf der ID das entsprechende Modell anzuzeigen. Die Gesamtstruktur
-des Prefabs sieht dann im Unity-Editor wie folgt aus:
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/prefShow}
-    \caption{Inventar Prefab im Unity Editor}
-    \label{fig:InvPrefUn}
-\end{figure}
-In dieser Abbildung ist zu erkennen, dass das \textit{QRItem1}-Prefab in der linken oberen Ecke (\textit{Index 0 des inventars})
-positioniert ist. Des Weiteren sind alle \textit{QRItems} in den Zellen des Inventars angeordnet, um später anhand eines
-Index das entsprechende Array zu durchlaufen, in dem die perfekte Lösung gespeichert ist. Auf diese Weise können die
-zugehörigen Modelle in den entsprechenden \textit{QRItems} aktiviert und angezeigt werden.
-
-\subsubsection{Script Aufruf}
-Um die perfekte Lösung zu visualisieren, wird das \textit{PerfectSolutionVisualizer.cs}-Skript durch einen Knopfdruck
-gestartet. Der zugehörige Knopf, der für das Auslösen dieses Skripts zuständig ist, befindet sich in dem Objekt
-\textit{infoObject}. Der Aufruf dieses Skripts ist in der folgenden Abbildung \ref{fig:ScrAuf} dargestellt:
-    \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.8]{images/perfSolBut}
-    \caption{Script Aufruf bei Knopfdruck}
-    \label{fig:ScrAuf}
-\end{figure}
-In dieser Abbildung sind die Komponenten des \textit{BestSolutionButton} zu sehen. Der zentrale Bestandteil dieser Abbildung
-ist das Skript \textit{PressableButton}. Dieses Skript stellt die Funktion \textbf{OnClicked()} bereit, die einen einfachen
-Knopfdruck implementiert. In dieser Funktion wird in diesem Fall die \textit{Start()}-Funktion des Skripts
-\textit{PerfectSolutionVisualizer.cs} aufgerufen, um das Skript zu starten.
+Auf dieser Abbildung ist zusätzlich noch anzumerken, dass das interaktive drücken eines Knopfes durch das bereitgestellte
+Skript \textit{PressableButton} möglich gemacht wird. Dieses Skript stellt die Funktion \textbf{OnClicked()} bereit, welche
+einen simplen Knopfdruck implementiert. Diese Funktion löst bei Knopfdruck anschließend die \textbf{Start()} Funktion des
+\textit{bestSolutionVisualizer} aus.
 
 \subsubsection{PerfectSolutionVisualizer Klassenvariablen}
 \begin{lstlisting}[style=csharp, caption={Klassenvariablen des PerfectSolutionVisualizer}, label=code:Klassenvariablen_PSV]
@@ -3127,21 +3136,22 @@ private bool isClicked = false;
 private int numRows = 3;
 private int numColumns = 3;
 \end{lstlisting}\\
-Die in Codeabschnitt \ref{code:Klassenvariablen_PSV} gezeigten Klassenvariablen gehören zu der \textit{PerfectSolutionVisualizer}
-Klasse. Diese Variablen werden verwendet, um Objekte und Werte innerhalb des Unity Editors zu repräsentieren, die entweder
-direkt festgelegt und übergeben werden oder von anderen Klassen aus Funktionalitätsgründen benötigt werden. Die
-öffentlichen (\textit{public}) Variablen ermöglichen einen direkten Zugriff auf diese Objekte in der eigenen oder einer
-anderen Klasse.
+Die im Codeabschnitt \ref{code:Klassenvariablen_PSV} gezeigten Klassenvariablen gehören zur \textit{PerfectSolutionVisualizer}
+Klasse. Diese Variablen dienen dazu, Objekte und Werte innerhalb des Unity Editors zu repräsentieren, die entweder direkt
+festgelegt und übergeben werden oder von anderen Klassen aus Funktionalitätsgründen benötigt werden. Durch die Verwendung
+von öffentlichen (\textit{public}) Variablen ist ein direkter Zugriff auf diese Objekte in der eigenen oder einer anderen
+Klasse möglich.
 
 Besonders wichtig ist der Zugriff auf die Variablen \textit{inventoryPlacementObject} und \textit{KnapsackAlgoObject}, um
-im weiteren Verlauf dieses Skripts auf die beiden angehängten Skripte dieser Game-Objekte zuzugreifen. Diese Skripte
-speichern die Position des Inventars und das \textit{usedItems}-Array, die für das Anzeigen der perfekten Lösung benötigt
-werden. Die Position des originalen Inventars ist notwendig, um die perfekte Lösung korrekt zu platzieren, während das
-\textit{usedItems}-Array später benötigt wird, um das \textit{bestSolutionPrefab} anhand der gespeicherten Werte zu befüllen.
+im weiteren Verlauf dieses Skripts auf die beiden angehängten Skripte dieser Game Objekte zuzugreifen. Diese Skripte
+speichern die Position des Inventars und das \textit{usedItems}-Array. Die Position des originalen Inventars ist notwendig,
+um die perfekte Lösung korrekt zu platzieren, während das \textit{usedItems}-Array später benötigt wird, um das
+\textit{bestSolutionPrefab} anhand der gespeicherten Werte zu befüllen.
 
 \subsubsection{Start des PerfectSolutionVisualizer}
-Nachdem der \textit{BestSolutionButton} vom Benutzer gedrückt wurde, wird anschließend die \textbf{Start()} Funktion
-aufgerufen, die den Prozess für das Anzeigen der perfekten Lösung startet. Der zugehörige Code lautet:
+Nachdem der Benutzer den \textit{BestSolutionButton} betätigt hat, wird der entscheidende Prozess zur Anzeige der perfekten
+Lösung eingeleitet. Dieser Vorgang wird durch die Ausführung der \textbf{Start()} Funktion gestartet, wie im folgenden
+Codeabschnitt \ref{code:Start_PSV} ersichtlich ist.
 \begin{lstlisting}[style=csharp, caption={PerfectSolutionVisualizer Start}, label=code:Start_PSV]
 public void Start()
 {
@@ -3163,21 +3173,28 @@ public void Start()
     }
 }
 \end{lstlisting}\\
-Um sicherzustellen, dass der Benutzer die perfekte Lösung sowohl anzeigen (aktivieren) als auch wieder verstecken (deaktivieren)
-kann, wird bei jedem Aufruf der \textbf{Start()} Funktion die boolsche Variable \textit{isClicked} negiert.
+Diese Funktion fungiert nicht nur als Initiator für das Anzeigen der perfekten Lösung, sondern auch für das Ausblenden
+derselben. Eine zentrale Aufgabe besteht darin sicherzustellen, dass der Benutzer die Lösung nach Bedarf ein- oder
+ausblenden kann. Zu diesem Zweck wird bei jedem Aufruf der Funktion die boolsche Variable \textit{isClicked} invertiert,
+welche den Zustand des Buttons repräsentiert.
 
-Wenn \textit{isClicked} den Wert \textit{true} hat, werden die \textit{objectPosition} der Klasse \textit{InventoryPlacementController}
-und das \textit{usedItems}-Array der Klasse \textit{KnapsackSolver} gespeichert. Anschließend werden die Funktionen
-\textbf{setNewPosition()} und \textbf{fillInventory()} aufgerufen, um die genaue Positionierung der perfekten Lösung und
-das Befüllen des Inventars mit den entsprechenden Objekten zu gewährleisten.
+Basierend auf diesem boolschen Wert wird im weiteren Verlauf der Funktion entschieden, ob die perfekte Lösung sichtbar
+gemacht werden soll oder nicht (\textit{inventoryObject.SetActive(true/false)}). Bei Bedarf werden die Positionsinformationen
+des Objekts durch die \textit{objectPosition}-Variable der Klasse \textit{InventoryPlacementController} sowie das
+\textit{usedItems}-Array der Klasse \textit{KnapsackSolver} gesichert. Anschließend werden die Funktionen \textbf{setNewPosition()}
+und \textbf{fillInventory()} aufgerufen, um eine präzise Positionierung der perfekten Lösung zu gewährleisten und das
+Inventar entsprechend mit den relevanten Objekten zu füllen.
 
-Wenn \textit{isClicked} jedoch den Wert \textit{false} annimmt, wird das gesamte \textit{inventoryObject} durch die
-Verwendung der \textbf{SetActive()} Funktion deaktiviert. Dadurch wird es unsichtbar für den Benutzer. Dies ermöglicht
-eine einfache Handhabung der Anzeige und Ausblendung der perfekten Lösung.
 
-\subsubsection{Setzen der neuen Position der perfekten Lösung}
-Da die perfekte Lösung so positioniert werden muss, dass sie für den Benutzer leicht sichtbar ist, wird die folgende
-Funktion aufgerufen:
+\subsubsection{Perfekte Lösung platzieren}
+Die Platzierung der perfekten Lösung ist wichtig, um zu garantieren, dass es für den Benutzer leicht und angenehm ist,
+diese zu sehen.
+
+Um dies zu garantieren, wird auf die Original-Position des Inventar-Objekts
+(\textit{originalInventoryPosition}) zugegriffen und aufgrund dessen eine neue Position errechnet. Diese neue Position ist
+um 0,5 Einheiten entlang der z-Achse und um 0.205 Einheiten entlang der y-Achse verschoben, damit dieses vor dem originalen
+Inventar-Objekt platziert wird. Um es dem Benutzer jedoch angenehmer zu machen, die perfekte Lösung besser zu sehen, wird
+abschließend die Rotation dieses Objekts noch geändert, um es um -45 Grad entlang der x-Achse zu kippen.
 \begin{lstlisting}[style=csharp, caption={Neue Position setzen}, label=code:newPos_PSV]
 private void setNewPosition()
 {
@@ -3187,18 +3204,12 @@ private void setNewPosition()
     inventoryObject.transform.rotation = objectRotation;
 }
 \end{lstlisting}\\
-Zunächst wird eine neue Position (\textit{newPosition}) für das Inventarobjekt berechnet. Diese Position basiert auf der
-ursprünglichen Position des Inventarobjekts (\textit{originalInventoryPosition}). Die neue Position wird um 0,5 Einheiten
-entlang der Vorwärtsachse (z-Achse) und um 0,205 Einheiten entlang der Aufwärtsachse (y-Achse) verschoben. Die Position
-des Inventarobjekts wird auf die berechnete \textit{newPosition} gesetzt, wodurch das Objekt an die neue Position verschoben
-wird. Anschließend wird eine Quaternion-Rotation (\textit{objectRotation}) erstellt, um das Inventarobjekt um -45 Grad
-entlang der x-Achse zu kippen. Schließlich wird die Rotation des Inventarobjekts auf die berechnete \texttt{objectRotation}
-gesetzt, um das Objekt entsprechend zu kippen.
 
-\subsubsection{Perfekte Lösung füllen}
-Aufgrund dessen, dass das zuvor platzierte Objekt lediglich ein leeres Raster darstellt, ist es erforderlich, dieses
-Raster anschließend mit den entsprechenden Elementen zu füllen, um die perfekte Lösung zu repräsentieren. Zu diesem Zweck
-wird im weiteren Verlauf die Funktion \textbf{fillInventory()} aufgerufen. Der Code dieser Funktion:
+\subsubsection{Prefab füllen}
+Aufgrund der Beschaffenheit des zuvor platzierten Objekts, das lediglich ein leeres Inventar-Objekt darstellt, ist es
+notwendig, dieses im nächsten Schritt mit den passenden Elementen zu füllen oder die geeigneten Modelle zu aktivieren,
+welche die perfekte Lösung repräsentieren. Diese Aufgabe wird durch den Aufruf der \textbf{fillInventory()} Funktion im
+weiteren Verlauf des Skripts realisiert.
 \begin{lstlisting}[style=csharp, caption={Inventar füllen}, label=code:invFül_PSV]
 private void fillInventory()
 {
