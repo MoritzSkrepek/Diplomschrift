@@ -1157,46 +1157,61 @@ eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sol
 Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
 
-\subsection{Backend der Webseite}  \marginpar{\small\(\rightarrow\) HAYLAZ}
-In dem Absatz \ref{sec:FrontendWebseite} wurde der Designprozess der Webseite beschrieben, hier ist eine erweiterung zu dem Thema und enthält die beschreibung der Funktionalitäten und die Umsetzung davon.
+\subsection{Backend der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
 
-Die Webseite ist die Schnittstelle für die Kommunikation zwischen den 2 Laptops die wir für das Szenario brauchen. Diese Kommunikation geschieht über die Hololens, sie ist sozusagen der "Middleman" welches die übertragung von Daten ermöglicht.
+Im vorherigen Abschnitt \ref{sec:FrontendWebseite} wurde der Designprozess der Webseite beschrieben. Nun folgt eine
+Erweiterung dieses Themas mit einer Beschreibung der Funktionalitäten und ihrer Umsetzung.
 
+Die Webseite fungiert als Schnittstelle für die Kommunikation zwischen den beiden Laptops, die für das Szenario benötigt
+werden. Diese Kommunikation erfolgt über die Hololens, die gewissermaßen als "Mittelsmann" fungiert und die Datenübertragung ermöglicht.
 \subsubsection{Protokoll zur Datenübertragung}
 
-% Übertragungsprotokoll
+TODO: UML: Übertragungsprotokoll
 
-In der Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien wie solch eine Datenübertragung zustande kommen kann. Folgend werden die einzelnen Schritte und wozu sie dienen beschrieben.
+In Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien dargestellt, wie eine solche Datenübertragung
+zustande kommen kann. Im Folgenden werden die einzelnen Schritte und ihre Funktionen beschrieben:
 
 \begin{itemize}
-    \item \textbf{Start des Servers: } Auf der Holoens befindet sich ein Game-Objekt \textit{httpListener} mit einem \textit{RequestManager.cs} Skript. Beim Laden des ersten Szenarios wird ein http-listener in einem Thread gestartet. Erst wenn dieser läuft kann auf Anfragen der Webseite reagiert werden.
-    \item \textbf{Verbindungsaufbau: } Bevor ein Nachrichtenpaket versendet werden kann muss die IP-Addresse der HoloLens registriert werden. Um zu testen ob die richtige IP-Addresse eingegeben wurde oder der Server läuft wird ein \texttt{http get request} an den Endpoint \textit{connect} gesendet.
-    \item \textbf{Empfangen von Nachrichten: } Auf der Brille wird ein stand an aktuellen Nachrichten festgehalten. Die Webseite fragt alle fünf Sekunden, mit einem \textit{http get request} an den Endpoint \textit{get-messages}, diese Liste an Nachrichten ab.
-    \item \textbf{Versenden von Nachrichten: } Um eine Nachricht von einem Laptop auf den anderen zu bekommen muss ein \textit{http post request} an den Endpoint \textit{message} mit dem Benutzernamen und Nachricht, als Payload, gesendet werden.
+    \item \textbf{Start des Servers:} Auf der Hololens befindet sich ein Game-Objekt namens \textit{httpListener} mit einem
+    Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread
+    gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden.
+    \item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der Hololens
+    registriert werden. Um zu testen, ob die richtige IP-Adresse eingegeben wurde oder der Server läuft, wird ein
+    \texttt{http get request} an den Endpoint \textit{connect} gesendet.
+    \item \textbf{Empfangen von Nachrichten:} Auf der Hololens wird eine Liste aktueller Nachrichten geführt. Die Webseite
+    ruft alle fünf Sekunden mit einem \textit{http get request} an den Endpoint \textit{get-messages} diese Liste von Nachrichten ab.
+    \item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein
+    \item \textit{http post request} an den Endpoint \textit{message} mit dem Benutzernamen und der Nachricht als Payload gesendet werden.
 \end{itemize}
-Das senden von requests mag kompliziert wirken aber wie in dem Abschnitt \ref{sec:Frontend} zu sehen ist wird das alles mithilfe einer benutzerfrundlichen UI erreicht.
 
-Es ist festzuhalten das die beiden Laptops NIE direkt untereinander kommunizieren sondern alle Nachrichten über den Server, die HoloLens, laufen.
+Das Senden von Requests mag kompliziert erscheinen, aber wie im Abschnitt \ref{sec:Frontend} zu sehen ist, wird dies
+alles mithilfe einer benutzerfreundlichen UI erreicht.
 
-\subsubsection{Anfragen bearbeiten}
-Das bearbeiten von Anfragen ist in dem \textit{RequestManager.cs} Skript erledigt. Der listener wird in einem eigenen Thread gestartet, da das warten auf Nachrichten den Thread auf dem der listener läuft blockiert. Nach dem erhalt von einem request wird ein neues \textit{HttpListenerContext} Objekt erstellt und die Verarbeitung des requests wird in dem Thread durchgeführt, der diesen Kontext bearbeitet.
-Wenn eine http Anfrage erhalten wird, ist der erste Schritt zu prüfen welche Art an Anfrage es ist. Ein POST und ein GET werden unterschiedlich verarbeitet, bei verwendung jeglicher anderen http Methode wird ein \textit{Method Not Allowed} Fehler zurück gesendet. Bei der Wahl des Endpoint passiert das selbe, jegliche nicht unterstützte Anfrage auf einen Endpoint, wird mit einem \textit{Not Found} Fehler geantwortet.
+Es ist festzuhalten, dass die beiden Laptops niemals direkt miteinander kommunizieren, sondern alle Nachrichten über den
+Server, die Hololens, laufen.
 
-Es werden in unserem Fall nur 3 Endpunkte unterstützt:
+\subsubsection{Bearbeitung von Anfragen}
+Die Bearbeitung von Anfragen erfolgt im Skript \textit{RequestManager.cs}. Der Listener wird in einem eigenen Thread
+gestartet, da das Warten auf Nachrichten den Thread, auf dem der Listener läuft, blockiert. Nach dem Erhalt einer Anfrage
+wird ein neues \textit{HttpListenerContext}-Objekt erstellt, und die Verarbeitung der Anfrage erfolgt in dem Thread, der
+diesen Kontext bearbeitet. Wenn eine HTTP-Anfrage empfangen wird, ist der erste Schritt, zu überprüfen, um welche Art von
+Anfrage es sich handelt. Ein POST und ein GET werden unterschiedlich verarbeitet. Bei Verwendung einer anderen HTTP-Methode
+wird ein \textit{Method Not Allowed} Fehler zurückgesendet. Bei der Wahl des Endpunkts passiert dasselbe; jede nicht
+unterstützte Anfrage auf einen Endpunkt wird mit einem \textit{Not Found} Fehler beantwortet.
 
+Es werden in unserem Fall nur drei Endpunkte unterstützt:
 
 \begin{itemize}
     \item \textbf{Testen der Verbindung auf /connect}
-    \item \textbf{Erhalten von Nachrichten auf /get-messages}
+    \item \textbf{Empfangen von Nachrichten auf /get-messages}
     \item \textbf{Senden einer Nachricht auf /message}
 \end{itemize}
 
-Um and den Server Erfolgreich eine Anfrage zu senden muss er an folgende Adresse gehen:
-\texttt{http://{IpAddresseDerBirlle}:{Port}/{endpoint}}
+Um erfolgreich eine Anfrage an den Server zu senden, muss sie an die folgende Adresse
+gehen: \texttt{http://{IP-Adresse der Hololens}:{Port}/{Endpoint}}. Die IP-Adresse der Hololens wird manuell auf der
+Webseite eingegeben. Der Listener läuft standardmäßig auf dem Port 9090.
 
-Die IP-Addresse der Brille wird manuell auf der Webseite eingegeben.\\
-Der listener läuft standartmäßig auf dem port 9090. \\
-Die erlaubten endpoints sind Fallbasierend oben gelistet.
+Die erlaubten Endpunkte sind wie oben aufgeführt fallbasiert gelistet.
 
 \subsection{Object Tracking} \marginpar{\small\(\rightarrow\) SCHODITSCH}
 Durch verwendung von bereitgestellten Technologien der HoloLens2
