@@ -222,6 +222,69 @@ Insgesamt bilden GameObjects und deren Komponenten das Rückgrat der Entwicklung
 Unity. Ihr Verständnis und ihre effektive Verwaltung sind entscheidend für die erfolgreiche Umsetzung digitaler Szenarien
 und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebnisse bei.\footnote{Unity Dokumentation \cite{GameObjects}}.
 
+
+\subsubsection{Unity Canvas} \marginpar{\small(\rightarrow) Schoditsch}
+Ein Canvas stellt die Zone dar, in der alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie eines UI besteht
+somit aus GameObject > UI > Image. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des
+Objekts zu bestimmen.\\
+Ein Canvas verfügt auch über verschiedene Rendermodi:
+\begin{itemize}
+
+    \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es UI-Elementen, über der Szene auf dem Bildschirm
+    \item gerendert zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über
+    \item der Szene gerendert wird.
+
+    \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem
+    \item Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird.
+
+    \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann
+    \item der Canvas im Gegensatz zu den anderen Modi verschoben werden, genau wie alle anderen Objekte in der
+    \item Szene.\protect\footnote{Unity \cite{Canvas}}
+\end{itemize}
+
+
+\subsubsection{Unity Job System} \marginpar{\small(\rightarrow) Schoditsch}
+Das Job System von Unity bietet eine effiziente Möglichkeit zur Implementierung von Multithreading in Anwendungen,
+wodurch die Anwendung in
+der Lage ist, alle verfügbaren CPU-Kerne optimal zu nutzen. Im Gegensatz zu einem sequentiellen Durchlauf des Codes
+durch einen einzigen Thread, dem sogenannten Hauptthread, ermöglicht das Job System die parallele Verarbeitung von
+Codeabschnitten durch separate Arbeits-Threads. Durch die Nutzung mehrerer Arbeits-Threads können Aufgaben effizienter
+verteilt und gleichzeitig bearbeitet werden. Dies trägt wesentlich zur Verbesserung der Effizienz und der Gesamtdauer
+der Ausführung des Programms bei. Eine wichtige Eigenschaft des Job Systems besteht darin, sicherzustellen, dass nur
+so viele Threads verwendet werden, wie von den verfügbaren CPU-Kernen unterstützt werden.\\
+\textbf{Work stealing}\\
+Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte "Work Stealing". Dabei handelt
+es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat,
+zusätzliche Aufgaben von anderen Arbeits-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht
+eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf
+alle verfügbaren Ressourcen zu verteilen. \\
+\textbf{Sicherheits System} \\
+Um das Schreiben von Multithread-Code zu erleichtern, verfügt das Job-System über ein Sicherheitssystem, das sicherstellt,
+dass potenzielle Wettlaufbedingungen (Rennen um den Zugriff auf Ressourcen) vermieden werden und somit Fehler vermieden
+werden können. Um sicherzustellen, dass keine Wettlaufbedingungen auftreten können, erhält jeder Thread eine isolierte
+Kopie der Daten, die er verarbeiten kann.\protect\footnote{Unity \cite{Job System}}
+
+\subsubsection{Photocapture Klasse}\marginpar{\small(\rightarrow) Schoditsch}
+Die \textit{PhotoCapture} Klasse benutzt die \textit{PhotoCapture} API, um ein Foto mit der Kamera des Gerätes zu machen.
+Damit dies möglich ist, muss man Unity die Erlaubnis für die \textit{Webcam} und das \textit{Microphone} geben.
+Dies kann unter \textit{Edit $\Rightarrow$ Project Settings $\Rightarrow$ Player $\Rightarrow$ Settings for Universal
+Windows Platform $Rightarrow$ Publishing Settings $\Rightarrow$ Capabilities} gemacht werden.
+
+Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
+
+
+\begin{enumerate}
+    \item \textbf{PhotoCapture.CreateAsync():} Erstellt Asynchron eine Instanz eines PhotoCapture Objekts welches
+    benutzt werden kann um ein Photo zu schießen.
+    \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt,
+    \item die zur \textit{CameraParameter}-Klasse instanziiert werden.
+    \item \textbf{PhotoCapture.TakePhotoAsync():} Macht das Foto
+    \item \textbf{PhotoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto in die globale variable
+    \item targetTexture. targetTexture ist ein Texture2D Klasse welches für texturen in C\# Programme benutzt wird.
+    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die instanz des Photocapture und ruft dannach die
+    \item funktion in der Klammer auf.
+\end{enumerate}
+
 \subsubsection{Unity Prefabs} \marginpar{\small\(\rightarrow\) HAYLAZ}
 Unity bietet eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten, Prefabs. Prefabs sind
 vorgefertigte Bausteine, die als Vorlagen dienen. Sie ermöglichen es, einmal erstellte Objekte als standardisierte Vorlagen
@@ -1012,13 +1075,171 @@ werden sollte, sondern vielmehr als Quelle für Anregungen und bewährte Praktik
 Kontext implementiert werden können. Auf diese Weise kann die Effektivität und Attraktivität der Benutzeroberfläche
 optimiert werden, um die Bedürfnisse und Erwartungen der Zielgruppe bestmöglich zu erfüllen.
 
-\section{Ping Level}
-In diesem Level wird das IT-Grundprinzip eines Pings zwischen zweier
-PCs dargestellt. Das Kabel zwischen den zwei PCs wird von der
-HoloLens getracked und mittels Kurvenberechnung wird dann eine
-unsichtbare Kurve über dieses Kabel gezeichnet. Wenn dann der Benutzer
-auf die Enter Taste auf einem PC drückt wird ein Ping-Paket simuliert
-und auf dieser Kurve von einem PC zu dem anderen geschickt.
+
+
+\section{Ping Scenario} \marginpar{\small(\rightarrow) Schoditsch}
+In diesem Szenario wird das IT-Grundprinzip des Ping illustriert. Zwei PCs sind in einer realen Umgebung durch ein
+rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2
+und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen
+und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der
+physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den
+beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 benutzer
+visualisier. Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um die Informationen wie Absender und
+Nachricht einzusehen.
+
+\subsection{Aufbau von Ping Scenario}
+In diesen Abschnitt wird beschrieben wie die Unity Scene aufgebaut ist und
+was die aufgabe der einzelnen GameObjects ist.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=1]{images/Level1Hierarchy.png}
+    \caption{Hierarchie des Ping Levels im Unity Editor.}
+    \label{fig:level1_hierarchy}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Level-1:} Die Scene in der alle Unity-Objekte enthalten sind.
+    \item \textbf{UserInfo:} Gameobject welches den Hololens Benutzer einen Countdown angibt und von welchem aus
+    daraufhin alle anderen Scripte ausgeführt werden.
+    \item \textbf{LoadingCircle:} Während ladezeiten wird dieses Gameobject angezeigt um den Benutzer zu infomieren das
+    dass Programm berechnungen ausführt. Das Objekt beinhalted ein Canvas wo das User Interface enthalten ist.
+    \item \textbf{Plane:} Ist ein Script GameObject welches den code ausführt. Kann auch zum debug genutzt werden da es
+    die erkannten roten Pixel visuell darstellt
+    \item \textbf{InfoObjectS:} Beinhaltet den Simplen Text welcher angezeigt wird sobald ShowInformation betätigt wird.
+    \item \textbf{InfoOjectT:} Gleich wie InfoObjectS nur mit den technischen informationen eines Ping-Pakets.
+    \item \textbf{S-MessageTextTechnicalInfo:} Gleich wie S-MessageTextSimple nur mit den technischen informationen
+     eines Ping-Pakets.
+\end{itemize}
+
+\subsection{Kabel erkennung}
+\subsubsection{Foto der umgebung schießen}
+Zu Beginn der Szene wird der Benutzer aufgefordert, auf das rote Kabel zu schauen. Anschließend wird ein Countdown
+gestartet, während dessen ein Foto mit Hilfe der PhotoCapture-Klasse aufgenommen wird.
+
+\subsubsection{Foto verarbeitung}
+Nachdem ein Foto aufgenommen wurde, erfolgt die Datenverarbeitung mittels einer Texture2D-Klasse innerhalb des
+Unity-Job-Systems in paralleler Ausführung. Jeder Thread des Systems ist dafür zuständig, eine festgelegte Anzahl von
+Pixeln im Bild zu überprüfen, um festzustellen, ob diese die Eigenschaft Rot aufweisen. Die Ergebnisse dieser
+Überprüfung werden in einem zweidimensionalen Boolean-Array gespeichert, wobei die x- und y-Koordinaten jeweils einer
+Dimension zugeordnet sind. Jeder Pixel im Array wird entsprechend seines Farbzustands mit dem booleschen Wert
+\textit{true} gekennzeichnet, falls er rot ist, andernfalls wird ihm der Wert \textit{false} zugewiesen. Dieser Prozess
+wird durch das Job-System ausgeführt, wobei jeder einzelne Job die anliegende Operationen durchführt:
+
+\begin{lstlisting}[style=csharp, caption={Rote pixel suche}, label=code:PixelJob]
+    struct PixelJob : IJobParallelFor
+    {
+        public NativeArray<Color> pixels;
+        public NativeArray<Vector2> redPixelPositions;
+        public int textureWidth;
+        public int batchSize;
+
+        public void Execute(int batchIndex)
+        {
+            int startPixelIndex = batchIndex * batchSize;
+            int endPixelIndex = Mathf.Min((batchIndex + 1)
+            * batchSize, pixels.Length);
+
+            for (int pixelIndex = startPixelIndex;
+            pixelIndex < endPixelIndex; pixelIndex++)
+            {
+                int x = pixelIndex % textureWidth;
+                int y = pixelIndex / textureWidth;
+
+                if (pixels[pixelIndex].r > 0.7f &&
+                pixels[pixelIndex].g < 0.5f && pixels[pixelIndex].b < 0.5f)
+                {
+                    pixels[pixelIndex] = Color.red;
+                    redPixelPositions[pixelIndex] = new Vector2Int(x, y);
+                }
+                else
+                {
+                    pixels[pixelIndex] = Color.black;
+                }
+            }
+        }
+    }
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{NativeArray:} bietet verbesserte Leistung da sie direkt auf native Speicherbereiche zugreifen können,
+    was besonders wichtig ist, wenn große Datenmengen verarbeitet werden müssen und die Ausführung parallelisiert
+    werden soll.
+    \item \textbf{startPixelIndex:} nachdem jeder Arbeiter Thread seine eigenen batches besitz muss der Index für diese
+    berechnet werde.
+\end{itemize}
+
+
+\subsubsection{Kabel finden}
+Da das Programm nur die Positionen der roten Pixel identifiziert und es unsicher ist, ob sie zu einem Kabel gehören,
+wird eine Methode angewendet, um die längste zusammenhängende Reihe von roten Pixeln zu ermitteln. Es kann auch dazu
+kommen das rote Pixel nicht erkannt werden welche zum Roten Kabel gehören. Aus diesem Grund wird ein Toleranzbereich
+festgelegt. Es wird geschaut ob in einen bestimmten bereich ein rote Pixel exestieren von welchen aus dann weiter
+geschaut wird. Dadurch wird eine präzisere Erkennung und Zuordnung von relevanten roten Pixeln im Kontext des zu
+identifizierenden Kabels ermöglicht. Die methodische Vorgehensweise zur Berechnung gestaltet sich wie folgt:
+
+\begin{lstlisting}[style=csharp, caption={Kabel suche}, label=code:SearchForRedPixels]
+ist<Vector2> SearchForRedPixels(int startX, int startY)
+    {
+        List<Vector2> currentLine = new List<Vector2>();´
+        bool hasFound = false;
+        int foundX = startX, foundY = startY;
+        int heightY = redPixels.GetLength(1);
+        int withX = redPixels.GetLength(0);
+
+        do
+        {
+            hasFound = false;
+            redPixels[foundX, foundY] = false;
+            currentLine.Add(new Vector2(foundX, foundY));
+
+            for (int i = 1; i < 25 && foundX + i < withX; i++)
+            {
+
+                if (redPixels[foundX + i, foundY])
+                {
+                    foundX = foundX + i;
+                    hasFound = true;
+                }
+            }
+
+            for (int i = 1; i < 10 && !hasFound && foundY - i > 0; i++)
+            {
+                hasFound = redPixels[foundX, foundY - i];
+
+                if (hasFound)
+                {
+                    foundY = foundY - i;
+                }
+            }
+
+            for (int i = 1; i < 10 && !hasFound && foundY + i < heightY; i++)
+            {
+                hasFound = redPixels[foundX, foundY + i];
+
+                if (hasFound)
+                {
+                    foundY = foundY + i;
+                }
+            }
+        } while (hasFound);
+        return currentLine;
+    }
+\end{lstlisting}
+Wenn wir das Koordinatensystem von einem Standpunkt aus betrachten, an dem die positive x-Achse nach rechts zeigt, die
+negative x-Achse nach links zeigt, die positive y-Achse nach oben zeigt und die negative y-Achse nach unten zeigt, dann
+kann man sagen, dass der Code nach oben, rechts und unten schaut.
+
+\subsubsection{Entfernung messen}
+Da man noch die z-Achse, also die Tiefe, zu ermitteln, um das visuelle Paket angemessen zu platzieren, werden
+im späteren Verlauf RayCasts verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
+für jede Position verbunden wäre, um die z-Achse für jede Koordinate zu erhalten, wird eine Optimierung angestrebt.
+Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
+anfangspunkt des Kabels (am ersten PC), der mittelpunkt des Kabels, das endpunkt des Kabels (am zweiten PC), sowie 10
+andere punkte welche auf den Kabel verteilt sind.
+
+\subsubsection{Bewegung des Packetes}
+Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine
+Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur
+Initialisierung und zum absenden des Datenpakets führt.
 
 \subsection{Starten und verwenden der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
 TODO
