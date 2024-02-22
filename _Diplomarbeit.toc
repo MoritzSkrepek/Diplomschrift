@@ -96,66 +96,70 @@
 \contentsline {subsection}{\numberline {4.3.3}Laden der Level}{48}{subsection.208}%
 \contentsline {subsection}{\numberline {4.3.4}UI/UX}{49}{subsection.227}%
 \contentsline {section}{\numberline {4.4}Ping Level}{50}{section.228}%
-\contentsline {subsection}{\numberline {4.4.1}Frontend der Webseite}{50}{subsection.229}%
-\contentsline {subsubsection}{\numberline {4.4.1.1}Designprozess}{50}{subsubsection.230}%
-\contentsline {subsubsection}{\numberline {4.4.1.2}Verwendete Programmiersprachen}{52}{subsubsection.235}%
-\contentsline {subsubsection}{\numberline {4.4.1.3}Funktionen der Webseite}{53}{subsubsection.245}%
-\contentsline {subsection}{\numberline {4.4.2}Object Tracking}{54}{subsection.269}%
-\contentsline {subsection}{\numberline {4.4.3}Kurvenberechnung}{54}{subsection.270}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Szenario}{54}{section.271}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{54}{subsection.272}%
-\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{56}{subsection.274}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{56}{subsubsection.275}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{57}{subsubsection.304}%
-\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{61}{subsubsection.306}%
-\contentsline {subsubsection}{\numberline {4.5.2.4}Bestimmen der Position QR-Codes}{62}{subsubsection.308}%
-\contentsline {subsubsection}{\numberline {4.5.2.5}Visualisierung von QR-Codes}{62}{subsubsection.309}%
-\contentsline {subsubsection}{\numberline {4.5.2.6}Zugriff auf QR-Codes bereitstellen}{62}{subsubsection.310}%
-\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Controller Game Objekt}{63}{subsection.311}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}InventoryPlacementController Klassenvariablen}{64}{subsubsection.313}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{64}{subsubsection.330}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Identifikation des richtigen ARPlanes}{65}{subsubsection.343}%
-\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{69}{subsection.423}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{70}{subsubsection.425}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{71}{subsubsection.443}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Bounds des Inventars aktuallisieren}{71}{subsubsection.455}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{72}{subsubsection.466}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{72}{subsubsection.473}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{73}{subsubsection.481}%
-\contentsline {subsubsection}{\numberline {4.5.4.7}Update-Funktion}{74}{subsubsection.487}%
-\contentsline {subsubsection}{\numberline {4.5.4.8}Neue oder entfernte Items erkennen}{74}{subsubsection.493}%
-\contentsline {subsection}{\numberline {4.5.5}EventManager}{81}{subsection.605}%
-\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{83}{subsection.636}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Knapsack-Algorithmus}{83}{subsubsection.637}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Problemstellung}{83}{subsubsection.638}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{83}{subsubsection.639}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Typen des Knapsack-Problems}{85}{subsubsection.646}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Ansätze zur Lösung des Knapsack-Problems}{86}{subsubsection.652}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Anwendungen des Knapsack-Problems}{89}{subsubsection.701}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Auswahl des Implementierungsansatzes}{90}{subsubsection.707}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Das KnapsackSolver Game Objekt}{90}{subsubsection.712}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}KnapsackSolver Klassenvariablen}{91}{subsubsection.714}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Start des KnapsackSolvers}{92}{subsubsection.727}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{94}{subsubsection.765}%
-\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des eigenen Inventars}{96}{subsubsection.829}%
-\contentsline {subsubsection}{\numberline {4.5.6.13}InfoMesh aktualisieren}{97}{subsubsection.855}%
-\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{97}{subsection.862}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{99}{subsubsection.865}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{100}{subsubsection.867}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{101}{subsubsection.881}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{101}{subsubsection.902}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{102}{subsubsection.911}%
-\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{103}{section.943}%
-\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{103}{subsection.944}%
-\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{104}{subsection.945}%
-\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{104}{subsection.946}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{107}{chapter.1013}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{107}{section.1014}%
-\contentsline {section}{\numberline {5.2}Abnahme}{107}{section.1015}%
-\contentsline {section}{\numberline {5.3}Zukunft}{107}{section.1016}%
-\contentsline {chapter}{\numberline {A}Mockups}{108}{appendix.1017}%
-\contentsline {section}{\numberline {A.1}UI/UX}{108}{section.1018}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{108}{section.1019}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{108}{section.1020}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{108}{section.1021}%
-\contentsline {chapter}{\numberline {B}Literatur}{109}{appendix.1022}%
+\contentsline {subsection}{\numberline {4.4.1}Starten und verwenden der Webseite}{50}{subsection.229}%
+\contentsline {subsection}{\numberline {4.4.2}Frontend der Webseite}{50}{subsection.230}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Designprozess}{50}{subsubsection.231}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}Verwendete Programmiersprachen}{52}{subsubsection.236}%
+\contentsline {subsubsection}{\numberline {4.4.2.3}Funktionen der Webseite}{53}{subsubsection.246}%
+\contentsline {subsection}{\numberline {4.4.3}Backend der Webseite}{54}{subsection.270}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}Protokoll zur Datenübertragung}{54}{subsubsection.271}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}Bearbeitung von Anfragen}{54}{subsubsection.272}%
+\contentsline {subsection}{\numberline {4.4.4}Object Tracking}{55}{subsection.273}%
+\contentsline {subsection}{\numberline {4.4.5}Kurvenberechnung}{55}{subsection.274}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Szenario}{55}{section.275}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{55}{subsection.276}%
+\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{57}{subsection.278}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{57}{subsubsection.279}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{58}{subsubsection.308}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{62}{subsubsection.310}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}Bestimmen der Position QR-Codes}{63}{subsubsection.312}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}Visualisierung von QR-Codes}{63}{subsubsection.313}%
+\contentsline {subsubsection}{\numberline {4.5.2.6}Zugriff auf QR-Codes bereitstellen}{63}{subsubsection.314}%
+\contentsline {subsection}{\numberline {4.5.3}Inventory Placement Controller Game Objekt}{64}{subsection.315}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}InventoryPlacementController Klassenvariablen}{65}{subsubsection.317}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}Startverzögerung}{66}{subsubsection.334}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}Identifikation des richtigen ARPlanes}{66}{subsubsection.347}%
+\contentsline {subsection}{\numberline {4.5.4}Inventory Controller Game Objekt}{70}{subsection.427}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}InventoryController Klassenvariablen}{71}{subsubsection.429}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}Start des InventoryControllers}{72}{subsubsection.447}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}Bounds des Inventars aktuallisieren}{73}{subsubsection.459}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}Bounds des Inventars ermitteln}{73}{subsubsection.470}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}Inventory Bounds erweitern}{73}{subsubsection.477}%
+\contentsline {subsubsection}{\numberline {4.5.4.6}ID Grid Initialisierung}{75}{subsubsection.485}%
+\contentsline {subsubsection}{\numberline {4.5.4.7}Update-Funktion}{75}{subsubsection.491}%
+\contentsline {subsubsection}{\numberline {4.5.4.8}Neue oder entfernte Items erkennen}{75}{subsubsection.497}%
+\contentsline {subsection}{\numberline {4.5.5}EventManager}{82}{subsection.609}%
+\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{84}{subsection.640}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Knapsack-Algorithmus}{84}{subsubsection.641}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Problemstellung}{84}{subsubsection.642}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{84}{subsubsection.643}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Typen des Knapsack-Problems}{86}{subsubsection.650}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Ansätze zur Lösung des Knapsack-Problems}{87}{subsubsection.656}%
+\contentsline {subsubsection}{\numberline {4.5.6.6}Anwendungen des Knapsack-Problems}{90}{subsubsection.705}%
+\contentsline {subsubsection}{\numberline {4.5.6.7}Auswahl des Implementierungsansatzes}{91}{subsubsection.711}%
+\contentsline {subsubsection}{\numberline {4.5.6.8}Das KnapsackSolver Game Objekt}{91}{subsubsection.716}%
+\contentsline {subsubsection}{\numberline {4.5.6.9}KnapsackSolver Klassenvariablen}{92}{subsubsection.718}%
+\contentsline {subsubsection}{\numberline {4.5.6.10}Start des KnapsackSolvers}{93}{subsubsection.731}%
+\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{95}{subsubsection.769}%
+\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des eigenen Inventars}{97}{subsubsection.833}%
+\contentsline {subsubsection}{\numberline {4.5.6.13}InfoMesh aktualisieren}{98}{subsubsection.859}%
+\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{98}{subsection.866}%
+\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{100}{subsubsection.869}%
+\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{101}{subsubsection.871}%
+\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{102}{subsubsection.885}%
+\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{102}{subsubsection.906}%
+\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{103}{subsubsection.915}%
+\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{104}{section.947}%
+\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{104}{subsection.948}%
+\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{105}{subsection.949}%
+\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{105}{subsection.950}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{108}{chapter.1017}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{108}{section.1018}%
+\contentsline {section}{\numberline {5.2}Abnahme}{108}{section.1019}%
+\contentsline {section}{\numberline {5.3}Zukunft}{108}{section.1020}%
+\contentsline {chapter}{\numberline {A}Mockups}{109}{appendix.1021}%
+\contentsline {section}{\numberline {A.1}UI/UX}{109}{section.1022}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{109}{section.1023}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{109}{section.1024}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{109}{section.1025}%
+\contentsline {chapter}{\numberline {B}Literatur}{110}{appendix.1026}%

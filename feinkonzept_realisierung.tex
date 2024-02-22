@@ -270,7 +270,7 @@ Damit die Bereitstellung der Anwendung auf einem AR-fähigen Gerät erfolgreich 
 
 \subsubsection{Deployment-Prozess}
 
-%TODO: Ein UML-Ablaufdiagramm zum Build-Prozess wird hier eingefügt.
+TODO: Ein UML-Ablaufdiagramm zum Build-Prozess wird hier eingefügt.
 
 Der erste Schritt ist die Kompilierung des Unity-Projekts, die auf dem Computer durchgeführt wird, auf dem sich das
 Unity-Projekt befindet. Um in Unity zu den Build-Einstellungen zu gelangen, kann der Tastenkürzel \textit{Strg + Umschalt + B}
@@ -279,7 +279,6 @@ werden soll. In unserem Fall ist dies die \textit{Universal Windows Platform (UW
 Sie aus der \ref{fig:build-settings} Grafik entnehmen. Besonders wichtig sind die Einstellungen für die \textit{Architektur} und
 die \textit{Build-Konfiguration}.
 
-%TODO: Ein Screenshot der Build-Einstellungen wird hier eingefügt.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{images/build}
@@ -1166,7 +1165,7 @@ Die Webseite fungiert als Schnittstelle für die Kommunikation zwischen den beid
 werden. Diese Kommunikation erfolgt über die Hololens, die gewissermaßen als "Mittelsmann" fungiert und die Datenübertragung ermöglicht.
 \subsubsection{Protokoll zur Datenübertragung}
 
-TODO: UML: Übertragungsprotokoll
+TODO: Hier ein UML-Ablaufdiagramm einfügen => Übertragungsprotokoll
 
 In Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien dargestellt, wie eine solche Datenübertragung
 zustande kommen kann. Im Folgenden werden die einzelnen Schritte und ihre Funktionen beschrieben:
@@ -1295,7 +1294,8 @@ Die Informationen, die in einem QR-Code gespeichert werden können, sind begrenz
 eine einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsentieren die 11 verschiedenen Modelle, die
 wir unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
 geringe Anzahl von Modulen ermöglicht eine schnellere Erkennung, auch über größere Distanzen.
-%TODO: Testen und Grafik erstellen um zu zeigen das es eine Rolle spielt welche version wir verwenden + wie groß die sind
+
+TODO: Testen und Grafik erstellen um zu zeigen das es eine Rolle spielt welche version wir verwenden + wie groß die sind
 
 Die zugehörigen Zahlen erhalten in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, einen Kontext. Der folgende Codeausschnitt zeigt dies:
 
@@ -1364,7 +1364,7 @@ von QR-Codes zu ermöglichen. Dabei werden Tracking-Algorithmen gestartet, die f
 von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
-%TODO: Hier Bild von "Camera acess needed" einfügen
+TODO: Hier ein Bild von "Camera acess needed" einfügen
 Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
 gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
 zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
@@ -1425,10 +1425,10 @@ Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein
 zu ermöglichen.
 
 \subsubsection{Bestimmen der Position QR-Codes}
-%TODO: Auch die events add remove und update erklären vom qrWatcher
+TODO: Auch die events add remove und update erklären vom qrWatcher
 
 \subsubsection{Visualisierung von QR-Codes}
-%TODO: Bild von einem QR Prefab einfügen
+TODO: Bild von einem QR Prefab einfügen
 Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, steht die Aufgabe an, ihre Visualisierung in der virtuellen Welt umzusetzen.
 
 Hierfür wird die Funktionalität von Unity Prefabs genutzt. Diese ermöglichen die Erstellung visueller Repräsentationen
@@ -1444,7 +1444,7 @@ Dieses Skript steuert die visuelle Darstellung des QR-Codes sowie sämtliche Int
 die Zuweisung dieses Skripts wird sichergestellt, dass die QR-Codes nicht nur korrekt angezeigt, sondern auch innerhalb
 der virtuellen Umgebung interaktiv sind.
 
-%TODO: Bild von einem gescannten QRCode einfügen
+TODO: Bild von einem gescannten QRCode einfügen
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
 Wie bereits im Abschnitt \ref{sec:KnapSackProblem} erwähnt, benötigen andere Teile der Anwendung Zugriff auf
@@ -3277,27 +3277,27 @@ ist in der folgenden Abbildung \ref{fig:perfSolUserPOV} zu sehen.
 
 \section{Performance und Qualtitätssicherung} \marginpar{\small\(\rightarrow\) HAYLAZ}
 \subsection{Unit-Tests}
-Unit-Tests sind ein wichtiger Bestandteil der Qualitätssicherung. Sie ermöglichen die Überprüfung der korrekten
+Unit-Tests sind ein entscheidender Bestandteil der Qualitätssicherung. Sie ermöglichen die Überprüfung der korrekten
 Funktionalität einzelner Komponenten und stellen sicher, dass sie wie erwartet arbeiten. Im Rahmen dieses Projekts wurden
-Unit-Tests verwendet, um den Knapsack-Algorithmus zu überprüfen.  Die Tests wurden mithilfe des Unity Test Frameworks
+Unit-Tests verwendet, um den Knapsack-Algorithmus zu überprüfen. Die Tests wurden mithilfe des Unity Test Frameworks
 erstellt und ausgeführt. Dieses Tool wurde speziell für die Erstellung und Ausführung von Unit-Tests in Unity entwickelt.
 Durch die sorgfältige Gestaltung der Tests wurde sichergestellt, dass der Algorithmus nicht nur die erwarteten Ergebnisse
 zurückgibt, sondern auch die vorgegebene Laufzeit einhält. Die Tests wurden innerhalb der Entwicklungsumgebung von Unity
-durchgeführt. Die Ergebnisse wurden genau überwacht, um sicherzustellen, dass der Algorithmus zuverlässig funktioniert.
+durchgeführt, und die Ergebnisse wurden genau überwacht, um sicherzustellen, dass der Algorithmus zuverlässig funktioniert.
 
 \subsection{Unity Test Framework}
 Das Unity Test Framework bietet eine breite Palette von Funktionen, mit denen Entwickler umfassende Tests für ihre
 Unity-Skripte schreiben und ausführen können. Dabei können verschiedene Aspekte der Skripte auf ihre korrekte Funktionalität
-überprüft werden. Dazu gehören das Testen von Variablen, das Aufrufen von Funktionen und das Überprüfen von erwarteten
-Ergebnissen. Entwickler können dank dieser umfangreichen Funktionen sicherstellen, dass ihre Unity-Anwendungen robust
-und zuverlässig sind. So schaffen sie eine solide Grundlage für die Qualitätssicherung.
+überprüft werden, darunter das Testen von Variablen, das Aufrufen von Funktionen und das Überprüfen von erwarteten Ergebnissen.
+Dank dieser umfangreichen Funktionen können Entwickler sicherstellen, dass ihre Unity-Anwendungen robust und zuverlässig sind,
+was eine solide Grundlage für die Qualitätssicherung schafft.
 
 \subsection{Performance-Messung}
 Die Performance des Knapsack-Algorithmus wurde mithilfe von Unit-Tests überprüft. Dabei wurde die Laufzeit des Algorithmus
 für verschiedene Eingabegrößen gemessen. Die Ergebnisse wurden sorgfältig analysiert, um sicherzustellen, dass der Algorithmus
-die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implementierungen getestet, um die optimale
-Leistung zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überwacht, um sicherzustellen, dass der
-Algorithmus zuverlässig und effizient arbeitet.
+die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implementierungen getestet, um die optimale Leistung
+zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überwacht, um sicherzustellen, dass der Algorithmus
+zuverlässig und effizient arbeitet.
 
 \begin{lstlisting}[style=csharp, caption={Unit Test Klasse}, label=code:UnitTest]
 public class AlgoTest
@@ -3311,38 +3311,36 @@ int capacity = 120;
 
 Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet.
 
-Die Klasse AlgoTest enthält Testfunktionen für zwei verschiedene Knapsack-Algorithmen.
-
-Es werden mehrere Variablen definiert, darunter ein testObject, das zu testende knapsackScript und capacity, die maximale
-Größe des Rucksacks, die für die Tests benötigt wird. Die Methoden SetUp und TearDown sind mit den Attributen [SetUp] und
-[TearDown] versehen. Diese Attribute werden vom Framework erkannt und dienen dazu, nach jedem Test die Umgebung zu reinigen
-und neu aufzusetzen.Es wird eine Instanz des KnapsackScript erstellt und wieder zerstört, um sicherzustellen, dass die
-Tests in einer sauberen Umgebung ausgeführt werden.
-\newpage
+Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet. Die Klasse AlgoTest enthält
+Testfunktionen für zwei verschiedene Knapsack-Algorithmen. Es werden mehrere Variablen definiert, darunter ein testObject,
+das zu testende knapsackScript und capacity, die maximale Größe des Rucksacks, die für die Tests benötigt wird. Die Methoden
+SetUp und TearDown sind mit den Attributen [SetUp] und [TearDown] versehen. Diese Attribute werden vom Framework erkannt
+und dienen dazu, nach jedem Test die Umgebung zu reinigen und neu aufzusetzen. Es wird eine Instanz des KnapsackScript
+erstellt und wieder zerstört, um sicherzustellen, dass die Tests in einer sauberen Umgebung ausgeführt werden.
 
 \begin{lstlisting}[style=csharp, caption={Unit Test Methode}, label=code:Test Methode]
 // Ein Test verhält sich wie eine normale Methode
 [Test]
 public void KnapsackMaxValue_ReturnsCorrectValue()
 {
-    // Gibt eine Menge von Gegenständen für den Rucksack an
-    Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
-    {1, new QRData { id = 1, weight = 50, value = 100 }},
-    ... //weitere Testobjekte
+// Gibt eine Menge von Gegenständen für den Rucksack an
+Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
+{1, new QRData { id = 1, weight = 50, value = 100 }},
+... //weitere Testobjekte
 
-    System.Random random = new System.Random();
-    for (int i = 11; i <= 100; i++)
-    {
-        int randomWeight = random.Next(1, 51);
-        int randomValue = random.Next(1, 101);
+System.Random random = new System.Random();
+for (int i = 11; i <= 100; i++)
+{
+int randomWeight = random.Next(1, 51);
+int randomValue = random.Next(1, 101);
 
-        items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
-    }
+items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
+}
 \end{lstlisting}\\
 
-Der Unit-Test \texttt{KnapsackMaxValue\_ReturnsCorrectValue} testet die Methode \texttt{KnapsackMaxValue} des \texttt{KnapsackScript}.
-Es werden verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere Items mit zufälligen Werten
-in das Dictionary hinzugefügt, damit auch getestet wird, ob der Algorithmus konsistent richtige Lösungen liefert.
+Der Unit-Test \texttt{KnapsackMaxValue_ReturnsCorrectValue} testet die Methode \texttt{KnapsackMaxValue} des
+\texttt{KnapsackScript}. Es werden verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere Items
+mit zufälligen Werten in das Dictionary hinzugefügt, damit auch getestet wird, ob der Algorithmus konsistent richtige Lösungen liefert.
 
 \begin{lstlisting}[style=csharp, caption={Zeitmessung}, label=code:Zeitmessung]
 // Messung der Ausführungszeit für KnapsackMaxValue
@@ -3361,9 +3359,9 @@ Debug.Log($"Die Ausführungszeit von KnapsackMaxValueRecursive beträgt: {recurs
 Assert.AreEqual(maxValueComp, maxValue);
 \end{lstlisting}\\
 
-Anschließend wird die Ausführungszeit sowohl der iterativen (\texttt{KnapsackMaxValue}) als auch der rekursiven
-(\texttt{KnapsackMaxValueRecursive}) Implementierung des Knapsack-Algorithmus gemessen. Schließlich wird überprüft,
-ob beide Implementierungen denselben Wert zurückgeben.
+Anschließend wird die Ausführungszeit sowohl der iterativen (\texttt{KnapsackMaxValue}) als auch der
+rekursiven (\texttt{KnapsackMaxValueRecursive}) Implementierung des Knapsack-Algorithmus gemessen. Schließlich wird
+überprüft, ob beide Implementierungen denselben Wert zurückgeben.
 
 \newpage
 
@@ -3371,38 +3369,35 @@ ob beide Implementierungen denselben Wert zurückgeben.
 // Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
 public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
 {
-    if (n == 0 || remainingCapacity == 0)
-    return 0;
+if (n == 0 || remainingCapacity == 0)
+return 0;
 
-    if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
-    return memoizedValue;
+if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
+return memoizedValue;
 
-    if (items[n].weight > remainingCapacity)
-    {
-    memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
-    return memo[(n, remainingCapacity)];
-    }
+if (items[n].weight > remainingCapacity)
+{
+memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+return memo[(n, remainingCapacity)];
+}
 
-    int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
-    int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
+int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
 
-    int result = Math.Max(includedValue, excludedValue);
+int result = Math.Max(includedValue, excludedValue);
 
-    memo[(n, remainingCapacity)] = result;
+memo[(n, remainingCapacity)] = result;
 
-    return result;
+return result;
 }
 \end{lstlisting}\\
 
-Die Methode \texttt{KnapsackMaxValueRecursive} ist eine rekursive Implementierung des Knapsack-Algorithmus. Der maximale Wert, den
-der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekursiv entweder eingeschlossen oder ausgeschlossen werden.
-Es wurde darauf geachtet, verschiedene Implementierungen zu testen, um sicherzustellen, dass die optimale Implementierung verwendet wird.
-%TODO Grafik der Testergebnisse und Unterschiede der Laufzeiten von rekursiver und iterativer Implementierung erklären
+Die Methode \texttt{KnapsackMaxValueRecursive} ist eine rekursive Implementierung des Knapsack-Algorithmus. Der maximale
+Wert, den der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekursiv entweder eingeschlossen oder ausgeschlossen
+werden. Es wurde darauf geachtet, verschiedene Implementierungen zu testen, um sicherzustellen, dass die optimale
+Implementierung verwendet wird.
 
-Die Testmethode \texttt{KnapsackMaxValue\_ReturnsCorrectValue} wird für jede Konfiguration von Gegenständen im Rucksack ausgeführt,
-um sicherzustellen, dass die Implementierung des Knapsack-Algorithmus korrekt funktioniert.
+TODO: Grafik der Testergebnisse und Unterschiede der Laufzeiten von rekursiver und iterativer Implementierung erklären
 
 Dabei wird die rekursive Implementierung \texttt{KnapsackMaxValueRecursive} als Vergleich verwendet, um sicherzustellen, dass
 auch die iterative Implementierung \texttt{KnapsackMaxValue} korrekt ist.
-
-%Performance-Messung
