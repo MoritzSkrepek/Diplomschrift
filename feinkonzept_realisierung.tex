@@ -1236,6 +1236,21 @@ Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Dies
 anfangspunkt des Kabels (am ersten PC), der mittelpunkt des Kabels, das endpunkt des Kabels (am zweiten PC), sowie 10
 andere punkte welche auf den Kabel verteilt sind.
 
+\subsubsection*{Definition eines Rays} % Quelle: https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
+Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen, geraden
+Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung}
+bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position
+einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}.
+
+Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch Vektoren definiert wird. Diese Richtung kann durch
+verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der
+Bildschirmkoordinaten kann die Richtung beispielsweise durch  Blick des Benutzers bestimmt werden.
+
+In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder
+\textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und
+das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt
+trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
+
 \subsubsection{Bewegung des Packetes}
 Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine
 Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur
@@ -1688,29 +1703,32 @@ müssen, um die Daten zu schützen, kann es zu einer Verzögerung kommen, bis di
 Nachteil in unserem Anwendungsfall nicht von großer Bedeutung da wir selten zur gleichen Zeit auf die Daten zugreifen und
 dadurch die Verzögerung nicht bemerkbar ist.
 
-\subsection{Inventory Placement Controller Game Objekt} \marginpar{\small\(\rightarrow\) SKREPEK}
-Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die
-Kamera erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können
-relevante Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
+\subsection{Platzieren des Inventars}\marginpar{\small\(\rightarrow\) SKREPEK}
+Um eine präzise Interaktion zwischen der realen und augmentierten Realität zu gewährleisten, ist der Zugriff auf die Kamera
+erforderlich, um die physische Umgebung präzise zu erfassen. Durch die Analyse der erfassten Umweltdaten können relevante
+Ebenen identifiziert werden, die entscheidend sind, um eine akkurate Platzierung des Inventar-Objekts zu gewährleisten.
 
-In diesem Abschnitt wird das \textit{Inventory Placement Controller} Game Objekt mit dem angehängten
-\textit{InventoryPlacementController.cs} Script behandelt. Letzteres beinhaltet die \textbf{InventoryPlacementController}
-Klasse, welche sämtliche Funktionen zur Berechnung und Platzierung des Inventars umfasst. Diese Funktionalitäten werden
-im Folgenden detailliert erläutert.
+In diesem Abschnitt wird auf das \textit{inventoryPlacementController} Unity Game Objekt mit der zugehörigen Komponenten
+\textit{InventoryPlacementController.cs} Skript behandelt. Dieses Skript implementiert die \textbf{InventoryPlacementController}
+Klasse welche sämtliche Funktion zu Berechnung der Position und Platzierung des Inventar Objekts umfasst.
+
+\subsubsection{Das inventoryPlacementController Game Objekt}
+Das inventoryPlacementController Game Objekt in folgender Abbildung \ref{fig:inventoryPlacementController_Editor}
+ist der Grundbaustein für das Anwendungsszenario des Knapsack-Problems. Es ist dafür zuständig, anhand des  Blicks des
+Benutzers das Invenar Objekt dementsprechend richtig zu platzieren und zu visualisieren. Das Game Objekt hat eine angehängte
+Komponente \textit{inventoryPlacementController.cs} welche das Skript für die Implementierung dieser Logik wiederspiegelt
+und die \textbf{InventoryPlacementController} Klasse implementiert.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.8]{images/invPlace_Editor}
-\caption{inventoryPlacement Objekt im Editor}
-\label{fig:inventoryPlacementController_Editor}
+    \centering
+    \includegraphics[scale=0.8]{images/invPlace_Editor}
+    \caption{inventoryPlacementController Objekt im Editor}
+    \label{fig:inventoryPlacementController_Editor}
 \end{figure}
 
-Die Darstellung des \textit{inventoryPlacementController}-Objekts im Unity Editor, wie sie in Abbildung \ref{fig:inventoryPlacementController_Editor}
-gezeigt wird, bietet eine Schnittstelle zur Konfiguration verschiedener Parameter. Hierzu zählen insbesondere die Zuweisung
-der Ebenenposition, die Feinjustierung der Koordinaten innerhalb des Unity Editors sowie die Verbindung mit der Komponente
-\textit{InventoryPlacementController.cs}. Zusätzlich werden voreingestellte Werte für Schlüsselvariablen angezeigt, die
-für die Ausführung des Codes von entscheidender Bedeutung sind. Diese Auflistung und Erläuterung dieser Variablen umfasst:
-
+Diese Abbildung veranschaulicht das Game Objekt im Unity Inspektor. Wie hier veranschaulicht wird, bietet diese Komponente
+einige Dinge, die direkt in Unity angegeben und übergeben werden können. Darunter wichtig sind vorallem die Variablen der
+Klasse selbst, die Objekte aus dem Unity Editor benötigen, um dementsprechend funktionieren zu können. Diese Variablen umfassen:
 \begin{itemize}
     \item \textbf{Plane Manager:} Hierbei handelt es sich um eine Zuweisung zum Game Objekt des \textit{ARPlanesManagers}
     aus der Szene Level 2.
@@ -1725,84 +1743,115 @@ für die Ausführung des Codes von entscheidender Bedeutung sind. Diese Auflistu
     Plane blicken muss, damit das Inventar platziert wird.
 \end{itemize}
 
-Durch den Unity Editor besteht die Möglichkeit, die Werte dieser Variablen direkt zu manipulieren, was direkte Auswirkungen
-auf die Ausführung des Codes hat. Diese direkte Manipulation bietet eine intuitive und effiziente Möglichkeit, die
-Einstellungen anzupassen und die Funktionalität des Programms entsprechend anzupassen.
+\subsubsection{User Gaze in AR-Anwendungen}
+Die Verwendung des Benutzerblicks bildet die Grundlage für das Anwendungsszenario des Knapsack-Problems. Gaze bezieht sich
+auf die Richtung und Position, in die eine Person ihren Blick richtet, und ermöglicht die Analyse der Aufmerksamkeit des
+Benutzers in der realen Welt. Diese Information wird genutzt, um festzustellen, wohin der Benutzer schaut, und damit die
+Platzierung des Inventar Objekts in der virtuellen Umgebung zu bestimmen. Darüber hinaus eröffnet die Verwendung des Gazes
+eine Vielzahl weiterer Möglichkeiten.
 
-\subsubsection{InventoryPlacementController Klassenvariablen}
-\begin{lstlisting}[style=csharp, caption={Klassenvariablen der InventoryPlacementController Klasse}, label=code:anchor_var]
-public ARPlaneManager planeManager;
-public GameObject inventoryObject;
-public InventoryController inventoryController;
-public GameObject qrCodesManager;
-public GameObject infoObject;
-public TextMeshPro userInfo;
-public float requiredLookTime = 5.0f;
-public Vector3 objectPosition;
+\begin{enumerate}
+    \item \textbf{Interaktionen basierend auf dem Blick}: Durch die Verfolgung des Benutzergazes können Interaktionen in
+    der AR-Umgebung ausgelöst werden. Beispielsweise kann der Benutzer durch simples Anschauen eines virtuellen Objekts
+    darauf klicken, um weitere Informationen anzuzeigen oder eine Aktion auszulösen. Diese Art der Interaktion ermöglicht
+    eine intuitive Bedienung ohne physische Eingabegeräte.
 
-private ARPlane selectedDeskPlane;
-private float lookStartTime = -1f;
-private bool objectPlaced = false;
-private float heightOffset = 0.001f;
+    \item \textbf{Blickgesteuerte Navigation}: Die HoloLens 2 ermöglicht auch eine blickgesteuerte Navigation in der
+    AR-Umgebung. Indem der Benutzer bestimmte Punkte oder Objekte anschaut, kann er beispielsweise in der Umgebung navigieren
+    oder Menüs öffnen, ohne physische Gesten ausführen zu müssen.
 
-private bool canStartScript = false;
-\end{lstlisting}
+    \item \textbf{Verbesserte Immersion}: Die Integration des Gaze in AR-Anwendungen mit der HoloLens 2 trägt zur Immersion
+    des Benutzers bei, indem sie die Interaktion mit der virtuellen Umgebung natürlicher und nahtloser gestaltet. Durch die
+    genaue Erfassung des Benutzergazes und die Echtzeitreaktion auf virtuelle Objekte entsteht ein Gefühl von Präsenz und
+    Realismus.
+\end{enumerate}
 
-Die dargestellten Klassenvariablen in Codeabschnitt \ref{code:anchor_var} sind integraler Bestandteil der
-\textit{InventoryPlacementController} Klasse. Öffentliche (\textbf{public}) Variablen repräsentieren Objekte und Werte,
-die im Unity Editor festgelegt und übergeben werden können oder von anderen Klassen für die Funktionalität benötigt werden.
-Dies ermöglicht einen direkten Zugriff auf diese Objekte sowohl innerhalb der eigenen Klasse als auch von anderen Klassen
-aus. Die Vektor-Variable \textit{objectPosition} spielt dabei eine entscheidende Rolle für die präzise Platzierung des
-Inventar-Objekts und ebenfalls spielt das TextMesh \textit{userInfo} eine wichtige Rolle um dem Benutzer im Laufe der
-Applikation Anweisung und Tips zu geben.
-
-Hingegen dienen die privaten (\textbf{private}) Variablen der lokalen Speicherung von Werten, die ausschließlich innerhalb
-der Klasse benötigt werden und von keiner anderen Klasse verwendet werden sollen.
-
-Dieser Ansatz der Kapselung von Daten erlaubt eine klare Trennung zwischen öffentlich zugänglichen Daten und internen
-Variablen, was eine effiziente und strukturierte Entwicklung und Wartung des Codes ermöglicht.
-\subsubsection{Startverzögerung}
-\begin{lstlisting}[style=csharp, caption={Beginn des Inventory Placement Controllers}, label=code:Start]
-void Start()
+\subsubsection{InventoryPlacementController Klasse}
+Die \textbf{InventoryPlacementController} Klasse ist ein zentraler Bestandteil der AR-Anwendung, die für das Knapsack-Problem
+Szenario entwickelt wurde. Diese Klasse ist verantwortlich für die Platzierung des Inventar Objekts basierend auf dem
+Benutzergaze in der virtuellen Umgebung. Sie ermöglicht die Interaktion mit AR-Planes und steuert den Prozess der Platzierung
+von dem Inventar Objekt auf einem ausgewählten \textit{ARPlane}. Die Klasse enthält Funktionen zur Erfassung des Benutzergazes, zur
+Auswahl geeigneter Ebenen für die Platzierung und zur Ausführung der Platzierungslogik. Durch die Integration dieser
+Klasse wird eine nahtlose und intuitive Benutzererfahrung für die AR-Anwendung gewährleistet. Die Klasse sieht wie folgt aus:
+\begin{lstlisting}[caption={InventoryPlacementController Klasse}, label=code:isPOP]
+public class InventoryPlacementController : MonoBehaviour
 {
-    userInfo.text = "Schauen Sie auf einen Tisch";
-    StartCoroutine(DelayedStart());
+    public ARPlaneManager planeManager;
+    public GameObject inventoryObject;
+    public InventoryController inventoryController;
+    public GameObject qrCodesManager;
+    public GameObject infoObject;
+    public TextMeshPro userInfo;
+    public float requiredLookTime = 5.0f;
+    public Vector3 objectPosition;
+
+    private ARPlane selectedDeskPlane;
+    private float lookStartTime = -1f;
+    private bool objectPlaced = false;
+    private float heightOffset = 0.001f;
+
+    private bool canStartScript = false;
+
+    private IEnumerator DelayedStart(){...}
+
+    void Start(){...}
+
+    void Update(){...}
+
+    private bool IsPointerOverPlane(){...}
+
+    private ARPlane GetCurrentPlaneUnderGaze(){...}
+
+    private void PlaceObjectOnDesk(ARPlane deskPlane){...}
 }
-\end{lstlisting}
-Die \textbf{Start()} Funktion wird zu Beginn des Levels für das "Knapsack-Problem" aufgerufen, wie im Codeausschnitt
-\ref{code:Start} gezeigt. Diese Methode setzt den Text des \textit{userInfo} TextMeshes um den Benutzer den Ablauf anhand
-einer Anweisung zu erleichtern. Zusätzlich wird die Coroutine \textbf{DelayedStart()} initiiert, die eine Verzögerung
-einleitet, bevor das eigentliche Skript fortgesetzt wird.
+\end{lstlisting}\\
+\\
+Im Folgenden werden die drei wichtigen Funktionen \textbf{Update()}, \textbf{IsPointerOverPlane()} und \textbf{PlaceObjectOnDesk()}
+näher erläutert, um ein tieferes Verständnis für die zugrunde liegende Logik zu vermitteln.
 
-Die Verzögerung wird gezielt eingesetzt, um dem \textit{ARPlaneManager} ausreichend Zeit zu geben, die Ebenen in der
-Umgebung des Benutzers zu scannen und zu markieren. Dieser Schritt ist entscheidend, um eine stabile Grundlage für die
-spätere präzise Platzierung des Inventars in der virtuellen Umgebung zu schaffen.
-
-Die Verwendung der Coroutine ermöglicht eine zeitgesteuerte Ausführung des Codes, wodurch die Umgebungserfassung des
-\textit{ARPlaneManager} abgeschlossen werden kann, bevor das Platzierungsskript aktiviert wird. Diese sorgfältig abgestimmte
-Startsequenz gewährleistet eine zuverlässige Erfassung der ARPlanes und legt somit den Grundstein für eine erfolgreiche
-Platzierung des Inventar-Objekts.\\
-
-\begin{lstlisting}[style=csharp, caption={Verzoegerter Start}, label=code:DelayedStart]
-private IEnumerator DelayedStart()
+\subsubsection{Verwendung des Usergazes}
+In dieser Klasse wird der Blick des Benutzers in zwei separaten Funktionen verwendet, um das \textit{ARPlane} zu identifizieren,
+auf das der Benutzer gerade schaut. Beide Funktionen basieren auf derselben grundlegenden Logik, unterscheiden sich jedoch
+darin, dass die Funktion \textbf{IsPointerOverPlane()} einen booleschen Wert zurückgibt, der angibt, ob sich der
+Benutzergaze über einem \textit{ARPlane} befindet, während die Funktion \textbf{GetCurrentPlaneUnderGaze()} das tatsächliche
+identifizierte \textit{ARPlane} zurückgibt. Um die zugrunde liegende Logik des Benutzergazes zu verdeutlichen, wird anschließend
+die Funktionsweise der \textbf{IsPointerOverPlane()} Funktion erläutert.
+\begin{lstlisting}[caption={Funktion um Usergaze zu verwenden}, label=code:isPOP]
+private bool IsPointerOverPlane()
 {
-    yield return new WaitForSeconds(3.0f);
-    canStartScript = true;
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    RaycastHit hit;
+    if (Physics.Raycast(ray, out hit))
+    {
+        ARPlane plane = hit.collider.GetComponent<ARPlane>();
+        return (plane != null);
+    }
+    return false;
 }
-\end{lstlisting}
-Die Funktion \textbf{DelayedStart()} (siehe Codeabschnitt \ref{code:DelayedStart}) wird im Kontext der \textbf{Start()}
-Funktion aufgerufen, um eine initialisierte Verzögerung von 3 Sekunden zu gewährleisten, bevor das Skript seine Ausführung
-fortsetzt. Diese gezielte Verzögerung ist von entscheidender Bedeutung, um dem \textit{ARPlaneManager} genügend Zeit zu
-geben, um die Umgebung ungestört zu scannen. Durch die Aktivierung der Variable \textit{canStartScript} wird der Zeitpunkt
-markiert, ab dem die Methode \textbf{Update()} ihre Ausführung fortsetzen kann.
+\end{lstlisting}\\
+Die Funktion verwendet eine Raycast-Abfrage, um festzustellen, ob sich der Benutzergaze über einem \textit{ARPlane} befindet.
 
-\subsubsection{Identifikation des richtigen ARPlanes}
-Angesichts der potenziell vielfältigen Umgebung von gescannten und markierten ARPlanes ist eine kontinuierliche Aktualisierung
-erforderlich, um sicherzustellen, dass das gewünschte ARPlane stets identifiziert wird. Dieser Prozess wird durch die
-Anwendung der \textbf{Update()} Funktion realisiert. Diese Methode überwacht und steuert den Auswahlvorgang des ARPlanes,
-um sicherzustellen, dass das korrekte ARPlane ausgewählt wird, selbst wenn der Benutzer seinen Blick auf ein andere ARPlane
-lenkt. Die dazugehörige Funktion sieht dementsprechend folgendermaßen aus:
-\begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
+In dieser Funktion wird zuerst ein Ray erstellt, der vom Hauptkamerapunkt ausgeht und durch den aktuellen Mauszeiger verläuft
+(der die Position des Benutzergazes repräsentiert). Dieser Ray wird verwendet, um festzustellen, ob er mit einem Objekt
+in der Szene kollidiert.
+
+Wenn der Ray auf ein Objekt trifft (dargestellt durch die Variable \textit{hit}), wird überprüft, ob es sich bei diesem
+Objekt um ein \textit{ARPlane} handelt. Dies wird durch den Aufruf von \textit{hit.collider.GetComponent<ARPlane>()}
+überprüft. Wenn das Objekt ein \textit{ARPlane} ist, wird die Funktion \textit{GetComponent<ARPlane>()} nicht null
+zurückgeben, was bedeutet, dass sich der Benutzergaze über einem \textit{ARPlane} befindet, und die Funktion gibt true
+zurück.
+
+Wenn der Ray auf kein \textit{ARPlane} trifft oder überhaupt kein Objekt getroffen wird, wird false zurückgegeben, was
+bedeutet, dass sich der Benutzergaze nicht über einem \textit{ARPlane} befindet.
+
+\subsubsection{Frame Aktualisierung}
+Während der Ausführung dieses Skripts kann der Benutzer seinen Blick auf ein anderes \textit{ARPlane} lenken, weshalb es
+wichtig ist, kontinuierlich zu überprüfen, ob das Inventarobjekt bereits platziert wurde. Diese Überprüfung wird durch
+die \textbf{Update()} Funktion durchgeführt, die in jedem Frame aufgerufen wird, was bedeutet, dass sie mit einer Frequenz
+von 60 Mal pro Sekunde ausgeführt wird. Die \textbf{Update()} Funktion ist von zentraler Bedeutung für dieses Skript, da
+sie die Platzierung des Inventarobjekts anhand des Benutzergazes überwacht und aktualisiert. Um die Funktionsweise dieser
+Funktion genauer zu erläutern, wird im Folgenden näher darauf eingegangen.
+\begin{lstlisting}[caption={Funktion um Usergaze zu verwenden}, label=code:isPOP]
 void Update()
 {
     if (!objectPlaced && canStartScript)
@@ -1810,6 +1859,7 @@ void Update()
         if (IsPointerOverPlane())
         {
             ARPlane currentPlane = GetCurrentPlaneUnderGaze();
+
             if (currentPlane != null)
             {
                 if (selectedDeskPlane == null || selectedDeskPlane != currentPlane)
@@ -1839,103 +1889,52 @@ void Update()
         }
     }
 }
-\end{lstlisting}
-\\
-Diese \textbf{Update()} Funktion wird jeden Frame der Applikation aufgerufen, um den Status des Objekts stets aktuell zu
-halten. Wenn die zwei Bedingungen \textit{!objectPlaced} und \textit{canStartScript} in der \textit{Haupt if-Bedingung}
-den boolschen Wert \textit{true} liefern kann das die Funktion weiter ablaufen, um das Inventar-Objekt zu platzieren.
-\\
-\\
-Zunächst wird in der nächsten \textit{if}-Bedingung überprüft ob der Benutzer aktuell auf ein \textit{ARPlane} blickt.
-Um dies zu Überprüfen wird hierzu die \textbf{IsPointerOverPlane()} aufgerufen. Der dazugehörige Code dieser Funktion:
-\begin{lstlisting}[style=csharp, caption={Überprüfen ob Benutzer auf ARPlane blickt}, label=code:isPOP]
-private bool IsPointerOverPlane()
-{
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    RaycastHit hit;
-    if (Physics.Raycast(ray, out hit))
-    {
-        ARPlane plane = hit.collider.GetComponent<ARPlane>();
-        return (plane != null);
-    }
-    return false;
-}
-\end{lstlisting}
-Die Funktion \textit{IsPointerOverPlane()} wird verwendet, um die Überprüfung der Überlagerung des Blicks des Benutzers
-über einem \textit{ARPlane} zu ermöglichen.
+\end{lstlisting}\\
+Die Funktionsweise der \texttt{Update()} Funktion lässt sich in mehrere Schritte gliedern:
 
-Zunächst wird ein \textit{Ray} generiert, der ausgehend vom \textit{Hauptkameraobjekt} zur aktuellen Position des Blicks
-auf dem Bildschirm erstellt wird. Dieser Vorgang wird mithilfe der Methode \textit{Camera.main.ScreenPointToRay(Input.mousePosition)}
-realisiert.
+\begin{enumerate}
+    \item \textbf{Überprüfung, ob das Inventar Objekt noch nicht platziert wurde und das Skript gestartet werden kann}:
+    Zunächst wird in der \textbf{Update()} Funktion überprüft, ob das Inventar Objekt bereits platziert wurde (\textit{objectPlaced}),
+    und ob das Skript gestartet werden kann (\textit{canStartScript}). Dies stellt sicher, dass die Platzierung nur dann
+    durchgeführt wird, wenn beide Bedingungen erfüllt sind.
 
-\subsubsection*{Definition eines Rays} % Quelle: https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
-Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen, geraden Strahl
-repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet
-wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer
-\textit{virtuellen Kamera} oder eines \textit{Blickpunkts}.
+    \item \textbf{Bestimmung des Benutzergaze über einem ARPlane}: Anschließend wird geprüft, ob sich der Benutzergaze
+    über einem ARPlane befindet. Dies wird durch den Aufruf der Funktion \textbf{IsPointerOverPlane()} erreicht, die
+    feststellt, ob sich der Benutzergaze über einem ARPlane befindet.
 
-Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch Vektoren definiert wird. Diese Richtung kann durch
-verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der
-Bildschirmkoordinaten kann die Richtung beispielsweise durch  Blick des Benutzers bestimmt werden.
+    \item \textbf{Identifikation des aktuellen ARPlane}: Wenn bestätigt wird, dass sich der Benutzergaze über einem ARPlane
+    befindet, wird der aktuelle ARPlane identifiziert. Dies erfolgt durch den Aufruf der Funktion \textit{GetCurrentPlaneUnderGaze()},
+    die den ARPlane bestimmt, auf den der Benutzergaze gerichtet ist.
 
-In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder
-\textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und
-das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt
-trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
+    \item \textbf{Aktualisierung des ausgewählten ARPlane und Startzeit des Blicks}: Nachdem der ARPlane identifiziert wurde,
+    wird überprüft, ob es sich um einen anderen ARPlane handelt als den, auf den der Benutzergaze zuletzt gerichtet war.
+    Falls ja, wird die Variable \textit{selectedDeskPlane} aktualisiert und die Startzeit des Blicks auf den neuen ARPlane gespeichert.
 
-Im nächsten Schritt wird ein \textit{RaycastHit}-Objekt initialisiert, das dazu dient, relevante Informationen über
-potenzielle Kollisionen zwischen dem generierten Ray und den Objekten in der Szene zu erfassen.
+    \item \textbf{Messung der Blickdauer auf den aktuellen ARPlane}: Es wird die Dauer gemessen, für die der Benutzer auf
+    den aktuellen ARPlane schaut. Dies erfolgt durch die Berechnung der Zeitdifferenz seit dem Start des Blicks auf den ARPlane.
 
-Anschließend wird der Ray in die Szene "geschossen", wobei währenddessen geprüft wird, ob eine Kollision mit einem Objekt
-stattfindet. Sollte eine Kollision detektiert werden, werden sämtliche Details über diese Kollision in das \textit{RaycastHit}-Objekt
-übertragen.
+    \item \textbf{Überprüfung, ob die erforderliche Blickdauer erreicht wurde}: Es wird überprüft, ob die gemessene Zeit
+    die erforderliche Zeit überschreitet, die der Benutzer auf den ARPlane schauen muss, um das Inventarobjekt zu platzieren.
 
-Im weiteren Verlauf wird überprüft, ob das kollidierte Objekt eine spezifische Art von Objekt repräsentiert, nämlich ein
-\textit{ARPlane}. Diese Überprüfung erfolgt durch den Zugriff auf die \textit{ARPlane}-Komponente des kollidierten Objekts
-mittels der Methode \textit{hit.collider.GetComponent<ARPlane>()}. Wenn diese Komponente vorhanden ist, signalisiert die
-Rückgabe des Wertes \textit{true}, dass der Benutzer zum gegenwärtigen Zeitpunkt auf ein \textit{ARPlane} blickt.
+    \item \textbf{Platzierung des Inventarobjekts}: Wenn die erforderliche Blickdauer erreicht wurde, wird die Funktion
+    \textbf{PlaceObjectOnDesk()} aufgerufen, um das Inventarobjekt auf dem ausgewählten ARPlane zu platzieren.
 
-Falls jedoch keine Kollision mit einem \textit{ARPlane} festgestellt wird oder das kollidierte Objekt keine
-\textit{ARPlane}-Komponente aufweist, wird \textit{false} zurückgegeben. Dies deutet darauf hin, dass der Benutzer zu
-diesem Zeitpunkt keinen Blick auf ein \textit{ARPlane} richtet.\\
-\\
-Wenn diese Funktion den boolschen Wert \textit{true} zurückliefert wird anschließend ein neues \textit{ARPlane} definiert.
-Dieses ARPlane (\textit{currentPlane} wird durch den Aufruf der Funktion \textbf{GetCurrentPlaneUnderGaze()} initialisiert.
-Diese Funktion sieht folgendermaßen aus:
-\begin{lstlisting}[caption={Gewolltes ARPlane ermitteln}, label=code:isPOP]
-private ARPlane GetCurrentPlaneUnderGaze()
-{
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    RaycastHit hit;
-    if (Physics.Raycast(ray, out hit))
-    {
-        ARPlane plane = hit.collider.GetComponent<ARPlane>();
-        return plane;
-    }
-    return null;
-}
-\end{lstlisting}
-Die Funktion \textbf{GetCurrentPlaneUnderGaze()} operiert auf ähnliche Weise wie die \textbf{IsPointerOverPlane()} Funktion,
-jedoch mit dem entscheidenden Unterschied, dass sie ein \textit{ARPlane}-Objekt als Rückgabewert definiert. Dieser
-Unterschied bezweckt, dass die Funktion das tatsächliche \textit{ARPlane}-Objekt zurückgibt, auf das der Benutzer seinen
-Blick gerichtet hat.\\
-\\
-Nach Abschluss der beiden Funktionen \textbf{GetCurrentPlaneUnderGaze()} und \textbf{IsPointerOverPlane()} wird überprüft,
-ob eine aktuelle Ebene gefunden wurde (\textit{currentPlane != null}). Wenn dies der Fall ist, wird weiterhin geprüft, ob
-es sich um ein neues \textit{ARPlane} handelt oder ob es sich um dieselbe Ebene handelt, die bereits ausgewählt wurde
-(\textit{selectedDeskPlane == null || selectedDeskPlane != currentPlane}). Wenn diese \textit{if}-Bedingung den boolschen
-Wert \textit{true} ergibt, wird das momentan selektierte \textit{ARPlane} der Variable \textit{selectedDeskPlane} zugewiesen
-und der Timer \textit{timer} wird gestartet, um aufzuzeichnen, wie lange der Benutzer auf dieses \textit{ARPlane} blickt.
-Um dann abschließend noch zu visualisieren, wie lange er noch auf dieses \textit{ARPlane} blicken muss, wird der Text
-des \textit{userInfos} TextMeshes auf die aktuelle Blickzeit geändert.
+    \item \textbf{Aktualisierung des Platzierungsstatus und der Benutzeroberfläche}: Nach erfolgreicher Platzierung des
+    Objekts wird die Variable \textit{objectPlaced} auf \textit{true} gesetzt, um anzuzeigen, dass das Objekt platziert
+    wurde. Außerdem wird die Benutzeroberfläche entsprechend aktualisiert, um den Benutzer über den erfolgreichen Platzierungsvorgang
+    zu informieren.
 
-Abschließend wird überprüft, ob die Zeit, die der Benutzer zu dem aktuellen Zeitpunkt auf dieses spezifische \textit{ARPlane}
-geblickt hat, größer oder gleich der erforderlichen Blickzeit ist (\textit{timeLookedAtPlane >= requiredLookTime}). Falls
-diese Bedingung erfüllt ist, wird die Funktion \textbf{PlaceObjectOnDesk()} mit dem ausgewählten \textit{ARPlane} aufgerufen,
-um das Inventar-Objekt zu platzieren. Zusätzlich wird der Status der booleschen Variable \textit{objectPlaced} auf \textit{true}
-gesetzt, um zu signalisieren, dass das Inventar-Objekt platziert wurde und der Inhalt des \textit{userInfo} TextMeshes wird
-geleert. Der Code für das Platzieren dieses Objekts ist wie folgt:
-\begin{lstlisting}[caption={Inventar-Objekt platzieren}, label=code:placeObject]
+    \item \textbf{Benachrichtigung bei fehlendem ARPlane}: Wenn der Benutzergaze sich nicht über einem ARPlane befindet
+    oder kein ARPlane erkannt wird, wird die Benutzeroberfläche entsprechend aktualisiert, um den Benutzer darüber zu
+    informieren, dass er auf einen ARPlane schauen muss, um das Inventarobjekt erfolgreich zu platzieren.
+\end{enumerate}
+
+\subsubsection{Platzieren des Inventar Objekts}
+Das Platzieren des Inventarobjekts markiert das Ende des \textit{InventoryPlacementController} Skripts. Die Funktion
+\textbf{PlaceObjectOnDesk()} übernimmt die Aufgabe, das Inventarobjekt zu platzieren und weitere Gameobjekte sowie
+Skripts zu aktivieren oder zu deaktivieren, um einen reibungslosen Fortlauf der Anwendung zu gewährleisten. Im folgenden
+Code-Ausschnitt wird die Implementierung der \textbf{PlaceObjectOnDesk()} Funktion dargestellt:
+\begin{lstlisting}[caption={Funktion zum Platzieren des Inventarobjekts}, label=code:isPOP]
 private void PlaceObjectOnDesk(ARPlane deskPlane)
 {
     qrCodesManager.SetActive(true);
@@ -1948,39 +1947,54 @@ private void PlaceObjectOnDesk(ARPlane deskPlane)
     infoObject.SetActive(true);
     inventoryController.SetInventoryObject(instantiatedObject);
     inventoryController.gameObject.SetActive(true);
-    planeManager.planePrefab.SetActive(false);
     gameObject.SetActive(false);
 }
-\end{lstlisting}
-Diese Funktion trägt eine tragende Rolle für den weiteren Verlauf der Applikation. Zu Beginn wird der \textit{QRCodesManager}
-aktiviert um das erkennen und scannen von \textit{QRCodes} zu ermöglichen.
+\end{lstlisting}\\
+Im Wesentlichen kann diese Funktion in mehrere einzelne Schritte unterteilt werden, die den Platzierungsvorgang des
+Inventarobjekts steuern:
 
-Als nächstes wird die Mitte des \textit{ARPlanes} berechnet um das Inventar-Objekt dementsprechend passend auf diesem zu
-platzieren. Damit das Inventar-Objekt richtig rotiert ist wird dieser anschließend um \textit{90 Grad} auf der X-Achse
-rotiert, dass es flach liegt. Der nächste Schritt (\textit{GameObject instantiatedObject = Instantiate(inventoryObject, objectPosition, objectRotation)})
-ist dafür verantwortlich, dass das Objekt für den Benutzer sichtbar wird. Diese Funktion instanziert das Inventar-Objekt
-an der definierten Position (\textit{objectPosition} und mit der definierten Rotation (\textit{objectRotation}). Zusätzlich
-wird es dann noch runterskaliert. Dieselben Aktionen werden ebenfalls mit dem \textif{infoObject} vorgenommen mit dem
-einzigen Unterschied, dass die Positon (\textit{infoObjectPosition}) anders berechnet wird, dass dieses neben dem Inventar-Objekt
-liegt. Diese Object wird dann mittels der Funktion \textbf{.SetActive(true)} sichtbar.\\
+\begin{enumerate}
+    \item \textbf{Aktivierung des QRCodesManagers:} Zunächst wird der QRCodesManager aktiviert, um sicherzustellen, dass
+    QR-Codes nach Abschluss dieses Skripts gescannt werden können.
 
-Anschließend wird dem \textit{inventoryController} dieses Inventar-Objekt übergeben, damit dieser mit derselben Instanz
-arbeitet wie der \textit{inventoryPlacementController}. Dieser wird dann ebenfalls mitels \textbf{.SetActive(true)} aktiviert.
-Das Ende des \textit{inventoryControllers} stellt die Zeile \textit{gameObject.SetActive(false)} dar. Diese Zeile bewirkt,
-dass das \textit{inventoryPlacementController}-GameObject selbst deaktiviert wird.\\
-\\
-Wenn kein aktuelles \textit{ARPlane} gefunden wird oder, wenn der Blick des Benutzers nicht auf einem \textit{ARPlane}
-liegt, wird in den beiden \textit{else}-Zweigen das aktuelle ausgewählte \textit{ARPlane} auf null gesetzt, um zuvor
-gespeicherte Auswahlen und davon möglich auftretende Konflikte zu vermeiden. Zusätzlich wird der Inhalt des \textit{userInfo}
-TextMeshes wieder geändert, um dem Benutzer zu signalisieren, dass er wieder auf ein \textit{ARPlane} blicken muss.
-\\
-\\
-% HIER BILD NACH PLATZIEREN DES INVENTARS EINFÜGEN
-Nachdem das \textit{InventoryPlacementController} Skript ordnungsgemäß deaktiviert und beendet wurde, wird dem Benutzer
-anschließend (Wie in folgender Abbildung \ref{fig:inventoryPlaced} dargestellt) Ansicht präsentiert.
+    \item \textbf{Berechnung der Position und Anpassung der Skalierung:} Als nächstes wird die Position des zu platzierenden
+    Objekts anhand der Mitte des übergebenen \textit{ARPlane} berechnet. Die Rotation wird auf eine standardmäßige
+    Ausrichtung eingestellt, und das Objekt wird instanziiert, um es für den Benutzer sichtbar zu machen. Abschließend
+    wird die Skalierung des Objekts auf einen festgelegten Wert gesetzt, um die Größe des Inventarobjekts zu steuern.
+
+    \item \textbf{Platzierung des Informationsobjekts:} Die Position des Informationsobjekts wird berechnet, damit es
+    neben dem Inventar Objekt platziert wird. Anschließend wird das Informationsobjekt aktiviert, um es sichtbar zu machen
+    und dem Benutzer zusätzliche Informationen zu liefern.
+
+    \item \textbf{Übergabe des Inventar Objekts an den Inventory Controller:} Die Instanz des Inventarobjekts wird dem
+    Inventory Controller übergeben, um sicherzustellen, dass dieser mit der richtigen Instanz des Objekts arbeitet und die
+    Interaktion ordnungsgemäß durchgeführt werden kann.
+
+    \item \textbf{Aktivierung des Inventory Controllers:} Nach Abschluss der Platzierungsvorgänge wird das Inventory
+    Controller Skript aktiviert, um die Interaktion mit dem Inventar zu ermöglichen.
+
+    \item \textbf{Deaktivierung des Inventory Placement Controllers:} Abschließend wird das InventoryPlacementController
+    Gameobjekt selbst deaktiviert, da seine Aufgabe erfüllt ist und das Inventarobjekt erfolgreich platziert wurde.
+\end{enumerate}
+
+Diese Schritte führen den Platzierungsvorgang des Inventarobjekts durch und stellen sicher, dass die Anwendung ordnungsgemäß
+funktioniert und dem Benutzer eine nahtlose und intuitive Benutzererfahrung bietet.
+
+\subsubsection{Sicht des Benutzers nach Abschluss des Skripts}
+Nach Abschluss des Skripts zur Platzierung des Inventarobjekts hat der Benutzer eine klare Sicht auf die virtuelle Umgebung.
+Das platzierte Objekt wird nun auf der Oberfläche angezeigt, auf die der Benutzer seinen Blick gerichtet hat, wodurch
+eine nahtlose Integration von virtuellen und physischen Elementen entsteht.
+
+Die Platzierung des Inventar Objekts ermöglicht es dem Benutzer, eine immersive Erfahrung zu erleben, bei der virtuelle
+und reale Elemente nahtlos miteinander verschmelzen. Diese Integration schafft eine reichhaltige und interaktive Augmented-Reality-Umgebung,
+die es dem Benutzer ermöglicht, mit den virtuellen Objekten in seiner physischen Umgebung zu interagieren.
+
+Ein visuelles Beispiel dieser Erfahrung ist in Abbildung \ref{fig:inventoryPlaced} dargestellt, die die Sicht des Benutzers
+nach der Platzierung des Inventar Objekts veranschaulicht.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.8]{images/invPlace_Editor}
+    \includegraphics[scale=0.8]{images/invPlaced}
     \caption{Sicht des Benutzers nach Platzierung des Inventars}
     \label{fig:inventoryPlaced}
 \end{figure}
