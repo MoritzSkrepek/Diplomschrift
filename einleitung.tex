@@ -9,27 +9,23 @@ Reality für die Vermittlung von Informatik-Lehrinhalten evaluiert und umgesetzt
 
 \section{Auslöser}
 Die Besucher des \textit{Tag der offenen Tür} erhalten durch diese Applikation eine Vorführung der neuesten Technologien,
-was dazu beiträgt, dass sie erkennen, dass die Schule einen sehr hohen Technologiestandard aufweist. Dies führt zu einer
-signifikanten Steigerung der Nachfrage bei zukünftigen Bewerbungen für die Abteilung Informatiktechnik. Darüber hinaus
-stärkt dies den Ruf der Schule nach außen und präsentiert sie als attraktiven Ausbildungsstandort für zukünftige Mitarbeiter
+was dazu beiträgt, dass sie erkennen, dass die Schule einen sehr hohen Technologiestandard aufweist. Dies soll sicherstellen,
+dass sich auch in Zukunft viele interessierte Schüler für eine Ausbildung an der Abteilung für Informatik entscheiden. Darüber
+hinaus stärkt dies den Ruf der Schule nach außen und präsentiert sie als attraktiven Ausbildungsstandort für zukünftige Mitarbeiter
 vieler Unternehmen.
 
 \section{Aufgabenstellung}
-Die Aufgabenstellung besteht darin, zwei Unity-Szenarien zu erstellen, die jeweils ein Grundprinzip der Informationstechnologie
-veranschaulichen. Im ersten Szenario wird das Grundprinzip des \textit{Pingen} zwischen zwei PCs dargestellt. Mithilfe
-der HoloLens 2 wird ein 3D-modelliertes Paket auf einem Kabel visualisiert, das zwei reale PCs miteinander verbindet. Um
-das Senden und Empfangen eines Ping-Pakets zu simulieren, wird eine einfache Website mit einem entsprechenden Backend und
-der Verwendung einer RESTful API erstellt, um Nachrichten zwischen den PCs zu senden und zu empfangen. Dies verdeutlicht
-dem Benutzer den eigentlich unsichtbaren \textit{Ping} zwischen zwei verbundenen Geräten.
+Die Aufgabenstellung besteht darin, zwei Anwendungszenarien zu erstellen, die jeweils ein Grundprinzip der Informatik
+veranschaulichen. Im ersten Szenario wird das Grundprinzip des Nachrichtenaustauschs zwischen zwei PCs dargestellt. Das Ziel
+hierbei ist es dem Benutzer das eigentlich unsichtbare Nachrichtenpaket zu visualisieren. Der Benutzer soll hier auf einer
+Website eine Nachricht eingeben können, um diese dann an den anderen Computer zu senden und zusätzlich kann auch der Inhalt
+dieses Pakets durch draufdrücken visualisiert werden.
 
-Im zweiten Szenario wird das in der IT bekannte und vielseitig verwendete Optimierungsproblem des \textit{Knapsack Problems}
-dargestellt. Mithilfe von Augmented Reality wird ein Inventar auf einer Oberfläche platziert, die die verfügbare Fläche für
-die Platzierung der Gegenstände repräsentiert. Die Gegenstände im Inventar sind typische, im Alltag verwendete Gegenstände
-wie Laptop, Maus, Tastatur usw. Jeder dieser Gegenstände kann mithilfe eines QR-Codes visualisiert werden, um ein 3D-Modell
-des Gegenstands und die zugehörigen Werte wie Gewicht und Wert für die Lösung des Knapsack-Problems anzuzeigen. Die Aufgabe
-des Benutzers besteht darin, das Inventar bestmöglich mit den verfügbaren Gegenständen zu füllen, um den Gesamtwert des
-Inventars zu maximieren. Zusätzlich zur Lösung des Problems kann der Benutzer durch einen Knopfdruck eine der berechneten
-optimalen Lösungen aktivieren und sichtbar machen.
+Im zweiten Szenario wird das in der IT bekannte und vielseitige verwendete Optimierungsproblem des Knapsack-Problems dargestellt.
+Mit Hilfe von Augmented Reality wird der Rucksack als Inventar angezeigt in welchem der Benutzer alltägliche Gegenstände
+platzieren kann. Die Aufgabe des Benutzers besteht darin, den Rucksack bestmöglich mit den verfügbaren Gegenständen
+zu füllen, um den Gesamtwert den Rucksacks zu maximieren. Zusätzlich zur Lösung des Problems kann der Benutzer durch
+einen Knopfdruck eine der berechneten perfekten Lösungen anzeigen.
 
 \section{Team}
 Das Diplomarbeitsteam besteht aus:
@@ -41,14 +37,15 @@ Das Diplomarbeitsteam besteht aus:
 \end{itemize}
 
 \subsection{Aufteilung}
-Die Rolle des Projektsleiters der Diplomarbeit nahm Moritz SKREPEK ein, da dieser die Grundlegende Idee für die Darstellung
-zweier IT-Grundprinzipien mittels der Microsoft HoloLens2 hatte.
+Die Rolle des Projektsleiters der Diplomarbeit nahm Moritz SKREPEK ein, da dieser die grundlegende Idee für die Darstellung
+zweier Anwendungsszenarios mittels der Microsoft HoloLens2 hatte.
 
-Die entwickelte Applikation lässt sich in das Hauptmenü, Pinkt-Szenario und Knapsack-Problem-Szenario einglieder. Die Implementierung
-des Hauptmenüs und ebenfalls für das gesamte UI/UX übernahm Dustin LAMPEL unter Verwendung der UX-Tools-Plugins für Mixed Reality.
-Die Umsetzung des Pink-Paket-Szenarios übernahm SCHODITSCH Jonas mittels Objekt-Tracking und Picture-Taking. Für die Implementierung des
-Knapsack-Problem-Szenarios waren Moritz SKREPEK und Seref HAYLAZ mittels Verwendung von Plane-detection,
-QR-Code Tagging und Tracking, Knapsack Algorithmus, 3D Unity Game Objekte und Unittests zuständig.
+Die entwickelte Applikation lässt sich in das Hauptmenü, das Nachrichtenaustausch-Szenario und das Knapsack-Problem-Szenario
+gliedern. Die Implementierung sowie die gesamte UI/UX und das Frontend der Website übernahm Dustin LAMPEL unter Verwendung
+des UX-Tools-Plugins, welches sämtliche UI/UX Elemente für Mixed Reality Anwendungen bereitstellt und HTML, CSS und JavaScript.
+Die Umsetzung des Nachrichtenaustausch-Szenarios übernahm SCHODITSCH Jonas mittels Objekt-Tracking und Foto-Aufnahmen. Für
+die Implementierung des Knapsack-Problem-Szenarios waren Moritz SKREPEK und Seref HAYLAZ mittels Verwendung von Plane-detection,
+QR-Code Tagging und Tracking, Knapsack Algorithmus und Unittests zuständig.
 
 
 
