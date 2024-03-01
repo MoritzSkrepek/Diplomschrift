@@ -738,11 +738,50 @@ Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus
 entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst
 und dann auf den entsprechenden Bereich des Modells übertragen.
 
-Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen
-des Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente
-Umsetzung der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht.
+Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen des
+Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente Umsetzung
+der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht. Um noch bessere und
+realitätsnähere Textur zu gewährleisten, wurde ein Vorgang Namens \textit{UV-Mapping} durchgeführt.
 
-%TODO: maybe UV-Mapping wegen Tasten und dann viel zum schreiben
+%literatur https://docs.blender.org/manual/en/latest/modeling/meshes/editing/uv.html
+%literatur https://all3dp.com/2/blender-uv-mapping-simply-explained/
+%literatur https://de.wikibooks.org/wiki/Blender_Dokumentation:_UV-Mapping
+\subsubsection*{UV-Mapping}
+\textit{UV-Mapping} ist ein wichtiger Schritt im Texturierungsprozess von 3D-Modellen. Dabei werden Texturen auf
+dreidimensionale Objekte projiziert. Die Bezeichnungen \textit{U} und \textit{V} stehen dabei für die beiden
+Koordinatenachsen im zweidimensionalen Raum. In Blender gibt es dafür einen eigenen Editor mit einer spezifischen
+Benutzeroberfläche.
+
+Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem
+Referenzbild auf die einzelnen Knöpfe und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen
+und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/uvmappingeditor.png}
+    \caption{Ansicht des UV-Editing Editors in Blender}
+    \label{fig:uvmappingeditor}
+\end{figure}
+
+Die Abbildung \ref{uvmappingeditor} zeigt den \textit{UV-Editing-Editor} in Blender. Mit diesem Editor können die UV-Maps der 3D-Modelle
+bearbeitet werden, indem die 3D-Geometrie auf eine zweidimensionale Ebene projiziert wird, um die Positionierung der
+Texturen zu steuern.
+
+Als Beispiel wurde der obere Teil des Taschenrechners rund um den Bildschirm ausgewählt. Zunächst wird dem Bereich
+ein neues Material zugewiesen, das die Basisfarbe des Referenzbildes enthält. Anschließend wird das Referenzbild als
+Texturhintergrund im Editor ausgewählt, um es anzuzeigen.
+
+Der nächste Schritt besteht darin, die ausgewählten Flächen des Modells aufzuteilen, denn die Erstauswahl in Blender
+legt die einzelnen Flächen übereinander. Dies geschieht durch Auswahl der Flächen im Editor und Anwendung der
+\textit{UV-Unwrap}-Funktion in Blender.
+
+Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf
+das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für
+jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um
+eine einheitliche Darstellung zu gewährleisten.
+
+\textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise
+Texturierung und Gestaltung ermöglicht.
 
 \subsubsection{Restlichen Modelle}
 \subsubsection*{Ping-Paket-Modell}
