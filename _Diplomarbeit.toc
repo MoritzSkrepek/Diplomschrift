@@ -1,10 +1,10 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.1}%
-\contentsline {chapter}{Vorwort}{vii}{chapter*.3}%
-\contentsline {chapter}{Diplomarbeit Dokumentation}{viii}{chapter*.4}%
-\contentsline {chapter}{Diploma Thesis Documentation}{x}{chapter*.5}%
-\contentsline {chapter}{Kurzfassung}{xii}{chapter*.6}%
-\contentsline {chapter}{Abstract}{xiii}{chapter*.7}%
+\contentsline {chapter}{Vorwort}{vi}{chapter*.3}%
+\contentsline {chapter}{Diplomarbeit Dokumentation}{vii}{chapter*.4}%
+\contentsline {chapter}{Diploma Thesis Documentation}{ix}{chapter*.5}%
+\contentsline {chapter}{Kurzfassung}{xi}{chapter*.6}%
+\contentsline {chapter}{Abstract}{xii}{chapter*.7}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
@@ -151,29 +151,27 @@
 \contentsline {subsubsection}{\numberline {4.5.6.5}Ansätze zur Lösung des Knapsack-Problems}{86}{subsubsection.634}%
 \contentsline {subsubsection}{\numberline {4.5.6.6}Anwendungen des Knapsack-Problems}{89}{subsubsection.683}%
 \contentsline {subsubsection}{\numberline {4.5.6.7}Auswahl des Implementierungsansatzes}{90}{subsubsection.689}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Das KnapsackSolver Game Objekt}{91}{subsubsection.694}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}KnapsackSolver Klassenvariablen}{92}{subsubsection.696}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Start des KnapsackSolvers}{92}{subsubsection.709}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{94}{subsubsection.747}%
-\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des eigenen Inventars}{97}{subsubsection.811}%
-\contentsline {subsubsection}{\numberline {4.5.6.13}InfoMesh aktualisieren}{97}{subsubsection.837}%
-\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{98}{subsection.844}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{99}{subsubsection.847}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{100}{subsubsection.849}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{101}{subsubsection.863}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{101}{subsubsection.884}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{102}{subsubsection.893}%
-\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{103}{section.925}%
-\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{103}{subsection.926}%
-\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{104}{subsection.927}%
-\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{104}{subsection.928}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{107}{chapter.995}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{107}{section.996}%
-\contentsline {section}{\numberline {5.2}Abnahme}{107}{section.997}%
-\contentsline {section}{\numberline {5.3}Zukunft}{107}{section.998}%
-\contentsline {chapter}{\numberline {A}Mockups}{108}{appendix.999}%
-\contentsline {section}{\numberline {A.1}UI/UX}{108}{section.1000}%
-\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{108}{section.1001}%
-\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{108}{section.1002}%
-\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{108}{section.1003}%
-\contentsline {chapter}{\numberline {B}Literatur}{109}{appendix.1004}%
+\contentsline {subsubsection}{\numberline {4.5.6.8}Auswahl der Variante und Typ des Problems}{91}{subsubsection.694}%
+\contentsline {subsubsection}{\numberline {4.5.6.9}Der Knapsack Solver}{91}{subsubsection.695}%
+\contentsline {subsubsection}{\numberline {4.5.6.10}Knapsack-Algorithmus Implementierung}{92}{subsubsection.697}%
+\contentsline {subsubsection}{\numberline {4.5.6.11}Berechnung des zusammengestellten Inventars}{94}{subsubsection.750}%
+\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{95}{subsection.770}%
+\contentsline {subsubsection}{\numberline {4.5.7.1}Auslöser des Skripts}{96}{subsubsection.773}%
+\contentsline {subsubsection}{\numberline {4.5.7.2}PerfectSolutionVisualizer Klassenvariablen}{97}{subsubsection.775}%
+\contentsline {subsubsection}{\numberline {4.5.7.3}Start des PerfectSolutionVisualizer}{98}{subsubsection.789}%
+\contentsline {subsubsection}{\numberline {4.5.7.4}Perfekte Lösung platzieren}{98}{subsubsection.810}%
+\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab füllen}{99}{subsubsection.819}%
+\contentsline {section}{\numberline {4.6}Performance und Qualtitätssicherung}{100}{section.851}%
+\contentsline {subsection}{\numberline {4.6.1}Unit-Tests}{100}{subsection.852}%
+\contentsline {subsection}{\numberline {4.6.2}Unity Test Framework}{101}{subsection.853}%
+\contentsline {subsection}{\numberline {4.6.3}Performance-Messung}{101}{subsection.854}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{104}{chapter.921}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{104}{section.922}%
+\contentsline {section}{\numberline {5.2}Abnahme}{104}{section.923}%
+\contentsline {section}{\numberline {5.3}Zukunft}{104}{section.924}%
+\contentsline {chapter}{\numberline {A}Mockups}{105}{appendix.925}%
+\contentsline {section}{\numberline {A.1}UI/UX}{105}{section.926}%
+\contentsline {section}{\numberline {A.2}Hauptmenu Level Design}{105}{section.927}%
+\contentsline {section}{\numberline {A.3}Ping-Paket Level Design}{105}{section.928}%
+\contentsline {section}{\numberline {A.4}Knappsack-Level Design}{105}{section.929}%
+\contentsline {chapter}{\numberline {B}Literatur}{106}{appendix.930}%
