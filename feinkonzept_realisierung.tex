@@ -1707,27 +1707,40 @@ Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren
 Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
 zu ermöglichen.
 
-\subsubsection{Bestimmen der Position QR-Codes}
-TODO: Auch die events add remove und update erklären vom qrWatcher
+\subsubsection{Positionsbestimmung von QR-Codes}
+Um die räumliche Position eines QR-Codes exakt zu bestimmen, ist ein spezieller Prozess notwendig. Dieser Schritt ist entscheidend, um physische QR-Codes in der virtuellen Realität darstellen und mit ihnen interagieren zu können. Die Positionierung der QR-Codes erfolgt mit Hilfe einer Klasse namens \textit{QRWatcher}, die im SDK-Plugin \textit{Microsoft.MixedReality.QR} enthalten ist.
+
+Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
+
+\begin{itemize}
+    \item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
+    \item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
+    \item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
+    \item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein Spatial Graph Node erstellt und die Position des QR-Codes an diesen gebunden.
+    \item \textbf{Zuordnung des QR-Codes zum Objekt:} Nach der Erkennung wird geprüft, ob der QR-Code bereits in der Anwendung registriert ist. Ist dies der Fall, wird er einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
+\end{itemize}
+
+Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
 
 \subsubsection{Visualisierung von QR-Codes}
 TODO: Bild von einem QR Prefab einfügen
-Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, steht die Aufgabe an, ihre Visualisierung in der virtuellen Welt umzusetzen.
+Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, muss ihre Visualisierung in der virtuellen Welt umgesetzt werden. Hierfür nutzen wir die Funktionalität von Unity Prefabs, die die Erstellung visueller Repräsentationen der QR-Codes und ihre nahtlose Integration in die virtuelle Umgebung ermöglichen.
 
-Hierfür wird die Funktionalität von Unity Prefabs genutzt. Diese ermöglichen die Erstellung visueller Repräsentationen
-der QR-Codes und ihre nahtlose Integration in die virtuelle Umgebung. Weitere Informationen zu Prefabs und ihrer Funktionsweise
-finden Sie im Abschnitt \ref{Unity Prefabs}.
+Die Klasse \textit{QRWatcher} kann drei Events auslösen: das Erkennen eines neuen QR-Codes, das Erkennen eines bereits bekannten QR-Codes und das Löschen eines QR-Codes.
 
-Innerhalb jedes Prefabs sind alle relevanten Informationen enthalten, die für die korrekte Darstellung des QR-Codes
-erforderlich sind. Dazu gehören nicht nur das 3D-Modell des QR-Codes, sondern auch zugehörige Daten wie Name, Wert und
-Gewicht. Diese Daten sind entscheidend für die Interaktionen innerhalb der virtuellen Umgebung.
+Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen Erkennen eines QR-Codes wird ein QR-Prefab initialisiert. Bei erneutem Erkennen werden die Positionsdaten aktualisiert, und beim Entfernen wird entsprechend der QR-Code-Prefab aus der Szene entfernt.
 
-Um die Funktionalität des QR-Codes in der virtuellen Welt zu gewährleisten, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen.
-Dieses Skript steuert die visuelle Darstellung des QR-Codes sowie sämtliche Interaktionen, die damit verbunden sind. Durch
-die Zuweisung dieses Skripts wird sichergestellt, dass die QR-Codes nicht nur korrekt angezeigt, sondern auch innerhalb
-der virtuellen Umgebung interaktiv sind.
+Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-Codes, einschließlich des 3D-Modells, des Namens, des Werts und anderer Daten, die für Interaktionen innerhalb der virtuellen Umgebung erforderlich sind. Um die Funktionalität des QR-Codes sicherzustellen, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen, das die visuelle Darstellung und alle damit verbundenen Interaktionen steuert.
 
-TODO: Bild von einem gescannten QRCode einfügen
+Dieser Prozess gewährleistet nicht nur eine korrekte Darstellung der QR-Codes in der virtuellen Welt, sondern ermöglicht auch ihre Interaktivität.
+
+
+TODO: Bild von einem gescannten QRCode einfügen und beschreiben
+\subsubsection{Spatial Graph Node}
+Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte "Spatial Graph Nodes". Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
+
+Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-Koordinatensystem um. Darüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau genau an derselben Stelle wie den realen QR-Code. Diese Verwendung von Spatial Graph Nodes ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in der Mixed-Reality-Umgebung.
+
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
 Wie bereits im Abschnitt \ref{sec:KnapSackProblem} erwähnt, benötigen andere Teile der Anwendung Zugriff auf
