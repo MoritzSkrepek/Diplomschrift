@@ -169,52 +169,60 @@ dieser Pakete ist es erforderlich, sie zu validieren und anschließend in das Un
 Dieser Prozess gewährleistet eine erfolgreiche Integration der benötigten Plugins und Erweiterungen, die für die Entwicklung
 von Augmented Reality-Anwendungen in Unity von entscheidender Bedeutung sind.
 
-\subsection{Modellierungsprogramm}\marginpar{\small\(\rightarrow\) LAMPEL}
+\subsection{Wahl des Modellierungsprogramm}\marginpar{\small\(\rightarrow\) LAMPEL}
+Durch Unity und die Open-Source-lastige Modellierungscommunity gibt es verschiedene Möglichkeiten, um an die 3D-Modelle
+zu gelangen, die für die Anwendung der Szenarien benötigt werden.
 
-Die Erstellung der 3D-Modelle für die beiden Level erfordert ein Rendering-Programm. Die Entscheidung für das
-Rendering-Programm Blender wurde bereits zu Beginn des Projekts getroffen. \\
-Diese Wahl basiert auf folgenden Gründen:
-\begin{itemize}
-    \item \textbf{Kostenfrei und Open Source}\\
-    Blender ist kostenfrei und quelloffen, was bedeutet, dass es ohne Lizenzkosten genutzt werden kann. Dies ist
-    besonders attraktiv bei der Entwicklung von AR-Anwendungen mit begrenztem Budget.
-    \item \textbf{Echtzeit-Rendering}\\
-    Blender verfügt über einen Echtzeit-Renderer namens Eevee, der schnelle Vorschauen
-    und Renderings ermöglicht. Dies ist hilfreich, um AR-Inhalte in Echtzeit anzuzeigen und zu überprüfen.
-    \item \textbf{Integration mit AR-Frameworks}\\
-    Obwohl Blender keine direkte Unterstützung für AR-Funktionen bietet, können die erstellten 3D-Modelle und
-    Animationen in AR-Entwicklungsumgebungen wie Unity oder Unreal Engine importiert werden, um dort
-    AR-spezifische Funktionalitäten hinzuzufügen.
-\end{itemize}
+Eine Möglichkeit besteht darin, auf weit verbreitete 3D-Modelle auf sogenannten \textit{Asset Stores} zurückzugreifen,
+wie zum Beispiel dem von Unity selbst. Dort können sie entweder gekauft oder kostenlos heruntergeladen werden. Die
+verschiedenen Angebote unterscheiden sich in der Texturqualität und dem Modellierungsaufwand.
+\footnote{Unity \cite{Asset Stores}}
+
+Eine weitere Möglichkeit besteht darin, die Modelle selbst in einem Modellierungsprogramm zu entwerfen. Diese Variante
+ist zwar zeitintensiver und aufwendiger, führt jedoch zu maßgeschneiderten Modellen, die den Wünschen und Anforderungen
+des Projekts entsprechen. Es gibt verschiedene Programme, die die Anforderungen erfüllen würden. Beispielsweise würden
+Blender \footnote{Blender \cite{Blender Allgemein}}, 3ds Max \footnote{Autodesk \cite{3DS Max}} von Autodesk oder
+Cinema 4D \footnote{Maxon \cite{Cinema 4D}} von Maxon in Frage kommen. Diese Programme unterscheiden sich nur hinsichtlich
+der Bedienung, aber der eigentliche Zweck ist gleich.
+
+Nach Absprachen innerhalb des Teams wurde beschlossen, das Modellierungsprogramm Blender zu benutzen, da eines der
+Teammitglieder bereits gewisses Wissen in der Bedienung und Modellierung mit diesem Programm angehäuft hat. Nicht nur
+das war der ausschlaggebende Punkt, sondern auch die große Benutzergemeinschaft in Blender mit zahlreichen Tutorials
+und Hilfestellungen für auftretende Herausforderungen.
+
+Obwohl diese Variante einen höheren Zeitaufwand und zusätzliche Komplexität des Projekts mit sich bringt, erhält man
+am Ende eine Sammlung von Objekten, die vollständig den Anforderungen und Wünschen entspricht. Zudem ist dies die
+kostengünstigste Methode, da der Kauf von Modellen oder einer kostenpflichtigen Modellierungsplattform vermieden werden
+konnte, um hohe Kosten zu vermeiden.
 
 \subsubsection{Wie funktioniert Blender im Allgemeinen?}
-
-Die nachfolgende Beschreibung hebt die Schlüsselaspekte und die Funktionalität von Blender für unseren speziellen
-Anwendungsbereich hervor.
+Die Applikation Blender ist sehr komplex. Daher werden in der folgenden Beschreibung nur die Schlüsselaspekte und die
+Funktionalität von Blender für unseren speziellen Anwendungsbereich hervorgehoben.
 
 \begin{itemize}
     \item \textbf{Benutzeroberfläche und Interaktion}\\
-    Die Benutzeroberfläche von Blender ist komplex gestaltet, aber hoch anpassbar. Sie enthält 3D-Modelle,
-    Ansichten, Fenster und Panels. Benutzer interagieren mit Objekten und Werkzeugen über Maus- und Tastaturbefehle,
-    wobei erfahrene Nutzer Hotkeys oder Shortcuts verwenden können, um effizienter zu arbeiten.
+    Die Benutzeroberfläche von Blender ist hoch anpassbar, obwohl sie komplex gestaltet ist. Sie enthält 3D-Modelle,
+    Ansichten, Fenster und Panels. Benutzer interagieren mit Objekten und Werkzeugen über Maus- und Tastaturbefehle.
+    Die Effizienz der Arbeit und die Modellierungsdauer hängen stark von der Erfahrung des Benutzers ab, insbesondere
+    von der Nutzung von Shortcuts und Hotkeys.\footnote{Blender \cite{Benutzeroberfläche}}
 
     \item \textbf{3D-Modellierung}\\
     Blender ermöglicht die Erstellung von 3D-Modellen durch die Verwendung von Primitiven wie Würfeln, Kugeln,
-    Flächen und Kurven. Diese können dann bearbeitet und modifiziert werden, um komplexe Formen zu erstellen.
-    Modellierungswerkzeuge umfassen Extrusion, Verschiebung, Skalierung und Rotation.
+    Flächen und Kurven. Diese können bearbeitet und modifiziert werden, um komplexe Formen zu erstellen.
+    Modellierungswerkzeuge wie Extrusion, Verschiebung, Skalierung und Rotation stehen zur Verfügung.
+    \footnote{Blender \cite{Toolbar}}
 
     \item \textbf{Materialien und Texturen}\\
-    Zur Erzeugung realistischer Oberflächen können Materialien erstellt und Texturen auf Objekte angewendet werden.
-    Blender erlaubt die Feinanpassung von Materialeigenschaften wie Diffusreflexion, Glanz, Transparenz und Emission.
+    Um realistische Oberflächen zu erzeugen, können Materialien erstellt und Texturen auf Objekte angewendet werden.
+    Blender ermöglicht die Feinanpassung von Materialeigenschaften wie Diffusreflexion, Glanz, Transparenz und Emission.
+    \footnote{Blender \cite{Materials}}
 
     \item \textbf{Gemeinschaft und Ressourcen}\\
-    Blender verfügt über eine engagierte Benutzergemeinschaft, die umfassende Dokumentation, Tutorials und Foren
-    bereitstellt. Diese Ressourcen erleichtern die Einarbeitung und die Lösung von Problemen.
-
+    Blender hat eine engagierte Benutzergemeinschaft, die umfassende Dokumentation, Tutorials und Foren
+    bereitstellt. Diese Ressourcen erleichtern die Einarbeitung und Problemlösung.
 \end{itemize}
 
-Blender wird in beiden Anwendungsszenarien dieses Projekts genutzt. Die Hauptnutzung liegt im zweiten Szenario. Hier
-dient die Anwendung zur digitalen Modellierung wichtiger täglicher Gegenstände von Schülern. Das übergeordnete Ziel
-besteht darin, am Ende eine umfangreiche Sammlung von Objekten zu erstellen, um den Benutzern eine vielfältige Auswahl
-an digitalen Ressourcen zu bieten.
-
+Blender wird im gesamten Projekt eingesetzt, angefangen beim Entwurf und der Erstellung des Hauptmenüs bis hin zur
+Gestaltung jedes einzelnen Objekts. Es wird hauptsächlich für die digitale Modellierung der wichtigsten täglichen
+Gegenstände von Schülern verwendet. Das Ziel besteht darin, am Ende eine umfangreiche Sammlung von Objekten zu haben,
+um den Benutzern eine vielfältige und zahlreiche Auswahl an verschiedenen Modellen zu bieten.
