@@ -1295,54 +1295,96 @@ Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer d
 Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur
 Initialisierung und zum absenden des Datenpakets führt.
 
+
 \subsection{Starten und Verwenden der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
+Dieser Abschnitt erläutert, wie die Webseite gestartet und genutzt wird. Der gesamte Code der Webseite ist in einer Datei
+namens \textit{Level1-FrontEnd/index.html} enthalten. Im Folgenden wird erklärt, wie diese Datei ausgeführt wird, um die
+Webseite im lokalen Netzwerk bereitzustellen.
 
-Dieser Abschnitt beschreibt, wie die Webseite gestartet und verwendet wird. Der gesamte Code der Webseite ist in einer
-Datei namens \textit{Level1-FrontEnd/index.html} enthalten. Im Folgenden wird erklärt, wie diese Datei ausgeführt wird,
-um die Webseite im lokalen Netzwerk bereitzustellen.
+\subsubsection{Webseite starten}
 
-\subsubsection{Starten der Webseite}
-
-Um die Webseite zu starten, wird ein lokaler Server benötigt. Wir haben uns für die Verwendung von \textit{http-server}
+Um die Webseite zu starten, benötigen Sie einen lokalen Server. Wir haben uns für die Verwendung von \textit{http-server}
 entschieden, aber die Wahl des Servers ist nicht relevant, solange die Webseite im lokalen Netzwerk erreichbar ist. Zur
-Installation von \textit{http-server} auf einem Windows-Gerät kann der Befehl \textit{npm install http-server -g} in der
-Kommandozeile verwendet werden.
+Installation von \textit{http-server} auf einem Windows-Gerät verwenden Sie den Befehl \textit{npm install http-server -g}
+in der Kommandozeile.
 
 Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \texttt{index.html}-Datei befindet, mit dem
-Befehl \textit{http-server} und den Flags \textit{-c -l -f} gestartet werden.
+Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
 
 Die Flags haben folgende Bedeutungen:
-- \texttt{-c}: Verhindert, dass die Webseite gecached wird.
-- \texttt{-l}: Startet die Webseite auf localhost:8080.
-- \texttt{-f}: Öffnet die Webseite automatisch im Browser.
 
-Der Befehl lautet dann: \textit{http-server -c -l -f index.html}.
+\texttt{-c-1}: Das \textit{-c} Flag legt die Cache-Zeit der Webseite fest. Durch Kombination mit -1 wird das Caching
+deaktiviert.
+\texttt{--cors}: Die Option \textit{--cors} aktiviert CORS (Cross-Origin Resource Sharing) auf dem HTTP-Server. Weitere
+Informationen zu CORS finden Sie im Abschnitt \ref{sec:cors}.
 
-TODO: Flags mit -c-1 -f testen und die Beschreibung entsprechend aktualisieren. CORS-Plugin erklären, wenn erforderlich.
+Der vollständige Befehl lautet dann: \textit{http-server -c-1 --cors index.html}.
 
-Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem
-Flag \textit{-p} und der gewünschten Portnummer geändert werden.
+Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag
+\textit{-p} und der gewünschten Portnummer geändert werden.
 
-Nach dem Starten der Webseite kann der Benutzer sie im Browser seiner Wahl mit der IP-Adresse des Geräts aufrufen. Die
-IP-Adresse des Geräts kann mit dem Befehl \textit{ipconfig} in der Kommandozeile gefunden werden.
+Nach dem Starten der Webseite können Sie diese im Browser Ihrer Wahl über die IP-Adresse des Geräts oder über \textit{localhost}
+aufrufen. Die IP-Adresse des Geräts finden Sie mit dem Befehl \textit{ipconfig} in der Kommandozeile.
 
-TODO: Erklären, wie man das CORS-Plugin verwendet, falls keine Änderungen nach dem Test festgestellt wurden.
+Nach dem erfolgreichen Starten der Webseite müssen Sie zunächst die IP-Adresse der HoloLens eingeben. Dies geschieht über
+das Zahnrad in der oberen linken Ecke der Webseite. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem Button
+\textit{Connect} bestätigt. Erst nachdem die IP-Adresse eingetragen wurde, können Nachrichten gesendet werden.
 
-Nach dem erfolgreichen Starten der Webseite muss als Erstes die IP-Adresse der HoloLens eingegeben werden. Dies erfolgt
-über das Zahnrad in der oberen linken Ecke der Webseite. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem
-Button \textit{Connect} bestätigt. Erst nachdem die IP-Adresse eingetragen wurde, können Nachrichten versendet werden.
+TODO: Bild von Webseite Einstellungen einfügen
 
 Da die Webseite in einem Szenario mit zwei Geräten verwendet wird, muss eingestellt werden, auf welcher Seite des Kabels
 sich das Gerät befindet. Dies ist erforderlich, um die Nachrichten richtig in der virtuellen Umgebung zu simulieren. Dazu
-wird in der Combobox \textit{Rechtes Gerät} oder \textit{Linkes Gerät}, relativ zum Träger der Brille, ausgewählt.
+wählen Sie in der Combobox entweder \textit{Rechtes Gerät} oder \textit{Linkes Gerät}, je nach Position des Trägers der Brille.
 
-Nach der erfolgreichen Konfiguration der Webseite kann der Benutzer Nachrichten versenden.
+Nach der erfolgreichen Konfiguration der Webseite können Sie Nachrichten versenden.
+
+Falls beim Senden der Anfragen ein CORS-Fehler auftritt, kann das Problem auf folgende Weise gelöst werden:
+
+\begin{itemize}
+    \item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch
+    gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung
+    erfolgt je nach Browser und ist nicht einfach zu finden.
+    \item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das
+    Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der
+    Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
+\end{itemize}
+
+Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk
+getestet wurden. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
+
+\subsubsection{\label{sec:cors}CORS}
+CORS (Cross-Origin Resource Sharing) ist ein Sicherheitsmechanismus in Webbrowsern, der kontrolliert, wie Ressourcen von
+einer Webseite aufgerufen werden können, die sich auf einer anderen Domain befinden. Standardmäßig erlauben Browser nur
+Anfragen an Ressourcen derselben Domain aus Sicherheitsgründen. CORS ermöglicht jedoch den Zugriff auf Ressourcen von anderen
+Domains, sofern der Server dies explizit zulässt.
+
+Um dies zu ermöglichen, sendet der Browser bei Anfragen an andere Domains sogenannte CORS-Anfragen an den Server, um zu
+überprüfen, ob der Zugriff erlaubt ist. Der Server antwortet dann mit spezifischen CORS-Headern, die angeben, ob die Anfrage
+erlaubt ist und von welchen Ursprüngen aus der Zugriff gestattet ist. Da unsere Kommunikation nur im lokalen Netzwerk läuft,
+ist es für uns nicht von großer Bedeutung, diese Sicherheitsmaßnahmen zu ergreifen. Dennoch müssen wir folgende Header bei
+allen Antworten, die von der Brille zurückgeschickt werden, einbauen:
+
+\begin{lstlisting}[style=csharp label=code:CORS anfragen]
+context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
+context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+}
+\end{lstlisting}
+
+\begin{itemize}
+\item \textbf{"Access-Control-Allow-Origin", "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
+\item \textbf{"Access-Control-Allow-Methods", "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
+\item \textbf{"Access-Control-Allow-Headers", "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
+\end{itemize}
+
+Diese drei Zeilen fügen CORS-Header zur HTTP-Antwort hinzu, wodurch Cross-Origin-Anfragen für Ressourcen von diesem Server
+ermöglicht werden. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
+
+Diese Header sind nicht dazu da, Sicherheitsmaßnahmen zu treffen, sondern um sie zu umgehen. Die HoloLens ist so konfiguriert,
+dass sie nur Anfragen aus dem lokalen Netzwerk annimmt.
 
 \subsubsection{Bedienung der Webseite}
-
-Nun, da die Webseite läuft, wie wird sie verwendet?
 TODO: Bedienung und korrekte Simulation beschreiben.
-
 
 
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
