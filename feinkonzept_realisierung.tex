@@ -1328,9 +1328,14 @@ aufrufen. Die IP-Adresse des Geräts finden Sie mit dem Befehl \textit{ipconfig}
 
 Nach dem erfolgreichen Starten der Webseite müssen Sie zunächst die IP-Adresse der HoloLens eingeben. Dies geschieht über
 das Zahnrad in der oberen linken Ecke der Webseite. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem Button
-\textit{Connect} bestätigt. Erst nachdem die IP-Adresse eingetragen wurde, können Nachrichten gesendet werden.
+\textit{Verbinden} bestätigt. Erst nachdem die IP-Adresse eingetragen wurde, können Nachrichten gesendet werden.
 
-TODO: Bild von Webseite Einstellungen einfügen
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=1\textwidth]{images/WebseiteSettings.png}}
+    \caption{Fesnter der Webseite Einstellungen}
+    \label{fig:websettings}
+\end{figure}
 
 Da die Webseite in einem Szenario mit zwei Geräten verwendet wird, muss eingestellt werden, auf welcher Seite des Kabels
 sich das Gerät befindet. Dies ist erforderlich, um die Nachrichten richtig in der virtuellen Umgebung zu simulieren. Dazu
@@ -1343,7 +1348,7 @@ Falls beim Senden der Anfragen ein CORS-Fehler auftritt, kann das Problem auf fo
 \begin{itemize}
     \item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch
     gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung
-    erfolgt je nach Browser und ist nicht einfach zu finden.
+    erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
     \item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das
     Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der
     Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
