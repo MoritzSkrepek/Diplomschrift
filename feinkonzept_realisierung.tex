@@ -1801,7 +1801,7 @@ Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren
 Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
 zu ermöglichen.
 
-\subsubsection{Positionsbestimmung von QR-Codes}
+\subsubsection{\label{sec:qrpos}Positionsbestimmung von QR-Codes}
 Um die räumliche Position eines QR-Codes exakt zu bestimmen, ist ein spezieller Prozess notwendig. Dieser Schritt ist entscheidend, um physische QR-Codes in der virtuellen Realität darstellen und mit ihnen interagieren zu können. Die Positionierung der QR-Codes erfolgt mit Hilfe einer Klasse namens \textit{QRWatcher}, die im SDK-Plugin \textit{Microsoft.MixedReality.QR} enthalten ist.
 
 Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
@@ -1826,10 +1826,67 @@ Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen 
 
 Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-Codes, einschließlich des 3D-Modells, des Namens, des Werts und anderer Daten, die für Interaktionen innerhalb der virtuellen Umgebung erforderlich sind. Um die Funktionalität des QR-Codes sicherzustellen, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen, das die visuelle Darstellung und alle damit verbundenen Interaktionen steuert.
 
-Dieser Prozess gewährleistet nicht nur eine korrekte Darstellung der QR-Codes in der virtuellen Welt, sondern ermöglicht auch ihre Interaktivität.
+TODO: Bild Aufbau Prefabs
 
+In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Wie zu erkennen ist, verfügt dieses Prefab über nur wenige Eigenschaften, nämlich:
+\begin{itemize}
+\item \textbf{Canvas:} Der Canvas enthält drei Labels: "Name", "Gewicht" und "Wert", welche die für den Benutzer relevanten Eigenschaften anzeigen.
+\item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:3dModelleDustin} zu finden. Jedes Prefab enthält die Modelle aller möglichen Items, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
+\end{itemize}
 
-TODO: Bild von einem gescannten QRCode einfügen und beschreiben
+\begin{lstlisting}[style=csharp label=code:QR-Prefab instanzierung]
+void Start()
+{
+    //... weiterer Code
+
+    PhysicalSize = qrCode.PhysicalSideLength;
+
+    try
+    {
+        item = new QRItem(int.Parse(qrCode.Data));
+        model = gameObject.transform.Find(item.qrData.id.ToString()).gameObject;
+        model.SetActive(model != null);
+    } catch (System.Exception e)
+    {
+        Debug.LogError("Error parsing QR Code data: " + e.Message);
+    }
+
+    setLabels();
+}
+\end{lstlisting}
+
+Nach der Instanzierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{code:QR-Prefab instanzierung}) ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanzierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. Zudem wird das entsprechende 3D-Modell in die Szene eingefügt, und die Labels werden mit den richtigen Werten (Name, Gewicht, Wert) befüllt. Diese Aktionen werden bei jeder Instanzierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktuallisieren der Position}) bei jedem Frame ausgeführt und befindet sich daher in der \textit{Update()} Funktion.
+
+\begin{lstlisting}[style=csharp label=code:Aktuallisieren der Position]
+void UpdatePropertiesDisplay()
+{
+    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
+    {
+        PhysicalSize = qrCode.PhysicalSideLength;
+
+        item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
+
+        labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f, item.qrData.position.y, item.qrData.position.z);
+
+        labels.transform.localScale = new Vector3(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f);
+
+        model.transform.localPosition = item.qrData.position;
+
+        lastTimeStamp = qrCode.SystemRelativeLastDetectedTime.Ticks;
+    }
+}
+\end{lstlisting}
+Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) beschrieben. Im Codeabschnitt \ref{code:Aktuallisieren der Position} werden die bereitgestellten Positionsdaten verwendet, um die Position der Modelle zu aktualisieren. Hier ist eine schrittweise Erläuterung dessen, was innerhalb der Funktion passiert:
+\begin{itemize}
+\item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
+\item Die Position des QR-Codes \textit{item.qrData.position} wird auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt. Das heißt, Position des QR-Codes wird relativ zu seiner eigenen Größe festgelegt, wodurch er sich in seinem eigenen Koordinatensystem zentriert.
+\item Die Position der labels wird relativ zur Position des QR-Codes eingestellt, mit einem Offset von 0.05f nach rechts, aber auf derselben Höhe (y-Koordinate) und Tiefe (z-Koordinate). Die Skalierung der labels wird auf \textit{(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f)} gesetzt. Dies bedeutet, dass die Größe der Labels entsprechend der Größe des QR-Codes angepasst wird.
+\item Die Position des 3D-Modell, das mit dem QR-Code verbunden ist wird auf die Position des QR-Codes gesetzt. Schließlich wird \textit{lastTimeStamp} auf die aktuelle Zeitmarke des QR-Codes gesetzt, um festzuhalten, wann der QR-Code zuletzt erkannt wurde.
+
+\end{itemize}
+
+Diese Prozesse gewährleisten nicht nur eine korrekte Darstellung der QR-Codes in der virtuellen Welt, sondern ermöglichen auch deren Interaktivität.
+
 \subsubsection{Spatial Graph Node}
 Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte "Spatial Graph Nodes". Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
