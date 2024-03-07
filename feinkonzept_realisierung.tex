@@ -1934,27 +1934,27 @@ sondern auch zusätzliche 3D-Modelle, die das Gesamtbild vervollständigen.
 \end{figure}
 
 Die Abbildung \ref{fig:invPrefab_UNITY} veranschaulicht das gesamte Prefab im Unity Editor und bietet gleichzeitig Einblicke
-in die Hierarchie, Aufbau und das gesamte Prefab. Es wird deutlich, dass das Prefab aus drei Hauptmodellen besteht, wo
-jedes dieser Hauptmodelle weiter Unterobjekte enthält. Diese drei Hauptmodelle sind die folgenden:
+in die Hierarchie. Es wird deutlich, dass das Prefab aus drei Hauptmodellen besteht, wobei jedes dieser Hauptmodelle weitere
+Unterobjekte enthält. Diese drei Hauptmodelle sind:
 \begin{enumerate}
-    \item \textbf{inventory}: Dieses 3x3-Raster bildet die Hauptkomponente des Prefabs, mit dem der Benutzer interagiert,
-    um Gegenstände zu platzieren und zu organisieren.
+    \item \textbf{inventory}: Dieses 3x3-Raster bildet die Hauptkomponente des Prefabs, mit dem der Benutzer interagiert, um
+    Gegenstände zu platzieren und zu organisieren.
 
-    \item \textbf{inventorydescbox}: Das Feld unterhalb des Inventar-Rasters gibt dem Benutzer während des Spielverlaufs
-    Feedback. Es enthält Warnungen, ob ein Gegenstand zu schwer ist, welcher maximale Wert erreicht werden kann und wie
-    viel Kapazität im Inventar noch frei ist. Dem Objekt sind drei \textit{TextMesh}-Elemente untergeordnet. Diese Elemente
-    dienen dazu, dem Benutzer das genannte Feedback visuell anzeigen zu können.
+    \item \textbf{inventorydescbox}: Das Feld unterhalb des Inventar-Rasters gibt dem Benutzer während des Spielverlaufs Feedback.
+    Es enthält Warnungen, ob ein Gegenstand zu schwer ist, welcher maximale Wert erreicht werden kann und wie viel Kapazität
+    im Inventar noch frei ist. Dem Objekt sind drei \textit{TextMesh}-Elemente untergeordnet. Diese Elemente dienen dazu,
+    dem Benutzer das genannte Feedback visuell anzeigen zu können.
 
-    \item \textbf{bestSolutionButton}: Der Knopf neben der inventorydescbox ermöglicht dem Benutzer, auf Knopfdruck eine
-    perfekte Lösung für das Inventar zu visualisieren. Dadurch kann der Benutzer eine konkrete Vorstellung davon erhalten,
+    \item \textbf{bestSolutionButton}: Der Knopf neben der \textit{inventorydescbox} ermöglicht dem Benutzer, auf Knopfdruck
+    eine perfekte Lösung für das Inventar zu visualisieren. Dadurch kann der Benutzer eine konkrete Vorstellung davon erhalten,
     wie eine solche Lösung aussehen könnte und wie diese im Vergleich zur eigenen Lösung ist. Dies erleichtert die Erkundung
     einer perfekten Anordnung von Gegenständen im Inventar, um gegebenenfalls Anpassungen am eigenen Inventar vorzunehmen.
 
-    \item \textbf{inventoryvaluebox}: Der Pfeil und die Box auf der rechten Seite des Inventars zeigen dem Benutzer an,
-    welchen Wert er im Vergleich zum maximal erreichbaren Wert erreicht hat. Diese Information wird durch das untergeordnete
-    Element \textit{TextMesh} visualisiert. Diese Anzeige ist von großer Bedeutung, da sie dem Benutzer signalisiert, wie
-    effektiv die zusammengestellte Lösung ist. Durch die klare Darstellung des aktuellen Werteverhältnisses erhält der
-    Benutzer unmittelbares Feedback über die Qualität seiner aktuellen Lösung.
+    \item \textbf{inventoryvaluebox}: Der Pfeil und die Box auf der rechten Seite des Inventars zeigen dem Benutzer an, welchen
+    Wert er im Vergleich zum maximal erreichbaren Wert erreicht hat. Diese Information wird durch das Element \textit{TextMesh}
+    unterhalb visualisiert. Diese Anzeige ist von großer Bedeutung, da sie dem Benutzer signalisiert, wie effektiv die
+    zusammengestellte Lösung ist. Durch die klare Darstellung des aktuellen Werteverhältnisses erhält der Benutzer unmittelbares
+    Feedback über die Qualität seiner aktuellen Lösung.
 \end{enumerate}
 
 Die Struktur und das Design des Prefabs sind nicht nur ästhetisch ansprechend, sondern auch funktional und im Einklang
@@ -1963,18 +1963,15 @@ der einzelnen Elemente ist gut durchdacht und bietet dem Benutzer eine klare Ori
 insgesamt verbessert.
 
 \subsubsection{User Gaze in AR-Anwendungen}
-In Augmented-Reality-Anwendungen spielt der User-Gaze eine zentrale Rolle, da er die Interaktion zwischen Benutzer und
-virtueller Umgebung ermöglicht. Er erfasst und interpretiert dabei die Blickrichtung und -position des Benutzers, was dessen
-Aufmerksamkeit in der realen Welt widerspiegelt. Der Gaze ist somit entscheidend, um zu bestimmen, worauf der Benutzer
-fokussiert und wie er mit virtuellen Objekten interagiert.
+In Augmented-Reality-Anwendungen spielt der \textit{User-Gaze} eine zentrale Rolle, da er die Interaktion zwischen Benutzer
+und virtueller Umgebung ermöglicht. Er erfasst und interpretiert dabei die Blickrichtung und -position des Benutzers,
+was dessen Aufmerksamkeit in der realen Welt widerspiegelt. Der Gaze ist somit entscheidend, um zu bestimmen, worauf der
+Benutzer fokussiert und wie er mit virtuellen Objekten interagiert.
 
 Durch die Verfolgung des User Gazes können in AR-Anwendungen verschiedene Interaktionen ausgelöst werden. Beispielsweise
-kann der Benutzer durch einfaches Anschauen eines virtuellen Objekts weitere Informationen anzeigen lassen oder eine Aktion
-auslösen. Diese intuitive Form der Interaktion ohne physische Eingabegeräte trägt wesentlich zur Benutzerfreundlichkeit bei.
-
-Der User Gaze ermöglicht außerdem eine Navigation in der AR-Umgebung durch Blicksteuerung. Der Benutzer kann in der Umgebung
-navigieren oder Menüs öffnen, indem er bestimmte Punkte oder Objekte betrachtet, ohne physische Gesten auszuführen. Dadurch
-wird die Effizienz und Benutzerfreundlichkeit von AR-Anwendungen verbessert und die Immersion des Benutzers gesteigert.
+kann der Benutzer durch einfaches Anschauen eines virtuellen Objekts weitere Informationen anzeigen lassen oder eine
+Aktion auslösen. Diese intuitive Form der Interaktion ohne physische Eingabegeräte trägt wesentlich zur Benutzerfreundlichkeit
+bei.
 
 Eine präzise Erfassung und Interpretation des Benutzerblicks ist entscheidend für die Realisierung einer nahtlosen und
 immersiven AR-Erfahrung. Durch die präzise Verfolgung der Blickrichtung des Benutzers können AR-Anwendungen schnell und
@@ -1983,7 +1980,7 @@ und der virtuellen Umgebung ermöglicht.
 
 \subsubsection{Der Inventory Placement Controller}
 Das Unity Game Objekt \textit{Inventory Placement Controller} fungiert als grundlegender Baustein und Ausgangspunkt für
-das Anwendungsszenario des Knapsack-Problems. Dieses Objekt übernimmt die Aufgabe, dem Benutzer bei Szenenstart Anweisungen
+das Anwendungsszenario des Knapsack-Problems. Dieses Objekt übernimmt die Aufgabe dem Benutzer bei Szenenstart Anweisungen
 zu vermitteln und das Inventar-Prefab präzise zu platzieren und zu visualisieren. Mit der \textit{InventoryPlacementController.cs}
 Skript-Komponente ausgestattet, implementiert dieses Objekt die \textit{InventoryPlacementController} Klasse, welche die
 Logik für die Bestimmung des Platzierungsstandorts anhand des Benutzer-Gazes und den weiteren Verlauf dieses Anwendungsszenarios
@@ -2000,7 +1997,7 @@ Abbildung \ref{fig:inventoryPlacementController_Editor} zeigt das Game Objekt im
 die angehängte Skript-Komponente, die dem Inventory Placement Controller Game Objekt zugeordnet ist. Innerhalb dieser
 Komponente sind die öffentlichen Klassenvariablen des Skripts aufgeführt, die direkt im Inspektor übergeben und manipuliert
 werden können. Diese Variablen spielen eine wichtige Rolle bei der Konfiguration und Steuerung des Inventory Placement
-Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören die folgenden:
+Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 
 \begin{itemize}
     \item \textbf{Inventory Object}: Referenz auf das Inventar Modell aus dem Prefab Ordner, welches platziert werden soll.
@@ -2011,11 +2008,11 @@ Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören die folgen
 
     \item \textbf{User Info}: Referenz auf das in der \texttt{main camera} liegende \textit{TextMesh}.
 
-    \item \textbf{Required Look Time}: Diese Variable definiert die vorgeschriebene Zeit, die der Benutzer auf eine Fläche
-    blicken muss, um das Inventar darauf zu platzieren.
+    \item \textbf{Required Look Time}: Diese Variable definiert die vorgeschriebene Zeit, die der Benutzer auf eine
+    Fläche blicken muss, um das Inventar darauf zu platzieren.
 
-    \item \textbf{Object Position}: Variable, in der die Platzier-Position des Inventars gespeichert, um später darauf
-    zugreifen zu können.
+    \item \textbf{Object Position}: Variable, in der die Platzier-Position des Inventars gespeichert wird, um später
+    darauf zugreifen zu können.
 \end{itemize}
 
 Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity Game Objekt sind entscheidend für die
@@ -2025,8 +2022,8 @@ und ihrer Werte kann die Platzierungsdynamik präzise gesteuert werden, um eine 
 \subsubsection{Implementierung des User Gazes}
 Im Falle des Knapsack-Anwendungsszenarios wird der Gaze des Benutzers genutzt, um festzustellen, ob dieser auf eine durch
 den \textit{AR Plane Manager} erfasste Ebene (\textit{AR-Plane}) gerichtet ist. Diese Feststellung ist von großer Bedeutung,
-um zu bestimmen, ob der Benutzer auf eine geeignete Fläche blickt, auf der das Inventar-Prefab platziert werden kann. Die
-Klasse \textit{InventoryPlacementController} verwendet zwei Funktionen, um den Blick des Benutzers auf ein \textit{ARPlane}
+um zu bestimmen, ob der Benutzer auf eine geeignete Fläche blickt, auf der das Inventar-Prefab platziert werden kann.
+Die Klasse \textit{InventoryPlacementController} verwendet zwei Funktionen, um den Blick des Benutzers auf ein \textit{ARPlane}
 zu erkennen und, um dieses \textit{ARPlane} zu ermitteln und zurückzugeben. In diesem Abschnitt wird die Funktion, welche
 den Blick-Status ermittelt, anhand des Source-Codes erklärt.
 \begin{lstlisting}[caption={Funktion zur Überprüfung des User Gazes}, label=code:isPOP]
@@ -2045,16 +2042,16 @@ Strahl aus der Hauptkamera (\texttt{Camera.main}) in Richtung der aktuellen \tex
 des Benutzers geschossen. Wenn dieser Strahl mit einem virtuellen Objekt in der Szene kollidiert, wird überprüft, ob es
 sich bei dieser Kollision um ein AR-Plane handelt.
 
-Diese Überprüfung erfolgt über den Zugriff auf die Kollisionskomponente (\texttt{collider}) des getroffenen Objekts (\texttt{hit}),
-um auf die spezifische Komponente AR-Plane zuzugreifen. Wenn das getroffene Objekt als AR-Plane identifiziert werden kann,
-gibt die Funktion \texttt{true} zurück, woraus geschlossen werden kann, dass der Benutzer seinen Blick auf ein AR-Plane
-gerichtet hat. Ansonsten gibt diese Funktion \texttt{false} zurück, was das Gegenteil bedeutet.
+Diese Überprüfung erfolgt über den Zugriff auf die Kollisionskomponente (\texttt{collider}) des getroffenen Objekts
+(\texttt{hit}), um auf die spezifische Komponente AR-Plane zuzugreifen. Wenn das getroffene Objekt als AR-Plane identifiziert
+werden kann, gibt die Funktion \texttt{true} zurück, woraus geschlossen werden kann, dass der Benutzer seinen Blick auf
+ein AR-Plane gerichtet hat. Ansonsten gibt diese Funktion \texttt{false} zurück, was das Gegenteil bedeutet.
 
 \subsubsection{Platzierungskontrolle und ARPlane-Überwachung}
-Da der Benutzer während des Platzierungsvorgangs möglicherweise seine Blickrichtung ändert, ist es wichtig, kontinuierlich
-zu überprüfen, ob dies der Fall ist und ob ein neues AR-Plane im Fokus des Benutzers liegt. Diese fortlaufende Überprüfung
-ist entscheidend, um sicherzustellen, dass bei einer Änderung des Blicks das Neue im Fokus liegende AR-Plane ausgewählt
-wird und der Vorgang reibungslos fortgesetzt werden kann. Um diese Funktionalität zu realisieren, wird die Funktion \texttt{Update()} verwendet.
+Da der Benutzer während des Platzierungsvorgangs möglicherweise seine Blickrichtung ändert, ist es wichtig, die kontinuierlich
+zu überprüfen, oder ob ein neues AR-Plane im Fokus des Benutzers liegt. Diese fortlaufende Überprüfung ist entscheidend,
+um sicherzustellen, dass bei einer Änderung des Blicks das neue im Fokus liegende AR-Plane ausgewählt wird und der Vorgang
+reibungslos fortgesetzt werden kann. Um diese Funktionalität zu realisieren, wird die Funktion \texttt{Update()} verwendet.
 
 Diese Funktion ist von entscheidender Bedeutung, da sie sicherstellt, dass der aktuelle Stand des User Gazes kontinuierlich
 überprüft wird. Dadurch wird gewährleistet, dass das Inventar-Prefab präzise platziert werden kann, selbst wenn sich die
@@ -2088,51 +2085,51 @@ void Update() {
     }
 }
 \end{lstlisting}\\
-Generell lässt sich die Funktionsweise dieses Codes in neun Phasen unterteilen, um das Inventar-Prefab entgültig zu platzieren.
-Diese Phasen sind:
+Generell lässt sich die Funktionsweise dieses Codes in neun Phasen unterteilen, um das Inventar-Prefab entgültig zu platzieren. Diese Phasen sind:
 
 \begin{enumerate}
     \item \textbf{Platzierungsstatus und Skript-Startbedingung}: Zunächst wird überprüft, ob das Prefab für das Inventar
-    bereits platziert wurde (\texttt{objectPlaced}) und, ob das Skript gestartet werden kann (\texttt{canStartScript}).
+    noch nicht platziert wurde (\texttt{objectPlaced}) und, ob das Skript gestartet werden kann (\texttt{canStartScript}).
     Dies gewährleistet, dass die Platzierung nur erfolgt, wenn beide Bedingungen erfüllt sind.
 
-    \item \textbf{Bestimmung des User Gazes über einem AR-Plane}: Anschließend wird geprüft, ob sich der User Gaze über
-    einem AR-Plane befindet. Hierfür wird die Funktion \texttt{IsPointerOverPlane()} aufgerufen, welche feststellt, ob
-    sich der Benutzergaze über einem AR-Plane befindet.
+    \item \textbf{Bestimmung des User Gazes über einem AR-Plane}: Anschließend wird geprüft, ob sich der User Gaze über einem
+    AR-Plane befindet. Hierfür wird die Funktion \texttt{IsPointerOverPlane()} aufgerufen, welche feststellt, ob sich der
+    Benutzergaze über einem AR-Plane befindet.
 
     \item \textbf{Identifikation des aktuellen ARPlane}: Wenn bestätigt wird, dass sich der User Gaze über einem AR-Plane
-    befindet, wird das aktuelle AR-Plane identifiziert. Hierfür wird die Funktion \texttt{GetCurrentPlaneUnderGaze()}
-    aufgerufen, welche das AR-Plane bestimmt, auf den der Benutzergaze gerichtet ist.
+    befindet, wird das aktuelle AR-Plane identifiziert. Hierfür wird die Funktion \texttt{GetCurrentPlaneUnderGaze()} aufgerufen,
+    welche das AR-Plane bestimmt, auf den der Benutzergaze gerichtet ist.
 
-    \item \textbf{AR-Plane aktualisieren und Timer starten}: Nach Identifikation des AR-Planes wird überprüft, ob es sich
-    um ein anderes AR-Plane als dieses handelt, auf welches der Benutzer zuletzt geschaut hat. Falls dies der Fall ist,
-    wird die Variable \texttt{selectedDeskPlane} aktualisiert und die Startzeit des Blicks auf dem neuen AR-Plane wird gespeichert.
+    \item \textbf{AR-Plane aktualisieren und Timer starten}: Nach Identifikation des AR-Planes wird überprüft, ob es sich um
+    ein anderes AR-Plane als dieses handelt, auf welches der Benutzer zuletzt geschaut hat. Falls dies der Fall ist, wird
+    die Variable \texttt{selectedDeskPlane} aktualisiert und die Startzeit des Blicks auf dem neuen AR-Plane wird gespeichert.
 
-    \item \textbf{Messung der Blickdauer und Anzeige der Zeit}: Es wird die Dauer gemessen, die der Benutzer bereits auf
-    das aktuelle AR-Plane blickt. Hierfür wird die Zeitdifferenz seit dem Start des Blicks auf dieses AR-Plane berechnet.
-    Zusätzlich wird dem Benutzer mittels des TextMeshes \texttt{userInfo} in Form eines \textit{Countdowns} angezeigt,
-    wie lange er noch auf dieses ARPlane blicken muss.
+    \item \textbf{Messung der Blickdauer und Anzeige der Zeit}: Es wird die Dauer gemessen, die der Benutzer bereits auf das
+    aktuelle AR-Plane blickt. Hierfür wird die Zeitdifferenz seit dem Start des Blicks auf dieses AR-Plane berechnet.
+    Zusätzlich wird dem Benutzer mittels des TextMeshes \texttt{userInfo} in Form eines \textit{Countdowns} angezeigt, wie
+    lange er noch auf dieses ARPlane blicken muss.
 
-    \item \textbf{Erforderte Blickdauer erreicht}: Es wird überprüft, ob die gemessene Zeit die erforderliche Zeit überschreitet,
-    die der Benutzer benötigt, um das Inventar-Prefab auf dem AR-Plane zu platzieren.
+    \item \textbf{Erforderte Blickdauer erreicht}: Es wird überprüft, ob die gemessene Zeit die erforderliche Zeit
+    überschreitet, die der Benutzer benötigt, um das Inventar-Prefab auf dem AR-Plane zu platzieren.
 
     \item \textbf{Platzierung des Inventar Prefabs}: Nachdem die erforderliche Blickdauer erreicht wurde, wird die Funktion
-    \texttt{PlaceObjectOnDesk()} aufgerufen, um das Inventar-Prefab auf dem ausgewählten AR-Plane zu platzieren.
+    \texttt{PlaceObjectOnDesk()} (siehe Codeabschnitt \ref{code:placeObject}) aufgerufen, um das Inventar-Prefab auf dem
+    ausgewählten AR-Plane zu platzieren. (siehe Abschnitt \ref{sec:platzierungsablauf})
 
     \item \textbf{Platzierungsstatus}: Nachdem das Objekt erfolgreich platziert wurde, wird die Variable \texttt{objectPlaced}
     auf true gesetzt, um anzuzeigen, dass das Objekt platziert wurde.
 
-    \item \textbf{Benachrichtigung bei fehlendem AR-Plane}: Wenn sich der User Gaze nicht über einem AR-Plane befindet
-    oder kein AR-Plane erkannt wird, wird die Benutzeroberfläche entsprechend aktualisiert. Der Benutzer wird darüber
-    informiert, dass er auf ein AR-Plane blicken muss, um das Inventar-Prefab erfolgreich zu platzieren.
+    \item \textbf{Benachrichtigung bei fehlendem AR-Plane}: Wenn sich der User Gaze nicht über einem AR-Plane befindet oder
+    kein AR-Plane erkannt wird, wird die Benutzeroberfläche entsprechend aktualisiert. Der Benutzer wird darüber informiert,
+    dass er auf ein AR-Plane blicken muss, um das Inventar-Prefab erfolgreich zu platzieren.
 \end{enumerate}
 
 \subsubsection{Platzierung des Prefabs}
 Die Platzierung des Inventar-Prefabs markiert den Abschluss des Skripts \textit{Inventory Placement Controllers}. Die
 Funktion \texttt{PlaceObjectOnDesk()} platziert das Prefab auf dem ARPlane, auf welches der Benutzer blickt und aktiviert
 bzw. deaktiviert weitere Game Objekte sowie Skripte, um einen nahtlosen Fortlauf der Anwendung zu gewährleisten.
-\begin{lstlisting}[caption={Funktion zum Platzieren des Inventarobjekts}, label=code:isPOP]
-private void PlaceObjectOnDesk(ARPlane deskPlane) {
+\begin{lstlisting}[caption={Funktion zum Platzieren des Inventarobjekts}, label=code:placeObject]
+    private void PlaceObjectOnDesk(ARPlane deskPlane) {
     qrCodesManager.SetActive(true);
     objectPosition = deskPlane.center + Vector3.up * heightOffset;
     wholeInventory.transform.position = objectPosition;
@@ -2145,8 +2142,8 @@ private void PlaceObjectOnDesk(ARPlane deskPlane) {
 }
 \end{lstlisting}
 
-Die Platzierung des Inventar-Prefabs erfolgt in vier Hauptschritten, die den Ablauf des Platzierungsprozesses steuern und
-die Kontinuität des AR-Anwendungsszenarios sicherstellen.
+Die Platzierung des Inventar-Prefabs erfolgt in vier Hauptschritten, die den Ablauf des Platzierungsprozesses steuern
+und die Kontinuität des AR-Anwendungsszenarios sicherstellen.
 
 \begin{enumerate}
     \item \textbf{Aktivierung des QRCodesManagers:} Der QRCodesManager wird aktiviert, um sicherzustellen, dass QR-Codes
@@ -2156,9 +2153,8 @@ die Kontinuität des AR-Anwendungsszenarios sicherstellen.
     um sicherzustellen, dass es an der richtigen Stelle platziert wird. Die Rotation des Objekts wird angepasst, um eine
     korrekte Ausrichtung zu gewährleisten. Schließlich wird das Objekt aktiviert, um es für den Benutzer sichtbar zu machen.
 
-    \item \textbf{Extraktion und Übergabe des Inventar-Objekts:} Das Inventar-Objekt wird aus dem Prefab extrahiert und
-    an den \textit{Inventory Controller} übergeben. Dadurch wird eine nahtlose Fortsetzung der Interaktion mit dem Inventar
-    ermöglicht.
+    \item \textbf{Extraktion und Übergabe des Inventar-Objekts:} Das Inventar-Objekt wird aus dem Prefab extrahiert und an
+    den \textit{Inventory Controller} übergeben. Dadurch wird eine nahtlose Fortsetzung der Interaktion mit dem Inventar ermöglicht.
 
     \item \textbf{Deaktivierung des Objekts:} Abschließend wird das eigene Game-Objekt deaktiviert, um das Ende des
     Platzierungsvorgangs des Inventar-Prefabs zu markieren. Dadurch wird dem Benutzer signalisiert, dass der Platzierungsvorgang
@@ -2168,14 +2164,14 @@ die Kontinuität des AR-Anwendungsszenarios sicherstellen.
 Diese Schritte sind essenziell für einen reibungslosen Ablauf des Platzierungsprozesses des Inventar-Prefabs und tragen
 zu einer effizienten und benutzerfreundlichen Interaktion innerhalb des AR-Anwendungsszenarios bei.
 
-\subsubsection{Visualisierung des Platzierungsablaufs}
+\subsubsection{Visualisierung des Platzierungsablaufs}\label{sec:platzierungsablauf}
 Um den Prozess des Platzierens des Inventar-Prefabs aus der Perspektive des Benutzers besser zu veranschaulichen, werden
 in den folgenden drei Abbildungen \ref{fig:eins}, \ref{fig:zwei} und \ref{fig:drei} die Schritte dieses Vorgangs dargestellt.
 Dabei illustriert die letzte Abbildung \ref{fig:drei} den Endzustand mit dem platzierten Inventar sowie einer darauf
 folgenden Anweisung für den Benutzer.
 
-Diese visuelle Darstellung bietet eine ergänzende Perspektive auf den Ablauf des Platzierens und ermöglicht es, die einzelnen
-Schritte des Prozesses besser zu verstehen und den Abschluss des Platzierungsvorgangs nachzuvollziehen.
+Diese visuelle Darstellung bietet eine ergänzende Perspektive auf den Ablauf des Platzierens und ermöglicht es, die
+einzelnen Schritte des Prozesses besser zu verstehen und den Abschluss des Platzierungsvorgangs nachzuvollziehen.
 
 \begin{figure}[H]
     \centering
@@ -2189,7 +2185,7 @@ Schritte des Prozesses besser zu verstehen und den Abschluss des Platzierungsvor
         \centering
         \includegraphics[width=\textwidth]{images/schrittzwei.png}
         \label{fig:zwei}
-    \end{minipage}
+        \end{minipage}
     \hfill
     \begin{minipage}[b]{0.30\textwidth}
         \centering
@@ -2198,17 +2194,18 @@ Schritte des Prozesses besser zu verstehen und den Abschluss des Platzierungsvor
     \end{minipage}
 \end{figure}
 
-Die erste Abbildung zeigt, dass der Benutzer zu diesem Zeitpunkt nicht auf eine horizontale Fläche blickt. Daraufhin wird
-eine Anweisung angezeigt, dass auf eine horizontale Fläche geblickt werden muss, um das Inventar-Prefab platzieren zu
-können. Diese Anweisung dient als Orientierungshilfe, um den ersten Schritt des Platzierungsprozesses erfolgreich abzuschließen.
+Die erste Abbildung zeigt, dass der Benutzer zu diesem Zeitpunkt nicht auf eine horizontale Fläche blickt. Daraufhin
+wird eine Anweisung angezeigt, dass auf eine horizontale Fläche geblickt werden muss, um das Inventar-Prefab platzieren
+zu können. Diese Anweisung dient als Orientierungshilfe, um den ersten Schritt des Platzierungsprozesses erfolgreich
+abzuschließen.
 
-Die zweite Abbildung zeigt, dass der Benutzer seinen Blick nun auf einen Tisch, d.h. eine horizontale Fläche, gerichtet hat.
-Diese Aktion startet einen Countdown, der dem Benutzer visuell anzeigt, wie lange er noch auf diese Fläche blicken muss,
-um das Inventar-Prefab erfolgreich zu platzieren.
+Die zweite Abbildung zeigt, dass der Benutzer seinen Blick nun auf einen Tisch, d.h. eine horizontale Fläche, gerichtet
+hat. Diese Aktion startet einen Countdown, der dem Benutzer visuell anzeigt, wie lange er noch auf diese Fläche blicken
+muss, um das Inventar-Prefab erfolgreich zu platzieren.
 
-Die dritte Abbildung zeigt den Abschluss des Platzierungsprozesses, bei dem das Inventar-Prefab erfolgreich platziert wurde.
-Nach Abschluss dieser Phase erhält der Benutzer weitere Anweisungen für die nächsten Schritte, um das Inventar effektiv im
-Spiel zu verwenden.
+Die dritte Abbildung zeigt den Abschluss des Platzierungsprozesses, bei dem das Inventar-Prefab erfolgreich platziert
+wurde. Nach Abschluss dieser Phase erhält der Benutzer weitere Anweisungen für die nächsten Schritte, um das Inventar
+effektiv im Spiel zu verwenden.
 
 \subsection{Inventarverwaltung}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Eine effiziente Handhabung und Überwachung des platzierten Inventars ist ein zentraler Aspekt im Kontext des Rucksack-Problems.
