@@ -2209,15 +2209,15 @@ effektiv im Spiel zu verwenden.
 
 \subsection{Inventarverwaltung}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Eine effiziente Handhabung und Überwachung des platzierten Inventars ist ein zentraler Aspekt im Kontext des Rucksack-Problems.
-Es ist wichtig, das Inventar fortlaufend und präzise in Echtzeit zu erfassen und zu aktualisieren, um sämtliche Veränderungen
-- sei es das Hinzufügen oder Entfernen eines Gegenstands seitens des Benutzers - unmittelbar zu registrieren. Dank dieses
+Es ist wichtig, das Inventar fortlaufend und präzise in Echtzeit zu erfassen und zu aktualisieren, um sämtliche Veränderungen -
+sei es das Hinzufügen oder Entfernen eines Gegenstands seitens des Benutzers - unmittelbar zu registrieren. Dank dieses
 Echtzeit-Feedbacksystems ist es möglich, direkt auf Veränderungen zu reagieren und dem Benutzer entsprechendes Feedback zu geben.
 
-Dieser Abschnitt beschreibt das\textit{Inventory Controller} Unity Game Objekt und seine angehängte Skript-Komponente im
-Detail. Die Klasse \textit{InventoryController} ist das Herzstück für die Überwachung und Verwaltung des Inventars und
-gewährleistet einen reibungslosen und kontinuierlich aktualisierten Ablauf des Anwendungsszenarios des Rucksack-Problems
-in Echtzeit. Es wird erläutert, wie diese Klasse funktioniert und welche Bedeutung die Begrenzungen eines Objekts in diesem
-Kontext haben.
+Dieser Abschnitt beschreibt das \textit{Inventory Controller} Unity Game Objekt und seine angehängte Skript-Komponente
+im Detail. Die Klasse \textit{InventoryController} ist das Herzstück für die Überwachung und Verwaltung des Inventars
+und gewährleistet einen reibungslosen und kontinuierlich aktualisierten Ablauf des Anwendungsszenarios des Rucksack-Problems
+in Echtzeit. Es wird erläutert, wie diese Klasse funktioniert und welche Bedeutung die Begrenzungen eines Objekts in
+diesem Kontext haben.
 
 \subsubsection{Der Inventory Controller}
 Das Unity Game Objekt \texttt{Inventory Controller} ist von entscheidender Bedeutung für die nahtlose Interaktion und
@@ -2225,8 +2225,8 @@ Kontrolle des Inventars innerhalb des Anwendungsszenarios des Rucksack-Problems.
 und Angelpunkt für die Erfassung und Verarbeitung sämtlicher Änderungen am Inventar, die durch den Benutzer initiiert
 werden. Ausgestattet mit der Skript-Komponente \textit{InventoryController.cs}, verkörpert das \textit{Inventory Controller}
 Objekt die \textit{InventoryController} Klasse, welche nicht nur die Verwaltung des Inventars, sondern auch dessen
-Echtzeitüberwachung steuert. Diese Klasse bildet das Rückgrat für die reibungslose und kontinuierliche Aktualisierung des
-Inventars gemäß den Handlungen des Benutzers.
+Echtzeitüberwachung steuert. Diese Klasse bildet das Rückgrat für die reibungslose und kontinuierliche Aktualisierung
+des Inventars gemäß den Handlungen des Benutzers.
 
 \begin{figure}[H]
     \centering
@@ -2242,14 +2242,14 @@ im Inspektor eingesehen und manipuliert werden können. Diese Variablen sind wic
 des Inventory Controllers. Folgende Variablen sind relevant und haben eine bestimmte Bedeutung:
 
 \begin{itemize}
-    \item \textbf{QRCodesManager}: Referenz auf das \textit{QRCodesManager} Game Objekt aus der  Szene.
+    \item \textbf{QR Code Manager}: Referenz auf das \textit{QRCodeManager} Game Objekt aus der Szene.
 
-    \item \textbf{Knapsack Solver Game Objekt}: Ein Verweis auf das \textit{KnapsackAlgo} Game Objekt aus der Szene.
+    \item \textbf{Knapsack Solver Game Objekt}: Ein Verweis auf das \textit{KnapsackSolver} Game Objekt aus der Szene.
 
     \item \textbf{User Info}: Referenz auf das in der \textit{main camera} liegende \textit{TextMesh}.
 
-    \item \textbf{Vertical Offset}: Float-Wert, um den die Begrenzungen (\textit{Bounds}) des Inventory-Objekts auf der
-    X-Achse erweitert werden.
+    \item \textbf{Vertical Offset}: Float-Wert, um den die Begrenzungen (\textit{Bounds}) des Inventory-Objekts auf
+    der X-Achse erweitert werden.
 \end{itemize}
 
 Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity Game Objekt ist von entscheidender Bedeutung
@@ -2269,7 +2269,7 @@ definiert. Die ermittelten Begrenzungen eines Objekts haben eine Vielzahl von An
 \begin{enumerate}
     \item \textbf{Kollisionserkennung:} Durch den Vergleich der Begrenzungen zweier Objekte können Kollisionen zwischen
     diesen erkannt werden. Dieser Prozess ist von grundlegender Bedeutung für die physikalische Interaktion von Objekten
-    innerhalb einer digitalen Umgebung und ermöglicht die Realisierung realistischer Verhaltensweisen.
+    innerhalb einer digitalen Umgebung und ermöglicht die Umsetzung realistischer Verhaltensweisen.
 
     \item \textbf{Platzierung von Objekten:} Die Begrenzungen dienen als Leitfaden für die Platzierung neuer Objekte
     innerhalb einer Szene. Durch die Gewährleistung, dass die Positionierung innerhalb eines definierten Bereichs oder
@@ -2281,15 +2281,15 @@ definiert. Die ermittelten Begrenzungen eines Objekts haben eine Vielzahl von An
     Überschneidungen zwischen verschiedenen Elementen.
 \end{enumerate}
 
-Die effektive Nutzung der Begrenzungen eines Objekts trägt somit wesentlich zur Präzision und Stabilität digitaler Szenen
-bei, indem sie eine solide Grundlage für die Positionierung, Bewegung und Interaktion von Objekten innerhalb einer virtuellen
-Umgebung bildet.
+Die effektive Nutzung der Begrenzungen eines Objekts trägt somit wesentlich zur Präzision und Stabilität digitaler
+Szenen bei, indem sie eine solide Grundlage für die Positionierung, Bewegung und Interaktion von Objekten innerhalb
+einer virtuellen Umgebung bildet.
 
 \subsubsection{Problem bei Standardbegrenzungen}
-Die Standardbegrenzungen des Inventar-Objekts sind so festgelegt, dass sie genau die räumliche Fläche dieses Objekts abdecken.
-Dies kann jedoch zu Problemen führen, insbesondere wenn sich ein Gegenstand innerhalb dieser Grenzen befindet, aber
-möglicherweise nicht erkannt wird. Dies tritt auf, weil die QR-Codes auf realen Objekten angebracht sind und daher die
-Position entlang der y-Achse (Höhe) verschoben wird.
+Die Standardbegrenzungen des Inventar-Objekts sind so festgelegt, dass sie genau die räumliche Fläche dieses Objekts
+abdecken. Dies kann jedoch zu Problemen führen, insbesondere wenn sich ein Gegenstand innerhalb dieser Grenzen befindet,
+aber möglicherweise nicht erkannt wird. Dies tritt auf, weil die QR-Codes auf realen Objekten (Holzplättchen mit einer
+Stärke / Höhe von 20 mm) angebracht sind und daher die Position entlang der y-Achse (Höhe) verschoben wird.
 
 Um dieses Problem zu lösen, müssen die Begrenzungen erweitert werden. Dies ermöglicht es dem \textit{Inventory Controller},
 auch Gegenstände zu erfassen, die sich möglicherweise innerhalb des ursprünglichen Begrenzungsbereichs befinden, aber
@@ -2297,56 +2297,56 @@ aufgrund der vertikalen Verschiebung nicht erkannt wurden. Durch die Erweiterung
 alle relevanten Objekte ordnungsgemäß erfasst und im Inventar berücksichtigt werden.
 
 Diese Erweiterung der Begrenzungen ist insbesondere wichtig, um die Zuverlässigkeit und Effizienz des \textit{Inventory Controller}
-sicherzustellen, insbesondere in Umgebungen, in denen die vertikale Positionierung der Objekte variiert und eine präzise
-Erfassung erforderlich ist.
+sicherzustellen, insbesondere in Umgebungen, in denen die vertikale Positionierung der Objekte variiert und demnach eine
+präzise Erfassung erforderlich ist.
 
 \subsubsection{Erweitern der Standardbegrenzungen}
 Um das Problem der Nichterkennung von neu hinzugefügten Gegenständen im Inventar aufgrund der Begrenzungen des Inventar-Objekts
-zu lösen, müssen die Standardbegrenzungen des Objekts gründlich überprüft und erweitert werden. Dieser Schritt wird durch
-die sorgfältige Implementierung der Funktion \texttt{UpdateInventoryBounds()} realisiert. Diese Funktion ermöglicht es,
-die Grenzen des Inventar-Objekts anzupassen und entsprechend der aktuellen Anforderungen zu erweitern.
+zu lösen, müssen die Standardbegrenzungen des Objekts gründlich überprüft und erweitert werden. Dieser Schritt wird
+durch die sorgfältige Implementierung der Funktion \texttt{UpdateInventoryBounds()} realisiert. Diese Funktion ermöglicht
+es, die Grenzen des Inventar-Objekts anzupassen und entsprechend der aktuellen Anforderungen zu erweitern.
 
 Die Herausforderung besteht darin, sicherzustellen, dass das Inventar sämtliche neu hinzugefügten Gegenstände korrekt
 erkennt und effizient verwaltet, selbst wenn diese die ursprünglichen Begrenzungen des Objekts überschreiten. Durch die
 Aktualisierung der Standardbegrenzungen können solche Änderungen sofort erfasst und berücksichtigt werden, wodurch ein
 unterbrechungsfreier Ablauf des \textit{Inventory Controllers} gewährleistet wird.
 
-Die Funktion besteht aus drei Phasen, die durchlaufen werden, um die Begrenzungen des Objekts zu erweitern. Diese sind
-die folgenden:
+Die Funktion besteht aus drei Phasen, die durchlaufen werden, um die Begrenzungen des Objekts zu erweitern. Diese sind d
+ie folgenden:
 
 \begin{enumerate}
-    \item \texttt{UpdateInventoryBounds()}: Diese Funktion ist die zentrale Methode, die aufgerufen wird, um die Begrenzungen
-    des Inventars zu aktualisieren. Sie überprüft zunächst, ob ein Inventarobjekt vorhanden ist und ruft anschließend
-    Hilfsfunktionen auf, um den Rest abzuarbeiten. Die Begrenzungen werden entsprechend des vertikalen Versatzes erweitert.
-    \begin{lstlisting}[language={[Sharp]C}]
+\item \texttt{UpdateInventoryBounds()}: Diese Funktion ist die zentrale Methode, die aufgerufen wird, um die Begrenzungen
+des Inventars zu aktualisieren. Sie überprüft zunächst, ob ein Inventarobjekt vorhanden ist und ruft anschließend
+Hilfsfunktionen auf, um den Rest abzuarbeiten. Die Begrenzungen werden entsprechend des vertikalen Versatzes erweitert.
+\begin{lstlisting}[language={[Sharp]C}]
 private void UpdateInventoryBounds() {
-    if (inventoryObject != null) {
-        Bounds localBounds = GetBounds(inventoryObject);
-        ExtendBounds(ref localBounds, verticalOffset);
-        inventoryBounds = localBounds;
-    }
+if (inventoryObject != null) {
+Bounds localBounds = GetBounds(inventoryObject);
+ExtendBounds(ref localBounds, verticalOffset);
+inventoryBounds = localBounds;
 }
-    \end{lstlisting}
+}
+\end{lstlisting}
 
-    \item \texttt{GetBounds()}: Diese Methode dient dazu, die Grenzen des übergebenen Spielobjekts zu bestimmen. Sie
-    verwendet die Renderer-Komponenten des Objekts, um die Grenzen zu erhalten, und fällt auf die Position des Objekts
-    zurück, falls kein Renderer vorhanden ist.
-    \begin{lstlisting}[language={[Sharp]C}]
+\item \texttt{GetBounds()}: Diese Methode dient dazu, die Grenzen des übergebenen Spielobjekts zu bestimmen. Sie verwendet
+die Renderer-Komponenten des Objekts, um die Grenzen zu erhalten, und fällt auf die Position des Objekts zurück, falls
+kein Renderer vorhanden ist.
+\begin{lstlisting}[language={[Sharp]C}]
 private Bounds GetBounds(GameObject obj) {
-    Renderer renderer = obj.GetComponent<Renderer>();
-    return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
+Renderer renderer = obj.GetComponent<Renderer>();
+return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
 }
-    \end{lstlisting}
+\end{lstlisting}
 
-    \item \texttt{ExtendBounds()}: Hier handelt es sich um die Funktion, die die eigentliche Erweiterung der Begrenzungen
-    durchführt. Durch die Verwendung einer Referenz ist es möglich, direkt die Begrenzungen des originalen Objekts zu
-    bearbeiten. Sie passt sowohl das Zentrum als auch die Ausdehnung der Begrenzung auf der y-Achse entsprechend des \texttt{offset} an.
-    \begin{lstlisting}[language={[Sharp]C}]
+\item \texttt{ExtendBounds()}: Hier handelt es sich um die Funktion, die die eigentliche Erweiterung der Begrenzungen
+durchführt. Durch die Verwendung einer Referenz ist es möglich, direkt die Begrenzungen des originalen Objekts zu
+bearbeiten. Sie passt sowohl das Zentrum als auch die Ausdehnung der Begrenzung auf der y-Achse entsprechend des \texttt{offset} an.
+\begin{lstlisting}[language={[Sharp]C}]
 private void ExtendBounds(ref Bounds bounds, float offset) {
-    bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
-    bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
+bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
+bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
 }
-    \end{lstlisting}
+\end{lstlisting}
 \end{enumerate}
 
 Diese Funktionen stellen sicher, dass die Begrenzungen des Inventars aktualisiert werden, um sicherzustellen, dass alle
@@ -2355,8 +2355,8 @@ des \textit{Inventory Controllers} zu verbessern, insbesondere in Umgebungen, in
 variiert.
 
 \subsubsection*{Vorher-Nachher-Vergleich der Begrenzungen}
-Um den Effekt der Funktion \texttt{UpdateInventoryBounds()} auf die Begrenzungen des Objekts zu verdeutlichen, werden in
-den folgenden Abbildungen der Zustand vor und nach dem Aufruf der Funktion gegenübergestellt.
+Um den Effekt der Funktion \texttt{UpdateInventoryBounds()} auf die Begrenzungen des Objekts zu verdeutlichen, werden
+in den folgenden Abbildungen der Zustand vor und nach dem Aufruf der Funktion gegenübergestellt.
 
 \begin{figure}[H]
     \centering
@@ -2391,18 +2391,18 @@ Szene. Sie berücksichtigt die Position des Objekts relativ zum Koordinatenurspr
 die auf das Objekt angewendet wurden, einschließlich Verschiebung, Drehung und Skalierung.
 
 Die Berechnung der Weltposition eines Objekts erfolgt durch Umrechnung seiner lokalen Position relativ zu seinem Elternobjekt
-oder zum Koordinatenursprung in die Szene. Diese Berechnung wird durch eine einfache Vektoraddition realisiert, wobei die
-lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale Position in eine globale Koordinate umzuwandeln.
-Dadurch wird die tatsächliche Position des Objekts in der Welt bestimmt, was Interaktionen mit anderen Objekten oder
-Koordinaten in der Szene ermöglicht.\footnote{Unity Dokumentation\cite{Lokal- und Weltposition}}
+oder zum Koordinatenursprung in die Szene. Diese Berechnung wird durch eine einfache Vektoraddition realisiert, wobei
+die lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale Position in eine globale Koordinate
+umzuwandeln. Dadurch wird die tatsächliche Position des Objekts "in der Welt" bestimmt, was Interaktionen mit anderen
+Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity Dokumentation\cite{Lokal- und Weltposition}}
 
 \subsubsection{Erkennen hinzugefügter oder entfernter Gegenstände}
-Das Herzstück des \textit{Inventory Controllers} ist die \texttt{Update()} Funktion. Sie erkennt neu hinzugefügte Gegenstände
-und entfernt entsprechend entfernte Gegenstände, nachdem der Benutzer sie aus dem Inventar genommen hat. Zusätzlich
-gewährleistet diese Funktion, dass bei jeder Änderung im Inventar eine Neuermittlung der Gesamtinhalte durchgeführt wird.
-Diese Aktualisierung wird genutzt, um die drei \textit{TextMesh} Elemente des Inventar-Prefabs zu aktualisieren und dem
-Benutzer die aktuellen Werte und Informationen des Inventars zu visualisieren. Im Folgenden wird der Source-Code dieser
-Funktion zusammen mit einer detaillierten Erläuterung präsentiert:
+Das Herzstück des \textit{Inventory Controllers} ist die \texttt{Update()} Funktion. Sie erkennt neu hinzugefügte und
+entfernte Gegenstände, nachdem der Benutzer sie dem Inventar hinzugefügt oder entnommen hat. Zusätzlich gewährleistet
+diese Funktion, dass bei jeder Änderung im Inventar eine Neuermittlung der Gesamtwerte durchgeführt wird. Diese Aktualisierung
+wird genutzt, um die drei \textit{TextMesh} Elemente des Inventar-Prefabs zu aktualisieren und dem Benutzer die aktuellen
+Werte und Informationen des Inventars zu visualisieren. Im Folgenden wird der Source-Code dieser Funktion zusammen mit
+einer detaillierten Erläuterung präsentiert:
 \begin{lstlisting}[style=csharp, caption={Neue / Entfernte Items erkennen}, label=code:controller_updateGrid]
 void Update() {
     lock (activeQRObjects) {
@@ -2452,18 +2452,18 @@ hier die einzelnen Schritte samt Erklärung, was diese beinhalten beschrieben:
     um sicherzustellen, dass alle relevanten Aktionen auf jedes Element angewendet werden.
 
     \item \textbf{QRCode-Extraktion und Berechnung der Weltposition}:
-    In dieser Phase wird die QRCode-Komponente aus dem Gegenstandsobjekt extrahiert und anschließend die Weltposition des
-    Gegenstands berechnet. Dazu wird die lokale Position des Gegenstands relativ zu seinem Elternelement transformiert, um
-    seine exakte Position im globalen Koordinatensystem zu ermitteln. Hierfür müssen die Funktionen \texttt{GetComponent<QRCode>()}
-    und \texttt{TransformPoint()} aufgerufen werden. Dieser Schritt ist wichtig, da die Position des Gegenstands vor der
-    Berechnung nur in lokalen Koordinaten gespeichert ist. Ohne diese Umwandlung wäre eine Interaktion zwischen dem QR-Objekt
-    und dem Inventar nicht möglich.
+    In dieser Phase wird die QRCode-Komponente aus dem Gegenstandsobjekt extrahiert und anschließend die Weltposition
+    des Gegenstands berechnet. Dazu wird die lokale Position des Gegenstands relativ zu seinem Elternelement transformiert,
+    um seine exakte Position im globalen Koordinatensystem zu ermitteln. Hierfür müssen die Funktionen
+    \texttt{GetComponent<QRCode>()} und \texttt{TransformPoint()} aufgerufen werden. Dieser Schritt ist wichtig, da die
+    Position des Gegenstands vor der Berechnung nur in lokalen Koordinaten gespeichert ist. Ohne diese Umwandlung wäre
+    eine Interaktion zwischen dem QR-Objekt und dem Inventar nicht möglich.
 
     \item \textbf{Überprüfung der Gegenstandspostition innerhalb der Inventargrenzen}:
     Ziel dieser Überprüfung ist es sicherzustellen, dass die berechnete Weltposition des Gegenstands innerhalb der
-    festgelegten Grenzen des Inventars liegt. Nur Gegenstände, die sich innerhalb dieser Grenzen befinden, werden für das
-    Inventar berücksichtigt. Es wird die Funktion \texttt{Contains()} aufgerufen, um zu prüfen, ob die Position innerhalb
-    der Grenzen liegt.
+    festgelegten Grenzen des Inventars liegt. Nur Gegenstände, die sich innerhalb dieser Grenzen befinden, werden für
+    das Inventar berücksichtigt. Es wird die Funktion \texttt{Contains()} aufgerufen, um zu prüfen, ob die Position
+    innerhalb der Grenzen liegt.
 
     \item \textbf{Prüfung auf bereits erfolgte Verarbeitung des Gegenstands}:
     In diesem Schritt wird überwacht, ob der betreffende Gegenstand bereits im Inventar verarbeitet wurde, um doppelte
@@ -2473,42 +2473,41 @@ hier die einzelnen Schritte samt Erklärung, was diese beinhalten beschrieben:
 
     \item \textbf{Überprüfung des Gewichtslimits}:
     Diese Überprüfung dient dazu festzustellen, ob das Hinzufügen des Gegenstands das vorgegebene Gewichtslimit des
-    Inventars überschreiten würde. Dadurch wird sichergestellt, dass das Inventar nicht überladen wird und das Gewichtslimit
-    eingehalten wird. Hierbei wird die Funktion \texttt{UpdateInfoMesh()} aufgerufen, um das \textit{InfoMesh} zu aktualisieren.
-
-    \item \textbf{Hinzufügen des Gegenstands zum Inventar}:
-    Nach erfolgreicher Prüfung wird der Gegenstand dem Inventar hinzugefügt. Dabei werden interne Datenstrukturen aktualisiert,
-    einschließlich der Berechnung der Gitterposition des Gegenstands mithilfe der Funktion \texttt{CalculateGridPosition()}.
-    Das \texttt{Info Mesh} wird ebenfalls aktualisiert, um dem Benutzer aktuelle Informationen bereitzustellen. Außerdem
-    wird die verbleibende Kapazität durch Aktualisierung des \texttt{remCap} TextMesh-Elements dargestellt. Die Funktion
-    \texttt{GridUpdate()} informiert schließlich andere Teile des Systems über die Aktualisierung des Inventars.
-
-    \item \textbf{Anzeige einer Gewichtsüberschreitungsmeldung}:
-    Falls das Hinzufügen des Gegenstands das Gewichtslimit überschreiten würde, erhält der Benutzer eine entsprechende
-    Fehlermeldung, die ihn darauf hinweist, dass der Gegenstand nicht hinzugefügt werden kann, bis das Gewichtslimit
-    eingehalten wird. Die Funktion \texttt{UpdateInfoMesh()} wird aufgerufen, um das \texttt{Info Mesh} mit einer Fehlermeldung
+    Inventars überschreiten würde. Dadurch wird sichergestellt, dass das Inventar nicht überladen wird und das
+    Gewichtslimit eingehalten wird. Hierbei wird die Funktion \texttt{UpdateInfoMesh()} aufgerufen, um das \textit{InfoMesh}
     zu aktualisieren.
 
+    \item \textbf{Hinzufügen des Gegenstands zum Inventar}:
+    Nach erfolgreicher Prüfung wird der Gegenstand dem Inventar hinzugefügt. Dabei werden interne Datenstrukturen
+    aktualisiert, einschließlich der Berechnung der Gitterposition des Gegenstands mithilfe der Funktion
+    \texttt{CalculateGridPosition()}. Das \texttt{Info Mesh} wird ebenfalls aktualisiert, um dem Benutzer aktuelle
+    Informationen bereitzustellen. Außerdem wird die verbleibende Kapazität durch Aktualisierung des \texttt{remCap}
+    TextMesh-Elements dargestellt. Die Funktion \texttt{GridUpdate()} informiert schließlich andere Teile des Systems
+    über die Aktualisierung des Inventars.
+
     \item \textbf{Überprüfung auf Entfernung}:
-    Die Funktionen \texttt{Contains()} und \texttt{ContainsId()} werden genutzt, um zu überprüfen, ob sich der Gegenstand
-    außerhalb der definierten Inventargrenzen befindet, obwohl er bereits im Inventar erfasst ist. Wenn dies der Fall ist,
-    wird der Gegenstand mithilfe der Funktionen \texttt{RemoveItem()} und \texttt{GridUpdate()} aus dem Inventar entfernt
-    und das Inventar anschließend aktualisiert.
+    Im Fall, dass der aktuelle Gegenstand außerhalb der Begrenzungen des Inventars liegt, jedoch noch in
+    \texttt{proccessedItems} und \texttt{idGrid} vorhanden ist, bedeutet das, dass der Benutzer diesen entfernt
+    hat. Wenn das der Fall ist, wird dieser mithilfe der Funktion \texttt{RemoveItem} und \texttt{GridUpdate()} aus
+    dem Inventar entfernt und aktualisiert.
 \end{enumerate}
 
 \subsubsection{Zustände des Inventars aus der Sicht Benutzers}
 In diesem Abschnitt werden die verschiedenen Zustände des Inventars aus Sicht des Benutzers anhand von Fallbeispielen
-detailliert betrachtet. Das Inventar durchläuft unterschiedliche Zustände, darunter das Hinzufügen und Entfernen von
-Gegenständen sowie das Überschreiten des Gewichtslimits. Es ist von großer Bedeutung, diese Zustände zu veranschaulichen,
-um ein tieferes Verständnis für die Funktionsweise des \textit{Inventory Controllers} zu erlangen und um einen klaren Überblick
-zu verschaffen. Jeder dieser Zustände wird durch visuelle Darstellungen illustriert, um zu veranschaulichen, wie sich das
-Inventar sowie die zugrundeliegende Datenstruktur in verschiedenen Situationen verhalten. Dabei wird auch darauf eingegangen,
-wie der Benutzer durch die grafische Benutzeroberfläche (GUI) über diese Zustände informiert wird.
+detailliert betrachtet. Das Inventar durchläuft unterschiedliche Zustände, darunter das Hinzufügen und Entfernen
+von Gegenständen sowie das Überschreiten des Gewichtslimits. Es ist von großer Bedeutung, diese Zustände zu
+veranschaulichen, um ein tieferes Verständnis für die Funktionsweise des \textit{Inventory Controllers} zu erlangen
+und um einen klaren Überblick zu verschaffen. Jeder dieser Zustände wird durch visuelle Darstellungen illustriert,
+um zu veranschaulichen, wie sich das Inventar sowie die zugrundeliegende Datenstruktur in verschiedenen Situationen
+verhalten. Dabei wird auch darauf eingegangen, wie der Benutzer durch die grafische Benutzeroberfläche (GUI) über
+diese Zustände informiert wird.
 
-\subsubsection*{Gegenstand zu dem Inventar hinzugefügt}
+\subsubsection*{Gegenstand zum Inventar hinzugefügt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand erfolgreich in dem Inventar platziert hat. Das Inventar
-reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur. Die nachfolgende Abbildung \ref{fig:controller_itemAdded}
-visualisiert diesen Zustand.
+reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur. Die nachfolgende Abbildung
+\ref{fig:controller_itemAdded} visualisiert diesen Zustand.
+
+%TODO: BILD VON HINZUGEFÜGTEM ITEM IN HOLOLENS MACHEN
 
 \begin{figure}[H]
     \centering
@@ -2523,31 +2522,33 @@ und bestätigt die erfolgreiche Platzierung des Gegenstands.
 
 Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den neuen Gegenstand zu integrieren:
 \[
-    \text{usedItems} =
-    \left[
-        \begin{array}{ccccc}
-            0 & 0 & 0 \\
-            0 & 1 & 0 \\
-            0 & 0 & 0 \\
-        \end{array}
-        \right]
+\text{usedItems} =
+\left[
+\begin{array}{ccccc}
+0 & 0 & 0 \\
+0 & 0 & 0 \\
+1 & 0 & 0 \\
+\end{array}
+\right]
 \]
 
 Gleichzeitig wird der Gegenstand in das \texttt{processedItems}-Array aufgenommen, um sicherzustellen, dass er nicht
 doppelt berücksichtigt wird:
 \[
-    \text{processedItems} = \{1\}
+\text{processedItems} = \{1\}
 \]
 
 \subsubsection*{Gegenstand aus dem Inventar entfernt}
-Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar entfernt hat, wie in Abbildung \ref{fig:controller_itemRemoved}
-dargestellt.
+Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar entfernt hat, wie in Abbildung
+\ref{fig:controller_itemRemoved} dargestellt.
+
+%TODO: BILD VON ENTFERNTEM ITEM IN HOLOLENS MACHEN
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{images/itemRemoved}
-    \caption{Inventar nach Entfernen eines Gegenstands}
-    \label{fig:controller_itemRemoved}
+\centering
+\includegraphics[scale=0.5]{images/itemEntfernt}
+\caption{Inventar nach Entfernen eines Gegenstands}
+\label{fig:controller_itemRemoved}
 \end{figure}
 
 Die Abbildung zeigt das Inventar nach Entfernen des Gegenstands aus der Position 4. Das \textit{Info Mesh} signalisiert
@@ -2555,68 +2556,70 @@ dem Benutzer deutlich den aktualisierten Zustand des Inventars und bestätigt di
 
 Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten Gegenstand zu berücksichtigen:
 \[
-    \text{usedItems(vorher)} =
-    \left[
-        \begin{array}{ccccc}
-            0 & 0 & 0 \\
-            0 & 1 & 0 \\
-            0 & 0 & 0 \\
-        \end{array}
-        \right]
+\text{usedItems(vorher)} =
+\left[
+\begin{array}{ccccc}
+0 & 0 & 0 \\
+5 & 1 & 0 \\
+0 & 3 & 0 \\
+\end{array}
+\right]
 \]
 
 \[
-    \text{usedItems(nachher)} =
-    \left[
-        \begin{array}{ccccc}
-            0 & 0 & 0 \\
-            0 & 0 & 0 \\
-            0 & 0 & 0 \\
-        \end{array}
-        \right]
+\text{usedItems(nachher)} =
+\left[
+\begin{array}{ccccc}
+0 & 0 & 0 \\
+5 & 0 & 0 \\
+0 & 3 & 0 \\
+\end{array}
+\right]
 \]
 
-Gleichzeitig wird der Gegenstand aus dem \texttt{processedItems}-Array entfernt, um sicherzustellen, dass er nicht erneut
-verarbeitet wird:
+Gleichzeitig wird der Gegenstand aus dem \texttt{processedItems}-Array entfernt, um sicherzustellen, dass er nicht
+erneut verarbeitet wird:
 \[
-    \text{processedItems (vorher)} = \{1\}
+\text{processedItems (vorher)} = \{1\}
 \]
 
 \[
-    \text{processedItems (nachher)} = \{\}
+\text{processedItems (nachher)} = \{\}
 \]
 
 \subsubsection*{Gegenstand zu schwer für das Inventar}
 Dieser Zustand tritt ein, wenn der Benutzer versucht, einen Gegenstand hinzuzufügen, der das Gewichtslimit des Inventars
 überschreitet, wie in Abbildung \ref{fig:controller_itemTooHeavy} illustriert.
 
+%TODO: BILD FÜR GEGENSTAND ZU SCHWER IN HOLOLENS MACHEN
+
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{images/itemToHeavy}
-    \caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
-    \label{fig:controller_itemTooHeavy}
+\centering
+\includegraphics[scale=0.5]{images/itemToHeavy}
+\caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
+\label{fig:controller_itemTooHeavy}
 \end{figure}
 
 Die Abbildung zeigt das Inventar mit mehreren hinzugefügten Gegenständen. Die Reihenfolge in der diese Gegenstände
-hinzugefügt wurden, ist die folgende: 1, 5, 3, 9. Dies ist wichtig, weil der zuletzt hinzugefügt Gegenstand den zu schweren
-Gegenstand widerspiegelt. Auch zu sehen ist, dass das \textit{Info Mesh} den Benutzer deutlich über das Überschreiten des
-Gewichtslimits informiert und das Hinzufügen des Gegenstands verhindert.
+hinzugefügt wurden, ist die folgende: 1, 5, 3, 9. Dies ist wichtig, weil der zuletzt hinzugefügt Gegenstand den zu
+schweren Gegenstand widerspiegelt. Auch zu sehen ist, dass das \textit{Info Mesh} den Benutzer deutlich über das
+Überschreiten des Gewichtslimits informiert und das Hinzufügen des Gegenstands verhindert.
 
 Im Hintergrund bleibt das \texttt{usedItems}-Array unverändert, da der Gegenstand nicht hinzugefügt wurde:
 \[
-    \text{usedItems} =
-    \left[
-        \begin{array}{ccccc}
-            0 & 0 & 0 \\
-            1 & 0 & 0 \\
-            5 & 3 & 0 \\
-        \end{array}
-        \right]
+\text{usedItems} =
+\left[
+\begin{array}{ccccc}
+0 & 0 & 0 \\
+5 & 0 & 0 \\
+1 & 3 & 0 \\
+\end{array}
+\right]
 \]
-
+\\
 Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \[
-    \text{processedItems} = \{1, 5, 3\}
+\text{processedItems} = \{1, 5, 3\}
 \]
 
 \subsection{EventManager} \marginpar{\small\(\rightarrow\) HAYLAZ}
