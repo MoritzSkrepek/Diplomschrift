@@ -286,25 +286,36 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
 \end{enumerate}
 
 \subsubsection{Unity Prefabs} \marginpar{\small\(\rightarrow\) HAYLAZ}
-Unity bietet eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten, Prefabs. Prefabs sind
-vorgefertigte Bausteine, die als Vorlagen dienen. Sie ermöglichen es, einmal erstellte Objekte als standardisierte Vorlagen
-zu speichern und dann beliebig oft in verschiedenen Szenen oder Projekten zu verwenden.
+Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten.
+Prefabs sind modulare, wiederverwendbare Elemente, die als Blaupausen für die Konstruktion von Game-Objekten dienen. Sie
+ermöglichen Entwicklern, spezifische Objekte oder Objektstrukturen zu erstellen und zu katalogisieren. Diese Muster können
+dann in unterschiedlichen Szenarien oder Projekten repliziert werden, was eine effiziente Wiederverwendung und Konsistenz
+über verschiedene Projektumgebungen hinweg ermöglicht. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs2}}
 
-Diese Vorlagen bieten eine Reihe von Vorteilen. Einerseits ermöglichen Prefabs eine effiziente und konsistente Gestaltung
-von Spielen, indem sie die Wiederverwendung von Designelementen erleichtern. Stellen Sie sich vor, Sie haben eine komplexe
-Szene mit verschiedenen Objekten erstellt, darunter Charaktere, Umgebungen und Effekte. Anstatt jedes Mal von Grund auf
-neu zu beginnen, können Sie diese Elemente als Prefabs speichern und sie dann einfach in neuen Szenen wiederverwenden.
-Durch die Verwendung von Prefabs können Sie nicht nur Zeit sparen, sondern auch sicherstellen, dass Ihr Spiel eine
-konsistente Designästhetik aufweist.
+Prefabs bieten zahlreiche Vorteile für die Gestaltung und Entwicklung von Projekten. Ihr Hauptvorteil liegt in ihrer
+Fähigkeit, eine effiziente und konsistente Gestaltung von Projekten zu ermöglichen. Sie erleichtern die Wiederverwendung
+von Designelementen und tragen so zur Effizienz und Konsistenz des Designprozesses bei. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs2}}
 
-Außerdem ermöglichen Prefabs eine einfache Aktualisierung und Iteration von Game-Objekten. Wenn Sie beispielsweise
-Änderungen an einem bestimmten Objekt vornehmen müssen, können Sie einfach das entsprechende Prefab bearbeiten. Diese
-Änderungen werden automatisch auf alle Instanzen dieses Prefabs angewendet, die in Ihrer Szene verwendet werden. Prefabs
-sind ein unverzichtbares Werkzeug für die effektive Spieleentwicklung in Unity, da
+In komplexen Projekten, die eine Vielzahl von Objekten wie Charaktere, Umgebungen und visuelle Effekte beinhalten, erweisen
+sich Prefabs als äußerst nützlich. Sie dienen als wiederverwendbare Vorlagen, die es ermöglichen, einmal erstellte Elemente
+zu speichern und in unterschiedlichen Szenarien wiederzuverwenden. Dies eliminiert die Notwendigkeit, jedes Mal, wenn eine
+neue Szene erstellt werden muss, von Grund auf neu zu beginnen. Darüber hinaus trägt die Verwendung von Prefabs dazu bei,
+eine konsistente Designästhetik über das gesamte Projekt hinweg zu gewährleisten. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs2}}
 
-sie den Prozess der Aktualisierung und Feinabstimmung von Spielen wesentlich effizienter machen. Durch ihre Verwendung
-können Entwickler Zeit sparen, die Konsistenz ihres Spiels gewährleisten und den Prozess der Aktualisierung und Iteration
-von Game-Objekten optimieren.
+% https://docs.unity3d.com/Manual/Prefabs.html
+% https://learn.unity.com/tutorial/prefabs-e#
+
+Ein weiterer bedeutsamer Vorteil von Prefabs besteht in ihrer Fähigkeit, eine unkomplizierte Aktualisierung und Iteration von Projektobjekten zu ermöglichen. Bei notwendigen Modifikationen an einem spezifischen Objekt kann das zugehörige Prefab bearbeitet werden. Diese Modifikationen werden dann automatisch auf alle Instanzen dieses Prefabs angewendet, die in der Szene implementiert sind. Dies optimiert den Workflow und vereinfacht den Prozess erheblich.
+
+Innerhalb des Projekts wird die Prefab-Technologie in folgenden Bereichen eingesetzt:
+\begin{itemize}
+    \item \textbf{3D-Modelle \ref{sec:3dModelleDustin}:} Die dreidimensionalen Modelle sind als einzelne Prefabs konzipiert. Dies ermöglicht uns, häufige Änderungen am Aussehen der Modelle vorzunehmen, ohne sie einzeln ersetzen zu müssen. Beispiele für die Verwendung dieser Modelle sind QR-Codes, Menü-Objekte und das \textit{Nachrichtenpaket}, welches ein Modell in einem Prefab ist.
+    \item \textbf{QR-Codes \ref{sec:qrcodes}:} In unserer Szene arbeiten wir gleichzeitig mit mehreren QR-Codes. Durch die Verwendung der Prefab-Technologie können wir diese mit minimalem Aufwand häufig instanziieren. Auch nach der Instanziierung ist die Arbeit mit diesen virtualisierten QR-Codes vereinfacht.
+    \item \textbf{Nachrichteninformationen \ref{sec:pingInfoJonas}:} Im zweiten Anwendungsszenario finden \textit{Prefabs} weiterhin Anwendung. Bei der Versendung von Nachrichten müssen verschiedene Informationen angezeigt werden. Der Zugriff auf diese Informationen ist einfacher, wenn sie in einem Prefab verpackt sind.
+\end{itemize}
+
+Zusammenfassend lässt sich sagen, dass Prefabs ein unverzichtbares Werkzeug für die effektive Projektentwicklung in Unity sind. Sie ermöglichen es Entwicklern, Zeit zu sparen, die Konsistenz ihres Projekts zu gewährleisten und den Prozess der Aktualisierung und Iteration von Projektobjekten zu optimieren. Daher sind sie ein wesentlicher Bestandteil jeder effektiven und effizienten Projektentwicklungsumgebung.
+
 
 \subsection{Deployment der Anwendung} \marginpar{\small\(\rightarrow\) HAYLAZ}
 
