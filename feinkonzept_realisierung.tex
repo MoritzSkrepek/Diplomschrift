@@ -1276,52 +1276,63 @@ Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprec
 Initialisierung und zum absenden des Datenpakets führt.
 
 
-\subsection{Starten und Verwenden der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
-Dieser Abschnitt erläutert, wie die Webseite gestartet und genutzt wird. Der gesamte Code der Webseite ist in einer Datei
-namens \textit{Level1-FrontEnd/index.html} enthalten. Im Folgenden wird erklärt, wie diese Datei ausgeführt wird, um die
-Webseite im lokalen Netzwerk bereitzustellen.
+\subsection{Starten und Nutzen der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
+Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite gemäß dem Anwendungsfall \ref{sec:jonasSzenario}. Die Webseite spielt eine zentrale Rolle im ersten Anwendungsszenario, dem Nachrichtenaustausch. Ziel ist es, dass zwei Geräte miteinander kommunizieren können. Für eine optimale Benutzererfahrung bedarf es daher einer intuitiven Benutzeroberfläche. Die Entscheidung, ein Web-Interface zu verwenden, basiert auf diesen zwei Faktoren:
+
+\begin{itemize}
+    \item \textbf{Breiter Geräte-Support:} Web-Interfaces sind auf einer Vielzahl von Geräten nutzbar, darunter Desktop-Computer und Laptops. Diese Vielseitigkeit gewährleistet eine breite Verfügbarkeit und Nutzbarkeit für Benutzer unabhängig von ihrem verwendeten Gerät, Betriebssystem oder der Rechenleistung.
+
+    \item \textbf{Einfache Umsetzung:} Die Entwicklung eines Web-Interfaces gestaltet sich im Vergleich zu anderen Plattformen als verhältnismäßig unkompliziert. Dies liegt daran, dass Webtechnologien weit verbreitet, gut dokumentiert und leicht zugänglich sind.
+\end{itemize}
+
+Die gesamte Anwendung ist bewusst einfach und minimalistisch gehalten. Folglich befindet sich der gesamte Code der Webseite in einer einzigen Datei, \textit{Level1-FrontEnd/index.html}. Im Folgenden wird erläutert, wie diese Datei ausgeführt wird, um die Webseite im lokalen Netzwerk bereitzustellen.
 
 \subsubsection{Webseite starten}
 
-Um die Webseite zu starten, benötigen Sie einen lokalen Server. Wir haben uns für die Verwendung von \textit{http-server}
-entschieden, aber die Wahl des Servers ist nicht relevant, solange die Webseite im lokalen Netzwerk erreichbar ist. Zur
-Installation von \textit{http-server} auf einem Windows-Gerät verwenden Sie den Befehl \textit{npm install http-server -g}
-in der Kommandozeile.
+Um die Webseite zu starten, wird ein lokaler Web-Server benötigt. Ein beliebter und einfacher Weg, dies zu erreichen, ist die Verwendung des Node.js basierten HTTP-Daemons namens \textit{http-server}. Dieser HTTP-Server ist leichtgewichtig, einfach einzurichten und erfordert keine komplizierte Konfiguration. Durch die Verwendung von \textit{http-server} kann die Webseite schnell lokal gehostet werden, was besonders praktisch ist, wenn sie während der Entwicklung getestet werden muss.\footnote{http-server \cite{http-server}}
 
-Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \texttt{index.html}-Datei befindet, mit dem
-Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
+Eine der einfachsten Möglichkeiten, den \textit{http-server} zu installieren, ist die Verwendung des Node Package Managers (npm). npm ist ein leistungsfähiges Werkzeug, das es Entwicklern ermöglicht, JavaScript-Pakete einfach zu installieren, zu verwalten und zu aktualisieren. Es ist integraler Bestandteil der Node.js-Umgebung und bietet Zugang zu einer Vielzahl von Paketen und Bibliotheken, die von der Community entwickelt wurden. Durch die Installation des \textit{http-server}-Pakets über npm können Entwickler schnell einen lokalen Web-Server einrichten, ohne sich um die Einzelheiten der Serverkonfiguration kümmern zu müssen.
+
+Um den HTTP-Server mithilfe von npm auf einem Windows-Gerät zu installieren, muss ein Befehl in der Eingabeaufforderung (cmd) ausgeführt werden. Dieser Befehl ermöglicht die Installation des Servers auf dem Gerät und lautet wie folgt: \textit{npm install http-server -g}. Durch die Ausführung dieses Befehls wird der http-server global auf dem Windows-Gerät installiert, was bedeutet, dass er von überall im System aus aufgerufen werden kann.
+
+Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \texttt{index.html}-Datei befindet (standardmäßig im \textit{Level1-FrontEnd} Ordner), mit dem Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
 
 Die Flags haben folgende Bedeutungen:
 
-\texttt{-c-1}: Das \textit{-c} Flag legt die Cache-Zeit der Webseite fest. Durch Kombination mit -1 wird das Caching
-deaktiviert.
-\texttt{--cors}: Die Option \textit{--cors} aktiviert CORS (Cross-Origin Resource Sharing) auf dem HTTP-Server. Weitere
+Der Flag \textit{-c} legt die Cache-Zeit der Webseite fest; Durch Kombination mit -1 wird das Caching deaktiviert. Die Option \textit{--cors} aktiviert CORS (Cross-Origin Resource Sharing) auf dem HTTP-Server. Weitere
 Informationen zu CORS finden Sie im Abschnitt \ref{sec:cors}.
 
 Der vollständige Befehl lautet dann: \textit{http-server -c-1 --cors index.html}.
 
-Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag
-\textit{-p} und der gewünschten Portnummer geändert werden.
+In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, dass der http-server darauf eingestellt ist, die Datei \textit{index.html} zu bedienen, wenn die Wurzel-URL des Servers aufgerufen wird. Der Server wird den Inhalt dieser Datei dem Client zurückgeben, der die Anfrage gestellt hat. Wie bereits erwähnt ist der gesamte Inhalt der Webseite in dieser Datei enthalten.
 
-Nach dem Starten der Webseite können Sie diese im Browser Ihrer Wahl über die IP-Adresse des Geräts oder über \textit{localhost}
-aufrufen. Die IP-Adresse des Geräts finden Sie mit dem Befehl \textit{ipconfig} in der Kommandozeile.
+Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag \textit{-p} und der gewünschten Portnummer geändert werden.
 
-Nach dem erfolgreichen Starten der Webseite müssen Sie zunächst die IP-Adresse der HoloLens eingeben. Dies geschieht über
-das Zahnrad in der oberen linken Ecke der Webseite. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem Button
-\textit{Verbinden} bestätigt. Erst nachdem die IP-Adresse eingetragen wurde, können Nachrichten gesendet werden.
+Nach dem Starten des Webservers kann die Webseite in einem beliebigen Browser über die IP-Adresse des Geräts oder über \textit{localhost} aufgerufen werden. Die IP-Adresse des Geräts kann mit dem Befehl \textit{ipconfig} in der \textit{Eingabeaufforderung (cmd)} abgefragt werden.
+
+Nach dem erfolgreichen Starten der Webseite muss zunächst die IP-Adresse der HoloLens auf der Webseite eingegeben werden. Dies geschieht über den Button in der oberen linken Ecke der Webseite, wie auf der Abbildung \ref{fig:webbut} erkennbar. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem Button \textit{Verbinden} bestätigt. Erst nachdem die IP-Adresse der AR-Brille eingetragen wurde, können Nachrichten gesendet werden.
 
 \begin{figure}[H]
     \centering
-    \fbox{\includegraphics[width=1\textwidth]{images/WebseiteSettings.png}}
-    \caption{Fesnter der Webseite Einstellungen}
-    \label{fig:websettings}
+    \begin{subfigure}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/WebButton.png}
+        \caption{Position des Buttons}
+        \label{fig:webbut}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/WebseiteSettings.png}
+        \caption{Fenster der Webseite Einstellungen}
+        \label{fig:websettings}
+    \end{subfigure}
 \end{figure}
 
 Da die Webseite in einem Szenario mit zwei Geräten verwendet wird, muss eingestellt werden, auf welcher Seite des Kabels
-sich das Gerät befindet. Dies ist erforderlich, um die Nachrichten richtig in der virtuellen Umgebung zu simulieren. Dazu
-wählen Sie in der Combobox entweder \textit{Rechtes Gerät} oder \textit{Linkes Gerät}, je nach Position des Trägers der Brille.
+sich das aktuelle Gerät befindet. Dies ist erforderlich, um die Nachrichten richtig in der virtuellen Umgebung zu simulieren. Dazu wählen Sie in der Combobox, siehe Abb. \ref{fig:websettings}, entweder \textit{Rechtes Gerät} oder \textit{Linkes Gerät}, abhängig von der Position des Trägers der Brille.
 
-Nach der erfolgreichen Konfiguration der Webseite können Sie Nachrichten versenden.
+Nach der erfolgreichen Konfiguration der Webseite können nun Nachrichten versendet werden.
 
 Falls beim Senden der Anfragen ein CORS-Fehler auftritt, kann das Problem auf folgende Weise gelöst werden:
 
@@ -1338,35 +1349,28 @@ Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsri
 getestet wurden. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
 
 \subsubsection{\label{sec:cors}CORS}
-CORS (Cross-Origin Resource Sharing) ist ein Sicherheitsmechanismus in Webbrowsern, der kontrolliert, wie Ressourcen von
-einer Webseite aufgerufen werden können, die sich auf einer anderen Domain befinden. Standardmäßig erlauben Browser nur
-Anfragen an Ressourcen derselben Domain aus Sicherheitsgründen. CORS ermöglicht jedoch den Zugriff auf Ressourcen von anderen
-Domains, sofern der Server dies explizit zulässt.
+CORS, oder Cross-Origin Resource Sharing, ist ein Sicherheitsmechanismus, der in modernen Webbrowsern implementiert ist. Seine Hauptaufgabe besteht darin, die Interaktionen zwischen verschiedenen Domains zu regulieren. In der Standardeinstellung erlauben Webbrowser aus Sicherheitsgründen nur Anfragen an Ressourcen, die sich auf derselben Domain befinden, von der die Anfrage stammt. Dies wird als Same-Origin-Policy bezeichnet.
 
-Um dies zu ermöglichen, sendet der Browser bei Anfragen an andere Domains sogenannte CORS-Anfragen an den Server, um zu
-überprüfen, ob der Zugriff erlaubt ist. Der Server antwortet dann mit spezifischen CORS-Headern, die angeben, ob die Anfrage
-erlaubt ist und von welchen Ursprüngen aus der Zugriff gestattet ist. Da unsere Kommunikation nur im lokalen Netzwerk läuft,
-ist es für uns nicht von großer Bedeutung, diese Sicherheitsmaßnahmen zu ergreifen. Dennoch müssen wir folgende Header bei
-allen Antworten, die von der Brille zurückgeschickt werden, einbauen:
+CORS erweitert diese Grundfunktionalität, indem es den Zugriff auf Ressourcen von anderen Domains ermöglicht, vorausgesetzt, der Server, auf dem sich die Ressourcen befinden, erlaubt dies explizit. Dies ermöglicht eine sicherere und kontrolliertere Interaktion zwischen verschiedenen Domains. %TODO: QUELLEN
+
+In unserem speziellen Fall, da unsere Kommunikation ausschließlich im lokalen Netzwerk stattfindet, ist es nicht unbedingt notwendig, strenge Sicherheitsmaßnahmen zu ergreifen. Dennoch ist es wichtig, dass wir bestimmte Header in allen Antworten einfügen, die von der Brille zurückgeschickt werden. Alle Anfragen werden im \textit{RequestManager.cs} Skript abgearbeitet. Genauere Infos sind im Abschnitt \ref{sec:webBackend} zu finden.
+
+Diese Header welche einzubauen sind lauten:
 
 \begin{lstlisting}[style=csharp label=code:CORS anfragen]
 context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
 context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
 context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
-}
 \end{lstlisting}
 
 \begin{itemize}
-\item \textbf{"Access-Control-Allow-Origin", "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
-\item \textbf{"Access-Control-Allow-Methods", "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
-\item \textbf{"Access-Control-Allow-Headers", "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
+\item \textbf{``Access-Control-Allow-Origin``, "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
+\item \textbf{``Access-Control-Allow-Methods``, "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
+\item \textbf{``Access-Control-Allow-Headers``, "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
 \end{itemize}
 
-Diese drei Zeilen fügen CORS-Header zur HTTP-Antwort hinzu, wodurch Cross-Origin-Anfragen für Ressourcen von diesem Server
-ermöglicht werden. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
+Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS-Header hinzu, die Cross-Origin-Anfragen für Ressourcen von unserem Server ermöglichen. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
 
-Diese Header sind nicht dazu da, Sicherheitsmaßnahmen zu treffen, sondern um sie zu umgehen. Die HoloLens ist so konfiguriert,
-dass sie nur Anfragen aus dem lokalen Netzwerk annimmt.
 
 \subsubsection{Bedienung der Webseite}
 TODO: Bedienung und korrekte Simulation beschreiben.
