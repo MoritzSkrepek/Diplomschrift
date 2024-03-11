@@ -1334,20 +1334,6 @@ sich das aktuelle Gerät befindet. Dies ist erforderlich, um die Nachrichten ric
 
 Nach der erfolgreichen Konfiguration der Webseite können nun Nachrichten versendet werden.
 
-Falls beim Senden der Anfragen ein CORS-Fehler auftritt, kann das Problem auf folgende Weise gelöst werden:
-
-\begin{itemize}
-    \item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch
-    gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung
-    erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
-    \item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das
-    Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der
-    Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
-\end{itemize}
-
-Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk
-getestet wurden. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
-
 \subsubsection{\label{sec:cors}CORS}
 CORS, oder Cross-Origin Resource Sharing, ist ein Sicherheitsmechanismus, der in modernen Webbrowsern implementiert ist. Seine Hauptaufgabe besteht darin, die Interaktionen zwischen verschiedenen Domains zu regulieren. In der Standardeinstellung erlauben Webbrowser aus Sicherheitsgründen nur Anfragen an Ressourcen, die sich auf derselben Domain befinden, von der die Anfrage stammt. Dies wird als Same-Origin-Policy bezeichnet.
 
@@ -1371,10 +1357,17 @@ context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
 
 Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS-Header hinzu, die Cross-Origin-Anfragen für Ressourcen von unserem Server ermöglichen. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
 
+Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an der Konfiguration des Servers. Das Problem kann in Ausnahmefällen (zum Beispiel bei kleineren Testläufen) auf folgende Art und Weise umgangen werden:
+
+\begin{itemize}
+\item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
+\item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
+\end{itemize}
+
+Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk getestet wurden. Sie sind höchstens für erste Prototypen akzeptabel, wenn überhaupt. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
 
 \subsubsection{Bedienung der Webseite}
 TODO: Bedienung und korrekte Simulation beschreiben.
-
 
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
 \subsection{Frontend der Webseite} \marginpar{\small\(\rightarrow\) LAMPEL}
