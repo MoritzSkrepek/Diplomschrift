@@ -359,245 +359,190 @@ Beim erstmaligen Deployment auf die HoloLens kann es zu Problemen kommen, die du
 
 
 \section{Objektdesign mit Blender} \marginpar{\small\(\rightarrow\) LAMPEL}
-Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken
-Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte geachtet
-wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
+Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte geachtet wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
+
+\subsection{Texturen}
+Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen.
+
+\subsubsection{Bild-Texturen in der 3D-Modellierung} \label{sec:bildtextures}
+Im folgenden Abschnitt wird erläutert, was unter dem Begriff \textbf{Bild-Textur} zu verstehen ist und wie die Umsetzung und Arbeit mit Bild-Texturen im Kontext von Blender funktioniert.
+
+Diese Texturen können als Bilddateien importiert oder innerhalb des Programms selbst erstellt werden.
+
+Die Verwendung von Bild-Texturen ermöglicht es Benutzern, eine Vielzahl von Oberflächeneffekten zu erzeugen, wie beispielsweise Holzmaserungen, Metalltexturen, Stoffmuster und mehr. Durch die Verwendung einer geeigneten Textur kann die visuelle Qualität eines Modells erheblich verbessert werden.
+
+Im Blender-Programm können Bild-Texturen mithilfe des \textit{Shader-Editors} auf das Material des 3D-Objekts angewendet werden. Hierfür wird eine \textit{Image-Texture-Node} erstellt, welche den Farbwert der Textur an das Material übergibt. Es können verschiedene Einstellungen vorgenommen werden, um die Art und Weise der Texturprojektion zu steuern. Zum Beispiel kann die Projektionsart (Box, Flat, Sphere usw.) festgelegt werden, um anzugeben, wie die Textur auf die Oberfläche des Modells angewendet wird. Weitere Einstellungen können die Skalierung der Textur, die Wiederholungsmuster, die Mischmodi und andere Textureigenschaften umfassen. \footnote{Blender \cite{Texturen}}
+% https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/image.html
+
+% https://docs.blender.org/manual/en/latest/editors/shader_editor.html
+\subsubsection*{Einschub Shader-Editor}
+Dieser Editor hat in Blender eine spezielle Funktion. Hier können mithilfe von sogenannten \textit{Nodes} Eigenschaften für Texturen und Materialien vergeben werden. Der Editor wurde im Projekt hauptsächlich für die Anwendung von Bild-Texturen genutzt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/shadereditor.png}
+    \caption{Beispielhafte Ansicht auf Bild-Textur-Nodes im Shader-Editor}
+    \label{fig:shadereditor}
+\end{figure}
+
+In Abbildung \ref{fig:shadereditor} ist zu erkennen, wie die Bild-Textur-Node den Farbwert an das Material weitergibt. Als Beispiel wurde hier der Taschenrechner verwendet, der im Laufe des Kapitels noch näher erläutert wird. Die Abbildung zeigt die verschiedenen Konfigurationsmöglichkeiten, die bereits im Abschnitt \ref{sec:bildtextures} erläutert wurden.
+
+% Die Verwendung von Bild-Texturen in der 3D-Modellierung ist eine wichtige Technik, um realistische und ansprechende Oberflächen zu erstellen, die die visuelle Qualität eines Modells deutlich verbessern können. Durch Anpassung der Textureinstellungen können Benutzer die gewünschten Effekte erzielen und ihre Kreativität bei der Gestaltung von 3D-Modellen ausdrücken.
+
+\subsection{Mesh} \label{sec:mesh}
+In der 3D-Grafik bezeichnet ein Mesh eine Sammlung von Eckpunkten, Kanten und Flächen, die die Geometrie eines 3D-Objekts definieren. Es bildet die Grundlage für die Darstellung von Objekten in einer virtuellen Umgebung. Ein Mesh kann aus einer beliebigen Anzahl von Polygonen bestehen, die die äußere Form und Struktur des Objekts definieren.
+
+Die Rolle eines Meshes bei der Modellierung besteht darin, die Form, Oberflächenstruktur und Details eines Objekts zu definieren. Durch die Anordnung und Verbindung der Vertices, Edges und Faces können komplexe geometrische Formen erzeugt werden. Polygone ermöglichen dabei die Darstellung von Objekten mit unterschiedlichen Detailgenauigkeiten. Je mehr Polygone ein Mesh hat, desto detaillierter und realistischer kann das Modell dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz.
+
+Meshes werden in verschiedenen Bereichen der 3D-Grafik verwendet, wie zum Beispiel der Modellierung von Objekten, der Animation und der Visualisierung. Sie dienen als Grundlage für die Erstellung von digitalen Szenen.
+
+\subsection{Rolle von Polygonen in einem Modell}
+Polygone sind grundlegende Bausteine eines Meshes und spielen eine wichtige Rolle bei der Darstellung von 3D-Modellen. Sie bestehen aus einer Reihe von Eckpunkten (Vertices), Kanten und Flächen, die diese Punkte miteinander verbinden. In einem 3D-Modell definieren Polygone die Form, die Oberflächenstruktur und die Details eines Objekts.
+\footnote{CGIFurniture \cite{What are Polygons}}
+%https://cgifurniture.com/what-are-polygons-in-3d-modeling/
+
+Durch die Anordnung und Verbindung von Polygonen entstehen komplexe Strukturen, die eine visuelle Darstellung von Objekten ermöglichen. Je mehr Polygone ein Modell hat, desto detaillierter und realistischer kann es dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. Polygone sind somit ein wesentlicher Bestandteil eines Meshes und tragen maßgeblich zur visuellen Qualität und Komplexität eines 3D-Modells bei.
 
 \subsection{Optimierung für Augmented Reality}
-Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der
-Optimierung für Augmented Reality (AR). Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter
-die Polygonreduktion und die Texturoptimierung.
+Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung für Augmented Reality (AR). Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung.
 
 \subsubsection{Polygonreduktion}
-Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um
-die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen.
-Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf
-verschiedenen Plattformen.
+Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen. Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf verschiedenen Plattformen. \footnote{All3DP \cite{How to reduce Polygons}}
+% https://all3dp.com/2/blender-how-to-reduce-polygons/
 
-In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz
-und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was
-zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter
-genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
+In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
 
-Werkzeuge wie der Decimate Modifier in Blender bieten Möglichkeiten, die Anzahl der Polygone automatisch zu reduzieren
-und gleichzeitig visuelle Artefakte zu minimieren. Dennoch ist es ratsam, bereits während des Modellierungsprozesses
-darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die
-Polygonreduktion zu schaffen.
+Werkzeuge wie der \textit{Decimate Modifier} in Blender bieten die Möglichkeit, die Anzahl der Polygone automatisch zu reduzieren und gleichzeitig visuelle Artefakte zu minimieren. Artefakte in Bezug auf 3D-Modellierung sind unerwünschte visuelle Effekte oder Fehler, die während des Modellierungs- oder Renderingprozesses auftreten können.
 
-Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung
-von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik
-können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten
-sind.
+Dennoch ist es ratsam, bereits während des Modellierungsprozesses darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die Polygonreduktion zu schaffen. Eine Möglichkeit hierfür ist die regelmäßige Nutzung der \textit{Merge}-Funktion, welche es ermöglicht, einzelne Punkte anhand ihres Abstandes zu kombinieren und einen einzelnen Punkt daraus zu erstellen. Wenn dieser Vorgang auf das gesamte Modell angewendet wird, verhindert er außerdem ungewollte Kopien von Eckpunkten durch beispielsweise unbeabsichtigte und abgebrochene \textit{Extrusion}.
+
+Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten sind.
 
 \subsubsection{Texturenoptimierung}
-Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality
-(AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen
-muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte Leistungsfähigkeit
-von AR-Geräten wie der Hololens 2.
+Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality (AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte Leistungsfähigkeit von AR-Geräten wie der Hololens 2.
 
-Während des Texturierungsprozesses wurde die Hololens 2 mehrfach in die Texturen integriert, um mögliche Leistungseinbußen
-zu identifizieren. Wurden Beeinträchtigungen festgestellt, wurden entsprechende Anpassungen an den Texturen vorgenommen.
-Dies beinhaltete entweder die Suche nach alternativen Texturen oder die Komprimierung der vorhandenen Texturen, um eine
-geringere Auflösung zu erreichen. In einigen Fällen wurde auch der Reflexionsgrad angepasst, insbesondere wenn das Modell
-poliertes Metall oder ähnliches enthielt, um die Leistung der AR-Anwendung zu optimieren.
+Während des Texturierungsprozesses wurde stark auf die Leistung der HoloLens 2 und die Bilder pro Sekunde geachtet, um zu verhindern das zu hochauflösende Texturen, das Benutzererlebnis beeinträchtigen. Wurden Einbußen festgestellt, wurden entsprechende Anpassungen an den Texturen vorgenommen. Dies beinhaltete entweder die Suche nach alternativen Texturen oder die Komprimierung der vorhandenen Texturen, um eine geringere Auflösung zu erreichen.
 
-Die Texturoptimierung ist ein iterativer Prozess, der eine ausgewogene Berücksichtigung der visuellen Qualität und der
-Leistungsfähigkeit der AR-Plattform erfordert. Durch die gezielte Optimierung von Texturen können AR-Anwendungen erstellt
-werden, die eine ansprechende visuelle Darstellung bieten und gleichzeitig ein flüssiges und immersives Benutzererlebnis
-gewährleisten.
+Die Texturoptimierung ist ein iterativer Prozess, der eine ausgewogene Berücksichtigung der visuellen Qualität und der Leistungsfähigkeit der AR-Plattform erfordert. Durch die gezielte Optimierung von Texturen können AR-Anwendungen erstellt werden, die eine ansprechende visuelle Darstellung bieten und gleichzeitig ein flüssiges und immersives Benutzererlebnis gewährleisten.
 
 \subsection{Export- und Integrationsprozess}
-In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des
-geeigneten Dateiformats und der Berücksichtigung verschiedener Koordinatensysteme.
+In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des geeigneten Dateiformats und der Berücksichtigung des Koordinatensystems.
 
-Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions-
-oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung.
-Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die
-Zielumgebung integriert wird.
+Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die Zielumgebung integriert wird.
 
+%quelle buch https://books.google.at/books?hl=de&lr=&id=HKZuaUdmovsC&oi=fnd&pg=PA309&dq=autodesk+fbx+&ots=y8C69-0al2&sig=KONCkBGyC-Z4HTlRw9FgzsA1q6M&redir_esc=y#v=onepage&q=autodesk%20fbx&f=false
 \subsubsection{Dateiformat}
-Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX)
-gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über
-geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt.
+Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX) gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt.
 
-FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen
-entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Szenen zu organisieren und zu
-übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie,
-Materialien, Animationen, Kameras und Lichtquellen. \footnote{Autodesk \cite{FBX. Getting started}}
+FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Modelle (zum Beispiel von Blender) zu organisieren und zu übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie, Materialien, Animationen, Kameras und Lichtquellen.
 
-Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen
-ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet,
-erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine
-erfolgreiche Umsetzung des Projekts.
+Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet, erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine erfolgreiche Umsetzung des Projekts.
 
 \subsubsection{Koordinatensysteme}
-Die Berücksichtigung und korrekte Handhabung von Koordinatensystemen während des Modellierungsprozesses ist ein
-entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt
-wurden spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
+Die Berücksichtigung und korrekte Handhabung von dem Koordinatensystem während des Modellierungsprozesses ist ein entscheidender Aspekt für die nahtlose Integration von 3D-Modellen in verschiedene Anwendungen. In diesem Projekt wurden spezifische Maßnahmen ergriffen, um potenzielle Probleme im Zusammenhang mit Koordinatensystemen zu minimieren.
 
-Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export
-der Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise
-trägt dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform
-zu vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
+Während der Modellierung wurden alle Objekte im Koordinatenursprung platziert, um sicherzustellen, dass beim Export der Modelle nach Unity keine Komplikationen hinsichtlich Platzierung und Ausrichtung auftreten. Diese Vorgehensweise trägt dazu bei, mögliche Diskrepanzen zwischen den Koordinatensystemen der Modellierungssoftware und der Zielplattform zu vermeiden, was den Integrationsprozess vereinfacht und beschleunigt.
 
-Darüber hinaus wurden alle Modelle in der gleichen Ausrichtung modelliert, um zusätzliche Anpassungen in Unity zu
-vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten
-Orientierung vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren
-Arbeitsablauf gewährleistet.
+Darüber hinaus wurden alle Modelle in der gleichen Ausrichtung modelliert, um zusätzliche Anpassungen in Unity zu vermeiden. Diese konsistente Orientierung stellt sicher, dass alle Modelle bereits in einer standardisierten Orientierung vorliegen, was die Notwendigkeit weiterer manueller Eingriffe minimiert und einen reibungsloseren Arbeitsablauf gewährleistet.
 
-Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert wurden, wurden entsprechende Korrekturen
-direkt im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der
-Modelle schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu
-verursachen.
+Für den Fall, dass Modelle dennoch mit einer falschen Rotation exportiert werden, wurden entsprechende Korrekturen direkt im Unity Inspector vorgenommen. Diese Nachjustierung ermöglicht es, eventuelle Fehler in der Ausrichtung der Modelle schnell und effizient zu beheben, ohne den Modellierungsprozess zu unterbrechen oder zusätzlichen Aufwand zu verursachen.
 
-Insgesamt zeigt die Berücksichtigung von Koordinatensystemen während des gesamten Workflows einen proaktiven Ansatz
-bei der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz
-des Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv
-vermeiden.
+Insgesamt zeigt die Berücksichtigung von dem ausgewählten Koordinatensystem während des gesamten Workflows einen proaktiven Ansatz bei der Modellierung und Integration von 3D-Objekten. Die Umsetzung dieser Maßnahmen wird die Konsistenz und Effizienz des Projekts verbessern und gleichzeitig mögliche Komplikationen im Zusammenhang mit Koordinatensystemen effektiv vermeiden.
 
 \subsection{Add-Ons und Plugins}
-Während der Modellierungsphase wurden einige Add-ons und Plug-ins verwendet, um die Erfahrung zu verbessern und die
-Modellierung effizienter zu gestalten. Im folgenden Abschnitt werden die wichtigsten Add-ons und Plug-ins erläutert.
+Während der Modellierungsphase wurden verschiedene Add-ons und Plug-ins genutzt, um die Modellierung effizienter zu gestalten und die Funktionalität von Blender zu erweitern.   Im folgenden Abschnitt werden die wichtigsten Add-ons und Plug-ins erläutert, die zur Unterstützung und Verbesserung der Modellierungserfahrung eingesetzt wurden.
 
 \subsubsection{Looptools: Optimierung von Topologie und Oberflächen}
-Das Add-on Looptools für Blender stellt eine wichtige Ergänzung für die Flächenmodellierung und Topologieoptimierung dar.
-Insbesondere bei der Umwandlung von rechteckigen oder quadratischen Flächen in kreisförmige Flächen erweist sich dieses
-Werkzeug als äußerst nützlich.
+Das Add-on \textit{Looptools} \footnote{Blender \cite{LoopTools}} für Blender stellt eine wichtige Ergänzung für die Flächenmodellierung und Topologieoptimierung dar.  Insbesondere bei der Umwandlung von rechteckigen oder quadratischen Flächen in kreisförmige Flächen erweist sich dieses Werkzeug als äußerst nützlich. Im \textit{Stromverteiler-Modell} müssen beispielsweise die einzelnen runden Steckbuchsen aus der eckigen Basis heraus modelliert werden.
 
-Als Hauptwerkzeug wurde das so genannte \textit{Circle}-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems
-entwickelt wurde. Mit dem Circle-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der
-Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
+Als Hauptwerkzeug wurde das so genannte \textit{Circle}-Werkzeug verwendet, das speziell zur Lösung des oben genannten Problems entwickelt wurde. Mit dem \textit{Circle}-Werkzeug können rechteckige Flächen unter Berücksichtigung der Topologie und der Anzahl der Polygone nahtlos in kreisförmige Flächen umgewandelt werden.
 
-Das Circle-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen
-Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
+Das \textit{Circle}-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um die extrahierte Figur optimal für den jeweiligen Zweck zu konfigurieren. Die wichtigsten Konfigurationspunkte sind
 
 \begin{itemize}
-    \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten
-    Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt. \footnote{Blender \cite{LoopTools}}
-    \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt
-    entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
+    \item \textbf{Best Fit:} Dieses Werkzeug berechnet einen Kreis mit Hilfe einer nichtlinearen Methode der kleinsten Quadrate. Dadurch wird sichergestellt, dass der berechnete Kreis optimal zu den ausgewählten Eckpunkten passt.
+    \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
 \end{itemize}
 
-Zusätzlich ermöglicht das Circle-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um
-die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
+Zusätzlich ermöglicht das \textit{Circle}-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
 
-Insgesamt trägt das Looptools Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der
-resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und
-Flächenoptimierung bereitstellt.
+Insgesamt trägt das \textit{Looptools} Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und Flächenoptimierung bereitstellt.
+
+Dieses Add-on wurde konkret bei den folgenden Modellen eingesetzt:
+\begin{itemize}
+    \item \textbf{Handy-Modell}: Für die Modellierung der einzelnen Kameras sowie der runden Ein- und Ausgänge
+    \item \textbf{Stromverteiler-Modell}: Zur Einarbeitung der einzelnen Steckbuchsen wurde bereits zu Beginn erwähnt.
+    \item \textbf{USB-Stick-Modell}: Um den Übergang von der Halterung zum eigentlichen USB-Stick zu modellieren.
+\end{itemize}
 
 \subsubsection{Images as Planes: Effiziente Integration von Texturen}
-Das Addon Images as Planes spielt eine entscheidende Rolle in der Modellierungspraxis, insbesondere im Bereich der
-realistischen Modellierung.
+Das Add-on \textit{Images as Planes} \footnote{Blender \cite{Images as Planes}} spielt eine entscheidende Rolle in der Modellierungspraxis, insbesondere im Bereich der realistischen Modellierung.
 
-Das Hauptanwendungsgebiet dieses Add-ons liegt in der Möglichkeit, Vorschaubilder für die Modellierung hinter Objekten
-zu platzieren, um eine realistischere und präzisere Modellierung zu ermöglichen. Diese Funktion bietet die Möglichkeit,
-reale Bilder als Referenz in Blender-Szenen zu integrieren und als Hintergrund für die Modellierung zu verwenden. Durch
-die direkte Integration von Bildern in die Arbeitsumgebung können feine Details und Proportionen besser beurteilt und
-reproduziert werden, was zu einer verbesserten Qualität der Modelle führt.
+Das Hauptanwendungsgebiet dieses Add-ons in dem Projekt liegt in der Möglichkeit, Vorschaubilder für die Modellierung hinter Objekten zu platzieren, um eine realistischere und präzisere Modellierung zu ermöglichen. Diese Funktion bietet die Möglichkeit, reale Bilder als Referenz in Blender-Szenen zu integrieren und als Hintergrund für die Modellierung zu verwenden. Durch die direkte Integration von Bildern in die Arbeitsumgebung können feine Details und Proportionen besser beurteilt und reproduziert werden, was zu einer verbesserten Qualität der Modelle führt.
 
-Die Verwendung von \textit{Images as Planes} trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der
-Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenzen in den Modellierungsprozess zu integrieren.
-Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es
-dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
+Die Verwendung von \textit{Images as Planes} trägt somit wesentlich zur Erhöhung der Genauigkeit und Realitätsnähe der Modellierung bei, indem sie eine effiziente Möglichkeit bietet, reale Referenzen in den Modellierungsprozess zu integrieren. Diese Funktion ist besonders nützlich bei der Modellierung von Objekten, die auf realen Vorbildern basieren, da sie es dem Modellierer ermöglicht, direkt aus Bildern heraus zu arbeiten und so einen höheren Detaillierungsgrad zu erreichen.
 
-Insgesamt ist das Addon Images as Planes ein unverzichtbares Werkzeug für die realistische Modellierung in Blender,
-das die Effizienz und Qualität des Modellierungsprozesses erheblich verbessert. Durch die nahtlose Integration von Bildern
-als Hintergrundreferenzen können Designer ihrer Kreativität freien Lauf lassen und präzise Modelle mit realistischen
-Details erstellen.
+Dieses Add-on wurde in allen modellierten Objekten des Projekts eingesetzt, um anhand von Referenzbildern anschaulichere Modelle zu entwerfen.
 
 \subsection{Modi}
-In Blender stehen verschiedene Modi zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und
-manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen,
-mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können. \footnote{Blender \cite{Modi}}
+In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
 
 \subsubsection{Object-Modus}
-Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus
-können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere
-Objekteigenschaften bearbeitet werden.
+Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere Objekteigenschaften bearbeitet werden.
 
 \subsubsection{Edit-Modus}
-Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener
-Werkzeuge und Kontrollpunkte einzelne Vertices, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht
-detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von
-entscheidender Bedeutung ist. \footnote{Blender \cite{Vertices}}
+Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener Werkzeuge und Kontrollpunkte einzelne Knoten/(Eck-)Punkte, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von entscheidender Bedeutung ist. \footnote{Blender \cite{Vertices}}
 
 \subsubsection{Texture-Paint-Modus}
-Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh
-eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive
-Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können
-komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden. \footnote{Blender \cite{Mesh}}
+Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh \footnote{nähere Erklärung siehe Abschnitt \ref{sec:mesh}} eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden. \footnote{Blender \cite{Mesh}}
 
 \subsection{Hierarchie}
-In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene
-oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte
-untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und
-Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
+In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
 
 \begin{itemize}
-    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten
-    untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie
-    Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten
-    Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder
-    hierarchische Modelle.
-    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre
-    Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu
-    verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
+    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle.
+    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
 \end{itemize}
-Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und
-Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden.
-Dies führt zu einer effizienteren Arbeitsweise und einer verbesserten Qualität der Ergebnisse.
+Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden. Dies führt zu einer effizienteren Arbeitsweise und einer verbesserten Qualität der Ergebnisse.
+
+Im Projekt wurde dies beispielsweise verwendet, um im Taschenrechner-Modell die vielen Buttons von der Basisform logisch abzutrennen oder beim Handy-Modell die Basisform von den einzelnen Kameras und der Kameraauflagefläche abzutrennen.
 
 \subsection{Modifier}
-Modifier sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder
-Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden,
-komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger
-Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses.
+\textit{Modifier} sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden, komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses.
 Die Verwendung von Modifiern bringt mehrere Vorteile mit sich:
 
 \begin{itemize}
-    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche
-    Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand
-    zurückzukehren.
+    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren. Als gutes Beispiel kann hier der \textit{Subdivision}-Modifier herangezogen werden, welcher das gesamte Modell grundlegend einmal zerteilt, sodass man doppelt soviele Unterteilungen und feinere Details hat, bei bedarf kann man die Zerteilung ausmachen oder noch mehr zerteilen. Wenn man händisch ohne Modifier alles subdividen würde, wäre es nicht möglich/ sehr schwer möglich das rückgängig zu machen
 
-    \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit
-    weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart
-    Zeit und Ressourcen.
+    \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart Zeit und Ressourcen. Wenn man das ganze Modell abrunden (\textit{Bevel-Modifier}) oder feiner/detailreicher (\textit{Subdivision-Modifier}) gestalten möchte ist es deutlich zeitintensiver alle kanten und flächen einzeln händisch zu bearbeiten.
 
-    \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder
-    entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne
-    Angst vor irreversiblen Änderungen haben zu müssen.
+    \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne Angst vor irreversiblen Änderungen haben zu müssen.
 \end{itemize}
 
-Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel, Array und Boolean. Jeder Modifier hat spezifische
-Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von
-Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
+Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel und Array \footnote{nähere Erklärung im Abschnitt \ref{sec:taschenrechner}}. Jeder Modifier hat spezifische Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
 
-Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit,
-Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern
-kann den Modellierungsprozess rationalisieren und die Kreativität der Modellierenden fördern.
+Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit, Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern kann den Modellierungsprozess rationalisieren und die Kreativität der Modellierenden fördern.
+
+\subsubsection*{Subdivision Surface Modifier}
+Dieser Modifier glättet die Oberfläche eines Modells, indem er die Anzahl der Polygonsubdivisionen erhöht. Dadurch entstehen weichere Kanten und eine insgesamt glattere Oberfläche. Der Subdivision Surface Modifier wird oft verwendet, um organische Formen zu erstellen oder die Details eines Modells zu verfeinern. Er kann auch helfen, die Qualität von Meshes zu verbessern, indem er unregelmäßige Geometrien ausgleicht und sie besser für das Rendern und die Animation geeignet macht.
+
+\subsubsection*{Mirror Modifier}
+Der Mirror Modifier spiegelt die Geometrie eines Objekts entlang einer oder mehrerer Achsen. Dadurch können symmetrische Modelle erstellt werden, indem nur eine Hälfte modelliert werden muss. Der Modifier erzeugt automatisch die gespiegelte Seite des Objekts, wodurch Zeit und Aufwand gespart werden. Der Mirror Modifier wird häufig bei der Modellierung von symmetrischen Objekten wie Menschen, Fahrzeugen und Gebäuden eingesetzt. Im Projekt wurde er beispielsweise für das Modell des Taschenrechners eingesetzt, um die Basisform gleichmäßig auf beiden Seiten zu formen.
+
+\subsubsection*{Bevel Modifier}
+Der Bevel Modifier fügt abgerundete Kanten zu den Ecken eines Objekts hinzu. Er erzeugt eine Fase oder eine abgeschrägte Kante, indem er die Kanten des Modells verändert und ihnen eine gewisse Breite verleiht. Dies hilft, harte Kanten zu glätten und das Aussehen des Modells zu verbessern. Der Bevel Modifier wird oft verwendet, um realistischere und ansprechendere Oberflächen zu erzeugen, insbesondere bei der Modellierung von mechanischen Teilen, Möbeln und Architektur.
 
 % vielleicht sachen dazu wie polygonanzahl oder arbeitsstunden oder sowas idk
 \subsection{Modellierung von Gegenständen für das Projekt}
 Dieser Abschnitt beschreibt die für das Projekt in Blender modellierten Gegenstände sowie die dabei aufgetretenen Herausforderungen.
 
-Zu Beginn des Projekts musste eine wichtige Entscheidung getroffen werden, nämlich wie viele Objekte modelliert werden
-sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine
-Herausforderung für die Spieler darstellt. Nach eingehenden Recherchen und internen Abstimmungen wurde sich auf 11
-Gegenstände geeinigt. Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern
-einen Einblick in den Schulalltag bieten.
+Zu Beginn des Projekts musste eine wichtige Entscheidung getroffen werden, nämlich wie viele Objekte modelliert werden sollten. Es war wichtig, eine ausgewogene Anzahl zu wählen, die das Spiel nicht überladen, aber dennoch eine Herausforderung für die Spieler darstellen soll. Nach eingehenden Recherchen und internen Abstimmungen einigte sich das Team auf 11 Gegenstände. Diese sollten alltägliche Gegenstände eines Schülers der HTBLuVA darstellen und den Spielern einen Einblick in den Schulalltag bieten.
 
-\subsubsection{Taschenrechner}
-Um den Modellierungsprozess am Beispiel des Taschenrechners zu veranschaulichen, werden spezifische Schritte und
-Überlegungen während des Prozesses erläutert. Der Prozess begann mit der Idee, den Taschenrechner als Teil des Projekts
-zu integrieren. Anschließend wurde der Modellierungsumfang und die Art des Taschenrechners festgelegt. Dabei diente das
-Casio FX-991 ESPLUS Modell als Referenz für das zu erstellende Modell.
+\subsubsection{Taschenrechner}  \label{sec:taschenrechner}
+Um den Modellierungsprozess am Beispiel des Taschenrechners zu veranschaulichen, werden spezifische Schritte und Überlegungen während des Prozesses erläutert. Der Prozess begann mit der Idee, den Taschenrechner als Teil des Projekts zu integrieren. Anschließend wurde der Modellierungsumfang und die Art des Taschenrechners festgelegt. Dabei diente das Casio FX-991 ESPLUS Modell als Vorlage für das zu erstellende Modell. Als Referenzbild wurde nach kurzer Recherche ein geeignetes Bild mit hoher Auflösung aus dem Internet gefunden und ausgewählt.
 
 \subsubsection*{Ausgangslage}
-Im Modellierungsprogramm Blender war das Standardprojekt als Ausgangslage zu sehen. Es wurde bereits geringfügig
-angepasst. Die Standardkamera und Lichtquelle, die für das Rendering innerhalb von Blender verwendet werden, wurden
-entfernt, da sie für das finale Projekt in Unity nicht benötigt werden und unnötige Komplikationen verursachen könnten.
-Je nach Anforderung des Modells wird eine geeignete Grundform wie beispielsweise ein Würfel, eine Fläche oder ein Zylinder
-erstellt, um darauf aufbauend mit der eigentlichen Modellierung zu beginnen.
+Im Modellierungsprogramm Blender war das Standardprojekt als Startpunkt geeignet. Es wurde bereits geringfügig angepasst. Die Standardkamera und Lichtquelle, die für das Rendering innerhalb von Blender verwendet werden, wurden entfernt, da sie für das finale Projekt in Unity nicht benötigt werden und unnötige Komplikationen verursachen könnten. Je nach Anforderung des Modells wird eine geeignete Grundform wie beispielsweise ein Würfel, eine Fläche oder ein Zylinder erstellt, um darauf aufbauend mit der eigentlichen Modellierung zu beginnen.
 
 \begin{figure}[H]
     \centering
@@ -606,17 +551,16 @@ erstellt, um darauf aufbauend mit der eigentlichen Modellierung zu beginnen.
     \label{fig:Ausgangslage}
 \end{figure}
 
-Durch diesen Prozess der Initiierung wurde die Grundlage für die folgenden Schritte der Modellierung gelegt, die in
-weiteren Abschnitten detaillierter beschrieben werden.
+Durch diesen Prozess der Initiierung wurde die Grundlage für die folgenden Schritte der Modellierung gelegt, die in weiteren Abschnitten detaillierter beschrieben werden.
 
 \subsubsection*{Erste Schritte nach der Erstellung}
-Nach Auswahl eines geeigneten Referenzbildes für das Taschenrechnermodell wurde dieses mithilfe des
-Add-Ons \textit{Images as Planes} in Blender eingefügt. Das Bild dient als Leitfaden für die Modellierung und wurde
-unterhalb des bereits vorhandenen Objekts platziert. Um eventuelle Unregelmäßigkeiten im Design zu vermeiden, wurde der
-Mirror Modifier aufgrund der symmetrischen Form des Taschenrechners angewendet. Durch diese Maßnahme werden alle
-Modellierungsaktionen, die auf einer Seite durchgeführt werden, automatisch auf die andere Seite gespiegelt. Dadurch
-wird die Effizienz des Modellierungsprozesses erhöht.
+Nach Auswahl eines geeigneten Referenzbildes für das Taschenrechnermodell wurde dieses mithilfe des Add-Ons \textit{Images as Planes} in Blender eingefügt. Das Bild dient als Leitfaden für die Modellierung und wurde unterhalb des bereits vorhandenen Objekts platziert. Um eventuelle Unregelmäßigkeiten im Design zu vermeiden, wurde der Mirror Modifier aufgrund der symmetrischen Form des Taschenrechners angewendet. Durch diese Maßnahme werden alle Modellierungsaktionen, die auf der linken Seite durchgeführt werden, automatisch auf die rechte Seite gespiegelt. Dadurch wird die Effizienz und Genauigkeit des Modellierungsprozesses erhöht.
 
+\subsubsection*{Extrahieren als Modellierungswerkzeug}
+Extrahieren \footnote{Blender \cite{Extrahieren}} ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu, ausgewählte Punkte zu duplizieren und zu verschieben, während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
+Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl der Vertices führen.
+
+\subsubsection*{Weiterführung beim Taschenrechnermodell}
 Im Anschluss begann die Modellierung durch Extrudieren eines Eckpunkts der Fläche, um grob der Form des Referenzbildes zu folgen.
 
 \begin{figure}[H]
@@ -626,40 +570,19 @@ Im Anschluss begann die Modellierung durch Extrudieren eines Eckpunkts der Fläc
     \label{fig:Basis}
 \end{figure}
 
+Nach Abschluss dieser groben Modellierungsschritte entstand das Grundgerüst des Taschenrechnermodells, wie in Abbildung \ref{fig:Basis} dargestellt. Die verschiedenen Eckpunkte (Vertices) werden im Edit-Modus von Blender als schwarze Punkte dargestellt. Durch den Mirror Modifier wird die Bearbeitung auf der linken Seite des Modells automatisch auf die rechte Seite gespiegelt, was eine symmetrische Form gewährleistet. Um dem Modell mehr Tiefe zu verleihen, wurde Extrudieren verwendet, um aus der ebenen Fläche eine dreidimensionale Struktur zu formen.
 
-Nach Abschluss dieser groben Modellierungsschritte entstand das Grundgerüst des Taschenrechnermodells, wie in
-Abbildung \ref{fig:Basis} dargestellt. Die verschiedenen Eckpunkte (Vertices) werden im Edit-Modus von Blender als
-schwarze Punkte dargestellt. Durch den Mirror Modifier wird die Bearbeitung auf der linken Seite des Modells
-automatisch auf die rechte Seite gespiegelt, was eine symmetrische Form gewährleistet. Um dem Modell mehr Tiefe zu
-verleihen, wurde Extrudieren verwendet, um aus der ebenen Fläche eine dreidimensionale Struktur zu formen.
+%quelle für literatur
+%https://docs.blender.org/manual/de/dev/grease_pencil/modes/edit/point_menu.html#extrude
 
-\subsubsection*{Extrahieren als Modellierungswerkzeug}
-Extrahieren ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu, ausgewählte Punkte zu duplizieren und zu verschieben,
-während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
-Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender
-sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell
-vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu
-vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht
-nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl der
-Vertices führen. \footnote{Blender \cite{Extrahieren}}
+Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
 
-\subsubsection*{Weiterführung beim Taschenrechnermodell}
-Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell
-weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da
-dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die
-Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
-
+%quelle für literatur
+%https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/array.html
 \subsubsection*{Einschub Array-Modifier}
-Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei
-auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur
-Anpassung der Positionierung und Ausrichtung der Kopien.
-Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Vertices in benachbarten Kopien zusammenzuführen,
-insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den
-einzelnen Kopien hergestellt werden.
-Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert
-werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen.
-Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die
-Positionierung der Kopien weiter anzupassen.
+Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur Anpassung der Positionierung und Ausrichtung der Kopien.
+Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Vertices in benachbarten Kopien zusammenzuführen, insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den einzelnen Kopien hergestellt werden.
+Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen. Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die Positionierung der Kopien weiter anzupassen.
 
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 \begin{figure}[H]
@@ -669,26 +592,16 @@ Positionierung der Kopien weiter anzupassen.
     \label{fig:tcbuttons}
 \end{figure}
 
-Abbildung \ref{fig:tcbuttons} zeigt das Taschenrechnermodell in Blender mit den neu modellierten Buttons. Die
-dargestellten Farben dienen lediglich als visuelle Hilfestellung im Blender-Editor und stellen keine inhärenten
-Eigenschaften des Modells dar. Jedes neu erstellte Objekt wird automatisch mit einer zufälligen Farbe versehen, um eine
-einfachere Unterscheidung innerhalb der Szene zu ermöglichen.
+Abbildung \ref{fig:tcbuttons} zeigt das Taschenrechnermodell in Blender mit den neu modellierten Buttons. Die dargestellten Farben dienen lediglich als visuelle Hilfestellung im Blender-Editor und stellen keine inhärenten Eigenschaften des Modells dar. Jedes neu erstellte Objekt wird automatisch mit einer zufälligen Farbe versehen, um eine einfachere Unterscheidung innerhalb der Szene zu ermöglichen.
 
-Einige der Buttons im Modell wurden mithilfe des Array-Modifiers vervielfältigt. Dies gilt insbesondere für Buttons, die
-im Referenzbild die gleiche Größe, Funktion und Farbe aufweisen. Durch diese Technik ist es möglich, wiederkehrende
-Elemente effizient zu modellieren, indem eine einzelne Vorlage kopiert und entsprechend der gewünschten Anordnung angepasst wird.
+Einige der Buttons im Modell wurden mithilfe des Array-Modifiers vervielfältigt. Dies gilt insbesondere für Buttons, die im Referenzbild die gleiche Größe, Funktion und Farbe aufweisen. Durch diese Technik ist es möglich, wiederkehrende Elemente effizient zu modellieren, indem eine einzelne Vorlage kopiert und entsprechend der gewünschten Anordnung angepasst wird.
 
-Der aktuelle Stand des Modells lässt darauf schließen, dass die Modellierung größtenteils abgeschlossen ist. Der nächste
-Schritt besteht darin, dem Modell Farben oder Texturen hinzuzufügen, um ein realistischeres Aussehen zu erzielen. Dies
-kann durch Anwendung von Materialien und Texturen im Renderprozess erreicht werden, um dem Modell visuelle Tiefe und
-Detailtreue zu verleihen.
+Der aktuelle Stand des Modells lässt darauf schließen, dass die Modellierung größtenteils abgeschlossen ist. Der nächste Schritt besteht darin, dem Modell Farben oder Texturen hinzuzufügen, um ein realistischeres Aussehen zu erzielen. Dies kann durch Anwendung von Materialien und Texturen im Renderprozess erreicht werden, um dem Modell visuelle Tiefe und Detailtreue zu verleihen.
 
-Die Fortführung des Modellierungsprozesses umfasst somit die Umsetzung der texturierten Oberfläche sowie mögliche
-Feinanpassungen, um das Modell weiter zu verbessern und an die Referenzvorlage anzupassen.
+Die Fortführung des Modellierungsprozesses umfasst somit die Umsetzung der texturierten Oberfläche sowie mögliche Feinanpassungen, um das Modell weiter zu verbessern und an die Referenzvorlage anzupassen.
 
 \subsubsection*{Hierarchie des fertiggestellten Modells}
-In Blender wird die Hierarchie eines Modells als Baumstruktur dargestellt. Dabei ermöglichen verschiedene Unterteilungen
-und Kategorien eine übersichtliche Organisation. Die Struktur wird in Abbildung
+In Blender wird die Hierarchie eines Modells als Baumstruktur dargestellt. Dabei ermöglichen verschiedene Unterteilungen und Kategorien eine übersichtliche Organisation. Die Struktur wird in Abbildung
 \ref{fig:hierarchie} veranschaulicht. Das weiße Box-Symbol steht für eine Collection (Ordner).
 
 \begin{figure}[H]
@@ -703,156 +616,161 @@ und Kategorien eine übersichtliche Organisation. Die Struktur wird in Abbildung
     \item Die \textbf{Body Collection} enthält das Hauptmodell des Taschenrechners, also die grundlegende Form.
     \item Die \textbf{Buttons Collection} umfasst alle Buttons, die auf dem Taschenrechner abgebildet sind.
     \item Die untergeordnete Struktur mit den orangefarbenen Dreiecken repräsentiert die eigentlichen Objekte innerhalb der jeweiligen Collections.
-    \item Das \textbf{Referenzbild} ist ein importiertes Bild, an dem sich während des Modellierens orientiert wurde.
+    \item Das \textbf{Referenzbild} ist ein importiertes Bild, das beispielsweise als Vorlage für das Modellieren verwendet wird.
 \end{itemize}
 
-In Abbildung \ref{fig:hierarchie} ist zu erkennen, dass ein Objekt ausgegraut ist. Dies bedeutet in dem Fall, dass das
-Objekt ausgeblendet wurde, da das Hauptmodell bereits fertiggestellt wurde und das Referenzbild nicht mehr benötigt wird.
-Das Referenzbild kann jedoch bei Bedarf aktiviert werden, beispielsweise zu Hilfe- oder Veranschaulichungszwecken.
+In Abbildung \ref{fig:hierarchie} ist zu erkennen, dass ein Objekt ausgegraut ist. Dies bedeutet in dem Fall, dass das Objekt ausgeblendet wurde, da das Hauptmodell bereits fertiggestellt wurde und das Referenzbild nicht mehr benötigt wird. Das Referenzbild kann jedoch bei Bedarf aktiviert werden, beispielsweise zu Hilfe- oder Veranschaulichungszwecken.
 
-Die hierarchische Darstellung der Elemente erleichtert die Organisation und Bearbeitung des Modells. Eine klare
-Strukturierung der verschiedenen Komponenten ermöglicht eine effiziente Arbeitsweise und hilft, den Überblick über die
-einzelnen Teile zu behalten.
+Die hierarchische Darstellung der Elemente erleichtert die Organisation und Bearbeitung des Modells. Eine klare Strukturierung der verschiedenen Komponenten ermöglicht eine effiziente Arbeitsweise und hilft, den Überblick über die einzelnen Teile zu behalten.
 
 \subsubsection*{Textur und Farbe des Taschenrechnermodells}
-Für die Texturierung und Farbgebung des Modells wurde sich eng an dem Referenzbild orientiert.
-Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus dem Referenzbild auszuwählen und auf das
-entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst
-und dann auf den entsprechenden Bereich des Modells übertragen.
+Für die Texturierung und Farbgebung des Modells diente das Referenzbild zur Orientierung. Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus dem Referenzbild auszuwählen und auf das entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst und dann auf den entsprechenden Bereich des Modells übertragen.
 
-Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen des
-Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente Umsetzung
-der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht. Um noch bessere und
-realitätsnähere Textur zu gewährleisten, wurde ein Vorgang Namens \textit{UV-Mapping} durchgeführt.
+% https://docs.blender.org/manual/en/latest/interface/controls/buttons/eyedropper.html
+Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen des Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente Umsetzung der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht. Um noch bessere und realitätsnähere Textur zu gewährleisten, wurde ein Vorgang Namens \textit{UV-Mapping} durchgeführt.
 
 %literatur https://docs.blender.org/manual/en/latest/modeling/meshes/editing/uv.html
 %literatur https://all3dp.com/2/blender-uv-mapping-simply-explained/
 %literatur https://de.wikibooks.org/wiki/Blender_Dokumentation:_UV-Mapping
 \subsubsection*{UV-Mapping}
-\textit{UV-Mapping} ist ein wichtiger Schritt im Texturierungsprozess von 3D-Modellen. Dabei werden Texturen auf
-dreidimensionale Objekte projiziert. Die Bezeichnungen \textit{U} und \textit{V} stehen dabei für die beiden
-Koordinatenachsen im zweidimensionalen Raum. In Blender gibt es dafür einen eigenen Editor mit einer spezifischen
-Benutzeroberfläche.
+\textit{UV-Mapping} ist ein wichtiger Schritt im Texturierungsprozess von 3D-Modellen. Dabei werden Texturen auf dreidimensionale Objekte projiziert. Die Bezeichnungen \textit{U} und \textit{V} stehen dabei für die beiden Koordinatenachsen im zweidimensionalen Raum. In Blender gibt es dafür einen eigenen Editor mit einer spezifischen Benutzeroberfläche.
 
-Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem
-Referenzbild auf die einzelnen Knöpfe und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen
-und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
+Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem Referenzbild auf die einzelnen Knöpfe und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/uvmappingeditor.png}
     \caption{Ansicht des UV-Editing Editors in Blender}
-    \label{fig:uvmappingeditor}
+    \label{fig:hierarchie}
 \end{figure}
 
-Die Abbildung \ref{uvmappingeditor} zeigt den \textit{UV-Editing-Editor} in Blender. Mit diesem Editor können die UV-Maps der 3D-Modelle
-bearbeitet werden, indem die 3D-Geometrie auf eine zweidimensionale Ebene projiziert wird, um die Positionierung der
-Texturen zu steuern.
+Die Abbildung zeigt den \textit{UV-Editing-Editor} in Blender. Mit diesem Editor können die UV-Maps der 3D-Modelle bearbeitet werden, indem die 3D-Geometrie auf eine zweidimensionale Ebene projiziert wird, um die Positionierung der Texturen zu steuern.
 
-Als Beispiel wurde der obere Teil des Taschenrechners rund um den Bildschirm ausgewählt. Zunächst wird dem Bereich
-ein neues Material zugewiesen, das die Basisfarbe des Referenzbildes enthält. Anschließend wird das Referenzbild als
-Texturhintergrund im Editor ausgewählt, um es anzuzeigen.
+Als Beispiel wurde der obere Teil des Taschenrechners rund um den Bildschirm ausgewählt. Zunächst wird dem Bereich ein neues Material zugewiesen, das die Basisfarbe des Referenzbildes enthält. Anschließend wird das Referenzbild als Texturhintergrund im Editor ausgewählt, um es anzuzeigen.
 
-Der nächste Schritt besteht darin, die ausgewählten Flächen des Modells aufzuteilen, denn die Erstauswahl in Blender
-legt die einzelnen Flächen übereinander. Dies geschieht durch Auswahl der Flächen im Editor und Anwendung der
-\textit{UV-Unwrap}-Funktion in Blender.
+Der nächste Schritt besteht darin, die ausgewählten Flächen des Modells aufzuteilen, denn die Erstauswahl in Blender legt die einzelnen Flächen übereinander. Dies geschieht durch Auswahl der Flächen im Editor und Anwendung der \textit{UV-Unwrap}-Funktion in Blender.
 
-Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf
-das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für
-jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um
-eine einheitliche Darstellung zu gewährleisten.
+Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um eine einheitliche Darstellung zu gewährleisten.
 
-\textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise
-Texturierung und Gestaltung ermöglicht.
+\textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise Texturierung und Gestaltung ermöglicht.
 
 \subsubsection{Restlichen Modelle}
+% einfügen aller modelle in kleiner tabellenfrom
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/package.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/laptop.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/router.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/mouse.png}
+    \end{minipage}
+\end{figure}
+
 \subsubsection*{Ping-Paket-Modell}
-Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf Level 1 konzipiert, um Spielern das grundlegende Konzept
-eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise
-Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie
-Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
+Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf Level 1 konzipiert, um Spielern das grundlegende Konzept eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
 
 \subsubsection*{Laptop-Modell}
-Der Laptop stellt einen unverzichtbaren Gegenstand auf Level 2 dar und ist ein essenzielles Werkzeug für Schüler ab der
-3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den
-Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und
-Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
+Der Laptop stellt einen unverzichtbaren Gegenstand auf Level 2 dar und ist ein essenzielles Werkzeug für Schüler ab der 3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
 
 \subsubsection*{Router-Modell}
-Die Modellierung des Routers war eine iterative Aufgabe, die mehrere Versionen erforderte, um ein realistisches und
-ansprechendes Modell zu erzielen. Das finale Modell repräsentiert einen Gaming-Router mit vielen Anschlüssen und Bedienelementen.
-Aufgrund der Vielzahl an Details war die Modellierung sehr anspruchsvoll und zeitaufwendig.
+Die Modellierung des Routers war eine iterative Aufgabe, die mehrere Versionen erforderte, um ein realistisches und ansprechendes Modell zu erzielen. Das finale Modell repräsentiert einen Gaming-Router mit vielen Anschlüssen und Bedienelementen. Aufgrund der Vielzahl an Details war die Modellierung sehr anspruchsvoll und zeitaufwendig.
 
 \subsubsection*{Maus-Modell}
-Die Modellierung der Maus war eine Standardaufgabe, bei der der Mirror Modifier effektiv eingesetzt wurde, um die
-symmetrische Natur des Objekts zu betonen. Eine einfache Büromaus diente als Referenz für das Modell.
+Die Modellierung der Maus war eine Standardaufgabe, bei der der Mirror Modifier effektiv eingesetzt wurde, um die symmetrische Natur des Objekts zu betonen. Eine einfache Büromaus diente als Referenz für das Modell.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/notizblock.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/stift.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/headphones.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/energy.png}
+    \end{minipage}
+\end{figure}
 
 \subsubsection*{Block-Modell}
-Der Block ist ein wichtiger Gegenstand im schulischen Umfeld bis zur 3. Klasse, wenn noch keine Laptops verwendet werden.
-Während der Designphase ermöglichte der Array Modifier eine einfache Gestaltung der spiralförmigen Halterung der Blätter.
+Der Block ist ein wichtiger Gegenstand im schulischen Umfeld bis zur 3. Klasse, wenn noch keine Laptops verwendet werden. Während der Designphase ermöglichte der Array Modifier eine einfache Gestaltung der spiralförmigen Halterung der Blätter.
 
 \subsubsection*{Stift-Modell}
-Der Stift wurde einfach modelliert und erhielt eine unkomplizierte Texturierung mit einfachen Farben. Ein Buntstift
-diente als Referenz für das Modell.
+Der Stift wurde einfach modelliert und erhielt eine unkomplizierte Texturierung mit einfachen Farben. Ein Buntstift diente als Referenz für das Modell.
 
 \subsubsection*{Kopfhörer-Modell}
-Die Modellierung der Kopfhörer erforderte aufgrund ihrer geschwungenen Form und der texturierten Oberfläche besondere
-Aufmerksamkeit. Das Modell durchlief zwei Phasen: zunächst eine Annäherung an das Referenzbild eines Gaming-Kopfhörers
-und dann eine Verfeinerung, einschließlich einer aufwendigen Lederstrukturtextur.
+Die Modellierung der Kopfhörer erforderte aufgrund ihrer geschwungenen Form und der texturierten Oberfläche besondere Aufmerksamkeit. Das Modell durchlief zwei Phasen: zunächst eine Annäherung an das Referenzbild eines Gaming-Kopfhörers und dann eine Verfeinerung, einschließlich einer aufwendigen Lederstrukturtextur.
 
 \subsubsection*{Dose-Modell}
-Die Modellierung der Energydose begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde.
-Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein Redbull-Label als Referenz diente.
+Die Modellierung der Energydose begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde. Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein Redbull-Label als Referenz diente.
+
+\newpage
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/usb.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/stromverteiler.png}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.20\textwidth}
+        \centering
+        \includegraphics[width=3cm,height=3cm]{images/iphone.png}
+    \end{minipage}
+\end{figure}
 
 \subsubsection*{USB-Stick-Modell}
-Der USB-Stick wurde mit einer integrierten Halterung für zusätzliche Komplexität modelliert. Die Texturierung betonte
-einen metallischen Effekt, insbesondere für die Halterung und das vordere Teil des USB-Sticks.
+Der USB-Stick wurde mit einer integrierten Halterung für zusätzliche Komplexität modelliert. Die Texturierung betonte einen metallischen Effekt, insbesondere für die Halterung und das vordere Teil des USB-Sticks.
 
 \subsubsection*{Verteiler-Modell}
-Der Stromverteiler wurde mit fünf Steckplätzen und einem Ein/Aus-Schalter modelliert, wobei der Fokus auf einfacher
-Funktionalität lag. Die Texturierung orientierte sich an einfachen weißen Steckerleisten.
+Der Stromverteiler wurde mit fünf Steckplätzen und einem Ein/Aus-Schalter modelliert, wobei der Fokus auf einfacher Funktionalität lag. Die Texturierung orientierte sich an einfachen weißen Steckerleisten.
 
 \subsubsection*{Handy-Modell}
-Das Handymodell orientierte sich an modernen iPhones von Apple und erforderte aufgrund seiner zahlreichen Details wie
-Kameras, Tasten und Mikrofoneinlässe eine sorgfältige Modellierung und Texturierung, um einen realistischen Eindruck zu erzeugen.
+Das Handymodell orientierte sich an modernen iPhones von Apple und erforderte aufgrund seiner zahlreichen Details wie Kameras, Tasten und Mikrofoneinlässe eine sorgfältige Modellierung und Texturierung, um einen realistischen Eindruck zu erzeugen.
 
 
 \section{Hauptmenü}
-Im folgenden Abschnitt werden die Entwicklungsphasen beim Entwerfen des Menüs erläutert. So wie die dabei aufgetretenen
-Probleme und abschließend auch auf was beim User interface UI under bei der Benutzererfahrung UX geachtet wurde.
-Die iterative Entwicklung des Menüs durchlief mehrere Phasen, beginnend mit der Konzeption und Planung der
-Benutzeroberfläche bis hin zur finalen Umsetzung. Dieser Prozess umfasste die Entscheidungen zum Design des Layouts, des
-Farbschemas und der Interaktionselemente. Während der Entwicklung wurden regelmäßig Überprüfungen und Anpassungen
-vorgenommen, um sicherzustellen, dass das Menü den gestellten Anforderungen entspricht und eine optimale Benutzererfahrung
-bietet. Dabei wurden auch Rückmeldungen und Tests von Nutzern in die Iterationsschleife einbezogen, um mögliche
-Verbesserungspotenziale zu identifizieren und zu berücksichtigen.
-Schließlich wurde das Menü in seiner finalen Version implementiert. Dabei wurde besonderes Augenmerk auf Funktionalität,
-Benutzerfreundlichkeit und Ästhetik gelegt. Durch diesen iterativen Entwicklungsprozess wurde sichergestellt, dass das
-Menü den Anforderungen entspricht und einen positiven Beitrag zur Gesamterfahrung des Spiels leistet.
+Im folgenden Abschnitt werden die Entwicklungsphasen beim Entwurf des Menüs erläutert. Es wird erklärt, welche Probleme dabei auftreten und worauf bei der Benutzeroberfläche (UI) und der Benutzererfahrung (UX) geachtet werden muss.
+Es wird aufgeteilt in die Konzeption und Planung der Benutzeroberfläche bis hin zur finalen Umsetzung. Die iterative Entwicklung des Menüs durchlief mehrere Phasen, bei denen Entscheidungen zum Design des Layouts, des Farbschemas und der Interaktionselemente getroffen wurden.
+Während der Entwicklung wurden regelmäßig Überprüfungen und Anpassungen durchgeführt, um sicherzustellen, dass das Menü den gestellten Anforderungen entspricht und eine optimale Benutzererfahrung bietet. Dabei wurden auch Rückmeldungen und Tests von Nutzern in die Iterationsschleife einbezogen, um mögliche Verbesserungspotenziale zu identifizieren und zu berücksichtigen.
+Schließlich wurde das Menü in seiner endgültigen Version implementiert. Dabei wurde besonderes Augenmerk auf Funktionalität, Benutzerfreundlichkeit und Ästhetik gelegt. Durch diesen iterativen Entwicklungsprozess wurde sichergestellt, dass das Menü den Anforderungen entspricht und einen positiven Beitrag zur Gesamterfahrung des Spiels leistet.
 
 \subsection{Erstentwurf}
-Ursprünglich war geplant, das UI/UX-System mit einem sogenannten \textbf{Nahmenü} zu realisieren. Dieses folgt dem
-Nutzer in seiner Nähe und besteht in unserem Fall, aus drei primären Schaltflächen sowie einem Pin-Button. Das Nahmenü
-ist etwa auf Hüfthöhe des Benutzers positioniert und zeichnet sich durch eine vereinfachte Struktur aus, die eine
-intuitive Bedienung gewährleistet. Die Gestaltung des Menüs hat zum Ziel, Verwirrung zu vermeiden und dem Nutzer ohne
-umfassende Vorabinformationen klar zu machen, wie er es verwenden kann.
+Ursprünglich war geplant, das UI/UX-System mit einem sogenannten \textbf{Nahmenü} zu realisieren. Dieses folgt dem Nutzer in seiner Nähe und besteht in unserem Fall, aus drei primären Schaltflächen sowie einem Pin-Button. Das Nahmenü ist etwa auf Hüfthöhe des Benutzers positioniert und zeichnet sich durch eine vereinfachte Struktur aus, die eine intuitive Bedienung gewährleistet. Die Gestaltung des Menüs hat zum Ziel, Verwirrung zu vermeiden und dem Nutzer ohne umfassende Vorabinformationen klar zu machen, wie er die Anwendung verwenden kann.
 
 \subsubsection*{Nahmenü}
-Innerhalb von Unity bezeichnet der Begriff Nahmenü eine vordefinierte Konstruktion, die mit bestimmten Skripten
-ausgestattet ist, um sicherzustellen, dass das Menü dem Benutzer in alle Richtungen folgt. Es werden von Unity
-bereitgestellte Skripte verwendet, die es ermöglichen, das Menü dynamisch an die Position des Nutzers anzupassen.\\
+Innerhalb von Unity bezeichnet der Begriff \textit{Nahmenü} eine vordefinierte Konstruktion, die mit bestimmten Skripten ausgestattet ist, um sicherzustellen, dass das Menü dem Benutzer in alle Richtungen folgt. Es werden von Unity bereitgestellte Skripte verwendet, die es ermöglichen, das Menü dynamisch an die Position des Nutzers anzupassen.\\
 \\
-Im Erstentwurf wurde das gesamte Menü ausschließlich innerhalb der Unity-Umgebung konstruiert. Dabei wurden sämtliche
-vorhandenen Schaltflächen und Funktionen aus den nativen Ressourcen von Unity zusammengesetzt. Dieser Ansatz führte zu
-einer konsistenten visuellen Gestaltung des Menüs. Allerdings waren die Möglichkeiten zur kreativen Gestaltung und
-Anpassung im Rahmen unseres individuellen Projekts stark begrenzt. Durch die ausschließliche Verwendung der internen
-Ressourcen von Unity wurden gewisse Einschränkungen hinsichtlich der Flexibilität und Individualisierungsmöglichkeiten
-des Menüs in Kauf genommen.
+Im Erstentwurf wurde das gesamte Menü ausschließlich innerhalb der Unity-Umgebung konstruiert. Dabei wurden sämtliche vorhandenen Schaltflächen und Funktionen aus den nativen Ressourcen von Unity zusammengesetzt. Dieser Ansatz führte zu einer konsistenten visuellen Gestaltung des Menüs. Allerdings waren die Möglichkeiten zur kreativen Gestaltung und Anpassung im Rahmen unseres individuellen Projekts stark begrenzt. Durch die ausschließliche Verwendung der internen Ressourcen von Unity wurden gewisse Einschränkungen hinsichtlich der Flexibilität und Individualisierungsmöglichkeiten des Menüs in Kauf genommen.
 
-Obwohl diese Herangehensweise zu einem homogenen Erscheinungsbild des Menüs führte, war es wichtig, eine Balance
-zwischen visueller Einheitlichkeit und der Notwendigkeit individueller Anpassungsmöglichkeiten zu finden. Diese
-Herausforderung verdeutlicht die Bedeutung einer flexiblen und erweiterbaren Architektur für die Benutzeroberfläche,
-um den Anforderungen und Zielen des Projekts gerecht zu werden.
+Obwohl diese Herangehensweise zu einem homogenen Erscheinungsbild des Menüs führte, war es wichtig, eine Balance zwischen visueller Einheitlichkeit und der Notwendigkeit individueller Anpassungsmöglichkeiten zu finden. Diese Herausforderung verdeutlicht die Bedeutung einer flexiblen und erweiterbaren Architektur für die Benutzeroberfläche, um den Anforderungen und Zielen des Projekts gerecht zu werden.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/menubarversion1.png}
@@ -860,99 +778,46 @@ um den Anforderungen und Zielen des Projekts gerecht zu werden.
     \label{fig:menübar}
 \end{figure}
 
-Die Abbildung \ref{fig:menübar} zeigt den ersten Entwurf des Menüs, das eine wichtige Schnittstelle für den Nutzer
-darstellt, um zwischen verschiedenen Szenarien zu navigieren. Die Struktur des Menüs bleibt unabhängig vom jeweiligen
-Spiellevel konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite
-dienen der Initiation des Ladevorgangs für die verschiedenen Spielszenarien. Hervorzuheben ist der Pin-Button in
-Kombination mit dem darunterliegenden weißen Balken. Diese beiden Funktionen gemeinsam ermöglichen es dem Benutzer,
-das Menü an gewünschten Positionen zu verankern und bietet somit Flexibilität bei der Positionierung entsprechend
-individueller Präferenzen. Ein solcher Einsatz ist von Vorteil, wenn externe Objekte die Nutzbarkeit des Menüs
-beeinträchtigen könnten, wie zum Beispiel im Szenario des Platznehmens an einem Tisch, wo das Menü ungünstigerweise
-mit dem Tisch kollidieren könnte und somit die Nutzererfahrung beeinträchtigt werden würde.
+Die Abbildung \ref{fig:menübar} zeigt den ersten Entwurf des Menüs, das eine wichtige Schnittstelle für den Nutzer darstellt, um zwischen verschiedenen Szenarien zu navigieren. Die Struktur des Menüs bleibt unabhängig vom jeweiligen Spiellevel konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite dienen der Initiierung des Ladevorgangs für die verschiedenen Spielszenarien. Hervorzuheben ist der Pin-Button in Kombination mit dem darunterliegenden weißen Balken. Diese beiden Funktionen gemeinsam ermöglichen es dem Benutzer, das Menü an gewünschten Positionen zu verankern und bietet somit Flexibilität bei der Positionierung entsprechend individueller Präferenzen. Ein solcher Einsatz ist von Vorteil, wenn externe Objekte die Nutzbarkeit des Menüs beeinträchtigen könnten, wie zum Beispiel im Szenario des Platznehmens an einem Tisch, wo das Menü ungünstigerweise mit dem Tisch kollidieren könnte und somit die Nutzererfahrung beeinträchtigt werden würde.
 
 \subsubsection{Probleme beim Erstentwurf}
 \subsubsection*{Problem 1 - Fehlende Dokumentation}
-Das Hauptziel bei dem Konzept des Ersten Menüs, bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle
-erforderlichen Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Testpersonen,
-die nicht mit dem Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der
-Dokumentation und Erklärung der verschiedenen Anwendungsszenarien und ihrer jeweiligen Aufgaben aufweist. Es wurde
-bemängelt, dass Benutzer lediglich zwischen den einzelnen Leveln wechseln können, ohne klare Informationen darüber zu
-erhalten, worum es in den einzelnen Leveln geht und welche Aufgaben diese beinhalten.
+Das Hauptziel bei dem Konzept des ersten Menüs, bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle erforderlichen Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Testpersonen, die nicht mit dem Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der Dokumentation und Erklärung der verschiedenen Anwendungsszenarien und ihrer jeweiligen Aufgaben aufweist. Es wurde bemängelt, dass Benutzer lediglich zwischen den einzelnen Leveln wechseln können, ohne klare Informationen darüber zu erhalten, worum es in den einzelnen Leveln geht und welche Aufgaben diese beinhalten.
 
-Diese Feststellung verdeutlicht eine wesentliche Lücke in der Benutzerführung und -information innerhalb des Menüsystems.
-Die unzureichende Dokumentation der Level und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und
-kann sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch
-als Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
+Diese Feststellung verdeutlicht eine wesentliche Lücke in der Benutzerführung und information innerhalb des Menüsystems. Die unzureichende Dokumentation der Level und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und kann sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch als Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
 
-Die Identifizierung dieses Problems betont die Wichtigkeit einer umfassenden Benutzerforschung und -evaluation während
-des Designprozesses. Dadurch wird sichergestellt, dass das entwickelte Benutzeroberflächensystem den Bedürfnissen und
-Erwartungen der Zielgruppe entspricht. Eine zielgerichtete Überarbeitung des Menüs ist erforderlich, um die fehlende
-Dokumentation der Anwendungsszenarien und ihrer Aufgaben zu adressieren und somit die Benutzererfahrung zu verbessern.
+Die Identifizierung dieses Problems betont die Wichtigkeit einer umfassenden Benutzerbeobachtung und -evaluation während des Designprozesses. Dadurch wird sichergestellt, dass das entwickelte Benutzeroberflächensystem den Bedürfnissen und Erwartungen der Zielgruppe entspricht. Eine zielgerichtete Überarbeitung des Menüs ist erforderlich, um die fehlende Dokumentation der Anwendungsszenarien und ihrer Aufgaben zu adressieren und somit die Benutzererfahrung zu verbessern.
 
-Bei Testdurchführungen ohne Entwickler aus dem Projektteam kam es wiederholt zu Unklarheiten bei den Benutzern,
-insbesondere während des ersten Durchlaufs, bezüglich der zugewiesenen Aufgaben. Während der Nutzung der HoloLens-Anwendung
-gab es vermehrt Anfragen seitens der Benutzer an das Projektteam aufgrund von Unklarheiten. Dies lässt vermuten, dass
-die Anwesenheit von Entwicklern im Projektteam einen signifikanten Einfluss auf die Benutzererfahrung und Effektivität
-der HoloLens-Anwendung hat.
+Bei Testdurchführungen ohne Entwickler aus dem Projektteam kam es wiederholt zu Unklarheiten bei den Benutzern, insbesondere während des ersten Durchlaufs, bezüglich der zugewiesenen Aufgaben. Während der Nutzung der HoloLens-Anwendung gab es vermehrt Anfragen seitens der Benutzer an das Projektteam aufgrund von Unklarheiten. Dies lässt vermuten, dass die Anwesenheit von Entwicklern im Projektteam einen signifikanten Einfluss auf die Benutzererfahrung und Effektivität der HoloLens-Anwendung hat.
 
 
 \subsubsection*{Problem 2 - Falsche Wahl des Menütyps}
-Während des Testprozesses stellte sich heraus, dass das Navigationsmenü oft eine Behinderung darstellte, insbesondere
-für Entwickler, die Funktionen wiederholt testeten und Anwendungsszenarien neu luden. Das ständige Verschieben des Menüs
-zur Seite erwies sich als zeitraubend und störte den Arbeitsfluss erheblich. Die ursprüngliche Intention, das
-Navigationsmenü zur Erleichterung der Interaktion zwischen Benutzer und Spielumgebung einzuführen, erwies sich somit als kontraproduktiv.
+Während des Testprozesses stellte sich heraus, dass das Navigationsmenü oft eine Behinderung darstellte, insbesondere für Entwickler, die Funktionen wiederholt testeten und Anwendungsszenarien neu luden. Das ständige Verschieben des Menüs zur Seite erwies sich als zeitraubend und störte den Arbeitsfluss erheblich. Die ursprüngliche Intention, das Navigationsmenü zur Erleichterung der Interaktion zwischen Benutzer und Spielumgebung einzuführen, erwies sich somit als kontraproduktiv.
 
-Es ist wichtig, die Auswirkungen von Benutzeroberflächenelementen auf den Entwicklungsprozess zu berücksichtigen, um ein
-reibungsloses Testen und Experimentieren zu gewährleisten. Eine effiziente und produktive Arbeitsweise des
-Entwicklerteams hängt davon ab. Die Notwendigkeit einer kontinuierlichen Evaluation und Optimierung von
-UI/UX-Komponenten während des gesamten Entwicklungszyklus wird durch dieses Problem verdeutlicht.
+Es ist wichtig, die Auswirkungen von Benutzeroberflächenelementen auf den Entwicklungsprozess zu berücksichtigen, um ein reibungsloses Testen und Experimentieren zu gewährleisten. Eine effiziente und produktive Arbeitsweise des Entwicklerteams hängt davon ab. Die Notwendigkeit einer kontinuierlichen Evaluation und Optimierung von UI/UX-Komponenten während des gesamten Entwicklungszyklus wird durch dieses Problem verdeutlicht.
 
-Dieses Problem verdeutlicht, dass der Erstentwurf und die ursprüngliche Konzeption hauptsächlich auf die Innovation und
-Neuheit des Menüdesigns abzielten, anstatt den Fokus auf die funktionale Nützlichkeit zu legen. Der einfache und kompakte
-Menütyp erwies sich als unzureichend, um eine umfassende und übersichtliche Dokumentation der Anwendungsszenarien zu
-integrieren. Folglich war eine Migration zu einem alternativen Menüansatz erforderlich. Diese Beobachtung verdeutlicht
-die Bedeutung einer ausgewogenen Gestaltung von Benutzeroberflächen in Mixed-Reality-Systemen. Es ist wichtig, dass
-nicht nur ästhetische Innovationen verfolgt werden, sondern auch die tatsächliche Benutzererfahrung und -effizienz in
-Betracht gezogen wird. Die Reflexion über diesen Prozess bietet Einsichten in die iterative Entwicklung von
-Benutzerschnittstellen und die Anpassung an die Anforderungen und Rückmeldungen der Benutzer.
+Dieses Problem verdeutlicht, dass der Erstentwurf und die ursprüngliche Konzeption hauptsächlich auf die Innovation und Neuheit des Menüdesigns abzielten, anstatt den Fokus auf die funktionale Nützlichkeit zu legen. Der einfache und kompakte Menütyp erwies sich als unzureichend, um eine umfassende und übersichtliche Dokumentation der Anwendungsszenarien zu integrieren. Folglich war eine Migration zu einem alternativen Menüansatz erforderlich. Diese Beobachtung verdeutlicht die Bedeutung einer ausgewogenen Gestaltung von Benutzeroberflächen in Mixed-Reality-Systemen. Es ist wichtig, dass nicht nur ästhetische Innovationen verfolgt werden, sondern auch die tatsächliche Benutzererfahrung und -effizienz in Betracht gezogen wird. Die Reflexion über diesen Prozess bietet Einsichten in die iterative Entwicklung von Benutzerschnittstellen und die Anpassung an die Anforderungen und Rückmeldungen der Benutzer.
 
 \subsection{Finalversion des Menüs}
-Die endgültige Version des Menüs wurde entwickelt, um die Mängel des ursprünglichen Entwurfs anzugehen und idealerweise
-vollständig zu beheben. Dieses neue Konzept wurde durch eine umfassende Analyse populärer AR/VR-Spiele geleitet, um die
-Gründe für die verbesserte Benutzererfahrung in diesen Kontexten zu untersuchen. Dabei wurden spezifische Merkmale und
-Designentscheidungen identifiziert, die einen signifikanten Einfluss auf die Zufriedenheit der Anwender haben.
+Die endgültige Version des Menüs wurde entwickelt, um die Mängel des ursprünglichen Entwurfs anzugehen und idealerweise vollständig zu beheben. Dieses neue Konzept wurde durch eine umfassende Analyse populärer AR/VR-Spiele wie zum Beispiel \textit{Beat Saber} geleitet, um die Gründe für die verbesserte Benutzererfahrung in diesen Kontexten zu untersuchen. Dabei wurden spezifische Merkmale und Designentscheidungen identifiziert, die einen signifikanten Einfluss auf die Zufriedenheit der Anwender haben.
 
-Basierend auf vorangegangenen Recherchen wurde entschieden, das neue Menü in zwei klar definierte Bereiche zu unterteilen.
-Dies gewährleistet eine deutliche Unterscheidung des Hauptmenüs sowie eine klare Orientierung bezüglich der Navigation.
-Insbesondere innerhalb der Anwendungsszenarien wurde ein minimalistisches und unaufdringliches Menü implementiert, um
-den Fokus der Benutzer uneingeschränkt auf die auszuführenden Tätigkeiten zu lenken. Diese Designstrategie hat zum Ziel,
-die kognitive Belastung der Benutzer zu reduzieren und eine nahtlose Integration der Menüfunktionalitäten in den jeweiligen
-Nutzungskontext zu ermöglichen.
+Basierend auf vorangegangenen Recherchen wurde entschieden, das neue Menü in zwei klar definierte Bereiche zu unterteilen. Dies gewährleistet eine deutliche Unterscheidung des Hauptmenüs sowie eine klare Orientierung bezüglich der Navigation. Insbesondere innerhalb der Anwendungsszenarien wurde ein minimalistisches und unaufdringliches Menü implementiert, um den Fokus der Benutzer uneingeschränkt auf die auszuführenden Tätigkeiten zu lenken. Diese Designstrategie hat zum Ziel, die kognitive Belastung der Benutzer zu reduzieren und eine nahtlose Integration der Menüfunktionalitäten in den jeweiligen Nutzungskontext zu ermöglichen.
 
-Das Ergebnis ist ein ansprechendes und benutzerorientiertes Menükonzept, das die Gesamterfahrung des Spiels verbessert
-und den Erwartungen der Zielgruppe gerecht wird.
+Das Ergebnis ist ein ansprechendes und benutzerorientiertes Menükonzept, das die Gesamterfahrung des Spiels verbessert und den Erwartungen der Zielgruppe gerecht wird.
 
 \subsubsection{Finalversion Menü - Hauptmenü}
-Auf dieser Grundlage wurde das Design des Menüsystems vollständig überarbeitet, wobei der erste Schritt schonmal die
-vollständige Entfernung der Idee des Nahmenüs beinhaltet.
+Auf dieser Grundlage wurde das Design des Menüsystems vollständig überarbeitet, wobei der erste Schritt bereits die vollständige Entfernung der Idee des Nahmenüs beinhaltete.
 
-Anstelle des Nahmenüs wurden vorgefertigte Objekte in das Hauptmenü integriert, welche zuvor mit Blender modelliert wurden.
-Die Entscheidung, vorgefertigte Objekte aus Blender zu importieren, bietet eine breite Palette an Gestaltungsmöglichkeiten
-und ermöglicht es, das Menü visuell ansprechend und einladend zu gestalten. Außerdem trägt die Integration dieser Objekte
-dazu bei, das Menü intuitiver und zugänglicher zu machen, indem sie dem Benutzer klare Anhaltspunkte und Handlungsmöglichkeiten bieten.
+Anstelle des Nahmenüs wurden vorgefertigte Objekte in das Hauptmenü integriert, welche zuvor mit Blender modelliert wurden. Die Entscheidung, vorgefertigte Objekte aus Blender zu importieren, bietet eine breite Palette an Gestaltungsmöglichkeiten und ermöglicht es, das Menü visuell ansprechend und einladend zu gestalten. Außerdem trägt die Integration dieser Objekte dazu bei, das Menü intuitiver und zugänglicher zu machen, da sie dem Benutzer klare Anhaltspunkte und Handlungsmöglichkeiten bieten.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/menuversion2.png}
-    \caption{Darstellung des Finalen Menüs im Unity Editor}
+    \caption{Darstellung des finalen Menüs im Unity Editor}
     \label{fig:menuversion2}
 \end{figure}
 
-Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus zwei separaten Tafeln, die durch unser
-Diplomarbeitslogo voneinander getrennt sind. Jede Tafel enthält den Titel des Anwendungsszenarios sowie einen vorgefertigten
-Startbutton.  In Unity wurde ein unsichtbarer, aber dennoch klickbarer Button mit exakt denselben Dimensionen wie das
-Modell des Startbuttons an der entsprechenden Stelle platziert. Das Skript \textit{SceneChange.cs}, welches für die
-Szenenwechsel-Funktionalität verantwortlich ist, ist diesem Button angehängt.
+Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus zwei separaten Tafeln, die durch unser Diplomarbeitslogo voneinander getrennt sind. Jede Tafel enthält den Titel des Anwendungsszenarios sowie einen vorgefertigten Startbutton.  In Unity wurde ein unsichtbarer, aber dennoch klickbarer Button mit exakt denselben Dimensionen wie das Modell des Startbuttons an der entsprechenden Stelle platziert. Das Skript \textit{SceneChange.cs}, welches für die Szenenwechsel-Funktionalität verantwortlich ist, ist diesem Button angehängt.
 
 \begin{figure}[H]
     \centering
@@ -961,43 +826,26 @@ Szenenwechsel-Funktionalität verantwortlich ist, ist diesem Button angehängt.
     \label{fig:hierarchiemenuunity}
 \end{figure}
 
-In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem
-Prefab \textbf{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \textbf{startbuttonclickable\_lv1/2} sind die
-in Unity erstellen unsichtbaren Button die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter
-zu sehen sind die 3 verschiedenen Assets welche aus blender importiert wurden. Diese bestehen jeweils aus den verschiedenen
-Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \textbf{BezierCurve} ist eine spezielle Art von Kurve
-welche in Blender für die leichte Wölbung der Tafeln genutzt wurde.
+In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem Prefab \textbf{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \textbf{startbuttonclickable\_lv1/2} sind die in Unity erstellten unsichtbaren Buttons, die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter zu sehen sind die 3 verschiedenen Assets, welche aus Blender importiert wurden. Diese bestehen jeweils aus den verschiedenen Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \textbf{BezierCurve} ist eine spezielle Art von Kurve welche in Blender für die leichte Wölbung der Tafeln genutzt wurde.
 
 \subsubsection{Finalversion Menü - Anwendungsszenario}
-Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine
-Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle
-Aufmerksamkeit des Benutzers auf das jeweilige Level und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund
-wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
+Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle Aufmerksamkeit des Benutzers auf das jeweilige Level und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/backbutton.png}
-    \caption{Darstellung des Finalen Menüs im Anwendungsszenario im Unity Editor}
+    \caption{Darstellung des finalen Menüs im Anwendungsszenario im Unity Editor}
     \label{fig:backbutton}
 \end{figure}
 
-Wie in der Abbildung \ref{fig:backbutton} gezeigt, besteht dieses Menü ausschließlich aus einem Zurück-Knopf, der den
-Benutzer zum Hauptmenü zurückführt. Das Handmenü wurde so konzipiert, dass es nur dann sichtbar ist, wenn der Benutzer
-es benötigt oder aktivieren möchte.  Der Zurückknopf wird erst sichtbar, wenn der Benutzer seine linke Hand umdreht und
-auf die Handfläche schaut.
+Wie in der Abbildung \ref{fig:backbutton} gezeigt, besteht dieses Menü ausschließlich aus einem Zurück-Button, der den Benutzer zum Hauptmenü zurückführt. Das Handmenü wurde so konzipiert, dass es nur dann sichtbar ist, wenn der Benutzer es benötigt oder aktivieren möchte.  Der Zurückbutton wird erst sichtbar, wenn der Benutzer seine linke Hand umdreht und auf die Handfläche schaut.
 
-Diese Funktionalität hat zum Ziel, die Benutzerinteraktion intuitiver und kontextbezogener zu gestalten. Hierfür wird
-Bewegungserkennung und Blickrichtungserkennung genutzt, um das Handmenü nur dann einzublenden, wenn der Benutzer aktiv
-nach einem Navigationsmittel sucht. Dadurch wird visuelle Ablenkung minimiert und die Benutzererfahrung optimiert, indem
-nur relevante Informationen und Interaktionselemente präsentiert werden, wenn sie benötigt werden.
+Diese Funktionalität hat zum Ziel, die Benutzerinteraktion intuitiver und kontextbezogener zu gestalten. Hierfür wird Bewegungserkennung und Blickrichtungserkennung genutzt, um das Handmenü nur dann einzublenden, wenn der Benutzer aktiv nach einem Navigationsmittel sucht. Dadurch wird die visuelle Ablenkung minimiert und die Benutzererfahrung optimiert, indem nur relevante Informationen und Interaktionselemente präsentiert werden, wenn sie benötigt werden.
 
 \subsubsection{Setzen des Menüs}
-Bei dem Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü,
-jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen
-moment und an der richtigen Stelle in der richtige Szene selbstständig instanzieren, deshalb wurde extra für diesen Fall
-das \textit{MenuSpawn.cs} Skript geschrieben.
+Beim Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü, jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen Moment und an der richtigen Stelle in der richtige Szene selbstständig instanzieren, deshalb wurde extra für diesen Fall das \textit{MenuSpawn.cs} Skript geschrieben.
 
-\begin{lstlisting}[style=csharp, caption=Menüinstanzierung bei Neuladen., label=code:spawnmenu]
+\begin{lstlisting}[style=csharp, caption=Menueinstanzierung bei Neuladen., label=code:spawnmenu]
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -1021,18 +869,13 @@ public class SpawnPrefab : MonoBehaviour
 }
 \end{lstlisting}
 
-Beim Start der Anwendung wird die Methode \textit{SpawnPrefabMenu()} ausgeführt. Diese Methode ist für die Positionierung
-des Menüs verantwortlich. Die im Codeabschnitt \ref{code:spawnmenu} ersichtlichen Positionsvektoren sind einerseits dafür
-zuständig, die aktuelle Kameraposition zu ermitteln, aber auch eine neue Spawnposition zu setzen, die um 1 auf der z-Achse
-versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der \textit{Instantiate} ist dafür verantwortlich, dass das Menü
-an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \textit{menu.SetActive(true)}
-aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
+Beim Start der Anwendung wird die Methode \textit{SpawnPrefabMenu()} ausgeführt. Diese Methode ist für die Positionierung des Menüs verantwortlich. Die im Codeabschnitt \ref{code:spawnmenu} ersichtlichen Positionsvektoren sind einerseits dafür zuständig, die aktuelle Kameraposition zu ermitteln, aber auch eine neue Spawnposition zu setzen, die um 1 auf der z-Achse versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der Funktionsaufruf \textit{Instantiate} ist dafür verantwortlich, dass das Menü an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \textit{menu.SetActive(true)} aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
 
 %\subsection{Vergleich der Menüentwürfe} (vielleicht mach ich das noch)
 \subsection{Laden der Level}
 Um den Buttons eine Funktion zuzuweisen, wird ein Skript benötigt, das aktiviert wird, sobald ein Button gedrückt wird.
 Im vorliegenden Fall ist das Skript \textit{SceneChange.cs} für den Wechsel zwischen den verschiedenen Anwendungsszenarien verantwortlich.
-Wenn einer der Buttons im Hauptmenü gedrückt wird, wird dieses Skript ausgeführt. Die Spielszene wird im Unity Inspector
+Wenn einer der Buttons im Hauptmenü gedrückt wird, wird dieses Skript ausgeführt. Die Spielszene wird im \textit{Unity Inspector}
 festgelegt. Der Code greift auf die Variable zu, die den Namen der Szene enthält, wie sie zuvor im Inspector benannt wurde.
 
 \begin{figure}[H]
@@ -1066,35 +909,16 @@ public class SceneChanger : MonoBehaviour
 }
 \end{lstlisting}
 
-Das vorliegende Skript hat eine vergleichsweise einfache Struktur. Die Variable \textbf{public string sceneToLoad} dient
-als Empfänger für den Namen der zu ladenden Szene, welcher im Unity-Inspector individuell für jede Szene festgelegt werden
-kann. Um den Szenenwechsel zu initiieren, wird die Methode \textbf{ChangeScene()} aufgerufen. Zunächst wird in dieser
-Methode geprüft, ob die aktive Szene, die durch \textbf{SceneManager.GetActiveScene()} ermittelt wird, mit der zu ladenden
-Szene übereinstimmt. Falls dies nicht der Fall ist, werden alle gespeicherten PlayerPrefabs mittels
-\textbf{PlayerPrefs.DeleteAll()} gelöscht. Dieser Schritt ist von entscheidender Bedeutung, um potenzielle Komplikationen
-im Zusammenhang mit dem HoloLens-Cache während des Szenenwechsels zu vermeiden.
+Das vorliegende Skript hat eine vergleichsweise einfache Struktur. Die Variable \texttt{public string sceneToLoad} dient als Empfänger für den Namen der zu ladenden Szene, welcher im Unity-Inspector individuell für jede Szene festgelegt werden kann. Um den Szenenwechsel zu initiieren, wird die Methode \texttt{ChangeScene()} aufgerufen. Zunächst wird in dieser Methode geprüft, ob die aktive Szene, die durch \texttt{SceneManager.GetActiveScene()} ermittelt wird, mit der zu ladenden Szene übereinstimmt. Falls dies nicht der Fall ist, werden alle gespeicherten PlayerPrefabs mittels \texttt{PlayerPrefs.DeleteAll()} gelöscht. Dieser Schritt ist von entscheidender Bedeutung, um potenzielle Komplikationen im Zusammenhang mit dem HoloLens-Cache während des Szenenwechsels zu vermeiden.
 
-Nachdem die Prefabs bereinigt wurden, wird die definierte Szene mit der Methode \textbf{SceneManager.LoadScene()}
-geladen. Dabei wird die Ladeoption \textbf{LoadSceneMode.Single} verwendet, um sicherzustellen, dass nur die angegebene
-Szene aktiv geladen wird und keine anderen Szenen im Hintergrund verbleiben. Diese präzise Steuerung des Ladevorgangs
-zielt darauf ab, die Performance und Stabilität der Anwendung auf der HoloLens-Plattform zu optimieren und potenzielle
-Konflikte zwischen Szeneninhalten zu vermeiden.
+Nachdem die Prefabs bereinigt wurden, wird die definierte Szene mit der Methode \texttt{SceneManag er.LoadScene()} geladen. Dabei wird die Ladeoption \texttt{LoadSceneMode.Single} verwendet, um sicherzustellen, dass nur die angegebene Szene aktiv geladen wird und keine anderen Szenen im Hintergrund verbleiben. Diese präzise Steuerung des Ladevorgangs zielt darauf ab, die Performance und Stabilität der Anwendung auf der HoloLens-Plattform zu optimieren und potenzielle Konflikte zwischen Szeneninhalten zu vermeiden.
 
 \subsection{UI/UX}
-Die Gestaltung der Benutzeroberfläche und die damit verbundene Benutzererfahrung sind wesentliche Aspekte bei der
-Konzeption und Entwicklung von Software. Eine bewährte Strategie besteht darin, sich an populären und gleichgerichteten
-Anwendungen zu orientieren, insbesondere im Bereich der Augmented- oder Virtual Reality. Es wird darauf geachtet, komplexe
-und verwirrende Menüstrukturen zu vermeiden und eine konsistente Farbpalette über die gesamte Benutzeroberfläche hinweg zu verwenden.
+Die Gestaltung der Benutzeroberfläche und die damit verbundene Benutzererfahrung sind wesentliche Aspekte bei der Konzeption und Entwicklung von Software. Eine bewährte Strategie besteht darin, sich an populären und gleichgerichteten Anwendungen zu orientieren, insbesondere im Bereich der Augmented- oder Virtual Reality. Es wird darauf geachtet, komplexe und verwirrende Menüstrukturen zu vermeiden und eine konsistente Farbpalette über die gesamte Benutzeroberfläche hinweg zu verwenden.
 
-Diese Herangehensweise basiert auf der Erkenntnis, dass erfolgreiche Anwendungen in ähnlichen Domänen oft bewährte
-Designprinzipien und Interaktionsmuster aufweisen, die sich positiv auf die Benutzerakzeptanz und -zufriedenheit auswirken
-können. Durch die Anpassung an gängige Standards und Trends in der Branche kann das Risiko von Benutzerirritationen
-und -ablehnungen minimiert werden. Gleichzeitig wird eine vertraute und angenehme Benutzererfahrung gefördert.
+Diese Herangehensweise basiert auf der Erkenntnis, dass erfolgreiche Anwendungen in ähnlichen Domänen oft bewährte Designprinzipien und Interaktionsmuster aufweisen, die sich positiv auf die Benutzerakzeptanz und -zufriedenheit auswirken können. Durch die Anpassung an gängige Standards und Trends in der Branche kann das Risiko von Benutzerirritationen und -ablehnungen minimiert werden. Gleichzeitig wird eine vertraute und angenehme Benutzererfahrung gefördert.
 
-Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendungen nicht als direkte Kopie verstanden
-werden sollte, sondern vielmehr als Quelle für Anregungen und bewährte Praktiken, die in einem eigenständigen und angepassten
-Kontext implementiert werden können. Auf diese Weise kann die Effektivität und Attraktivität der Benutzeroberfläche
-optimiert werden, um die Bedürfnisse und Erwartungen der Zielgruppe bestmöglich zu erfüllen.
+Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendungen nicht als direkte Kopie verstanden werden sollte, sondern vielmehr als Quelle für Anregungen und bewährte Praktiken, die in einem eigenständigen und angepassten Kontext implementiert werden können. Auf diese Weise kann die Effektivität und Attraktivität der Benutzeroberfläche optimiert werden, um die Bedürfnisse und Erwartungen der Zielgruppe bestmöglich zu erfüllen.
 
 
 
