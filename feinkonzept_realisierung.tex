@@ -6,6 +6,8 @@
 \definecolor{commentcolor}{RGB}{0,128,0}
 \definecolor{stringcolor}{RGB}{163,21,21}
 
+\renewcommand\lstlistingname{Codeabschnitt}
+
 % Language definition
 \lstdefinelanguage{CS}{
     language=C,
@@ -2678,131 +2680,141 @@ werden, um auf bestimmte Aktionen zu reagieren, ohne dass die beteiligten Teile 
 Modularität, Erweiterbarkeit und Wartbarkeit der Anwendung gefördert.
 
 \subsection{Das Knapsack Problem} \marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
-Dieser Abschnitt befasst sich mit allem Rund um das Thema des bekannten Optimierungsproblems des Knapsack-Problems, die
+Dieser Abschnitt befasst sich mit dem Knapsack-Problem, ein Kombinatorisches Optimierungsproblem. Dazu wird auch die
 Problemstellung, welche Varianten und Typen des Problems es gibt, die zwei bekanntesten Algorithmen zum Lösen des Problems
-und anschließend die Implementierung um das Problem zu lösen.
-
-\subsubsection{Knapsack-Algorithmus}
-Der Knapsack-Algorithmus ist ein grundlegendes Werkzeug in der Informatik, das sich mit der optimalen Ressourcenallokation
-beschäftigt, insbesondere wenn es darum geht, eine begrenzte Menge an Ressourcen effizient zu nutzen, um einen bestimmten
-Nutzen oder Gewinn zu maximieren. Die Metapher des \textit{Knapsacks} bezieht sich dabei auf die Vorstellung, einen Rucksack
-mit einer begrenzten Kapazität zu füllen, wobei die enthaltenen Gegenstände jeweils unterschiedliche Werte und Gewichte aufweisen.
+und anschließend die Implementierung um zu das Problem zu lösen, erläutert.
 
 \subsubsection{Problemstellung}
-Das Knapsack-Problem befasst sich mit der Herausforderung, einen Rucksack optimal zu befüllen, wenn dieser eine begrenzte
-Kapazität aufweist. Um diesen zu füllen, stehen hier eine Reihe von Gegenständen zur Auswahl, von denen jeder einen
-individuellen Wert, der einen bestimmten Nutzen oder eine Wichtigkeit repräsentiert. Auch hat jeder Gegenstand ein
-bestimmtes individuelles Gewicht, welches genau beschreibt, wie viel an Platz dieser Gegenstand im Rucksack einnimmt.
+Das Knapsack-Problem befasst sich mit der Herausforderung, einen Rucksack optimal zu befüllen, unter der Ausnahme, dass
+dieser eine begrenzte Kapazität aufweist. Um ihn zu füllen, steht eine Reihe von Gegenständen zu Auswahl, von denen jeder
+einen individuellen Wert, der einen bestimmten Nutzen oder eine Wichtigkeit repräsentiert, hat. Jeder Gegenstand weißt
+weiteres ein bestimmtes individuelles Gewicht, welches genau beschreibt, wie viel an Platz dieser Gegenstand im Rucksack
+einnimmt, auf.
 
 Das grundlegende Ziel beim Knapsack-Problem besteht darin, eine Auswahl von Gegenständen zu treffen, die in den Rucksack
-passt und gleichzeitig den Gesamtwert der ausgewählten Gegenstände maximiert. Dabei muss die Summe der Gewichte der
+passt und gleichzeitig den Gesamtwert der ausgewählten Gegenstände maximiert. Dabei darf die Summe der Gewichte der
 ausgewählten Gegenstände die Kapazität des Rucksacks nicht überschreiten. Dies führt zu einer Herausforderung, bei der
 eine perfekte Lösung gefunden werden muss, um den bestmöglichen Nutzen aus den verfügbaren Gegenständen zu ziehen.
 
+\subsubsection{Typen des Knapsack-Problems}\label{sec:knapsackTypen}
+Das Knapsack-Problem kann in verschiedene Typen unterteilt werden, die jeweils \textit{unterschiedliche Bedingungen}
+und \textit{Anforderungen} haben. Nachfolgend werden die wichtigsten Typen des Knapsack-Problems erläutert.
+
+%Quellen:
+%https://www.geeksforgeeks.org/fractional-knapsack-problem/
+%https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+%https://www.geeksforgeeks.org/extended-knapsack-problem/
+%https://www.geeksforgeeks.org/unbounded-knapsack-repetition-items-allowed/
+\subsubsection*{0/1 Knapsack-Problem}
+Das 0/1-Knapsack-Problem bezieht sich auf die effiziente Auswahl von Gegenständen, um den maximalen Gesamtwert in einem
+begrenzten Rucksack zu erreichen. Gegeben sind \textit{n} Gegenstand, wobei jedem Gegenstand ein bestimmtes Gewicht
+(\textit{w}) und ein Wert (\textit{v}) zugeordnet ist. Außerdem steht ein Rucksack mit einer Kapazität (\textit{c}) zur
+Verfügung. Das Ziel besteht darin, jene Gegenstände in den Rucksack zu legen, sodass die Summe der Werte der ausgewählten
+Gegenstände maximal ist.
+
+Es ist wichtig zu beachten, dass beim 0/1-Knapsack-Problem entweder ein Gegenstand \textit{vollständig} in den Rucksack
+gepackt wird oder \textit{überhaupt nicht}. Es gibt keine Möglichkeit, einen Gegenstand \textit{teilweise} in den Rucksack
+zu legen. Diese Beschränkung erfordert eine sorgfältige Auswahl der Gegenstände, um den verfügbaren Platz im Rucksack
+optimal zu nutzen und gleichzeitig den Gesamtwert zu maximieren.\footnote{GeeksForGeeks, \cite{0/1 Knapsack-Problem}}
+
+\subsubsection*{Fraktionales Knapsack-Problem}
+Das fraktionale Knapsack-Problem befasst sich mit der effizienten Verteilung von Gegenständen in einem Rucksack, um den
+Gesamtwert im Rucksack zu maximieren. Dabei werden die Gewichte und Werte von \textit{n} Gegenständen gegeben, und das
+Ziel besteht darin, diese Gegenstände in einen Rucksack mit der \textit{Kapazität c} zu legen, um den maximalen Gesamtwert
+zu erreichen. Im Gegensatz zum klassischen 0/1-Knapsack-Problem, bei dem entweder ein Gegenstand vollständig in den Rucksack
+gepackt wird oder nicht, erlaubt das fraktionale Knapsack-Problem das Aufteilen von Gegenständen, z.B.: Das halbieren
+eines Gegenstands, um den Gesamtwert im Rucksack zu maximieren. Diese Flexibilität ermöglicht es, eine perfekte Lösung
+zu finden, indem die Gegenstände entsprechend ihrer Wertigkeit und Gewichtung effizient verteilt werden.\footnote{GeeksForGeeks, \cite{Fractional Knapsack Problem}}
+
+\subsubsection*{Begrenztes Knapsack-Problem}
+Das begrenzte Knapsack-Problem bezieht sich auf die effiziente Auswahl von Gegenständen, um den maximalen Gesamtwert
+unter Berücksichtigung eines begrenzten Gewichts zu erreichen. Angenommen, es gibt \textit{n} Gegenstände, wobei jedem
+Gegenstand ein bestimmtes Gewicht (\textit{w}) und ein Wert (\textit{v}) zugeordnet ist. Die Aufgabe besteht darin, den
+Gesamtwert zu maximieren, indem von jedem gegebenen Gegenstand nur eine begrenzte Anzahl von Instanzen, deren Gesamtgewicht
+nicht größer als das maximale Gewicht \textit{w} ist, verwendet werden darf.\footnote{GeeksForGeeks, \cite{Bounded Knapsack Problem}}
+
+\subsubsection*{Unbegrenztes Knapsack-Problem}
+Das unbeschränkte Knapsack-Problem befasst sich mit der effizienten Auswahl von Gegenständen, um den maximalen Gesamtwert
+zu erreichen, wobei das Gesamtgewicht nicht größer als eine vorgegebene Kapazität ist. Angenommen, es gibt ein Rucksackgewicht
+\textit{c} und eine Menge von \textit{n} Gegenständen, von denen jeder einen bestimmten Wert (\textit{v}) und ein
+Gewicht (\textit{w}) hat. Das Ziel besteht darin, die maximale Menge zu berechnen, die genau dieses Gewicht erreichen kann.
+
+Im Gegensatz zum Begrenzten Knapsack-Problem, bei dem die Anzahl der Instanzen eines Gegenstands begrenzt ist, können
+beim unbeschränkten Knapsack-Problem \textit{beliebig viele} Instanzen \textit{desselben} Gegenstands verwendet werden.
+Dies ermöglicht eine flexiblere Auswahl und Nutzung der verfügbaren Gegenstände, um den maximalen Gesamtwert zu erzielen,
+der das vorgegebene Gewicht nicht überschreitet.\footnote{GeeksForGeeks, \cite{Unbounded Knapsack}}
+
 \subsubsection{Variationen des Knapsack-Problems}
 Im Laufe der Zeit hat das Knapsack-Problem verschiedene Variationen hervorgebracht, die jeweils unterschiedliche Aspekte
-und Einschränkungen des Problems berücksichtigen. Nachfolgend werden einige bekannte Variationen erläutert.
+und Einschränken des Problems berücksichtigen. Variationen beziehen sich hier auf unterschiedliche Varianten des Hauptproblems,
+also z.B. hat das 0/1 Knapsack-Problem verschiedene Varianten mit unterschiedlichen zusätzlichen Einschränkungen und
+Aspekten. Nachfolgend werden die bekanntesten Variationen erläutert
 
+%Quellen:
+%https://en.wikipedia.org/wiki/Knapsack_problem#Multi-objective_knapsack_problem
+%https://en.wikipedia.org/wiki/Knapsack_problem#Multi-dimensional_knapsack_problem
+%https://en.wikipedia.org/wiki/Knapsack_problem#Multiple_knapsack_problem
+%https://en.wikipedia.org/wiki/Knapsack_problem#Quadratic_knapsack_problem
+%https://en.wikipedia.org/wiki/Knapsack_problem#Geometric_knapsack_problem
 \subsubsection*{Mehrzieliges Knapsack-Problem}
 Das mehrzielige Knapsack-Problem erweitert das klassische Knapsack-Problem, indem es mehrere \textit{Zielkriterien}
-berücksichtigt. Anstatt nur den Gesamtwert der ausgewählten Gegenstände zu maximieren, sollen nun mehrere Ziele \textit{gleichzeitig} optimiert
-werden. Zum Beispiel könnte neben der \textit{Maximierung} des Gesamtwerts auch die \textit{Minimierung} des Gesamtgewichts
-oder anderer Kosten angestrebt werden. Diese Variation des Problems führt zu komplexeren Optimierungsaufgaben, da
-Kompromisse zwischen den verschiedenen Zielen gefunden werden müssen.
+berücksichtigt. Anstatt nur den Gesamtwert der ausgewählten Gegenstände zu maximieren, sollen nun mehrere Ziele
+\textit{gleichzeitig} optimiert werden. Zum Beispiel könnte neben der \textit{Maximierung} des Gesamtwerts auch die
+\textit{Minimierung} des Gesamtgewichts oder anderer Kosten angestrebt werden. Diese Variation des Problems führt zu
+komplexeren Optimierungsaufgaben, da Kompromisse zwischen den verschiedenen Zielen gefunden werden müssen.\footnote{Wikipedia, \cite{Multi-objective Knapsack-Problem}}
 
 \subsubsection*{Multidimensionales Knapsack-Problem}
-Beim multidimensionalen Knapsack-Problem hat jeder Gegenstand nicht nur ein Gewicht, sondern wird durch einen \textit{M-dimensionalen}
-Vektor repräsentiert, der verschiedene \textit{Merkmale} oder \textit{Eigenschaften} des Gegenstands darstellt. Entsprechend
-ist auch die Kapazität des Rucksacks ein \textit{M-dimensionaler} Vektor. Diese Variation des Problems entsteht häufig
-in realen Anwendungen, in denen die Gegenstände durch mehrere Merkmale charakterisiert werden, wie zum Beispiel \texit{Größe},
-\textit{Form}, \textit{Farbe} oder \textit{Material}.
+Beim multidimensionalen Knapsack-Problem hat jeder Gegenstand nicht nur ein Gewicht, sondern wird durch einen
+\textit{m-dimensionalen} Vektor repräsentiert, der verschiedene \textit{Merkmale} oder \textit{Eigenschaften} des Gegenstands
+darstellt. Entsprechend ist auch die Kapazität des Rucksacks ein \textit{m-dimensionaler} Vektor. Diese Variation des
+Problems entsteht häufig in realen Anwendungen, in denen die Gegenstände durch mehrere Merkmale charakterisiert werden,
+wie zum Beispiel \texit{Größe},\textit{Form}, \textit{Farbe} oder \textit{Material}.\footnote{Wikipedia, \cite{Multi-dimensional Knapsack-Problem}}
 
 \subsubsection*{Mehrere Knapsack-Probleme}
-Das multiple Knapsack-Problem \textit{erweitert} das klassische Knapsack-Problem, indem es \textit{mehrere} Rucksäcke oder Behälter
-einführt, in die die Gegenstände verteilt werden können. Im Gegensatz zum klassischen Problem, bei dem alle Gegenstände in
-einen einzelnen Rucksack gepackt werden müssen, können hier mehrere Rucksäcke genutzt werden, um die Gegenstände aufzunehmen.
-Diese Variation ist relevant in Situationen, in denen die Gegenstände auf verschiedene Weise organisiert oder verwendet
-werden sollen.
+Das multiple Knapsack-Problem \textit{erweitert} das klassische Knapsack-Problem, indem es \textit{mehrere} Rucksäcke
+oder Behälter einführt, in die die Gegenstände verteilt werden können. Im Gegensatz zum klassischen Problem, bei dem
+alle Gegenstände in einen einzelnen Rucksack gepackt werden müssen, können hier mehrere Rucksäcke genutzt werden, um die
+Gegenstände aufzunehmen. Diese Variation ist relevant in Situationen, in denen die Gegenstände auf verschiedene Weise
+organisiert oder verwendet werden sollen.\footnote{Wikipedia, \cite{Multi Knapsack-Problem}}
 
 \subsubsection*{Quadratisches Knapsack-Problem}
 Das quadratische Knapsack-Problem bezieht sich auf eine Variation, bei der das Ziel darin besteht, eine quadratische
 Zielfunktion zu maximieren, die von den ausgewählten Gegenständen abhängt. Diese Zielfunktion kann beispielsweise den
 Gesamtnutzen oder den Gesamtwert der ausgewählten Gegenstände darstellen und ist oft von quadratischer Form in Bezug auf
 die Variablen, die die Auswahl der Gegenstände repräsentieren. Die Lösung dieses Problems erfordert spezielle Techniken
-zur Bewältigung der quadratischen Struktur der Zielfunktion.
+zur Bewältigung der quadratischen Struktur der Zielfunktion.\footnote{Wikipedia, \cite{Quadratic Knapsack-Problem}}
 
 \subsubsection*{Geometrisches Knapsack-Problem}
 Beim geometrischen Knapsack-Problem stehen eine Reihe von geometrischen Objekten mit unterschiedlichen \textit{Formen}
-und \textit{Größen} zur Auswahl, die in einen \textit{rechteckigen Rucksack} gepackt werden sollen. Das Ziel besteht darin,
-die Gegenstände so anzuordnen, dass der verfügbare Platz im Rucksack optimal genutzt wird und der Gesamtwert der
+und \textit{Größen} zur Auswahl, die in einen \textit{rechteckigen Rucksack} gepackt werden sollen. Das Ziel besteht
+darin, die Gegenstände so anzuordnen, dass der verfügbare Platz im Rucksack optimal genutzt wird und der Gesamtwert der
 ausgewählten Gegenstände maximiert wird. Diese Variation des Knapsack-Problems erfordert eine \textit{Berücksichtigung}
-der \textit{geometrischen Eigenschaften} der Objekte und kann in verschiedenen Anwendungen wie Layoutdesign oder Packungsproblemen
-auftreten.\footnote{GeeksForGeeks, \cite{Introduction to Knapsack Problem, its Types and How to solve them}}
+der \textit{geometrischen Eigenschaften} der Objekte und kann in verschiedenen Anwendungen wie Layoutdesign oder
+Packungsproblemen auftreten.\footnote{Wikipedia, \cite{Geometric Knapsack-Problem}}
 
-\subsubsection{Typen des Knapsack-Problems}
-Das Knapsack-Problem kann in verschiedene Typen unterteilt werden, die jeweils \textit{unterschiedliche Bedingungen} und
-\textit{Anforderungen} haben. Nachfolgend werden die wichtigsten Typen des Knapsack-Problems erläutert.
-
-\subsubsection*{0/1 Knapsack-Problem}
-Das 0/1-Knapsack-Problem bezieht sich auf die effiziente Auswahl von Gegenständen, um den maximalen Gesamtwert in einem
-begrenzten Rucksack zu erreichen. Gegeben sind \textit{N Gegenstände}, wobei jedem Gegenstand ein bestimmtes Gewicht
-(\textit{w}) und ein Wert (\textit{v}) zugeordnet ist. Außerdem steht ein Rucksack mit einer Kapazität (\textit{C}) zur
-Verfügung. Das Ziel besteht darin, die Gegenstände in den Rucksack zu legen, sodass die Summe der Werte der ausgewählten
-Gegenstände maximal ist.
-
-Es ist wichtig zu beachten, dass beim 0/1-Knapsack-Problem entweder ein Gegenstand \textit{vollständig} in den Rucksack
-gepackt wird oder \textit{überhaupt nicht}. Es gibt keine Möglichkeit, einen Gegenstand \textit{teilweise} in
-den Rucksack zu legen. Diese Beschränkung erfordert eine sorgfältige Auswahl der Gegenstände, um den verfügbaren Platz
-im Rucksack optimal zu nutzen und gleichzeitig den Gesamtwert zu maximieren.
-
-\subsubsection*{Fraktionales Knapsack-Problem}
-Das fraktionale Knapsack-Problem befasst sich mit der effizienten Verteilung von Gegenständen in einem Rucksack, um den
-Gesamtwert im Rucksack zu maximieren. Dabei werden die Gewichte und Werte von \textit{N Gegenständen} gegeben, und das
-Ziel besteht darin, diese Gegenstände in einen Rucksack mit der \textit{Kapazität W} zu legen, um den maximalen Gesamtwert
-zu erreichen. Im Gegensatz zum klassischen 0/1-Knapsack-Problem, bei dem entweder ein Gegenstand vollständig in den
-Rucksack gepackt wird oder nicht, erlaubt das fraktionale Knapsack-Problem das Aufteilen von Gegenständen, um den Gesamtwert
-im Rucksack zu maximieren. Diese Flexibilität ermöglicht es, eine perfekte Lösung zu finden, indem die Gegenstände
-entsprechend ihrer Wertigkeit und Gewichtung effizient verteilt werden.
-
-\subsubsection*{Begrenztes Knapsack-Problem}
-Das begrenzte Knapsack-Problem bezieht sich auf die effiziente Auswahl von Gegenständen, um den maximalen Gesamtwert unter
-Berücksichtigung eines begrenzten Gewichts zu erreichen. Angenommen, es gibt \textit{N Gegenstände}, wobei jedem Gegenstand
-ein bestimmtes Gewicht (\textit{w}) und ein Wert (\textit{v}) zugeordnet ist. Die Aufgabe besteht darin, den Gesamtwert
-zu maximieren, indem maximal \textit{N Gegenstände} ausgewählt werden, deren Gesamtgewicht nicht größer als das maximale
-Gewicht \textit{W} ist.
-
-\subsubsection*{Unbegrenztes Knapsack-Problem}
-Das unbeschränkte Knapsack-Problem befasst sich mit der effizienten Auswahl von Gegenständen, um den maximalen Gesamtwert
-zu erreichen, wobei das Gesamtgewicht nicht größer als eine vorgegebene Kapazität ist. Angenommen, es gibt ein
-Rucksackgewicht \textit{W} und eine Menge von \textit{N Gegenständen}, von denen jeder einen bestimmten Wert (\textit{v})
-und ein Gewicht (\textit{w}) hat. Das Ziel besteht darin, die maximale Menge zu berechnen, die genau dieses Gewicht
-erreichen kann.
-
-Im Gegensatz zum 0/1-Knapsack-Problem, bei dem die Anzahl der Instanzen eines Gegenstands begrenzt ist, können beim
-unbeschränkten Knapsack-Problem \textit{beliebig viele} Instanzen \textit{desselben} Gegenstands verwendet werden. Dies
-ermöglicht eine flexiblere Auswahl und Nutzung der verfügbaren Gegenstände, um den maximalen Gesamtwert zu erzielen, der
-das vorgegebene Gewicht nicht überschreitet.\footnote{GeeksForGeeks, \cite{Introduction to Knapsack Problem, its Types and How to solve them}}
-
+%Quellen:
+%https://www.hindawi.com/journals/mpe/2023/1742922/
 \subsubsection{Ansätze zur Lösung des Knapsack-Problems}
-Das Knapsack-Problem bietet Raum für eine Vielzahl von Lösungsansätzen, die sich in ihrer \textit{Komplexität}, \textit{Effizienz}
-und \textit{Genauigkeit} unterscheiden können. Diese Ansätze reichen von einfachen \textit{heuristischen Methoden} bis
-hin zu \textit{komplexen optimierten Algorithmen}. Abgesehen von \textit{dynamischer Programmierung} und dem \textit{Greedy-Ansatz},
-die später genauer betrachtet werden, gibt es weitere interessante Möglichkeiten, das Knapsack-Problem anzugehen.
+Das Knapsack-Problem bietet Raum für eine Vielzahl von Lösungsansätzen, die sich in ihrer \textit{Komplexität},
+\textit{Effizienz} und \textit{Genauigkeit} unterscheiden können. Diese Ansätze reichen von einfachen \textit{heuristischen}
+Methoden bis hin zu \textit{komplexen optimierten} Algorithmen. Abgesehen von den bekanntesten Ansätzen wie den
+\textit{dynamischen} und dem \textit{greedy} Ansatz, die später genauer betrachtet werden, gibt es weitere interessante
+Möglichkeiten das Knapsack-Problem anzugehen.
 
 Ein Ansatz besteht darin, das Problem in kleinere Teilprobleme zu zerlegen und diese dann unabhängig voneinander zu lösen.
 Durch die Kombination der Lösungen dieser Teilprobleme kann eine Gesamtlösung gefunden werden. Diese Methode ist besonders
 nützlich, wenn die Problemgröße groß ist und eine vollständige Suche nach einer optimalen Lösung zu aufwändig ist.
 
-Eine weitere Herangehensweise ist die Verwendung von \textit{Metaheuristiken}, wie etwa \textit{genetische Algorithmen}
-oder \textit{Schwarmintelligenz}. Diese Algorithmen basieren auf biologischen oder sozialen Konzepten und verwenden
-probabilistische Techniken, um Lösungen zu finden, die möglicherweise nicht optimal, aber dennoch akzeptabel sind. Sie
-eignen sich gut für komplexe Probleme, bei denen eine exakte Lösung schwer zu erreichen ist.
+Eine weite Herangehensweise ist die Verwendung von \textit{Metaheuristiken}, wie etwa \textit{genetische Algorithmen}
+oder \textit{Partikelschwarmoptimierung}. Die Algorithmen basieren auf biologischen oder sozialen Konzepten und verwenden
+probabilistische Techniken, um Lösungen zu finden, die möglicherweise nicht optimal, aber dennoch akzeptable sind. Sie
+eignen sich gut für komplexe Probleme, bei denen eine exakte Lösung schwer zu erreichen ist.\footnote{Hindawi, \cite{Solving the 0/1 Knapsack Problem Using Metaheuristic and Neural Networks}, S. 7 ff.}
 
-Eine neuere Entwicklung in der Lösung des Knapsack-Problems ist der Einsatz von \textit{maschinellem Lernen} und \textit{künstlicher Intelligenz}.
-Durch den Einsatz von \textit{Datenanalyse} und \textit{statistischen Methoden} können Modelle trainiert werden, um Muster
-in den Eigenschaften der Gegenstände und den Anforderungen des Rucksacks zu erkennen und optimale Packstrategien vorherzusagen.
+Eine neuere Entwicklung in der Lösung des Knapsack-Problems ist der Einsatz von \textit{künstlicher Intelligenz}. Durch
+den Einsatz von \textit{Datenanalyse} und \textit{statistischen Methoden} können Modelle trainiert werden, um Muster in
+den Eigenschaften der Gegenstände und den Anforderungen des  Rucksacks zu erkennen und optimale Packstrategien vorherzusagen.
 
-\subsubsection*{Dynamischer Programmieransatz genauer betrachtet}
+\subsubsection{Dynamischer Programmieransatz}
 Der dynamische Programmieransatz ist eine leistungsfähige Methode zur Lösung des Knapsack-Problems, die auf der Idee beruht,
 das Problem in kleinere Teilprobleme zu zerlegen und die Lösungen dieser Teilprobleme systematisch zu kombinieren, um die
 optimale Gesamtlösung zu finden. Diese Methode eignet sich besonders gut für Probleme, bei denen Teilprobleme sich überlappen
@@ -2828,12 +2840,12 @@ FUNCTION knapsackDynamic(weights[], values[], capacity)
 END FUNCTION
 \end{lstlisting}\\
 \\
-Die Funktion \texttt{knapsackDynamic} implementiert den dynamischen Programmieransatz zur Lösung des Knapsack-Problems.
-Sie akzeptiert drei Parameter: ein Array von Gewichten (\( \texttt{weights} \)), ein Array von Werten (\( \texttt{values} \))
-und die Kapazität des Rucksacks (\( \texttt{capacity} \)).
+Die Funktion \texttt{knapsackDynamic()} implementiert den dynamischen Programmieransatz zur Lösung des Knapsack-Problems.
+Sie akzeptiert drei Parameter: ein Array von Gewichten (\( \textit{weights} \)), ein Array von Werten (\( \textit{values} \))
+und die Kapazität des Rucksacks (\( \textit{capacity} \)).
 
-Zuerst wird die Länge des Gewichtsarrays \( \texttt{n} \) berechnet, um die Anzahl der verfügbaren Gegenstände zu bestimmen.
-Dann wird eine Tabelle \( \texttt{Tabelle} \) mit \( \texttt{n+1} \) Zeilen und \( \texttt{capacity+1} \) Spalten initialisiert.
+Zuerst wird die Länge des Gewichtsarrays \( \textit{n} \) berechnet, um die Anzahl der verfügbaren Gegenstände zu bestimmen.
+Dann wird eine Tabelle \( \textit{Tabelle} \) mit \( \textit{n+1} \) Zeilen und \( \textit{capacity+1} \) Spalten initialisiert.
 Diese Tabelle dient dazu, die optimalen Werte für verschiedene Teilprobleme zu speichern.
 
 Anschließend werden zwei verschachtelte Schleifen verwendet, um alle möglichen Kombinationen von Gegenständen und Gewichten
@@ -2852,13 +2864,13 @@ Lösung des Knapsack-Problems zu finden. Durch die systematische Berechnung und 
 ermöglicht der dynamische Programmieransatz eine Zeitkomplexität von \( O(n \cdot capacity) \), was für viele praktische
 Anwendungen akzeptabel ist.
 
-
 \subsubsection*{Aufbau und Interpretation der Tabelle der Teilprobleme}
 Die Tabelle der Teilprobleme spielt eine entscheidende Rolle bei der systematischen Lösung des Knapsack-Problems mithilfe
 des dynamischen Programmieransatzes. Sie ist eine zweidimensionale Matrix, die während des Algorithmusverlaufs generiert
 wird und die optimalen Lösungen für verschiedene Teilprobleme des Knapsack-Problems enthält. Die Matrix ist wie folgt strukturiert:
 
 \[
+\text{dp = }
 \left[
 \begin{array}{ccccc}
 a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
@@ -2875,9 +2887,11 @@ Jede \textit{Zeile} in der Matrix entspricht den verschiedenen verfügbaren Gewi
 bei \textit{null} und schrittweise bis zur \textit{maximalen Kapazität}.
 
 Jede \textit{Spalte} in der Matrix repräsentiert die Anzahl der bereits \textit{berücksichtigten Gegenstände}, wobei jede
-Spalte die \textit{Teilprobleme} für eine zunehmende Anzahl von Gegenständen darstellt.\\
+Spalte die \textit{Teilprobleme} für eine zunehmende Anzahl von Gegenständen darstellt.
+
+Der letzte Eintrag in dieser Tabelle (\textbf{$\mathbf{a_{mn}}$}) repräsentiert den errechneten maximal erreichbaren Wert.\\
 \\
-Um anschließend eine Zelle \( a_{mn} \) dieser Matrix zu interpretieren, ist Folgendes wichtig zu wissen:
+Um anschließend eine Zelle \( a_{mn} \) dieser Matrix zu interpretieren und den maximalen erreichbaren Wert ablesen zu können, ist Folgendes wichtig:
 \begin{enumerate}
 \item \textbf{m} gibt an, wie viel \textit{Gewicht} bereits im Rucksack verbraucht wurde. Je weiter fortgeschritten dieser
 Wert ist, daher desto weiter unten in der Tabelle, desto mehr Gewicht wurde bereits verwendet.
@@ -2888,7 +2902,45 @@ desto weiter rechts in der Tabelle, desto mehr Gegenstände wurden bereits berü
 Die Einträge in der Matrix werden durch den \textit{dynamischen Programmieransatz} berechnet, indem die optimalen Werte für
 Teilprobleme \textit{schrittweise kombiniert} werden, um den Wert für größere Teilprobleme zu bestimmen.
 
-\subsubsection*{Greedy-Ansatz genauer betrachtet}
+\subsubsection*{Beispiel}
+Angenommen, der Rucksack hat eine Kapazität von 5 und es sind die folgenden 5 Gegenstände (indiziert von 1 bis 5) mit den folgenden Werten und Gewichten gegeben:
+\[
+\begin{array}{|c|c|c|}
+\hline
+\text{Gegenstand} & \text{Wert} & \text{Gewicht} \\
+\hline
+1 & 10 & 5 \\
+\hline
+2 & 6 & 4 \\
+\hline
+3 & 8 & 3 \\
+\hline
+4 & 3 & 2 \\
+\hline
+5 & 7 & 1 \\
+\hline
+\end{array}
+\]
+\\
+Auf der Grundlage dieser Informationen wird während des Durchlaufs des Knapsack-Algorithmus die Tabelle der Teilprobleme erzeugt, die wie folgt aussieht:
+
+\[
+\text{dp = }
+\left[
+\begin{array}{cccccc}
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 10 \\
+0 & 0 & 0 & 0 & 6 & 10 \\
+0 & 0 & 0 & 8 & 8 & 10 \\
+0 & 0 & 3 & 8 & 8 & 11 \\
+0 & 7 & 7 & 10 & 15 & 15 \\
+\end{array}
+\right]
+\]
+\\
+Auf der Grundlage dieser Tabelle kann der Schluss gezogen werden, dass der berechnete maximale Wert, der mit den gegebenen Objekten erreicht werden kann, 15 beträgt.
+
+\subsubsection{Greedy-Ansatz}
 Im Gegensatz zur dynamischen Lösung wählt der Greedy-Ansatz Gegenstände basierend auf bestimmten Kriterien aus, um eine
 lokale Optimierung zu erreichen. Hierbei wird in jedem Schritt diejenige Entscheidung getroffen, die im Moment am
 vorteilhaftesten erscheint, ohne jedoch die Gesamtoptimierung im Auge zu behalten.
@@ -2918,8 +2970,8 @@ FUNCTION knapsackGreedy(weights[], values[], capacity)
     RETURN totalValue
 END FUNCTION
 \end{lstlisting}\\
-Die Funktion \texttt{knapsackGreedy()} nimmt wie der dynamische Ansatz drei Parameter an: ein Array von Gewichten (\( \texttt{weights} \)),
-ein Array von Werten (\( \texttt{values} \)) und die Kapazität des Rucksacks (\( \texttt{capacity} \)). Die Funktionsweise
+Die Funktion \texttt{knapsackGreedy()} nimmt wie der dynamische Ansatz drei Parameter an: ein Array von Gewichten (\( \textit{weights} \)),
+ein Array von Werten (\( \textit{values} \)) und die Kapazität des Rucksacks (\( \textit{capacity} \)). Die Funktionsweise
 dieses Ansatzes ist wie folgt:
 
 \begin{enumerate}
@@ -2939,20 +2991,22 @@ perfekte Lösung garantiert. Durch die Auswahl der Gegenstände basierend auf lo
 suboptimalen Ergebnissen führen, insbesondere wenn die Gegenstände stark voneinander abhängen oder das Gewichtslimit des
 Rucksacks sehr restriktiv ist.
 
+%Quellen:
+%https://en.wikipedia.org/wiki/Knapsack_problem#Applications
 \subsubsection{Anwendungen des Knapsack-Problems}
 Die grundlegende Problemstellung des Knapsack-Problems hat breite Anwendung in verschiedenen \textit{wissenschaftlichen}
-und \textit{industriellen} Bereichen gefunden und bildet die Grundlage für eine Vielzahl von Algorithmen und Anwendungen.
+und \textit{industriellen} Bereichen gefunden, die sich mit der Allokation von Ressourcen beschäftigen, und bildet die
+Grundlage für eine Vielzahl von Algorithmen und Anwendungen.
 
 Dieses Kapitel untersucht die Anwendungen des Knapsack-Problems und seine Bedeutung in verschiedenen Domänen. Von der
-\textit{Logistik} über die \textit{Finanzplanung} bis hin zum \textit{Ressourcenmanagement} und der \textit{Netzwerkoptimierung}
-hat das Knapsack-Problem einen entscheidenden Einfluss auf die moderne Technologie und Wirtschaft.
+\textit{Logistik} über die \textit{Finanzplanung} bis hin zum \textit{Ressourcenmanagement} hat das Knapsack-Problem
+einen relevanten Einfluss auf die moderne Technologie und Wirtschaft.
 
-Die Anwendungen des Knapsack-Problems lassen sich in vier Hauptbereiche unterteilen:
+Die Anwendungen des Knapsack-Problems lassen sich in folgende Hauptbereiche unterteilen:
 \begin{enumerate}
 \item \textbf{Logistik}: Der Knapsack-Algorithmus wird in der Logistik angewendet, um den Transport von Gütern mit
 begrenzten Kapazitäten zu optimieren. Indem er die bestmögliche Auswahl von Gütern trifft, ermöglicht er Logistikunternehmen,
-ihre Transportkosten zu minimieren und die Effizienz ihrer Lieferketten zu steigern. Dies kann die Planung von LKW-Routen,
-die Beladung von Containern oder die Organisation von Waren in Lagern umfassen.
+ihre Transportkosten zu minimieren und die Effizienz ihrer Lieferketten zu steigern. Dies kann die Beladung von Containern oder die Organisation von Waren in Lagern umfassen.
 \item \textbf{Finanzplanung}: In der Finanzplanung wird der Knapsack-Algorithmus genutzt, um Portfolios von Investitionen
 zu optimieren. Investoren können mithilfe dieses Algorithmus eine Auswahl von Wertpapieren treffen, die das Risiko
 minimieren und den erwarteten Ertrag maximieren. Dies kann die Diversifizierung von Anlagen, die Auswahl von Aktien
@@ -2960,12 +3014,7 @@ oder die Verwaltung von Fonds umfassen.
 \item \textbf{Ressourcenmanagement}: Der Knapsack-Algorithmus wird im Ressourcenmanagement verwendet, um die effiziente
 Nutzung begrenzter Ressourcen sicherzustellen. Dies kann in der Produktion erfolgen, wo Arbeitskräfte, Maschinen und
 Materialien effizient zugewiesen werden müssen, oder im Projektmanagement, um Zeit und Budgets zu optimieren. Durch
-die Anwendung des Knapsack-Problems können Unternehmen ihre Produktivität steigern und Kosten senken.
-\item \textbf{Netzwerkoptimierung}: In der Netzwerkoptimierung spielt der Knapsack-Algorithmus eine wichtige Rolle
-bei der Planung und Optimierung von verschiedenen Arten von Netzwerken. Dies kann die Optimierung von Transportrouten,
-die Verteilung von Ressourcen in Computernetzwerken oder die Verbesserung der Bandbreitenauslastung in Telekommunikationsnetzen
-umfassen. Der Einsatz des Knapsack-Problems ermöglicht es, die Leistung von Netzwerken zu verbessern und Engpässe zu
-minimieren.\footnote{GeeksForGeeks, \cite{Introduction to Knapsack Problem, its Types and How to solve them}}
+die Anwendung des Knapsack-Problems können Unternehmen ihre Produktivität steigern und Kosten senken.\footnote{Wikipedia, \cite{Knapsack-Problem Anwendungen}}
 \end{enumerate}
 
 Die Untersuchung dieser Anwendungen veranschaulicht die Vielseitigkeit und Effektivität des Knapsack-Problems bei der Lösung
@@ -2973,7 +3022,7 @@ komplexer Optimierungsprobleme. Darüber hinaus trägt die Anwendung des Knapsac
 zu verbessern, Kosten zu senken und die Effizienz in verschiedenen Bereichen zu steigern.
 
 \subsubsection{Auswahl des Implementierungsansatzes}
-Die Wahl des Implementierungsansatzes für den Knapsack-Algorithmus in dieser Anwendung ist von entscheidender Bedeutung
+Die Wahl des Implementierungsansatzes für den Knapsack-Algorithmus für die in dieser Arbeit vorgestellten Anwendungen, ist von entscheidender Bedeutung
 für den Erfolg des Projekts. Moderne Softwaresysteme stehen vor einer Vielzahl von Herausforderungen und Anforderungen,
 die eine sorgfältige Auswahl eines geeigneten Algorithmus erforderlich machen.
 
@@ -2989,10 +3038,10 @@ Implementierungsstrategie für den Knapsack-Algorithmus erläutert:
 Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige
 Lösung erforderlich ist, um optimale Entscheidungen zu treffen.
 \item \textbf{Effizienz}: Obwohl der dynamische Ansatz im Vergleich zum Greedy-Ansatz einen höheren Rechenaufwand
-erfordert, bietet er dennoch eine effiziente Lösung für das Knapsack-Problem. Durch die Verwendung von dynamischer
+erfordert, bietet er dennoch eine Laufzeit-effiziente Lösung für das Knapsack-Problem. Durch die Verwendung von dynamischer
 Programmierung können Teilprobleme effizient gelöst und die Gesamtlösung optimiert werden.
 \item \textbf{Flexibilität}: Der dynamische Ansatz ist flexibel und kann auf verschiedene Varianten des Knapsack-Problems
-angewendet werden, einschließlich 0/1-Knapsack, unbeschränktem Knapsack und anderen Typen. Dadurch ist er vielseitig
+angewendet werden, einschließlich 0/1-Knapsack, unbeschränktem Knapsack und anderen Typen (siehe Abschnitt \ref{sec:knapsackTypen}). Dadurch ist er vielseitig
 einsetzbar und kann an die spezifischen Anforderungen einer Anwendung angepasst werden.
 \item \textbf{Genauigkeit}: Durch die Verwendung des dynamischen Ansatzes können exakte Werte für den maximal erreichbaren
 Wert des Rucksacks und die optimale Auswahl von Gegenständen berechnet werden. Dies ermöglicht eine präzise Bewertung
@@ -3000,27 +3049,28 @@ und Planung basierend auf den berechneten Ergebnissen.
 \end{enumerate}
 
 In Anbetracht dieser Überlegungen wurde der dynamische Ansatz als die geeignete Methode zur Implementierung des Knapsack-Algorithmus
-in dieser Applikation gewählt. Seine Fähigkeit, eine perfekte Lösung zu garantieren, kombiniert mit seiner Effizienz und
-Flexibilität, macht ihn zu einer idealen Wahl für die Behandlung des Knapsack-Problems in diesem Kontext.
+in dieser Anwendung gewählt. Obwohl nicht alle verfügbaren Lösungsansätze eine perfekte Lösung garantieren können, bieten
+sie dennoch eine gute Balance zwischen Effizienz und Flexibilität. Aus diesem Grund erscheint der dynamische Ansatz als
+ideale Wahl für die Behandlung des Knapsack-Problems in diesem Kontext, da er die Gewissheit einer optimalen Lösung bietet.
 
 \subsubsection{Auswahl der Variante und Typ des Problems}
 Die Wahl der Variante und des Typs des zu implementierenden Knapsack-Problems ist von entscheidender Bedeutung. Je nach
 Variation und Typ ergeben sich unterschiedliche Aufgabenstellungen mit verschiedenen Bedingungen.
 
-Nach einer gründlichen Analyse der Aufgabenstellung des Projekts wurde die endgültige Entscheidung für die Variante und den
-Typ getroffen. Dabei wurde festgestellt, dass das klassische Knapsack-Problem mit einer Kombination der beiden Problem-Typen
-0/1-Knapsack-Problem und Begrenztes-Knapsack-Problem die geeignete Wahl ist. Die Entscheidung für den Typ 0/1 des Knapsack-Problems
-wurde getroffen, da die Aufgabenstellung des Anwendungsszenarios vorsieht, dass der Benutzer Gegenstände in einem Inventar
-nur vollständig hinzufügen oder gar nicht hinzufügen kann. Und die Kombination mit dem Begrenzten Knapsack-Problem deswegen,
-weil in dieser Anwendung eine Begrenzung an Gegenständen, die dem Inventar hinzugefügt werden können, gesetzt ist.
-
+Nach einer gründlichen Analyse der Aufgabenstellung des Projekts wurde die endgültige Entscheidung für den Typ und die
+zugehörige Variante getroffen. Dabei wurde festgestellt, dass das klassische Knapsack-Problem mit einer Kombination der
+beiden Problem-Typen 0/1-Knapsack-Problem und Begrenztes-Knapsack-Problem die geeignete Wahl ist. Die Entscheidung für
+den Typ 0/1 des Knapsack-Problems wurde getroffen, da die Aufgabenstellung des Anwendungsszenarios vorsieht, dass der
+Benutzer Gegenstände in einem Inventar nur vollständig hinzufügen oder gar nicht hinzufügen kann. Und die Kombination
+mit dem begrenzten Knapsack-Problem deswegen, weil in dieser Anwendung eine Begrenzung an Instanzen eines Gegenständen,
+die dem Inventar hinzugefügt werden können, gesetzt ist.
 
 \subsubsection{Der Knapsack Solver}
-Das Unity Game Objekt \textit{Knapsack Solver}, wie in Abbildung \ref{fig:Knapsack_Editor} dargestellt, implementiert die
-Lösung des Knapsack-Problems und berechnet gleichzeitig das zusammengestellte Inventar des Benutzers. Es stellt Feedback
-über diese Berechnungen bereit. Dieses Game Objekt mit der angehängten Skript-Komponente \textit{Knapsack Solver} implementiert
-die Klasse \textit{KnapsackSolver}, welche die Logik zur Berechnung des maximal erreichbaren Werts einer optimalen Lösung
-sowie den Wert des selbst zusammengestellten Inventars steuert.
+Das Unity Game Objekt \textit{Knapsack Solver}, wie in Abbildung \ref{fig:Knapsack_Editor} dargestellt, implementiert
+die Lösung des Knapsack-Problems und berechnet gleichzeitig das zusammengestellte Inventar des Benutzers. Es stellt
+Feedback über diese Berechnungen bereit. Dieses Game Objekt mit der angehängten Skript-Komponente \textit{Knapsack Solver}
+implementiert die Klasse \textit{KnapsackSolver}, welche die Logik zur Berechnung des maximal erreichbaren Werts einer
+optimalen Lösung sowie den Wert des selbst zusammengestellten Inventars steuert.
 
 Die Klasse arbeitet eng mit der Klasse \textit{InventoryController} zusammen, um sicherzustellen, dass die Berechnungen
 stets auf Grundlage des aktuellen individuell zusammengestellten Inventars des Benutzers erfolgen. Diese Interaktion
@@ -3028,10 +3078,10 @@ zwischen den beiden Klassen gewährleistet eine präzise und zeitnahe Verarbeitu
 innerhalb der Anwendung.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{images/knapsackEditor}
-\caption{KnapsackSolver Objekt im Editor}
-\label{fig:Knapsack_Editor}
+    \centering
+    \includegraphics[scale=0.7]{images/knapsackEditor}
+    \caption{KnapsackSolver Objekt im Editor}
+    \label{fig:Knapsack_Editor}
 \end{figure}
 
 Abbildung \ref{fig:Knapsack_Editor} zeigt das Unity-Game-Objekt im Unity Inspektor. Ebenfalls dargestellt ist die angehängte
@@ -3041,11 +3091,11 @@ bei der Konfiguration und Steuerung des Knapsack Solvers. Zu den relevanten Vari
 \begin{itemize}
     \item \textbf{QRCodesManager:} Ein Verweis auf das \textit{QRCodesManager} Game Objekt aus der Szene.
 
-    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} aus dem Inventar Prefab
+    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} TextMesh-Element aus dem Inventar Prefab
 
-    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} aus dem Inventar Prefab
+    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} TextMesh-Element aus dem Inventar Prefab
 
-    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} aus dem Inventar Prefab
+    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} TextMesh-Element aus dem Inventar Prefab
 
     \item \textbf{Capacity:} Integerwert, der die Kapazität des Rucksacks festlegt.
 
@@ -3117,7 +3167,7 @@ Die vorliegende Implementierung des Lösungsansatzes für das Knapsack-Problem e
 erklärten Pseudocode. Ein entscheidender Unterschied besteht jedoch darin, dass diese spezielle Implementierung eine
 zusätzliche Bedingung berücksichtigt. Diese Bedingung besagt, dass bei der Berechnung des \textit{maximal} erreichbaren
 Werts und der perfekten Lösung höchstens 9 Gegenstände aus den verfügbaren Gegenständen einbezogen werden dürfen. Diese
-Einschränkung resultiert aus der Tatsache, dass das vorliegende Inventar nur neun verfügbare Zellen hat, in denen ein
+Einschränkung resultiert aus der Tatsache, dass der vorliegende Rucksack nur neun verfügbare Zellen hat, in denen ein
 Gegenstand platziert werden kann.
 
 Um diese Anforderung zu erfüllen, wird die zusätzliche Bedingung in die Implementierung integriert. Dies geschieht in
@@ -3130,12 +3180,12 @@ i &\leq \text{maxItems} \land
 \end{aligned}
 \end{equation}
 
-Während des Algorithmus wird zusätzlich ein Array aus booleschen Werten erstellt, um die ausgewählten Gegenstände für den
-maximalen Wert zu markieren. Dieses Array spielt eine wichtige Rolle im zweiten Abschnitt der Funktion, um diese Gegenstände
-zurückzuverfolgen und die perfekte Lösung zusammenzustellen.
+Während des Algorithmus wird zusätzlich ein Array aus booleschen Werten (\texttt{selected[][]}) erstellt, um die
+ausgewählten Gegenstände für den maximalen Wert zu markieren. Dieses Array spielt eine wichtige Rolle im zweiten Abschnitt
+der Funktion, um diese Gegenstände zurückzuverfolgen und die perfekte Lösung zusammenzustellen.
 
-\subsubsection*{Aufbau und Interpretation der selected Tabelle}
-Angenommen, es sind die folgenden  5 Gegenstände (indiziert von 1 bis 5) mit den folgenden Werten und Gewichten gegeben:
+\subsubsection*{Aufbau und Interpretation der \textit{selected} Tabelle}
+Angenommen, der Rucksack hat eine Kapazität von 5 und es sind die folgenden 5 Gegenstände (indiziert von 1 bis 5) mit den folgenden Werten und Gewichten gegeben:
 \[
 \begin{array}{|c|c|c|}
 \hline
@@ -3154,9 +3204,8 @@ Angenommen, es sind die folgenden  5 Gegenstände (indiziert von 1 bis 5) mit de
 \end{array}
 \]
 \\
-Und die \textit{Kapazität} des Rucksacks liegt bei 5. Aufgrund dieser Angaben wird die \texttt{selected} Matrix nach
-Ausführung des Knapsack-Algorithmus basierend auf den ausgewählten Gegenständen gefüllt. Diese Matrix sieht dann folgendermaßen
-aus:
+Aufgrund dieser Angaben wird die \texttt{selected} Matrix nach Ausführung des Knapsack-Algorithmus basierend auf den
+ausgewählten Gegenständen gefüllt. Diese Matrix sieht dann folgendermaßen aus:
 
 \[
 \begin{array}{|c|c|c|c|c|c|}
@@ -3187,11 +3236,11 @@ miteinbezogen wurde, als die Kapazität des Rucksacks 3 betrug. Diese Informatio
 wurde.
 \end{enumerate}
 
-\subsubsection{Berechnung des zusammengestellten Inventars}
-Um dem Benutzer dementsprechend Feedback zu geben und dadurch zu veranschaulichen, welchen Wert das selbst zusammengestellte
-Inventar im Vergleich mit dem maximal erreichbaren Wert hat, wird hier eine zusätzliche Berechnung durchgeführt, um diesen
-Wert zu errechnen. Diese Berechnung wird in der Funktion \texttt{KnapsackInventoryValue()} durchgeführt.
-\begin{lstlisting}[style=csharp, caption={Funktion um eigenes Inventar zu brechnen}]
+\subsubsection{Berechnung des zusammengestellten Rucksacks}
+Um dem Benutzer ein dementsprechendes Feedback zu geben und dadurch zu veranschaulichen, welchen Wert der selbst
+zusammengestellte Rucksack im Vergleich mit dem errechneten maximal erreichbaren Wert hat, wird hier eine Berechnung
+benötigt, um diesen Wert zu berechnen. Diese Berechnung wird in der Funktion \texttt{KnapsackInventoryValue()} gehandhabt.
+\begin{lstlisting}[style=csharp, caption={Funktion um eigenen Rucksack zu brechnen}]
 public int KnapsackInventoryValue(int[,] inventory) {
     if (inventory == null) {
         throw new System.Exception("Inventory is null");
@@ -3211,8 +3260,17 @@ public int KnapsackInventoryValue(int[,] inventory) {
     return totalValue;
 }
 \end{lstlisting}
-Diese Methode durchläuft jedes Element im Inventar und überprüft, ob es mit einem Gegenstand aus einer internen Datenstruktur
-übereinstimmt. Falls ja, wird der Wert dieses Gegenstands zum Gesamtwert addiert. Am Ende wird der berechnete Gesamtwert zurückgegeben.
+
+Die Methode durchläuft mithilfe einer \texttt{foreach}-Schleife jeden Eintrag im Dictionary, welches alle vorhandenen
+Gegenstände enthält. Dadurch kann auf die \texttt{ID} und den Wert (\texttt{Value}) jedes Gegenstands zugegriffen werden.
+Anschließend iteriert die Methode durch das Array \texttt{usedItems}, welches eine perfekte Lösung repräsentiert, mittels
+zweier \texttt{for}-Schleifen, um jeden Eintrag in diesem Array zu überprüfen. Dabei wird festgestellt, ob an der jeweiligen
+Stelle \texttt{usedItems[i][j]} ein Wert gespeichert ist oder nicht. Falls das Array an der Indexposition \texttt{[i][j]}
+der \texttt{ID} des aktuellen Gegenstands entspricht, wird der Wert dieses Gegenstands zum Gesamtwert (\texttt{totalValue})
+addiert.
+
+Nach Abschluss der Berechnung des zusammengestellten Rucksacks wird dieser Wert zurückgegeben, um ihn im weiteren Verlauf
+der Applikation zu verwenden.
 
 \subsection{Anzeigen der perfekten Lösung}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Im Anwendungsszenario des Knapsack-Problem ist das anzeigen einer perfekten Lösung von entscheidender Bedeutung, da sie
