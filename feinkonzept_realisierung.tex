@@ -3273,19 +3273,20 @@ Nach Abschluss der Berechnung des zusammengestellten Rucksacks wird dieser Wert 
 der Applikation zu verwenden.
 
 \subsection{Anzeigen der perfekten Lösung}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
-Im Anwendungsszenario des Knapsack-Problem ist das anzeigen einer perfekten Lösung von entscheidender Bedeutung, da sie
-es dem Benutzer ermöglicht, eine perfekte Lösung zu visualisieren und zu verstehen, wie sie aussieht und welche Objekte sie enthält.
+Im Anwendungsszenario "Knapsack-Problem" ist das Anzeigen einer perfekten Lösung von entscheidender Bedeutung, da dies dem
+Benutzer ermöglicht, eine perfekte Lösung zu visualisieren und zu verstehen, wie sie aussieht und welche Objekte sie enthält.
 
 In diesem Abschnitt werden das Unity-Prefab \textit{Best Solution Prefab} und die zugehörige Skript-Komponente im Detail
 beschrieben. Die Klasse \textit{BestSolutionVisualizer} ist hier hauptsächlich für das Platzieren, Aktivieren und Deaktivieren
-der perfekten Lösung verantwortlich, um einen reibungslosen Ablauf zu gewährleisten. Es wird erklärt, wie das Prefab selbst
-aufgebaut ist, wie dieses Skript aufgerufen wird und wie genau diese Lösung platziert und gefüllt wird.
+der perfekten Lösung verantwortlich, um einen reibungslosen Ablauf zu gewährleisten. Es wird erklärt, wie das Prefab
+selbst aufgebaut ist, wie dieses Skript aufgerufen wird und wie genau diese Lösung platziert und gefüllt wird.
 
 \subsubsection{Aufbau und Hirarchie des best Solution Prefabs}
-Das Design und die Struktur des Prefabs sind von entscheidender Bedeutung, da dieses Objekt als Grundlage für die Visualisierung
-einer perfekten Lösung dient und dem Benutzer Feedback gibt. Die sorgfältige Ausarbeitung des Prefabs trägt wesentlich zur
-Gesamterfahrung des Benutzers bei, erleichtert die Übersicht und fördert eine reibungslose Interaktion. Das Prefab enthält
-nicht nur das einfache Inventar-Raster, sondern auch neun zusätzliche Elemente, die unter dem Inventar-Raster angeordnet sind.
+Das Design und die Struktur des Prefabs sind von entscheidender Bedeutung, da dieses Objekt als Grundlage für die
+Visualisierung einer perfekten Lösung dient und dem Benutzer Feedback gibt. Die sorgfältige Ausarbeitung des Prefabs
+trägt wesentlich zur Gesamterfahrung des Benutzers bei, erleichtert die Übersicht und fördert eine reibungslose Interaktion.
+Das Prefab enthält nicht nur das einfache Inventar-Raster, sondern auch neun zusätzliche Elemente, die dem Inventar-Raster
+untergeordnet sind und jeweils innerhalb einer Zelle platziert sind.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{images/prefShow}
@@ -3295,7 +3296,7 @@ nicht nur das einfache Inventar-Raster, sondern auch neun zusätzliche Elemente,
 Die Abbildung \ref{fig:InvPref} stellt das gesamte Prefab im Unity Editor visuell dar und gibt gleichzeitig einen Einblick
 in seine Hierarchie. Es wird deutlich, dass das Prefab aus einem Hauptmodell und neun Untermodellen besteht. Diese Modelle sind:
 \begin{enumerate}
-    \item \textbf{inventory}: Das Raster, welches das Inventar repräsentiert.
+    \item \textbf{inventory}: Das Raster, welches den eigentlichen Rucksack repräsentiert.
 
     \item \textbf{QRItem}: Prefab, über das mithilfe der ID auf die 3D-Modelle zugegriffen wird, um diese darzustellen.
 \end{enumerate}
@@ -3317,10 +3318,10 @@ Auf dieser Abbildung ist das \texttt{bestSolutionPrefab} Game Objekt mit den zug
 sehen. An der Komponente, welches das Skript repräsentiert, ist zu sehen, dass dieses vier zu übergebende Objekte benötigt.
 Darunter sind die folgenden:
 \begin{itemize}
-    \item \textbf{Inventory Object:} Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
-    \item \textbf{Inventory Placement Object:} Eine Referenz auf das \texttt{inventoryPlacementController} Game Objekt.
-    \item \textbf{Knapsack Algo Object:} Eine Referenz auf das \textit{Knapsack Solver} Game Objekt.
-    \item \textbf{Inventory:} Eine Referenz auf das \textit{Inventory} Modell, das im Best Solution Prefab enthalten ist.
+    \item \textbf{Perfect Solution Inventory:} Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
+    \item \textbf{Inventory Placement Controller:} Eine Referenz auf das \texttt{inventoryPlacementController} Game Objekt.
+    \item \textbf{Knapsack Solver:} Eine Referenz auf das \textit{Knapsack Solver} Game Objekt.
+    \item \textbf{Inventory:} Eine Referenz auf das Raster Modell, dass im Best Solution Prefab enthalten ist.
 \end{itemize}
 
 Die korrekte Übergabe und Konfiguration dieser Objekte und Werte ist entscheidend für die Funktionalität dieser Klasse
@@ -3331,8 +3332,8 @@ Die Anzeige der perfekten Lösung wird durch einen einfachen Knopfdruck ausgelö
 befindet. Wenn der Benutzer auf diesen Knopf drückt, wird das Skript zur Anzeige der perfekten Lösung gestartet. Dieses
 Skript führt die notwendigen Funktionen und Operationen aus, um die perfekte Lösung zu visualisieren.
 
-Die Abbildung \ref{fig:ScrAuf} zeigt den Aufruf des Skripts und verdeutlicht den Zusammenhang zwischen dem Knopf im
-\texttt{Inventar Prefab} und dem Start des Skripts.
+Die Abbilding \ref{fig:ScrAuf} zeigt die Verknüpfung des Scripts mit dem Knopf und verdeutlicht den Zusammenhang zwischen
+dem Knopf im \texttt{Inventar Prefab} und dem Start des Skripts.
 
 \begin{figure}[H]
     \centering
@@ -3342,13 +3343,13 @@ Die Abbildung \ref{fig:ScrAuf} zeigt den Aufruf des Skripts und verdeutlicht den
 \end{figure}
 
 In dieser Abbildung ist zu beachten, dass das interaktive Betätigen einer Schaltfläche durch die mitgelieferte Skript-Komponente
-\textit{Pressable Button} ermöglicht wird. Diese Komponente stellt die Funktion \texttt{OnClicked()} bereit, die das einfache
-Betätigen der Schaltfläche umsetzt. Diese Funktion löst dann die \texttt{Start()} Funktion der \texttt{bestSolutionVisualizer}
+\textit{Pressable Button} ermöglicht wird. Diese Komponente stellt die Funktion \texttt{OnClicked()} bereit, die das
+einfache Betätigen der Schaltfläche umsetzt. Diese Funktion löst dann die \texttt{Start()} Funktion der \texttt{bestSolutionVisualizer}
 Klasse aus.
 
 \subsubsection{Start des Perfect Solution Visualizer}
 Nachdem der Benutzer den \texttt{Best Solution Button} betätigt hat, wird der entscheidende Prozess zur Anzeige der perfekten
-Lösung gestartet. Dieser Prozess wird durch die Ausführung der Funktion \texttt{Start()} inszeniert, wie im folgenden
+Lösung gestartet. Dieser Prozess wird durch die Ausführung der Funktion \texttt{Start()} ausgelöst, wie im folgenden
 Codeabschnitt \ref{code:Start_PSV} dargestellt.
 \begin{lstlisting}[style=csharp, caption={PerfectSolutionVisualizer Start}, label=code:Start_PSV]
 public void Start() {
@@ -3368,22 +3369,22 @@ public void Start() {
 \end{lstlisting}\\
 Diese Funktion dient nicht nur als Auslöser für das Einblenden der Lösung, sondern auch für das Ausblenden der Lösung.
 Eine zentrale Aufgabe besteht darin, sicherzustellen, dass der Benutzer die Lösung je nach Bedarf ein- oder ausblenden
-kann. Zu diesem Zweck wird bei jedem Aufruf der Funktion die boolesche Variable \texttt{isClicked}, die den Zustand des
-Buttons repräsentiert, invertiert.
+kann. Um dies zu erzielen wird bei jedem Scriptaufruf die boolsche Variable \texttt{isClicked}, die den aktuellen Stand
+der Sichtbarkeit des Modells repräsentiert, invertiert.
 
-Abhängig von diesem booleschen Wert wird im weiteren Verlauf der Funktion entschieden, ob die perfekte Lösung sichtbar
-werden soll oder nicht (\texttt{inventoryObject.SetActive(true/false)}). Es werden die Positionsinformationen des Objekts
-über die Variable \texttt{objectPosition} der Klasse \texttt{InventoryPlacementController} und das Array \texttt{usedItems}
-der Klasse \texttt{KnapsackSolver} gespeichert. Anschließend werden die Funktionen \texttt{setNewPosition()} und
-\texttt{fillInventory()} aufgerufen, um die exakte Positionierung der perfekten Lösung zu gewährleisten und das Inventar
-entsprechend mit den relevanten Objekten zu füllen.
+Abhängig von diesem boolschen Wert wird im weiteren Verlauf der Funktion entschieden, ob die perfekte Lösung sichtbar
+werden soll (\texttt{true}) oder nicht (\texttt{false}). Um das Prefab dann anschließend an der korrekten Position platzieren
+zu können wird auf die Positionsinformation des originalen platzierten Inventars-Prefabs (\texttt{objectPlaced}) zugegriffen
+und ebenfalls wird auf das Array, welches die errechnete perfekte Lösung repräsentiert (\textt{usedItems}) zugegriffen
+um das Prefab im weiteren Verlauf anhand dieser füllen zu können. Abschließend werden die beiden Funktion \texttt{setNewPosition()}
+und \texttt{fillInventory()} aufgerufen die dies abschließen.
 
 \subsubsection{Prefab der perfekten Lösung platzieren}
 Die Platzierung des Prefabs der perfekten Lösung ist wichtig, um zu garantieren, dass es für den Benutzer leicht und
-angenehm ist, diese zu sehen. Um dies zu garantieren, wird auf die Original-Position des Inventar-Objekts (\texttt{originalInventoryPosition})
-zugegriffen und aufgrund dessen eine neue Position errechnet. Um es dem Benutzer jedoch angenehmer zu machen, die perfekte
-Lösung besser zu sehen, wird abschließend die Rotation dieses Objekts noch geändert, um es um -45 Grad entlang der x-Achse
-zu kippen.
+angenehm ist, diese zu sehen. Um dies zu garantieren, wird auf die Original-Position des Inventar-Objekts
+(\texttt{originalInventoryPosition}) zugegriffen und aufgrund dessen eine neue Position errechnet. Um es für den Benutzer
+jedoch angenehmer, d.h. besser für die allgemeine Benutzererfahrung, zu machen, die perfekte Lösung besser sehen zu
+können, wird abschließend die Rotation dieses Objekts geändert, um es um -45 Grad entlang der x-Achse zu kippen.
 \begin{lstlisting}[style=csharp, caption={Neue Position setzen}, label=code:newPos_PSV]
 private void setNewPosition() {
     Vector3 newPosition = originalInventoryPosition + Vector3.forward * 0.395f + Vector3.up * 0.16f;
@@ -3413,8 +3414,6 @@ private void fillInventory() {
                     if (childTransform != null) {
                         childTransform.gameObject.SetActive(true);
                     }
-                } else {
-                    Debug.LogError($"QRCode {qrCodeName} not found in the inventory");
                 }
             }
         }
@@ -3422,10 +3421,10 @@ private void fillInventory() {
 }
 \end{lstlisting}\\
 Diese Funktion \texttt{fillInventory()} durchläuft das zweidimensionale Array \texttt{perfectSolution}, das die perfekte
-Lösung darstellt. Für jeden Eintrag wird geprüft, ob die ID des Elements ungleich Null ist. Falls ja, wird ein eindeutiger
-Bezeichner für das QRItem generiert und das entsprechende Unterelement des QRItems anhand der ID im Inventar aktiviert.
-Ansonsten wird die Schleife übersprungen. Wird das QRItem nicht gefunden, wird eine Fehlermeldung ausgegeben. Diese Funktion
-ermöglicht somit die Befüllung des Inventars mit den entsprechenden QRItems gemäß der perfekten Lösung.
+Lösung darstellt. Für jeden Eintrag wird geprüft, ob die ID des Elements ungleich \textit{Null} ist. Falls ja, wird ein
+eindeutiger Bezeichner für das QRItem generiert und das entsprechende Unterelement des QRItems anhand der ID im Inventar
+aktiviert. Ansonsten wird die Schleife übersprungen. Diese Funktion ermöglicht somit die Befüllung des Inventars mit den
+entsprechenden Modellen gemäß der perfekten Lösung.
 
 \subsubsection{Zustand nach Knopfdruck}
 Nachdem der Benutzer den \texttt{Best Solution Button} betätigt hat und die entsprechende Skript-Komponente erfolgreich
