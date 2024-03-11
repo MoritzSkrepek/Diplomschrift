@@ -1845,7 +1845,7 @@ void Start()
 }
 \end{lstlisting}
 
-Nach der Instanzierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{code:QR-Prefab instanzierung}) ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanzierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{(1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{(2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{(3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanzierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktuallisieren der Position}) bei jeder Frame aktuallisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem abschnitt: \ref{sec:Shrek is leben}
+Nach der Instanzierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{code:QR-Prefab instanzierung}) ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanzierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{(1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{(2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{(3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanzierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei jeder Frame aktuallisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem abschnitt: \ref{sec:Shrek is leben}
 
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
 private void setLabels()
@@ -1885,7 +1885,7 @@ private void setLabels()
 Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit den Daten des gescannten QR-Codes zu aktualisieren. Zuerst wird das GameObject "QRLabels" gefunden, das die Labels enthält. Dann werden die Textkomponenten innerhalb des Canvas-GameObjects gesucht und mit den entsprechenden Daten aktualisiert. Dieser Prozess wird jedes Mal durchgeführt, wenn ein neuer QR-Code gescannt und instanziiert wird.
 
 
-\begin{lstlisting}[style=csharp, caption={Aktuallisieren der Position}, label=code:Aktuallisieren der Position]
+\begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
 void UpdatePropertiesDisplay()
 {
     if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
@@ -1904,7 +1904,7 @@ void UpdatePropertiesDisplay()
     }
 }
 \end{lstlisting}
-Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) beschrieben. Im Codeabschnitt \ref{code:Aktuallisieren der Position} werden die bereitgestellten Positionsdaten verwendet, um die Position der Modelle zu aktualisieren. Hier ist eine schrittweise Erläuterung dessen, was innerhalb der Funktion passiert:
+Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) beschrieben. Im Codeabschnitt \ref{code:Aktualisieren der Position} werden die bereitgestellten Positionsdaten verwendet, um die Position der Modelle zu aktualisieren. Hier ist eine schrittweise Erläuterung dessen, was innerhalb der Funktion passiert:
 \begin{itemize}
 \item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
 \item Die Position des QR-Codes (\textit{item.qrData.position}) wird so festgelegt, dass er sich in seinem lokalen Koordinatensystem zentriert. Dazu wird die Position auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt, wobei \textit{PhysicalSize} die Größe des QR-Codes ist. Diese Festlegung ermöglicht es, dass der QR-Code unabhängig von seiner Größe korrekt positioniert wird.
