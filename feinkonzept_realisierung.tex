@@ -1335,21 +1335,21 @@ Im vorherigen Abschnitt (\ref{sec:FrontendWebseite}) wurde der Designprozess der
 Die Webseite fungiert als Schnittstelle für die Kommunikation zwischen den beiden Laptops, die für das Szenario benötigt werden. Diese Kommunikation erfolgt über die Hololens, die gewissermaßen als "Mittelsmann" fungiert und die Datenübertragung ermöglicht.
 \subsubsection{Protokoll zur Datenübertragung}
 
-\begin{figure}[h]
-\centering
-\begin{subfigure}[b]{0.5\textwidth}
-\centering
-\includegraphics[scale=0.3]{images/serverStart.png}
-\caption{Aktivitätsdiagramm des Servers}
-\label{fig:protokoll}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.4\textwidth}
-\centering
-\includegraphics[scale=0.3]{images/laptopAufbau.png}
-\caption{Kommunikationsstruktur}
-\label{fig:struktur}
-\end{subfigure}
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{images/serverStart.png}
+        \caption{Aktivitätsdiagramm des Servers}
+        \label{fig:protokoll}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.4]{images/laptopAufbau.png}
+        \caption{Kommunikationsstruktur}
+        \label{fig:struktur}
+    \end{minipage}
 \end{figure}
 
 In Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien dargestellt, wie eine solche Datenübertragung zustande kommen kann. Im Folgenden werden die einzelnen Schritte und ihre Funktionen beschrieben:
