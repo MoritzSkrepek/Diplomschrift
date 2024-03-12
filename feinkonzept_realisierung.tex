@@ -1458,22 +1458,19 @@ neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. 
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
 \subsection{Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) HAYLAZ}
-Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente
-zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu
-den einzelnen Objekten zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt
-möchten wir näher darauf eingehen, wie genau diese QR-Codes generiert werden und welchen Zweck sie innerhalb der
-Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Generierung der Codes erfolgt
-und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
+Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu den einzelnen Gegenständen, die für das Knapsack-Inventar benötigt werden, zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt möchten wir näher darauf eingehen, wie genau diese QR-Codes generiert werden und welchen Zweck sie innerhalb der Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Codes generiert werden und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
 \subsubsection{Struktur und Inhalt eines QR-Codes}
 Die Informationen, die in einem QR-Code gespeichert werden können, sind begrenzt. In unserem Anwendungsfall wird lediglich
 eine einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsentieren die 11 verschiedenen Modelle, die
 wir unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
 geringe Anzahl von Modulen ermöglicht eine schnellere Erkennung, auch über größere Distanzen.
+%TODO: Quellen
+
 
 TODO: Testen und Grafik erstellen um zu zeigen das es eine Rolle spielt welche version wir verwenden + wie groß die sind
 
-Die zugehörigen Zahlen erhalten in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, einen Kontext. Der folgende Codeausschnitt zeigt dies:
+Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
 \begin{lstlisting}[style=csharp, caption={}, label=code:update]
 public class QRItem
@@ -1505,21 +1502,22 @@ public class QRItem
 }
 \end{lstlisting}
 
-In dieser Klasse wird ein Dictionary verwendet, das den Zahlen die folgenden Informationen zuordnet:
+In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgenden Informationen zuordnet:
 
 \begin{itemize}
-    \item \textbf{Item Id:} Die numerische Kennung im QR-Code.
-    \item \textbf{Item Name:} Die Bezeichnung des Items, das dieser QR-Code repräsentiert.
-    \item \textbf{Item Position:} Die Position des Items in der virtuellen Umgebung.
-    \item \textbf{Item Weight:} Das Gewicht des Items.
-    \item \textbf{Item Value:} Der Wert des Items.
+    \item \textbf{Id:} Die numerische Kennung im QR-Code.
+    \item \textbf{Name:} Die Bezeichnung des Gegenstandes, das dieser QR-Code repräsentiert.
+    \item \textbf{Position:} Die Position des Gegenstandes in der virtuellen Umgebung.
+    \item \textbf{Weight:} Das Gewicht des Gegenstandes.
+    \item \textbf{Value:} Der Wert des Gegenstandes.
 \end{itemize}
 
-Diese Informationen spielen eine wesentliche Rolle in der weiteren Berechnung des Knapsack-Algorithmus.
+Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des Knapsack-Algorithmus.
 
 \subsubsection{QR-Code-Tracking}
 Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein Singleton, das
 die Erkennung und Verfolgung der QR-Codes steuert.
+%TODO: Quelle: Singelton
 
 Nach der Erkennung eines QR-Codes erfolgen eine Reihe von Schritten, um diese Informationen zu speichern, verarbeiten
 und zuletzt darzustellen.
@@ -1535,9 +1533,7 @@ Hier eine kurze Übersicht:
 \begin{itemize}
 
 \item \textbf{Initialisierung des QR-Tracking-Systems:}
-Zur Aktivierung des QR-Tracking-Systems werden die erforderlichen Ressourcen und Komponenten gestartet, um die Erkennung
-von QR-Codes zu ermöglichen. Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung
-von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
+Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-Game-Objekt, das weitere Game-Objekte instanziiert, wie beispielsweise den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
 TODO: Hier ein Bild von "Camera acess needed" einfügen
@@ -1556,8 +1552,7 @@ Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu ide
 markiert den Beginn des fortlaufenden Erkennungsprozesses.
 
 \item \textbf{Erkennung eines QR-Codes (Event):}
-Sobald die Kamera einen QR-Code erfasst, wird dieser erkannt. Das Ereignis signalisiert, dass ein QR-Code erkannt wurde
-und gibt Informationen über den erkannten QR-Code, wie seine Daten und Position, weiter.
+Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:QRPositionsbestimmung} zu finden.
 
 \item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
 Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
@@ -1589,19 +1584,19 @@ repräsentierte Objekt erhalten.
 TODO: neues besseres Bild einfügen
 
 Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
-Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen als Repräsentationen
-der realen Objekte, die wir in der virtuellen Welt darstellen möchten.
+Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen in der realen Welt als Repräsentationen jener Objekte, die wir in der virtuellen Welt darstellen möchten.
 
 Wie in \ref{fig:bauklotz} zu sehen ist, sind die Bauklötze mit QR-Codes versehen. Diese Bauklötze repräsentieren die Gegenstände,
 die der Benutzer in sein Inventar aufnehmen kann. Wenn der Benutzer einen Bauklotz aufhebt und ihn der HoloLens nähert, wird
 der QR-Code gescannt. Dadurch werden Informationen wie das zugehörige 3D-Modell, der Wert, das Gewicht und der Name des
 Gegenstands angezeigt. Auf diese Weise können wir eine nahtlose Verbindung zwischen der realen und der virtuellen Welt
-herstellen und dem Benutzer eine interaktive Erfahrung bieten.
+herstellen.
 
 Dem Benutzer wird die Möglichkeit geboten, die Bauklötze physisch zu berühren, aufzuheben und zu fühlen. Diese sensorische
 Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein besseres Verständnis der virtuellen Welt
 zu ermöglichen. Dazu muss laufend die Position der Bauklötze und somit auch der QR-Codes getrackt werden, wie im Abschnitt
 \ref{sec:qrpos} beschrieben.
+
 
 
 \subsubsection{\label{sec:qrpos}Positionsbestimmung von QR-Codes}
@@ -1742,17 +1737,16 @@ Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwend
 Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-Koordinatensystem um. Darüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau genau an derselben Stelle wie den realen QR-Code. Diese Verwendung von Spatial Graph Nodes ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in der Mixed-Reality-Umgebung.
 %TODO: Quellen
 
+
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
-Wie bereits im Abschnitt \ref{sec:KnapSackProblem} erwähnt, benötigen andere Teile der Anwendung Zugriff auf
-die aktuell erkannten QR-Codes in der Szene, um entsprechend darauf reagieren zu können. Die Bereitstellung dieser Option war eine Herausforderung.
+Wie bereits im Abschnitt \ref{sec:KnapSackProblem} erwähnt, benötigen andere Klassen in der Anwendung Zugriff auf die aktuell erkannten QR-Codes in der Szene, um entsprechend reagieren zu können. Dies ist beispielsweise für die Abfrage erforderlich, ob und welche QR-Codes sich im Inventar befinden. Die Bereitstellung dieser Option war eine Herausforderung.
 Um keine Performance-Einbußen auf der Hololens zu verursachen, läuft der Prozess des QR-Code-Trackings auf
 mehreren Threads. Die aktuell erkannten QR-Codes werden in einem SortedDictionary gespeichert, welches von anderen Teilen
 der Anwendung abgefragt werden kann. Da auf dieses Objekt von mehreren Threads zugegriffen wird, muss es mit einem
-\textit{lock} geschützt werden, um inkonsistenzen zu vermeiden. Hierbei handelt es sich um eine Sperre, die verhindert,
+\textit{lock} geschützt werden, um Inkonsistenzen zu vermeiden. Hierbei handelt es sich um eine Sperre, die verhindert,
 dass mehrere Threads gleichzeitig auf das gleiche Objekt zugreifen. Auf diese Weise wird sichergestellt, dass die Daten
-nicht inkonsistent werden und dass die Anwendung stabil und zuverlässig bleibt. Jedoch da wir Threads zugriff verweigern
-müssen, um die Daten zu schützen, kann es zu einer Verzögerung kommen, bis die Daten verfügbar sind. Jedoch ist dieser
-Nachteil in unserem Anwendungsfall nicht von großer Bedeutung da wir selten zur gleichen Zeit auf die Daten zugreifen und
+nicht inkonsistent werden und dass die Anwendung stabil und zuverlässig bleibt. Da dadurch bestimten Threads Zugriff verweigert wird (um die Daten zu schützen), kann es zu Verzögerungen kommen, bis die Daten verfügbar sind. Jedoch ist dieser
+Nachteil in unserem Anwendungsfall nicht von großer Bedeutung, da wir selten zur gleichen Zeit auf die Daten zugreifen und
 dadurch die Verzögerung nicht bemerkbar ist.
 
 \subsection{Platzieren des Inventar Prefabs}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
