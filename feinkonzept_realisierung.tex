@@ -2485,10 +2485,10 @@ Abhängigkeiten zwischen diesen Teilen bestehen müssen. Andere Teile des Codes 
 um benachrichtigt zu werden, wenn sie auftreten. In diesem Zusammenhang werden spezifische Ereignisse definiert:
 
 \begin{itemize}
-\item \textbf{Nachrichteneingang}: Dieses event wird ausgelöst, wenn im ersten Level eine Nachricht von einem Laptop
+\item \textbf{Nachrichteneingang}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht von einem Laptop
 empfangen wird. Nach dem Auslösen wird ein Ping-Paket über ein Kabel auf der Brille simuliert.
 \item \textbf{Nachricht versendet}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht an einen Laptop
-gesendet wird. Es dient dazu die Empfangene Nachricht an das zweite Laptop im richtigen Moment (nach Abschluss der
+gesendet wird. Es dient dazu die Empfangene Nachricht an den zweiten Laptop im richtigen Moment (nach Abschluss der
 Simulation) weiter zu leiten.
 \item \textbf{Inventar Aktualisierung}: Dieses Event wird ausgelöst, wenn im zweiten Level ein Item ins Inventar gelegt und
 das Inventar aktualisiert wird. Nach der Aktualisierung wird der aktuelle Wert des Inventars berechnet. Dadurch können
@@ -2503,48 +2503,56 @@ benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet,
 \begin{lstlisting}[style=csharp, label=code:EventManager]
 public static class EventManager
 {
-    // Level 1
-    public static event System.Action<int, string, string> OnMessageReceived;
-    public static void ReceiveMsg(int idx, string username, string message) => OnMessageReceived?.Invoke(idx, username, message);
+// Szenario 1
+// Ereignis für den Empfang einer Nachricht
+public static event System.Action<int, string, string> OnMessageReceived;
+// Methode zum Auslösen des Ereignisses für den Empfang einer Nachricht
+public static void ReceiveMsg(int idx, string username, string message) => OnMessageReceived?.Invoke(idx, username, message);
 
-    public static event System.Action<int, string, string> OnMessageSend;
-    public static void SendMsg(int idx, string username, string message) => OnMessageSend?.Invoke(idx, username, message);
+// Ereignis für das Senden einer Nachricht
+public static event System.Action<int, string, string> OnMessageSend;
+// Methode zum Auslösen des Ereignisses für das Senden einer Nachricht
+public static void SendMsg(int idx, string username, string message) => OnMessageSend?.Invoke(idx, username, message);
 
-    // Level 2
-    public static event System.Action<int[,]> OnGridUpdate;
-    public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
+// Szenario 2
+// Ereignis für die Aktualisierung des Inventars
+public static event System.Action<int[,]> OnGridUpdate;
+// Methode zum Auslösen des Ereignisses für die Aktualisierung des Inventars
+public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
 }
 \end{lstlisting}
 
-Das ist die definition der Ereignisse und Methoden, die verwendet werden, um die Ereignisse auszulösen.
-Um auf diese Ereignisse zu reagieren, können andere Teile des Codes sich auf diese Ereignisse registrieren, welches wie folgend
-aussieht:
+Der gezeigte Codeabschnitt definiert ein Ereignis und eine Methode, die verwendet werden, um auf die drei genannten Fälle zu reagieren. Durch die Definition des Ereignisses wird eine Möglichkeit geschaffen, dass andere Teile des Codes sich darauf registrieren können, um bei Auftreten des Ereignisses benachrichtigt zu werden.
+
+Zum Beispiel wird in diesem Kontext das \textit{OnGridUpdate}-Ereignis definiert, um die Aktualisierung des Inventars zu signalisieren. Die Methode \textit{GridUpdate} dient dazu, dieses Ereignis auszulösen, indem sie es aufruft und dabei Informationen über das aktualisierte Inventar übergibt.
+
+Um auf das aktualisierte Inventar zu reagieren, könnten andere Teile des Codes sich auf dieses Ereignis registrieren, indem sie eine Methode oder einen Handler bereitstellen, der ausgeführt wird, wenn das Ereignis eintritt, wie folgt:
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
 //Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
 
 void Start()
 {
-    items = new QRItem(0).items;
-    EventManager.OnGridUpdate += SetInventory;
+items = new QRItem(0).items;
+// Die SetInventory Methode wird als Ereignishandler für das OnGridUpdate Ereignis registriert
+EventManager.OnGridUpdate += SetInventory;
 }
 
 public void SetInventory(int[,] newInventory)
 {
-    inventory = newInventory;
-    CalculateKnapsack();
+inventory = newInventory;
+CalculateKnapsack();
 }
 \end{lstlisting}
 
-Nach laden der Scene registriert sich die \textit{KnapsackSolver} Klasse auf das \textit{OnGridUpdate} Event mit
-der \textit{setInventory} Methode. Dies bedeutet, dass jedes mal wenn das \textit{OnGridUpdate} Event ausgelöst wird,
-die \textit{setInventory} Methode aufgerufen wird und der aktuelle Wert des neuen Inventars berechnet wird.
+Nachdem die Szene geladen wurde, registriert sich die Klasse \textit{KnapsackSolver} für das Ereignis \textit{OnGridUpdate}, indem sie die Methode \textit{SetInventory} als Ereignishandler verwendet. Das bedeutet, dass jedes Mal, wenn das Ereignis "OnGridUpdate" ausgelöst wird, die Methode \textit{SetInventory} aufgerufen wird, um den aktuellen Wert des neuen Inventars zu berechnen. Weiteres zur Berechnung des Inventarwertes ist in diesem Abschnitt zu finden, \ref{sec:MoritzInventarBerechnen}.
+
 
 \begin{lstlisting}[style=csharp label=code:Event Trigger]
 EventManager.GridUpdate(idGrid);
 \end{lstlisting}
 
-Das auslösen des \textit{OnGridUpdate} Events wird durch den obigen Codeabschnitt erreicht. Dieser Codeabschnitt befindet
+Das Auslösen des \textit{OnGridUpdate} Events wird durch den obigen Codeabschnitt erreicht. Dieser Codeabschnitt befindet
 sich in der \textit{InventoryController} Klasse und wird aufgerufen, wenn ein neues Item hinzugefügt oder entfernt wird.
 
 Insgesamt ermöglicht dieser simple Code eine lose Kopplung zwischen verschiedenen Teilen des Programms, indem Ereignisse verwendet
