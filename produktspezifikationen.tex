@@ -12,26 +12,34 @@ Hier kommt noch was über Use Cases
 Hier kommt noch was über das Design
 
 \subsection{Abläufe}
+%TODO: HIER DIAGRAMME VON HAUPTMENU, NACHRICHTENAUSTAUSCH UND KNAPSACK EINFÜGEN
 Hier werden die Abläufe der drei Szenarien modeliert und eingefügt
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5, angle=270]{images/AblaufdiagrammLevel2}
-    \caption{Ablaufdiagramm des Knapsack-Problem Levels}
-    \label{fig:Ablaufdiagramm Level 2}
-\end{figure}
+
 
 \section{Eingesetzte Technologien}
 
-\subsection{Kriterien}
-Bei der Auswahl der eingesetzten Technologien war es von besonderer Bedeutung, dass diese möglichst zuverlässig und
-bereits etabliert sind. Die ausgewählten Technologien sollten eine hohe Ausfallsicherheit gewährleisten, einfach zu
-bedienen sein und vor allem eine performante Nutzung der Applikation sicherstellen.
+\subsection{Microsoft HoloLens2}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
+Zentrale Plattform des Projekts ist die Augmented-Reality-Brille "HoloLens 2" von Microsoft. Dabei handelt es sich um
+eine bahnbrechende Augmented-Reality-Brille, die eine revolutionäre Verbindung zwischen der digitalen und der physischen
+Welt schafft. Mit einer Reihe hochentwickelter Sensoren, Kameras und einem hochauflösenden Display eröffnet die HoloLens
+2 neue Horizonte für interaktive und immersive AR-Erlebnisse.
 
-\subsection{Game Engine}\marginpar{\small\(\rightarrow\) SKREPEK}
-Um einen reibungslosen Verlauf des Projekts zu gewährleisten, ist die sorgfältige Auswahl der richtigen Game Engine von
+Die HoloLens 2 bietet eine beeindruckende Immersion, die es dem Nutzer ermöglicht, digitale Objekte nahtlos in seine
+Umgebung zu integrieren. Dank des fortschrittlichen Hand- und Blickverfolgungssystems können Benutzer mit den holografischen
+Elementen interagieren, als wären sie Teil ihrer realen Welt. Dies ermöglicht eine breite Palette von Anwendungen, von
+Unterhaltung über Bildung bis hin zu industriellen Anwendungen.
+
+\subsection{Kriterien}
+Bei der Auswahl der Technologien, die für die Entwicklung der geplanten Anwendung eingesetzt werden, war es besonders
+wichtig, dass diese über eine gute Dokumentation und eine große Entwicklergemeinschaft verfügen, falls Fragen auftauchen,
+für die nicht direkt im Internet eine Lösung gefunden werden kann. Außerdem sollten sie einfach zu bedienen sein und vor
+allem eine performante Nutzung der Anwendung gewährleisten.
+
+\subsection{Game Engine}
+Um einen reibungslosen Verlauf des Projekts zu gewährleisten, ist die sorgfältige Auswahl der richtigen \textit{Game Engine} von
 entscheidender Bedeutung. Die Game Engine fungiert als fundamentale Plattform für die Entwicklung und Erstellung von
 Videospielen, indem sie eine umfassende Palette von Werkzeugen, Bibliotheken und Funktionen bereitstellt, die Entwicklern
-helfen, Spiele zu konzipieren, zu gestalten und zu optimieren. In diesem Abschnitt werden zwei potenzielle Game Engines,
+hilft, Spiele zu konzipieren, umzusetzen und zu optimieren. In diesem Abschnitt werden zwei potenzielle Game Engines,
 die für das Projekt in Betracht gezogen wurden, eingehend untersucht und anschließend die Gründe für die getroffene Auswahl
 erläutert.
 
@@ -45,16 +53,16 @@ und Plugins kaufen oder verkaufen. Dadurch können sie ihre Projekte mit hochwer
 ohne alles von Grund auf neu erstellen zu müssen. Unity bietet außerdem eine starke Community-Unterstützung mit Foren,
 Tutorials und Schulungen, was besonders für neue Entwickler hilfreich ist.
 
-Die Programmierung in Unity erfolgt hauptsächlich durch die Verwendung von C# als Skriptsprache. Diese ist sowohl für
+Die Programmierung in Unity erfolgt hauptsächlich durch die Verwendung von C-Sharp. Diese ist sowohl für
 erfahrene Entwickler als auch für Anfänger zugänglich. Unity ist aufgrund der Kombination von benutzerfreundlichen Werkzeugen,
-einer großen Community und einer breiten Plattformunterstützung eine beliebte Wahl für Indie-Entwickler sowie für große Studios.
+einer großen Community und einer breiten Plattformunterstützung eine beliebte Wahl für Indie-Entwickler sowie für große Studios.\footnote{Unity Website, \cite{https://unity.com/}}
 
 \subsubsection{Unreal Engine}
 Die Unreal Engine ist eine leistungsstarke Game Engine, die für ihre hochwertigen Grafiken und fortgeschrittenen Funktionen
 bekannt ist. Sie wird häufig für die Entwicklung von AAA-Titeln sowie für hochwertige VR-Erfahrungen verwendet. Die Engine
 bietet branchenführende Grafikfunktionen wie fortschrittliche Beleuchtung, Partikelsysteme, Physiksimulationen und Echtzeit-Rendering.
 
-Eine bemerkenswerte Funktion der Unreal Engine ist das Blueprints-System. Es ermöglicht Entwicklern, Spiele und interaktive
+Eine bemerkenswerte Funktion der Unreal Engine ist das Blueprints-System (siehe folgender Absatz). Es ermöglicht Entwicklern, Spiele und interaktive
 Inhalte ohne herkömmlichen Programmiercode zu erstellen. Dadurch wird die Engine besonders zugänglich für Künstler und
 Designer, die möglicherweise keine tiefen Programmierkenntnisse haben.
 
@@ -64,12 +72,29 @@ darunter PC, Konsolen, Mobilgeräte und VR-Headsets.
 
 Insgesamt ist die Unreal Engine eine leistungsstarke Wahl für Entwickler, die hochwertige Grafiken und fortschrittliche
 Funktionen in ihren Spielen und Anwendungen benötigen. Sie wird häufig von größeren Studios genutzt, die Zugang zu hochwertigen
-Tools und Support benötigen.
+Tools und Support benötigen.\footnote{Unreal Engine Website, \cite{https://www.unrealengine.com/}}
+
+\subsubsection*{Blueprint Visual Scripting}
+Das Blueprint Scripting System ist eine leistungsstarke visuelle Programmierumgebung innerhalb der Unreal Engine. Es
+ermöglicht Entwicklern, komplexe Logik und Interaktionen ohne traditionelle Programmierkenntnisse zu erstellen. Das System
+basiert auf dem Konzept von \textit{Blueprints}, die visuelle Darstellungen von Logik und Funktionen sind.
+
+Die Verwendung von Blueprints bietet eine Reihe von Vorteilen. Einerseits ermöglicht es Künstlern und Designern ohne
+tiefgreifende Programmiererfahrung, komplexe Interaktionen und Spielmechaniken zu implementieren. Durch das Drag-and-Drop-Interface
+können Benutzer Funktionsblöcke miteinander verbinden und so den Fluss der Spiellogik steuern.
+
+Andererseits erleichtert das Blueprint-System die Iteration und Prototypisierung. Da Änderungen visuell vorgenommen
+werden können, können Entwickler schnell experimentieren und Anpassungen vornehmen, um das gewünschte Verhalten zu erreichen.
+Dies beschleunigt den Entwicklungsprozess und ermöglicht es Teams, flexibel auf Feedback und sich ändernde Anforderungen zu reagieren.
+
+Das Blueprint Scripting System bietet zudem eine hohe Flexibilität und Erweiterbarkeit. Entwickler können benutzerdefinierte
+Blueprints erstellen und sie in anderen Projekten wiederverwenden, was die Effizienz erhöht und die Entwicklung
+beschleunigt.\footnote{Unreal Engine Dokumentation, \cite{Blueprint Visual Scripting}} %https://docs.unrealengine.com/5.3/en-US/blueprints-visual-scripting-in-unreal-engine/
 
 \subsubsection{Game Engine Auswahl und Wechsel im Projektverlauf}
 Bei Projektbeginn wurde nach umfassender Recherche und Evaluierung verschiedener Optionen entschieden, die Unreal Engine
 als primäre Entwicklungsumgebung für dieses Projekt zu verwenden. Diese Entscheidung wurde aufgrund mehrerer überzeugender
-Faktoren getroffen, darunter insbesondere das beliebte Blueprint-Scripting-System, das die Entwicklung von interaktiven
+Faktoren getroffen, darunter insbesondere das beliebte Blueprint Visual Scripting, das die Entwicklung von interaktiven
 Inhalten erleichtert und auch für Personen ohne umfangreiche Programmierkenntnisse zugänglich macht. Zusätzlich zu diesem
 herausragenden Merkmal wurden weitere Aspekte berücksichtigt, die die Unreal Engine zu einer attraktiven Wahl machten,
 wie beispielsweise ihre leistungsstarken Grafikfunktionen, die branchenweit anerkannt sind, sowie ihre Unterstützung für
@@ -78,8 +103,8 @@ die Entwicklung hochwertiger VR-Erfahrungen und AAA-Titel.
 \subsubsection*{Herausforderungen im ersten Monat des Entwicklungsprozesses}
 Trotz der zu Beginn getroffenen Entscheidung für die Unreal Engine traten im Verlauf des ersten Monats des Entwicklungsprozesses
 bestimmte Herausforderungen auf. Diese Herausforderungen können als unerwartete Schwierigkeiten betrachtet werden, die während
-der Umsetzung des Projekts auftraten und möglicherweise die ursprüngliche Entscheidung beeinflussen könnten. Im Einzelnen
-wurden folgende Herausforderungen identifiziert:
+der Umsetzung des Projekts auftraten und zweifel an der ursprünglichen Entscheidung mit sich brachte.
+Im Einzelnen wurden folgende Herausforderungen identifiziert:
 \begin{enumerate}
     \item \textbf{Mangelhafte Dokumentation für AR-Entwicklung in der Unreal Engine:} Die unzureichende Dokumentation
     für die Entwicklung von Augmented Reality (AR)-Anwendungen in der Unreal Engine erwies sich als erhebliche Hürde.
@@ -87,29 +112,26 @@ wurden folgende Herausforderungen identifiziert:
     \item \textbf{Begrenzte Verfügbarkeit von AR-spezifischen Online-Tutorials:} Ein Mangel an Online-Tutorials,
     die sich speziell mit der Entwicklung von AR-Anwendungen in der Unreal Engine befassten, führte zu einer
     beträchtlichen Lernkurve für das Entwicklerteam und verzögerte den Implementierungsprozess von AR-spezifischen Features.
-    \item \textbf{Komplexität der AR-Entwicklung in der Unreal Engine:} Die Unreal Engine erwies sich als
-    anspruchsvoller in Bezug auf die Umsetzung von AR-spezifischen Funktionen. Die Notwendigkeit, komplexe Skripte zu
+    \item \textbf{Komplexität der AR-Entwicklung in der Unreal Engine:} Die Unreal Engine erwies sich als sehr
+    anspruchsvoller für Neueinsteiger in Bezug auf die Umsetzung von AR-spezifischen Funktionen. Die Notwendigkeit, komplexe Skripte zu
     erstellen und vielfältige Einstellungen anzupassen, führte zu einem erhöhten Zeitaufwand für die Umsetzung von AR-Elementen.
-    \item \textbf{Mangelhafte Integration von AR-spezifischen Werkzeugen:} Schwächen in der Integration von
-    AR-spezifischen Entwicklungswerkzeugen in der Unreal Engine erschwerten eine nahtlose Interaktion mit AR-Plattformen
-    und die optimale Nutzung ihrer Funktionen.
     \item \textbf{Eingeschränkte Community-Unterstützung für AR-Entwicklung:} Im Vergleich zu Unity war die Community-Unterstützung
     für die AR-Entwicklung in der Unreal Engine begrenzt. Die Verfügbarkeit von Ratschlägen und Lösungen für spezifische
     AR-Herausforderungen war eingeschränkt, was die Eigenständigkeit bei der Lösung von Problemen beeinträchtigte.
 \end{enumerate}
 
-Diese Herausforderungen bildeten die Grundlage für die strategische Entscheidung des Projektteams, von der Unreal Engine
+Diese Herausforderungen bildeten die Grundlage für die strategische Entscheidung des Projektteams, von Unreal Engine
 zu Unity zu wechseln. Der Wechsel ermöglichte eine effizientere und zielführende Entwicklung der AR-Applikation,
 gestützt durch Unity's umfassende Unterstützung, detaillierte Dokumentation und breite Community-Ressourcen.
 
-\subsection{Unity foundation packages}\marginpar{\small\(\rightarrow\) SKREPEK}
+\subsection{Unity foundation packages}
 Um Augmented Reality (AR)-Applikationen in Unity erfolgreich zu entwickeln, sind bestimmte \textit{Foundation Packages}
 erforderlich. Diese Pakete müssen in Unity importiert werden, um grundlegende Funktionalitäten bereitzustellen, die für
 die erfolgreiche Umsetzung einer AR-Applikation notwendig sind. Im Folgenden werden die beiden wesentlichen Pakete näher
 erläutert, die für die Funktionalität einer solchen Applikation unerlässlich sind.
 
 \subsubsection{MRTK3}
-Das Mixed Reality Toolkit 3 (MRTK3) ist ein leistungsstarkes Open-Source-Entwicklungstoolkit, das von Microsoft entwickelt
+Das Mixed Reality Toolkit 3 (MRTK3), welches Sowohl für Unity als auch in der Unreal Engine anwendbar ist, ist ein leistungsstarkes Open-Source-Entwicklungstoolkit, das von Microsoft entwickelt
 und gepflegt wird. Es ist speziell darauf ausgerichtet, die Entwicklung von Mixed-Reality-Anwendungen zu erleichtern,
 indem es eine umfassende Sammlung von Komponenten, Skripten und Assets bereitstellt. MRTK3 bietet Entwicklern eine Vielzahl
 von Funktionen und Werkzeugen, die speziell für die Erstellung von Anwendungen für Augmented Reality (AR), Virtual Reality
@@ -128,7 +150,7 @@ Umsetzung innovativer AR-Erfahrungen zu konzentrieren, ohne sich um die Grundlag
 
 \subsubsection{Microsoft OpenXR Plugin}
 Das Microsoft OpenXR Plugin stellt eine bedeutende Komponente im Kontext der Entwicklung von Augmented Reality (AR)-Applikationen
-innerhalb der Unity-Entwicklungsumgebung dar. Entwickelt und bereitgestellt von Microsoft, ermöglicht dieses Plugin die
+innerhalb der Entwicklungsumgebung dar. Entwickelt und bereitgestellt von Microsoft, ermöglicht dieses Plugin die
 nahtlose Integration des OpenXR-Standards in Unity. OpenXR, initiiert durch die Khronos Group, fungiert als branchenweiter
 Standard zur Vereinheitlichung der XR-Anwendungsentwicklung, wobei XR für Extended Reality steht und sowohl Augmented
 Reality (AR), Virtual Reality (VR) als auch Mixed Reality (MR) umfasst.
@@ -147,15 +169,14 @@ speziell für die AR-Entwicklung entwickelt wurden. Dies beinhaltet beispielswei
 AR-Umgebungserkennung, Handhabung von Eingaben sowie Optimierung der Grafikleistung für AR-Anwendungen.\footnote{Khronos Group \cite{OpenXR Plugin}}
 
 \subsubsection{Integrationsprozess der Plugins}
-Zur Integration der genannten Plugins, nämlich des \textit{Mixed Reality Toolkit 3} und des \textit{OpenXR Plugin}, in
-den Unity Editor wird das externe Tool namens \textit{Mixed Reality Feature Tool} von Microsoft verwendet. Dieses Tool
+Zur Integration der genannten Plugins in
+den Unity Editor, um diese verwenden zu können, wird das externe Tool namens \textit{Mixed Reality Feature Tool} von Microsoft verwendet. Dieses Tool
 fungiert als umfassende Sammlung von Plugins und Erweiterungen im Bereich der Augmented und Virtual Reality Entwicklung
 für Unity. Neben den erwähnten Plugins umfasst es weitere wichtige Erweiterungen, darunter:
 \begin{itemize}
     \item Azure Mixed Reality Services
     \item Experimental
     \item Mixed Reality Toolkit
-    \item MRTK3 (Mixed Reality Toolkit 3)
     \item Plattform Support
     \item Spatial Audio
     \item World Locking Tools
@@ -169,7 +190,7 @@ dieser Pakete ist es erforderlich, sie zu validieren und anschließend in das Un
 Dieser Prozess gewährleistet eine erfolgreiche Integration der benötigten Plugins und Erweiterungen, die für die Entwicklung
 von Augmented Reality-Anwendungen in Unity von entscheidender Bedeutung sind.
 
-\subsection{Wahl des Modellierungsprogramm}\marginpar{\small\(\rightarrow\) LAMPEL}
+\subsection{Wahl des Modellierungsprogramm}\marginpar{\small\(\rightarrow\) {\tiny LAMPEL}}
 Durch Unity und die Open-Source-lastige Modellierungscommunity gibt es verschiedene Möglichkeiten, um an die 3D-Modelle
 zu gelangen, die für die Anwendung der Szenarien benötigt werden.
 
