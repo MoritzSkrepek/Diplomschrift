@@ -3309,132 +3309,217 @@ wie in Abbildung \ref{fig:perfSolUserPOV} dargestellt.
     \label{fig:perfSolUserPOV}
 \end{figure}
 
-\section{Performance und Qualtitätssicherung} \marginpar{\small\(\rightarrow\) HAYLAZ}
-\subsection{Unit-Tests}
-Unit-Tests sind ein entscheidender Bestandteil der Qualitätssicherung. Sie ermöglichen die Überprüfung der korrekten
-Funktionalität einzelner Komponenten und stellen sicher, dass sie wie erwartet arbeiten. Im Rahmen dieses Projekts wurden
-Unit-Tests verwendet, um den Knapsack-Algorithmus zu überprüfen. Die Tests wurden mithilfe des Unity Test Frameworks
-erstellt und ausgeführt. Dieses Tool wurde speziell für die Erstellung und Ausführung von Unit-Tests in Unity entwickelt.
-Durch die sorgfältige Gestaltung der Tests wurde sichergestellt, dass der Algorithmus nicht nur die erwarteten Ergebnisse
-zurückgibt, sondern auch die vorgegebene Laufzeit einhält. Die Tests wurden innerhalb der Entwicklungsumgebung von Unity
-durchgeführt, und die Ergebnisse wurden genau überwacht, um sicherzustellen, dass der Algorithmus zuverlässig funktioniert.
 
-\subsection{Unity Test Framework}
-Das Unity Test Framework bietet eine breite Palette von Funktionen, mit denen Entwickler umfassende Tests für ihre
-Unity-Skripte schreiben und ausführen können. Dabei können verschiedene Aspekte der Skripte auf ihre korrekte Funktionalität
-überprüft werden, darunter das Testen von Variablen, das Aufrufen von Funktionen und das Überprüfen von erwarteten Ergebnissen.
-Dank dieser umfangreichen Funktionen können Entwickler sicherstellen, dass ihre Unity-Anwendungen robust und zuverlässig sind,
-was eine solide Grundlage für die Qualitätssicherung schafft.
+\section{Performance und Qualitätssicherung} \marginpar{\small\(\rightarrow\) HAYLAZ}
 
-\subsection{Performance-Messung}
-Die Performance des Knapsack-Algorithmus wurde mithilfe von Unit-Tests überprüft. Dabei wurde die Laufzeit des Algorithmus
-für verschiedene Eingabegrößen gemessen. Die Ergebnisse wurden sorgfältig analysiert, um sicherzustellen, dass der Algorithmus
-die erwartete Laufzeit einhält. Es wurden verschiedene Algorithmen und Implementierungen getestet, um die optimale Leistung
-zu erzielen. Die Ergebnisse der Performance-Messung wurden genau überwacht, um sicherzustellen, dass der Algorithmus
-zuverlässig und effizient arbeitet.
+Die Sicherstellung einer hohen Performance und Qualität in Softwareprojekten ist entscheidend für den Erfolg und die Zufriedenheit der Nutzer. Ein zentraler Bestandteil dieser Bemühungen sind \textit{Unit-Tests}, die sicherstellen, dass einzelne Komponenten korrekt funktionieren und den Erwartungen entsprechen. Im Rahmen dieses Projekts wurden Unit-Tests zur Überprüfung des Knapsack-Algorithmus (\ref{sec:knapsackAlgorithmus}), der für das Projekt von entscheidender Bedeutung ist, genutzt. Die Verwendung des Unity Test Frameworks ermöglichte es, diese Tests effizient zu erstellen und auszuführen.
 
-\begin{lstlisting}[style=csharp, caption={Unit Test Klasse}, label=code:UnitTest]
-public class AlgoTest
+\subsection{\label{sec:testFramework}\textit{Unity Test Framework}}
+
+Das \textit{Unity Test Framework} stellt eine leistungsstarke Suite von Werkzeugen bereit, mit der Entwickler umfassende Tests für ihre Unity-Skripte schreiben und durchführen können. Von der Überprüfung von Variablen bis hin zur Validierung von erwarteten Ergebnissen bietet das Framework eine breite Palette von Funktionen, um die Qualität von Unity-Anwendungen zu gewährleisten.
+
+\subsubsection{\label{sec:testRunner} Test-Runner}
+
+Der \textit{Test-Runner} ist ein unverzichtbares Werkzeug innerhalb des \textit{Unity Test Frameworks}, das Entwicklern ermöglicht, Tests einfach zu organisieren, auszuführen und zu überwachen. Durch die intuitive Benutzeroberfläche können Testfälle gruppiert, in spezifischen Reihenfolgen ausgeführt und detaillierte Berichte über den Testdurchlauf generiert werden. Die visuelle Darstellung in Abbildung \ref{fig:testRunner} bietet einen schnellen Überblick über die Testergebnisse und ermöglicht eine präzise Analyse der Codequalität.
+
+In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. Dort sind auch die implementierten Tests dieses Projekts ersichtlich, insgesamt vier Tests mit mehreren TestCases. Weitere Details dazu finden sich im Abschnitt \ref{sec:tests}.
+
+%TODO: SS von Test-Runner Fester einfügen
+
+\subsection{Testfälle}
+
+Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests. Alle einzelnen Testfälle sind innerhalb der Klasse \textit{KnapsackSolverTests} (\ref{code:testClass}) organisiert. Die Test-Klasse fungiert als eine Sammlung von Methoden, die verschiedene Aspekte einer spezifischen Funktionalität überprüfen, nämlich den \textit{Knapsack Algorithmus}.
+
+\begin{lstlisting}[style=csharp, caption={Auszug aus der Test-Klasse}, label={code:testClass}]
+[TestFixture]
+public class KnapsackSolverTests
 {
-GameObject testObject;
-KnapsackScript knapsackScript;
-int[,] usedItems;
-int capacity = 120;
-...
-\end{lstlisting}\\
+    // Eine Variable zur Speicherung der KnapsackSolver-Instanz
+    private KnapsackSolver knapsackSolver;
 
-Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet.
+    // Die SetUp-Methode wird vor jedem Testfall ausgeführt
+    [SetUp]
+    public void SetUp()
+    {
+        // Erstellen eines GameObjects für den KnapsackSolver
+        GameObject solverObject = new GameObject("KnapsackSolverObject");
 
-Dies ist eine Testklasse in C#, welche den Knapsack-Algorithmus implementiert und testet. Die Klasse AlgoTest enthält
-Testfunktionen für zwei verschiedene Knapsack-Algorithmen. Es werden mehrere Variablen definiert, darunter ein testObject,
-das zu testende knapsackScript und capacity, die maximale Größe des Rucksacks, die für die Tests benötigt wird. Die Methoden
-SetUp und TearDown sind mit den Attributen [SetUp] und [TearDown] versehen. Diese Attribute werden vom Framework erkannt
-und dienen dazu, nach jedem Test die Umgebung zu reinigen und neu aufzusetzen. Es wird eine Instanz des KnapsackScript
-erstellt und wieder zerstört, um sicherzustellen, dass die Tests in einer sauberen Umgebung ausgeführt werden.
+        // Dem GameObject wird eine Instanz von KnapsackSolver hinzugefügt
+        knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
+    }
 
-\begin{lstlisting}[style=csharp, caption={Unit Test Methode}, label=code:Test Methode]
-// Ein Test verhält sich wie eine normale Methode
-[Test]
-public void KnapsackMaxValue_ReturnsCorrectValue()
-{
-// Gibt eine Menge von Gegenständen für den Rucksack an
-Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
-{1, new QRData { id = 1, weight = 50, value = 100 }},
-... //weitere Testobjekte
-
-System.Random random = new System.Random();
-for (int i = 11; i <= 100; i++)
-{
-int randomWeight = random.Next(1, 51);
-int randomValue = random.Next(1, 101);
-
-items.Add(i, new QRData { id = i, weight = randomWeight, value = randomValue });
+    // Hier folgen die einzelnen Testfälle...
 }
-\end{lstlisting}\\
+\end{lstlisting}
 
-Der Unit-Test \texttt{KnapsackMaxValue-ReturnsCorrectValue} testet die Methode \texttt{KnapsackMaxValue} des
-\texttt{KnapsackScript}. Es werden verschiedene Gegenstände in dem Dictionary definiert. Außerdem werden noch weitere
-Items mit zufälligen Werten in das Dictionary hinzugefügt, damit auch getestet wird, ob der Algorithmus konsistent richtige
-Lösungen liefert.
+Wie ersichtlich ist, werden verschiedene Attribute verwendet, die vom Unity Test Framework (\ref{sec:testFramework}) bereitgestellt werden. Diese Attribute haben bestimmte Zwecke und Funktionalitäten innerhalb des Testframeworks. Das \textit{TestFixture-Attribut} kennzeichnet die Klasse \textit{KnapsackSolverTests} als Testfixture, was dem Framework signalisiert, dass die Klasse Tests enthält, die ausgeführt werden sollen. Das \textit{SetUp-Attribut} bewirkt, dass vor jedem Test die Methode \textit{SetUp()} ausgeführt wird. Der Inhalt der SetUp-Methode stellt sicher, dass stets eine neue Instanz des \textit{KnapsackSolvers} (\ref{sec:moKnapsacksolver}) erstellt wird, wodurch die Funktionalität der Tests immer in einer sauberen Ausgangssituation getestet werden kann.
 
-\begin{lstlisting}[style=csharp, caption={Zeitmessung}, label=code:Zeitmessung]
-// Messung der Ausführungszeit für KnapsackMaxValue
-System.Diagnostics.Stopwatch knapsackMaxValueStopwatch = System.Diagnostics.Stopwatch.StartNew();
-int maxValue = knapsackScript.KnapsackMaxValue(out usedItems);
-knapsackMaxValueStopwatch.Stop();
-Debug.Log($"Die Ausführungszeit von KnapsackMaxValue beträgt: {knapsackMaxValueStopwatch.ElapsedMilliseconds} ms");
+Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und ermöglicht es, dass die Tests isoliert und unabhängig voneinander ausgeführt werden können.
 
-// Messung der Ausführungszeit für KnapsackMaxValueRecursive
-System.Diagnostics.Stopwatch recursiveStopwatch = System.Diagnostics.Stopwatch.StartNew();
-int maxValueComp = KnapsackMaxValueRecursive(items.Count, capacity, items, new Dictionary<(int, int), int>());
-recursiveStopwatch.Stop();
-Debug.Log($"Die Ausführungszeit von KnapsackMaxValueRecursive beträgt: {recursiveStopwatch.ElapsedMilliseconds} ms");
 
-// Überprüfen, ob die Werte übereinstimmen
-Assert.AreEqual(maxValueComp, maxValue);
-\end{lstlisting}\\
+\subsubsection{Aufbau eines einzelnen Testfalls}
 
-Anschließend wird die Ausführungszeit sowohl der iterativen (\texttt{KnapsackMaxValue}) als auch der
-rekursiven (\texttt{KnapsackMaxValueRecursive}) Implementierung des Knapsack-Algorithmus gemessen. Schließlich wird
-überprüft, ob beide Implementierungen denselben Wert zurückgeben.
+\begin{lstlisting}[style=csharp, caption={einzelner Testfall}, label={code:zeroTest}]
+    [Test]
+    public void KnapsackMaxValue_NoItems_ReturnsZero()
+    {
+        // Arrange
+        knapsackSolver.items = new Dictionary<int, QRData>();
+        knapsackSolver.capacity = 100;
 
-\newpage
+        // Act
+        int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
 
-\begin{lstlisting}[style=csharp, caption={Rekursiver Algorithmus}, label=code:Rekursiver Algorithmus]
-// Rekursive Implementierung des Knapsack-Algorithmus zur Berechnung des maximalen Werts
-public int KnapsackMaxValueRecursive(int n, int remainingCapacity, Dictionary<int, QRData> items, Dictionary<(int, int), int> memo)
-{
-if (n == 0 || remainingCapacity == 0)
-return 0;
+        // Assert
+        Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
+    }
+\end{lstlisting}
 
-if (memo.TryGetValue((n, remainingCapacity), out int memoizedValue))
-return memoizedValue;
+Ein Testfall im \textit{Unity Test Framework} folgt einem bestimmten Aufbau, um sicherzustellen, dass die Funktionalität, die getestet werden soll, korrekt überprüft wird. Im obigen Beispiel (Code \ref{code:zeroTest}) ist ein Testfall dargestellt, der sicherstellt, dass der maximale Wert des Rucksacks korrekt berechnet wird, wenn keine Gegenstände im Rucksack vorhanden sind. Der Testfall besteht aus drei Hauptteilen: \textit{Arrange, Act} und \textit{Assert}.
 
-if (items[n].weight > remainingCapacity)
-{
-memo[(n, remainingCapacity)] = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
-return memo[(n, remainingCapacity)];
-}
+Im Vorbereitungsabschnitt (\textit{Arrange}) werden die erforderlichen Vorbedingungen für den Testfall eingerichtet. In diesem Fall werden dem KnapsackSolver keine Gegenstände hinzugefügt, und die Kapazität des Rucksacks wird auf 100 gesetzt.
 
-int includedValue = items[n].value + KnapsackMaxValueRecursive(n - 1, remainingCapacity - items[n].weight, items, memo);
-int excludedValue = KnapsackMaxValueRecursive(n - 1, remainingCapacity, items, memo);
+Im Ausführungsabschnitt (\textit{Act}) wird die tatsächliche Methode oder Funktionalität aufgerufen, die getestet werden soll. Hier wird die Methode \texttt{KnapsackMaxValue} des KnapsackSolver-Objekts aufgerufen, um den maximalen Wert des Rucksacks zu berechnen.
 
-int result = Math.Max(includedValue, excludedValue);
+Im Überprüfungsabschnitt (\textit{Assert}) wird das erwartete Ergebnis mit dem tatsächlich berechneten Ergebnis verglichen. In diesem Fall wird überprüft, ob der maximal berechnete Wert tatsächlich null ist, da keine Gegenstände im Rucksack vorhanden sind. Wenn der Test fehlschlägt, wird eine entsprechende Fehlermeldung ausgegeben.
 
-memo[(n, remainingCapacity)] = result;
+Dieser Aufbau ermöglicht eine klare und strukturierte Organisation von Testfällen, was die Lesbarkeit und Wartbarkeit des Testcodes verbessert.
 
-return result;
-}
-\end{lstlisting}\\
+\subsubsection{Testen von Einzelgegenständen im Rucksack}
 
-Die Methode \texttt{KnapsackMaxValueRecursive} ist eine rekursive Implementierung des Knapsack-Algorithmus. Der maximale
-Wert, den der Rucksack aufnehmen kann, wird berechnet, indem die Elemente rekursiv entweder eingeschlossen oder ausgeschlossen
-werden.\\
-Es wurde darauf geachtet, verschiedene Implementierungen zu testen, um sicherzustellen, dass die optimale
-Implementierung verwendet wird.
-\\
-TODO: neue dynamische implementierung erwähnen und erklären
-TODO: Grafik der Testergebnisse und Unterschiede der Laufzeiten von rekursiver und iterativer Implementierung erklären
-\\
-Dabei wird die rekursive Implementierung \texttt{KnapsackMaxValueRecursive} als Vergleich verwendet, um sicherzustellen, dass
-auch die iterative Implementierung \texttt{KnapsackMaxValue} korrekt ist.
+\begin{lstlisting}[style=csharp, caption={Testfall: einzelne Gegenstände}, label={code:einzelTest}]
+    [TestCase(20, 50, 30, ExpectedResult = 50,
+    TestName = "Single item within capacity returns expected value.")]
+    [TestCase(30, 50, 20, ExpectedResult = 0,
+    TestName = "Single item exceeding capacity returns zero value.")]
+    [TestCase(30, 50, 30, ExpectedResult = 50,
+    TestName = "Single item exact capacity returns expected value.")]
+    public int KnapsackMaxValue_SingleItem_ReturnsExpectedValue(
+    int weight, int value, int capacity)
+    {
+        // Arrange
+        var item = new QRData { id = 1, weight = weight, value = value };
+        knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
+        knapsackSolver.capacity = capacity;
+
+        // Act
+        return knapsackSolver.KnapsackMaxValue(out _);
+    }
+\end{lstlisting}
+
+Die oben aufgeführten Testfälle zeigen verschiedene Szenarien zur Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand. Jeder Testfall wird mittels des \texttt{[TestCase]}-Attributs definiert und enthält das Gewicht, den Wert und die Kapazität des Rucksacks als Parameter. Das erwartete Ergebnis wird ebenfalls angegeben, um sicherzustellen, dass die berechneten Werte den Erwartungen entsprechen. Im Vorbereitungsabschnitt werden die notwendigen Vorbedingungen festgelegt, indem ein einzelner Gegenstand mit den angegebenen Gewicht und Wert dem KnapsackSolver hinzugefügt wird. Die Kapazität des Rucksacks wird entsprechend gesetzt. Im Ausführungsabschnitt wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird überprüft und mit dem erwarteten Ergebnis verglichen. Durch diese Testfälle wird sichergestellt, dass die Methode zur Berechnung des maximalen Werts unter verschiedenen Bedingungen korrekt arbeitet.
+
+Im zweiten Testfall wird die Methode \texttt{KnapsackMaxValue\_SingleItem\_ReturnsExpectedValue} verwendet, die mit dem \texttt{[TestCase]}-Attribut versehen ist, um verschiedene Szenarien für die Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand zu testen. Im Gegensatz zum ersten Testfall (\ref{code:zeroTest}), der die \texttt{[Test]}-Annotation verwendet, um einen einzelnen Testfall zu definieren, wird hier die \texttt{[TestCase]}-Annotation verwendet, um mehrere Testfälle innerhalb derselben Methode zu definieren.
+
+Die Verwendung von \texttt{[TestCase]} ermöglicht eine kompaktere Darstellung mehrerer ähnlicher Testfälle, wodurch der Code übersichtlicher wird. Jeder Testfall wird durch die Parameter definiert, die an die Methode übergeben werden, und das erwartete Ergebnis wird durch das \texttt{ExpectedResult}-Attribut angegeben. Das \textit{TestName}-Attribut trägt auch der Übersichtlichkeit und der Lesbarkeit bei. Dieser Name wird dann auch im \textit{Test-Runner} (\ref{sec:testRunner}) angezeigt, mit dem entsprechenden Bericht zum TestCase.
+
+\subsubsection{Testen von mehreren Gegenständen im Rucksack}
+
+\begin{lstlisting}[style=csharp, caption={Testfall: mehrere Gegenstände}, label={code:mehrTest}]
+    [TestCase(10, ExpectedResult = 0,
+    TestName = "All items exceeding capacity return zero value.")]
+    [TestCase(90, ExpectedResult = 220,
+    TestName = "All items within capacity return expected value.")]
+    [TestCase(70, ExpectedResult = 170,
+    TestName = "Multiple items within capacity, return optimal selection.")]
+    public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
+    int capacity)
+    {
+        // Arrange
+        var items = new Dictionary<int, QRData>
+        {
+            { 1, new QRData { id = 1, weight = 20, value = 50 } },
+            { 2, new QRData { id = 2, weight = 30, value = 70 } },
+            { 3, new QRData { id = 3, weight = 40, value = 100 } }
+        };
+        knapsackSolver.items = items;
+        knapsackSolver.capacity = capacity;
+
+        // Act
+        return knapsackSolver.KnapsackMaxValue(out _);
+    }
+\end{lstlisting}
+
+Dieser Codeabschnitt demonstriert Testfälle für die Berechnung des maximalen Werts eines Rucksacks, wenn mehrere Gegenstände hinzugefügt werden. Ähnlich wie im vorherigen Abschnitt werden auch hier die Testfälle mit dem \texttt{[TestCase]}-Attribut definiert, wobei jedes Testcase nur die Kapazität des Rucksacks als Parameter hat und das erwartete Ergebnis angibt.
+
+Im Vorbereitungsabschnitt (\textit{Arrange}) werden die notwendigen Vorbedingungen festgelegt, indem eine Sammlung von Gegenständen erstellt wird. Jeder Gegenstand wird durch ein \texttt{QRData}-Objekt repräsentiert, das Gewicht und Wert enthält. Diese Gegenstände werden dann dem \texttt{knapsackSolver} hinzugefügt, und die Kapazität des Rucksacks wird entsprechend gesetzt.
+
+Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird dann überprüft und mit dem erwarteten Ergebnis verglichen.
+
+\subsubsection{Performance-Messung}
+
+\begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung}, label={code:performanceTest}]
+    [Test]
+    public void KnapsackPerformanceReport()
+    {
+        // Überschrift für den Leistungsbericht ausgeben
+        UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
+        UnityEngine.Debug.Log("-----------------------------");
+
+        // Schleife durch verschiedene Gegenstandanzahlen
+        for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
+        {
+            // Oberen Grenzwert für das Gegenstandgewicht und die Kapazität basierend auf der Gegenstandanzahl berechnen
+            int weightUpperBound = itemCount * 2;
+            int capacity = itemCount * 5;
+
+            // Zufällige Gegenstände generieren
+            var items = GenerateRandomItems(itemCount, weightUpperBound);
+
+            // Gegenstände und Kapazität für den Rucksacklöser festlegen
+            knapsackSolver.items = items;
+            knapsackSolver.capacity = capacity;
+
+            // Stoppuhr starten, um die verstrichene Zeit zu messen
+            var stopwatch = Stopwatch.StartNew();
+
+            // Die zu testende Methode aufrufen
+            knapsackSolver.KnapsackMaxValue(out _);
+
+            // Stoppuhr anhalten nach dem Methodenaufruf
+            stopwatch.Stop();
+
+            // Anzahl der Gegenstände und verstrichene Zeit für diese Iteration ausgeben
+            UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
+        }
+    }
+\end{lstlisting}
+
+Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
+
+Die Methode beginnt mit der Ausgabe einer Überschrift, die das Format des folgenden Leistungsberichts festlegt. Im Hauptteil der Methode wird eine Schleife durchlaufen, die verschiedene Anzahlen von Gegenständen im Rucksack simuliert. Die Anzahl der Gegenstände steigt schrittweise von 50 bis 1000, wobei in jedem Schritt 50 Gegenstände hinzugefügt werden. Innerhalb der Schleife werden zunächst der obere Grenzwert für das Gewicht der Gegenstände und die Kapazität des Rucksacks basierend auf der aktuellen Anzahl von Gegenständen berechnet. Anschließend werden zufällige Gegenstände generiert, die in den Rucksack aufgenommen werden sollen. Die generierten Gegenstände sowie die Kapazität des Rucksacks werden dann dem Algorithmus zugewiesen.
+Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife eine Stoppuhr gestartet, bevor die Methode "KnapsackMaxValue" aufgerufen wird, um den maximalen Wert des Rucksacks zu berechnen. Nach Beendigung des Methodenaufrufs wird die Stoppuhr gestoppt, und die verstrichene Zeit wird zusammen mit der Anzahl der Gegenstände im Rucksack protokolliert.
+
+
+%TODO: Excel ss einbauen
+Anzahl der Gegenstände	Dauer in ms
+50	1
+100	0
+150	1
+200	2
+250	3
+300	6
+350	13
+400	6
+450	40
+500	12
+550	21
+600	25
+650	25
+700	39
+750	23
+800	35
+850	33
+900	33
+950	64
+1000 51
+
+Nach dem Test können einige Schlussfolgerungen gezogen werden:
+\begin{itemize}
+\item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
+\item \textbf{Nichtlineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie beispielsweise O(n log n) oder sogar O(n\^2).
+\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
+\item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
+\end{itemize}
+
+Insgesamt kann festgestellt werden, dass die aktuelle Leistung des Knapsack-Algorithmus für unseren Anwendungsbereich mehr als ausreichend ist, da wir nicht mit einer derart großen Anzahl an Gegenständen arbeiten. Die HoloLens2 ist in der Lage, die optimale Lösung in wenigen Millisekunden und ohne Leistungseinbußen zu liefern. Selbst bei wiederholten Aufrufen spielen ungünstige Muster keine signifikante Rolle.
