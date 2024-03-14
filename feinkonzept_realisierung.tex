@@ -3516,10 +3516,10 @@ Anzahl der Gegenstände	Dauer in ms
 
 Nach dem Test können einige Schlussfolgerungen gezogen werden:
 \begin{itemize}
-\item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
-\item \textbf{Nichtlineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie beispielsweise O(n log n) oder sogar O(n\^2).
-\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
-\item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
+    \item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
+    \item \textbf{Nichtlineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie beispielsweise O(n log n) oder sogar O(n\^2).
+    \item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
+    \item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
 \end{itemize}
 
 Insgesamt kann festgestellt werden, dass die aktuelle Leistung des Knapsack-Algorithmus für unseren Anwendungsbereich mehr als ausreichend ist, da wir nicht mit einer derart großen Anzahl an Gegenständen arbeiten. Die HoloLens2 ist in der Lage, die optimale Lösung in wenigen Millisekunden und ohne Leistungseinbußen zu liefern. Selbst bei wiederholten Aufrufen spielen ungünstige Muster keine signifikante Rolle.
