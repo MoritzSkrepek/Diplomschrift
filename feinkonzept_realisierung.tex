@@ -266,7 +266,10 @@ Damit das Deployment der Anwendung auf einem AR-fähigen Gerät erfolgreich verl
 
 \subsubsection{Deployment-Prozess}
 
-Die Entwicklung und Bereitstellung einer Anwendung für die HoloLens 2 unter Verwendung von Unity und der Universal Windows Platform (UWP) ist ein strukturierter Prozess, der mehrere Schritte umfasst, beginnend mit der Kompilierung des Unity-Projekts. Dieser Prozess findet auf dem Computer statt, auf dem sich das Unity-Projekt befindet, und kann über das Tastenkürzel \textbf{Strg + Umschalt + B} aufgerufen werden, um die Build-Einstellungen in Unity zu öffnen.
+Die Entwicklung und Bereitstellung einer Anwendung für die HoloLens 2 unter Verwendung von Unity und der Universal Windows Platform (UWP) ist ein strukturierter Prozess, der mehrere Schritte umfasst, beginnend mit der Kompilierung des Unity-Projekts.
+
+\subsubsection*{Kompilierung und Build-Einstellungen in Unity}
+Dieser Prozess findet auf dem Computer statt, auf dem sich das Unity-Projekt befindet, und kann über das Tastenkürzel \textbf{Strg + Umschalt + B} aufgerufen werden, um die Build-Einstellungen in Unity zu öffnen.
 
 In den Build-Einstellungen wird die Zielplattform festgelegt, auf die die Anwendung bereitgestellt werden soll. Für die HoloLens 2 ist die Universal Windows Platform (UWP) die geeignete Zielplattform aufgrund ihrer Kompatibilität mit diesem Gerät. Die UWP ermöglicht die Entwicklung von Anwendungen, die auf verschiedenen Windows 10/11-Geräten einschließlich der HoloLens 2 ausgeführt werden können.
 
@@ -282,12 +285,16 @@ Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settin
 Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dateien für das Deployment. Darin befindet sich unter anderem eine Visual Studio Solution (\textit{VS Solution}), die Informationen zur Struktur des Projekts enthält und Build-Konfigurationen verwaltet. \footnote{Microsoft-Dokumentation, \cite{Visual Studio Solution}}
 % TODO: https://learn.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022
 
+\subsubsection*{Einstellungen in der Visual Studio Solution}
+
 Der nächste Schritt erfolgt in dieser Visual Studio Solution, in unserem Fall \textit{AARIE.sln}. Nach dem Öffnen der Datei müssen die Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Diese zwei Einstellungen sind auf der \textit{Toolbar} zu finden. Außerdem muss die IP-Adresse des AR-fähigen Geräts in den Projekteigenschaften unter Debugging gesetzt werden. Die IP-Adresse der HoloLens 2 kann auf der Brille in den Einstellungen unter Netzwerk gefunden werden. In den Projekteigenschaften ist noch folgende Einstellung zu treffen:
 
 Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Darüber hinaus minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten
 zu gewährleisten. \footnote{Microsoft-Dokumentation, \cite{Universal Unencrypted Protocol}}
 % TODO: https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps
 
+
+\subsubsection*{Deployment auf die HoloLens2}
 Nachdem alle Einstellungen vorgenommen wurden, kann die
 
 Anwendung auf die HoloLens 2 deployt werden. Dazu muss die Solution mit \textit{Start without Debugging} gestartet werden. Nach einem längeren Ladevorgang wird die Anwendung auf der HoloLens 2 geladen und gestartet.
@@ -1484,10 +1491,12 @@ werden muss.\footnote{npmjs \cite{http-server}}
 %TODO: Quellen
 % https://www.npmjs.com/package/http-server
 
+\subsubsection*{Installation des HTTP-Servers}
 Eine der einfachsten Möglichkeiten, den \textit{http-server} zu installieren, ist die Verwendung des Node Package Managers (npm). npm ist ein leistungsfähiges Werkzeug, das es Entwicklern ermöglicht, JavaScript-Pakete einfach zu installieren, zu verwalten und zu aktualisieren. Es ist integraler Bestandteil der Node.js-Umgebung und bietet Zugang zu einer Vielzahl von Paketen und Bibliotheken, die von der Community entwickelt wurden. Durch die Installation des \textit{http-server}-Pakets über npm können Entwickler schnell einen lokalen Web-Server einrichten, ohne sich um die Einzelheiten der Serverkonfiguration kümmern zu müssen.
 
 Um den HTTP-Server mithilfe von npm auf einem Windows-Gerät zu installieren, muss ein Befehl in der Eingabeaufforderung (cmd) ausgeführt werden. Dieser Befehl ermöglicht die Installation des Servers auf dem Gerät und lautet wie folgt: \textit{npm install http-server -g}. Durch die Ausführung dieses Befehls wird der http-server global auf dem Windows-Gerät installiert, was bedeutet, dass er von überall im System aus aufgerufen werden kann.
 
+\subsubsection*{Starten des HTTP-Servers}
 Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \texttt{index.html}-Datei befindet (standardmäßig im \textit{Level1-FrontEnd} Ordner), mit dem Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
 
 Die Flags haben folgende Bedeutungen:
@@ -1501,6 +1510,7 @@ In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, 
 
 Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag \textit{-p} und der gewünschten Portnummer geändert werden.
 
+\subsubsection*{Konfigurationen auf der Webseite}
 Nach dem Starten des Webservers kann die Webseite in einem beliebigen Browser über die IP-Adresse des Geräts oder über \textit{localhost} aufgerufen werden. Die IP-Adresse des Geräts kann mit dem Befehl \textit{ipconfig} in der \textit{Eingabeaufforderung (cmd)} abgefragt werden.
 
 Nach dem erfolgreichen Starten der Webseite muss zunächst die IP-Adresse der HoloLens auf der Webseite eingegeben werden. Dies geschieht über den Button in der oberen linken Ecke der Webseite, wie auf der Abbildung \ref{fig:webbut} erkennbar. Die IP-Adresse wird in das Eingabefeld eingetragen und mit dem Button \textit{Verbinden} bestätigt. Erst nachdem die IP-Adresse der AR-Brille eingetragen wurde, können Nachrichten gesendet werden.
@@ -1536,6 +1546,7 @@ verschiedenen Domains. \footnote{AWS \cite{CORS}} \footnote{Mozilla \cite{CORS-2
 % https://aws.amazon.com/de/what-is/cross-origin-resource-sharing/#:~:text=Cross%2DOrigin%20Resource%20Sharing%20(CORS,Ressourcen%20in%20einer%20anderen%20Domain.
 % https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
+\subsubsection*{Implementierung von CORS}
 In unserem speziellen Fall, da unsere Kommunikation ausschließlich im lokalen Netzwerk stattfindet, ist es nicht unbedingt notwendig, strenge Sicherheitsmaßnahmen zu ergreifen. Dennoch ist es wichtig, dass wir bestimmte Header in allen Antworten einfügen, die von der Brille zurückgeschickt werden. Alle Anfragen werden im \textit{RequestManager.cs} Skript abgearbeitet. Genauere Infos sind im Abschnitt \ref{sec:webBackend} zu finden.
 
 Diese Header welche einzubauen sind lauten:
@@ -1554,6 +1565,7 @@ context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
 
 Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS-Header hinzu, die Cross-Origin-Anfragen für Ressourcen von unserem Server ermöglichen. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
 
+\subsubsection*{Umgang mit CORS-Fehlern}
 Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an der Konfiguration des Servers. Das Problem kann in Ausnahmefällen (zum Beispiel bei kleineren Testläufen) auf folgende Art und Weise umgangen werden:
 
 \begin{itemize}
