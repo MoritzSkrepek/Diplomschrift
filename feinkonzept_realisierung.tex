@@ -53,12 +53,16 @@
 }
 
 \chapter{Feinkonzept und Realisierung}
+Dieses Kapitel behandelt das Feinkonzept und die Realisierung der Anwendungsszenarien in einer Augmented Reality Applikation.
+Es wird auch auf die verwendeten Entwicklungsumgebungen, ihre Spezialitäten und besondere Merkmale eingegangen.
 
-\section{Entwicklungsumgebungen}
+\section{Entwicklungsumgebungen}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
+Dieses Kapitel beschäftigt sich mit den verwendeten Entwicklungsumgebungen und ihren Spezialitäten.
+
 \subsection{Visual Studio 2022}
 Visual Studio 2022 ist eine integrierte Entwicklungsumgebung (IDE) von Microsoft, die speziell für die Entwicklung von
 Softwareanwendungen, Webanwendungen und Desktop-Anwendungen konzipiert ist. Es handelt sich um eine umfangreiche
-Entwicklungsumgebung, die von Entwicklern weltweit für eine breite Palette von Anwendungsfällen eingesetzt wird.
+Entwicklungsumgebung, die von Entwicklern weltweit für eine breite Palette von Anwendungsfällen eingesetzt wird.\footnote{Microsoft.com \cite{Visual Studio 2022}}
 
 \subsection{Unity}
 Der Unity-Editor, entwickelt von Unity Technologies, fungiert als umfassende integrierte Entwicklungsumgebung (IDE)
@@ -69,19 +73,19 @@ Entwicklung von Projekten, die auf Unity-Technologien basieren.
 Die Funktionalität des Unity-Editors erstreckt sich über verschiedene Aspekte der Softwareentwicklung, angefangen bei
 der visuellen Gestaltung von Szenen und Spielwelten bis hin zur Implementierung komplexer Logik und Interaktionen. Die
 folgenden Abschnitte vertiefen die Schlüsselmerkmale und Funktionen des Unity-Editors, die ihn zu einem essenziellen
-Werkzeug für Entwickler machen.
+Werkzeug für Entwickler machen.\footnote{Unity.com \cite{Unity Game Engine}}
 
 \subsubsection{Multidisziplinäre Unterstützung und Integration}
 Der Unity-Editor zeichnet sich durch seine multidisziplinäre Unterstützung aus, die Entwicklern ermöglicht, kollaborativ
 an Projekten zu arbeiten. Künstler, Entwickler und Designer können innerhalb derselben Umgebung zusammenarbeiten,
-wodurch ein nahtloser Austausch von Assets, Szenen und Ressourcen ermöglicht wird. Die Integration von Grafik-,
+wodurch ein nahtloser Austausch von Assets, Szenen und Ressourcen (siehe Abschnitt \ref{sec:UnityScenes}) ermöglicht wird. Die Integration von Grafik-,
 Physik- und Audio-Engines erleichtert die Schaffung immersiver und ansprechender digitaler Umgebungen.
 
 \subsubsection{Szenengestaltung und Asset-Management}
 Ein zentrales Merkmal des Unity-Editors ist die intuitive Szenengestaltung, die es Entwicklern ermöglicht,
 2D- und 3D-Szenen durch Drag-and-Drop-Operationen zu erstellen und anzupassen. Das Asset-Management ermöglicht eine
 effiziente Organisation von Ressourcen wie Modelle, Texturen und Audio-Dateien. Hierbei kommt dem Editor eine
-Schlüsselrolle in der Strukturierung und Verwaltung umfangreicher Projekte zu.
+Schlüsselrolle in der Strukturierung und Verwaltung umfangreicher Projekte zu.\footnote{Unity.com \cite{Unity Asset Manager}}
 
 \subsubsection{Programmierung und Skripterstellung}
 Der Unity-Editor integriert leistungsstarke Programmierfunktionen, die Entwicklern erlauben, Skripte in C-Sharp oder
@@ -93,54 +97,79 @@ iterativen Entwicklungsprozess.
 Der Unity-Editor ist essenziell für die Entwicklung von AR- und VR-Anwendungen. Durch die Integration von AR Foundation
 und XR Interaction Toolkit bietet der Editor leistungsstarke Werkzeuge zur Erstellung immersiver Erlebnisse. Die
 Möglichkeit, Szenen in Echtzeit in AR- und VR-Geräten zu überprüfen, unterstützt Entwickler bei der Feinabstimmung
-und Optimierung ihrer Projekte.
+und Optimierung ihrer Projekte.\footnote{Unity.com \cite{Spiele in Augmented Reality und Virtual Reality}}
+
+\subsubsection*{AR Foundation}
+AR Foundation ist ein Framework innerhalb des Unity-Editors, dass eine plattformübergreifende Abstraktionsschicht für die
+Entwicklung von Augmented Reality (AR)-Anwendungen bereitstellt. Entwickler können durch die Integration von AR Foundation
+AR-Erfahrungen auf verschiedenen Geräten wie Smartphones, Tablets und AR-Brillen erstellen, ohne sich um die Unterschiede
+zwischen den AR-Plattformen wie ARCore für Android und ARKit für iOS kümmern zu müssen. Dies ermöglicht eine einheitliche
+Entwicklung von Augmented-Reality-Anwendungen unabhängig von der zugrunde liegenden Hardware.\footnote{Unity-Dokumentation \cite{About AR Foundation}}
+
+\subsubsection*{XR Interaction Toolkit}
+Das XR Interaction Toolkit ist ein Toolkit, das innerhalb der Unity-Entwicklungsumgebung verwendet wird und Entwicklern
+Werkzeuge und Komponenten zur Implementierung von Interaktionen in erweiterten Realitäts (XR)-Umgebungen bietet. Das
+Toolkit erleichtert die Erstellung komplexer Interaktionen wie das Greifen, Berühren und Manipulieren von virtuellen
+Objekten in VR- und AR-Szenarien. Der XR Interaction Toolkit unterstützt Entwickler bei der Erstellung immersiver und
+interaktiver XR-Erlebnisse durch die Bereitstellung plattformübergreifender Kompatibilität. Dadurch wird die Entwicklungseffizienz
+und -konsistenz verbessert.\footnote{Unity-Dokumentation \cite{XR Interaction Toolkit}}
 
 \subsubsection{Erweiterte Debugging- und Profiling-Werkzeuge}
 Der Unity-Editor stellt umfassende Debugging- und Profiling-Werkzeuge zur Verfügung, um die Leistung und Funktionalität
 von Anwendungen zu optimieren. Durch Echtzeit-Inspektion, Fehlerverfolgung und Ressourcenüberwachung unterstützt der
 Editor Entwickler bei der Identifizierung und Behebung von Problemen, um eine reibungslose Ausführung der Anwendungen
-sicherzustellen.
+sicherzustellen.\footnote{Unity.com \cite{Tools for profiling and debugging}}
 
 \subsubsection{Aufbau einer Unity-Applikation}
 Die Struktur einer Unity-Applikation ist entscheidend für eine effektive Entwicklung und Organisation von 3D-Anwendungen
 und Spielen. Eine typische Unity-Anwendung besteht aus verschiedenen Schlüsselelementen, darunter Szenen, GameObjects,
 Komponenten, Skripte und Assets. Diese werden koordiniert durch die Hauptkomponente der Anwendung, die sogenannte
-"GameManager" oder "MainScene". In diesem Abschnitt werden die grundlegenden Bausteine einer Unity-Anwendung sowie
-bewährte Praktiken für die Strukturierung und Verwaltung dieser Elemente beleuchtet.
+\textit{GameManager} oder \textit{MainScene}. In diesem Abschnitt werden die grundlegenden Bausteine einer Unity-Anwendung sowie
+bewährte Praktiken für die Strukturierung und Verwaltung dieser Elemente beleuchtet.\footnote{Unity.com \cite{Was ist mit Quellcodeverwaltung gemeint?}}
 
 \subsubsection{\label{sec:Shrek is leben}Lebenszyklusmethoden in Unity}
 Die Entwicklung von Augmented Reality (AR)-Applikationen in Unity erfordert ein tiefgreifendes Verständnis der
 Lebenszyklusmethoden, die in MonoBehaviour-Klassen implementiert werden können. Diese Methoden regeln den Fluss der
 Programmlogik und ermöglichen Entwicklern, spezifische Aktionen zu bestimmten Zeitpunkten im Lebenszyklus einer
-Anwendung auszuführen.
+Anwendung auszuführen.\footnote{Microsoft Dokumentation \cite{Subsysteme MRTK3}}
 
 \begin{itemize}
-    \item \textbf{Awake():} Die \texttt{Awake()}-Methode wird aufgerufen, wenn das Skript erstellt wird. Dies geschieht
-    vor anderen Initialisierungsmethoden wie \texttt{Start()}. Sie eignet sich für die Durchführung von
-    Initialisierungen, bei denen auf andere Skriptkomponenten oder Ressourcen zugegriffen werden soll. Der Hauptzweck
-    besteht darin, die Ressourcen für das Skript vorzubereiten.
-    \item \textbf{Start():} Die \texttt{Start()}-Methode wird vor dem ersten Frame aufgerufen und bietet die
-    Möglichkeit, Initialisierungsaufgaben durchzuführen. Im Gegensatz zu \texttt{Awake()} garantiert \texttt{Start()}
-    die vollständige Initialisierung aller GameObjects in der Szene. Entwickler nutzen diese Methode oft für
-    Konfigurationen und Vorbereitungen, die spezifisch für die Startphase der Anwendung sind.
-    \item \textbf{Update():} Die \texttt{Update()}-Methode ist von entscheidender Bedeutung, da sie in jedem Frame
-    aufgerufen wird. Hier kann kontinuierliche Logik ausgeführt werden, wie etwa die Aktualisierung von Animationen,
-    die Verarbeitung von Benutzereingaben oder die Anpassung von Positionen basierend auf der Zeit. Es ist wichtig zu
-    beachten, dass \texttt{Update()} häufig aufgerufen wird und daher effizient implementiert werden sollte.
-    \item \textbf{LateUpdate():} Ähnlich wie \texttt{Update()}, wird aber nachdem alle \texttt{Update()}-Methoden
-    aufgerufen wurden. Dies ist besonders nützlich, wenn Anpassungen oder Berechnungen vorgenommen werden müssen,
-    nachdem andere GameObjects und Skripte bereits ihre \texttt{Update()}-Logik abgeschlossen haben. Beispielsweise
-    eignet sich \texttt{LateUpdate()} gut für Kamera-Anpassungen, bei denen die Position anderer GameObjects bereits
-    aktualisiert wurde.
-    \item \textbf{OnEnable() und OnDisable():} Die \texttt{OnEnable()}-Methode wird aufgerufen, wenn ein Skript
-    aktiviert wird, während \texttt{OnDisable()} aufgerufen wird, wenn es deaktiviert wird. Diese Methoden bieten
-    die Möglichkeit, spezifische Aktionen auszuführen, wenn ein Skript seine Ausführung aufnimmt oder beendet.
-    Entwickler können diese nutzen, um Ressourcen zu laden oder freizugeben, Abonnements auf Ereignisse
-    einzurichten oder abzubrechen, oder um andere vorbereitende oder aufräumende Maßnahmen durchzuführen.
+    \item \textbf{Awake():} Wird aufgerufen, wenn das Skript erstellt wird, und eignet sich für die Durchführung von
+    Initialisierungen.
+    \item \textbf{Start():} Wird vor dem ersten Frame aufgerufen und ermöglicht Initialisierungsaufgaben.
+    \item \textbf{Update():} Wird in jedem Frame aufgerufen und ist ideal für kontinuierliche Logik.
+    \item \textbf{LateUpdate():} Ähnlich wie Update(), jedoch nachdem alle Update()-Methoden aufgerufen wurden, was sich
+    für nachgelagerte Anpassungen eignet.
+    \item \textbf{OnEnable() und OnDisable():} Werden aufgerufen, wenn ein Skript aktiviert bzw. deaktiviert wird, und
+    bieten die Möglichkeit, spezifische Aktionen auszuführen.
 \end{itemize}
 
-\subsubsection{Unity Szenen}
-Unity-Szenen bilden das grundlegende Gerüst für die Gestaltung von Inhalten in der Unity-Entwicklungsumgebung. Sie stellen
+\subsubsection*{Script Lifecycle Flowchart}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{images/monobehaviour_flowchart}
+    \caption{Ausführungsreihenfolge\protect\footnotemark}
+\end{figure}
+
+\footnotetext{Unity-Dokumentation \cite{Order of execution for event functions}}
+
+\subsubsection*{MonoBehaviour Klasse}
+Die MonoBehaviour-Klasse ist eine Kernkomponente der Unity-Engine und dient als Basis für Skripte, die mit GameObjects
+in Unity interagieren. Sie ermöglicht die Implementierung von Verhaltensweisen und Funktionen, welche das Verhalten von
+GameObjects beeinflussen. Sie ermöglicht Entwicklern, bestimmte Aktionen zu bestimmten Zeitpunkten im Lebenszyklus eines GameObjects auszuführen.
+Die MonoBehaviour-Klasse wird verwendet, um benutzerdefinierte Logik und Interaktionen innerhalb einer
+Unity-Szene zu implementieren.\footnote{Unity-Dokumentaiton \cite{MonoBevaiour Class}}
+
+\subsubsection{Assets}\label{sec:UnityAssets}
+Unity-Assets sind digitale Ressourcen, die in der Unity-Entwicklungsumgebung zur Gestaltung und Entwicklung von interaktiven
+3D-Anwendungen verwendet werden. Sie umfassen 3D-Modelle, Texturen, Audio-Dateien, Skripte und andere Elemente, die zur
+Erstellung von visuellen und funktionalen Komponenten innerhalb einer Anwendung dienen. Durch die Verwendung von Assets
+können Entwickler ihre Arbeitsabläufe effizienter gestalten, da sie vorhandene Ressourcen wiederverwenden können. Dadurch
+wird die Entwicklungsgeschwindigkeit erhöht und die Qualität der Projekte verbessert.
+
+\subsubsection{Unity Szenen}\label{sec:UnityScenes}
+Unity-Szenen (Siehe Abschnitt \ref{sec:Scene1} oder \ref{sec:Scene2} für Umsetzung) bilden das grundlegende Gerüst für
+die Gestaltung von Inhalten in der Unity-Entwicklungsumgebung. Sie stellen
 Assets dar, die alle oder einen Teil eines Spiels oder einer Anwendung enthalten. Szenen bieten eine strukturierte Möglichkeit,
 verschiedene Elemente wie \textit{Umgebungen}, \textit{Charaktere}, \textit{Hindernisse}, \textit{Dekorationen} und
 \textit{Benutzeroberflächen} zu organisieren und miteinander zu verknüpfen.
@@ -156,7 +185,7 @@ Leistung und Ressourcennutzung optimiert.
 
 Insgesamt bieten Unity-Szenen eine leistungsstarke und flexible Möglichkeit, Spiele und Anwendungen zu \textit{strukturieren}, zu
 \textit{organisieren} und zu \textit{verwalten}. Sie bilden das Grundgerüst für die Entwicklung von Inhalten in Unity und ermöglichen es
-Entwicklern, ihre Visionen zu verwirklichen und ansprechende Spielerlebnisse zu schaffen.\footnote{Unity Dokumentation \cite{Scenes}}
+Entwicklern, ihre Visionen zu verwirklichen und ansprechende Spielerlebnisse zu schaffen.\footnote{Unity-Dokumentation \cite{Scenes}}
 
 \subsubsection{Unity Manager}
 Die präzise und immersive Umsetzung von Augmented-Reality-(AR-)Applikationen erfordert den Einsatz spezialisierter Manager,
@@ -164,10 +193,8 @@ die grundlegende Funktionen bereitstellen, die für die erfolgreiche Umsetzung v
 In dieser Applikation werden zwei Manager aus der breiten Palette von Unity bereitgestellten Managern verwendet. Diese
 sind die folgenden:
 \begin{itemize}
-    \item \textbf{ARPlaneManager\footnote{Unity Dokumentation\cite{PlaneManager}}:}
-    Der ARPlaneManager ist ein bedeutender Bestandteil von Unity's Augmented Reality (AR)-Entwicklungsumgebung. Als Teil
-    des Unity-eigenen \textit{Mixed Reality Toolkit 3} bietet der ARPlaneManager essenzielle Funktionen zur nahtlosen
-    Integration von AR-Elementen in die reale Umgebung. Seine Hauptaufgaben umfassen die automatische Erkennung von
+    \item \textbf{ARPlaneManager}:
+    Der ARPlaneManager umfasst die automatische Erkennung von
     \textit{horizontalen} und \textit{vertikalen} Flächen in der Umgebung des Benutzers, was die \textit{präzise Platzierung}
     virtueller Objekte auf diesen Flächen ermöglicht. Diese Flächen können verschiedene Strukturen wie \textit{Böden},
     \textit{Tische} oder andere \textit{flache Oberflächen} umfassen. Nach der Erkennung \textit{überwacht} der ARPlaneManager
@@ -175,18 +202,18 @@ sind die folgenden:
     virtueller Inhalte auf den realen Flächen zu gewährleisten. Erkannte Flächen können durch \textit{Texturmarkierungen}
     visuell hervorgehoben werden, um dem Benutzer die Grenzen dieser Flächen deutlicher zu zeigen und die Integration von
     virtuellen Objekten zu verbessern. Zudem erleichtert der ARPlaneManager das Platzieren virtueller 3D-Objekte in der
-    realen Welt, indem er eine Referenz für die Position und Ausrichtung der erkannten Flächen bereitstellt.
+    realen Welt, indem er eine Referenz für die Position und Ausrichtung der erkannten Flächen bereitstellt.\footnote{Unity-Dokumentation \cite{PlaneManager}}
 
-    \item \textbf{ARRaycastManager\footnote{Unity Dokumentation\cite{RaycastManager}}:}
+    \item \textbf{ARRaycastManager}:
     Der ARRaycastManager in Unity ist eine wichtige Komponente für die Entwicklung von Augmented Reality (AR)-Anwendungen.
     Er ermöglicht es, \textit{Raycasts} von einem \textit{festgelegten Ursprungspunkt} aus durchzuführen, um \textit{Kollisionen}
     oder \textit{Treffer} mit Objekten in der AR-Umgebung zu erkennen. Diese Funktionalität ist entscheidend für die
     genaue Platzierung virtueller 3D-Objekte in der realen Welt, basierend auf den Interaktionen des Benutzers. Der
     ARRaycastManager bietet somit eine grundlegende Funktionalität zur nahtlosen Integration von virtuellen Elementen
-    in die physische Umgebung.
+    in die physische Umgebung.\footnote{Unity-Dokumentation \cite{RaycastManager}}
 \end{itemize}
-Die erfolgreiche Umstzung der funktionalen Anforderungen in den spezifischen Augmented-Reality-(AR)-Anwendungsszenarien
-des \textit{Knapsack Problems} sowie des \textit{Pings} hängt maßgäblich von der Integration und Anwendung der zwei
+Die erfolgreiche Umsetzung der funktionalen Anforderungen in den spezifischen Augmented-Reality-(AR)-Anwendungsszenarien
+des \textit{Knapsack Problems} sowie des \textit{Nachrichtenaustauschs} hängt maßgäblich von der Integration und Anwendung der zwei
 genannten Manager, für die Schaffung einer qualitativ \textit{hochwertigen}, \textit{präzisen} und \textit{immersiven}
 Benutzererfahrung.
 
@@ -194,14 +221,14 @@ Im Kontext des \textit{Knapsack Problem} Anwendungsszenarios spielt der ARPlaneM
 Markierung von horizontalen Flächen in der Benutzerumgebung garantiert dieser eine präzise Platzierung des virtuellen
 Inventar-Objekts und gewährleistet dadurch eine stabile Integration in die reale Umgebung.
 
-Im Kontext des Anwendungsszenarios des \textit{Ping} spielen beide Manager eine wichtige Rolle. Der ARPlaneManager erkennt
-die ARPlanes in der Umgebung und der ARRaycastManager erkennt anhand eines Rays, auf welchem ARPlane das reale Kabel, über
-das das Ping-Paket visualisiert wird, liegt.
+Im Kontext des Anwendungsszenarios \textit{Nachrichtenaustausch} spielen beide Manager eine wichtige Rolle. Der ARPlaneManager
+erkennt die horizontalen ARPlanes in der Umgebung und der ARRaycastManager erkennt anhand eines Rays, auf welchem ARPlane das reale Kabel, über
+das das Nachrichten-Paket visualisiert wird, liegt.
 
 Insgesamt sind diese Manager wichtige Ressourcen, da sie die technische Umsetzbarkeit und Effektivität von AR-Anwendungen
 maßgeblich beeinflussen. Durch ihre integrierte Anwendung wird eine nahtlose Verschmelzung von virtuellen und physischen
-Elementen realisiert, was eine immersive und präzise AR-Benutzererfahrung sowohl in dem Knappsack-Problem als auch auf
-dem Ping Anwendungsszenarios gewährleistet.
+Elementen realisiert, was eine immersive und präzise AR-Benutzererfahrung sowohl in dem Knapsack-Problem als auch bei dem
+Nachrichtenaustausch Anwendungsszenario gewährleistet.
 
 \subsubsection{Unity GameObjects und Komponente}
 Die Konzeption und Verwaltung von GameObjects stellt einen essenziellen Bestandteil der Entwicklungsumgebung von Unity dar.
@@ -222,9 +249,9 @@ Komponenten erstellen, um spezifische Verhaltensweisen zu implementieren und die
 
 Insgesamt bilden GameObjects und deren Komponenten das Rückgrat der Entwicklung von Spielen und interaktiven Anwendungen in
 Unity. Ihr Verständnis und ihre effektive Verwaltung sind entscheidend für die erfolgreiche Umsetzung digitaler Szenarien
-und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebnisse bei.\footnote{Unity Dokumentation \cite{GameObjects}}.
+und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebnisse bei.\footnote{Unity-Dokumentation \cite{GameObjects}}.
 
-\subsubsection{Unity Prefabs} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsubsection{Unity Prefabs}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten. Prefabs sind modulare, wiederverwendbare Elemente, die als Blaupausen für die Konstruktion von Game-Objekten dienen. Sie ermöglichen Entwicklern, spezifische Objekte oder Objektstrukturen zu erstellen und zu katalogisieren. Diese Muster können dann in unterschiedlichen Szenarien oder Projekten repliziert werden, was eine effiziente Wiederverwendung und Konsistenz über verschiedene Projektumgebungen hinweg ermöglicht.
 
@@ -248,7 +275,7 @@ Innerhalb des Projekts wird die Prefab-Technologie in folgenden Bereichen einges
 Zusammenfassend lässt sich sagen, dass Prefabs ein unverzichtbares Werkzeug für die effektive Projektentwicklung in Unity sind. Sie ermöglichen es Entwicklern, Zeit zu sparen, die Konsistenz ihres Projekts zu gewährleisten und den Prozess der Aktualisierung und Iteration von Projektobjekten zu optimieren. Daher sind sie ein wesentlicher Bestandteil jeder effektiven und effizienten Projektentwicklungsumgebung.
 
 
-\subsection{Deployment der Anwendung} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsection{Deployment der Anwendung}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Die Entwicklung unserer Anwendung findet größtenteils auf unseren Laptops statt. Jedoch ist es auf diesen Geräten nur begrenzt möglich, die AR-Funktionalitäten zu testen. Um die Anwendung vollständig auf einem AR-fähigen Gerät zu überprüfen, muss sie auf dieses geladen werden. In diesem Abschnitt wird der genaue Prozess beschrieben, wann und wie die Anwendung auf ein AR-fähiges Gerät deployt wird.
 
@@ -306,7 +333,7 @@ Falls die Anwendung beendet wird, kann sie auf der HoloLens 2 unter \textit{Star
 Beim erstmaligen Deployment auf die HoloLens kann es zu Problemen kommen, die durch die Authentifizierung der HoloLens verursacht werden. In diesem Fall muss der "neue" Computer sich auf der HoloLens erneut authentifizieren. Dazu werden Sie nach dem Starten des Deployments aufgefordert. Auf dem Computer wird ein Authentifizierungscode angezeigt, der auf der HoloLens unter \textit{Einstellungen} $\rightarrow$ \textit{Update \& Sicherheit} $\rightarrow$ \textit{Für Entwickler} $\rightarrow$ \textit{Koppeln} eingegeben wird. Nachdem die Authentifizierung erfolgreich abgeschlossen wurde, kann das Deployment erneut gestartet werden.
 
 
-\section{Objektdesign} \marginpar{\small\(\rightarrow\) LAMPEL}
+\section{Objektdesign}\marginpar{\small\(\rightarrow\) {\tiny LAMPEL}}
 Die Bedeutung des Objektdesigns nimmt in der vorliegenden Arbeit einen zentralen Stellenwert ein, wie bereits im Abschnitt \ref{sec:wahlblender} erläutert wurde. Da sämtliche Modelle und Gegenstände eigenständig erstellt werden sollen, ist ein fundiertes Verständnis der grundlegenden Konzepte und Prozesse des Objektdesigns unerlässlich. Im nachfolgenden Abschnitt werden daher alle relevanten Begriffe erläutert, die beim Modellieren auftreten, und die einzelnen Schritte des Modellierungsprozesses werden in möglichst detaillierter Form durchgegangen.
 
 Das Objektdesign umfasst nicht nur die Schaffung von ästhetisch ansprechenden und funktionalen 3D-Modellen, sondern auch die Optimierung dieser Modelle, um ein optimales Benutzererlebnis sicherzustellen. Dies beinhaltet Aspekte wie die Effizienz der Modelle in Bezug auf Rechenleistung und Speicherplatz, die Benutzerfreundlichkeit sowie die visuelle und funktionale Qualität der Modelle.
@@ -867,7 +894,7 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 
 
 
-\section{Nachrichtenaustausch Anwendungsscenario} \marginpar{\small(\rightarrow) Schoditsch}
+\section{Nachrichtenaustausch Anwendungsscenario}\label{sec:Scene1}\marginpar{\small\(\rightarrow\) {\tiny SCHODITSCH}}
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um die Informationen wie Absender und Nachricht einzusehen.
 \begin{figure}[H]
@@ -1473,7 +1500,7 @@ Darüber hinaus erfolgt die Speicherung der X- und Y-Koordinaten der roten Pixel
 Nachteile an diesen Vorgange sind das diese Funktion mit nur einem Thread durchgeführt wird, das ist nicht besonders effizient und bedeutet längere Ladezeiten. Dazu werden nur drei Positionen genommen welche nicht sehr genau sind, das bedeutet dann dass, das Paket somit nicht wirklich gut über das Kabel bewegt.
 
 
-\subsection{Starten und Nutzen der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsection{Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite gemäß dem Anwendungsfall \ref{sec:jonasSzenario}. Die Webseite spielt eine zentrale Rolle im ersten Anwendungsszenario, dem Nachrichtenaustausch. Ziel ist es, dass zwei Geräte miteinander kommunizieren können. Für eine optimale Benutzererfahrung bedarf es daher einer intuitiven Benutzeroberfläche. Die Entscheidung, ein Web-Interface zu verwenden, basiert auf diesen zwei Faktoren:
 
 \begin{itemize}
@@ -1576,7 +1603,7 @@ Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an
 Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk getestet wurden. Sie sind höchstens für erste Prototypen akzeptabel, wenn überhaupt. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
 
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
-\subsection{Frontend der Webseite} \marginpar{\small\(\rightarrow\) LAMPEL}
+\subsection{Frontend der Webseite}\marginpar{\small\(\rightarrow\) {\tiny LAMPEL}}
 In diesem Abschnitt wird die Struktur und Entwicklung eines Frontends der Webseite zum Ping Anwendungsszenario erläutert. Besonderes Augenmerk wurde auf die zugrundeliegenden Entscheidungen bezüglich der Programmiersprachen sowie des Designprozesses gelegt.
 
 Nach mehreren Entwicklungszyklen im ersten Anwendungsszenario wurde entschieden, eine Webseite in das Projekt zu integrieren. Die Funktionalität der Webseite sollte nahtlos in das Szenario integriert werden. Hierzu können Nachrichten und Absender direkt auf der Webseite eingetragen werden, um sie anschließend in die HoloLens-Applikation zu übertragen.
@@ -1671,7 +1698,7 @@ Die Funktion \texttt{validateAndSendMessage()} in dem Codeabschnitt \ref{code:va
 
 Zunächst ruft die Funktion die Werte der Formularfelder für Benutzername und Nachricht ab und entfernt führende und abschließende Leerzeichen mit der trim()-Methode. Anschließend überprüft sie, ob sowohl der Benutzername als auch die Nachricht nicht leer sind. Wenn beide Felder nicht leer sind, wird die Funktion sendMessage(username, message) aufgerufen, um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird nichts weiter unternommen. Andernfalls wird eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
-\subsection{Backend der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsection{Backend der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Im vorherigen Abschnitt (\ref{sec:FrontendWebseite}) wurde der Designprozess der Webseite erläutert. Im Folgenden wird dieses Thema durch eine Beschreibung des Backend-Bereichs erweitert.
 
@@ -1731,7 +1758,7 @@ Webseite eingegeben. Der Listener läuft standardmäßig auf dem Port 9090.
 
 (Die erlaubten Endpunkte sind wie oben aufgeführt fallbasiert gelistet.)
 
-\section{Knapsack Problem Szenario} \marginpar{\small\(\rightarrow\) SKREPEK}
+\section{Knapsack Problem Anwendungsszenario}\label{sec:Scene2} \marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
 dieses Szenarios ist es, dieses Informatikproblem mithilfe von Augmented Reality (AR) visuell und spielerisch darzustellen.
 Das Knapsack-Problem ist ein klassisches Problem der Informatik, das nicht nur an der Höheren Technischen Lehranstalt (HTL)
@@ -1747,7 +1774,7 @@ und das Interesse an der Informatik zu fördern.
 In diesem Abschnitt werden alle \textit{GameObjects}, \textit{Komponenten}, \textit{Scripts} und \textit{Klassen} genauer
 erklärt, die in der Unity-Szene des Knapsack-Problems verwendet werden, um dieses zu realisieren.
 
-\subsection{Knapsack-Problem Szenrio Hirarchie} \marginpar{\small\(\rightarrow\) SKREPEK}
+\subsection{Knapsack-Problem Szenrio Hirarchie} \marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Für einen sicheren und funktionalen Ablauf ist der Aufbau beziehungsweise die Hirarchie der Unity Szene von großer Bedeutung.
 In diesem Abschnitt wird anhand der Abbildung \ref{fig:level2_hierarchy} verdeutlich wie die Unity Szene für die Implementierung
 des zweiten Anwendungsszenarios für das Knapsack-Problem aufgebaut ist und es wird zusätzlich kurz darauf eingegangen
@@ -1789,7 +1816,7 @@ Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
-\subsection{Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsection{Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu den einzelnen Gegenständen, die für das Knapsack-Inventar benötigt werden, zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt möchten wir näher darauf eingehen, wie genau diese QR-Codes generiert werden und welchen Zweck sie innerhalb der Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Codes generiert werden und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
 \subsubsection{Struktur und Inhalt eines QR-Codes}
@@ -2454,7 +2481,7 @@ lässt sich das Verhalten der Verwaltungsdynamik präzise steuern, um eine nahtl
 Die Begrenzungen eines Objekts, auch als \textit{Bounds} bezeichnet, sind ein essenzielles Konzept in der Computerspielentwicklung
 und anderen Bereichen der Computergrafik. Sie definieren den umschließenden \textit{Raum} oder \textit{Bereich}, den ein
 Objekt einnimmt. Diese Begrenzungen sind von grundlegender Bedeutung für die räumliche Positionierung von Objekten sowie
-für die Kollisions- und Interaktionsprüfung zwischen verschiedenen Elementen innerhalb einer Szene.\footnote{Unity Dokumentation \cite{Bounds}}
+für die Kollisions- und Interaktionsprüfung zwischen verschiedenen Elementen innerhalb einer Szene.\footnote{Unity-Dokumentation \cite{Bounds}}
 
 In Unity werden die Begrenzungen eines Objekts über die Eigenschaften der Klasse \textit{Bounds} verwaltet. Jedes Game
 Objekt in Unity ist mit einer \textit{Collider}-Komponente ausgestattet, der unter anderem die Begrenzungen des Objekts
@@ -2588,7 +2615,7 @@ Die Berechnung der Weltposition eines Objekts erfolgt durch Umrechnung seiner lo
 oder zum Koordinatenursprung in die Szene. Diese Berechnung wird durch eine einfache Vektoraddition realisiert, wobei
 die lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale Position in eine globale Koordinate
 umzuwandeln. Dadurch wird die tatsächliche Position des Objekts "in der Welt" bestimmt, was Interaktionen mit anderen
-Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity Dokumentation\cite{Lokal- und Weltposition}}
+Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity-Dokumentation\cite{Lokal- und Weltposition}}
 
 \subsubsection{Erkennen hinzugefügter oder entfernter Gegenstände}
 Das Herzstück des \textit{Inventory Controllers} ist die \texttt{Update()} Funktion. Sie erkennt neu hinzugefügte und
@@ -2811,7 +2838,7 @@ Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \text{processedItems} = \{1, 3, 11\}
 \]
 
-\subsection{EventManager} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\subsection{EventManager}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Der \textit{EventManager} ist ein entscheidendes Game-Objekt, das als zentrales Kommunikationselement fungiert und die
 Interaktion zwischen verschiedenen Komponenten und Klassen innerhalb der Anwendung ermöglicht. Implementiert als Klasse
@@ -3664,7 +3691,7 @@ wie in Abbildung \ref{fig:perfSolUserPOV} dargestellt.
 \end{figure}
 
 
-\section{Performance und Qualitätssicherung} \marginpar{\small\(\rightarrow\) HAYLAZ}
+\section{Performance und Qualitätssicherung} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Die Sicherstellung einer hohen Performance und Qualität in Softwareprojekten ist entscheidend für den Erfolg und die Zufriedenheit der Nutzer. Ein zentraler Bestandteil dieser Bemühungen sind \textit{Unit-Tests}, die sicherstellen, dass einzelne Komponenten korrekt funktionieren und den Erwartungen entsprechen. Im Rahmen dieses Projekts wurden Unit-Tests zur Überprüfung des Knapsack-Algorithmus (\ref{sec:knapsackAlgorithmus}), der für das Projekt von entscheidender Bedeutung ist, genutzt. Die Verwendung des Unity Test Frameworks ermöglichte es, diese Tests effizient zu erstellen und auszuführen.
 
