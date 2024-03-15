@@ -859,9 +859,16 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 
 
 
+
 \section{Nachrichtenaustausch Anwendungsscenario} \marginpar{\small(\rightarrow) Schoditsch}
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um die Informationen wie Absender und Nachricht einzusehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/AufbauAnzeige.png}
+    \caption{Aufbau in der realen Welt.}
+    \label{fig:AufbauUmgebung}
+\end{figure}
 
 \subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario}
 In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen GameObjects haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
@@ -951,7 +958,7 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
     \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt, die zur \textit{CameraParameter}-Klasse instanziiert werden.
     \item \textbf{PhotoCapture.TakePhotoAsync():} Macht das Foto.
     \item \textbf{PhotoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto innerhalb eine variable.
-    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer auf.
+    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer auf.\footnote{Unity, \cite{Photocapture}}
 \end{itemize}
 
 \subsubsection{Unity Canvas}
@@ -1018,7 +1025,7 @@ Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Ma
 \begin{itemize}
     \item \textit{x und y: }x Koordinate von einen 2 Dimensionalen Koordinatensystem
     \item \textit{magnitude: }Besitzt die größe des 2D Vektors. Die größe wird des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
-    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird.
+    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
 \end{itemize}
 
 \subsubsection{Fotoverarbeitung}
@@ -1150,7 +1157,7 @@ public class CoroutineExample : MonoBehaviour {
 }
 \end{lstlisting}
 Wenn dieses Skript zu einem \textit{GameObject} hinzugefügt wird, bewegt sich das Objekt mit der angegebenen Geschwindigkeit. Diese Geschwindigkeit gibt die variable \textit{moveSpeed} an, welches wenn nichts angegeben wird, standardmäßig auf eins gesetzt wird. Es wird auch angegeben in wie vielen Schritten (also Frame-Passagen) der Vorgang stattfinden soll, dies übernimmt die variable \textit{numSteps}. Dann soll auch noch die Position, wo das Objekt am Ende ankommen soll als \textit{Transform} mit dem Namen \textit{target} angegeben werden. Die \textit{Transform} Klasse welche speichert die Position, Rotation und Größe und lässt diese auch bearbeitet. \\
-Beim Start des Skripts wird sofort die \textit{Courutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} muss mit der Klasse \textit{IEnumerator} geschrieben werden, da wenn es ohne der \textit{IEnumerator} Klasse nicht möglich wäre, die Methode \textit{MoveToTarget} als Coroutine zu verwenden und mit \textit{StartCoroutine} aufzurufen. \textit{Coroutine}-Funktionen müssen eine \textit{IEnumerator}-Rückgabe haben, damit Unity sie als asynchrone Task ausführen kann. Durch die Verwendung von \textit{IEnumerator} können innerhalb von \textit{Coroutine} \textit{yield}-Anweisungen verwendet werden, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts. \\
+Beim Start des Skripts wird sofort die \textit{Courutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} muss mit der Klasse \textit{IEnumerator} geschrieben werden, da wenn es ohne der \textit{IEnumerator} Klasse nicht möglich wäre, die Methode \textit{MoveToTarget} als Coroutine zu verwenden und mit \textit{StartCoroutine} aufzurufen. \textit{Coroutine}-Funktionen müssen eine \textit{IEnumerator}-Rückgabe haben, damit Unity sie als asynchrone Task ausführen kann. Durch die Verwendung von \textit{IEnumerator} können innerhalb von \textit{Coroutine} \textit{yield}-Anweisungen verwendet werden, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
 \\
 Falls man aus irgendeinen Grund so eine Coroutine beenden will kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verweden. Als Beispiel wird eine sehr kleine Erweiterung von den Code Abschnitt \ref{code:coroutineBsp}.
 \begin{lstlisting}[style=csharp, caption={Coroutine beenden}, label=code:debugRaycast]
@@ -1326,7 +1333,12 @@ Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiterhin überpr�
 
 \subsection{Anzeigen von Informationen der Nachricht}
 Der Benutzer kann Mithilfe der Website welche auf beiden Laptops (links und rechts) offen ist eine Nachricht innerhalb des Paketes senden. Diese Informationen werden dann angezeigt wenn der Benutzer auf das virtuelle Paket klickt.
-%TODO Foto Informationen anzeigen
+\begin{figure}[H]
+    \centering
+    \includegraphics[scalimages/NachrichtenAnzeige.png}
+    \caption{Nachricht welche den benutzer angezeigt wir.}
+    \label{fig:AufbauUmgebung}
+\end{figure}
 Dies wird mithilfe des Gameobjekt \textit{InfoObject} gemacht welches Voreinstellungen für den Hintergrund und Text besitzt falls es zu Fehlern kommt. \\
 Um den Text des Objekts zu ändern muss auf das \textit{Text Mesh Pro} Gameobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen code
 \begin{lstlisting}[style=csharp, caption={Kind vom Gameobjekt bekommen}, label=code:]
@@ -1452,7 +1464,6 @@ void editTextureV2(Texture2D textureToEdit) {
 \end{lstlisting}
 Darüber hinaus erfolgt die Speicherung der X- und Y-Koordinaten der roten Pixel. Anschließend wird der Durchschnitt der X- und Y-Koordinaten dieser roten Pixel berechnet. Daraufhin werden drei Gesamtpositionen verwendet, über denen sich das Objekt bewegt. Die erste Position ist diejenige mit der geringsten X-Koordinate und der durchschnittlichen Y-Koordinate aller Y-Koordinaten, die einen roten Pixel aufweisen. Die zweite Position ist der Mittelpunkt zwischen dem Durchschnitt der X-Koordinaten und dem Durchschnitt der Y-Koordinaten. Die dritte Position ist der Endpunkt mit der höchsten X-Koordinate und dem durchschnittlichen Y-Wert. Diese Informationen werden in einer zweidimensionalen Vektorliste (redPixelCoordinates) gespeichert.\\
 Nachteile an diesen Vorgange sind das diese Funktion mit nur einem Thread durchgeführt wird, das ist nicht besonders effizient und bedeutet längere Ladezeiten. Dazu werden nur drei Positionen genommen welche nicht sehr genau sind, das bedeutet dann dass, das Paket somit nicht wirklich gut über das Kabel bewegt.
-
 
 
 \subsection{Starten und Nutzen der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
