@@ -1496,19 +1496,19 @@ Nach dem erfolgreichen Starten der Webseite muss zunächst die IP-Adresse der Ho
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.7\textwidth}
+    \begin{minipage}[b]{0.7\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/WebButton.png}
+        \includegraphics[width=\textwidth]{images/WebButton}
         \caption{Position des Buttons}
         \label{fig:webbut}
-    \end{subfigure}
+    \end{minipage}
     \hfill
-    \begin{subfigure}[b]{0.4\textwidth}
+    \begin{minipage}[b]{0.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/WebseiteSettings.png}
+        \includegraphics[width=\textwidth]{images/WebseiteSettings}
         \caption{Fenster der Webseite Einstellungen}
         \label{fig:websettings}
-    \end{subfigure}
+    \end{minipage}
 \end{figure}
 
 Da die Webseite in einem Szenario mit zwei Geräten verwendet wird, muss eingestellt werden, auf welcher Seite des Kabels
@@ -1551,9 +1551,6 @@ Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an
 \end{itemize}
 
 Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk getestet wurden. Sie sind höchstens für erste Prototypen akzeptabel, wenn überhaupt. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
-
-\subsubsection{Bedienung der Webseite}
-TODO: Bedienung und korrekte Simulation beschreiben.
 
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
 \subsection{Frontend der Webseite} \marginpar{\small\(\rightarrow\) LAMPEL}
@@ -1781,9 +1778,6 @@ Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 %TODO: Quellen
 % https://learn.microsoft.com/de-de/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview#best-practices-for-qr-code-detection
 
-
-TODO: Testen und Grafik erstellen um zu zeigen das es eine Rolle spielt welche version wir verwenden + wie groß die sind
-
 Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
 \begin{lstlisting}[style=csharp, caption={}, label=code:update]
@@ -1893,7 +1887,7 @@ repräsentierte Objekt erhalten.
 \subsubsection{Interaktion mit QR-Codes}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.04, angle=0]{images/bauklotz}
+\includegraphics[scale=0.5, angle=0]{images/bauklotz}
 \caption{Bauklötze mit QR-Codes}
 \label{fig:bauklotz}
 \end{figure}
@@ -1940,7 +1934,7 @@ Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.04, angle=0]{images/qrprefab}
+\includegraphics[scale=0.5, angle=0]{images/qrprefab}
 \caption{Hierarchie des QR-Code Prefabs}
 \label{fig:qrprefab}
 \end{figure}
@@ -2054,7 +2048,7 @@ Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) be
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5, angle=0]{images/scanned}
+\includegraphics[scale=0.3, angle=0]{images/scanned}
 \caption{Visualisierte QR-Codes}
 \label{fig:visqr}
 \end{figure}
@@ -2801,20 +2795,25 @@ Interaktion zwischen verschiedenen Komponenten und Klassen innerhalb der Anwendu
 im Skript \textit{EventManager.cs}, das dem Game-Objekt angehängt ist, spielt er eine unverzichtbare Rolle trotz seiner
 Kompaktheit, da er die Schnittstelle für die Kommunikation zwischen verschiedenen Klassen und Game-Objekten bereitstellt.
 
-Das Konzept der Ereignisse ermöglicht die Kommunikation zwischen verschiedenen Teilen eines Programms, ohne dass direkte
-Abhängigkeiten zwischen diesen Teilen bestehen müssen. Andere Teile des Codes können sich auf diese Ereignisse registrieren,
-um benachrichtigt zu werden, wenn sie auftreten. In diesem Zusammenhang werden spezifische Ereignisse definiert:
+
+\subsubsection*{Ereignisse und Aktionen}
+
+Ereignisse stellen einen wichtigen Mechanismus dar, um die Kommunikation zwischen verschiedenen Teilen eines Programms zu
+ermöglichen, ohne dass direkte Abhängigkeiten zwischen diesen Teilen bestehen müssen. Im Kontext der Anwendung wurden
+spezifische Ereignisse definiert, um auf bestimmte Aktionen zu reagieren:
 
 \begin{itemize}
-\item \textbf{Nachrichteneingang}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht von einem Laptop
-empfangen wird. Nach dem Auslösen wird ein Ping-Paket über ein Kabel auf der Brille simuliert.
-\item \textbf{Nachricht versendet}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht an einen Laptop
-gesendet wird. Es dient dazu die Empfangene Nachricht an den zweiten Laptop im richtigen Moment (nach Abschluss der
-Simulation) weiter zu leiten.
-\item \textbf{Inventar Aktualisierung}: Dieses Event wird ausgelöst, wenn im zweiten Level ein Item ins Inventar gelegt und
-das Inventar aktualisiert wird. Nach der Aktualisierung wird der aktuelle Wert des Inventars berechnet. Dadurch können
-wir auf eine ständige Neuberechnung des Inventars verzichten und limitierte Ressourcen sparen.
+    \item \textbf{Nachrichteneingang}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht von einem Laptop
+    empfangen wird. Nach dem Auslösen wird ein Ping-Paket über ein Kabel auf der Brille simuliert.
+    \item \textbf{Nachricht versendet}: Dieses Event wird ausgelöst, wenn im ersten Level eine Nachricht an einen Laptop
+    gesendet wird. Es dient dazu die Empfangene Nachricht an den zweiten Laptop im richtigen Moment (nach Abschluss der
+    Simulation) weiter zu leiten.
+    \item \textbf{Inventar Aktualisierung}: Dieses Event wird ausgelöst, wenn im zweiten Level ein Item ins Inventar gelegt und
+    das Inventar aktualisiert wird. Nach der Aktualisierung wird der aktuelle Wert des Inventars berechnet. Dadurch können
+    wir auf eine ständige Neuberechnung des Inventars verzichten und limitierte Ressourcen sparen.
 \end{itemize}
+
+\subsubsection*{Implementierung}
 
 Die Klasse \textit{EventManager} definiert diese Ereignisse als statische Ereignisse und stellt Methoden bereit, um die
 Ereignisse auszulösen. Dies erleichtert die globale Verwendung des Ereignissystems in verschiedenen Teilen des Codes.
@@ -2847,6 +2846,7 @@ Der gezeigte Codeabschnitt definiert ein Ereignis und eine Methode, die verwende
 
 Zum Beispiel wird in diesem Kontext das \textit{OnGridUpdate}-Ereignis definiert, um die Aktualisierung des Inventars zu signalisieren. Die Methode \textit{GridUpdate} dient dazu, dieses Ereignis auszulösen, indem sie es aufruft und dabei Informationen über das aktualisierte Inventar übergibt.
 
+\subsubsection*{Registrierung von Ereignishandlern}
 Um auf das aktualisierte Inventar zu reagieren, könnten andere Teile des Codes sich auf dieses Ereignis registrieren, indem sie eine Methode oder einen Handler bereitstellen, der ausgeführt wird, wenn das Ereignis eintritt, wie folgt:
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
@@ -2868,6 +2868,7 @@ CalculateKnapsack();
 
 Nachdem die Szene geladen wurde, registriert sich die Klasse \textit{KnapsackSolver} für das Ereignis \textit{OnGridUpdate}, indem sie die Methode \textit{SetInventory} als Ereignishandler verwendet. Das bedeutet, dass jedes Mal, wenn das Ereignis "OnGridUpdate" ausgelöst wird, die Methode \textit{SetInventory} aufgerufen wird, um den aktuellen Wert des neuen Inventars zu berechnen. Weiteres zur Berechnung des Inventarwertes ist in diesem Abschnitt zu finden, \ref{sec:MoritzInventarBerechnen}.
 
+\subsubsection*{Auslösen von Ereignissen}
 
 \begin{lstlisting}[style=csharp label=code:Event Trigger]
 EventManager.GridUpdate(idGrid);
@@ -2875,6 +2876,7 @@ EventManager.GridUpdate(idGrid);
 
 Das Auslösen des \textit{OnGridUpdate} Events wird durch den obigen Codeabschnitt erreicht. Dieser Codeabschnitt befindet
 sich in der \textit{InventoryController} Klasse und wird aufgerufen, wenn ein neues Item hinzugefügt oder entfernt wird.
+
 
 Insgesamt ermöglicht dieser simple Code eine lose Kopplung zwischen verschiedenen Teilen des Programms, indem Ereignisse verwendet
 werden, um auf bestimmte Aktionen zu reagieren, ohne dass die beteiligten Teile voneinander wissen müssen. Dadurch wird die
@@ -3655,7 +3657,7 @@ In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.04, angle=0]{images/testRunner}
+\includegraphics[scale=0.5, angle=0]{images/testRunner}
 \caption{Test-Runnner Fenster}
 \label{fig:testRunner}
 \end{figure}
@@ -3846,6 +3848,7 @@ Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{Knap
 Die Methode beginnt mit der Ausgabe einer Überschrift, die das Format des folgenden Leistungsberichts festlegt. Im Hauptteil der Methode wird eine Schleife durchlaufen, die verschiedene Anzahlen von Gegenständen im Rucksack simuliert. Die Anzahl der Gegenstände steigt schrittweise von 50 bis 1000, wobei in jedem Schritt 50 Gegenstände hinzugefügt werden. Innerhalb der Schleife werden zunächst der obere Grenzwert für das Gewicht der Gegenstände und die Kapazität des Rucksacks basierend auf der aktuellen Anzahl von Gegenständen berechnet. Anschließend werden zufällige Gegenstände generiert, die in den Rucksack aufgenommen werden sollen. Die generierten Gegenstände sowie die Kapazität des Rucksacks werden dann dem Algorithmus zugewiesen.
 Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife eine Stoppuhr gestartet, bevor die Methode "KnapsackMaxValue" aufgerufen wird, um den maximalen Wert des Rucksacks zu berechnen. Nach Beendigung des Methodenaufrufs wird die Stoppuhr gestoppt, und die verstrichene Zeit wird zusammen mit der Anzahl der Gegenstände im Rucksack protokolliert.
 
+\subsubsection*{Iterationen bei fester Gegenstandsanzahl}
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
     [Test]
@@ -3896,15 +3899,17 @@ Im Abschnitt KnapsackPerformanceReportRangeIteration wird die Leistung des Knaps
 
 Darüber hinaus verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Methode zur Messung der verstrichenen Zeit, indem die Methode ElapsedMilliseconds der Stopwatch-Klasse verwendet wird, um die Zeit in Millisekunden zu erfassen. Im Gegensatz dazu verwendet der Abschnitt KnapsackPerformanceReportRangeIteration die Berechnung der verstrichenen Ticks und deren Umrechnung in Mikrosekunden für eine genauere Messung.
 
+\subsubsection*{Ergebnisse der Performance-Messung
+
 \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.50\textwidth}
+    \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/exclGeg}
         \label{fig:exclGeg}
     \end{minipage}
     \hfill
-    \begin{minipage}[b]{0.50\textwidth}
+    \begin{minipage}[b]{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/exclIte}
         \label{fig:exclIte}
