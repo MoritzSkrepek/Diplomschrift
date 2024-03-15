@@ -295,8 +295,10 @@ Falls die Anwendung beendet wird, kann sie auf der HoloLens 2 unter \textit{Star
 Beim erstmaligen Deployment auf die HoloLens kann es zu Problemen kommen, die durch die Authentifizierung der HoloLens verursacht werden. In diesem Fall muss der "neue" Computer sich auf der HoloLens erneut authentifizieren. Dazu werden Sie nach dem Starten des Deployments aufgefordert. Auf dem Computer wird ein Authentifizierungscode angezeigt, der auf der HoloLens unter \textit{Einstellungen} $\rightarrow$ \textit{Update \& Sicherheit} $\rightarrow$ \textit{Für Entwickler} $\rightarrow$ \textit{Koppeln} eingegeben wird. Nachdem die Authentifizierung erfolgreich abgeschlossen wurde, kann das Deployment erneut gestartet werden.
 
 
-\section{Objektdesign mit Blender} \marginpar{\small\(\rightarrow\) LAMPEL}
-Das Entwerfen von 3D-Objekten mit Blender erfordert ein Verständnis der Struktur und Funktionalität dieser leistungsstarken Software. Im Folgenden wird erläutert, wie Blender aufgebaut ist, auf welche Aspekte bei der Gestaltung der Objekte geachtet wurde und welche Add-ons und Plug-ins verwendet wurden, um den Designprozess zu optimieren.
+\section{Objektdesign} \marginpar{\small\(\rightarrow\) LAMPEL}
+Die Bedeutung des Objektdesigns nimmt in der vorliegenden Arbeit einen zentralen Stellenwert ein, wie bereits im Abschnitt \ref{sec:wahlblender} erläutert wurde. Da sämtliche Modelle und Gegenstände eigenständig erstellt werden sollen, ist ein fundiertes Verständnis der grundlegenden Konzepte und Prozesse des Objektdesigns unerlässlich. Im nachfolgenden Abschnitt werden daher alle relevanten Begriffe erläutert, die beim Modellieren auftreten, und die einzelnen Schritte des Modellierungsprozesses werden in möglichst detaillierter Form durchgegangen.
+
+Das Objektdesign umfasst nicht nur die Schaffung von ästhetisch ansprechenden und funktionalen 3D-Modellen, sondern auch die Optimierung dieser Modelle, um ein optimales Benutzererlebnis sicherzustellen. Dies beinhaltet Aspekte wie die Effizienz der Modelle in Bezug auf Rechenleistung und Speicherplatz, die Benutzerfreundlichkeit sowie die visuelle und funktionale Qualität der Modelle.
 
 \subsection{Texturen}
 Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen.
@@ -340,8 +342,8 @@ Polygone sind grundlegende Bausteine eines Meshes und spielen eine wichtige Roll
 
 Durch die Anordnung und Verbindung von Polygonen entstehen komplexe Strukturen, die eine visuelle Darstellung von Objekten ermöglichen. Je mehr Polygone ein Modell hat, desto detaillierter und realistischer kann es dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. Polygone sind somit ein wesentlicher Bestandteil eines Meshes und tragen maßgeblich zur visuellen Qualität und Komplexität eines 3D-Modells bei.
 
-\subsection{Optimierung für Augmented Reality}
-Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung für Augmented Reality (AR). Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung.
+\subsection{Optimierung der einzelnen Modelle}
+Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung dieser. Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung.
 
 \subsubsection{Polygonreduktion}
 Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen. Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf verschiedenen Plattformen. \footnote{All3DP \cite{How to reduce Polygons}}
@@ -591,8 +593,7 @@ Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um di
 
 \textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise Texturierung und Gestaltung ermöglicht.
 
-\subsubsection{Restlichen Modelle}
-% einfügen aller modelle in kleiner tabellenfrom
+\subsubsection{Restliche Modelle}
 \begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.20\textwidth}
@@ -617,10 +618,10 @@ Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um di
 \end{figure}
 
 \subsubsection*{Ping-Paket-Modell}
-Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf Level 1 konzipiert, um Spielern das grundlegende Konzept eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
+Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf das erste Anwendungsszenario konzipiert, um den Benutzern das grundlegende Konzept eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
 
 \subsubsection*{Laptop-Modell}
-Der Laptop stellt einen unverzichtbaren Gegenstand auf Level 2 dar und ist ein essenzielles Werkzeug für Schüler ab der 3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
+Der Laptop stellt einen unverzichtbaren Gegenstand im zweiten Anwendungsszenario dar und ist ein essentielles Werkzeug für Schüler ab der 3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
 
 \subsubsection*{Router-Modell}
 Die Modellierung des Routers war eine iterative Aufgabe, die mehrere Versionen erforderte, um ein realistisches und ansprechendes Modell zu erzielen. Das finale Modell repräsentiert einen Gaming-Router mit vielen Anschlüssen und Bedienelementen. Aufgrund der Vielzahl an Details war die Modellierung sehr anspruchsvoll und zeitaufwendig.
@@ -652,7 +653,7 @@ Die Modellierung der Maus war eine Standardaufgabe, bei der der Mirror Modifier 
     \end{minipage}
 \end{figure}
 
-\subsubsection*{Block-Modell}
+\subsubsection*{Notizblock-Modell}
 Der Block ist ein wichtiger Gegenstand im schulischen Umfeld bis zur 3. Klasse, wenn noch keine Laptops verwendet werden. Während der Designphase ermöglichte der Array Modifier eine einfache Gestaltung der spiralförmigen Halterung der Blätter.
 
 \subsubsection*{Stift-Modell}
@@ -662,7 +663,7 @@ Der Stift wurde einfach modelliert und erhielt eine unkomplizierte Texturierung 
 Die Modellierung der Kopfhörer erforderte aufgrund ihrer geschwungenen Form und der texturierten Oberfläche besondere Aufmerksamkeit. Das Modell durchlief zwei Phasen: zunächst eine Annäherung an das Referenzbild eines Gaming-Kopfhörers und dann eine Verfeinerung, einschließlich einer aufwendigen Lederstrukturtextur.
 
 \subsubsection*{Dose-Modell}
-Die Modellierung der Energydose begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde. Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein Redbull-Label als Referenz diente.
+Die Modellierung der Dose eines Energydrinks begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde. Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein bekanntes Produktlabel als Referenz diente.
 
 \newpage
 \begin{figure}[H]
@@ -686,7 +687,7 @@ Die Modellierung der Energydose begann mit einem einfachen Zylinder, der dann an
 \subsubsection*{USB-Stick-Modell}
 Der USB-Stick wurde mit einer integrierten Halterung für zusätzliche Komplexität modelliert. Die Texturierung betonte einen metallischen Effekt, insbesondere für die Halterung und das vordere Teil des USB-Sticks.
 
-\subsubsection*{Verteiler-Modell}
+\subsubsection*{Stromverteiler-Modell}
 Der Stromverteiler wurde mit fünf Steckplätzen und einem Ein/Aus-Schalter modelliert, wobei der Fokus auf einfacher Funktionalität lag. Die Texturierung orientierte sich an einfachen weißen Steckerleisten.
 
 \subsubsection*{Handy-Modell}
