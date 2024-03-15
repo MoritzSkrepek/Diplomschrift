@@ -859,9 +859,16 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 
 
 
+
 \section{Nachrichtenaustausch Anwendungsscenario} \marginpar{\small(\rightarrow) Schoditsch}
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um die Informationen wie Absender und Nachricht einzusehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/AufbauAnzeige.png}
+    \caption{Aufbau in der realen Welt.}
+    \label{fig:AufbauUmgebung}
+\end{figure}
 
 \subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario}
 In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen GameObjects haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
@@ -951,7 +958,7 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
     \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt, die zur \textit{CameraParameter}-Klasse instanziiert werden.
     \item \textbf{PhotoCapture.TakePhotoAsync():} Macht das Foto.
     \item \textbf{PhotoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto innerhalb eine variable.
-    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer auf.
+    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer auf.\footnote{Unity, \cite{Photocapture}}
 \end{itemize}
 
 \subsubsection{Unity Canvas}
@@ -1018,7 +1025,7 @@ Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Ma
 \begin{itemize}
     \item \textit{x und y: }x Koordinate von einen 2 Dimensionalen Koordinatensystem
     \item \textit{magnitude: }Besitzt die größe des 2D Vektors. Die größe wird des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
-    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird.
+    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
 \end{itemize}
 
 \subsubsection{Fotoverarbeitung}
@@ -1150,7 +1157,7 @@ public class CoroutineExample : MonoBehaviour {
 }
 \end{lstlisting}
 Wenn dieses Skript zu einem \textit{GameObject} hinzugefügt wird, bewegt sich das Objekt mit der angegebenen Geschwindigkeit. Diese Geschwindigkeit gibt die variable \textit{moveSpeed} an, welches wenn nichts angegeben wird, standardmäßig auf eins gesetzt wird. Es wird auch angegeben in wie vielen Schritten (also Frame-Passagen) der Vorgang stattfinden soll, dies übernimmt die variable \textit{numSteps}. Dann soll auch noch die Position, wo das Objekt am Ende ankommen soll als \textit{Transform} mit dem Namen \textit{target} angegeben werden. Die \textit{Transform} Klasse welche speichert die Position, Rotation und Größe und lässt diese auch bearbeitet. \\
-Beim Start des Skripts wird sofort die \textit{Courutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} muss mit der Klasse \textit{IEnumerator} geschrieben werden, da wenn es ohne der \textit{IEnumerator} Klasse nicht möglich wäre, die Methode \textit{MoveToTarget} als Coroutine zu verwenden und mit \textit{StartCoroutine} aufzurufen. \textit{Coroutine}-Funktionen müssen eine \textit{IEnumerator}-Rückgabe haben, damit Unity sie als asynchrone Task ausführen kann. Durch die Verwendung von \textit{IEnumerator} können innerhalb von \textit{Coroutine} \textit{yield}-Anweisungen verwendet werden, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts. \\
+Beim Start des Skripts wird sofort die \textit{Courutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} muss mit der Klasse \textit{IEnumerator} geschrieben werden, da wenn es ohne der \textit{IEnumerator} Klasse nicht möglich wäre, die Methode \textit{MoveToTarget} als Coroutine zu verwenden und mit \textit{StartCoroutine} aufzurufen. \textit{Coroutine}-Funktionen müssen eine \textit{IEnumerator}-Rückgabe haben, damit Unity sie als asynchrone Task ausführen kann. Durch die Verwendung von \textit{IEnumerator} können innerhalb von \textit{Coroutine} \textit{yield}-Anweisungen verwendet werden, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
 \\
 Falls man aus irgendeinen Grund so eine Coroutine beenden will kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verweden. Als Beispiel wird eine sehr kleine Erweiterung von den Code Abschnitt \ref{code:coroutineBsp}.
 \begin{lstlisting}[style=csharp, caption={Coroutine beenden}, label=code:debugRaycast]
@@ -1326,7 +1333,12 @@ Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiterhin überpr�
 
 \subsection{Anzeigen von Informationen der Nachricht}
 Der Benutzer kann Mithilfe der Website welche auf beiden Laptops (links und rechts) offen ist eine Nachricht innerhalb des Paketes senden. Diese Informationen werden dann angezeigt wenn der Benutzer auf das virtuelle Paket klickt.
-%TODO Foto Informationen anzeigen
+\begin{figure}[H]
+    \centering
+    \includegraphics[scalimages/NachrichtenAnzeige.png}
+    \caption{Nachricht welche den benutzer angezeigt wir.}
+    \label{fig:AufbauUmgebung}
+\end{figure}
 Dies wird mithilfe des Gameobjekt \textit{InfoObject} gemacht welches Voreinstellungen für den Hintergrund und Text besitzt falls es zu Fehlern kommt. \\
 Um den Text des Objekts zu ändern muss auf das \textit{Text Mesh Pro} Gameobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen code
 \begin{lstlisting}[style=csharp, caption={Kind vom Gameobjekt bekommen}, label=code:]
@@ -1452,7 +1464,6 @@ void editTextureV2(Texture2D textureToEdit) {
 \end{lstlisting}
 Darüber hinaus erfolgt die Speicherung der X- und Y-Koordinaten der roten Pixel. Anschließend wird der Durchschnitt der X- und Y-Koordinaten dieser roten Pixel berechnet. Daraufhin werden drei Gesamtpositionen verwendet, über denen sich das Objekt bewegt. Die erste Position ist diejenige mit der geringsten X-Koordinate und der durchschnittlichen Y-Koordinate aller Y-Koordinaten, die einen roten Pixel aufweisen. Die zweite Position ist der Mittelpunkt zwischen dem Durchschnitt der X-Koordinaten und dem Durchschnitt der Y-Koordinaten. Die dritte Position ist der Endpunkt mit der höchsten X-Koordinate und dem durchschnittlichen Y-Wert. Diese Informationen werden in einer zweidimensionalen Vektorliste (redPixelCoordinates) gespeichert.\\
 Nachteile an diesen Vorgange sind das diese Funktion mit nur einem Thread durchgeführt wird, das ist nicht besonders effizient und bedeutet längere Ladezeiten. Dazu werden nur drei Positionen genommen welche nicht sehr genau sind, das bedeutet dann dass, das Paket somit nicht wirklich gut über das Kabel bewegt.
-
 
 
 \subsection{Starten und Nutzen der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
@@ -2341,21 +2352,26 @@ einzelnen Schritte des Prozesses besser zu verstehen und den Abschluss des Platz
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.30\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schritteins.png}
+        \includegraphics[width=\textwidth, height=6cm]{images/schritteins.png}
+        \caption{Schritt 1}
         \label{fig:eins}
     \end{minipage}
     \hfill
-    \begin{minipage}[b]{0.30\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schrittzwei.png}
+        \includegraphics[width=\textwidth, height=6cm]{images/schrittzwei.png}
+        \caption{Schritt 2}
         \label{fig:zwei}
-        \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.30\textwidth}
+    \end{minipage}
+
+    \vspace{0.5cm} % Optionaler vertikaler Abstand zwischen den Zeilen
+
+    \begin{minipage}[b]{1\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schrittdrei.png}
+        \includegraphics[width=1\textwidth]{images/schrittdrei.png}
+        \caption{Schritt 3}
         \label{fig:drei}
     \end{minipage}
 \end{figure}
@@ -2668,21 +2684,19 @@ um zu veranschaulichen, wie sich das Inventar sowie die zugrundeliegende Datenst
 verhalten. Dabei wird auch darauf eingegangen, wie der Benutzer durch die grafische Benutzeroberfläche (GUI) über
 diese Zustände informiert wird.
 
-\subsubsection*{Gegenstand zum Inventar hinzugefügt}
+\subsubsection*{Gegenstand zu dem Rucksack hinzugefügt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand erfolgreich in dem Inventar platziert hat. Das Inventar
 reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur. Die nachfolgende Abbildung
 \ref{fig:controller_itemAdded} visualisiert diesen Zustand.
 
-%TODO: BILD VON HINZUGEFÜGTEM ITEM IN HOLOLENS MACHEN
-
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{images/itemAdded}
-    \caption{Inventar mit erfolgreich hinzugefügtem Gegenstand}
+    \includegraphics[width=\textwidth]{images/itemAdded}
+    \caption{Ruckasck mit erfolgreich hinzugefügtem Gegenstand}
     \label{fig:controller_itemAdded}
 \end{figure}
 
-Die Abbildung verdeutlicht die gelungene Integration des neuen Gegenstands in das Inventar. Durch eine klare visuelle
+Die Abbildung verdeutlicht die gelungene Integration des neuen Gegenstands in den Rucksack. Durch eine klare visuelle
 Darstellung signalisiert das \textit{Info Mesh} dem Benutzer unmissverständlich den aktualisierten Zustand des Inventars
 und bestätigt die erfolgreiche Platzierung des Gegenstands.
 
@@ -2704,20 +2718,18 @@ doppelt berücksichtigt wird:
 \text{processedItems} = \{1\}
 \]
 
-\subsubsection*{Gegenstand aus dem Inventar entfernt}
+\subsubsection*{Gegenstand aus dem Rucksack entfernt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar entfernt hat, wie in Abbildung
 \ref{fig:controller_itemRemoved} dargestellt.
 
-%TODO: BILD VON ENTFERNTEM ITEM IN HOLOLENS MACHEN
-
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{images/itemEntfernt}
-\caption{Inventar nach Entfernen eines Gegenstands}
-\label{fig:controller_itemRemoved}
+    \centering
+    \includegraphics[width=\textwidth]{images/itemEntfernt}
+    \caption{Inventar nach Entfernen eines Gegenstands}
+    \label{fig:controller_itemRemoved}
 \end{figure}
 
-Die Abbildung zeigt das Inventar nach Entfernen des Gegenstands aus der Position 4. Das \textit{Info Mesh} signalisiert
+Die Abbildung zeigt den Rucksack nach Entfernen des Gegenstands aus der Position 4. Das \textit{Info Mesh} signalisiert
 dem Benutzer deutlich den aktualisierten Zustand des Inventars und bestätigt die erfolgreiche Entfernung des Gegenstands.
 
 Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten Gegenstand zu berücksichtigen:
@@ -2726,8 +2738,8 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 1 & 0 \\
-0 & 3 & 0 \\
+1 & 3 & 0 \\
+0 & 11 & 0 \\
 \end{array}
 \right]
 \]
@@ -2737,8 +2749,8 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 0 & 0 \\
-0 & 3 & 0 \\
+1 & 0 & 0 \\
+0 & 11 & 0 \\
 \end{array}
 \right]
 \]
@@ -2746,30 +2758,29 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 Gleichzeitig wird der Gegenstand aus dem \texttt{processedItems}-Array entfernt, um sicherzustellen, dass er nicht
 erneut verarbeitet wird:
 \[
-\text{processedItems (vorher)} = \{1\}
+\text{processedItems (vorher)} = \{1, 3, 11\}
 \]
 
 \[
-\text{processedItems (nachher)} = \{\}
+\text{processedItems (nachher)} = \{1, 11\}
 \]
 
-\subsubsection*{Gegenstand zu schwer für das Inventar}
+\subsubsection*{Gegenstand zu schwer für den Rucksack}
 Dieser Zustand tritt ein, wenn der Benutzer versucht, einen Gegenstand hinzuzufügen, der das Gewichtslimit des Inventars
 überschreitet, wie in Abbildung \ref{fig:controller_itemTooHeavy} illustriert.
 
-%TODO: BILD FÜR GEGENSTAND ZU SCHWER IN HOLOLENS MACHEN
-
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{images/itemToHeavy}
-\caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
-\label{fig:controller_itemTooHeavy}
+    \centering
+    \includegraphics[width=\textwidth]{images/itemToHeavy}
+    \caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
+    \label{fig:controller_itemTooHeavy}
 \end{figure}
 
-Die Abbildung zeigt das Inventar mit mehreren hinzugefügten Gegenständen. Die Reihenfolge in der diese Gegenstände
-hinzugefügt wurden, ist die folgende: 1, 5, 3, 9. Dies ist wichtig, weil der zuletzt hinzugefügt Gegenstand den zu
-schweren Gegenstand widerspiegelt. Auch zu sehen ist, dass das \textit{Info Mesh} den Benutzer deutlich über das
-Überschreiten des Gewichtslimits informiert und das Hinzufügen des Gegenstands verhindert.
+Die Abbildung zeigt den Ruckasack mit mehreren hinzugefügten Gegenständen. Die Reihe in der diese Gegenstände
+hinzugefügt wurden, ist die folgende: Laptop (ID: 1), Maus (ID: 3), Handy (ID: 11), Kopfhörer (ID: 6). Diese Reihenfolge
+ist wichtig, weil der zuletzt hinzugefügte Gegenstand den zu schweren Gegenstand widerspiegelt. Auch zu sehen ist, dass
+das \textit{Info Mesh} den Benutzer deutlich über das Überschreiten des Gewichtslimits informiert und das Hinzufügen
+des Gegenstands verhindert.
 
 Im Hintergrund bleibt das \texttt{usedItems}-Array unverändert, da der Gegenstand nicht hinzugefügt wurde:
 \[
@@ -2777,15 +2788,15 @@ Im Hintergrund bleibt das \texttt{usedItems}-Array unverändert, da der Gegensta
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 0 & 0 \\
-1 & 3 & 0 \\
+1 & 0 & 0 \\
+3 & 11 & 0 \\
 \end{array}
 \right]
 \]
 \\
 Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \[
-\text{processedItems} = \{1, 5, 3\}
+\text{processedItems} = \{1, 3, 11\}
 \]
 
 \subsection{EventManager} \marginpar{\small\(\rightarrow\) HAYLAZ}
@@ -3635,7 +3646,7 @@ ausgeführt wurde, wird die perfekte Lösung platziert und vervollständigt. Ans
 wie in Abbildung \ref{fig:perfSolUserPOV} dargestellt.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.8]{images/perfSolUserPOV}
+    \includegraphics[width=\textwidth]{images/perfSolUserPOV}
     \caption{Perfekte Lösung}
     \label{fig:perfSolUserPOV}
 \end{figure}
