@@ -2347,21 +2347,26 @@ einzelnen Schritte des Prozesses besser zu verstehen und den Abschluss des Platz
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.30\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schritteins.png}
+        \includegraphics[width=\textwidth, height=6cm]{images/schritteins.png}
+        \caption{Schritt 1}
         \label{fig:eins}
     \end{minipage}
     \hfill
-    \begin{minipage}[b]{0.30\textwidth}
+    \begin{minipage}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schrittzwei.png}
+        \includegraphics[width=\textwidth, height=6cm]{images/schrittzwei.png}
+        \caption{Schritt 2}
         \label{fig:zwei}
-        \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.30\textwidth}
+    \end{minipage}
+
+    \vspace{0.5cm} % Optionaler vertikaler Abstand zwischen den Zeilen
+
+    \begin{minipage}[b]{1\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/schrittdrei.png}
+        \includegraphics[width=1\textwidth]{images/schrittdrei.png}
+        \caption{Schritt 3}
         \label{fig:drei}
     \end{minipage}
 \end{figure}
@@ -2674,21 +2679,19 @@ um zu veranschaulichen, wie sich das Inventar sowie die zugrundeliegende Datenst
 verhalten. Dabei wird auch darauf eingegangen, wie der Benutzer durch die grafische Benutzeroberfläche (GUI) über
 diese Zustände informiert wird.
 
-\subsubsection*{Gegenstand zum Inventar hinzugefügt}
+\subsubsection*{Gegenstand zu dem Rucksack hinzugefügt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand erfolgreich in dem Inventar platziert hat. Das Inventar
 reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur. Die nachfolgende Abbildung
 \ref{fig:controller_itemAdded} visualisiert diesen Zustand.
 
-%TODO: BILD VON HINZUGEFÜGTEM ITEM IN HOLOLENS MACHEN
-
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.5]{images/itemAdded}
-    \caption{Inventar mit erfolgreich hinzugefügtem Gegenstand}
+    \includegraphics[width=\textwidth]{images/itemAdded}
+    \caption{Ruckasck mit erfolgreich hinzugefügtem Gegenstand}
     \label{fig:controller_itemAdded}
 \end{figure}
 
-Die Abbildung verdeutlicht die gelungene Integration des neuen Gegenstands in das Inventar. Durch eine klare visuelle
+Die Abbildung verdeutlicht die gelungene Integration des neuen Gegenstands in den Rucksack. Durch eine klare visuelle
 Darstellung signalisiert das \textit{Info Mesh} dem Benutzer unmissverständlich den aktualisierten Zustand des Inventars
 und bestätigt die erfolgreiche Platzierung des Gegenstands.
 
@@ -2710,20 +2713,18 @@ doppelt berücksichtigt wird:
 \text{processedItems} = \{1\}
 \]
 
-\subsubsection*{Gegenstand aus dem Inventar entfernt}
+\subsubsection*{Gegenstand aus dem Rucksack entfernt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar entfernt hat, wie in Abbildung
 \ref{fig:controller_itemRemoved} dargestellt.
 
-%TODO: BILD VON ENTFERNTEM ITEM IN HOLOLENS MACHEN
-
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{images/itemEntfernt}
-\caption{Inventar nach Entfernen eines Gegenstands}
-\label{fig:controller_itemRemoved}
+    \centering
+    \includegraphics[width=\textwidth]{images/itemEntfernt}
+    \caption{Inventar nach Entfernen eines Gegenstands}
+    \label{fig:controller_itemRemoved}
 \end{figure}
 
-Die Abbildung zeigt das Inventar nach Entfernen des Gegenstands aus der Position 4. Das \textit{Info Mesh} signalisiert
+Die Abbildung zeigt den Rucksack nach Entfernen des Gegenstands aus der Position 4. Das \textit{Info Mesh} signalisiert
 dem Benutzer deutlich den aktualisierten Zustand des Inventars und bestätigt die erfolgreiche Entfernung des Gegenstands.
 
 Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten Gegenstand zu berücksichtigen:
@@ -2732,8 +2733,8 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 1 & 0 \\
-0 & 3 & 0 \\
+1 & 3 & 0 \\
+0 & 11 & 0 \\
 \end{array}
 \right]
 \]
@@ -2743,8 +2744,8 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 0 & 0 \\
-0 & 3 & 0 \\
+1 & 0 & 0 \\
+0 & 11 & 0 \\
 \end{array}
 \right]
 \]
@@ -2752,30 +2753,29 @@ Im Hintergrund wird das \texttt{usedItems}-Array aktualisiert, um den entfernten
 Gleichzeitig wird der Gegenstand aus dem \texttt{processedItems}-Array entfernt, um sicherzustellen, dass er nicht
 erneut verarbeitet wird:
 \[
-\text{processedItems (vorher)} = \{1\}
+\text{processedItems (vorher)} = \{1, 3, 11\}
 \]
 
 \[
-\text{processedItems (nachher)} = \{\}
+\text{processedItems (nachher)} = \{1, 11\}
 \]
 
-\subsubsection*{Gegenstand zu schwer für das Inventar}
+\subsubsection*{Gegenstand zu schwer für den Rucksack}
 Dieser Zustand tritt ein, wenn der Benutzer versucht, einen Gegenstand hinzuzufügen, der das Gewichtslimit des Inventars
 überschreitet, wie in Abbildung \ref{fig:controller_itemTooHeavy} illustriert.
 
-%TODO: BILD FÜR GEGENSTAND ZU SCHWER IN HOLOLENS MACHEN
-
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{images/itemToHeavy}
-\caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
-\label{fig:controller_itemTooHeavy}
+    \centering
+    \includegraphics[width=\textwidth]{images/itemToHeavy}
+    \caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
+    \label{fig:controller_itemTooHeavy}
 \end{figure}
 
-Die Abbildung zeigt das Inventar mit mehreren hinzugefügten Gegenständen. Die Reihenfolge in der diese Gegenstände
-hinzugefügt wurden, ist die folgende: 1, 5, 3, 9. Dies ist wichtig, weil der zuletzt hinzugefügt Gegenstand den zu
-schweren Gegenstand widerspiegelt. Auch zu sehen ist, dass das \textit{Info Mesh} den Benutzer deutlich über das
-Überschreiten des Gewichtslimits informiert und das Hinzufügen des Gegenstands verhindert.
+Die Abbildung zeigt den Ruckasack mit mehreren hinzugefügten Gegenständen. Die Reihe in der diese Gegenstände
+hinzugefügt wurden, ist die folgende: Laptop (ID: 1), Maus (ID: 3), Handy (ID: 11), Kopfhörer (ID: 6). Diese Reihenfolge
+ist wichtig, weil der zuletzt hinzugefügte Gegenstand den zu schweren Gegenstand widerspiegelt. Auch zu sehen ist, dass
+das \textit{Info Mesh} den Benutzer deutlich über das Überschreiten des Gewichtslimits informiert und das Hinzufügen
+des Gegenstands verhindert.
 
 Im Hintergrund bleibt das \texttt{usedItems}-Array unverändert, da der Gegenstand nicht hinzugefügt wurde:
 \[
@@ -2783,15 +2783,15 @@ Im Hintergrund bleibt das \texttt{usedItems}-Array unverändert, da der Gegensta
 \left[
 \begin{array}{ccccc}
 0 & 0 & 0 \\
-5 & 0 & 0 \\
-1 & 3 & 0 \\
+1 & 0 & 0 \\
+3 & 11 & 0 \\
 \end{array}
 \right]
 \]
 \\
 Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \[
-\text{processedItems} = \{1, 5, 3\}
+\text{processedItems} = \{1, 3, 11\}
 \]
 
 \subsection{EventManager} \marginpar{\small\(\rightarrow\) HAYLAZ}
@@ -3633,7 +3633,7 @@ ausgeführt wurde, wird die perfekte Lösung platziert und vervollständigt. Ans
 wie in Abbildung \ref{fig:perfSolUserPOV} dargestellt.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.8]{images/perfSolUserPOV}
+    \includegraphics[width=\textwidth]{images/perfSolUserPOV}
     \caption{Perfekte Lösung}
     \label{fig:perfSolUserPOV}
 \end{figure}
