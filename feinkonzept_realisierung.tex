@@ -1551,136 +1551,99 @@ TODO: Bedienung und korrekte Simulation beschreiben.
 
 % Keine Ahnung was Jonas hier macht aber ich füg mal mein Stuff ein hehe
 \subsection{Frontend der Webseite} \marginpar{\small\(\rightarrow\) LAMPEL}
-In diesem Abschnitt wird die Struktur und Entwicklung des Frontends der Webseite erläutert. Besonderes Augenmerk wird
-auf die zugrundeliegenden Entscheidungen bezüglich der Programmiersprachen sowie des Designprozesses gelegt.
+In diesem Abschnitt wird die Struktur und Entwicklung eines Frontends der Webseite zum Ping Anwendungsszenario erläutert. Besonderes Augenmerk wurde auf die zugrundeliegenden Entscheidungen bezüglich der Programmiersprachen sowie des Designprozesses gelegt.
 
-Nach mehreren Entwicklungszyklen im ersten Anwendungsszenario wurde entschieden, eine Webseite in das Projekt zu
-integrieren. Die Funktionalität der Webseite sollte nahtlos in das Szenario integriert werden. Hierzu können Nachrichten
-und Absender direkt auf der Webseite eingetragen werden, um sie anschließend in die HoloLens-Applikation zu übertragen.
+Nach mehreren Entwicklungszyklen im ersten Anwendungsszenario wurde entschieden, eine Webseite in das Projekt zu integrieren. Die Funktionalität der Webseite sollte nahtlos in das Szenario integriert werden. Hierzu können Nachrichten und Absender direkt auf der Webseite eingetragen werden, um sie anschließend in die HoloLens-Applikation zu übertragen.
 
+% https://www.webdesign-journal.de/website-konzept/
+% https://textstrategin.de/2022/03/27/aufbau-einer-website-inhalte-und-struktur-richtig-planen-und-erstellen/
+% https://link.springer.com/chapter/10.1007/978-3-658-02867-1_3
+% https://de.ryte.com/magazine/10-tipps-website-konzept#Visuelles%20Website-Konzept
 \subsubsection{Designprozess}
-Beim Entwurf einer Webseite ist es essentiell, vor der eigentlichen Umsetzung die Farbpalette und das generelle Aussehen
-der Seite zu konzipieren. Da der Fokus auf der Anwendung auf der HoloLens liegt, wurde bewusst darauf geachtet, der
-Webseite nicht zu viel Aufmerksamkeit zu schenken. Sie sollte lediglich die grundlegenden Funktionen erfüllen, ohne dabei
-komplex zu sein. Aus diesem Grund ist die Webseite simpel gestaltet und verfügt über wenige Eingabefelder und wenig Text.
+Beim Entwurf einer Webseite ist es essentiell, vor der eigentlichen Umsetzung die Farbpalette und das generelle Aussehen der Seite zu konzipieren. \footnote{Eins von den 4 idk \cite{.}} Da der Fokus auf der Anwendung auf der HoloLens liegt, wurde bewusst darauf geachtet, der Webseite nicht zu viel Aufmerksamkeit zu schenken. Sie sollte lediglich die grundlegenden Funktionen erfüllen, ohne dabei komplex zu sein. Aus diesem Grund ist die Webseite simpel gestaltet und verfügt über wenige Eingabefelder und wenig Text.
 
 \subsubsection*{Webseitenprototyp}
-Der Prototyp der Webseite, wie in Abbildung \ref{fig:protfrontend} dargestellt, gibt einen Überblick über das
-Frontend-Design. Das Zahnrad links oben öffnet ein Fenster, in dem die IP-Adresse der HoloLens eingegeben werden kann,
-um Nachrichten korrekt zu versenden. Auf der Hauptseite gibt es Eingabefelder für Benutzername und Nachricht. Der zeitlich
-sortierte Nachrichtenverlauf wird am rechten Rand angezeigt.
+Der Prototyp der Webseite, wie in Abbildung \ref{fig:protfrontend} dargestellt, gibt einen Überblick über das Frontend-Design. Das Zahnrad links oben öffnet ein Fenster, in dem die IP-Adresse der HoloLens eingegeben werden kann, um Nachrichten korrekt zu versenden. Auf der Hauptseite gibt es Eingabefelder für Benutzername und Nachricht. Der zeitlich sortierte Nachrichtenverlauf wird am rechten Rand angezeigt.
 
 \begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=1\textwidth]{images/prototypefrontend.png}}
-    \caption{Prototypische Darstellung der Webseitenansicht aus Benutzersicht}
-    \label{fig:protfrontend}
+\centering
+\fbox{\includegraphics[width=1\textwidth]{images/prototypefrontend.png}}
+\caption{Darstellung der Webseitenansicht aus Benutzersicht (Mockup)}
+\label{fig:protfrontend}
 \end{figure}
 
 \subsubsection*{Ausprogrammierte Webseite}
-Die endgültige Version der Webseite, wie in Abbildung \ref{fig:frontend} gezeigt, enthält alle gewünschten Funktionen.
-Die Farbpalette orientiert sich stark am Hauptmenü und den Standardfarben der HoloLens. Es werden verschiedene Blautöne
-verwendet, um eine konsistente und benutzerfreundliche Benutzererfahrung zu gewährleisten.
+Die endgültige Version der Webseite, wie in Abbildung \ref{fig:frontend} gezeigt, enthält alle gewünschten Funktionen. Die Farbpalette orientiert sich stark am Hauptmenü und den Standardfarben der HoloLens. Es werden verschiedene Blautöne verwendet, um eine konsistente und benutzerfreundliche Benutzererfahrung zu gewährleisten.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{images/frontend.png}
-    \caption{Darstellung der fertigen Webseitenansicht aus Benutzersicht}
-    \label{fig:frontend}
+\centering
+\includegraphics[width=1\textwidth]{images/frontend.png}
+\caption{Darstellung der fertigen Webseitenansicht aus Benutzersicht}
+\label{fig:frontend}
 \end{figure}
 
-Die Umsetzung des Designs hat zum Ziel, Verwirrungen zu vermeiden und eine nahtlose Integration der Webseite in das
-Gesamtsystem zu gewährleisten.
+Die Umsetzung des Designs hat zum Ziel, Verwirrungen zu vermeiden und eine nahtlose Integration der Webseite in das Gesamtsystem zu gewährleisten.
 
 \subsubsection{Verwendete Programmiersprachen}
-Für die Entwicklung der Webseite wurden hauptsächlich die Programmiersprachen HTML, CSS und JavaScript verwendet. Zur
-Verbesserung des Designs und der Benutzererfahrung wurde außerdem das Framework Bootstrap eingesetzt.
+Für die Entwicklung der Webseite wurden hauptsächlich die Programmiersprachen \textit{HTML}, \textit{CSS} und \textit{JavaScript} verwendet. Zur Verbesserung des Designs und der Benutzererfahrung wurde außerdem das \textit{Framework Bootstrap} eingesetzt.
 
 \subsubsection*{HTML (Hypertext Markup Language)}
-HTML ist die grundlegende Struktursprache des World Wide Web. Es ermöglicht die Erstellung von Webseiten durch die
-Definition von Strukturelementen wie Überschriften, Absätzen, Listen und Links. HTML verwendet Tags, um den Browsern
-mitzuteilen, wie die Inhalte einer Webseite strukturiert und präsentiert werden sollen. \footnote{Mozilla Developer Network \cite{HTML}}
+HTML ist die grundlegende Struktursprache des World Wide Web. Es ermöglicht die Erstellung von Webseiten durch die Verwendung von Strukturelementen (Tags) für Überschriften, Absätze, Listen, Links und vieles mehr. Browser können HTML-Inhalte dem Standard entsprechend für den Anwender darstellen.
+\footnote{Mozilla Developer Network \cite{HTML}}
 
 \subsubsection*{CSS (Cascading Style Sheets)}
-CSS ist eine Stylesheet-Sprache, die verwendet wird, um das Aussehen und die Formatierung von HTML-Dokumenten zu steuern.
-Es ermöglicht die Definition von Farben, Schriftarten, Layouts und anderen visuellen Eigenschaften einer Webseite. \footnote{Mozilla Developer Network \cite{CSS}}
+CSS ist eine Stylesheet-Sprache, die verwendet wird, um das Aussehen und die Formatierung von HTML-Dokumenten zu steuern. Es ermöglicht die Definition von Farben, Schriftarten, Layouts und anderen visuellen Eigenschaften einer Webseite. \footnote{Mozilla Developer Network \cite{CSS}}
 
-CSS funktioniert durch das Zuweisen von Regeln und Stilen zu HTML-Elementen. Diese Regeln können in einer externen
-CSS-Datei definiert oder direkt im HTML-Dokument eingebettet werden.
+CSS funktioniert durch das Zuweisen von Regeln und Stilen zu HTML-Elementen. Diese Regeln können in einer externen CSS-Datei definiert oder direkt im HTML-Dokument eingebettet werden.
 
 \subsubsection*{JavaScript}
-JavaScript ist eine dynamische Programmiersprache, die hauptsächlich für die clientseitige Entwicklung von Webanwendungen
-verwendet wird. Sie ermöglicht die Interaktion mit dem Benutzer, das Ändern von Inhalten in Echtzeit und die Steuerung
-des Verhaltens einer Webseite. \footnote{Mozilla Developer Network \cite{Javascript}}
+JavaScript ist eine dynamische Programmiersprache, die hauptsächlich für die clientseitige Entwicklung von Webanwendungen verwendet wird. Sie ermöglicht die Interaktion mit dem Benutzer, das Ändern von Inhalten in Echtzeit und die Steuerung des Verhaltens einer Webseite. \footnote{Mozilla Developer Network \cite{Javascript}}
 
-JavaScript verbessert die Funktionalität einer Webseite, indem es auf Benutzerinteraktionen reagiert, Formulare validiert,
-Animationen erstellt und vieles mehr.
+JavaScript verbessert die Funktionalität einer Webseite, indem es auf Benutzerinteraktionen reagiert, Formulare validiert, Animationen erstellt und vieles mehr.
 
 \subsubsection*{Integration von Bootstrap}
-Bootstrap ist ein Open-Source-Framework für die Frontend-Entwicklung von Webseiten und Webanwendungen. Es bietet
-vorgefertigte HTML- und CSS-Vorlagen für Typografie, Formulare, Buttons, Navigation und andere UI-Komponenten. \footnote{Bootstrap Dokumentation \cite{Bootstrap}}
+Bootstrap ist ein Open-Source-Framework für die Frontend-Entwicklung von Webseiten und Webanwendungen. Es bietet vorgefertigte HTML- und CSS-Vorlagen für Typografie, Formulare, Buttons, Navigation und andere UI-Komponenten. \footnote{Bootstrap Dokumentation \cite{Bootstrap}}
 
-Bootstrap erleichtert die Erstellung responsiver und ästhetisch ansprechender Webseiten, indem es eine Reihe von
-vorgefertigten Designelementen und Layoutoptionen bereitstellt.
+Bootstrap erleichtert die Erstellung responsiver und ästhetisch ansprechender Webseiten, indem es eine Reihe von vorgefertigten Designelementen und Layoutoptionen bereitstellt.
 
-Die Integration von Bootstrap in eine HTML-Datei erfolgt durch das Einbinden der Bootstrap-Bibliotheksdateien in den
-<head>-Bereich des HTML-Dokuments. Dies kann entweder über ein CDN (Content Delivery Network) oder durch das Herunterladen
-und Einbinden der lokalen Bootstrap-Dateien erfolgen. \footnote{Bootstrap Dokumentation \cite{CDN-Links}}
+Die Integration von Bootstrap in eine HTML-Datei erfolgt durch das Einbinden der Bootstrap-Bibliotheksdateien in den \texttt{<head>}-Bereich des HTML-Dokuments. Dies kann entweder über ein CDN (Content Delivery Network) oder durch das Herunterladen und Einbinden der lokalen Bootstrap-Dateien erfolgen. \footnote{Bootstrap Dokumentation \cite{CDN-Links}}
 
-Anschließend können Bootstrap-Komponenten und -Klassen innerhalb der HTML-Datei verwendet werden, um das Design und
-die Funktionalität der Webseite zu verbessern.
+Anschließend können Bootstrap-Komponenten und -Klassen innerhalb der HTML-Datei verwendet werden, um das Design und die Funktionalität der Webseite zu verbessern.
 
 \subsubsection{Funktionen der Webseite}
-Die Eingabefelder des Frontends brauchen Javascript Funktionen, um die gewünschten Tätigkeiten durchzuführen und so zu
-funktionieren wie eigentlich geplant.
-
-\begin{lstlisting}[language=JavaScript, caption={Javascript | Überprüfung, ob die Eingabe eine Zahl oder "." ist}]
+Die Eingabefelder des Frontends brauchen Javascript Funktionen, um die gewünschten Tätigkeiten durchzuführen und so zu funktionieren wie eigentlich geplant.
+\begin{lstlisting}[language=JavaScript, caption={Javascript | Ueberpruefung, ob die Eingabe eine Zahl oder . ist}]
 function isNumberKey(evt) {
-    var charCode = (evt.which) ? evt.which : evt.keyCode;
-    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
-    }
-    return true;
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+return false;
+}
+return true;
 }
 \end{lstlisting}
+Die Funktion überprüft, ob die gedrückte Taste eine Zahlentaste ist. Sie wird auf der Webseite zur Überprüfung der Eingabe von der IP-Adresse genutzt, um sicherzustellen, dass nur Zahlen eingegeben werden können.
 
-Die Funktion überprüft, ob die gedrückte Taste eine Zahlentaste ist. Sie wird auf der Webseite zur Überprüfung der Eingabe
-von der IP-Adresse genutzt, um sicherzustellen, dass nur Zahlen eingegeben werden können.
+Die Funktion nimmt ein Event-Objekt als Parameter entgegen, das Informationen über das Tastaturereignis enthält. Der charCode wird aus dem Event-Objekt extrahiert, der den Unicode-Wert der gedrückten Taste darstellt. Die Funktion überprüft, ob die gedrückte Taste eine Zahl ist (der Unicode-Wert liegt im Bereich von 48 bis 57) oder der Punkt ist (der Unicode-Wert ist 46). Falls die gedrückte Taste im Bereich von 48 bis 57 liegt oder der Punkt ist, gibt die Funktion true zurück, was bedeutet, dass die Eingabe akzeptiert wird. Andernfalls gibt die Funktion false zurück, was bedeutet, dass die Eingabe nicht akzeptiert wird.
 
-Die Funktion nimmt ein Event-Objekt als Parameter entgegen, das Informationen über das Tastaturereignis enthält. Der
-charCode wird aus dem Event-Objekt extrahiert, der den Unicode-Wert der gedrückten Taste darstellt. Die Funktion überprüft,
-ob die gedrückte Taste eine Zahl ist (der Unicode-Wert liegt im Bereich von 48 bis 57) oder der Punkt ist (der Unicode-Wert
-ist 46). Falls die gedrückte Taste im Bereich von 48 bis 57 liegt oder der Punkt ist, gibt die Funktion true zurück, was
-bedeutet, dass die Eingabe akzeptiert wird. Andernfalls gibt die Funktion false zurück, was bedeutet, dass die Eingabe
-nicht akzeptiert wird.
-
-\begin{lstlisting}[language=JavaScript, caption={Javascript | Validierung und Senden der Message}]
+\begin{lstlisting}[language=JavaScript, caption={Javascript | Validierung und Senden der Message}, label=code:validatesend]
 async function validateAndSendMessage() {
-    var username = document.getElementById("username").value.trim();
-    var message = document.getElementById("message").value.trim();
+var username = document.getElementById("username").value.trim();
+var message = document.getElementById("message").value.trim();
 
-    if (username !== '' && message !== '') {
-        const messageSent = await sendMessage(username, message);
+if (username !== '' && message !== '') {
+const messageSent = await sendMessage(username, message);
 
-        if (!messageSent) {
-            alert("Message could not be sent.");
-        }
-    } else {
-        alert("Please fill in both fields!");
-    }
+if (!messageSent) {
+alert("Message could not be sent.");
+}
+} else {
+alert("Please fill in both fields!");
+}
 }
 \end{lstlisting}
+Die Funktion \texttt{validateAndSendMessage()} in dem Codeabschnitt \ref{code:validatesend} validiert die Eingaben in den Feldern für Benutzername und Nachricht und sendet die Nachricht nur ab, wenn beide Felder ausgefüllt sind.
 
-Die Funktion validiert die Eingaben in den Feldern für Benutzername und Nachricht und sendet die Nachricht nur ab, wenn
-beide Felder ausgefüllt sind.
-
-Zunächst ruft die Funktion die Werte der Formularfelder für Benutzername und Nachricht ab und entfernt führende und
-abschließende Leerzeichen mit der trim()-Methode. Anschließend überprüft sie, ob sowohl der Benutzername als auch die
-Nachricht nicht leer sind. Wenn beide Felder nicht leer sind, wird die Funktion sendMessage(username, message) aufgerufen,
-um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird nichts weiter unternommen. Andernfalls wird
-eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem
-Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
-
+Zunächst ruft die Funktion die Werte der Formularfelder für Benutzername und Nachricht ab und entfernt führende und abschließende Leerzeichen mit der trim()-Methode. Anschließend überprüft sie, ob sowohl der Benutzername als auch die Nachricht nicht leer sind. Wenn beide Felder nicht leer sind, wird die Funktion sendMessage(username, message) aufgerufen, um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird nichts weiter unternommen. Andernfalls wird eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
 \subsection{Backend der Webseite} \marginpar{\small\(\rightarrow\) HAYLAZ}
 
