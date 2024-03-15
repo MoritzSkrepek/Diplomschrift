@@ -3658,7 +3658,7 @@ In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. 
 \label{fig:testRunner}
 \end{figure}
 
-\subsubsection{\label{sec:AAA} AAA-Schema}
+\subsection{\label{sec:AAA} AAA-Schema}
 Das AAA-Schema steht für "Arrange, Act, Assert" und ist ein grundlegendes Konzept im Bereich des Testens von Software. Es bietet eine klare Struktur für die Organisation von Testfällen, um sicherzustellen, dass die Funktionalität korrekt überprüft wird. Hier ist eine Erläuterung der einzelnen Schritte:
 \begin{itemize}
     \item \textbf{Arrange (Vorbereitung):} In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
@@ -3755,7 +3755,7 @@ Durch die Strukturierung von Testfällen nach dem \textit{AAA-Schema} wird eine 
         knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
         knapsackSolver.capacity = capacity;
 
-        // Act
+        // Act and Assert
         return knapsackSolver.KnapsackMaxValue(out _);
     }
 \end{lstlisting}
@@ -3788,7 +3788,7 @@ Die Verwendung von \texttt{[TestCase]} ermöglicht eine kompaktere Darstellung m
         knapsackSolver.items = items;
         knapsackSolver.capacity = capacity;
 
-        // Act
+        // Act and Assert
         return knapsackSolver.KnapsackMaxValue(out _);
     }
 \end{lstlisting}
