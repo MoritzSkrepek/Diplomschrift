@@ -230,7 +230,8 @@ Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstell
 
 Prefabs bieten zahlreiche Vorteile für die Gestaltung und Entwicklung von Projekten. Ihr Hauptvorteil liegt in ihrer Fähigkeit, eine effiziente und konsistente Gestaltung von Projekten zu ermöglichen. Sie erleichtern die Wiederverwendung von Designelementen und tragen so zur Effizienz und Konsistenz des Designprozesses bei.
 
-In komplexen Projekten, die eine Vielzahl von Objekten wie Charaktere, Umgebungen und visuelle Effekte beinhalten, erweisen sich Prefabs als äußerst nützlich. Sie dienen als wiederverwendbare Vorlagen, die es ermöglichen, einmal erstellte Elemente zu speichern und in unterschiedlichen Szenarien wiederzuverwenden. Dies eliminiert die Notwendigkeit, jedes Mal, wenn eine neue Szene erstellt werden muss, von Grund auf neu zu beginnen. Darüber hinaus trägt die Verwendung von Prefabs dazu bei, eine konsistente Designästhetik über das gesamte Projekt hinweg zu gewährleisten. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs2}}
+In komplexen Projekten, die eine Vielzahl von Objekten wie Charaktere, Umgebungen und visuelle Effekte beinhalten, erweisen sich Prefabs als äußerst nützlich. Sie dienen als wiederverwendbare Vorlagen, die es ermöglichen, einmal erstellte Elemente zu speichern und in unterschiedlichen Szenarien wiederzuverwenden. Dies eliminiert die Notwendigkeit, jedes Mal, wenn eine neue Szene erstellt werden muss, von Grund auf neu zu beginnen. Darüber hinaus trägt die Verwendung
+von Prefabs dazu bei, eine konsistente Designästhetik über das gesamte Projekt hinweg zu gewährleisten. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs-2}}
 
 %TODO: https://docs.unity3d.com/Manual/Prefabs.html
 %TODO: https://learn.unity.com/tutorial/prefabs-e#
@@ -278,11 +279,14 @@ Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settin
     \label{fig:build-settings}
 \end{figure}
 
-Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dateien für das Deployment. Darin befindet sich unter anderem eine Visual Studio Solution (\textit{VS Solution}), die Informationen zur Struktur des Projekts enthält und Build-Konfigurationen verwaltet. \footnote{Visual Studio Solution, \cite{VS-Solution}}
+Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dateien für das Deployment. Darin befindet sich unter anderem eine Visual Studio Solution (\textit{VS Solution}), die Informationen zur Struktur des Projekts enthält und Build-Konfigurationen verwaltet. \footnote{Microsoft-Dokumentation, \cite{Visual Studio Solution}}
+% TODO: https://learn.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022
 
 Der nächste Schritt erfolgt in dieser Visual Studio Solution, in unserem Fall \textit{AARIE.sln}. Nach dem Öffnen der Datei müssen die Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Diese zwei Einstellungen sind auf der \textit{Toolbar} zu finden. Außerdem muss die IP-Adresse des AR-fähigen Geräts in den Projekteigenschaften unter Debugging gesetzt werden. Die IP-Adresse der HoloLens 2 kann auf der Brille in den Einstellungen unter Netzwerk gefunden werden. In den Projekteigenschaften ist noch folgende Einstellung zu treffen:
 
-Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Darüber hinaus minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten zu gewährleisten. \footnote{Universal Unencrypted Protocol, \cite{VS-Protocol}}
+Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Darüber hinaus minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten
+zu gewährleisten. \footnote{Microsoft-Dokumentation, \cite{Universal Unencrypted Protocol}}
+% TODO: https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps
 
 Nachdem alle Einstellungen vorgenommen wurden, kann die
 
@@ -1469,7 +1473,10 @@ Die gesamte Anwendung ist bewusst einfach und minimalistisch gehalten. Folglich 
 
 \subsubsection{Webseite starten}
 
-Um die Webseite zu starten, wird ein lokaler Web-Server benötigt. Ein beliebter und einfacher Weg, dies zu erreichen, ist die Verwendung des Node.js basierten HTTP-Daemons namens \textit{http-server}. Dieser HTTP-Server ist leichtgewichtig, einfach einzurichten und erfordert keine komplizierte Konfiguration. Durch die Verwendung von \textit{http-server} kann die Webseite schnell lokal gehostet werden, was besonders praktisch ist, wenn sie während der Entwicklung getestet werden muss.\footnote{http-server \cite{http-server}}
+Um die Webseite zu starten, wird ein lokaler Web-Server benötigt. Ein beliebter und einfacher Weg, dies zu erreichen, ist die Verwendung des Node.js basierten HTTP-Daemons namens \textit{http-server}. Dieser HTTP-Server ist leichtgewichtig, einfach einzurichten und erfordert keine komplizierte Konfiguration. Durch die Verwendung von \textit{http-server} kann die Webseite schnell lokal gehostet werden, was besonders praktisch ist, wenn sie während der Entwicklung getestet
+werden muss.\footnote{npmjs \cite{http-server}}
+%TODO: Quellen
+% https://www.npmjs.com/package/http-server
 
 Eine der einfachsten Möglichkeiten, den \textit{http-server} zu installieren, ist die Verwendung des Node Package Managers (npm). npm ist ein leistungsfähiges Werkzeug, das es Entwicklern ermöglicht, JavaScript-Pakete einfach zu installieren, zu verwalten und zu aktualisieren. Es ist integraler Bestandteil der Node.js-Umgebung und bietet Zugang zu einer Vielzahl von Paketen und Bibliotheken, die von der Community entwickelt wurden. Durch die Installation des \textit{http-server}-Pakets über npm können Entwickler schnell einen lokalen Web-Server einrichten, ohne sich um die Einzelheiten der Serverkonfiguration kümmern zu müssen.
 
@@ -1517,7 +1524,8 @@ Nach der erfolgreichen Konfiguration der Webseite können nun Nachrichten versen
 \subsubsection{\label{sec:cors}CORS}
 CORS, oder Cross-Origin Resource Sharing, ist ein Sicherheitsmechanismus, der in modernen Webbrowsern implementiert ist. Seine Hauptaufgabe besteht darin, die Interaktionen zwischen verschiedenen Domains zu regulieren. In der Standardeinstellung erlauben Webbrowser aus Sicherheitsgründen nur Anfragen an Ressourcen, die sich auf derselben Domain befinden, von der die Anfrage stammt. Dies wird als Same-Origin-Policy bezeichnet.
 
-CORS erweitert diese Grundfunktionalität, indem es den Zugriff auf Ressourcen von anderen Domains ermöglicht, vorausgesetzt, der Server, auf dem sich die Ressourcen befinden, erlaubt dies explizit. Dies ermöglicht eine sicherere und kontrolliertere Interaktion zwischen verschiedenen Domains.
+CORS erweitert diese Grundfunktionalität, indem es den Zugriff auf Ressourcen von anderen Domains ermöglicht, vorausgesetzt, der Server, auf dem sich die Ressourcen befinden, erlaubt dies explizit. Dies ermöglicht eine sicherere und kontrolliertere Interaktion zwischen
+verschiedenen Domains. \footnote{AWS \cite{CORS}} \footnote{Mozilla \cite{CORS-2}}
 %TODO: QUELLEN
 % https://aws.amazon.com/de/what-is/cross-origin-resource-sharing/#:~:text=Cross%2DOrigin%20Resource%20Sharing%20(CORS,Ressourcen%20in%20einer%20anderen%20Domain.
 % https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
@@ -1773,7 +1781,8 @@ Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level ve
 Die Informationen, die in einem QR-Code gespeichert werden können, sind begrenzt. In unserem Anwendungsfall wird lediglich
 eine einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsentieren die 11 verschiedenen Modelle, die
 wir unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
-geringe Anzahl von Modulen ermöglicht eine schnellere Erkennung, auch über größere Distanzen.
+geringe Anzahl von Modulen ermöglicht eine schnellere Erkennung, auch über größere
+Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 %TODO: Quellen
 % https://learn.microsoft.com/de-de/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview#best-practices-for-qr-code-detection
 
@@ -1826,7 +1835,7 @@ Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des
 
 \subsubsection{QR-Code-Tracking}
 Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein Singleton, das
-die Erkennung und Verfolgung der QR-Codes steuert.
+die Erkennung und Verfolgung der QR-Codes steuert. \footnote{Microsoft-Dokumentation \cite{Singleton}} \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 %TODO: Quelle: Singelton
 % https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ee817670(v=pandp.10)?redirectedfrom=MSDN
 % https://web.archive.org/web/20020424122433/http://home.earthlink.net/~huston2/dp/singleton.html
