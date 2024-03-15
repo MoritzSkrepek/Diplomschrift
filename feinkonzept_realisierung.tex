@@ -1938,9 +1938,11 @@ Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-
 
 In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Wie zu erkennen ist, verfügt dieses Prefab über nur wenige Eigenschaften, nämlich:
 \begin{itemize}
-\item \textbf{Canvas:} Der Canvas enthält drei Labels: "Name", ``Gewicht`` und "Wert", welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
-\item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:3dModelleDustin} zu finden. Jedes Prefab enthält die Modelle aller möglichen Items, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
+    \item \textbf{Canvas:} Der Canvas enthält drei Labels: "Name", ``Gewicht`` und "Wert", welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
+    \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:3dModelleDustin} zu finden. Jedes Prefab enthält die Modelle aller möglichen Items, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
 \end{itemize}
+
+\subsubsection*{Instanzierung eines QR-Prefabs}
 
 \begin{lstlisting}[style=csharp, caption={Instanzierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
 void Start()
@@ -1974,6 +1976,7 @@ void Start()
 
 Nach der Instanzierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{code:QR-Prefab instanzierung}) ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanzierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{(1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{(2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{(3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanzierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei jeder Frame aktuallisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem abschnitt: \ref{sec:Shrek is leben}
 
+\subsubsection*{Setzen der Labels}
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
 private void setLabels()
 {
@@ -2011,7 +2014,7 @@ private void setLabels()
 
 Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit den Daten des gescannten QR-Codes zu aktualisieren. Zuerst wird das GameObject "QRLabels" gefunden, das die Labels enthält. Dann werden die Textkomponenten innerhalb des Canvas-GameObjects gesucht und mit den entsprechenden Daten aktualisiert. Dieser Prozess wird jedes Mal durchgeführt, wenn ein neuer QR-Code gescannt und instanziiert wird.
 
-
+\subsubsection*{Aktualisieren der Positionen}
 \begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
 void UpdatePropertiesDisplay()
 {
@@ -2033,11 +2036,10 @@ void UpdatePropertiesDisplay()
 \end{lstlisting}
 Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) beschrieben. Im Codeabschnitt \ref{code:Aktualisieren der Position} werden die bereitgestellten Positionsdaten verwendet, um die Position der Modelle zu aktualisieren. Hier ist eine schrittweise Erläuterung dessen, was innerhalb der Funktion passiert:
 \begin{itemize}
-\item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
-\item Die Position des QR-Codes (\textit{item.qrData.position}) wird so festgelegt, dass er sich in seinem lokalen Koordinatensystem zentriert. Dazu wird die Position auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt, wobei \textit{PhysicalSize} die Größe des QR-Codes ist. Diese Festlegung ermöglicht es, dass der QR-Code unabhängig von seiner Größe korrekt positioniert wird.
-\item Die Position der labels wird relativ zur Position des QR-Codes eingestellt, mit einem Offset von 0.05f nach rechts, aber auf derselben Höhe (y-Koordinate) und Tiefe (z-Koordinate). Die Skalierung der labels wird auf \textit{(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f)} gesetzt. Dies bedeutet, dass die Größe der Labels entsprechend der Größe des QR-Codes angepasst wird.
-\item Die Position des 3D-Modells, das mit dem QR-Code verbunden ist wird auf die Position des QR-Codes gesetzt. Schließlich wird \textit{lastTimeStamp} auf die aktuelle Zeitmarke des QR-Codes gesetzt, um festzuhalten, wann der QR-Code zuletzt erkannt wurde.
-
+    \item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
+    \item Die Position des QR-Codes (\textit{item.qrData.position}) wird so festgelegt, dass er sich in seinem lokalen Koordinatensystem zentriert. Dazu wird die Position auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt, wobei \textit{PhysicalSize} die Größe des QR-Codes ist. Diese Festlegung ermöglicht es, dass der QR-Code unabhängig von seiner Größe korrekt positioniert wird.
+    \item Die Position der labels wird relativ zur Position des QR-Codes eingestellt, mit einem Offset von 0.05f nach rechts, aber auf derselben Höhe (y-Koordinate) und Tiefe (z-Koordinate). Die Skalierung der labels wird auf \textit{(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f)} gesetzt. Dies bedeutet, dass die Größe der Labels entsprechend der Größe des QR-Codes angepasst wird.
+    \item Die Position des 3D-Modells, das mit dem QR-Code verbunden ist wird auf die Position des QR-Codes gesetzt. Schließlich wird \textit{lastTimeStamp} auf die aktuelle Zeitmarke des QR-Codes gesetzt, um festzuhalten, wann der QR-Code zuletzt erkannt wurde.
 \end{itemize}
 
 \begin{figure}[H]
