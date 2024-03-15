@@ -301,21 +301,19 @@ Die Bedeutung des Objektdesigns nimmt in der vorliegenden Arbeit einen zentralen
 Das Objektdesign umfasst nicht nur die Schaffung von ästhetisch ansprechenden und funktionalen 3D-Modellen, sondern auch die Optimierung dieser Modelle, um ein optimales Benutzererlebnis sicherzustellen. Dies beinhaltet Aspekte wie die Effizienz der Modelle in Bezug auf Rechenleistung und Speicherplatz, die Benutzerfreundlichkeit sowie die visuelle und funktionale Qualität der Modelle.
 
 \subsection{Texturen}
-Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen.
+Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen. \footnote{TechnicalProTips \cite{Textur}}
 
 \subsubsection{Bild-Texturen in der 3D-Modellierung} \label{sec:bildtextures}
-Im folgenden Abschnitt wird erläutert, was unter dem Begriff \textbf{Bild-Textur} zu verstehen ist und wie die Umsetzung und Arbeit mit Bild-Texturen im Kontext von Blender funktioniert.
+Im folgenden Abschnitt wird erläutert, was unter dem Begriff \textit{Bild-Textur} zu verstehen ist und wie die Umsetzung und Arbeit mit Bild-Texturen im Kontext von Blender funktioniert.
 
 Diese Texturen können als Bilddateien importiert oder innerhalb des Programms selbst erstellt werden.
 
 Die Verwendung von Bild-Texturen ermöglicht es Benutzern, eine Vielzahl von Oberflächeneffekten zu erzeugen, wie beispielsweise Holzmaserungen, Metalltexturen, Stoffmuster und mehr. Durch die Verwendung einer geeigneten Textur kann die visuelle Qualität eines Modells erheblich verbessert werden.
 
-Im Blender-Programm können Bild-Texturen mithilfe des \textit{Shader-Editors} auf das Material des 3D-Objekts angewendet werden. Hierfür wird eine \textit{Image-Texture-Node} erstellt, welche den Farbwert der Textur an das Material übergibt. Es können verschiedene Einstellungen vorgenommen werden, um die Art und Weise der Texturprojektion zu steuern. Zum Beispiel kann die Projektionsart (Box, Flat, Sphere usw.) festgelegt werden, um anzugeben, wie die Textur auf die Oberfläche des Modells angewendet wird. Weitere Einstellungen können die Skalierung der Textur, die Wiederholungsmuster, die Mischmodi und andere Textureigenschaften umfassen. \footnote{Blender \cite{Texturen}}
-% https://docs.blender.org/manual/en/latest/render/shader_nodes/textures/image.html
+Im Blender-Programm können Bild-Texturen mithilfe des \textit{Shader-Editors} auf das Material des 3D-Objekts angewendet werden. Hierfür wird eine \textit{Image-Texture-Node} erstellt, welche den Farbwert der Textur an das Material übergibt. Es können verschiedene Einstellungen vorgenommen werden, um die Art und Weise der Texturprojektion zu steuern. Zum Beispiel kann die Projektionsart (Box, Flat, Sphere usw.) festgelegt werden, um anzugeben, wie die Textur auf die Oberfläche des Modells angewendet wird. Weitere Einstellungen können die Skalierung der Textur, die Wiederholungsmuster, die Mischmodi und andere Textureigenschaften umfassen. \footnote{artisticrender \cite{Bild-Texturen}}
 
-% https://docs.blender.org/manual/en/latest/editors/shader_editor.html
 \subsubsection*{Einschub Shader-Editor}
-Dieser Editor hat in Blender eine spezielle Funktion. Hier können mithilfe von sogenannten \textit{Nodes} Eigenschaften für Texturen und Materialien vergeben werden. Der Editor wurde im Projekt hauptsächlich für die Anwendung von Bild-Texturen genutzt.
+Dieser Editor hat in Blender eine spezielle Funktion. Hier können mithilfe von sogenannten \textit{Nodes} Eigenschaften für Texturen und Materialien vergeben werden. Der Editor wurde im Projekt hauptsächlich für die Anwendung von Bild-Texturen genutzt. \footnote{Blender \cite{Node-Introduction}}
 
 \begin{figure}[H]
     \centering
@@ -326,28 +324,25 @@ Dieser Editor hat in Blender eine spezielle Funktion. Hier können mithilfe von 
 
 In Abbildung \ref{fig:shadereditor} ist zu erkennen, wie die Bild-Textur-Node den Farbwert an das Material weitergibt. Als Beispiel wurde hier der Taschenrechner verwendet, der im Laufe des Kapitels noch näher erläutert wird. Die Abbildung zeigt die verschiedenen Konfigurationsmöglichkeiten, die bereits im Abschnitt \ref{sec:bildtextures} erläutert wurden.
 
-% Die Verwendung von Bild-Texturen in der 3D-Modellierung ist eine wichtige Technik, um realistische und ansprechende Oberflächen zu erstellen, die die visuelle Qualität eines Modells deutlich verbessern können. Durch Anpassung der Textureinstellungen können Benutzer die gewünschten Effekte erzielen und ihre Kreativität bei der Gestaltung von 3D-Modellen ausdrücken.
-
 \subsection{Mesh} \label{sec:mesh}
-In der 3D-Grafik bezeichnet ein Mesh eine Sammlung von Eckpunkten, Kanten und Flächen, die die Geometrie eines 3D-Objekts definieren. Es bildet die Grundlage für die Darstellung von Objekten in einer virtuellen Umgebung. Ein Mesh kann aus einer beliebigen Anzahl von Polygonen bestehen, die die äußere Form und Struktur des Objekts definieren.
+In der 3D-Grafik bezeichnet ein Mesh eine Sammlung von Eckpunkten, Kanten und Flächen, die die Geometrie eines 3D-Objekts definieren. Es bildet die Grundlage für die Darstellung von Objekten in einer virtuellen Umgebung. Ein Mesh kann aus einer beliebigen Anzahl von Polygonen bestehen, die die äußere Form und Struktur des Objekts definieren. \footnote{GeeksForGeeks \cite{Mesh Definition}}
 
-Die Rolle eines Meshes bei der Modellierung besteht darin, die Form, Oberflächenstruktur und Details eines Objekts zu definieren. Durch die Anordnung und Verbindung der Vertices, Edges und Faces können komplexe geometrische Formen erzeugt werden. Polygone ermöglichen dabei die Darstellung von Objekten mit unterschiedlichen Detailgenauigkeiten. Je mehr Polygone ein Mesh hat, desto detaillierter und realistischer kann das Modell dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz.
+Die Rolle eines Meshes bei der Modellierung besteht darin, die Form, Oberflächenstruktur und Details eines Objekts zu definieren. Durch die Anordnung und Verbindung der Vertices, Edges und Faces können komplexe geometrische Formen erzeugt werden. Polygone ermöglichen dabei die Darstellung von Objekten mit unterschiedlichen Detailgenauigkeiten. Je mehr Polygone ein Mesh hat, desto detaillierter und realistischer kann das Modell dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. \footnote{TechTarget \cite{Mesh Usages}}
 
 Meshes werden in verschiedenen Bereichen der 3D-Grafik verwendet, wie zum Beispiel der Modellierung von Objekten, der Animation und der Visualisierung. Sie dienen als Grundlage für die Erstellung von digitalen Szenen.
 
 \subsection{Rolle von Polygonen in einem Modell}
 Polygone sind grundlegende Bausteine eines Meshes und spielen eine wichtige Rolle bei der Darstellung von 3D-Modellen. Sie bestehen aus einer Reihe von Eckpunkten (Vertices), Kanten und Flächen, die diese Punkte miteinander verbinden. In einem 3D-Modell definieren Polygone die Form, die Oberflächenstruktur und die Details eines Objekts.
 \footnote{CGIFurniture \cite{What are Polygons}}
-%https://cgifurniture.com/what-are-polygons-in-3d-modeling/
 
 Durch die Anordnung und Verbindung von Polygonen entstehen komplexe Strukturen, die eine visuelle Darstellung von Objekten ermöglichen. Je mehr Polygone ein Modell hat, desto detaillierter und realistischer kann es dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. Polygone sind somit ein wesentlicher Bestandteil eines Meshes und tragen maßgeblich zur visuellen Qualität und Komplexität eines 3D-Modells bei.
 
 \subsection{Optimierung der einzelnen Modelle}
-Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung dieser. Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung.
+Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung dieser. Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung. \footnote{CGCookie \cite{Ways to optimize Game Assets}}
 
 \subsubsection{Polygonreduktion}
 Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygone in einem 3D-Modell zu reduzieren, um die Belastung der Hardware zu verringern, insbesondere bei Echtzeitanwendungen wie Computerspielen oder Simulationen. Eine effiziente Polygonreduktion ermöglicht eine bessere Leistung und eine schnellere Darstellung der Modelle auf verschiedenen Plattformen. \footnote{All3DP \cite{How to reduce Polygons}}
-% https://all3dp.com/2/blender-how-to-reduce-polygons/
+
 
 In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
 
@@ -371,7 +366,7 @@ Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Über
 
 %quelle buch https://books.google.at/books?hl=de&lr=&id=HKZuaUdmovsC&oi=fnd&pg=PA309&dq=autodesk+fbx+&ots=y8C69-0al2&sig=KONCkBGyC-Z4HTlRw9FgzsA1q6M&redir_esc=y#v=onepage&q=autodesk%20fbx&f=false
 \subsubsection{Dateiformat}
-Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX) gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt.
+Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX) gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt. \footnote{GameDev-Profi \cite{Welches Dateiformat}}
 
 FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Modelle (zum Beispiel von Blender) zu organisieren und zu übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie, Materialien, Animationen, Kameras und Lichtquellen.
 
