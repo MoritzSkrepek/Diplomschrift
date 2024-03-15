@@ -864,7 +864,7 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um die Informationen wie Absender und Nachricht einzusehen.
 
-\subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario}
 In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen GameObjects haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
 
 \begin{figure}[H]
@@ -885,10 +885,10 @@ In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut 
     \item \textbf{PackageClickable:} Ist ein Objekt welches die Textur des Paketes beinhaltet und zwei Code Skripte beinhaltet. Eines dieser Code Skripte ist ein \textit{BoxCollide: } welcher von Unity zur Verfügung gestellt wird. Sowie ein Button Skript von Mixed Reality Toolkit Contributors
 \end{itemize}
 
-\subsection{Kabelerkennung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Kabelerkennung}
 Um das Übertragung der Nachricht über das Kabel zu gewährleisten, muss zunächst die Position des Kabels in der umgebenden genau bestimmt werden. Dies geschieht durch die Aufnahme eines Bildes mit der Kamera der Hololens 2. Während dieser Aufnahmeaufgabe ist es wichtig, dass der Benutzer seinen Blick auf das jeweilige Kabel richtet. Nur so ist eine exakte Orientierung des Kabelverlaufs möglich.
 
-\subsection{Start der Szene} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Start der Szene}
 Zu Beginn der Szene wird von den Gameobjekt \textit{CableSearch} welches das Skript \textit{Cable Search} beinhaltet gestartet.
 \begin{figure}[H]
     \centering
@@ -937,9 +937,9 @@ void Update() {
 \end{lstlisting}
 Nach Ablauf der Wartezeit von zwei Sekunden wird eine Zeitmessung gestartet. Dabei wird zunächst geprüft, ob die Restzeit \textit{timeRemaining} (die außerhalb der Funktion als Gleitkommazahl von sechs definiert ist), größer als eins ist. Ist diese Bedingung erfüllt, wird die Restzeit durch Abziehen der verstrichenen Zeit zwischen den \textit{Updates} angepasst. Anschließend wird die verbleibende Zeit in Sekunden umgerechnet und dem Benutzer angezeigt.Nach Ablauf der fünf Sekunden Ladezeit wird die verbleibende Zeit auf eins gesetzt, um Fehler zu vermeiden. Danach wird der Text geleert und der boolesche Wert \textit{objectPlaced} auf \textit{true} gesetzt, um sicherzustellen, dass die Update-Funktion nicht weiter ausgeführt wird. Schließlich wird innerhalb der Funktion \textit{startPictureTaking} das nächste Skript gestartet, um den Prozess fortzusetzen.
 
-\subsection{Foto aufnahme und verarbeitung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Foto aufnahme und verarbeitung}
 Dieses Kapitel beschäftigt sich mit dem aufnehmen und verarbeiten von dem Foto des Roten Kabels
-\subsubsection{\label{sec:Photocapture}Photocapture Klasse}\marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{\label{sec:Photocapture}Photocapture Klasse}
 Die \textit{PhotoCapture} Klasse benutzt die \textit{PhotoCapture} API, um ein Foto mit der Kamera des Gerätes zu machen.
 Damit dies möglich ist, muss man Unity die Erlaubnis für die \textit{Webcam} und das \textit{Microphone} geben. Dies gibt dann die Erlaubnis das wenn zum Beispiel ein Laptop verwendet wird. Dieser über Unity code Photos/Videos sowie Sprachaufnahmen über die Kamera und Mikrophone aufnehmen kann. Dies trifft dann natürlich auch auf die Hololens 2 zu.
 Dies kann unter \textit{Edit $\Rightarrow$ Project Settings $\Rightarrow$ Player $\Rightarrow$ Settings for Universal Windows Platform $Rightarrow$ Publishing Settings $\Rightarrow$ Capabilities} gemacht werden.
@@ -955,7 +955,7 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
     \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer auf.
 \end{itemize}
 
-\subsubsection{Unity Canvas} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Unity Canvas}
 Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einen UI besteht aus dem \textit{GameObject} als sogenannten \textit{parent} weleches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI} kann auch als weiteres child ein \textit{Image} besitzten. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
 Ein Canvas verfügt auch über verschiedene Rendermodi:
 \begin{itemize}
@@ -967,7 +967,7 @@ Ein Canvas verfügt auch über verschiedene Rendermodi:
     \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas im Gegensatz zu den anderen Modi verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}
 \end{itemize}
 
-\subsubsection{Foto der Umgebung aufnehmen} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Foto der Umgebung aufnehmen}
 Das Aufnehmen des Fotos wird mit Hilfe der \textit{PhotoCapture}-Klasse (siehe Kapitel \ref{sec:Photocapture}) aufgenommen wird. Um zu gewährleisten das es funktioniert und mit der Kamera ein qualitativ gutes Foto zum verarbeiten gemacht wird müssen Einstellungen der für die Kameraparameter eingestellt werden.
 \begin{lstlisting}[style=csharp, caption={Bild einstellung und aufnahme}, label=code:takingPicture]
 public void takingPicture() {
@@ -1007,14 +1007,14 @@ public void takingPicture() {
 \end{lstlisting}
 Zunächst wird in diesem Code mit dem Boolean \textit{takingNewPicture} geprüft, ob bereits ein Bild aufgenommen wurde. Daraufhin wird sofort das Lade-Symbol (siehe Kapitel \ref{sec:ladeSymbol}) gestartet und angezeigt. Anschließend wird eine asynchrone Methode \textit{PhotoCapture.CreateAsync()} aufgerufen, um ein \textit{Photo-Capture} zu erstellen. Diese Methode erstellt ein \textit{PhotoCapture-Objekt}, das für die Aufnahme von Fotos verwendet wird. Die Methode akzeptiert den Parameter false, der angibt, dass kein Audio-Capture erstellt werden soll. Wenn die Aufnahme erfolgreich war, wird das PhotoCapture-Objekt gespeichert und die Kameraparameter für die Aufnahme konfiguriert. Anschließend wird der Photo-Capture-Modus mit \textit{StartPhotoModeAsync} gestartet, und wenn dieser erfolgreich gestartet wurde, wird das Photo aufgenommen und mit \textit{TakePhotoAsync} im Speicher abgelegt.
 
-\subsubsection{\label{sec:JobSystem}Unity Job System} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{\label{sec:JobSystem}Unity Job System}
 Das Job System von Unity bietet eine effiziente Möglichkeit zur Implementierung von Multithreading in Anwendungen, wodurch die Anwendung in
 der Lage ist, alle verfügbaren CPU-Kerne optimal zu nutzen. Im Gegensatz zu einem sequentiellen Durchlauf des Codes durch einen einzigen Thread, dem sogenannten Hauptthread, ermöglicht das Job System die parallele Verarbeitung von Codeabschnitten durch separate Arbeits-Threads. Durch die Nutzung mehrerer Arbeits-Threads können Aufgaben effizienter verteilt und gleichzeitig bearbeitet werden. Dies trägt wesentlich zur Verbesserung der Effizienz und der Gesamtdauer der Ausführung des Programms bei. Eine wichtige Eigenschaft des Job Systems besteht darin, sicherzustellen, dass nur so viele Threads verwendet werden, wie von den verfügbaren CPU-Kernen unterstützt werden.\\
 Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte "Work Stealing". Dabei handelt es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat, zusätzliche Aufgaben von anderen Arbeits-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf alle verfügbaren Ressourcen zu verteilen. \\
 Um das Schreiben von Multithread-Code zu erleichtern, verfügt das Job-System über ein Sicherheitssystem, das sicherstellt, dass potenzielle Wettlaufbedingungen eine sogenannte \textit{race contition} zu vermieden und somit Fehler vermieden werden können. Um sicherzustellen, dass keine Wettlaufbedingungen auftreten können, erhält jeder Thread eine isolierte Kopie der Daten, die er verarbeiten kann.\protect\footnote{Unity \cite{Job System}}
 
 
-\subsubsection{\label{sec:Vector2}Vector2 Klasse}\marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{\label{sec:Vector2}Vector2 Klasse}
 Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Manipulation von 2D-Positionen, -Richtungen und -Geschwindigkeiten innerhalb deren \textit{Engine}. Mit Hilfe der \textit{Vektor2D} klasse von Unity lassen sich Bewegung, Interaktion und Objekte exakt steuern und simulieren. Diese Klasse besitzt die folgenden Parameter:
 \begin{itemize}
     \item \textit{x und y: }x Koordinate von einen 2 Dimensionalen Koordinatensystem
@@ -1022,7 +1022,7 @@ Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Ma
     \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird.
 \end{itemize}
 
-\subsubsection{Fotoverarbeitung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Fotoverarbeitung}
 Nachdem ein Foto aufgenommen wurde, erfolgt die Datenverarbeitung mittels einer \textit{Texture2D}-Klasse innerhalb des \textit{Unity-Job-Systems} in paralleler Ausführung. Jeder Thread des Systems ist dafür zuständig, eine festgelegte Anzahl von Pixeln im Bild zu überprüfen, um festzustellen, ob diese die Eigenschaft Rot aufweisen. Die Ergebnisse dieser Überprüfung werden in einem zweidimensionalen Boolean-Array gespeichert, wobei die x- und y-Koordinaten jeweils einer Dimension zugeordnet sind. Jeder Pixel im Array wird entsprechend seines Farbzustands mit dem booleschen Wert \textit{true} gekennzeichnet, falls er rot ist, andernfalls wird ihm der Wert \textit{false} zugewiesen. Dieser Prozess wird durch das \textit{Job-System} ausgeführt, wobei jeder einzelne Job die eine gewisse Anzahl an Pixeln überprüft.
 
 \begin{lstlisting}[style=csharp, caption={Rote Pixel suche}, label=code:PixelJob]
@@ -1065,7 +1065,7 @@ struct PixelJob : IJobParallelFor {
 \end{itemize}
 
 
-\subsubsection{Kabel finden} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Kabel finden}
 Nachdem das Foto verarbeitet wurde wird nach roten Pixel in dem Bild gesucht, um danach die noch fehlende Entfernung des Kabels zu messen. Mit dieser hat man dann die genaue Position des roten Kabels in der Echten Welt errechnet. Um dies zu erreichen wird nach roten Objekten Roten Pixeln im Bild gesucht. Da es aber unsicher ist, ob diese roten Pixel zu einem Kabel gehören oder nicht, wird eine Methode angewendet, um die längste zusammenhängende Reihe von roten Pixeln zu ermitteln. Es kann auch dazu kommen, das rote Pixel nicht erkannt werden ,welche zum roten Kabel gehören. Aus diesem Grund wird ein Toleranzbereich festgelegt. Es wird geschaut ob in einen bestimmten Bereich rote Pixel existieren von welchen aus dann weiter geschaut wird. Dadurch wird eine präzisere Erkennung und Zuordnung von relevanten roten Pixeln im Kontext des zu identifizierenden Kabels ermöglicht. Die methodische Vorgehensweise zur Berechnung gestaltet sich wie folgt:
 
 \begin{lstlisting}[style=csharp, caption={Kabel suche}, label=code:SearchForRedPixels]
@@ -1115,7 +1115,7 @@ List<Vector2> SearchForRedPixels(int startX, int startY) {
 Die Funktion beginnt mit der Erstellung einer Liste von Vektoren namens \textit{currentLine}, die dazu dient, die Positionen der gefundenen Pixel zu speichern. Zu Beginn wird festgelegt, dass kein rotes Pixel gefunden wurde (\textit{hasFound = false}). Die x- und y-Positionen des Startpixels werden ebenfalls initialisiert (\textit{foundX = startX, foundY = startY}). Zudem werden Variablen für die Höhe (\textit{heightY}) und Breite (\textit{withX}) des Arrays \textit{redPixels} festgelegt, um sicherzustellen, dass die Überprüfungen nicht außerhalb des gültigen Bereichs liegen. Der Hauptteil der Funktion ist eine Schleife, die so lange ausgeführt wird, bis kein rotes Pixel mehr gefunden wird. Innerhalb dieser Schleife wird zuerst das aktuelle Pixel als bereits überprüft markiert und seiner Position zur Liste \textit{currentLine} hinzugefügt. Anschließend wird nach roten Pixeln in den nächsten 25 Pixeln nach rechts gesucht. Dabei wird überprüft, ob das Pixel in \textit{redPixels} an der Position \textit{(foundX + i, foundY)} den Wert \textit{true} hat, wobei \textit{i} von 1 bis 24 läuft. Wenn ein rotes Pixel gefunden wird, wird dessen Position aktualisiert und die Schleife erneut durchlaufen. Falls kein rotes Pixel in den nächsten 25 Pixeln nach rechts gefunden wird, wird nach unten und dann nach oben gesucht. Dabei wird jeweils überprüft, ob in den nächsten 10 Pixeln in der entsprechenden Richtung ein rotes Pixel vorhanden ist. Wenn eins gefunden wird, wird dessen Position aktualisiert und die Schleife erneut durchlaufen. Diese Schleife setzt sich solange fort, bis kein rotes Pixel mehr gefunden wird (\textit{hasFound = false}). Schließlich wird die Liste \textit{currentLine}, die die Positionen der gefundenen Pixel enthält, zurückgegeben.
 
 
-\subsection{\label{sec:Coroutines}Coroutines} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{\label{sec:Coroutines}Coroutines}
 \textit{Coroutines} werden immer noch mit den Mainthread ausgeführt, erlaube es den für \textit{Coroutines} verwendeten Code über mehrere Frames aufzuteilen. \textit{Coroutines} weden deswegen hauptsächlich in Methoden verwendet welche eine Abfolge von Ereignissen über zeit darstellt.
 \\
 Zum Darstellen von \textit{Coroutines} ist dieses kurze Script welches das Objekt an den das angebunden ist in eine Richtung bewegt.
@@ -1201,12 +1201,12 @@ IEnumerator LoadingCoroutine() {
 Um eine Funktion in einem parallelen Thread auszuführen, während der Hauptthread gleichzeitig Berechnungen durchführt, ist es erforderlich, eine Funktion in einen separaten Thread auszulagern. Dies wird in den fall durch die Verwendung von Asynchronität erreicht. Dafür gibt Unity die Funktion Coroutine-Routinen zur Verfügung. Bei der Initiierung dieser Funktion wird die Methode \textit{StartCoroutine(LoadingCoroutine())} aufgerufen. Durch diesen Aufruf wird sichergestellt, dass die Funktion nebenbei und asynchron zum Code davor(main thread) ausgeführt wird. Zum anzeigen von den Lade Symbol wird ein Objekt \textit{img} verwendet, dieses \textit{img} beinhaltet ein Bild eines Weißen Kreises (äußerer Kreis von \textit{Abbildung (\ref{fig:Loading}})) und stellt den Fortschritt während der Berechnung dar.
 
 
-\subsection{Bewegung des Paketes} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Bewegung des Paketes}
 Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald diese gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird sich das Paket über die Punkte bewegt.
-\subsubsection*{Definition eines Rays} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection*{Definition eines Rays}
 Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen, geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  Blick des Benutzers bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
 
-\subsubsection{\label{sec:ARRaycastHit}ARRaycastHit Klasse}\marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{\label{sec:ARRaycastHit}ARRaycastHit Klasse}
 Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eines \textit{Raycasts} in Augmented Reality (AR) Anwendungen zu erhalten. Ein Raycast ist eine Technik, bei der ein imaginärer Strahl (Ray) von einem Startpunkt aus in eine bestimmte Richtung gesendet wird, um festzustellen, ob er auf eine Oberfläche auftrifft, und, wenn dies der Fall ist, Informationen über den Auftreffpunkt zurückzugeben. Diese Informationen werden dann von der \textit{ARRaycastHit}-Klasse aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthält mehrere Methoden, die es ermöglichen, auf die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen wie die Position des Trefferpunktes, die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf realen Oberflächen. Darüber hinaus ermöglicht die \textit{ARRaycastHit}-Klasse das Hinzufügen von physikalischen Eigenschaften in AR-Anwendungen, wodurch z. B. Kollisionen integriert werden können.
 Diese Klasse besitzt die folgenden Parameter:
 \begin{itemize}
@@ -1259,7 +1259,7 @@ if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
 Es wird eine Liste von ARRaycastHit Objekten erstellt, die den Namen \textit{hits} trägt. In dieser Liste werden nach dem Ausführen einer AR-Raycast-Operation die Treffer gespeichert. Die Funktion Raycast erhält die \textit{screenCoordinates}, die \textit{hits}-Liste sowie die zu suchenden TrackableType.Planes.
 Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überprüft. Diese Treffer werden dann daraufhin überprüft, ob ihr Typ nicht \textit{TrackableType.PlaneWithinInfinity} ist, um sicherzustellen, dass der Raycast nicht ins Unendliche geht. Wenn ein Objekt getroffen wurde, wird geprüft, ob es Werte besitzt. Wenn alle diese Voraussetzungen erfüllt sind, wird es mit einer um 5 cm erhöhten Höhe (damit das Paket nicht innerhalb von Kabel gleitet sondern leicht darüber) zu \textit{cablePositions} hinzugefügt. \textit{cablePositions} ist die Position, die das Paket später durchqueren wird.
 
-\subsubsection{Erstellung und Positionierung des Paketes} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Erstellung und Positionierung des Paketes}
 Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur Initialisierung und zum Absenden des Datenpakets führt.\\
 Bei der \textit{Start} Funktion welche von Unity zur Verfügung gestellt  wird. Führt diese Zeile aus:
 \begin{lstlisting}[style=csharp, caption={Binden an der Methode}, label=code:]
@@ -1294,7 +1294,7 @@ public void editAndSendPackage(string username, string message) {
 Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Paket zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Hauptthread läuft und die Initialisierung des Paket sowie die Funktion \textit{EventManager.SendMsg} nur im Hauptthread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Nebenthread, sondern vom Hauptthread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt noch nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des Gameobjects zu verwenden, um die korrekten Daten im Text anzuzeigen.
 
 
-\subsubsection{Bewegung des Paketes} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Bewegung des Paketes}
 Die Bewegung des Paketes läuft so ab, dass das Paket nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity übver die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jeden Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu erzielen.
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
@@ -1325,7 +1325,7 @@ Dieses Skript beinhaltet drei Globale Variablen welche von mehreren Funktionen g
 Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiterhin überprüft, ob die Nachricht bereits am Ende angekommen ist. Dies wird durch den Vergleich zwischen der Variable \textit{moveToCounter} und der Anzahl der Positionen in \textit{cablePositions} festgestellt. Diese Überprüfung ist erforderlich, da der Index einer Liste bei null beginnt, und eine Fortsetzung ohne diese Kontrolle zu einer möglichen Null-Exception führen würde. Solange \textit{moveToCounter} kleiner ist als die Anzahl der Positionen, wird die Bewegung mittels \textit{instantiatedObject.transform.Translate} ausgeführt. Die Bewegung selbst wird durch die Differenz der nächsten Position, zu der das Objekt bewegt werden soll, und der aktuellen Position, von der das Paket sich weg bewegt, definiert. Diese Translation wird mit einem Faktor multipliziert, in diesem Fall mit \textit{0.0075f}, um die Geschwindigkeit des Objekts anzupassen. Die Bewegung erfolgt mit einer Geschwindigkeit von 0.0075 Metern pro Frame(, da die Einheiten direkt in Metern angegeben sind). Nach jeder Bewegung wird überprüft, ob das Paket bereits den Endpunkt erreicht hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit der sich das Objekt bewegt. Diese Wahl erfolgt, damit das Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt, um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht der letzte Durchlauf war, wird der Vorgang wiederholt.
 
 
-\subsection{Anzeigen von Informationen der Nachricht} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Anzeigen von Informationen der Nachricht}
 Der Benutzer kann Mithilfe der Website welche auf beiden Laptops (links und rechts) offen ist eine Nachricht innerhalb des Paketes senden. Diese Informationen werden dann angezeigt wenn der Benutzer auf das virtuelle Paket klickt.
 %TODO Foto Informationen anzeigen
 Dies wird mithilfe des Gameobjekt \textit{InfoObject} gemacht welches Voreinstellungen für den Hintergrund und Text besitzt falls es zu Fehlern kommt. \\
@@ -1369,10 +1369,10 @@ public void EditText(string username, string message) {
 \end{lstlisting}
 Dieser Code definiert eine Methode namens \textit{EditText}, die verwendet wird, um den Text eines \textit{TextMeshPro}-Objekts zu ändern. Die Methode akzeptiert zwei Parameter \textit{username} und \textit{message}, die den Absender und den Nachrichtentext repräsentieren welcher von dem Nutzer davor gesendet wurde. Die Methode überprüft zunächst, ob das \textit{textMeshPro}-Objekt nicht null ist und ob sowohl \textit{username} als auch \textit{message} nicht null sind. Wenn diese Bedingungen erfüllt sind, wird der Text des \textit{textMeshPro}-Objekts aktualisiert.
 
-\subsection{Debugging Optionen} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Debugging Optionen}
 Während der Entwicklung dieses Projekts wurden spezifische Funktionen implementiert, um Fehler und Bugs im Code zu identifizieren. Zu diesem Zweck wurden zwei Funktionen mit den Bezeichnungen \textit{debugRaycast} und \textit{DebugCameraResolution} entwickelt. Darüber hinaus wurde ein \textit{Plane} \textit{Gameobjekt} namens \textit{PixleDebug} erstellt, das als Hilfsmittel dient, um Fehler im Code zu diagnostizieren und zu beheben. Diese zusätzlichen Implementierungen tragen wesentlich dazu bei, die Fehlerfreiheit des entwickelten Systems zu verbessern, indem sie eine strukturierte und systematische Fehlerbehandlung ermöglichen.
 
-\subsubsection{\label{sec:PlaneDebug}Anzeigen der Kabelerkennung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{\label{sec:PlaneDebug}Anzeigen der Kabelerkennung}
 Das \textit{GameObject} mit dem Namen \textit{PixleDebug} dient als Hilfsmittel zur Visualisierung der Erkennung roter Pixel. Diese Einrichtung ermöglicht die Darstellung aller identifizierten roten Pixel als 2D-Textur auf dem \textit{GameObject}, wodurch die vom Skript erkannten roten Pixel sichtbar werden. Die Steuerung der Aktivierung bzw. Deaktivierung der Objektdarstellung kann über das Skript \textit{Deactivate Object} erfolgen. Diese Prozedur bietet eine effektive Methode zur Überprüfung der Pixelerkennung in der Umgebung.
 \\
 \\
@@ -1380,7 +1380,7 @@ Foto einfügen
 \\
 \\
 
-\subsubsection{Debug Funktion von Raycasts} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Debug Funktion von Raycasts}
 Um während dem programmieren des Prozesses von Raycasts sicherzustellen, dass in der Funktion \textit{positionVirtualObject} die korrekte Position getroffen, wurde kann man die Funktion \textit{debugRaycast} verwenden. Diese Funktion dient der Visualisierung von dem getroffenen Punkte des Raycasts. Zur Ausführung dieser Funktion muss das \textit{hit-Objekt} des Raycasts übergeben werden. Dies gewährleistet eine präzise Überprüfung und gegebenenfalls Anpassung der Raycast-Positionen für eine genauere Abbildung der realen Umgebung. Die Verwendung der \textit{debugRaycast}-Funktion ermöglicht somit eine verbesserte Qualität und Zuverlässigkeit in Anwendungen, die auf Raycasting basieren.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von Raycasts}, label=code:debugRaycast]
 void debugRaycast(ARRaycastHit hit) {
@@ -1388,7 +1388,7 @@ void debugRaycast(ARRaycastHit hit) {
     GameObject instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
 }
 \end{lstlisting}
-\subsubsection{Debug Funktion von der Kamera Benutzung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Debug Funktion von der Kamera Benutzung}
 Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung ordnungsgemäß auf die Kamera zugreift und eine korrekte Bildauflösung erhält.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
 void DebugCameraReselution() {
@@ -1421,10 +1421,10 @@ void DebugCameraReselution() {
 \end{lstlisting}
 Durch den bereitgestellten Code wird überprüft, ob die Kamera eine gültige Auflösung liefert. Zunächst wird geprüft, ob überhaupt ein Kameragerät verfügbar ist. Wenn ja, wird das erste Kameragerät ausgewählt und eine Textur mit diesem Gerät erstellt. Anschließend wird die Textur abgespielt, um sicherzustellen, dass die Kamera ordnungsgemäß initialisiert wird. Wenn die Kamera eine gültige Auflösung zurückgibt, wird die Auflösung protokolliert. Andernfalls wird eine Fehlermeldung ausgegeben. Falls keine Kamerageräte gefunden werden, wird ebenfalls eine entsprechende Fehlermeldung ausgegeben.
 
-\subsection{Andere Versuche / Probleme bei der Programmierung} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsection{Andere Versuche / Probleme bei der Programmierung}
 In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch weitere Versuche und Ansätze innerhalb des Projekts behandelt.
 
-\subsubsection{Kabel Erkennung Version 1} \marginpar{\small$(\rightarrow)$ Schoditsch}
+\subsubsection{Kabel Erkennung Version 1}
 In der ersten Version zur Erkennung des roten Kabels, wurde das mit der Hololens aufgenommene Foto, mit den HauptThread durch jeden Pixel der Textur iteriert und überprüft, ob es hauptsächlich rot ist. Wenn die Rotkomponente des Pixels über einem bestimmten Schwellenwert liegt und die Grün- und Blaukomponenten unterhalb eines bestimmten Schwellenwerts liegen, wird das Pixel auf Rot gesetzt. Andernfalls wird das Pixel auf Schwarz gesetzt.\\
 \begin{lstlisting}[style=csharp, caption={Erste Version der Kabel Erkennung}, label=code:debugRaycast]
 void editTextureV2(Texture2D textureToEdit) {
@@ -1704,17 +1704,6 @@ gehen: \texttt{http://{IP-Adresse der Hololens}:{Port}/{Endpoint}}. Die IP-Adres
 Webseite eingegeben. Der Listener läuft standardmäßig auf dem Port 9090.
 
 (Die erlaubten Endpunkte sind wie oben aufgeführt fallbasiert gelistet.)
-
-\subsection{Object Tracking} \marginpar{\small\(\rightarrow\) SCHODITSCH}
-Durch verwendung von bereitgestellten Technologien der HoloLens2
-werden die zwei PCs und das Kabel getracked.
-%Hier dann noch code zum Object Tracking einfügen
-
-\subsection{Kurvenberechnung}
-Durch Berechnung der Kurve wird das Kabel als Kurve gespeichert
-und dadurch wird es ermöglicht, dass das 3D-Ping-Paket über diese
-Kurve von einem PC zum anderen läuft.
-%Hier dann noch code zur Kurvenberechnung einfügen
 
 \section{Knapsack Problem Szenario} \marginpar{\small\(\rightarrow\) SKREPEK}
 Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
