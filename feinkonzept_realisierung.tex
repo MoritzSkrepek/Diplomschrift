@@ -1517,7 +1517,10 @@ Nach der erfolgreichen Konfiguration der Webseite können nun Nachrichten versen
 \subsubsection{\label{sec:cors}CORS}
 CORS, oder Cross-Origin Resource Sharing, ist ein Sicherheitsmechanismus, der in modernen Webbrowsern implementiert ist. Seine Hauptaufgabe besteht darin, die Interaktionen zwischen verschiedenen Domains zu regulieren. In der Standardeinstellung erlauben Webbrowser aus Sicherheitsgründen nur Anfragen an Ressourcen, die sich auf derselben Domain befinden, von der die Anfrage stammt. Dies wird als Same-Origin-Policy bezeichnet.
 
-CORS erweitert diese Grundfunktionalität, indem es den Zugriff auf Ressourcen von anderen Domains ermöglicht, vorausgesetzt, der Server, auf dem sich die Ressourcen befinden, erlaubt dies explizit. Dies ermöglicht eine sicherere und kontrolliertere Interaktion zwischen verschiedenen Domains. %TODO: QUELLEN
+CORS erweitert diese Grundfunktionalität, indem es den Zugriff auf Ressourcen von anderen Domains ermöglicht, vorausgesetzt, der Server, auf dem sich die Ressourcen befinden, erlaubt dies explizit. Dies ermöglicht eine sicherere und kontrolliertere Interaktion zwischen verschiedenen Domains.
+%TODO: QUELLEN
+% https://aws.amazon.com/de/what-is/cross-origin-resource-sharing/#:~:text=Cross%2DOrigin%20Resource%20Sharing%20(CORS,Ressourcen%20in%20einer%20anderen%20Domain.
+% https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
 In unserem speziellen Fall, da unsere Kommunikation ausschließlich im lokalen Netzwerk stattfindet, ist es nicht unbedingt notwendig, strenge Sicherheitsmaßnahmen zu ergreifen. Dennoch ist es wichtig, dass wir bestimmte Header in allen Antworten einfügen, die von der Brille zurückgeschickt werden. Alle Anfragen werden im \textit{RequestManager.cs} Skript abgearbeitet. Genauere Infos sind im Abschnitt \ref{sec:webBackend} zu finden.
 
@@ -1772,6 +1775,7 @@ eine einzelne Zahl im Bereich von 1 bis 11 abgespeichert. Diese Zahlen repräsen
 wir unterscheiden möchten. Da nur eine Zahl gespeichert wird, genügt ein QR-Code der Größe 21x21 Module (Version 1). Die
 geringe Anzahl von Modulen ermöglicht eine schnellere Erkennung, auch über größere Distanzen.
 %TODO: Quellen
+% https://learn.microsoft.com/de-de/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview#best-practices-for-qr-code-detection
 
 
 TODO: Testen und Grafik erstellen um zu zeigen das es eine Rolle spielt welche version wir verwenden + wie groß die sind
@@ -1824,6 +1828,8 @@ Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des
 Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein Singleton, das
 die Erkennung und Verfolgung der QR-Codes steuert.
 %TODO: Quelle: Singelton
+% https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ee817670(v=pandp.10)?redirectedfrom=MSDN
+% https://web.archive.org/web/20020424122433/http://home.earthlink.net/~huston2/dp/singleton.html
 
 Nach der Erkennung eines QR-Codes erfolgen eine Reihe von Schritten, um diese Informationen zu speichern, verarbeiten
 und zuletzt darzustellen.
@@ -2050,10 +2056,10 @@ Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) be
 \end{figure}
 
 \subsubsection{\label{sec:SGN} Spatial Graph Node}
-Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte ``Spatial Graph Nodes``. Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
+Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte \textit{Spatial Graph Nodes}. Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
 Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-Koordinatensystem um. Darüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau genau an derselben Stelle wie den realen QR-Code. Diese Verwendung von Spatial Graph Nodes ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in der Mixed-Reality-Umgebung.
-%TODO: Quellen
+%TODO: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.openxr.spatialgraphnode?view=mixedreality-openxr-plugin-1.10
 
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
