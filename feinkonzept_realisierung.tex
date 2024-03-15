@@ -2062,7 +2062,8 @@ Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) be
 \subsubsection{\label{sec:SGN} Spatial Graph Node}
 Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte \textit{Spatial Graph Nodes}. Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
-Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-Koordinatensystem um. Darüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau genau an derselben Stelle wie den realen QR-Code. Diese Verwendung von Spatial Graph Nodes ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in der Mixed-Reality-Umgebung.
+Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-Koordinatensystem um. Darüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau genau an derselben Stelle wie den realen QR-Code. Diese Verwendung von Spatial Graph Nodes ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in
+der Mixed-Reality-Umgebung. \footnote{Microsoft-Dokumentation \cite{Spatial Graph Node}}
 %TODO: https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.openxr.spatialgraphnode?view=mixedreality-openxr-plugin-1.10
 
 
@@ -3677,7 +3678,8 @@ Wenn das Ergebnis den Erwartungen entspricht, gilt der Testfall als bestanden. A
 Das Ziel ist es, sicherzustellen, dass die Funktionalität wie erwartet funktioniert und potenzielle Fehler oder Abweichungen identifiziert werden.
 \end{itemize}
 
-Das AAA-Schema trägt zur Verbesserung der Lesbarkeit, Wartbarkeit und Strukturierung von Testfällen bei, indem es eine klare Trennung der einzelnen Schritte ermöglicht. Dadurch wird die Testentwicklung effizienter und erleichtert die Identifizierung und Behebung von Fehlern.
+Das AAA-Schema trägt zur Verbesserung der Lesbarkeit, Wartbarkeit und Strukturierung von Testfällen bei, indem es eine klare Trennung der einzelnen Schritte ermöglicht. Dadurch wird die Testentwicklung effizienter und erleichtert die Identifizierung und Behebung von
+Fehlern. \footnote{Automationpanda \cite{Arrange Act Assert}}
 
 %TODO: Quelle https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/
 \subsection{Testfälle}
