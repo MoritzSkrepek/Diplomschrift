@@ -232,8 +232,8 @@ Prefabs bieten zahlreiche Vorteile für die Gestaltung und Entwicklung von Proje
 
 In komplexen Projekten, die eine Vielzahl von Objekten wie Charaktere, Umgebungen und visuelle Effekte beinhalten, erweisen sich Prefabs als äußerst nützlich. Sie dienen als wiederverwendbare Vorlagen, die es ermöglichen, einmal erstellte Elemente zu speichern und in unterschiedlichen Szenarien wiederzuverwenden. Dies eliminiert die Notwendigkeit, jedes Mal, wenn eine neue Szene erstellt werden muss, von Grund auf neu zu beginnen. Darüber hinaus trägt die Verwendung von Prefabs dazu bei, eine konsistente Designästhetik über das gesamte Projekt hinweg zu gewährleisten. \footnote{Unity-Dokumentation, \cite{Prefabs}}\footnote{Unity-Dokumentation, \cite{Prefabs2}}
 
-% https://docs.unity3d.com/Manual/Prefabs.html
-% https://learn.unity.com/tutorial/prefabs-e#
+%TODO: https://docs.unity3d.com/Manual/Prefabs.html
+%TODO: https://learn.unity.com/tutorial/prefabs-e#
 
 Ein weiterer bedeutsamer Vorteil von Prefabs besteht in ihrer Fähigkeit, eine unkomplizierte Aktualisierung und Iteration von Projektobjekten zu ermöglichen. Bei notwendigen Modifikationen an einem spezifischen Objekt kann das zugehörige Prefab bearbeitet werden. Diese Modifikationen werden dann automatisch auf alle Instanzen dieses Prefabs angewendet, die in der Szene implementiert sind. Dies optimiert den Workflow und vereinfacht den Prozess erheblich.
 
@@ -1890,7 +1890,7 @@ Hier eine kurze Übersicht:
 Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-Game-Objekt, das weitere Game-Objekte instanziiert, wie beispielsweise den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
-TODO: Hier ein Bild von "Camera acess needed" einfügen
+%TODO: Hier ein Bild von "Camera acess needed" einfügen
 Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
 gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
 zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
@@ -1935,7 +1935,6 @@ repräsentierte Objekt erhalten.
 \caption{Bauklötze mit QR-Codes}
 \label{fig:bauklotz}
 \end{figure}
-TODO: neues besseres Bild einfügen
 
 Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
 Verbindung zwischen der realen und der virtuellen Welt herzustellen, nutzen wir QR-Codes.  Diese dienen in der realen Welt als Repräsentationen jener Objekte, die wir in der virtuellen Welt darstellen möchten.
@@ -1969,7 +1968,6 @@ Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Co
 Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
 
 \subsubsection{Visualisierung von QR-Codes}
-TODO: Bild von einem QR Prefab einfügen
 Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, muss ihre Visualisierung in der virtuellen Welt umgesetzt werden. Hierfür nutzen wir die Funktionalität von Unity Prefabs, die die Erstellung visueller Repräsentationen der QR-Codes und ihre nahtlose Integration in die virtuelle Umgebung ermöglichen.
 
 Die Klasse \textit{QRWatcher} kann drei Events auslösen: das Erkennen eines neuen QR-Codes, das Erkennen eines bereits bekannten QR-Codes und das Löschen eines QR-Codes.
@@ -1978,7 +1976,13 @@ Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen 
 
 Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-Codes, einschließlich des 3D-Modells, des Namens, des Werts und anderer Daten, die für Interaktionen innerhalb der virtuellen Umgebung erforderlich sind. Um die Funktionalität des QR-Codes sicherzustellen, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen, das die visuelle Darstellung und alle damit verbundenen Interaktionen steuert.
 
-TODO: Bild Aufbau Prefabs
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.04, angle=0]{images/bauklotz}
+\caption{Bauklötze mit QR-Codes}
+\label{fig:bauklotz}
+\end{figure}
+
 
 In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Wie zu erkennen ist, verfügt dieses Prefab über nur wenige Eigenschaften, nämlich:
 \begin{itemize}
@@ -2084,7 +2088,13 @@ Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) be
 
 \end{itemize}
 
-%TODO: Bild von einem gescannten QRCode einfügen und beschreiben
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5, angle=0]{images/scanned}
+\caption{Visualisierte QR-Codes}
+\label{fig:visqr}
+\end{figure}
+
 \subsubsection{\label{sec:SGN} Spatial Graph Node}
 Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte ``Spatial Graph Nodes``. Diese werden durch das OpenXR-Plugin von Microsoft bereitgestellt und dienen in unserem Fall dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
@@ -3678,7 +3688,12 @@ Der \textit{Test-Runner} ist ein unverzichtbares Werkzeug innerhalb des \textit{
 
 In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. Dort sind auch die implementierten Tests dieses Projekts ersichtlich, insgesamt vier Tests mit mehreren TestCases. Weitere Details dazu finden sich im Abschnitt \ref{sec:tests}.
 
-%TODO: SS von Test-Runner Fester einfügen
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.04, angle=0]{images/testRunner}
+\caption{Test-Runnner Fenster}
+\label{fig:testRunner}
+\end{figure}
 
 \subsubsection{\label{sec:AAA} AAA-Schema}
 Das AAA-Schema steht für "Arrange, Act, Assert" und ist ein grundlegendes Konzept im Bereich des Testens von Software. Es bietet eine klare Struktur für die Organisation von Testfällen, um sicherzustellen, dass die Funktionalität korrekt überprüft wird. Hier ist eine Erläuterung der einzelnen Schritte:
@@ -3700,7 +3715,7 @@ Das Ziel ist es, sicherzustellen, dass die Funktionalität wie erwartet funktion
 
 Das AAA-Schema trägt zur Verbesserung der Lesbarkeit, Wartbarkeit und Strukturierung von Testfällen bei, indem es eine klare Trennung der einzelnen Schritte ermöglicht. Dadurch wird die Testentwicklung effizienter und erleichtert die Identifizierung und Behebung von Fehlern.
 
-%TODO: Quelle
+%TODO: Quelle https://automationpanda.com/2020/07/07/arrange-act-assert-a-pattern-for-writing-good-tests/
 \subsection{Testfälle}
 
 Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests. Alle einzelnen Testfälle sind innerhalb der Klasse \textit{KnapsackSolverTests} (\ref{code:testClass}) organisiert. Die Test-Klasse fungiert als eine Sammlung von Methoden, die verschiedene Aspekte einer spezifischen Funktionalität überprüfen, nämlich den \textit{Knapsack Algorithmus}.
