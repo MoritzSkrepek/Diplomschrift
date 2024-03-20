@@ -267,7 +267,7 @@ Ein weiterer bedeutsamer Vorteil von Prefabs besteht in ihrer Fähigkeit, eine u
 
 Innerhalb des Projekts wird die Prefab-Technologie in folgenden Bereichen eingesetzt:
 \begin{itemize}
-    \item \textbf{3D-Modelle \ref{sec:3dModelleDustin}:} Die dreidimensionalen Modelle sind als einzelne Prefabs konzipiert. Diese Struktur ermöglicht eine einfache Bearbeitung und Anpassung spezifischer Eigenschaften wie Rotation, Position und Skalierung, ohne dass das gesamte Modell jedes Mal ersetzt werden muss. Diese Flexibilität erleichtert die Feinabstimmung der Modelle und ermöglicht eine schnelle Anpassung. Beispiele für die Anwendung dieses Prinzips sind im Abschnitt \ref{sec:restlicheModelle} zu finden.
+    \item \textbf{3D-Modelle \ref{sec:restlicheModelle}:} Die dreidimensionalen Modelle sind als einzelne Prefabs konzipiert. Diese Struktur ermöglicht eine einfache Bearbeitung und Anpassung spezifischer Eigenschaften wie Rotation, Position und Skalierung, ohne dass das gesamte Modell jedes Mal ersetzt werden muss. Diese Flexibilität erleichtert die Feinabstimmung der Modelle und ermöglicht eine schnelle Anpassung. Beispiele für die Anwendung dieses Prinzips sind im Abschnitt \ref{sec:restlicheModelle} zu finden.
     \item \textbf{QR-Codes \ref{sec:qrcodes}:} In unserer Szene arbeiten wir gleichzeitig mit mehreren QR-Codes. Dank der Verwendung der Prefab-Technologie können wir diese mit minimalem Aufwand häufig instanziieren. Nach der Instanziierung wird die Arbeit mit diesen virtualisierten QR-Codes weiter vereinfacht. Durch den leichteren Zugriff auf die untergeordneten Objekte der Prefabs können wir die Informationen, die auf den QR-Codes angezeigt werden, mühelos aktualisieren.
 \end{itemize}
 
@@ -1987,7 +1987,7 @@ Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-
 In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Wie zu erkennen ist, verfügt dieses Prefab über nur wenige Eigenschaften, nämlich:
 \begin{itemize}
     \item \textbf{Canvas:} Der Canvas enthält drei Labels: "Name", ``Gewicht`` und "Wert", welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
-    \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:3dModelleDustin} zu finden. Jedes Prefab enthält die Modelle aller möglichen Items, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
+    \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Items, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
 \end{itemize}
 
 \subsubsection*{Instanzierung eines QR-Prefabs}
