@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  20 MAR 2024 10:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.28)  20 MAR 2024 11:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3432,9 +3432,9 @@ File: latin1.def 2021/02/14 v1.3d Input encoding file
 File: images/serverStart.png Graphic file (type png)
 <use images/serverStart.png>
 Package pdftex.def Info: images/serverStart.png  used on input line 1705.
-(pdftex.def)             Requested size: 516.42812pt x 578.15858pt.
+(pdftex.def)             Requested size: 258.21405pt x 289.07928pt.
 
-Overfull \hbox (324.37332pt too wide) in paragraph at lines 1705--1706
+Overfull \hbox (66.15926pt too wide) in paragraph at lines 1705--1706
  [][][][] 
  []
 
@@ -3442,26 +3442,15 @@ Overfull \hbox (324.37332pt too wide) in paragraph at lines 1705--1706
 File: images/laptopAufbau.png Graphic file (type png)
 <use images/laptopAufbau.png>
 Package pdftex.def Info: images/laptopAufbau.png  used on input line 1712.
-(pdftex.def)             Requested size: 253.34201pt x 173.04343pt.
+(pdftex.def)             Requested size: 126.671pt x 86.52171pt.
 
-Overfull \hbox (61.28722pt too wide) in paragraph at lines 1712--1713
- [][][][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [85]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [86 <./images/serverStart.png> <./images/laptopAufbau.png>]
 Overfull \hbox (0.6557pt too wide) in paragraph at lines 1722--1723
 \T1/cmr/m/n/10.95 IP-Adresse der Ho-lo-lens re-gis-triert wer-den. Ob-wohl die 
 Ver-bin-dungs-test-funk-ti-on nicht
  []
 
-[87]
-<images/Level2Hirarchy.png, id=2324, 286.06876pt x 305.34074pt>
+[85 <./images/serverStart.png> <./images/laptopAufbau.png>] [86]
+<images/Level2Hirarchy.png, id=2320, 286.06876pt x 305.34074pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
 Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 1778.
@@ -3471,20 +3460,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 1771--1781
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [88]
+[87 <./images/Level2Hirarchy.png>]
 Overfull \hbox (6.76752pt too wide) in paragraph at lines 1796--1797
 [][][]\T1/cmr/bx/n/10.95 InventoryPlacementController: \T1/cmr/m/n/10.95 Ga-me 
 Ob-jekt, wel-ches das plat-zie-ren des Inventar-
  []
 
-[89 <./images/Level2Hirarchy.png>]
 
-LaTeX Warning: Citation 'QR-Code-Tracking' on page 90 undefined on input line 1
+LaTeX Warning: Citation 'QR-Code-Tracking' on page 88 undefined on input line 1
 821.
 
+[88]
 
 feinkonzept_realisierung.tex:1827: Package Listings Error: Couldn't load reques
 ted style.
@@ -3516,45 +3502,38 @@ Package csquotes Info: Input encoding change on input line 1827.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[90]
 
-LaTeX Warning: Citation 'Singleton' on page 91 undefined on input line 1871.
+LaTeX Warning: Citation 'Singleton' on page 89 undefined on input line 1871.
 
 
-LaTeX Warning: Citation 'QR-Code-Tracking' on page 91 undefined on input line 1
+LaTeX Warning: Citation 'QR-Code-Tracking' on page 89 undefined on input line 1
 871.
 
-<images/QRAblauf.png, id=2358, 608.2725pt x 825.0825pt>
+<images/QRAblauf.png, id=2335, 608.2725pt x 825.0825pt>
 File: images/QRAblauf.png Graphic file (type png)
 <use images/QRAblauf.png>
 Package pdftex.def Info: images/QRAblauf.png  used on input line 1882.
 (pdftex.def)             Requested size: 304.13551pt x 412.54024pt.
+[89] [90 <./images/QRAblauf.png>]
+<images/bauklotz.png, id=2380, 992.70876pt x 923.45pt>
+File: images/bauklotz.png Graphic file (type png)
+<use images/bauklotz.png>
+Package pdftex.def Info: images/bauklotz.png  used on input line 1934.
+(pdftex.def)             Requested size: 297.81493pt x 277.03712pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [91]
-[92 <./images/QRAblauf.png>]
-<images/bauklotz.png, id=2388, 992.70876pt x 923.45pt>
-File: images/bauklotz.png Graphic file (type png)
-<use images/bauklotz.png>
-Package pdftex.def Info: images/bauklotz.png  used on input line 1934.
-(pdftex.def)             Requested size: 496.35316pt x 461.72386pt.
-
-Overfull \hbox (69.56181pt too wide) in paragraph at lines 1934--1935
- [][][][] 
- []
-
+[92 <./images/bauklotz.png>]
+<images/qrprefab.png, id=2394, 150.06062pt x 248.42813pt>
+File: images/qrprefab.png Graphic file (type png)
+<use images/qrprefab.png>
+Package pdftex.def Info: images/qrprefab.png  used on input line 1981.
+(pdftex.def)             Requested size: 90.03706pt x 149.05801pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [93]
-[94 <./images/bauklotz.png>] [95]
-<images/qrprefab.png, id=2407, 150.06062pt x 248.42813pt>
-File: images/qrprefab.png Graphic file (type png)
-<use images/qrprefab.png>
-Package pdftex.def Info: images/qrprefab.png  used on input line 1981.
-(pdftex.def)             Requested size: 75.03012pt x 124.21376pt.
-
 
 feinkonzept_realisierung.tex:1995: Package Listings Error: Couldn't load reques
 ted style.
@@ -3586,7 +3565,7 @@ Package csquotes Info: Input encoding change on input line 1995.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[96 <./images/qrprefab.png>]
+[94 <./images/qrprefab.png>]
 
 feinkonzept_realisierung.tex:2028: Package Listings Error: Couldn't load reques
 ted style.
@@ -3618,7 +3597,7 @@ Package csquotes Info: Input encoding change on input line 2028.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[97]
+[95]
 
 feinkonzept_realisierung.tex:2066: Package Listings Error: Couldn't load reques
 ted style.
@@ -3650,38 +3629,30 @@ Package csquotes Info: Input encoding change on input line 2066.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[98]
-<images/scanned.png, id=2512, 1981.4025pt x 1076.02pt>
+<images/scanned.png, id=2482, 1981.4025pt x 1076.02pt>
 File: images/scanned.png Graphic file (type png)
 <use images/scanned.png>
 Package pdftex.def Info: images/scanned.png  used on input line 2097.
-(pdftex.def)             Requested size: 594.42534pt x 322.8085pt.
+(pdftex.def)             Requested size: 297.19756pt x 161.39603pt.
 
-Overfull \hbox (167.63399pt too wide) in paragraph at lines 2097--2098
- [][][][] 
- []
+[96]
 
-
-LaTeX Warning: Citation 'Spatial Graph Node' on page 99 undefined on input line
+LaTeX Warning: Citation 'Spatial Graph Node' on page 97 undefined on input line
  2106.
 
-[99 <./images/scanned.png>]
-<images/invPrefabUnity.png, id=2523, 1159.9335pt x 522.15076pt>
+[97 <./images/scanned.png>]
+<images/invPrefabUnity.png, id=2515, 1159.9335pt x 522.15076pt>
 File: images/invPrefabUnity.png Graphic file (type png)
 <use images/invPrefabUnity.png>
 Package pdftex.def Info: images/invPrefabUnity.png  used on input line 2139.
 (pdftex.def)             Requested size: 347.98274pt x 156.64644pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [100]
-[101 <./images/invPrefabUnity.png>]
-<images/invPlace_Editor.png, id=2540, 380.01974pt x 253.54726pt>
+ [98 <./images/invPrefabUnity.png>]
+<images/invPlace_Editor.png, id=2525, 380.01974pt x 253.54726pt>
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
 Package pdftex.def Info: images/invPlace_Editor.png  used on input line 2199.
 (pdftex.def)             Requested size: 304.0162pt x 202.83806pt.
- [102 <./images/invPlace_Editor.png>]
+ [99] [100 <./images/invPlace_Editor.png>]
 Package csquotes Info: Input encoding change on input line 2237.
 
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
@@ -3715,11 +3686,11 @@ l.2247 \end{lstlisting}
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
-[103]
 Package csquotes Info: Input encoding change on input line 2268.
- (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
+(C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
+[101]
 
 feinkonzept_realisierung.tex:2296: LaTeX Error: There's no line here to end.
 
@@ -3734,48 +3705,45 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[104]
+[102]
 Package csquotes Info: Input encoding change on input line 2339.
  (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[105]
-<images/schritteins.png, id=2626, 1087.6635pt x 796.1745pt>
+<images/schritteins.png, id=2601, 1087.6635pt x 796.1745pt>
 File: images/schritteins.png Graphic file (type png)
 <use images/schritteins.png>
 Package pdftex.def Info: images/schritteins.png  used on input line 2388.
 (pdftex.def)             Requested size: 204.8492pt x 170.71252pt.
-<images/schrittzwei.png, id=2627, 982.26974pt x 826.287pt>
+<images/schrittzwei.png, id=2602, 982.26974pt x 826.287pt>
 File: images/schrittzwei.png Graphic file (type png)
 <use images/schrittzwei.png>
 Package pdftex.def Info: images/schrittzwei.png  used on input line 2395.
 (pdftex.def)             Requested size: 204.84386pt x 170.71378pt.
-<images/schrittdrei.png, id=2628, 1105.12875pt x 496.254pt>
+<images/schrittdrei.png, id=2603, 1105.12875pt x 496.254pt>
 File: images/schrittdrei.png Graphic file (type png)
 <use images/schrittdrei.png>
 Package pdftex.def Info: images/schrittdrei.png  used on input line 2404.
 (pdftex.def)             Requested size: 426.79135pt x 191.64522pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [106]
+[103]
 Overfull \hbox (9.06349pt too wide) in paragraph at lines 2419--2422
 [][][]\T1/cmr/m/n/10.95 Die drit-te Ab-bil-dung zeigt den Ab-schluss des Plat-z
 ie-rungs-pro-zes-ses, bei dem das Inventar-
  []
 
-[107 <./images/schritteins.png> <./images/schrittzwei.png> <./images/schrittdre
+[104 <./images/schritteins.png> <./images/schrittzwei.png> <./images/schrittdre
 i.png>]
-<images/invCon_Editor.png, id=2644, 380.622pt x 240.9pt>
+<images/invCon_Editor.png, id=2631, 380.622pt x 240.9pt>
 File: images/invCon_Editor.png Graphic file (type png)
 <use images/invCon_Editor.png>
 Package pdftex.def Info: images/invCon_Editor.png  used on input line 2446.
 (pdftex.def)             Requested size: 266.43356pt x 168.62883pt.
- [108 <./images/invCon_Editor.png>]
+ [105 <./images/invCon_Editor.png>]
 
-LaTeX Warning: Citation 'Bounds' on page 109 undefined on input line 2476.
+LaTeX Warning: Citation 'Bounds' on page 106 undefined on input line 2476.
 
-[109]
+[106]
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
@@ -3789,27 +3757,27 @@ Package csquotes Info: Input encoding change on input line 2547.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[110]
+[107]
 Package csquotes Info: Input encoding change on input line 2557.
  (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-<images/vorher.png, id=2681, 308.352pt x 219.219pt>
+<images/vorher.png, id=2669, 308.352pt x 219.219pt>
 File: images/vorher.png Graphic file (type png)
 <use images/vorher.png>
 Package pdftex.def Info: images/vorher.png  used on input line 2578.
 (pdftex.def)             Requested size: 192.0548pt x 136.53987pt.
-<images/nachher.png, id=2682, 316.18124pt x 254.1495pt>
+<images/nachher.png, id=2670, 316.18124pt x 254.1495pt>
 File: images/nachher.png Graphic file (type png)
 <use images/nachher.png>
 Package pdftex.def Info: images/nachher.png  used on input line 2585.
 (pdftex.def)             Requested size: 192.0548pt x 154.37946pt.
 
 
-LaTeX Warning: Citation 'Lokal- und Weltposition' on page 111 undefined on inpu
+LaTeX Warning: Citation 'Lokal- und Weltposition' on page 108 undefined on inpu
 t line 2610.
 
-[111 <./images/vorher.png> <./images/nachher.png>]
+[108 <./images/vorher.png> <./images/nachher.png>]
 
 feinkonzept_realisierung.tex:2619: Package Listings Error: Couldn't load reques
 ted style.
@@ -3841,7 +3809,7 @@ Package csquotes Info: Input encoding change on input line 2619.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[112]
+[109]
 Overfull \hbox (0.592pt too wide) in paragraph at lines 2681--2686
 [][][]\T1/cmr/bx/n/10.95 Prüfung auf be-reits er-folg-te Ver-ar-bei-tung des Ge
 -gen-stands\T1/cmr/m/n/10.95 : In die-sem Schritt
@@ -3853,8 +3821,8 @@ Overfull \hbox (2.71216pt too wide) in paragraph at lines 2687--2692
 ie Funk-ti-on \T1/cmtt/m/n/10.95 UpdateInfoMesh()
  []
 
-[113]
-<images/itemAdded.png, id=2751, 962.99776pt x 729.32475pt>
+[110]
+<images/itemAdded.png, id=2738, 962.99776pt x 729.32475pt>
 File: images/itemAdded.png Graphic file (type png)
 <use images/itemAdded.png>
 Package pdftex.def Info: images/itemAdded.png  used on input line 2725.
@@ -3862,8 +3830,8 @@ Package pdftex.def Info: images/itemAdded.png  used on input line 2725.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [114]
-<images/itemEntfernt.png, id=2760, 923.24925pt x 660.66824pt>
+ [111]
+<images/itemEntfernt.png, id=2747, 923.24925pt x 660.66824pt>
 File: images/itemEntfernt.png Graphic file (type png)
 <use images/itemEntfernt.png>
 Package pdftex.def Info: images/itemEntfernt.png  used on input line 2758.
@@ -3871,13 +3839,13 @@ Package pdftex.def Info: images/itemEntfernt.png  used on input line 2758.
 
 Underfull \vbox (badness 7221) has occurred while \output is active []
 
- [115 <./images/itemAdded.png>]
-<images/itemToHeavy.png, id=2769, 882.8985pt x 632.96475pt>
+ [112 <./images/itemAdded.png>]
+<images/itemToHeavy.png, id=2757, 882.8985pt x 632.96475pt>
 File: images/itemToHeavy.png Graphic file (type png)
 <use images/itemToHeavy.png>
 Package pdftex.def Info: images/itemToHeavy.png  used on input line 2805.
 (pdftex.def)             Requested size: 426.79135pt x 305.97342pt.
- [116 <./images/itemEntfernt.png>] [117 <./images/itemToHeavy.png>]
+ [113 <./images/itemEntfernt.png>] [114 <./images/itemToHeavy.png>]
 
 feinkonzept_realisierung.tex:2867: Package Listings Error: Couldn't load reques
 ted style.
@@ -3909,7 +3877,7 @@ Package csquotes Info: Input encoding change on input line 2867.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[118]
+[115]
 
 feinkonzept_realisierung.tex:2896: Package Listings Error: Couldn't load reques
 ted style.
@@ -3972,26 +3940,26 @@ Package csquotes Info: Input encoding change on input line 2917.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[119]
+[116]
 
-LaTeX Warning: Citation '0/1 Knapsack-Problem' on page 120 undefined on input l
+LaTeX Warning: Citation '0/1 Knapsack-Problem' on page 117 undefined on input l
 ine 2965.
 
 
-LaTeX Warning: Citation 'Fractional Knapsack Problem' on page 120 undefined on 
+LaTeX Warning: Citation 'Fractional Knapsack Problem' on page 117 undefined on 
 input line 2974.
 
 
-LaTeX Warning: Citation 'Bounded Knapsack Problem' on page 120 undefined on inp
+LaTeX Warning: Citation 'Bounded Knapsack Problem' on page 117 undefined on inp
 ut line 2981.
 
-[120]
+[117]
 
-LaTeX Warning: Citation 'Unbounded Knapsack' on page 121 undefined on input lin
+LaTeX Warning: Citation 'Unbounded Knapsack' on page 118 undefined on input lin
 e 2992.
 
 
-LaTeX Warning: Citation 'Multi-objective Knapsack-Problem' on page 121 undefine
+LaTeX Warning: Citation 'Multi-objective Knapsack-Problem' on page 118 undefine
 d on input line 3011.
 
 feinkonzept_realisierung.tex:3018: Undefined control sequence.
@@ -4004,32 +3972,32 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation 'Multi-dimensional Knapsack-Problem' on page 121 undefi
+LaTeX Warning: Citation 'Multi-dimensional Knapsack-Problem' on page 118 undefi
 ned on input line 3018.
 
 
-LaTeX Warning: Citation 'Multi Knapsack-Problem' on page 121 undefined on input
+LaTeX Warning: Citation 'Multi Knapsack-Problem' on page 118 undefined on input
  line 3025.
 
-[121]
+[118]
 
-LaTeX Warning: Citation 'Quadratic Knapsack-Problem' on page 122 undefined on i
+LaTeX Warning: Citation 'Quadratic Knapsack-Problem' on page 119 undefined on i
 nput line 3032.
 
 
-LaTeX Warning: Citation 'Geometric Knapsack-Problem' on page 122 undefined on i
+LaTeX Warning: Citation 'Geometric Knapsack-Problem' on page 119 undefined on i
 nput line 3040.
 
 
 LaTeX Warning: Citation 'Solving the 0/1 Knapsack Problem Using Metaheuristic a
-nd Neural Networks' on page 122 undefined on input line 3058.
+nd Neural Networks' on page 119 undefined on input line 3058.
 
 
 Underfull \hbox (badness 1365) in paragraph at lines 3058--3058
 [][][][][]\T1/cmr/m/n/9 Hindawi, [],
  []
 
-[122]
+[119]
 Overfull \hbox (18.15013pt too wide) in paragraph at lines 3065--3069
 [][]\T1/cmr/m/n/10.95 Der dy-na-mi-sche Pro-gram-mier-an-satz ist ei-ne leis-tu
 ngs-fä-hi-ge Me-tho-de zur Lö-sung des Knapsack-
@@ -4093,7 +4061,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[123]
+[120]
 Underfull \hbox (badness 10000) in paragraph at lines 3139--3143
 
  []
@@ -4101,7 +4069,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 3139--3143
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [124]
+ [121]
 
 feinkonzept_realisierung.tex:3197: Package Listings Error: Couldn't load reques
 ted style.
@@ -4133,7 +4101,7 @@ Package csquotes Info: Input encoding change on input line 3197.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[125]
+[122]
 
 feinkonzept_realisierung.tex:3220: LaTeX Error: There's no line here to end.
 
@@ -4155,16 +4123,16 @@ ird in der Lo-gis-tik an-ge-wen-det, um den Trans-
  []
 
 
-LaTeX Warning: Citation 'Knapsack-Problem Anwendungen' on page 126 undefined on
+LaTeX Warning: Citation 'Knapsack-Problem Anwendungen' on page 123 undefined on
  input line 3264.
 
-[126] [127]
-<images/knapsackEditor.png, id=2956, 380.01974pt x 256.5585pt>
+[123] [124]
+<images/knapsackEditor.png, id=2944, 380.01974pt x 256.5585pt>
 File: images/knapsackEditor.png Graphic file (type png)
 <use images/knapsackEditor.png>
 Package pdftex.def Info: images/knapsackEditor.png  used on input line 3329.
 (pdftex.def)             Requested size: 266.01201pt x 179.58972pt.
- [128 <./images/knapsackEditor.png>]
+ [125 <./images/knapsackEditor.png>]
 Overfull \hbox (10.95412pt too wide) in paragraph at lines 3354--3359
 [][]\T1/cmr/m/n/10.95 Dieser Ab-schnitt be-han-delt die Im-ple-men-tie-rung der
  all-ge-mei-nen Va-ria-ti-on des 0/1 Knapsack-
@@ -4207,7 +4175,7 @@ Package csquotes Info: Input encoding change on input line 3366.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[129]
+[126]
 Underfull \hbox (badness 10000) in paragraph at lines 3420--3423
 
  []
@@ -4218,7 +4186,7 @@ Overfull \hbox (18.93817pt too wide) in paragraph at lines 3430--3433
  aus boo-le-schen Wer-ten (\T1/cmtt/m/n/10.95 selected[][]\T1/cmr/m/n/10.95 )
  []
 
-[130]
+[127]
 
 feinkonzept_realisierung.tex:3490: Package Listings Error: Couldn't load reques
 ted style.
@@ -4250,14 +4218,14 @@ Package csquotes Info: Input encoding change on input line 3490.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[131]
-<images/prefShow.png, id=3052, 1158.729pt x 524.55975pt>
+[128]
+<images/prefShow.png, id=3039, 1158.729pt x 524.55975pt>
 File: images/prefShow.png Graphic file (type png)
 <use images/prefShow.png>
 Package pdftex.def Info: images/prefShow.png  used on input line 3539.
 (pdftex.def)             Requested size: 347.62138pt x 157.36913pt.
- [132 <./images/prefShow.png>]
-<images/bestSolPref_Editor.png, id=3063, 443.85825pt x 266.1945pt>
+ [129 <./images/prefShow.png>]
+<images/bestSolPref_Editor.png, id=3050, 443.85825pt x 266.1945pt>
 File: images/bestSolPref_Editor.png Graphic file (type png)
 <use images/bestSolPref_Editor.png>
 Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 3559
@@ -4269,12 +4237,12 @@ Overfull \hbox (38.69203pt too wide) in paragraph at lines 3569--3570
 Ei-ne Re-fe-renz auf das \T1/cmtt/m/n/10.95 inventoryPlacementController
  []
 
-<images/perfSolBut.png, id=3065, 380.622pt x 334.851pt>
+<images/perfSolBut.png, id=3052, 380.622pt x 334.851pt>
 File: images/perfSolBut.png Graphic file (type png)
 <use images/perfSolBut.png>
 Package pdftex.def Info: images/perfSolBut.png  used on input line 3587.
 (pdftex.def)             Requested size: 304.49799pt x 267.88115pt.
-[133 <./images/bestSolPref_Editor.png>]
+[130 <./images/bestSolPref_Editor.png>]
 
 feinkonzept_realisierung.tex:3601: Package Listings Error: Couldn't load reques
 ted style.
@@ -4320,7 +4288,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[134 <./images/perfSolBut.png>]
+[131 <./images/perfSolBut.png>]
 feinkonzept_realisierung.tex:3625: Undefined control sequence.
 l.3625 ... perfekte LÃ¶sung reprÃ¤sentiert (\textt
                                                   {usedItems}) zugegriffen
@@ -4405,7 +4373,7 @@ Package csquotes Info: Input encoding change on input line 3649.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[135]
+[132]
 
 feinkonzept_realisierung.tex:3670: LaTeX Error: There's no line here to end.
 
@@ -4427,7 +4395,7 @@ mr/m/n/10.95 durch-läuft das zwei-di-men-sio-na-le Ar-ray \T1/cmtt/m/n/10.95 pe
 rfectSolution\T1/cmr/m/n/10.95 ,
  []
 
-<images/perfSolUserPOV.png, id=3122, 752.21025pt x 856.3995pt>
+<images/perfSolUserPOV.png, id=3110, 752.21025pt x 856.3995pt>
 File: images/perfSolUserPOV.png Graphic file (type png)
 <use images/perfSolUserPOV.png>
 Package pdftex.def Info: images/perfSolUserPOV.png  used on input line 3682.
@@ -4435,18 +4403,18 @@ Package pdftex.def Info: images/perfSolUserPOV.png  used on input line 3682.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [136]
+ [133]
 Underfull \vbox (badness 7116) has occurred while \output is active []
 
- [137 <./images/perfSolUserPOV.png>]
-<images/testRunner.png, id=3142, 415.05063pt x 376.40625pt>
+ [134 <./images/perfSolUserPOV.png>]
+<images/testRunner.png, id=3129, 415.05063pt x 376.40625pt>
 File: images/testRunner.png Graphic file (type png)
 <use images/testRunner.png>
 Package pdftex.def Info: images/testRunner.png  used on input line 3704.
 (pdftex.def)             Requested size: 207.5248pt x 188.20265pt.
- [138 <./images/testRunner.png>]
+ [135 <./images/testRunner.png>]
 
-LaTeX Warning: Citation 'Arrange Act Assert' on page 139 undefined on input lin
+LaTeX Warning: Citation 'Arrange Act Assert' on page 136 undefined on input lin
 e 3728.
 
 
@@ -4480,7 +4448,7 @@ Package csquotes Info: Input encoding change on input line 3735.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[139]
+[136]
 
 feinkonzept_realisierung.tex:3764: Package Listings Error: Couldn't load reques
 ted style.
@@ -4548,7 +4516,7 @@ Package csquotes Info: Input encoding change on input line 3792.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[140]
+[137]
 Overfull \hbox (36.69426pt too wide) in paragraph at lines 3814--3815
 [][][]\T1/cmr/m/n/10.95 Im zwei-ten Test-fall wird die Me-tho-de \T1/cmtt/m/n/1
 0.95 KnapsackMaxValue_SingleItem_ReturnsExpectedValue
@@ -4585,7 +4553,7 @@ Package csquotes Info: Input encoding change on input line 3820.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[141]
+[138]
 
 feinkonzept_realisierung.tex:3853: Package Listings Error: Couldn't load reques
 ted style.
@@ -4617,7 +4585,7 @@ Package csquotes Info: Input encoding change on input line 3853.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[142]
+[139]
 
 feinkonzept_realisierung.tex:3897: Package Listings Error: Couldn't load reques
 ted style.
@@ -4649,34 +4617,34 @@ Package csquotes Info: Input encoding change on input line 3897.
 (C:\Users\hayla\AppData\Local\Programs\MiKTeX\tex/latex/base\latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-[143]
+[140]
 Overfull \hbox (17.2551pt too wide) in paragraph at lines 3942--3943
 [][][]\T1/cmr/m/n/10.95 Im Ab-schnitt Knapsack-Per-for-man-ce-Re-por-tRan-geI-t
 e-ra-ti-on wird die Leis-tung des Knapsack-
  []
 
-<images/exclGeg.png, id=3322, 362.445pt x 220.095pt>
+<images/exclGeg.png, id=3309, 362.445pt x 220.095pt>
 File: images/exclGeg.png Graphic file (type png)
 <use images/exclGeg.png>
 Package pdftex.def Info: images/exclGeg.png  used on input line 3951.
 (pdftex.def)             Requested size: 192.0548pt x 116.62628pt.
-<images/exclIte.png, id=3323, 362.007pt x 217.467pt>
+<images/exclIte.png, id=3310, 362.007pt x 217.467pt>
 File: images/exclIte.png Graphic file (type png)
 <use images/exclIte.png>
 Package pdftex.def Info: images/exclIte.png  used on input line 3957.
 (pdftex.def)             Requested size: 192.0548pt x 115.37308pt.
-[144 <./images/exclGeg.png> <./images/exclIte.png>])
+[141 <./images/exclGeg.png> <./images/exclIte.png>])
 Overfull \hbox (4.7356pt too wide) in paragraph at lines 3970--77
 [][][]\T1/cmr/m/n/10.95 Insgesamt kann fest-ge-stellt wer-den, dass die ak-tu-e
 l-le Leis-tung des Knapsack-Algorithmus
  []
 
-[145]
+[142]
 \openout2 = `zmfs_abschluss.aux'.
 
  (zmfs_abschluss.tex
 Kapitel 5.
-) [146
+) [143
 
 
 
@@ -4686,7 +4654,7 @@ Kapitel 5.
 
  (anhang_a.tex
 Anhang A.
-<images/HauptmenuMockup.png, id=3350, 372.79276pt x 794.97pt>
+<images/HauptmenuMockup.png, id=3338, 372.79276pt x 794.97pt>
 File: images/HauptmenuMockup.png Graphic file (type png)
 <use images/HauptmenuMockup.png>
 Package pdftex.def Info: images/HauptmenuMockup.png  used on input line 6.
@@ -4702,13 +4670,13 @@ l.7 \end{figure}
                 
 \global 
 
-[147
+[144
 
 
 
 
  <./images/HauptmenuMockup.png>]
-<images/NachrichtenaustauschMockup.png, id=3357, 308.352pt x 792.561pt>
+<images/NachrichtenaustauschMockup.png, id=3345, 308.352pt x 792.561pt>
 File: images/NachrichtenaustauschMockup.png Graphic file (type png)
 <use images/NachrichtenaustauschMockup.png>
 Package pdftex.def Info: images/NachrichtenaustauschMockup.png  used on input l
@@ -4726,8 +4694,8 @@ l.14 \end{figure}
                  
 \global 
 
-[148 <./images/NachrichtenaustauschMockup.png>]
-<images/MockUpKnapsack.png, id=3365, 436.029pt x 792.561pt>
+[145 <./images/NachrichtenaustauschMockup.png>]
+<images/MockUpKnapsack.png, id=3352, 436.029pt x 792.561pt>
 File: images/MockUpKnapsack.png Graphic file (type png)
 <use images/MockUpKnapsack.png>
 Package pdftex.def Info: images/MockUpKnapsack.png  used on input line 20.
@@ -4744,7 +4712,7 @@ l.21 \end{figure}
                  
 \global 
 
-[149 <./images/MockUpKnapsack.png>])
+[146 <./images/MockUpKnapsack.png>])
 \openout2 = `anhang_b.aux'.
 
  (anhang_b.tex
@@ -4775,7 +4743,7 @@ l.7 \end{figure}
                 
 \global 
 
-[150
+[147
 
 
 
@@ -4808,7 +4776,7 @@ l.14 \end{figure}
                  
 \global 
 
-[151]
+[148]
 
 anhang_b.tex:20: LaTeX Error: File `images/AblaufKnapsack' not found.
 
@@ -4835,7 +4803,7 @@ l.21 \end{figure}
                  
 \global 
 
-[152])
+[149])
 \openout2 = `literatur.aux'.
 
  (literatur.tex
@@ -4911,7 +4879,7 @@ Overfull \hbox (16.57632pt too wide) in paragraph at lines 22--23
 . XR . ARFoundation . ARRaycastManager . html$[][]
  []
 
-[153
+[150
 
 
 
@@ -5011,7 +4979,7 @@ ttps : / / docs . blender . org / manual / en / latest / scene _ layout / objec
 t /
  []
 
-[154]
+[151]
 Overfull \hbox (8.8893pt too wide) in paragraph at lines 45--46
 [][][]\T1/cmr/m/n/10.95 Blender. Ex-tru-de. URL: [][]$[][]\T1/cmss/m/n/10.95 ht
 tps : / / docs . blender . org / manual / de / dev / grease _ pencil / modes /
@@ -5092,7 +5060,7 @@ Overfull \hbox (30.6606pt too wide) in paragraph at lines 66--67
  ,[] examples % 2C % 20tutorials % 20and %
  []
 
-[155]
+[152]
 Overfull \hbox (11.33717pt too wide) in paragraph at lines 68--69
 [][][]\T1/cmr/m/n/10.95 Autodesk. 3DS Max. URL: [][]$[][]\T1/cmss/m/n/10.95 htt
 ps : / / www . autodesk . de / products / 3ds -[] max / overview ? term =
@@ -5148,7 +5116,7 @@ Overfull \hbox (0.14853pt too wide) in paragraph at lines 89--90
 mss/m/n/10.95 https : / / www . geeksforgeeks . org / polygon -[] mesh -[]
  []
 
-[156]
+[153]
 Overfull \hbox (7.01012pt too wide) in paragraph at lines 93--94
 [][][]\T1/cmr/m/n/10.95 GameDev-Profi. Wel-ches Da-tei-for-mat. URL: [][]$[][]\
 T1/cmss/m/n/10.95 https : / / www . gamedev -[] pro^^\ . de / die -[] besten -[
@@ -5241,7 +5209,7 @@ Overfull \hbox (21.38333pt too wide) in paragraph at lines 104--105
  . spatialgraphnode ? view = mixedreality -[] openxr -[]
  []
 
-[157]
+[154]
 Overfull \hbox (46.76044pt too wide) in paragraph at lines 112--113
 [][][]\T1/cmr/m/n/10.95 Unity-Dokumentation - Mo-no-Be-ha-viour Class. URL: [][
 ]$[][]\T1/cmss/m/n/10.95 https : / / docs . unity3d . com / ScriptReference /
@@ -5259,7 +5227,7 @@ Overfull \hbox (24.43648pt too wide) in paragraph at lines 115--116
  [][]$[][]\T1/cmss/m/n/10.95 https : / / docs . unity3d . com / Packages /
  []
 
-) [158] (_Diplomarbeit.gls)
+) [155] (_Diplomarbeit.gls)
 runsystem(makeindex allgemein.idx)...executed safely (allowed).
 
  (allgemein.ind)
@@ -5292,7 +5260,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `_Diplomarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 170FB004DEA7501FFCBA7FEFFFAD5FDB;38210.
+(rerunfilecheck)             Checksum: BA02E4C33AE922BC07FA92C0E122C8F4;38286.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                _Diplomarbeit
@@ -5303,8 +5271,8 @@ Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36938 strings out of 474586
- 669586 string characters out of 5745680
+ 36935 strings out of 474586
+ 669562 string characters out of 5745680
  2618558 words of memory out of 5000000
  56693 multiletter control sequences out of 15000+600000
  584491 words of font info for 99 fonts, out of 8000000 for 9000
@@ -5342,9 +5310,9 @@ s/cm/cmr10.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmr8.pfb><C:/Users/hayla/AppData/Local/Programs/MiKTeX/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb>
 Output written on C:/Users\hayla\Desktop\Diplomarbeit\Diplomschrift\_Diplomarbe
-it.pdf (173 pages, 26640669 bytes).
+it.pdf (170 pages, 26638262 bytes).
 PDF statistics:
- 4951 PDF objects out of 5155 (max. 8388607)
- 1639 named destinations out of 1728 (max. 500000)
+ 4938 PDF objects out of 5155 (max. 8388607)
+ 1636 named destinations out of 1728 (max. 500000)
  2051 words of extra memory for PDF output out of 10000 (max. 10000000)
 
