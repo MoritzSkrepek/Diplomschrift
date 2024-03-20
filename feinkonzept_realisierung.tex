@@ -276,7 +276,7 @@ Zusammenfassend lässt sich sagen, dass Prefabs ein unverzichtbares Werkzeug fü
 
 \subsection{Deployment der Anwendung}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
-Die Entwicklung unserer Anwendung findet größtenteils auf unseren Laptops statt. Jedoch ist es auf diesen Geräten nur begrenzt möglich, die AR-Funktionalitäten zu testen. Um die Anwendung vollständig auf einem AR-fähigen Gerät zu überprüfen, muss sie auf dieses geladen werden. In diesem Abschnitt wird der genaue Prozess beschrieben, wann und wie die Anwendung auf ein AR-fähiges Gerät deployt wird.
+Die Entwicklung der Anwendung findet größtenteils auf den Laptops statt. Jedoch ist es auf diesen Geräten nur begrenzt möglich, die AR-Funktionalitäten zu testen. Um die Anwendung vollständig auf einem AR-fähigen Gerät zu überprüfen, muss sie auf dieses geladen werden. In diesem Abschnitt wird der genaue Prozess beschrieben, wann und wie die Anwendung auf ein AR-fähiges Gerät deployt wird.
 
 \subsubsection{Voraussetzungen für das Deployment}
 
@@ -297,7 +297,7 @@ Die Entwicklung und Bereitstellung einer Anwendung für die HoloLens 2 unter Ver
 \subsubsection*{Kompilierung und Build-Einstellungen in Unity}
 Dieser Prozess findet auf dem Computer statt, auf dem sich das Unity-Projekt befindet, und kann über das Tastenkürzel \textbf{Strg + Umschalt + B} aufgerufen werden, um die Build-Einstellungen in Unity zu öffnen.
 
-In den Build-Einstellungen wird die Zielplattform festgelegt, auf die die Anwendung bereitgestellt werden soll. Für die HoloLens 2 ist die Universal Windows Platform (UWP) die geeignete Zielplattform aufgrund ihrer Kompatibilität mit diesem Gerät. Die UWP ermöglicht die Entwicklung von Anwendungen, die auf verschiedenen Windows 10/11-Geräten einschließlich der HoloLens 2 ausgeführt werden können.
+In den Build-Einstellungen wird die Zielplattform festgelegt, auf die die Anwendung bereitgestellt werden soll. Für die HoloLens 2 ist die Universal Windows Platform (UWP) die geeignete Zielplattform aufgrund ihrer Kompatibilität mit diesem Gerät. Die UWP ermöglicht die Entwicklung von Anwendungen, die auf verschiedenen Windows 10/11-Geräten einschließlich der HoloLens 2 ausgeführt werden können. %QUELLE
 
 Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settings} dargestellt. Besonders relevant sind dabei die Einstellungen für die \textit{Architektur} und die \textit{Build-Konfiguration}. Die Architektur wird entsprechend der HoloLens 2 auf ARM 64-Bit festgelegt. Die Build-Konfiguration sollte auf \textit{Release} eingestellt sein. Die übrigen Optionen sollten entsprechend den Vorgaben in der Abbildung beibehalten werden. Diese Einstellungen sind wichtig, um in den nächsten Schritten eine funktionierende Übertragung zu garantieren.
 
@@ -315,8 +315,7 @@ Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dat
 
 Der nächste Schritt erfolgt in dieser Visual Studio Solution, in unserem Fall \textit{AARIE.sln}. Nach dem Öffnen der Datei müssen die Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Diese zwei Einstellungen sind auf der \textit{Toolbar} zu finden. Außerdem muss die IP-Adresse des AR-fähigen Geräts in den Projekteigenschaften unter Debugging gesetzt werden. Die IP-Adresse der HoloLens 2 kann auf der Brille in den Einstellungen unter Netzwerk gefunden werden. In den Projekteigenschaften ist noch folgende Einstellung zu treffen:
 
-Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Darüber hinaus minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten
-zu gewährleisten. \footnote{Microsoft-Dokumentation, \cite{Universal Unencrypted Protocol}}
+Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Darüber hinaus minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten zu gewährleisten. \footnote{Microsoft-Dokumentation, \cite{Universal Unencrypted Protocol}}
 % TODO: https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps
 
 
@@ -1572,16 +1571,16 @@ In unserem speziellen Fall, da unsere Kommunikation ausschließlich im lokalen N
 
 Diese Header welche einzubauen sind lauten:
 
-\begin{lstlisting}[style=csharp label=code:CORS anfragen]
+\begin{lstlisting}[style=csharp, label=code:CORS anfragen]
 context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
 context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
 context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
 \end{lstlisting}
 
 \begin{itemize}
-\item \textbf{``Access-Control-Allow-Origin``, "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
-\item \textbf{``Access-Control-Allow-Methods``, "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
-\item \textbf{``Access-Control-Allow-Headers``, "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
+    \item \textbf{``Access-Control-Allow-Origin``, "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
+    \item \textbf{``Access-Control-Allow-Methods``, "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
+    \item \textbf{``Access-Control-Allow-Headers``, "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
 \end{itemize}
 
 Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS-Header hinzu, die Cross-Origin-Anfragen für Ressourcen von unserem Server ermöglichen. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
@@ -1590,8 +1589,8 @@ Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS
 Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an der Konfiguration des Servers. Das Problem kann in Ausnahmefällen (zum Beispiel bei kleineren Testläufen) auf folgende Art und Weise umgangen werden:
 
 \begin{itemize}
-\item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
-\item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
+    \item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
+    \item \textbf{Verwendung von Plugins:} Es gibt Plugins, die CORS-Header von der Clientseite hinzufügen. Wir haben das Plugin \textit{moesif-origin-cors-change} getestet, das nur für den Chrome-Browser von Google verfügbar ist. Nach der Installation kann das Plugin bei Bedarf aktiviert/deaktiviert werden.
 \end{itemize}
 
 Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk getestet wurden. Sie sind höchstens für erste Prototypen akzeptabel, wenn überhaupt. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
@@ -1719,10 +1718,10 @@ Die Webseite fungiert als Schnittstelle für die Kommunikation zwischen den beid
 In Abbildung \ref{fig:protokoll} ist der Ablauf aller möglichen Szenarien dargestellt, wie eine solche Datenübertragung zustande kommen kann. Im Folgenden werden die einzelnen Schritte und ihre Funktionen beschrieben:
 
 \begin{itemize}
-\item \textbf{Start des Servers:} Auf der Hololens befindet sich ein Game-Objekt namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
-\item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der Hololens registriert werden. Obwohl die Verbindungstestfunktion nicht zwingend erforderlich ist, um Nachrichten an diese IP zu senden, kann ein visuelles Feedback dem Benutzer anzeigen, ob die eingegebene IP-Adresse gültig ist und ob der Server erreichbar ist. Dies trägt zur Benutzerfreundlichkeit bei, indem es dem Benutzer ermöglicht, leichter zu erkennen, ob alles ordnungsgemäß funktioniert oder ob möglicherweise Probleme auftreten.
-\item \textbf{Empfangen von Nachrichten:} Auf der Hololens wird eine Liste aktueller Nachrichten geführt. Beide Laptops rufen alle fünf Sekunden mit einem \textit{HTTP GET-Request} an den Endpunkt \textit{/get-messages} diese Liste ab. Dies ermöglicht eine kontinuierliche Aktualisierung des Nachrichtenverlaufs (\ref{sec:FrontendWebseite}, \ref{fig:frontend}) und zeigt dem Benutzer stets die neuesten Nachrichten an.
-\item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein \textit{http post request} an den Endpoint \textit{/message} mit dem Benutzernamen und der Nachricht als Payload gesendet werden.
+    \item \textbf{Start des Servers:} Auf der Hololens befindet sich ein Game-Objekt namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
+    \item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der Hololens registriert werden. Obwohl die Verbindungstestfunktion nicht zwingend erforderlich ist, um Nachrichten an diese IP zu senden, kann ein visuelles Feedback dem Benutzer anzeigen, ob die eingegebene IP-Adresse gültig ist und ob der Server erreichbar ist. Dies trägt zur Benutzerfreundlichkeit bei, indem es dem Benutzer ermöglicht, leichter zu erkennen, ob alles ordnungsgemäß funktioniert oder ob möglicherweise Probleme auftreten.
+    \item \textbf{Empfangen von Nachrichten:} Auf der Hololens wird eine Liste aktueller Nachrichten geführt. Beide Laptops rufen alle fünf Sekunden mit einem \textit{HTTP GET-Request} an den Endpunkt \textit{/get-messages} diese Liste ab. Dies ermöglicht eine kontinuierliche Aktualisierung des Nachrichtenverlaufs (\ref{sec:FrontendWebseite}, \ref{fig:frontend}) und zeigt dem Benutzer stets die neuesten Nachrichten an.
+    \item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein \textit{http post request} an den Endpoint \textit{/message} mit dem Benutzernamen und der Nachricht als Payload gesendet werden.
 \end{itemize}
 
 Es mag so aussehen, als ob das Senden von Requests für den Benutzer möglicherweise als unmöglich erscheint, aber im Abschnitt \ref{sec:FrontendWebseite} wird gezeigt, dass dies alles durch eine benutzerfreundliche Benutzeroberfläche (UI) erreicht wird.
@@ -1741,9 +1740,9 @@ unterstützte Anfrage auf einen Endpunkt wird mit einem \textit{Not Found} Fehle
 Es werden in unserem Fall nur drei Endpunkte unterstützt:
 
 \begin{itemize}
-\item \textbf{Testen der Verbindung auf /connect}
-\item \textbf{Empfangen von Nachrichten auf /get-messages}
-\item \textbf{Senden einer Nachricht auf /message}
+    \item \textbf{Testen der Verbindung auf /connect}
+    \item \textbf{Empfangen von Nachrichten auf /get-messages}
+    \item \textbf{Senden einer Nachricht auf /message}
 \end{itemize}
 
 Um erfolgreich eine Anfrage an den Server zu senden, muss sie an die folgende Adresse
@@ -1810,6 +1809,7 @@ Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
+
 \subsection{\label{sec:qrcodes}Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Level verwendet werden, um verschiedene Elemente zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu den einzelnen Gegenständen, die für das Knapsack-Inventar benötigt werden, zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt möchten wir näher darauf eingehen, wie genau diese QR-Codes generiert werden und welchen Zweck sie innerhalb der Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Codes generiert werden und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
@@ -1824,7 +1824,7 @@ Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 
 Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
-\begin{lstlisting}[style=csharp, caption={}, label=code:update]
+\begin{lstlisting}[style=csharp, caption={Codeabschnitt von QRItem Klasse}, label=code:update]
 public class QRItem
 {
     public struct QRData
@@ -1867,7 +1867,7 @@ In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgen
 Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des Knapsack-Algorithmus.
 
 \subsubsection{QR-Code-Tracking}
-Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein Singleton, das
+Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Dieses Klasse ist ein \textit{Singleton}, das
 die Erkennung und Verfolgung der QR-Codes steuert. \footnote{Microsoft-Dokumentation \cite{Singleton}} \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 %TODO: Quelle: Singelton
 % https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ee817670(v=pandp.10)?redirectedfrom=MSDN
@@ -1878,62 +1878,62 @@ und zuletzt darzustellen.
 Hier eine kurze Übersicht:
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5, angle=0]{images/QRAblauf}
-\caption{Ablaufdiagramm des QR-Code-Trackings.}
-\label{fig:qrtracking}
+    \centering
+    \includegraphics[scale=0.5, angle=0]{images/QRAblauf}
+    \caption{Ablaufdiagramm des QR-Code-Trackings.}
+    \label{fig:qrtracking}
 \end{figure}
 
 \begin{itemize}
 
-\item \textbf{Initialisierung des QR-Tracking-Systems:}
-Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-Game-Objekt, das weitere Game-Objekte instanziiert, wie beispielsweise den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
+    \item \textbf{Initialisierung des QR-Tracking-Systems:}
+    Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-Game-Objekt, das weitere Game-Objekte instanziiert, wie beispielsweise den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
-\item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
+    \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
 %TODO: Hier ein Bild von "Camera acess needed" einfügen
-Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
-gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
-zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
+    Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
+    gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
+    zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
 
-\item \textbf{Einrichtung des QR-Trackings:}
-Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
-Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
-Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
+    \item \textbf{Einrichtung des QR-Trackings:}
+    Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
+    Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
+    Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
 
-\item \textbf{Starten des QR-Trackings:}
-Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
-Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
-markiert den Beginn des fortlaufenden Erkennungsprozesses.
+    \item \textbf{Starten des QR-Trackings:}
+    Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
+    Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
+    markiert den Beginn des fortlaufenden Erkennungsprozesses.
 
-\item \textbf{Erkennung eines QR-Codes (Event):}
-Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:qrpos} zu finden.
+    \item \textbf{Erkennung eines QR-Codes (Event):}
+    Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:qrpos} zu finden.
 
-\item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
-Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
-ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
+    \item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
+    Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
+    ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
 
-\item \textbf{Instanzierung des QRCode-Objekts:}
-Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
+    \item \textbf{Instanzierung des QRCode-Objekts:}
+    Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
 
-Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
-Darstellungen, Interaktionsmöglichkeiten und weitere relevante Informationen über den zugehörigen QR-Code. Die Instanziierung
-ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
-von QR-Codes finden Sie in Abschnitt \ref{sec:qrvisualizer}.
+    Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
+    Darstellungen, Interaktionsmöglichkeiten und weitere relevante Informationen über den zugehörigen QR-Code. Die Instanziierung
+    ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
+    von QR-Codes finden Sie in Abschnitt \ref{sec:qrvisualizer}.
 
-\item \textbf{Aktualisierung der Eigenschaftenanzeige:}
-Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
-aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
-Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
-repräsentierte Objekt erhalten.
+    \item \textbf{Aktualisierung der Eigenschaftenanzeige:}
+    Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
+    aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
+    Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
+    repräsentierte Objekt erhalten.
 
 \end{itemize}
 
 \subsubsection{Interaktion mit QR-Codes}
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5, angle=0]{images/bauklotz}
-\caption{Bauklötze mit QR-Codes}
-\label{fig:bauklotz}
+    \centering
+    \includegraphics[scale=0.5, angle=0]{images/bauklotz}
+    \caption{Bauklötze mit QR-Codes}
+    \label{fig:bauklotz}
 \end{figure}
 
 Durch die Verwendung der HoloLens können wir dem Benutzer eine visuelle Darstellung einer virtuellen Welt bieten. Um eine
@@ -1958,11 +1958,11 @@ Um die räumliche Position eines QR-Codes exakt zu bestimmen, ist ein spezieller
 Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
 
 \begin{itemize}
-\item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
-\item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
-\item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
-\item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
-\textbf{Zuordnung des QR-Codes:} Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node} an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
+    \item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
+    \item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
+    \item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
+    \item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
+    \textbf{Zuordnung des QR-Codes:} Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node} an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
 \end{itemize}
 
 Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
@@ -1977,10 +1977,10 @@ Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen 
 Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-Codes, einschließlich des 3D-Modells, des Namens, des Werts und anderer Daten, die für Interaktionen innerhalb der virtuellen Umgebung erforderlich sind. Um die Funktionalität des QR-Codes sicherzustellen, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen, das die visuelle Darstellung und alle damit verbundenen Interaktionen steuert.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5, angle=0]{images/qrprefab}
-\caption{Hierarchie des QR-Code Prefabs}
-\label{fig:qrprefab}
+    \centering
+    \includegraphics[scale=0.5, angle=0]{images/qrprefab}
+    \caption{Hierarchie des QR-Code Prefabs}
+    \label{fig:qrprefab}
 \end{figure}
 
 
@@ -1997,7 +1997,7 @@ void Start()
 {
     //... weiterer Code
 
-    // Die physikalische Größe des QR-Codes wird abgerufen; Wird für Berechnungen in der UpdatePropertiesDisplay() Funktion benötigt
+    // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
     PhysicalSize = qrCode.PhysicalSideLength;
 
     try
@@ -2013,11 +2013,11 @@ void Start()
     }
     catch (System.Exception e)
     {
-        // Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlägt
+        // Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlaegt
         Debug.LogError("Error parsing QR Code data: " + e.Message);
     }
 
-    // (3)Labels werden mit den entsprechenden Werten befüllt
+    // (3) Labels werden mit den entsprechenden Werten befuellt
     setLabels();
 }
 \end{lstlisting}
@@ -2054,7 +2054,7 @@ private void setLabels()
     }
     catch (System.Exception e)
     {
-        // Fehlerbehandlung, falls beim abfragen der Modelle etwas schiefläuft
+        // Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
         Debug.LogError("Error setting labels: " + e.Message);
     }
 }
@@ -2091,10 +2091,10 @@ Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) be
 \end{itemize}
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.3, angle=0]{images/scanned}
-\caption{Visualisierte QR-Codes}
-\label{fig:visqr}
+    \centering
+    \includegraphics[scale=0.3, angle=0]{images/scanned}
+    \caption{Visualisierte QR-Codes}
+    \label{fig:visqr}
 \end{figure}
 
 \subsubsection{\label{sec:SGN} Spatial Graph Node}
@@ -2106,15 +2106,11 @@ der Mixed-Reality-Umgebung. \footnote{Microsoft-Dokumentation \cite{Spatial Grap
 
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
-Wie bereits im Abschnitt \ref{sec:Scene2} erwähnt, benötigen andere Klassen in der Anwendung Zugriff auf die aktuell erkannten QR-Codes in der Szene, um entsprechend reagieren zu können. Dies ist beispielsweise für die Abfrage erforderlich, ob und welche QR-Codes sich im Inventar befinden. Die Bereitstellung dieser Option war eine Herausforderung.
-Um keine Performance-Einbußen auf der Hololens zu verursachen, läuft der Prozess des QR-Code-Trackings auf
-mehreren Threads. Die aktuell erkannten QR-Codes werden in einem SortedDictionary gespeichert, welches von anderen Teilen
-der Anwendung abgefragt werden kann. Da auf dieses Objekt von mehreren Threads zugegriffen wird, muss es mit einem
-\textit{lock} geschützt werden, um Inkonsistenzen zu vermeiden. Hierbei handelt es sich um eine Sperre, die verhindert,
-dass mehrere Threads gleichzeitig auf das gleiche Objekt zugreifen. Auf diese Weise wird sichergestellt, dass die Daten
-nicht inkonsistent werden und dass die Anwendung stabil und zuverlässig bleibt. Da dadurch bestimten Threads Zugriff verweigert wird (um die Daten zu schützen), kann es zu Verzögerungen kommen, bis die Daten verfügbar sind. Jedoch ist dieser
-Nachteil in unserem Anwendungsfall nicht von großer Bedeutung, da wir selten zur gleichen Zeit auf die Daten zugreifen und
-dadurch die Verzögerung nicht bemerkbar ist.
+Wie bereits in Abschnitt \ref{sec:Scene2} erwähnt, ist es erforderlich, dass andere Klassen in der Anwendung Zugriff auf die aktuell erkannten QR-Codes in der Szene haben, um angemessen reagieren zu können. Dies ist insbesondere notwendig für die Überprüfung, ob und welche QR-Codes sich im Knapsack-Inventar befinden (\ref{sec:moritsInventarBounds}).
+
+Um die Leistung der HoloLens nicht zu beeinträchtigen, wird der Prozess des QR-Code-Trackings und die Verarbeitung der erkannten QR-Codes auf mehreren Threads ausgeführt. Die aktuell erkannten QR-Codes werden in einem SortedDictionary gespeichert, das von anderen Teilen der Anwendung abgefragt werden kann. Da auf dieses Objekt von mehreren Threads gleichzeitig zugegriffen wird, muss es mittels einer Sperre (\textit{lock}) geschützt werden, um Inkonsistenzen zu vermeiden. Eine Sperre verhindert, dass mehrere Threads gleichzeitig auf dasselbe Objekt zugreifen. Durch diese Maßnahme wird sichergestellt, dass die Daten konsistent bleiben und die Anwendung stabil und zuverlässig funktioniert. Es ist jedoch zu beachten, dass durch die Verwendung von Sperren bestimmten Threads möglicherweise zeitweise der Zugriff verweigert wird, um die Konsistenz und Integrität der Daten zu gewährleisten. %TODO: Quellen
+In diesem Anwendungsfall ist diese Verzögerung jedoch vernachlässigbar, da selten gleichzeitig auf die Daten zugegriffen wird und die Verzögerung für den Benutzer nicht wahrnehmbar ist.
+
 
 \subsection{Platzieren des Inventar Prefabs}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Eine präzise Interaktion zwischen der realen Welt und der augmentierten Realität erfordert ein tiefgreifendes Verständnis
@@ -2611,7 +2607,7 @@ die lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale
 umzuwandeln. Dadurch wird die tatsächliche Position des Objekts "in der Welt" bestimmt, was Interaktionen mit anderen
 Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity-Dokumentation\cite{Lokal- und Weltposition}}
 
-\subsubsection{Erkennen hinzugefügter oder entfernter Gegenstände}
+\subsubsection{\label{sec:moritsInventarBounds}Erkennen hinzugefügter oder entfernter Gegenstände}
 Das Herzstück des \textit{Inventory Controllers} ist die \texttt{Update()} Funktion. Sie erkennt neu hinzugefügte und
 entfernte Gegenstände, nachdem der Benutzer sie dem Inventar hinzugefügt oder entnommen hat. Zusätzlich gewährleistet
 diese Funktion, dass bei jeder Änderung im Inventar eine Neuermittlung der Gesamtwerte durchgeführt wird. Diese Aktualisierung
@@ -2832,6 +2828,8 @@ Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \text{processedItems} = \{1, 3, 11\}
 \]
 
+
+
 \subsection{EventManager}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Der \textit{EventManager} ist ein entscheidendes Game-Objekt, das als zentrales Kommunikationselement fungiert und die
@@ -2868,20 +2866,20 @@ benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet,
 public static class EventManager
 {
 // Szenario 1
-// Ereignis für den Empfang einer Nachricht
+// Ereignis fuer den Empfang einer Nachricht
 public static event System.Action<int, string, string> OnMessageReceived;
-// Methode zum Auslösen des Ereignisses für den Empfang einer Nachricht
+// Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
 public static void ReceiveMsg(int idx, string username, string message) => OnMessageReceived?.Invoke(idx, username, message);
 
-// Ereignis für das Senden einer Nachricht
+// Ereignis fuer das Senden einer Nachricht
 public static event System.Action<int, string, string> OnMessageSend;
-// Methode zum Auslösen des Ereignisses für das Senden einer Nachricht
+// Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
 public static void SendMsg(int idx, string username, string message) => OnMessageSend?.Invoke(idx, username, message);
 
 // Szenario 2
-// Ereignis für die Aktualisierung des Inventars
+// Ereignis fuer die Aktualisierung des Inventars
 public static event System.Action<int[,]> OnGridUpdate;
-// Methode zum Auslösen des Ereignisses für die Aktualisierung des Inventars
+// Methode zum Ausloesen des Ereignisses fuer die Aktualisierung des Inventars
 public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
 }
 \end{lstlisting}
@@ -2899,7 +2897,7 @@ Um auf das aktualisierte Inventar zu reagieren, könnten andere Teile des Codes 
 void Start()
 {
 items = new QRItem(0).items;
-// Die SetInventory Methode wird als Ereignishandler für das OnGridUpdate Ereignis registriert
+// Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
 EventManager.OnGridUpdate += SetInventory;
 }
 
@@ -3709,14 +3707,14 @@ In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. 
 \subsection{\label{sec:AAA} AAA-Schema}
 Das AAA-Schema steht für "Arrange, Act, Assert" und ist ein grundlegendes Konzept im Bereich des Testens von Software. Es bietet eine klare Struktur für die Organisation von Testfällen, um sicherzustellen, dass die Funktionalität korrekt überprüft wird. Hier ist eine Erläuterung der einzelnen Schritte:
 \begin{itemize}
-    \item \textbf{Arrange (Vorbereitung):} In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
+\item \textbf{Arrange (Vorbereitung):} In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
 Dies beinhaltet die Initialisierung von Objekten, das Setzen von Parametern und das Festlegen des Kontexts, um sicherzustellen, dass die zu testende Funktionalität in einem definierten Zustand ausgeführt wird.
 Das Ziel ist es, eine klare Umgebung für den Test zu schaffen, damit die zu überprüfende Funktionalität isoliert und unabhängig getestet werden kann.
-    \item \textbf{Act (Ausführung):}
+\item \textbf{Act (Ausführung):}
 Hier wird die tatsächliche Aktion oder Methode aufgerufen, die getestet werden soll.
 Dies kann das Aufrufen einer Methode, das Ausführen einer Funktion oder das Durchführen einer bestimmten Aktion sein, die das zu testende Verhalten auslöst.
 Das Ziel ist es, die spezifische Funktionalität auszuführen, die überprüft werden soll, um festzustellen, ob sie das erwartete Verhalten aufweist.
-    \item \textbf{Assert (Überprüfung):}
+\item \textbf{Assert (Überprüfung):}
 
 In diesem Schritt wird das erwartete Verhalten mit dem tatsächlichen Ergebnis verglichen.
 Es wird überprüft, ob das Ergebnis der ausgeführten Aktion den Erwartungen entspricht.
@@ -3736,21 +3734,21 @@ Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests
 [TestFixture]
 public class KnapsackSolverTests
 {
-    // Eine Variable zur Speicherung der KnapsackSolver-Instanz
-    private KnapsackSolver knapsackSolver;
+// Eine Variable zur Speicherung der KnapsackSolver-Instanz
+private KnapsackSolver knapsackSolver;
 
-    // Die SetUp-Methode wird vor jedem Testfall ausgeführt
-    [SetUp]
-    public void SetUp()
-    {
-        // Erstellen eines GameObjects für den KnapsackSolver
-        GameObject solverObject = new GameObject("KnapsackSolverObject");
+// Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
+[SetUp]
+public void SetUp()
+{
+// Erstellen eines GameObjects fuer den KnapsackSolver
+GameObject solverObject = new GameObject("KnapsackSolverObject");
 
-        // Dem GameObject wird eine Instanz von KnapsackSolver hinzugefügt
-        knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
-    }
+// Dem GameObject wird eine Instanz von KnapsackSolver hinzugefuegt
+knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
+}
 
-    // Hier folgen die einzelnen Testfälle...
+// Hier folgen die einzelnen Testfaelle...
 }
 \end{lstlisting}
 
@@ -3762,19 +3760,19 @@ Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und e
 \subsubsection{Aufbau eines einzelnen Testfalls}
 
 \begin{lstlisting}[style=csharp, caption={einzelner Testfall}, label={code:zeroTest}]
-    [Test]
-    public void KnapsackMaxValue_NoItems_ReturnsZero()
-    {
-        // Arrange
-        knapsackSolver.items = new Dictionary<int, QRData>();
-        knapsackSolver.capacity = 100;
+[Test]
+public void KnapsackMaxValue_NoItems_ReturnsZero()
+{
+// Arrange
+knapsackSolver.items = new Dictionary<int, QRData>();
+knapsackSolver.capacity = 100;
 
-        // Act
-        int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
+// Act
+int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
 
-        // Assert
-        Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
-    }
+// Assert
+Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
+}
 \end{lstlisting}
 
 Um sicherzustellen, dass die Funktionalität korrekt überprüft wird, folgt ein Testfall im Unity Test Framework einem spezifischen Aufbau. Im obigen Beispiel (Code \ref{code:zeroTest}) wird ein Testfall dargestellt, der sicherstellt, dass der maximale Wert des Rucksacks korrekt berechnet wird, wenn keine Gegenstände im Rucksack vorhanden sind. Dieser Testfall gliedert sich in drei Hauptteile, die nach dem sogenannten \textit{AAA-Schema}(\ref{sec:AAA}) strukturiert sind.
@@ -3790,23 +3788,23 @@ Durch die Strukturierung von Testfällen nach dem \textit{AAA-Schema} wird eine 
 \subsubsection{Testen von Einzelgegenständen im Rucksack}
 
 \begin{lstlisting}[style=csharp, caption={Testfall: einzelne Gegenstände}, label={code:einzelTest}]
-    [TestCase(20, 50, 30, ExpectedResult = 50,
-    TestName = "Single item within capacity returns expected value.")]
-    [TestCase(30, 50, 20, ExpectedResult = 0,
-    TestName = "Single item exceeding capacity returns zero value.")]
-    [TestCase(30, 50, 30, ExpectedResult = 50,
-    TestName = "Single item exact capacity returns expected value.")]
-    public int KnapsackMaxValue_SingleItem_ReturnsExpectedValue(
-    int weight, int value, int capacity)
-    {
-        // Arrange
-        var item = new QRData { id = 1, weight = weight, value = value };
-        knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
-        knapsackSolver.capacity = capacity;
+[TestCase(20, 50, 30, ExpectedResult = 50,
+TestName = "Single item within capacity returns expected value.")]
+[TestCase(30, 50, 20, ExpectedResult = 0,
+TestName = "Single item exceeding capacity returns zero value.")]
+[TestCase(30, 50, 30, ExpectedResult = 50,
+TestName = "Single item exact capacity returns expected value.")]
+public int KnapsackMaxValue_SingleItem_ReturnsExpectedValue(
+int weight, int value, int capacity)
+{
+// Arrange
+var item = new QRData { id = 1, weight = weight, value = value };
+knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
+knapsackSolver.capacity = capacity;
 
-        // Act and Assert
-        return knapsackSolver.KnapsackMaxValue(out _);
-    }
+// Act and Assert
+return knapsackSolver.KnapsackMaxValue(out _);
+}
 \end{lstlisting}
 
 Die oben aufgeführten Testfälle zeigen verschiedene Szenarien zur Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand. Jeder Testfall wird mittels des \texttt{[TestCase]}-Attributs definiert und enthält das Gewicht, den Wert und die Kapazität des Rucksacks als Parameter. Das erwartete Ergebnis wird ebenfalls angegeben, um sicherzustellen, dass die berechneten Werte den Erwartungen entsprechen. Im Vorbereitungsabschnitt werden die notwendigen Vorbedingungen festgelegt, indem ein einzelner Gegenstand mit den angegebenen Gewicht und Wert dem KnapsackSolver hinzugefügt wird. Die Kapazität des Rucksacks wird entsprechend gesetzt. Im Ausführungsabschnitt wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird überprüft und mit dem erwarteten Ergebnis verglichen. Durch diese Testfälle wird sichergestellt, dass die Methode zur Berechnung des maximalen Werts unter verschiedenen Bedingungen korrekt arbeitet.
@@ -3818,28 +3816,28 @@ Die Verwendung von \texttt{[TestCase]} ermöglicht eine kompaktere Darstellung m
 \subsubsection{Testen von mehreren Gegenständen im Rucksack}
 
 \begin{lstlisting}[style=csharp, caption={Testfall: mehrere Gegenstände}, label={code:mehrTest}]
-    [TestCase(10, ExpectedResult = 0,
-    TestName = "All items exceeding capacity return zero value.")]
-    [TestCase(90, ExpectedResult = 220,
-    TestName = "All items within capacity return expected value.")]
-    [TestCase(70, ExpectedResult = 170,
-    TestName = "Multiple items within capacity, return optimal selection.")]
-    public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
-    int capacity)
-    {
-        // Arrange
-        var items = new Dictionary<int, QRData>
-        {
-            { 1, new QRData { id = 1, weight = 20, value = 50 } },
-            { 2, new QRData { id = 2, weight = 30, value = 70 } },
-            { 3, new QRData { id = 3, weight = 40, value = 100 } }
-        };
-        knapsackSolver.items = items;
-        knapsackSolver.capacity = capacity;
+[TestCase(10, ExpectedResult = 0,
+TestName = "All items exceeding capacity return zero value.")]
+[TestCase(90, ExpectedResult = 220,
+TestName = "All items within capacity return expected value.")]
+[TestCase(70, ExpectedResult = 170,
+TestName = "Multiple items within capacity, return optimal selection.")]
+public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
+int capacity)
+{
+// Arrange
+var items = new Dictionary<int, QRData>
+{
+{ 1, new QRData { id = 1, weight = 20, value = 50 } },
+{ 2, new QRData { id = 2, weight = 30, value = 70 } },
+{ 3, new QRData { id = 3, weight = 40, value = 100 } }
+};
+knapsackSolver.items = items;
+knapsackSolver.capacity = capacity;
 
-        // Act and Assert
-        return knapsackSolver.KnapsackMaxValue(out _);
-    }
+// Act and Assert
+return knapsackSolver.KnapsackMaxValue(out _);
+}
 \end{lstlisting}
 
 Dieser Codeabschnitt demonstriert Testfälle für die Berechnung des maximalen Werts eines Rucksacks, wenn mehrere Gegenstände hinzugefügt werden. Ähnlich wie im vorherigen Abschnitt werden auch hier die Testfälle mit dem \texttt{[TestCase]}-Attribut definiert, wobei jedes Testcase nur die Kapazität des Rucksacks als Parameter hat und das erwartete Ergebnis angibt.
@@ -3851,40 +3849,40 @@ Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValu
 \subsubsection{Performance-Messung}
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei hoher Anzahl an Gegenständen}, label={code:performanceRange}]
-    [Test]
-    public void KnapsackPerformanceReportItemRange()()
-    {
-        // Überschrift für den Leistungsbericht ausgeben
-        UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
-        UnityEngine.Debug.Log("-----------------------------");
+[Test]
+public void KnapsackPerformanceReportItemRange()()
+{
+// Ueberschrift fuer den Leistungsbericht ausgeben
+UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
+UnityEngine.Debug.Log("-----------------------------");
 
-        // Schleife durch verschiedene Gegenstandanzahlen
-        for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
-        {
-            // Oberen Grenzwert für das Gegenstandgewicht und die Kapazität basierend auf der Gegenstandanzahl berechnen
-            int weightUpperBound = itemCount * 2;
-            int capacity = itemCount * 5;
+// Schleife durch verschiedene Gegenstandanzahlen
+for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
+{
+// Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+int weightUpperBound = itemCount * 2;
+int capacity = itemCount * 5;
 
-            // Zufällige Gegenstände generieren
-            var items = GenerateRandomItems(itemCount, weightUpperBound);
+// Zufaellige Gegenstaende generieren
+var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-            // Gegenstände und Kapazität für den Rucksacklöser festlegen
-            knapsackSolver.items = items;
-            knapsackSolver.capacity = capacity;
+// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+knapsackSolver.items = items;
+knapsackSolver.capacity = capacity;
 
-            // Stoppuhr starten, um die verstrichene Zeit zu messen
-            var stopwatch = Stopwatch.StartNew();
+// Stoppuhr starten, um die verstrichene Zeit zu messen
+var stopwatch = Stopwatch.StartNew();
 
-            // Die zu testende Methode aufrufen
-            knapsackSolver.KnapsackMaxValue(out _);
+// Die zu testende Methode aufrufen
+knapsackSolver.KnapsackMaxValue(out _);
 
-            // Stoppuhr anhalten nach dem Methodenaufruf
-            stopwatch.Stop();
+// Stoppuhr anhalten nach dem Methodenaufruf
+stopwatch.Stop();
 
-            // Anzahl der Gegenstände und verstrichene Zeit für diese Iteration ausgeben
-            UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
-        }
-    }
+// Anzahl der Gegenstaende und verstrichene Zeit fuer diese Iteration ausgeben
+UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
+}
+}
 \end{lstlisting}
 
 Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
@@ -3895,45 +3893,45 @@ Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife
 \subsubsection*{Iterationen bei fester Gegenstandsanzahl}
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
-    [Test]
-    public void KnapsackPerformanceReportRangeIteration()
-    {
-        // Überschrift für den Leistungsbericht ausgeben
-        UnityEngine.Debug.Log("Iteration | Elapsed Time (ms)");
-        UnityEngine.Debug.Log("-----------------------------");
+[Test]
+public void KnapsackPerformanceReportRangeIteration()
+{
+// Ueberschrift fuer den Leistungsbericht ausgeben
+UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
+UnityEngine.Debug.Log("-----------------------------");
 
-        // Konstante für die Anzahl der Gegenstände
-        int itemCount = 20;
+// Konstante fuer die Anzahl der Gegenstaende
+int itemCount = 20;
 
-        // Oberen Grenzwert für das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
-        int weightUpperBound = itemCount * 2;
+// Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
+int weightUpperBound = itemCount * 2;
 
-        // Schleife für 1000 Mal wiederholen
-        for (int i = 1; i <= 500; i++)
-        {
-            // Oberen Grenzwert für die Kapazität basierend auf der Gegenstandanzahl berechnen
-            int capacity = itemCount * 5;
+// Schleife fuer 1000 wiederholungen
+for (int i = 1; i <= 500; i++)
+{
+// Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+int capacity = itemCount * 5;
 
-            // Zufällige Gegenstände generieren (festgelegte Anzahl von Gegenständen)
-            var items = GenerateRandomItems(itemCount, weightUpperBound);
+// Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
+var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-            // Gegenstände und Kapazität für den Rucksacklöser festlegen
-            knapsackSolver.items = items;
-            knapsackSolver.capacity = capacity;
+// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+knapsackSolver.items = items;
+knapsackSolver.capacity = capacity;
 
-            // Stoppuhr starten, um die verstrichene Zeit zu messen
-            var stopwatch = Stopwatch.StartNew();
+// Stoppuhr starten, um die verstrichene Zeit zu messen
+var stopwatch = Stopwatch.StartNew();
 
-            // Die zu testende Methode aufrufen
-            knapsackSolver.KnapsackMaxValue(out _);
+// Die zu testende Methode aufrufen
+knapsackSolver.KnapsackMaxValue(out _);
 
-            // Stoppuhr anhalten nach dem Methodenaufruf
-            stopwatch.Stop();
+// Stoppuhr anhalten nach dem Methodenaufruf
+stopwatch.Stop();
 
-            // Durchlaufnummer und verstrichene Zeit für diese Iteration ausgeben
-            UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} µs");
-        }
-    }
+// Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
+UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
+}
+}
 \end{lstlisting}
 
 
@@ -3943,29 +3941,28 @@ Im Abschnitt KnapsackPerformanceReportRangeIteration wird die Leistung des Knaps
 
 Darüber hinaus verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Methode zur Messung der verstrichenen Zeit, indem die Methode ElapsedMilliseconds der Stopwatch-Klasse verwendet wird, um die Zeit in Millisekunden zu erfassen. Im Gegensatz dazu verwendet der Abschnitt KnapsackPerformanceReportRangeIteration die Berechnung der verstrichenen Ticks und deren Umrechnung in Mikrosekunden für eine genauere Messung.
 
-\subsubsection*{Ergebnisse der Performance-Messung
-
+\subsubsection*{Ergebnisse der Performance-Messung}
 \begin{figure}[H]
-    \centering
-    \begin{minipage}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/exclGeg}
-        \label{fig:exclGeg}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/exclIte}
-        \label{fig:exclIte}
-    \end{minipage}
+\centering
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{images/exclGeg}
+\label{fig:exclGeg}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.45\textwidth}
+\centering
+\includegraphics[width=\textwidth]{images/exclIte}
+\label{fig:exclIte}
+\end{minipage}
 \end{figure}
 
 Basierend auf den Performance-Messungen können folgende Schlussfolgerungen gezogen werden:
 \begin{itemize}
-    \item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
-    \item \textbf{Nichtlineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie beispielsweise O(n log n) oder sogar O(n\^2).
-    \item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
-    \item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
+\item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
+\item \textbf{Nichtlineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie beispielsweise O(n log n) oder sogar O(n\^2).
+\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
+\item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
 \end{itemize}
 
 Insgesamt kann festgestellt werden, dass die aktuelle Leistung des Knapsack-Algorithmus für unseren Anwendungsbereich mehr als ausreichend ist, da wir nicht mit einer derart großen Anzahl an Gegenständen arbeiten. Die HoloLens2 ist in der Lage, die optimale Lösung in wenigen Mikrosekunden und ohne Leistungseinbußen zu liefern. Selbst bei wiederholten Aufrufen spielen ungünstige Muster keine signifikante Rolle.
