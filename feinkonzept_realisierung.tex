@@ -2607,7 +2607,7 @@ die lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale
 umzuwandeln. Dadurch wird die tatsächliche Position des Objekts "in der Welt" bestimmt, was Interaktionen mit anderen
 Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity-Dokumentation\cite{Lokal- und Weltposition}}
 
-\subsubsection{Erkennen hinzugefügter oder entfernter Gegenstände}
+\subsubsection{\label{sec:moritsInventarBounds}Erkennen hinzugefügter oder entfernter Gegenstände}
 Das Herzstück des \textit{Inventory Controllers} ist die \texttt{Update()} Funktion. Sie erkennt neu hinzugefügte und
 entfernte Gegenstände, nachdem der Benutzer sie dem Inventar hinzugefügt oder entnommen hat. Zusätzlich gewährleistet
 diese Funktion, dass bei jeder Änderung im Inventar eine Neuermittlung der Gesamtwerte durchgeführt wird. Diese Aktualisierung
