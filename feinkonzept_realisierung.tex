@@ -2863,22 +2863,22 @@ benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet,
 \begin{lstlisting}[style=csharp, label=code:EventManager]
 public static class EventManager
 {
-// Szenario 1
-// Ereignis fuer den Empfang einer Nachricht
-public static event System.Action<int, string, string> OnMessageReceived;
-// Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
-public static void ReceiveMsg(int idx, string username, string message) => OnMessageReceived?.Invoke(idx, username, message);
+    // Szenario 1
+    // Ereignis fuer den Empfang einer Nachricht
+    public static event System.Action<int, string, string> OnMessageReceived;
+    // Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
+    public static void ReceiveMsg(int idx, string username, string message) => OnMessageReceived?.Invoke(idx, username, message);
 
-// Ereignis fuer das Senden einer Nachricht
-public static event System.Action<int, string, string> OnMessageSend;
-// Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
-public static void SendMsg(int idx, string username, string message) => OnMessageSend?.Invoke(idx, username, message);
+    // Ereignis fuer das Senden einer Nachricht
+    public static event System.Action<int, string, string> OnMessageSend;
+    // Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
+    public static void SendMsg(int idx, string username, string message) => OnMessageSend?.Invoke(idx, username, message);
 
-// Szenario 2
-// Ereignis fuer die Aktualisierung des Inventars
-public static event System.Action<int[,]> OnGridUpdate;
-// Methode zum Ausloesen des Ereignisses fuer die Aktualisierung des Inventars
-public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
+    // Szenario 2
+    // Ereignis fuer die Aktualisierung des Inventars
+    public static event System.Action<int[,]> OnGridUpdate;
+    // Methode zum Ausloesen des Ereignisses fuer die Aktualisierung des Inventars
+    public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
 }
 \end{lstlisting}
 
@@ -2890,20 +2890,19 @@ Zum Beispiel wird in diesem Kontext das \textit{OnGridUpdate}-Ereignis definiert
 Um auf das aktualisierte Inventar zu reagieren, könnten andere Teile des Codes sich auf dieses Ereignis registrieren, indem sie eine Methode oder einen Handler bereitstellen, der ausgeführt wird, wenn das Ereignis eintritt, wie folgt:
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
-//Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
+    //Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
+    void Start()
+    {
+        items = new QRItem(0).items;
+        // Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
+        EventManager.OnGridUpdate += SetInventory;
+    }
 
-void Start()
-{
-items = new QRItem(0).items;
-// Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
-EventManager.OnGridUpdate += SetInventory;
-}
-
-public void SetInventory(int[,] newInventory)
-{
-inventory = newInventory;
-CalculateKnapsack();
-}
+    public void SetInventory(int[,] newInventory)
+    {
+        inventory = newInventory;
+        CalculateKnapsack();
+    }
 \end{lstlisting}
 
 Nachdem die Szene geladen wurde, registriert sich die Klasse \textit{KnapsackSolver} für das Ereignis \textit{OnGridUpdate}, indem sie die Methode \textit{SetInventory} als Ereignishandler verwendet. Das bedeutet, dass jedes Mal, wenn das Ereignis "OnGridUpdate" ausgelöst wird, die Methode \textit{SetInventory} aufgerufen wird, um den aktuellen Wert des neuen Inventars zu berechnen. Weiteres zur Berechnung des Inventarwertes ist in diesem Abschnitt zu finden, \ref{sec:MoritzInventarBerechnen}.
@@ -3732,21 +3731,21 @@ Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests
 [TestFixture]
 public class KnapsackSolverTests
 {
-// Eine Variable zur Speicherung der KnapsackSolver-Instanz
-private KnapsackSolver knapsackSolver;
+    // Eine Variable zur Speicherung der KnapsackSolver-Instanz
+    private KnapsackSolver knapsackSolver;
 
-// Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
-[SetUp]
-public void SetUp()
-{
-// Erstellen eines GameObjects fuer den KnapsackSolver
-GameObject solverObject = new GameObject("KnapsackSolverObject");
+    // Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
+    [SetUp]
+    public void SetUp()
+    {
+        // Erstellen eines GameObjects fuer den KnapsackSolver
+        GameObject solverObject = new GameObject("KnapsackSolverObject");
 
-// Dem GameObject wird eine Instanz von KnapsackSolver hinzugefuegt
-knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
-}
+        // Dem GameObject wird eine Instanz von KnapsackSolver hinzugefuegt
+        knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
+    }
 
-// Hier folgen die einzelnen Testfaelle...
+    // Hier folgen die einzelnen Testfaelle...
 }
 \end{lstlisting}
 
@@ -3758,19 +3757,19 @@ Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und e
 \subsubsection{Aufbau eines einzelnen Testfalls}
 
 \begin{lstlisting}[style=csharp, caption={einzelner Testfall}, label={code:zeroTest}]
-[Test]
-public void KnapsackMaxValue_NoItems_ReturnsZero()
-{
-// Arrange
-knapsackSolver.items = new Dictionary<int, QRData>();
-knapsackSolver.capacity = 100;
+    [Test]
+    public void KnapsackMaxValue_NoItems_ReturnsZero()
+    {
+        // Arrange
+        knapsackSolver.items = new Dictionary<int, QRData>();
+        knapsackSolver.capacity = 100;
 
-// Act
-int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
+        // Act
+        int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
 
-// Assert
-Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
-}
+        // Assert
+        Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
+    }
 \end{lstlisting}
 
 Um sicherzustellen, dass die Funktionalität korrekt überprüft wird, folgt ein Testfall im Unity Test Framework einem spezifischen Aufbau. Im obigen Beispiel (Code \ref{code:zeroTest}) wird ein Testfall dargestellt, der sicherstellt, dass der maximale Wert des Rucksacks korrekt berechnet wird, wenn keine Gegenstände im Rucksack vorhanden sind. Dieser Testfall gliedert sich in drei Hauptteile, die nach dem sogenannten \textit{AAA-Schema}(\ref{sec:AAA}) strukturiert sind.
@@ -3786,23 +3785,23 @@ Durch die Strukturierung von Testfällen nach dem \textit{AAA-Schema} wird eine 
 \subsubsection{Testen von Einzelgegenständen im Rucksack}
 
 \begin{lstlisting}[style=csharp, caption={Testfall: einzelne Gegenstände}, label={code:einzelTest}]
-[TestCase(20, 50, 30, ExpectedResult = 50,
-TestName = "Single item within capacity returns expected value.")]
-[TestCase(30, 50, 20, ExpectedResult = 0,
-TestName = "Single item exceeding capacity returns zero value.")]
-[TestCase(30, 50, 30, ExpectedResult = 50,
-TestName = "Single item exact capacity returns expected value.")]
-public int KnapsackMaxValue_SingleItem_ReturnsExpectedValue(
-int weight, int value, int capacity)
-{
-// Arrange
-var item = new QRData { id = 1, weight = weight, value = value };
-knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
-knapsackSolver.capacity = capacity;
+    [TestCase(20, 50, 30, ExpectedResult = 50,
+    TestName = "Single item within capacity returns expected value.")]
+    [TestCase(30, 50, 20, ExpectedResult = 0,
+    TestName = "Single item exceeding capacity returns zero value.")]
+    [TestCase(30, 50, 30, ExpectedResult = 50,
+    TestName = "Single item exact capacity returns expected value.")]
+    public int KnapsackMaxValue_SingleItem_ReturnsExpectedValue(
+    int weight, int value, int capacity)
+    {
+        // Arrange
+        var item = new QRData { id = 1, weight = weight, value = value };
+        knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
+        knapsackSolver.capacity = capacity;
 
-// Act and Assert
-return knapsackSolver.KnapsackMaxValue(out _);
-}
+        // Act and Assert
+        return knapsackSolver.KnapsackMaxValue(out _);
+    }
 \end{lstlisting}
 
 Die oben aufgeführten Testfälle zeigen verschiedene Szenarien zur Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand. Jeder Testfall wird mittels des \texttt{[TestCase]}-Attributs definiert und enthält das Gewicht, den Wert und die Kapazität des Rucksacks als Parameter. Das erwartete Ergebnis wird ebenfalls angegeben, um sicherzustellen, dass die berechneten Werte den Erwartungen entsprechen. Im Vorbereitungsabschnitt werden die notwendigen Vorbedingungen festgelegt, indem ein einzelner Gegenstand mit den angegebenen Gewicht und Wert dem KnapsackSolver hinzugefügt wird. Die Kapazität des Rucksacks wird entsprechend gesetzt. Im Ausführungsabschnitt wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird überprüft und mit dem erwarteten Ergebnis verglichen. Durch diese Testfälle wird sichergestellt, dass die Methode zur Berechnung des maximalen Werts unter verschiedenen Bedingungen korrekt arbeitet.
@@ -3814,28 +3813,28 @@ Die Verwendung von \texttt{[TestCase]} ermöglicht eine kompaktere Darstellung m
 \subsubsection{Testen von mehreren Gegenständen im Rucksack}
 
 \begin{lstlisting}[style=csharp, caption={Testfall: mehrere Gegenstände}, label={code:mehrTest}]
-[TestCase(10, ExpectedResult = 0,
-TestName = "All items exceeding capacity return zero value.")]
-[TestCase(90, ExpectedResult = 220,
-TestName = "All items within capacity return expected value.")]
-[TestCase(70, ExpectedResult = 170,
-TestName = "Multiple items within capacity, return optimal selection.")]
-public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
-int capacity)
-{
-// Arrange
-var items = new Dictionary<int, QRData>
-{
-{ 1, new QRData { id = 1, weight = 20, value = 50 } },
-{ 2, new QRData { id = 2, weight = 30, value = 70 } },
-{ 3, new QRData { id = 3, weight = 40, value = 100 } }
-};
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+    [TestCase(10, ExpectedResult = 0,
+    TestName = "All items exceeding capacity return zero value.")]
+    [TestCase(90, ExpectedResult = 220,
+    TestName = "All items within capacity return expected value.")]
+    [TestCase(70, ExpectedResult = 170,
+    TestName = "Multiple items within capacity, return optimal selection.")]
+    public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
+    int capacity)
+    {
+        // Arrange
+        var items = new Dictionary<int, QRData>
+        {
+            { 1, new QRData { id = 1, weight = 20, value = 50 } },
+            { 2, new QRData { id = 2, weight = 30, value = 70 } },
+            { 3, new QRData { id = 3, weight = 40, value = 100 } }
+        };
+        knapsackSolver.items = items;
+        knapsackSolver.capacity = capacity;
 
-// Act and Assert
-return knapsackSolver.KnapsackMaxValue(out _);
-}
+        // Act and Assert
+        return knapsackSolver.KnapsackMaxValue(out _);
+    }
 \end{lstlisting}
 
 Dieser Codeabschnitt demonstriert Testfälle für die Berechnung des maximalen Werts eines Rucksacks, wenn mehrere Gegenstände hinzugefügt werden. Ähnlich wie im vorherigen Abschnitt werden auch hier die Testfälle mit dem \texttt{[TestCase]}-Attribut definiert, wobei jedes Testcase nur die Kapazität des Rucksacks als Parameter hat und das erwartete Ergebnis angibt.
@@ -3847,40 +3846,40 @@ Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValu
 \subsubsection{Performance-Messung}
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei hoher Anzahl an Gegenständen}, label={code:performanceRange}]
-[Test]
-public void KnapsackPerformanceReportItemRange()()
-{
-// Ueberschrift fuer den Leistungsbericht ausgeben
-UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
-UnityEngine.Debug.Log("-----------------------------");
+    [Test]
+    public void KnapsackPerformanceReportItemRange()()
+    {
+        // Ueberschrift fuer den Leistungsbericht ausgeben
+        UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
+        UnityEngine.Debug.Log("-----------------------------");
 
-// Schleife durch verschiedene Gegenstandanzahlen
-for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
-{
-// Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
-int weightUpperBound = itemCount * 2;
-int capacity = itemCount * 5;
+        // Schleife durch verschiedene Gegenstandanzahlen
+        for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
+        {
+            // Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+            int weightUpperBound = itemCount * 2;
+            int capacity = itemCount * 5;
 
-// Zufaellige Gegenstaende generieren
-var items = GenerateRandomItems(itemCount, weightUpperBound);
+            // Zufaellige Gegenstaende generieren
+            var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+            // Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+            knapsackSolver.items = items;
+            knapsackSolver.capacity = capacity;
 
-// Stoppuhr starten, um die verstrichene Zeit zu messen
-var stopwatch = Stopwatch.StartNew();
+            // Stoppuhr starten, um die verstrichene Zeit zu messen
+            var stopwatch = Stopwatch.StartNew();
 
-// Die zu testende Methode aufrufen
-knapsackSolver.KnapsackMaxValue(out _);
+            // Die zu testende Methode aufrufen
+            knapsackSolver.KnapsackMaxValue(out _);
 
-// Stoppuhr anhalten nach dem Methodenaufruf
-stopwatch.Stop();
+            // Stoppuhr anhalten nach dem Methodenaufruf
+            stopwatch.Stop();
 
-// Anzahl der Gegenstaende und verstrichene Zeit fuer diese Iteration ausgeben
-UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
-}
-}
+            // Anzahl der Gegenstaende und verstrichene Zeit fuer diese Iteration ausgeben
+            UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
+        }
+    }
 \end{lstlisting}
 
 Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
@@ -3891,45 +3890,45 @@ Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife
 \subsubsection*{Iterationen bei fester Gegenstandsanzahl}
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
-[Test]
-public void KnapsackPerformanceReportRangeIteration()
-{
-// Ueberschrift fuer den Leistungsbericht ausgeben
-UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
-UnityEngine.Debug.Log("-----------------------------");
+    [Test]
+    public void KnapsackPerformanceReportRangeIteration()
+    {
+        // Ueberschrift fuer den Leistungsbericht ausgeben
+        UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
+        UnityEngine.Debug.Log("-----------------------------");
 
-// Konstante fuer die Anzahl der Gegenstaende
-int itemCount = 20;
+        // Konstante fuer die Anzahl der Gegenstaende
+        int itemCount = 20;
 
-// Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
-int weightUpperBound = itemCount * 2;
+        // Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
+        int weightUpperBound = itemCount * 2;
 
-// Schleife fuer 1000 wiederholungen
-for (int i = 1; i <= 500; i++)
-{
-// Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
-int capacity = itemCount * 5;
+        // Schleife fuer 1000 wiederholungen
+        for (int i = 1; i <= 500; i++)
+        {
+            // Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+            int capacity = itemCount * 5;
 
-// Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
-var items = GenerateRandomItems(itemCount, weightUpperBound);
+            // Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
+            var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+            // Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+            knapsackSolver.items = items;
+            knapsackSolver.capacity = capacity;
 
-// Stoppuhr starten, um die verstrichene Zeit zu messen
-var stopwatch = Stopwatch.StartNew();
+            // Stoppuhr starten, um die verstrichene Zeit zu messen
+            var stopwatch = Stopwatch.StartNew();
 
-// Die zu testende Methode aufrufen
-knapsackSolver.KnapsackMaxValue(out _);
+            // Die zu testende Methode aufrufen
+            knapsackSolver.KnapsackMaxValue(out _);
 
-// Stoppuhr anhalten nach dem Methodenaufruf
-stopwatch.Stop();
+            // Stoppuhr anhalten nach dem Methodenaufruf
+            stopwatch.Stop();
 
-// Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
-UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
-}
-}
+            // Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
+            UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
+        }
+    }
 \end{lstlisting}
 
 
