@@ -337,7 +337,7 @@ Die Bedeutung des Objektdesigns nimmt in der vorliegenden Arbeit einen zentralen
 Das Objektdesign umfasst nicht nur die Schaffung von ästhetisch ansprechenden und funktionalen 3D-Modellen, sondern auch die Optimierung dieser Modelle, um ein optimales Benutzererlebnis sicherzustellen. Dies beinhaltet Aspekte wie die Effizienz der Modelle in Bezug auf Rechenleistung und Speicherplatz, die Benutzerfreundlichkeit sowie die visuelle und funktionale Qualität der Modelle.
 
 \subsection{Texturen}
-Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen. \footnote{TechnicalProTips \cite{Textur}}
+Texturen sind ein wichtiger Bestandteil der Modellierung und verbessern die visuelle Erscheinung von Objekten, um sie realistischer wirken zu lassen. \footnote{Adobe \cite{What are 3d textures}}  Sie beschreiben die Oberflächenbeschaffenheit eines Objekts, einschließlich Eigenschaften wie Farbe, Rauhigkeit, Reflexionsvermögen, Glanz, Lichtdurchlässigkeit und mehr. In Blender werden Texturen typischerweise als Grafiken oder Muster verwendet, die auf die Oberfläche eines 3D-Modells projiziert werden. Im Projekt wurde viel mit \textit{Bild-Texturen} gearbeitet, um möglichst effiziente, realistische und ästhetisch ansprechende Modelle zu erzeugen. \footnote{TechnicalProTips \cite{Textur}}
 
 \subsubsection{Bild-Texturen in der 3D-Modellierung} \label{sec:bildtextures}
 Im folgenden Abschnitt wird erläutert, was unter dem Begriff \textit{Bild-Textur} zu verstehen ist und wie die Umsetzung und Arbeit mit Bild-Texturen im Kontext von Blender funktioniert.
@@ -348,7 +348,7 @@ Die Verwendung von Bild-Texturen ermöglicht es Benutzern, eine Vielzahl von Obe
 
 Im Blender-Programm können Bild-Texturen mithilfe des \textit{Shader-Editors} auf das Material des 3D-Objekts angewendet werden. Hierfür wird eine \textit{Image-Texture-Node} erstellt, welche den Farbwert der Textur an das Material übergibt. Es können verschiedene Einstellungen vorgenommen werden, um die Art und Weise der Texturprojektion zu steuern. Zum Beispiel kann die Projektionsart (Box, Flat, Sphere usw.) festgelegt werden, um anzugeben, wie die Textur auf die Oberfläche des Modells angewendet wird. Weitere Einstellungen können die Skalierung der Textur, die Wiederholungsmuster, die Mischmodi und andere Textureigenschaften umfassen. \footnote{artisticrender \cite{Bild-Texturen}}
 
-\subsubsection*{Einschub Shader-Editor}
+\subsubsection*{Was ist der Shader-Editor?}
 Dieser Editor hat in Blender eine spezielle Funktion. Hier können mithilfe von sogenannten \textit{Nodes} Eigenschaften für Texturen und Materialien vergeben werden. Der Editor wurde im Projekt hauptsächlich für die Anwendung von Bild-Texturen genutzt. \footnote{Blender \cite{Node-Introduction}}
 
 \begin{figure}[H]
@@ -363,15 +363,14 @@ In Abbildung \ref{fig:shadereditor} ist zu erkennen, wie die Bild-Textur-Node de
 \subsection{Mesh} \label{sec:mesh}
 In der 3D-Grafik bezeichnet ein Mesh eine Sammlung von Eckpunkten, Kanten und Flächen, die die Geometrie eines 3D-Objekts definieren. Es bildet die Grundlage für die Darstellung von Objekten in einer virtuellen Umgebung. Ein Mesh kann aus einer beliebigen Anzahl von Polygonen bestehen, die die äußere Form und Struktur des Objekts definieren. \footnote{GeeksForGeeks \cite{Mesh Definition}}
 
-Die Rolle eines Meshes bei der Modellierung besteht darin, die Form, Oberflächenstruktur und Details eines Objekts zu definieren. Durch die Anordnung und Verbindung der Vertices, Edges und Faces können komplexe geometrische Formen erzeugt werden. Polygone ermöglichen dabei die Darstellung von Objekten mit unterschiedlichen Detailgenauigkeiten. Je mehr Polygone ein Mesh hat, desto detaillierter und realistischer kann das Modell dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. \footnote{TechTarget \cite{Mesh Usages}}
+Die Rolle eines Meshes bei der Modellierung besteht darin, die Form, Oberflächenstruktur und Details eines Objekts zu definieren. Durch die Anordnung und Verbindung der Eckpunkten, Kanten und Flächen können komplexe geometrische Formen erzeugt werden. Polygone ermöglichen dabei die Darstellung von Objekten mit unterschiedlichen Detailgenauigkeiten. Je mehr Polygone ein Mesh hat, desto detaillierter und realistischer kann das Modell dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. \footnote{TechTarget \cite{Mesh Usages}}
 
-Meshes werden in verschiedenen Bereichen der 3D-Grafik verwendet, wie zum Beispiel der Modellierung von Objekten, der Animation und der Visualisierung. Sie dienen als Grundlage für die Erstellung von digitalen Szenen.
+Meshes werden in verschiedenen Bereichen der 3D-Grafik verwendet, wie zum Beispiel der Modellierung von Objekten, der Animation und der Visualisierung. Sie dienen als Grundlage für die Erstellung von digitalen Szenen. \footnote{wedesignvirtual \cite{WhatareMeshes}}
 
 \subsection{Rolle von Polygonen in einem Modell}
-Polygone sind grundlegende Bausteine eines Meshes und spielen eine wichtige Rolle bei der Darstellung von 3D-Modellen. Sie bestehen aus einer Reihe von Eckpunkten (Vertices), Kanten und Flächen, die diese Punkte miteinander verbinden. In einem 3D-Modell definieren Polygone die Form, die Oberflächenstruktur und die Details eines Objekts.
-\footnote{CGIFurniture \cite{What are Polygons}}
+Polygone sind grundlegende Bausteine eines Meshes und spielen eine wichtige Rolle bei der Darstellung von 3D-Modellen. Sie bestehen aus einer Reihe von Eckpunkten (Vertices), Kanten und Flächen, die diese Punkte miteinander verbinden. In einem 3D-Modell definieren Polygone die Form, die Oberflächenstruktur und die Details eines Objekts. \footnote{CGIFurniture \cite{What are Polygons}}
 
-Durch die Anordnung und Verbindung von Polygonen entstehen komplexe Strukturen, die eine visuelle Darstellung von Objekten ermöglichen. Je mehr Polygone ein Modell hat, desto detaillierter und realistischer kann es dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. Polygone sind somit ein wesentlicher Bestandteil eines Meshes und tragen maßgeblich zur visuellen Qualität und Komplexität eines 3D-Modells bei.
+Durch die Anordnung und Verbindung von Polygonen entstehen komplexe Strukturen, die eine visuelle Darstellung von Objekten ermöglichen. Je mehr Polygone ein Modell hat, desto detaillierter und realistischer kann es dargestellt werden. Allerdings führt dies auch zu einem höheren Bedarf an Rechenleistung und Speicherplatz. Polygone sind somit ein wesentlicher Bestandteil eines Meshes und tragen maßgeblich zur visuellen Qualität und Komplexität eines 3D-Modells bei. \footnote{Adobe \cite{3D Polygon Modeling}}
 
 \subsection{Optimierung der einzelnen Modelle}
 Der Entwurf von 3D-Objekten mit Blender erfordert ein systematisches Vorgehen, insbesondere im Zusammenhang mit der Optimierung dieser. Im Folgenden werden spezifische Aspekte dieses Prozesses beleuchtet, darunter die Polygonreduktion und die Texturoptimierung. \footnote{CGCookie \cite{Ways to optimize Game Assets}}
@@ -382,9 +381,9 @@ Die Polygonreduktion ist eine Technik, die darauf abzielt, die Anzahl der Polygo
 
 In der Computergrafik steht die Anzahl der Polygone eines Modells in direktem Zusammenhang mit dem benötigten Speicherplatz und der Rechenleistung. Je mehr Polygone ein Modell hat, desto mehr Daten müssen verarbeitet und gerendert werden, was zu höheren Anforderungen an die Hardware führt. Durch eine Reduzierung der Polygone können diese Ressourcen effizienter genutzt werden, ohne dass die visuelle Qualität des Modells wesentlich beeinträchtigt wird.
 
-Werkzeuge wie der \textit{Decimate Modifier} in Blender bieten die Möglichkeit, die Anzahl der Polygone automatisch zu reduzieren und gleichzeitig visuelle Artefakte zu minimieren. Artefakte in Bezug auf 3D-Modellierung sind unerwünschte visuelle Effekte oder Fehler, die während des Modellierungs- oder Renderingprozesses auftreten können.
+Werkzeuge wie der \textit{Decimate Modifier} in Blender bieten die Möglichkeit, die Anzahl der Polygone automatisch zu reduzieren und gleichzeitig visuelle Artefakte zu minimieren. Artefakte in Bezug auf 3D-Modellierung sind unerwünschte visuelle Effekte oder Fehler, die während des Modellierungs- oder Renderingprozesses auftreten können. \footnote{Blender Dokumentation \cite {Decimate Modifier}}
 
-Dennoch ist es ratsam, bereits während des Modellierungsprozesses darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die Polygonreduktion zu schaffen. Eine Möglichkeit hierfür ist die regelmäßige Nutzung der \textit{Merge}-Funktion, welche es ermöglicht, einzelne Punkte anhand ihres Abstandes zu kombinieren und einen einzelnen Punkt daraus zu erstellen. Wenn dieser Vorgang auf das gesamte Modell angewendet wird, verhindert er außerdem ungewollte Kopien von Eckpunkten durch beispielsweise unbeabsichtigte und abgebrochene \textit{Extrusion}.
+Dennoch ist es ratsam, bereits während des Modellierungsprozesses darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die Polygonreduktion zu schaffen. Eine Möglichkeit hierfür ist die regelmäßige Nutzung der \textit{Merge}-Funktion, welche es ermöglicht, einzelne Punkte anhand ihres Abstandes zu kombinieren und einen einzelnen Punkt daraus zu erstellen. \footnote{Blender Dokumentation \cite {Merge Funktion}} Wenn dieser Vorgang auf das gesamte Modell angewendet wird, verhindert er außerdem ungewollte Kopien von Eckpunkten durch beispielsweise unbeabsichtigte und abgebrochene \textit{Extrusion}.
 
 Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten sind.
 
@@ -398,13 +397,13 @@ Die Texturoptimierung ist ein iterativer Prozess, der eine ausgewogene Berücksi
 \subsection{Export- und Integrationsprozess}
 In diesem Abschnitt wird der Export- und Integrationsprozess für 3D-Modelle beschrieben, beginnend mit der Auswahl des geeigneten Dateiformats und der Berücksichtigung des Koordinatensystems.
 
-Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die Zielumgebung integriert wird.
+Der Export- und Integrationsprozess ist ein entscheidender Schritt bei der Übertragung von 3D-Modellen aus der Konstruktions- oder Modellierungssoftware in eine Zielumgebung, sei es eine Spiele-Engine, eine Virtual-Reality-Plattform oder eine AR-Anwendung. Dieser Prozess umfasst mehrere Schritte, um sicherzustellen, dass das Modell korrekt dargestellt und funktional in die Zielumgebung integriert wird. \footnote{Blog CG Wire \cite {Getting started with export in Blender}}
 
 %quelle buch https://books.google.at/books?hl=de&lr=&id=HKZuaUdmovsC&oi=fnd&pg=PA309&dq=autodesk+fbx+&ots=y8C69-0al2&sig=KONCkBGyC-Z4HTlRw9FgzsA1q6M&redir_esc=y#v=onepage&q=autodesk%20fbx&f=false
 \subsubsection{Dateiformat}
 Als Dateiformat für den Export von 3D-Modellen in diesem Projekt wurde das von Autodesk entwickelte Filmbox-Format (FBX) gewählt. FBX wurde aufgrund seiner weit verbreiteten Unterstützung und seiner Fähigkeit, umfassende Informationen über geometrische Formen, Materialien, Animationen und andere Szenendaten zu speichern, ausgewählt. \footnote{GameDev-Profi \cite{Welches Dateiformat}}
 
-FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Modelle (zum Beispiel von Blender) zu organisieren und zu übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie, Materialien, Animationen, Kameras und Lichtquellen.
+FBX ist ein proprietäres Format, das speziell für den Austausch von 3D-Inhalten zwischen verschiedenen Anwendungen entwickelt wurde. Es bietet eine hierarchische Struktur, die es ermöglicht, komplexe Modelle (zum Beispiel von Blender) zu organisieren und zu übertragen. Diese Struktur umfasst Knoten, die verschiedene Elemente der 3D-Szene repräsentieren, wie Geometrie, Materialien, Animationen, Kameras und Lichtquellen. \footnote{Vection Technologies \cite {Everything You Need to Know About FBX Files}}
 
 Durch die Verwendung von FBX können 3D-Modelle nahtlos zwischen verschiedenen Softwareanwendungen und Plattformen ausgetauscht werden, was die Zusammenarbeit und Integration in Projekten wie diesem, das Unity als Engine verwendet, erleichtert. Die Wahl des FBX-Formats bietet somit eine solide Grundlage für einen effizienten Workflow und eine erfolgreiche Umsetzung des Projekts.
 
@@ -594,15 +593,12 @@ In Abbildung \ref{fig:hierarchie} ist zu erkennen, dass ein Objekt ausgegraut is
 Die hierarchische Darstellung der Elemente erleichtert die Organisation und Bearbeitung des Modells. Eine klare Strukturierung der verschiedenen Komponenten ermöglicht eine effiziente Arbeitsweise und hilft, den Überblick über die einzelnen Teile zu behalten.
 
 \subsubsection*{Textur und Farbe des Taschenrechnermodells}
-Für die Texturierung und Farbgebung des Modells diente das Referenzbild zur Orientierung. Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus dem Referenzbild auszuwählen und auf das entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst und dann auf den entsprechenden Bereich des Modells übertragen.
+Für die Texturierung und Farbgebung des Modells diente das Referenzbild zur Orientierung. Das \textit{Eye-Dropper}-Werkzeug in Blender ermöglichte es, Farben gezielt aus dem Referenzbild auszuwählen und auf das entsprechende Modell anzuwenden. Durch Klicken auf einen bestimmten Bereich des Referenzbildes wurde die Farbe erfasst und dann auf den entsprechenden Bereich des Modells übertragen. \footnote{Blender Dokumentation \cite{Eyedropper Werkzeug}}
 
-% https://docs.blender.org/manual/en/latest/interface/controls/buttons/eyedropper.html
 Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genaue Anpassung an die Farben und Texturen des Referenzbildes zu erreichen. Die Verwendung des Eye-Dropper-Werkzeugs ermöglichte eine präzise und konsistente Umsetzung der Farbgebung und trug dazu bei, dass das Modell möglichst authentisch und realitätsnah aussieht. Um noch bessere und realitätsnähere Textur zu gewährleisten, wurde ein Vorgang Namens \textit{UV-Mapping} durchgeführt.
 
-%literatur https://docs.blender.org/manual/en/latest/modeling/meshes/editing/uv.html
-%literatur https://all3dp.com/2/blender-uv-mapping-simply-explained/
 %literatur https://de.wikibooks.org/wiki/Blender_Dokumentation:_UV-Mapping
-\subsubsection*{UV-Mapping}
+\subsubsection*{UV-Mapping am Taschenrechnermodell}
 \textit{UV-Mapping} ist ein wichtiger Schritt im Texturierungsprozess von 3D-Modellen. Dabei werden Texturen auf dreidimensionale Objekte projiziert. Die Bezeichnungen \textit{U} und \textit{V} stehen dabei für die beiden Koordinatenachsen im zweidimensionalen Raum. In Blender gibt es dafür einen eigenen Editor mit einer spezifischen Benutzeroberfläche.
 
 Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem Referenzbild auf die einzelnen Knöpfe und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
@@ -614,13 +610,13 @@ Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} ge
     \label{fig:hierarchie}
 \end{figure}
 
-Die Abbildung zeigt den \textit{UV-Editing-Editor} in Blender. Mit diesem Editor können die UV-Maps der 3D-Modelle bearbeitet werden, indem die 3D-Geometrie auf eine zweidimensionale Ebene projiziert wird, um die Positionierung der Texturen zu steuern.
+Die Abbildung zeigt den \textit{UV-Editing-Editor} in Blender. Mit diesem Editor können die UV-Maps der 3D-Modelle bearbeitet werden, indem die 3D-Geometrie auf eine zweidimensionale Ebene projiziert wird, um die Positionierung der Texturen zu steuern. \footnote{Blender Dokumentation \cite{UV-Editing Editor}}
 
 Als Beispiel wurde der obere Teil des Taschenrechners rund um den Bildschirm ausgewählt. Zunächst wird dem Bereich ein neues Material zugewiesen, das die Basisfarbe des Referenzbildes enthält. Anschließend wird das Referenzbild als Texturhintergrund im Editor ausgewählt, um es anzuzeigen.
 
 Der nächste Schritt besteht darin, die ausgewählten Flächen des Modells aufzuteilen, denn die Erstauswahl in Blender legt die einzelnen Flächen übereinander. Dies geschieht durch Auswahl der Flächen im Editor und Anwendung der \textit{UV-Unwrap}-Funktion in Blender.
 
-Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um eine einheitliche Darstellung zu gewährleisten.
+Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um eine einheitliche Darstellung zu gewährleisten. \footnote{all3dp \cite{blender-uv-mapping-simply-explained}}
 
 \textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise Texturierung und Gestaltung ermöglicht.
 
