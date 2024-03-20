@@ -896,15 +896,15 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 \section{\label{sec:jonasSzenario}Nachrichtenaustausch Anwendungsszenario} \marginpar{\small(\rightarrow) Schoditsch}
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit auf das Paket zu drücken, um Informationen wie Absender und Nachricht einzusehen.
-\begin{figure}
+
+\subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario}
+In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen Gameobjekts haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{images/AufbauAnzeige.png}
     \caption{Aufbau in der realen welt}
     \label{fig:NachrichtenaustauschAufbau}
 \end{figure}
-\subsection{Aufbau von Nachrichtenaustausch Anwendungsscenario}
-In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen Gameobjekts haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
-
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{images/Level1Hierarchy.png}
