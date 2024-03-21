@@ -1048,9 +1048,9 @@ Um das Schreiben von einem Multithread-Code zu erleichtern, verfügt das Job-Sys
 
 
 \subsubsection{\label{sec:Vector2}Vector2 Klasse}
-Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Manipulation von 2D-Positionen, -Richtungen und -Geschwindigkeiten innerhalb deren \textit{Engine}. Mit Hilfe der \textit{Vektor2D} Klasse von Unity lassen sich Bewegung, Interaktion und Objekte exakt steuern und simulieren. Diese Klasse besitzt die folgenden Parameter:
+Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Manipulation von 2D-Positionen, -Richtungen und -Geschwindigkeiten innerhalb deren \textit{Engine}. Mit Hilfe der \textit{Vektor2D} Klasse von Unity lassen sich Bewegung, Interaktion und Objekte exakt steuern und simulieren. Diese Klasse besitzt die folgenden Eigenschaften:
 \begin{itemize}
-    \item \textit{x und y: }x Koordinate von einen 2 Dimensionalen Koordinatensystem
+    \item \textit{x und y: }Punkt Koordinate in einem 2 Dimensionalen Koordinatensystem
     \item \textit{magnitude: }Besitzt die Größe des 2D Vektors. Die Größe des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
     \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
 \end{itemize}
@@ -1149,7 +1149,7 @@ Die Funktion beginnt mit der Erstellung einer Liste von Vektoren namens \textit{
 
 
 \subsection{\label{sec:Coroutines}Coroutines}
-\textit{Coroutines} werden immer noch mit dem Hauptthread ausgeführt und erlauben es den für \textit{Coroutines} verwendeten Code über mehrere Frames aufzuteilen. \textit{Coroutines} werden deswegen hauptsächlich in Methoden verwendet, welche eine Abfolge von Ereignissen über einen Zeitraum darstellen.
+\textit{Coroutines} werden immer mit dem Hauptthread ausgeführt und erlauben es den für \textit{Coroutines} verwendeten Code über mehrere Unity Frames aufzuteilen. \textit{Coroutines} werden deswegen hauptsächlich in Methoden verwendet, welche eine Abfolge von Ereignissen über einen Zeitraum darstellen.
 \\
 Zum Darstellen von \textit{Coroutines} ist dieses kurze Skript, welches das Objekt, an den es angebunden ist, in eine Richtung bewegt.
 \begin{lstlisting}[style=csharp, caption={Coroutine Beispiel}, label={code:coroutineBsp}]
@@ -1162,7 +1162,7 @@ public class CoroutineExample : MonoBehaviour {
     public int numSteps = 10;
 
     void Start() {
-    // Starte die Coroutine für die Bewegung
+    // Starte die Coroutine fuer die Bewegung
         StartCoroutine(MoveToTarget());
     }
 
@@ -1183,10 +1183,10 @@ public class CoroutineExample : MonoBehaviour {
     }
 }
 \end{lstlisting}
-Wenn dieses Skript zu einem \textit{Gameobjekt} hinzugefügt wird, bewegt sich das Objekt mit der angegebenen Geschwindigkeit. Diese Geschwindigkeit gibt die Variable \textit{moveSpeed} an, welche, wenn nichts angegeben wird, standardmäßig auf eins gesetzt wird. Es wird auch angegeben, in wie vielen Schritten (also Frame-Passagen), der Vorgang stattfinden soll. Dies übernimmt die Variable \textit{numSteps}. Dann soll auch noch die Position, an der das Objekt am Ende ankommen soll, als \textit{Transform} mit dem Namen \textit{target} angegeben werden. Die \textit{Transform} Klasse,  speichert die Position, Rotation und Größe und lässt diese auch bearbeitet. \\
-Beim Start des Skripts wird sofort die \textit{Courutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} muss mit der Klasse \textit{IEnumerator} geschrieben werden, da, wenn es ohne der \textit{IEnumerator} Klasse nicht möglich wäre, die Methode \textit{MoveToTarget} als Coroutine zu verwenden und mit \textit{StartCoroutine} aufzurufen. \textit{Coroutine}-Funktionen müssen eine \textit{IEnumerator}-Rückgabe haben, damit Unity sie als asynchrone Task ausführen kann. Durch die Verwendung von \textit{IEnumerator} können innerhalb von \textit{Coroutine} \textit{yield}-Anweisungen verwendet werden, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
+Wenn dieses Skript zu einem \textit{Gameobjekt} hinzugefügt wird, bewegt sich das Objekt mit der angegebenen Geschwindigkeit. Diese Geschwindigkeit gibt die Variable \textit{moveSpeed} an, welche, wenn nichts angegeben wird, standardmäßig auf eins gesetzt wird. Es wird auch angegeben, in wie vielen Schritten (also Frame-Passagen), der Vorgang stattfinden soll. Dies übernimmt die Variable \textit{numSteps}. Dann soll auch noch die Position, an der das Objekt am Ende ankommen soll, als \textit{Transform} mit dem Namen \textit{target} angegeben werden. Die \textit{Transform} Klasse wird von Unity zur verfügung gestellt,  speichert die Position, Rotation und Größe und lässt diese auch bearbeitet. \\
+Beim Start des Skripts wird sofort die \textit{Coroutine} mit der von Unity zur Verfügung gestellten \textit{StartCoroutine} mit der entsprechenden \textit{IEnumerator} Funktion innerhalb der Klammern aufgerufen. Die Funktion \textit{MoveToTarget} ist einen für Coroutines notwendigen Klasse \textit{IEnumerator}. Dies ist eine von Microsoft erstellte Schnittstelle welches hilft einfache Iterationen auszuführenes. Es selber hat keinen Rückgabewert. Es wird allerdings ein \textit{yield} benutzt dieses ist innerhalb von einer Coroutine dafür zuständig um diesen Vorgang vorübergehend zu pausieren. Sodass es nachher wieder vom Hauptthread aufgenommen werden kann. Dadurch werden \textit{yield}-Anweisungen verwendet, um zu steuern, wann und wie die Ausführung unterbrochen und fortgesetzt wird. In diesem Beispiel wird \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} verwendet, um zwischen den einzelnen Schritten der Bewegung eine Pause einzulegen, bevor der nächste Schritt im nächsten Frame ausgeführt wird. Dies ermöglicht eine fließende und kontrollierte Bewegung des Objekts.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
 \\
-Falls man aus irgendeinenmGrund so eine Coroutine beenden will, kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verweden. Als Beispiel wird eine sehr kleine Erweiterung von den Code Abschnitt \ref{code:coroutineBsp} verwendet.
+Falls man aus irgendeinenmGrund so eine Coroutine beenden will, kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verweden. Man könnte den obrigen Code folgendermaßen erweitern:
 \begin{lstlisting}[style=csharp, caption={Coroutine beenden}, label=code:debugRaycast]
 public void stopFunctionCoroutine() {
     StopCoroutine(MoveToTarget)
@@ -1197,9 +1197,11 @@ public void stopAllCurrentCoroutine() {
 }
 \end{lstlisting}
 \begin{itemize}
-    \item StopCoroutine: Sorgt dafür, dass nur die \textit{IEnumerator} Funktion, welche für die \textit{Coroutine} verwendet wurde, beendet wird.
+    \item StopCoroutine: Sorgt dafür, dass nur die \textit{MoveToTarget} Funktion, welche für die \textit{Coroutine} verwendet wurde, beendet wird.
     \item StopAllCoroutine: Sorgt dafür, dass alle Funktionen, welche für alle laufenden \textit{Coroutine} verwendet wurden, beendet werden.
 \end{itemize}
+
+\subsection{IEnumerator Klasse}\label{sec:IEnumerator}
 
 \subsection{Ladesymbol}\label{sec:ladeSymbol}
 Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informiert, dass Berechnungen oder Prozesse im Hintergrund ausgeführt werden. In erster Linie wird dieses Symbol während der Kabelsuche verwendet. Diese Animation des Lade Symbols wird durch einen entsprechenden Programmcode gesteuert, um dem Benutzer eine klare und konsistente Rückmeldung zu geben, dass der Prozess läuft. Im Design der Interaktion spielt das Ladesymbol eine wichtige Rolle, um den Benutzer über den aktuellen Status der Anwendung zu informieren.
