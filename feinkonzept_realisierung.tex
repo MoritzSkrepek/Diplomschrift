@@ -1284,7 +1284,7 @@ if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
     for (int i = 0; i < hits.Count; i++) {
         if (hits[i].hitType != TrackableType.PlaneWithinInfinity) {
             if (hits[i] != null) {
-                cablePositinos.Add(new Vector3(hits[i].pose.position.x, hits[i].pose.position.y + 0.05f, hits[i].pose.position.z));
+                cablePositions.Add(new Vector3(hits[i].pose.position.x, hits[i].pose.position.y + 0.05f, hits[i].pose.position.z));
                 break;
             }
         }
@@ -1311,12 +1311,12 @@ public void editAndSendPackage(string username, string message) {
     }
     MainThreadDispatcher.Instance().Enqueue(() => {
         if (isObjectInstantiated == false) {
-            instantiatedObject = Instantiate(virtualObject, cablePositinos[0], Quaternion.identity);
+            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
             isObjectInstantiated = true;
         }
         else {
             Destroy(instantiatedObject);
-            instantiatedObject = Instantiate(virtualObject, cablePositinos[0], Quaternion.identity);
+            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
         }
         shouldMove = !shouldMove;
         EditTextOfInformationObject editTextOfInformationObject = new EditTextOfInformationObject(infoTextS);
@@ -1330,17 +1330,17 @@ Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und o
 
 
 \subsubsection{Bewegung des Paketes}
-Die Bewegung des Paketes läuft so ab, dass das Paket nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity übver die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
+Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
     if (shouldMove) {
-        if (moveToCounter < cablePositinos.Count) {
-            instantiatedObject.transform.Translate((cablePositinos[moveToCounter] - cablePositinos[moveFromCounter]) * 0.0075f);
-            if (Vector3.Distance(instantiatedObject.transform.position, cablePositinos[moveToCounter]) < 0.00375f) {
-                instantiatedObject.transform.position = cablePositinos[moveToCounter];
+        if (moveToCounter < cablePositions.Count) {
+            instantiatedObject.transform.Translate((cablePositions[moveToCounter] - cablePositions[moveFromCounter]) * 0.0075f);
+            if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[moveToCounter]) < 0.00375f) {
+                instantiatedObject.transform.position = cablePositions[moveToCounter];
                 moveToCounter++;
                 moveFromCounter++;
-                if (Vector3.Distance(instantiatedObject.transform.position, cablePositinos[cablePositinos.Count - 1]) < 0.00375f) {
+                if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[cablePositions.Count - 1]) < 0.00375f) {
                     isAtEnd = true;
                 }
             }
