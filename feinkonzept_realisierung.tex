@@ -884,6 +884,7 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 
 
 
+
 \section{\label{sec:jonasSzenario}Nachrichtenaustausch Anwendungsszenario} \marginpar{\small(\rightarrow) Schoditsch}
 In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den Hololens 2 Benutzer visualisiert
 Der Benutzer hat außerdem die Möglichkeit auf das Paket zu drücken, um Informationen wie Absender und Nachricht einzusehen.
@@ -1242,47 +1243,47 @@ Zum Anfang von jeder Hololens App wird zuerst ein großteil der näheren Umgebun
 Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eines \textit{Raycasts} in Augmented Reality
 (AR) Anwendungen zu erhalten.
 Ein Raycast ist eine Technik, bei der ein imaginärer Strahl (Ray) von einem Startpunkt aus
- in den Fall von diesen Projekt ist der Startpunkt die Hololens 2 in eine bestimmte Richtung gesendet wird, um festzustellen, ob
+in den Fall von diesen Projekt ist der Startpunkt die Hololens 2 in eine bestimmte Richtung gesendet wird, um festzustellen, ob
 der ArRaycastHit auf eine Oberfläche (welche ein Mesh mit Kollision besitzt) auftrifft, wenn dies der Fall ist,
 Informationen über den Auftreffpunkt zurückzugeben. Diese Informationen werden dann von der \textit{ARRaycastHit}-Klasse
 aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthält mehrere Methoden, die es ermöglichen, auf
 die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen
- wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
+wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
 ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf
 realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse besitzt die folgenden Eigenschaften:
 \begin{itemize}
-    %TODO shit erweitern
+            %TODO shit erweitern
     \item \textit{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
     \item \textit{hitType: } gibt Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Sie ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie beispielsweise Kollisionen mit Meshes (darstellung der umgebung mit dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische collisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
-\subsubsection{Entfernung messen}
-Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
-im späteren Verlauf RayCasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
-für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
-Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
-Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte ,welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
-\begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
+    \subsubsection{Entfernung messen}
+    Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
+    im späteren Verlauf RayCasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
+    für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
+    Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
+    Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte ,welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
+    \begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
 foreach (Vector2 redPixle in redPixelCoordinates) {
     positionVirtualObject(redPixle, targetTexture)
 }
-\end{lstlisting}
-\begin{itemize}
-    \item Das \textit{positionVirtualObject} ist die Funktion welche die folgenden Berechnungen für Raycasts errechnet und den Raycast ausführt. \\
-\end{itemize}
-Um Raycasts erfolgreich zu nutzen, greift Unity auf Bildschirmkoordinaten zurück. Jedoch liegen uns momentan nur die Koordinaten vor, die der Skalierung des Bildes entsprechen. Daher müssen diese in ein Format umgerechnet werden, das es ermöglicht, die Raycasts an die richtigen Positionen zu senden. Diese Umrechnung erfolgt im Code wie folgt:
-\begin{lstlisting}[style=csharp, caption={Koordinaten Umrechnung}, label=code:Coordinates calculations]
+    \end{lstlisting}
+    \begin{itemize}
+        \item Das \textit{positionVirtualObject} ist die Funktion welche die folgenden Berechnungen für Raycasts errechnet und den Raycast ausführt. \\
+    \end{itemize}
+    Um Raycasts erfolgreich zu nutzen, greift Unity auf Bildschirmkoordinaten zurück. Jedoch liegen uns momentan nur die Koordinaten vor, die der Skalierung des Bildes entsprechen. Daher müssen diese in ein Format umgerechnet werden, das es ermöglicht, die Raycasts an die richtigen Positionen zu senden. Diese Umrechnung erfolgt im Code wie folgt:
+    \begin{lstlisting}[style=csharp, caption={Koordinaten Umrechnung}, label=code:Coordinates calculations]
 Vector2 screenCoordinates = new Vector2(
     redPixel.x * Camera.main.pixelWidth / image.width,
     redPixel.y * Camera.main.pixelHeight / image.height
 );
-\end{lstlisting}
+    \end{lstlisting}
 
-\begin{itemize}
-    \item Das \textbf{redPixel.x} und \textbf{redPixel.y} sind die Positionen, welche in \textit{screenCoordinates} umgerechnet werden sollen.
-    \item \textbf{Camera.main.pixelWidth} und \textbf{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
-    \item Unter \textbf{image.width} und \textbf{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
-\end{itemize}
-Sobald dann die \textit{screenCoordinates} berechnet wurden, kann der Raycast auf die Position im Bildschirm aufgerufen werden. Dafür ist dieser Code teil von \textit{positionVirtualObject} zuständig:
-\begin{lstlisting}[style=csharp, caption={Raycast schießen}, label=code:createRaycast]
+    \begin{itemize}
+        \item Das \textbf{redPixel.x} und \textbf{redPixel.y} sind die Positionen, welche in \textit{screenCoordinates} umgerechnet werden sollen.
+        \item \textbf{Camera.main.pixelWidth} und \textbf{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
+        \item Unter \textbf{image.width} und \textbf{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
+    \end{itemize}
+    Sobald dann die \textit{screenCoordinates} berechnet wurden, kann der Raycast auf die Position im Bildschirm aufgerufen werden. Dafür ist dieser Code teil von \textit{positionVirtualObject} zuständig:
+    \begin{lstlisting}[style=csharp, caption={Raycast schießen}, label=code:createRaycast]
 List<ARRaycastHit> hits = new List<ARRaycastHit>();
 if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
     for (int i = 0; i < hits.Count; i++) {
@@ -1294,19 +1295,19 @@ if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
         }
     }
 }
-\end{lstlisting}
-Es wird eine Liste von ARRaycastHit Objekten erstellt, die den Namen \textit{hits} trägt. In dieser Liste werden nach dem Ausführen einer AR-Raycast-Operation die Treffer gespeichert. Die Funktion Raycast erhält die \textit{screenCoordinates}, die \textit{hits}-Liste sowie die zu suchenden TrackableType.Planes.
-Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überprüft. Diese Treffer werden dann darauf überprüft, ob ihr Typ nicht \textit{TrackableType.PlaneWithinInfinity} ist, um sicherzustellen, dass der Raycast nicht ins Unendliche geht. Wenn ein Objekt getroffen wurde, wird geprüft, ob es Werte besitzt. Wenn alle diese Voraussetzungen erfüllt sind, wird es mit einer um 5 cm Erhöhung (damit das Paket nicht innerhalb von Kabel gleitet sondern leicht darüber) zu \textit{cablePositions} hinzugefügt. Unter \textit{cablePositions} versteht man die Position, die das Paket später durchqueren wird.
+    \end{lstlisting}
+    Es wird eine Liste von ARRaycastHit Objekten erstellt, die den Namen \textit{hits} trägt. In dieser Liste werden nach dem Ausführen einer AR-Raycast-Operation die Treffer gespeichert. Die Funktion Raycast erhält die \textit{screenCoordinates}, die \textit{hits}-Liste sowie die zu suchenden TrackableType.Planes.
+    Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überprüft. Diese Treffer werden dann darauf überprüft, ob ihr Typ nicht \textit{TrackableType.PlaneWithinInfinity} ist, um sicherzustellen, dass der Raycast nicht ins Unendliche geht. Wenn ein Objekt getroffen wurde, wird geprüft, ob es Werte besitzt. Wenn alle diese Voraussetzungen erfüllt sind, wird es mit einer um 5 cm Erhöhung (damit das Paket nicht innerhalb von Kabel gleitet sondern leicht darüber) zu \textit{cablePositions} hinzugefügt. Unter \textit{cablePositions} versteht man die Position, die das Paket später durchqueren wird.
 
-\subsubsection{Erstellung und Positionierung des Paketes}
-Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur Initialisierung und zum Absenden des Datenpakets führt.\\
-Bei der \textit{Start} Funktion welche von Unity zur Verfügung gestellt  wird, wird diese Zeile ausgeführt:
-\begin{lstlisting}[style=csharp, caption={Binden an der Methode}, label=code:]
+    \subsubsection{Erstellung und Positionierung des Paketes}\label{sec:PaketPos}
+    Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur Initialisierung und zum Absenden des Datenpakets führt.\\
+    Bei der \textit{Start} Funktion welche von Unity zur Verfügung gestellt  wird, wird diese Zeile ausgeführt:
+    \begin{lstlisting}[style=csharp, caption={Binden an der Methode}, label=code:]
 EventManager.OnMessageReceived += editAndSendPackage;
-\end{lstlisting}
-Diese Zeile sorgt dafür, dass beim Start der Unity \textit{Scene} \textit{editAndSendPackage} an den Event \textit{OnMessageReceived} gebunden wird. Das bedeutet, dass wenn das Event \textit{OnMessageReceived} erhalten wird, die Funktion \textit{editAndSendPackage} ausgelöst wird.
-Die Funktion \textit{editAndSendPackage} initialisiert das visuelle Paket am Anfang des Kabels, falls es noch nicht erstellt wurde.
-\begin{lstlisting}[style=csharp, caption={Initialisierung und Bearbeitung des Paketes}, label=code:editAndSendPackage]
+    \end{lstlisting}
+    Diese Zeile sorgt dafür, dass beim Start der Unity \textit{Scene} \textit{editAndSendPackage} an den Event \textit{OnMessageReceived} gebunden wird. Das bedeutet, dass wenn das Event \textit{OnMessageReceived} erhalten wird, die Funktion \textit{editAndSendPackage} ausgelöst wird.
+    Die Funktion \textit{editAndSendPackage} initialisiert das visuelle Paket am Anfang des Kabels, falls es noch nicht erstellt wurde.
+    \begin{lstlisting}[style=csharp, caption={Initialisierung und Bearbeitung des Paketes}, label=code:editAndSendPackage]
 public void editAndSendPackage(string username, string message) {
     if (isAtEnd) {
         isAtEnd = false;
@@ -1329,13 +1330,13 @@ public void editAndSendPackage(string username, string message) {
         EventManager.SendMsg(username, message);
     });
 }
-\end{lstlisting}
-Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Hauptthread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Hauptthread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Nebenthread, sondern vom Hauptthread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt noch nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des Gameobjekts zu verwenden, um die korrekten Daten im Text anzuzeigen.
+    \end{lstlisting}
+    Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Hauptthread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Hauptthread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Nebenthread, sondern vom Hauptthread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt noch nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des Gameobjekts zu verwenden, um die korrekten Daten im Text anzuzeigen.
 
 
-\subsubsection{Bewegung des Paketes}
-Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
-\begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
+    \subsubsection{Bewegung des Paketes}
+    Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
+    \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
     // Ueberpruefen, ob sich das Objekt bewegt soll
     if (shouldMove) {
@@ -1366,41 +1367,41 @@ void Update() {
     }
 }
 
-\end{lstlisting}
-Dieses Skript beinhaltet drei globale Variablen welche am anfang des Skripts initalisiert werden, diese werden von mehreren Funktionen gebraucht werden
-\begin{itemize}
-    \item \textit{shouldmove} ist ein Boolescher Wert, welcher wahr oder falsch sein kann. Dieser wird verwendet um zu überprüfen ,ob das Objekt initialisiert wurde und sich bewegen sollte.
-    \item \textit{moveFromCounter} ist ein Integer Wert, welcher mitzählt, wie oft das Paket schon von einer Position aus wegbewegt wurde. Dieser Zähler wird als Index für die Liste \textit{cablePositions} verwendet, um die momentane Position des Paketes zu finden.
-    \item \textit{moveToCounter} Ist ebenfalls ein Integer Wert, welcher den Index mitzählt. Dieser Index für die Liste \textit{cablePositions} wird benutzt, um die Position zu finden, wo das Paket als nächstes hin soll.
-\end{itemize}
-Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiter überprüft, ob die Nachricht bereits am Ende angekommen
-ist. Dies wird durch den Vergleich zwischen der Variable \textit{moveToCounter} und der Anzahl der Positionen in
-\textit{cablePositions} festgestellt. Diese Überprüfung ist erforderlich, da der Index einer Liste bei 0 beginnt,
-und eine Fortsetzung ohne diese Kontrolle zu einer möglichen Array Index Out Of Bounds Exeption führen würde. Solange
-\textit{moveToCounter} kleiner ist als die Anzahl der Positionen, wird die Bewegung mittels \textit{instantiatedObject.transform.Translate}
-ausgeführt. Die Bewegung selbst wird durch die Differenz der nächsten Position, zu der das Objekt bewegt werden soll und der aktuellen
-Position, von der das Paket sich wegbewegt, definiert. Diese Translation wird mit einem Faktor multipliziert, in diesem Fall mit
-\textit{0.0075f}, um die Geschwindigkeit des Objekts anzupassen. Die Bewegung erfolgt mit einer Geschwindigkeit von 0.0075 Metern pro
-Frame da die Einheiten direkt in Metern angegeben sind. Nach jeder Bewegung wird überprüft, ob das Paket bereits den Endpunkt erreicht
-hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit der sich das Objekt bewegt. Diese Wahl erfolgt, damit das
-Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens
-um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt,
-um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht
-der letzte Durchlauf war, wird der Vorgang wiederholt. Dies Simuliert dann eine Bewegung entlang des Kabels.
+    \end{lstlisting}
+    Dieses Skript beinhaltet drei globale Variablen welche am anfang des Skripts initalisiert werden, diese werden von mehreren Funktionen gebraucht werden
+    \begin{itemize}
+        \item \textit{shouldmove} ist ein Boolescher Wert, welcher wahr oder falsch sein kann. Dieser wird verwendet um zu überprüfen ,ob das Objekt initialisiert wurde und sich bewegen sollte.
+        \item \textit{moveFromCounter} ist ein Integer Wert, welcher mitzählt, wie oft das Paket schon von einer Position aus wegbewegt wurde. Dieser Zähler wird als Index für die Liste \textit{cablePositions} verwendet, um die momentane Position des Paketes zu finden.
+        \item \textit{moveToCounter} Ist ebenfalls ein Integer Wert, welcher den Index mitzählt. Dieser Index für die Liste \textit{cablePositions} wird benutzt, um die Position zu finden, wo das Paket als nächstes hin soll.
+    \end{itemize}
+    Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiter überprüft, ob die Nachricht bereits am Ende angekommen
+    ist. Dies wird durch den Vergleich zwischen der Variable \textit{moveToCounter} und der Anzahl der Positionen in
+    \textit{cablePositions} festgestellt. Diese Überprüfung ist erforderlich, da der Index einer Liste bei 0 beginnt,
+    und eine Fortsetzung ohne diese Kontrolle zu einer möglichen Array Index Out Of Bounds Exeption führen würde. Solange
+    \textit{moveToCounter} kleiner ist als die Anzahl der Positionen, wird die Bewegung mittels \textit{instantiatedObject.transform.Translate}
+    ausgeführt. Die Bewegung selbst wird durch die Differenz der nächsten Position, zu der das Objekt bewegt werden soll und der aktuellen
+    Position, von der das Paket sich wegbewegt, definiert. Diese Translation wird mit einem Faktor multipliziert, in diesem Fall mit
+    \textit{0.0075f}, um die Geschwindigkeit des Objekts anzupassen. Die Bewegung erfolgt mit einer Geschwindigkeit von 0.0075 Metern pro
+    Frame da die Einheiten direkt in Metern angegeben sind. Nach jeder Bewegung wird überprüft, ob das Paket bereits den Endpunkt erreicht
+    hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit der sich das Objekt bewegt. Diese Wahl erfolgt, damit das
+    Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens
+    um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt,
+    um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht
+    der letzte Durchlauf war, wird der Vorgang wiederholt. Dies Simuliert dann eine Bewegung entlang des Kabels.
 
 
-\subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
-Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht
-innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn der Benutzer auf das virtuelle Paket in der Hololens-App klickt.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{images/NachrichtenAnzeige.png}
-    \caption{Anzeige Besipiel für die Nachricht}
-    \label{fig:enter-label}
-\end{figure}
-Dies wird mithilfe des Gameobjekt \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
-Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} Gameobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
-\begin{lstlisting}[style=csharp, caption={Kind vom Gameobjekt bekommen}, label=code:]
+    \subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
+    Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht
+    innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn der Benutzer auf das virtuelle Paket in der Hololens-App klickt.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/NachrichtenAnzeige.png}
+        \caption{Anzeige Besipiel für die Nachricht}
+        \label{fig:enter-label}
+    \end{figure}
+    Dies wird mithilfe des Gameobjekt \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
+    Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} Gameobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
+    \begin{lstlisting}[style=csharp, caption={Kind vom Gameobjekt bekommen}, label=code:]
 public class EditTextOfInformationObject : MonoBehaviour
 {
     // Referenz auf das Elternspielobjekt, von dem aus das Kindspielobjekt gefunden werden soll
@@ -1428,23 +1429,23 @@ public class EditTextOfInformationObject : MonoBehaviour
         }
     }
 }
-\end{lstlisting}
-Die Klasse enthält zwei Variablen:
+    \end{lstlisting}
+    Die Klasse enthält zwei Variablen:
 
-\begin{itemize}
-    \item \texttt{parentGameObject}: Eine öffentliche Variable vom Typ \texttt{GameObject}, die als Referenz auf das Elternspielobjekt dient, von dem aus das TextMeshPro-Objekt gefunden werden soll.
-    \item \texttt{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
-\end{itemize}
+    \begin{itemize}
+        \item \texttt{parentGameObject}: Eine öffentliche Variable vom Typ \texttt{GameObject}, die als Referenz auf das Elternspielobjekt dient, von dem aus das TextMeshPro-Objekt gefunden werden soll.
+        \item \texttt{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
+    \end{itemize}
 
-Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem Kindspielobjekt mit dem Namen "InformationTextS" im angegebenen Elternspielobjekt abruft und in der Variablen \texttt{textMeshPro} speichert.
+    Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem Kindspielobjekt mit dem Namen "InformationTextS" im angegebenen Elternspielobjekt abruft und in der Variablen \texttt{textMeshPro} speichert.
 
-\subsection{Andere Versuche / Probleme bei der Programmierung}
-In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch gescheiterte/alternative Versuche und Ansätze innerhalb des Projekts behandelt.
+    \subsection{Andere Versuche / Probleme bei der Programmierung}
+    In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch gescheiterte/alternative Versuche und Ansätze innerhalb des Projekts behandelt.
 
-\subsubsection{Kabelerkennung Version 1}
-%TODO Jonas Nochmal schreiben
-In der ersten Version zur Erkennung des roten Kabels,wurde das mit der Hololens aufgenommene Foto, mit den HauptThread durch jeden Pixel der Textur iteriert und überprüft, ob es hauptsächlich rot ist. Wenn die Rotkomponente des Pixels über einem bestimmten Schwellenwert liegt und die Grün- und Blaukomponenten unterhalb eines bestimmten Schwellenwerts liegen, wird das Pixel auf Rot gesetzt. Andernfalls wird das Pixel auf Schwarz gesetzt.\\
-\begin{lstlisting}[style=csharp, caption={Erste Version der Kabel Erkennung}, label=code:debugRaycast]
+
+    \subsubsection{Kabelerkennung Version 1}
+    Die erste Version der Kabelerkennung basiert auf der Analyse von Fotos, die mit der Hololens aufgenommen wurden.
+    \begin{lstlisting}[style=csharp, caption={Erste Version der Kabel Erkennung}, label=code:debugRaycast]
 void editTextureV2(Texture2D textureToEdit) {
     int textureWidth = textureToEdit.width;
             List<int> yCoordinates = new List<int>();
@@ -1468,9 +1469,64 @@ void editTextureV2(Texture2D textureToEdit) {
     /* Fuegt den höchsten X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu */
     redPixelCoordinates.Add(getSideCoordinate(xCoordinates, false, averageY));
 }
-\end{lstlisting}
-Darüber hinaus erfolgt die Speicherung der X- und Y-Koordinaten der roten Pixel. Anschließend wird der Durchschnitt der X- und Y-Koordinaten dieser roten Pixel berechnet. Daraufhin werden drei Gesamtpositionen verwendet, über denen sich das Objekt bewegt. Die erste Position ist diejenige mit der geringsten X-Koordinate und der durchschnittlichen Y-Koordinate aller Y-Koordinaten, die einen roten Pixel aufweisen. Die zweite Position ist der Mittelpunkt zwischen dem Durchschnitt der X-Koordinaten und dem Durchschnitt der Y-Koordinaten. Die dritte Position ist der Endpunkt mit der höchsten X-Koordinate und dem durchschnittlichen Y-Wert. Diese Informationen werden in einer zweidimensionalen Vektorliste (redPixelCoordinates) gespeichert.\\
-Nachteile an diesen Vorgängen sind, dass diese Funktion mit nur einem Thread durchgeführt wird, das ist nicht besonders effizient und bedeutet längere Ladezeiten. Dazu werden nur drei Positionen genommen, welche nicht sehr genau sind, das bedeutet dann ,dass sich das Paket somit nicht wirklich gut über das Kabel bewegt.
+    \end{lstlisting}
+    Dabei wird jedes Pixel der Textur sequentiell durch den Hauptthread iteriert, um festzustellen, ob es hauptsächlich die Farbe Rot aufweist. Dies geschieht, indem die Rot-Komponente jedes Pixels mit einem vordefinierten Schwellenwert verglichen wird, während gleichzeitig sichergestellt wird, dass die Grün- und Blau-Komponenten unterhalb anderer Schwellenwerte liegen. Pixel, die diese Kriterien erfüllen, werden als rote Pixel identifiziert und entsprechend markiert, während alle anderen Pixel als schwarz markiert werden.
+
+    Die Koordinaten der identifizierten roten Pixel werden für weitere Berechnungen gespeichert. Anschließend wird der Mittelwert der X- und Y-Koordinaten dieser roten Pixel berechnet. Aus diesen Mittelwerten werden drei Positionen berechnet, die den Verlauf des Kabels darstellen sollen. Die erste Position entspricht dem Punkt mit der kleinsten X-Koordinate und dem Mittelwert der Y-Koordinaten aller identifizierten roten Pixel. Die zweite Position ist definiert als der Mittelpunkt zwischen dem Mittelwert der X-Koordinaten und dem Mittelwert der Y-Koordinaten. Die dritte Position entspricht dem Endpunkt mit der höchsten X-Koordinate und dem Durchschnitt der Y-Koordinaten.
+
+    Diese berechneten Positionen werden in einer zweidimensionalen Vektorliste (redPixelCoordinates) gespeichert.
+
+    Die beschriebenen Verfahren haben jedoch einige Nachteile. Die sequentielle Ausführung der Funktion durch einen einzelnen Thread ist ineffizient und führt zu längeren Ladezeiten. Außerdem ist die Genauigkeit der berechneten Positionen begrenzt, was sich negativ auf die Fähigkeit auswirkt, das Kabel genau zu verfolgen.
+
+    \subsection{Debugging Optionen}
+    Während der Entwicklung dieses Projekts wurden spezifische Funktionen implementiert, um Fehler und Bugs im Code zu identifizieren. Zu diesem Zweck wurden zwei Funktionen mit den Bezeichnungen \textit{debugRaycast} und \textit{DebugCameraResolution} entwickelt. Darüber hinaus wurde ein \textit{Plain} \textit{Gameobjekt} namens \textit{PixleDebug} erstellt, das als Hilfsmittel dient, um Fehler im Code zu diagnostizieren und zu beheben. Diese zusätzlichen Klassen tragen wesentlich dazu bei, die Fehlerfreiheit des entwickelten Systems sicherzustellen, indem sie eine strukturierte und systematische Fehlerbehandlung ermöglichen.
+
+    \subsubsection{\label{sec:PlaneDebug}Anzeigen der Kabelerkennung}
+%TODO umschreiben und bild dazu
+    Das \textit{Gameobjekt} mit dem Namen \textit{PixleDebug} dient als Hilfsmittel zur Visualisierung der Erkennung roter Pixel. Diese Einrichtung ermöglicht die Darstellung aller identifizierten roten Pixel als 2D-Textur auf dem \textit{Gameobjekt}, wodurch die vom Skript erkannten roten Pixel sichtbar werden. Die Steuerung der Aktivierung bzw. Deaktivierung der Objektdarstellung kann über das Skript \textit{Deactivate Object} erfolgen. Diese Prozedur bietet eine effektive Methode zur Überprüfung der Pixelerkennung in der Umgebung.
+
+    \subsubsection{Debug Funktion von Raycasts}
+    Um während des Prozesses von programmieren der Raycasts sicherzustellen, dass in der Funktion \textit{positionVirtualObject} die korrekte Position getroffen wurde, kann man die Funktion \textit{debugRaycast} verwenden. Diese Funktion dient der Visualisierung der getroffenen Punkte des Raycasts, indem es an den getroffenen Punkt ein Objekt anzeigt. Zur Ausführung dieser Funktion muss das \textit{hit-Objekt} des Raycasts übergeben werden. Dies gewährleistet eine präzise Überprüfung und gegebenenfalls Anpassung der Raycast-Positionen für eine genauere Abbildung der realen Umgebung. Die Verwendung der \textit{debugRaycast}-Funktion ermöglicht somit eine verbesserte Qualität und Zuverlässigkeit in Anwendungen, die auf Raycasting basieren.
+    \begin{lstlisting}[style=csharp, caption={Debug Funktion von Raycasts}, label=code:debugRaycast]
+void debugRaycast(ARRaycastHit hit) {
+    Debug.Log("Ray hit position: " + hit.pose.position);
+    Gameobjekt instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
+}
+    \end{lstlisting}
+    \subsubsection{Debug Funktion der Kamerabenutzung}
+    Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung korrekt auf die Kamera zugreift und die richtige Bildauflösung erhält.
+    \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
+void DebugCameraReselution() {
+    /* Ueberpruefen, ob Kamerageraete verfuegbar sind */
+    if (WebCamTexture.devices.Length > 0) {
+        /* Das erste Kamerageraet auswaehlen
+        WebCamDevice frontCamera = WebCamTexture.devices[0];
+
+        /* Eine WebCamTexture mit dem ausgewaehlten Kamerageraet erstellen */
+        WebCamTexture webcamTexture = new WebCamTexture(frontCamera.name);
+
+        /* Die Textur abspielen, um sicherzustellen, dass die Kamera ordnungsgemaeß initialisiert wird */
+        webcamTexture.Play();
+
+        /* Ueberpruefen, ob die Kamera eine gueltige Aufloesung zurueckgibt */
+        if (webcamTexture.width > 0 && webcamTexture.height > 0) {
+            /* Aufloesung protokollieren */
+            Debug.Log("Selected Resolution: " + webcamTexture.width + "x" + webcamTexture.height);
+        }
+        else {
+            /* Fehlermeldung ausgeben, wenn die Kamera keine gueltige Aufloesung zurueckgibt */
+            Debug.LogError("Failed to get a valid camera resolution.");
+        }
+    }
+    else {
+        /* Fehlermeldung ausgeben, wenn keine Kamerageraete gefunden  werden*/
+        Debug.LogError("No camera devices found.");
+    }
+}
+    \end{lstlisting}
+    Im Code wird die Klasse \textit{WebCamTexture} verwendet, um auf die Kamera zuzugreifen und die Funktionalität zu überprüfen. Die \textit{WebCamTexture} ist eine Klasse in Unity, die die Verwendung von Kamerabildern in Echtzeit ermöglicht. Sie ermöglicht es, Live-Bilder von einer Kamera zu erfassen und sie als Textur zu verwenden, dazu beinhaltet es alle für Unity verfügbaren Kameras.
+
+    Zuerst wird geprüft, ob ein Kameragerät verfügbar ist. Wenn ja, wird die erste verfügbare Kamera ausgewählt und eine Textur mit dieser Kamera erstellt. Anschließend wird die Textur abgespielt, um sicherzustellen, dass die Kamera korrekt initialisiert wurde. Wenn die Kamera eine gültige Auflösung (größere Auflösung als 0,0) zurück gibt, wird diese Auflösung protokolliert. Ansonsten wird eine Fehlermeldung ausgegeben. Wird keine Kamera gefunden, wird ebenfalls eine Fehlermeldung ausgegeben.
 
 
 \subsection{Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
