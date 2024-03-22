@@ -990,14 +990,14 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
 
 \subsubsection{Unity Canvas}
 Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{Gameobjekt} als sogenannten \textit{parent}, welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI} kann auch als weiteres child ein \textit{Image} besitzten. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
-Ein Canvas verfügt auch über verschiedene Rendermodi:
+Ein Canvas verfügt auch über verschiedene Rendermoduse:
 \begin{itemize}
 
     \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es UI-Elementen über der Szene auf dem Bildschirm zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über der Szene gerendert wird.
 
     \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird.
 
-    \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas, im Gegensatz zu den anderen Modi, verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}
+    \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas, im Gegensatz zu den anderen Modi, verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}\protect\footnote{Unity \cite{Renderer}}
 \end{itemize}
 
 \subsubsection{Foto der Umgebung aufnehmen}
@@ -1253,7 +1253,7 @@ aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthäl
 die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen
  wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
 ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf
-realen Oberflächen. Diese Klasse besitzt die folgenden Eigenschaften:
+realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse besitzt die folgenden Eigenschaften:
 \begin{itemize}
     %TODO shit erweitern
     \item \textit{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
@@ -1396,7 +1396,8 @@ der letzte Durchlauf war, wird der Vorgang wiederholt.
 
 
 \subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
-Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn der Benutzer auf das virtuelle Paket in der Hololens-App klickt.
+Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht
+innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn der Benutzer auf das virtuelle Paket in der Hololens-App klickt.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{images/NachrichtenAnzeige.png}
@@ -1435,7 +1436,11 @@ public class EditTextOfInformationObject : MonoBehaviour
 }
 \end{lstlisting}
 %TODO Jonas Umschreiben
-Dieser Code definiert eine Funktion \textit{EditTextOfInformationObject}, die ein TextMeshPro-Objekt aus einem bestimmten untergeordnetes Objekt des übergeordneten \textit{InfoObject} objekt. Die Methode \textit{GetTextMeshProFromChild} sucht nach einem spezifischen untergeortneten objekt namens \textit{InformationTextS} welches den Text besitzt welcher angezeigt werden soll. Dieses versucht dann, das TextMeshPro-Objekt aus diesem Kindspielobjekt zu erhalten. Dadurch ermöglicht es den Zugriff und die Bearbeitung des Textes.
+Dieser Code definiert eine Funktion \textit{EditTextOfInformationObject}, die ein TextMeshPro-Objekt (also ein Objekt welches Text anzeigen kann) aus einem bestimmten
+untergeordnetes Objekt des übergeordneten \textit{InfoObject} objekt. Die Methode \textit{GetTextMeshProFromChild} sucht nach
+einem spezifischen untergeortneten objekt namens \textit{InformationTextS} welches den Text besitzt welcher angezeigt werden
+soll. Dieses versucht dann, das TextMeshPro-Objekt aus diesem Kindspielobjekt zu erhalten. Dadurch ermöglicht es den Zugriff
+und die Bearbeitung des Textes.
 \subsection{Andere Versuche / Probleme bei der Programmierung}
 In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch gescheiterte/alternative Versuche und Ansätze innerhalb des Projekts behandelt.
 
