@@ -1343,23 +1343,35 @@ Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und o
 Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
+    // Ueberpruefen, ob sich das Objekt bewegt soll
     if (shouldMove) {
+        // Ueberpruefen, ob der Index wo sich das Paket hinbewegt kleiner als die Anzahl der Kabelpositionen ist
         if (moveToCounter < cablePositions.Count) {
+            // Das Paket in die richtung der naechsten position bewegeb
             instantiatedObject.transform.Translate((cablePositions[moveToCounter] - cablePositions[moveFromCounter]) * 0.0075f);
+
+            // Ueberpruefen, ob das Objekt nahe genug an der Zielposition ist
             if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[moveToCounter]) < 0.00375f) {
+                // Das Objekt an die Zielposition setzen
                 instantiatedObject.transform.position = cablePositions[moveToCounter];
+                // Zaehler erhoehen
                 moveToCounter++;
                 moveFromCounter++;
+
+                // Ueberpruefen, ob das Objekt am Ende der Kabelpositionen ist
                 if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[cablePositions.Count - 1]) < 0.00375f) {
+                    // Wenn ja, markiere, dass es am Ende ist
                     isAtEnd = true;
                 }
             }
         }
         else {
+            // Wenn der Index zum Bewegen groeßer oder gleich der Anzahl der Kabelpositionen ist, beende das die Bewegung
             shouldMove = false;
         }
     }
 }
+
 \end{lstlisting}
 Dieses Skript beinhaltet drei globale Variablen, welche von mehreren Funktionen gebraucht werden
 \begin{itemize}
@@ -1367,8 +1379,20 @@ Dieses Skript beinhaltet drei globale Variablen, welche von mehreren Funktionen 
     \item \textit{moveFromCounter} ist ein Integer Wert, welcher mitzählt, wie oft das Paket schon von einer Position aus wegbewegt wurde. Dieser Zähler wird als Index für die Liste \textit{cablePositions} verwendet, um die momentane Position des Paketes zu finden.
     \item \textit{moveToCounter} Ist ebenfalls ein Integer Wert, welcher den Index mitzählt. Dieser Index für die Liste \textit{cablePositions} wird benutzt, um die Position zu finden, wo das Paket als nächstes hin soll.
 \end{itemize}
-Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiter überprüft, ob die Nachricht bereits am Ende angekommen ist. Dies wird durch den Vergleich zwischen der Variable \textit{moveToCounter} und der Anzahl der Positionen in \textit{cablePositions} festgestellt. Diese Überprüfung ist erforderlich, da der Index einer Liste bei 0 beginnt,
-und eine Fortsetzung ohne diese Kontrolle zu einer möglichen Array Index Out Of Bounds Exeption führen würde. Solange \textit{moveToCounter} kleiner ist als die Anzahl der Positionen, wird die Bewegung mittels \textit{instantiatedObject.transform.Translate} ausgeführt. Die Bewegung selbst wird durch die Differenz der nächsten Position, zu der das Objekt bewegt werden soll und der aktuellen Position, von der das Paket sich wegbewegt, definiert. Diese Translation wird mit einem Faktor multipliziert, in diesem Fall mit \textit{0.0075f}, um die Geschwindigkeit des Objekts anzupassen. Die Bewegung erfolgt mit einer Geschwindigkeit von 0.0075 Metern pro Frame da die Einheiten direkt in Metern angegeben sind. Nach jeder Bewegung wird überprüft, ob das Paket bereits den Endpunkt erreicht hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit der sich das Objekt bewegt. Diese Wahl erfolgt, damit das Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt, um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht der letzte Durchlauf war, wird der Vorgang wiederholt.
+Nachdem geprüft wurde, ob sich das Objekt bewegen soll, wird weiter überprüft, ob die Nachricht bereits am Ende angekommen
+ist. Dies wird durch den Vergleich zwischen der Variable \textit{moveToCounter} und der Anzahl der Positionen in
+\textit{cablePositions} festgestellt. Diese Überprüfung ist erforderlich, da der Index einer Liste bei 0 beginnt,
+und eine Fortsetzung ohne diese Kontrolle zu einer möglichen Array Index Out Of Bounds Exeption führen würde. Solange
+\textit{moveToCounter} kleiner ist als die Anzahl der Positionen, wird die Bewegung mittels \textit{instantiatedObject.transform.Translate}
+ausgeführt. Die Bewegung selbst wird durch die Differenz der nächsten Position, zu der das Objekt bewegt werden soll und der aktuellen
+Position, von der das Paket sich wegbewegt, definiert. Diese Translation wird mit einem Faktor multipliziert, in diesem Fall mit
+\textit{0.0075f}, um die Geschwindigkeit des Objekts anzupassen. Die Bewegung erfolgt mit einer Geschwindigkeit von 0.0075 Metern pro
+Frame da die Einheiten direkt in Metern angegeben sind. Nach jeder Bewegung wird überprüft, ob das Paket bereits den Endpunkt erreicht
+hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit der sich das Objekt bewegt. Diese Wahl erfolgt, damit das
+Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens
+um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt,
+um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht
+der letzte Durchlauf war, wird der Vorgang wiederholt.
 
 
 \subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
