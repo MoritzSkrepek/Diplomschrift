@@ -432,7 +432,7 @@ Das \textit{Circle}-Werkzeug bietet verschiedene Einstellungsmöglichkeiten, um 
     \item \textbf{Fit Inside:} Mit dieser Option wird der Kreis so berechnet, dass kein Eckpunkt vom Kreismittelpunkt entfernt wird. Dies ist besonders nützlich, wenn die Topologie des umgebenden Mesh erhalten bleiben soll.
 \end{itemize}
 
-Zusätzlich ermöglicht das \textit{Circle}-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen.
+Zusätzlich ermöglicht das \textit{Circle}-Werkzeug die Anpassung weiterer Konfigurationsparameter wie Radius und Regularität, um die extrahierte Figur feiner abzustimmen und besser an individuelle Anforderungen anzupassen. \footnote{Blender \cite{Circle-Werkzeug}}
 
 Insgesamt trägt das \textit{Looptools} Add-On dazu bei, den Modellierungsprozess effizienter zu gestalten und die Qualität der resultierenden Modelle zu verbessern, indem es eine Reihe präziser und flexibler Werkzeuge für die Topologie- und Flächenoptimierung bereitstellt.
 
@@ -453,52 +453,52 @@ Die Verwendung von \textit{Images as Planes} trägt somit wesentlich zur Erhöhu
 Dieses Add-on wurde in allen modellierten Objekten des Projekts eingesetzt, um anhand von Referenzbildern anschaulichere Modelle zu entwerfen.
 
 \subsection{Modi}
-In Blender stehen verschiedene Modi \footnote{Blender \cite{Modi}} zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können.
+In Blender stehen verschiedene Modi zur Verfügung, mit denen unterschiedliche Aspekte eines Objekts bearbeitet und manipuliert werden können. Diese verschiedenen Modi in Blender bieten eine umfassende Palette an Werkzeugen und Funktionen, mit denen die Benutzer ihre 3D-Modelle auf vielfältige Weise bearbeiten und verfeinern können. \footnote{Blender \cite{Modi}}
 
 \subsubsection{Object-Modus}
 Der Object-Modus ist der Standardmodus in Blender und steht für alle Arten von Objekten zur Verfügung. In diesem Modus können grundlegende Transformationen wie Positionierung, Rotation und Skalierung sowie Duplizierung und andere Objekteigenschaften bearbeitet werden.
 
 \subsubsection{Edit-Modus}
-Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener Werkzeuge und Kontrollpunkte einzelne Knoten/(Eck-)Punkte, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von entscheidender Bedeutung ist. \footnote{Blender \cite{Vertices}}
+Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objekts. Hier können mithilfe verschiedener Werkzeuge und Kontrollpunkte einzelne Knoten/(Eck-)Punkte, Kanten und Flächen des Objekts bearbeitet werden. Dies ermöglicht detaillierte Manipulationen und Anpassungen an der Geometrie des Objekts, was insbesondere für die Modellierung von entscheidender Bedeutung ist.
 
 \subsubsection{Texture-Paint-Modus}
-Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh \footnote{nähere Erklärung siehe Abschnitt \ref{sec:mesh}} eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden. \footnote{Blender \cite{Meshes}}
+Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
 
 \subsection{Hierarchie}
 In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
 
 \begin{itemize}
-    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle.
-    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen.
+    \item \textbf{Eltern-Kind-Beziehungen:} Übergeordnete Objekte werden oft als Eltern bezeichnet und enthalten untergeordnete Objekte, die als Kinder bezeichnet werden. Diese Beziehung ermöglicht es, Transformationen wie Verschieben, Drehen und Skalieren auf das übergeordnete Objekt anzuwenden, welche dann auf seine untergeordneten Objekte übertragen werden. Diese Technik ist besonders nützlich für komplexe Strukturen wie Roboterglieder oder hierarchische Modelle. \footnote{Blender \cite {Parents}}
+    \item \textbf{Gruppierung:} Objekte können hierarchisch gruppiert werden, um sie logisch zu organisieren und ihre Handhabung zu erleichtern. Durch die Gruppierung ist es möglich, mehrere Objekte gleichzeitig auszuwählen, zu verschieben oder zu bearbeiten, ohne jedes einzelne Objekt separat manipulieren zu müssen. \footnote{Blender \cite{Groups}}
 \end{itemize}
 Die Hierarchie ist ein grundlegendes Konzept in der 3D-Modellierung. Sie ermöglicht eine effiziente Organisation und Manipulation von Objekten. Durch die kluge Nutzung von Hierarchien können komplexe Modelle erstellt und verwaltet werden. Dies führt zu einer effizienteren Arbeitsweise und einer verbesserten Qualität der Ergebnisse.
 
 Im Projekt wurde dies beispielsweise verwendet, um im Taschenrechner-Modell die vielen Buttons von der Basisform logisch abzutrennen oder beim Handy-Modell die Basisform von den einzelnen Kameras und der Kameraauflagefläche abzutrennen.
 
 \subsection{Modifier}
-\textit{Modifier} sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden, komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses.
+\textit{Modifier} sind Werkzeuge oder Operationen, die auf Objekte in der 3D-Modellierung angewendet werden, um ihr Aussehen oder Verhalten zu verändern, ohne die zugrunde liegende Geometrie dauerhaft zu ändern. Sie ermöglichen es den Modellierenden, komplexe Effekte zu erzielen, ohne manuell jeden einzelnen Aspekt des Modells zu bearbeiten. Modifier sind ein wichtiger Bestandteil vieler 3D-Modellierungssoftware und bieten eine Vielzahl von Funktionen zur Verbesserung des Modellierungsprozesses. \footnote{Blender \cite {Modifier}}
 Die Verwendung von Modifiern bringt mehrere Vorteile mit sich:
 
 \begin{itemize}
-    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren. Als gutes Beispiel kann hier der \textit{Subdivision}-Modifier herangezogen werden, welcher das gesamte Modell grundlegend einmal zerteilt, sodass man doppelt soviele Unterteilungen und feinere Details hat, bei bedarf kann man die Zerteilung ausmachen oder noch mehr zerteilen. Wenn man händisch ohne Modifier alles subdividen würde, wäre es nicht möglich/ sehr schwer möglich das rückgängig zu machen
+    \item \textbf{Non-destructive Bearbeitung:} Modifier werden auf das Modell angewendet, ohne die ursprüngliche Geometrie zu verändern. Dies ermöglicht es, Änderungen vorzunehmen und bei Bedarf zum ursprünglichen Zustand zurückzukehren. \footnote{Blender \cite {Non-Destructive Modifier}} Als gutes Beispiel kann hier der \textit{Subdivision}-Modifier herangezogen werden, welcher das gesamte Modell grundlegend einmal zerteilt, sodass man doppelt soviele Unterteilungen und feinere Details hat, bei bedarf kann man die Zerteilung ausmachen oder noch mehr zerteilen. Wenn man händisch ohne Modifier alles subdividen würde, wäre es nicht möglich/ sehr schwer möglich das rückgängig zu machen
 
     \item \textbf{Effizienzsteigerung:} Durch die Verwendung von Modifiern können komplexe Effekte und Veränderungen mit weniger manuellem Aufwand erreicht werden. Dies führt zu einem effizienteren Modellierungsprozess und spart Zeit und Ressourcen. Wenn man das ganze Modell abrunden (\textit{Bevel-Modifier}) oder feiner/detailreicher (\textit{Subdivision-Modifier}) gestalten möchte ist es deutlich zeitintensiver alle kanten und flächen einzeln händisch zu bearbeiten.
 
     \item \textbf{Experimentierfreude:} Da Modifier nicht-destruktiv sind, können sie leicht hinzugefügt, angepasst oder entfernt werden. Dies ermutigt dazu, verschiedene Optionen auszuprobieren und kreativ zu experimentieren, ohne Angst vor irreversiblen Änderungen haben zu müssen.
 \end{itemize}
 
-Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel und Array \footnote{nähere Erklärung im Abschnitt \ref{sec:taschenrechner}}. Jeder Modifier hat spezifische Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
+Beispiele für Modifier sind Subdivision Surface, Mirror, Bevel und Array (nähere Erklärung zu diesem Modifier im Abschnitt \ref{sec:taschenrechner}). Jeder Modifier hat spezifische Anwendungsfälle und ermöglicht es den Modellierenden, eine Vielzahl von Effekten zu erzielen, von der Glättung von Kanten bis zur Erstellung von komplexen Wiederholungsmustern.
 
 Modifier sind ein wichtiger Bestandteil der 3D-Modellierung. Sie bieten eine flexible und leistungsstarke Möglichkeit, Objekte zu bearbeiten und zu verbessern, ohne die Integrität des Modells zu beeinträchtigen. Die Verwendung von Modifiern kann den Modellierungsprozess rationalisieren und die Kreativität der Modellierenden fördern.
 
 \subsubsection*{Subdivision Surface Modifier}
-Dieser Modifier glättet die Oberfläche eines Modells, indem er die Anzahl der Polygonsubdivisionen erhöht. Dadurch entstehen weichere Kanten und eine insgesamt glattere Oberfläche. Der Subdivision Surface Modifier wird oft verwendet, um organische Formen zu erstellen oder die Details eines Modells zu verfeinern. Er kann auch helfen, die Qualität von Meshes zu verbessern, indem er unregelmäßige Geometrien ausgleicht und sie besser für das Rendern und die Animation geeignet macht.
+Dieser Modifier glättet die Oberfläche eines Modells, indem er die Anzahl der Polygonsubdivisionen erhöht. Dadurch entstehen weichere Kanten und eine insgesamt glattere Oberfläche. Der Subdivision Surface Modifier wird oft verwendet, um organische Formen zu erstellen oder die Details eines Modells zu verfeinern. Er kann auch helfen, die Qualität von Meshes zu verbessern, indem er unregelmäßige Geometrien ausgleicht und sie besser für das Rendern und die Animation geeignet macht. \footnote{Blender \cite {Subdivision Surface Modifier}}
 
 \subsubsection*{Mirror Modifier}
-Der Mirror Modifier spiegelt die Geometrie eines Objekts entlang einer oder mehrerer Achsen. Dadurch können symmetrische Modelle erstellt werden, indem nur eine Hälfte modelliert werden muss. Der Modifier erzeugt automatisch die gespiegelte Seite des Objekts, wodurch Zeit und Aufwand gespart werden. Der Mirror Modifier wird häufig bei der Modellierung von symmetrischen Objekten wie Menschen, Fahrzeugen und Gebäuden eingesetzt. Im Projekt wurde er beispielsweise für das Modell des Taschenrechners eingesetzt, um die Basisform gleichmäßig auf beiden Seiten zu formen.
+Der Mirror Modifier spiegelt die Geometrie eines Objekts entlang einer oder mehrerer Achsen. Dadurch können symmetrische Modelle erstellt werden, indem nur eine Hälfte modelliert werden muss. Der Modifier erzeugt automatisch die gespiegelte Seite des Objekts, wodurch Zeit und Aufwand gespart werden. Der Mirror Modifier wird häufig bei der Modellierung von symmetrischen Objekten wie Menschen, Fahrzeugen und Gebäuden eingesetzt. Im Projekt wurde er beispielsweise für das Modell des Taschenrechners eingesetzt, um die Basisform gleichmäßig auf beiden Seiten zu formen. \footnote{Blender \cite {Mirror Modifier}}
 
 \subsubsection*{Bevel Modifier}
-Der Bevel Modifier fügt abgerundete Kanten zu den Ecken eines Objekts hinzu. Er erzeugt eine Fase oder eine abgeschrägte Kante, indem er die Kanten des Modells verändert und ihnen eine gewisse Breite verleiht. Dies hilft, harte Kanten zu glätten und das Aussehen des Modells zu verbessern. Der Bevel Modifier wird oft verwendet, um realistischere und ansprechendere Oberflächen zu erzeugen, insbesondere bei der Modellierung von mechanischen Teilen, Möbeln und Architektur.
+Der Bevel Modifier fügt abgerundete Kanten zu den Ecken eines Objekts hinzu. Er erzeugt eine Fase oder eine abgeschrägte Kante, indem er die Kanten des Modells verändert und ihnen eine gewisse Breite verleiht. Dies hilft, harte Kanten zu glätten und das Aussehen des Modells zu verbessern. Der Bevel Modifier wird oft verwendet, um realistischere und ansprechendere Oberflächen zu erzeugen, insbesondere bei der Modellierung von mechanischen Teilen, Möbeln und Architektur. \footnote{Blender \cite {Bevel Modifier}}
 
 % vielleicht sachen dazu wie polygonanzahl oder arbeitsstunden oder sowas idk
 \subsection{Modellierung von Gegenständen für das Projekt}
@@ -526,7 +526,7 @@ Nach Auswahl eines geeigneten Referenzbildes für das Taschenrechnermodell wurde
 
 \subsubsection*{Extrahieren als Modellierungswerkzeug}
 Extrahieren \footnote{Blender \cite{Extrude}} ist ein Werkzeug im Edit-Modus von Blender. Es dient dazu, ausgewählte Punkte zu duplizieren und zu verschieben, während die ursprünglichen Punkte der Bearbeitungslinie erhalten bleiben.
-Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl der Vertices führen.
+Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlegenden Konzepte des Edit-Modus in Blender sowie eine präzise Auswahl der zu extrahierenden Punkte erforderlich, um die gewünschten Modifikationen am Modell vorzunehmen. Während des Modellierungsprozesses ist es von entscheidender Bedeutung, unbeabsichtigte Extraktionen zu vermeiden, da diese dazu führen können, dass duplizierte Vertices über bereits vorhandenen liegen. Dies kann nicht nur die weitere Bearbeitung des Modells beeinträchtigen, sondern auch zu einer unnötigen Zunahme der Anzahl an Eckpunkten führen.
 
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 Im Anschluss begann die Modellierung durch Extrudieren eines Eckpunkts der Fläche, um grob der Form des Referenzbildes zu folgen.
@@ -545,12 +545,10 @@ Nach Abschluss dieser groben Modellierungsschritte entstand das Grundgerüst des
 
 Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
 
-%quelle für literatur
-%https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/array.html
 \subsubsection*{Einschub Array-Modifier}
 Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur Anpassung der Positionierung und Ausrichtung der Kopien.
-Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Vertices in benachbarten Kopien zusammenzuführen, insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den einzelnen Kopien hergestellt werden.
-Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen. Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die Positionierung der Kopien weiter anzupassen.
+Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Eckpunkte in benachbarten Kopien zusammenzuführen, insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den einzelnen Kopien hergestellt werden.
+Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen. Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die Positionierung der Kopien weiter anzupassen. \footnote{Blender \cite{Array Modifier}}
 
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 \begin{figure}[H]
