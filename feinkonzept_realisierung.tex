@@ -1236,7 +1236,7 @@ Um eine Funktion in einem parallelen Thread auszuführen, während der Hauptthre
 Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald diese gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird das Paket über die Punkte bewegt.
 \subsubsection{Definition eines Rays}
 Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
-
+%TODO Trackable Type
 \subsubsection{\label{sec:ARRaycastHit}ARRaycastHit Klasse}
 Zum Anfang von jeder Hololens App wird zuerst ein großteil der näheren Umgebung gescannt und ein Mesh mit Kollision.
 Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eines \textit{Raycasts} in Augmented Reality
@@ -1253,9 +1253,7 @@ realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse bes
 \begin{itemize}
     %TODO shit erweitern
     \item \textit{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
-    \item \textit{hitType: } Das ist die Trefferart, die angibt, ob der Strahl einen Punkt (Feature Point) oder ein Objekt (Trackable) getroffen hat.
-\end{itemize}
-
+    \item \textit{hitType: } gibt Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Sie ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie beispielsweise Kollisionen mit Meshes (darstellung der umgebung mit dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische collisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
 \subsubsection{Entfernung messen}
 Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
 im späteren Verlauf RayCasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
@@ -1369,7 +1367,7 @@ void Update() {
 }
 
 \end{lstlisting}
-Dieses Skript beinhaltet drei globale Variablen, welche von mehreren Funktionen gebraucht werden
+Dieses Skript beinhaltet drei globale Variablen welche am anfang des Skripts initalisiert werden, diese werden von mehreren Funktionen gebraucht werden
 \begin{itemize}
     \item \textit{shouldmove} ist ein Boolescher Wert, welcher wahr oder falsch sein kann. Dieser wird verwendet um zu überprüfen ,ob das Objekt initialisiert wurde und sich bewegen sollte.
     \item \textit{moveFromCounter} ist ein Integer Wert, welcher mitzählt, wie oft das Paket schon von einer Position aus wegbewegt wurde. Dieser Zähler wird als Index für die Liste \textit{cablePositions} verwendet, um die momentane Position des Paketes zu finden.
@@ -1388,7 +1386,7 @@ hat. Dieser Überprüfungsbereich umfasst die Hälfte der Geschwindigkeit, mit d
 Objekt nicht versehentlich über den Endpunkt hinausgeht, da es sich mit einer festen Geschwindigkeit von 0.0075 bewegt und somit mindestens
 um die Hälfte, also 0.00375, überprüft werden muss. Sobald sich das Objekt innerhalb dieses Bereichs befindet, wird seine Position festgelegt,
 um zu verhindern, dass das Paket über das Ziel hinausläuft. Anschließend wird der Bewegungszähler erhöht, und falls dies nicht
-der letzte Durchlauf war, wird der Vorgang wiederholt.
+der letzte Durchlauf war, wird der Vorgang wiederholt. Dies Simuliert dann eine Bewegung entlang des Kabels.
 
 
 \subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
@@ -1431,12 +1429,15 @@ public class EditTextOfInformationObject : MonoBehaviour
     }
 }
 \end{lstlisting}
-%TODO Jonas Umschreiben
-Dieser Code definiert eine Funktion \textit{EditTextOfInformationObject}, die ein TextMeshPro-Objekt (also ein Objekt welches Text anzeigen kann) aus einem bestimmten
-untergeordnetes Objekt des übergeordneten \textit{InfoObject} objekt. Die Methode \textit{GetTextMeshProFromChild} sucht nach
-einem spezifischen untergeortneten objekt namens \textit{InformationTextS} welches den Text besitzt welcher angezeigt werden
-soll. Dieses versucht dann, das TextMeshPro-Objekt aus diesem Kindspielobjekt zu erhalten. Dadurch ermöglicht es den Zugriff
-und die Bearbeitung des Textes.
+Die Klasse enthält zwei Variablen:
+
+\begin{itemize}
+    \item \texttt{parentGameObject}: Eine öffentliche Variable vom Typ \texttt{GameObject}, die als Referenz auf das Elternspielobjekt dient, von dem aus das TextMeshPro-Objekt gefunden werden soll.
+    \item \texttt{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
+\end{itemize}
+
+Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem Kindspielobjekt mit dem Namen "InformationTextS" im angegebenen Elternspielobjekt abruft und in der Variablen \texttt{textMeshPro} speichert.
+
 \subsection{Andere Versuche / Probleme bei der Programmierung}
 In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch gescheiterte/alternative Versuche und Ansätze innerhalb des Projekts behandelt.
 
