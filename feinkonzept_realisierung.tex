@@ -1504,12 +1504,12 @@ Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \
 
 Die Flags haben folgende Bedeutungen:
 
-Der Flag \textit{-c} legt die Cache-Zeit der Webseite fest; Durch Kombination mit -1 wird das Caching deaktiviert. Die Option \textit{--cors} aktiviert CORS (Cross-Origin Resource Sharing) auf dem HTTP-Server. Weitere
+Das Flag \textit{-c} legt die Cache-Zeit der Webseite fest; Durch Kombination mit -1 wird das Caching deaktiviert. Die Option \textit{--cors} aktiviert CORS (Cross-Origin Resource Sharing) auf dem HTTP-Server. Weitere
 Informationen zu CORS finden Sie im Abschnitt \ref{sec:cors}.
 
 Der vollständige Befehl lautet dann: \textit{http-server -c-1 --cors index.html}.
 
-In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, dass der http-server darauf eingestellt ist, die Datei \textit{index.html} zu bedienen, wenn die Wurzel-URL des Servers aufgerufen wird. Der Server wird den Inhalt dieser Datei dem Client zurückgeben, der die Anfrage gestellt hat. Wie bereits erwähnt ist der gesamte Inhalt der Webseite in dieser Datei enthalten.
+In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, dass der http-server darauf eingestellt ist, die Datei \textit{index.html} zu liefern, wenn die Wurzel-URL des Servers aufgerufen wird. Der Server wird den Inhalt dieser Datei dem Client zurückgeben, der die Anfrage gestellt hat. Wie bereits erwähnt ist der gesamte Inhalt der Webseite in dieser Datei enthalten, da es sich um eine einfache \textiit{Single-Page-Applikation (SPA)} handelt.
 
 Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag \textit{-p} und der gewünschten Portnummer geändert werden.
 
