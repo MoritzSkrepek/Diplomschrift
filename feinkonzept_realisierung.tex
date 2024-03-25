@@ -811,17 +811,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPrefab : MonoBehaviour
-{
+public class SpawnPrefab : MonoBehaviour {
     public GameObject menu;
 
-    void Start()
-    {
+    void Start() {
         SpawnPrefabMenu();
     }
 
-    void SpawnPrefabMenu()
-    {
+    void SpawnPrefabMenu() {
         Vector3 cameraPosition = Camera.main.transform.position;
         Vector3 spawnPosition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z + 1f);
         Instantiate(menu, spawnPosition, Quaternion.identity);
@@ -855,14 +852,11 @@ effiziente Verwaltung und Anpassung der Spielinhalte während des Entwicklungspr
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
-{
+public class SceneChanger : MonoBehaviour {
     public string sceneToLoad;
 
-    public void ChangeScene()
-    {
-        if(SceneManager.GetActiveScene().name != sceneToLoad)
-        {
+    public void ChangeScene() {
+        if(SceneManager.GetActiveScene().name != sceneToLoad) {
             PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
         }
@@ -951,8 +945,7 @@ void Update() {
             int elapsedTime = Mathf.FloorToInt(timeRemaining % 60);
             /* Aktualisiert den Text auf dem Bildschirm mit der verbleibenden Zeit */
             userInfo.text = elapsedTime.ToString();
-        }
-        else {
+        } else {
             /* Setzt die verbleibende Zeit auf 1 Sekunde, um zu verhindern, dass sie negativ wird */
             timeRemaining = 1f;
             /* Leert den Text auf dem Bildschirm */
@@ -1076,8 +1069,7 @@ struct PixelJob : IJobParallelFor {
             pixels[pixelIndex].g < 0.5f && pixels[pixelIndex].b < 0.5f) {
                 pixels[pixelIndex] = Color.red;
                 redPixelPositions[pixelIndex] = new Vector2Int(x, y);
-            }
-            else {
+            } else {
                 pixels[pixelIndex] = Color.black;
             }
         }
@@ -1222,8 +1214,7 @@ IEnumerator LoadingCoroutine() {
     while (isRunnig) {
         if (img.fillAmount >= 1f) {
             img.fillAmount = 0f;
-        }
-        else {
+        } else {
             img.fillAmount += fillSpeed;
         }
         yield return new WaitForSeconds(0.1f);
@@ -1263,7 +1254,7 @@ realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse bes
     Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte ,welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
     \begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
 foreach (Vector2 redPixle in redPixelCoordinates) {
-    positionVirtualObject(redPixle, targetTexture)
+    positionVirtualObject(redPixle, targetTexture);
 }
     \end{lstlisting}
     \begin{itemize}
@@ -1318,8 +1309,7 @@ public void editAndSendPackage(string username, string message) {
         if (isObjectInstantiated == false) {
             instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
             isObjectInstantiated = true;
-        }
-        else {
+        } else {
             Destroy(instantiatedObject);
             instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
         }
@@ -1359,14 +1349,12 @@ void Update() {
                     isAtEnd = true;
                 }
             }
-        }
-        else {
+        } else {
             // Wenn der Index zum Bewegen groeßer oder gleich der Anzahl der Kabelpositionen ist, beende das die Bewegung
             shouldMove = false;
         }
     }
 }
-
     \end{lstlisting}
     Dieses Skript beinhaltet drei globale Variablen welche am anfang des Skripts initalisiert werden, diese werden von mehreren Funktionen gebraucht werden
     \begin{itemize}
@@ -1402,8 +1390,7 @@ void Update() {
     Dies wird mithilfe des Gameobjekt \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
     Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} Gameobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
     \begin{lstlisting}[style=csharp, caption={Kind vom Gameobjekt bekommen}, label=code:]
-public class EditTextOfInformationObject : MonoBehaviour
-{
+public class EditTextOfInformationObject : MonoBehaviour {
     // Referenz auf das Elternspielobjekt, von dem aus das Kindspielobjekt gefunden werden soll
     public Gameobjekt parentGameObject;
     // Referenz auf das TextMeshPro-Objekt, das bearbeitet werden soll
@@ -1412,8 +1399,7 @@ public class EditTextOfInformationObject : MonoBehaviour
     // Methode zum Abrufen des TextMeshPro-Objekts vom Kindspielobjekt
     public void GetTextMeshProFromChild() {
         // Ueberpruefen, ob das Elternspielobjekt vorhanden ist
-        if (parentGameObject != null)
-        {
+        if (parentGameObject != null) {
             // Das Childobjekt mit dem Namen "InformationTextS" im Elternspielobjekt finden
             Gameobjekt childGameObject = parentGameObject.transform.Find("InformationTextS").Gameobjekt;
             // Ueberpruefen, ob das Kindspielobjekt gefunden wurde
@@ -1512,8 +1498,7 @@ void DebugCameraReselution() {
         if (webcamTexture.width > 0 && webcamTexture.height > 0) {
             /* Aufloesung protokollieren */
             Debug.Log("Selected Resolution: " + webcamTexture.width + "x" + webcamTexture.height);
-        }
-        else {
+        } else {
             /* Fehlermeldung ausgeben, wenn die Kamera keine gueltige Aufloesung zurueckgibt */
             Debug.LogError("Failed to get a valid camera resolution.");
         }
@@ -1694,11 +1679,11 @@ Anschließend können Bootstrap-Komponenten und -Klassen innerhalb der HTML-Date
 Die Eingabefelder des Frontends brauchen Javascript Funktionen, um die gewünschten Tätigkeiten durchzuführen und so zu funktionieren wie eigentlich geplant.
 \begin{lstlisting}[language=JavaScript, caption={Javascript | Ueberpruefung, ob die Eingabe eine Zahl oder . ist}]
 function isNumberKey(evt) {
-var charCode = (evt.which) ? evt.which : evt.keyCode;
-if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
-return false;
-}
-return true;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
 }
 \end{lstlisting}
 Die Funktion \texttt{isNumberKey()} überprüft, ob die gedrückte Taste eine Zahlentaste ist. Sie wird auf der Webseite zur Überprüfung der Eingabe von der IP-Adresse genutzt, um sicherzustellen, dass nur Zahlen eingegeben werden können.
@@ -1707,18 +1692,17 @@ Die Funktion \texttt{isNumberKey()} nimmt ein Event-Objekt als Parameter entgege
 
 \begin{lstlisting}[language=JavaScript, caption={Javascript | Validierung und Senden der Message}, label=code:validatesend]
 async function validateAndSendMessage() {
-var username = document.getElementById("username").value.trim();
-var message = document.getElementById("message").value.trim();
+    var username = document.getElementById("username").value.trim();
+    var message = document.getElementById("message").value.trim();
 
-if (username !== '' && message !== '') {
-const messageSent = await sendMessage(username, message);
-
-if (!messageSent) {
-alert("Message could not be sent.");
-}
-} else {
-alert("Please fill in both fields!");
-}
+    if (username !== '' && message !== '') {
+        const messageSent = await sendMessage(username, message);
+        if (!messageSent) {
+            alert("Message could not be sent.");
+        }
+    } else {
+        alert("Please fill in both fields!");
+    }
 }
 \end{lstlisting}
 Die Funktion \texttt{validateAndSendMessage()} in dem Codeabschnitt \ref{code:validatesend} validiert die Eingaben in den Feldern für Benutzername und Nachricht und sendet die Nachricht nur ab, wenn beide Felder ausgefüllt sind.
@@ -1859,10 +1843,8 @@ Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt von QRItem Klasse}, label=code:update]
-public class QRItem
-{
-    public struct QRData
-    {
+public class QRItem {
+    public struct QRData {
         public int id;
         public string name;
         public Vector3 position;
@@ -1872,8 +1854,7 @@ public class QRItem
 
     public QRData qrData;
 
-    public Dictionary<int, QRData> items = new Dictionary<int, QRData>()
-    {
+    public Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
         {1, new QRData { id = 1, name = "Laptop", weight = 70, value = 100 }},
         {2, new QRData { id = 2, name = "Router", weight = 25, value = 50 }},
         {3, new QRData { id = 3, name = "Maus", weight = 20, value = 30 }},
@@ -1881,8 +1862,7 @@ public class QRItem
         {11, new QRData { id = 11, name = "Handy", weight = 30, value = 100 }}
     };
 
-    public QRItem(int id)
-    {
+    public QRItem(int id) {
         items.TryGetValue(id, out qrData);
     }
 }
@@ -2027,15 +2007,13 @@ In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert
 \subsubsection*{Instanzierung eines QR-Prefabs}
 
 \begin{lstlisting}[style=csharp, caption={Instanzierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
-void Start()
-{
+void Start() {
     //... weiterer Code
 
     // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
     PhysicalSize = qrCode.PhysicalSideLength;
 
-    try
-    {
+    try {
         // (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten QR-Codes initialisiert
         item = new QRItem(int.Parse(qrCode.Data));
 
@@ -2044,9 +2022,7 @@ void Start()
 
         // (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung sichtbar gesetzt
         model.SetActive(model != null);
-    }
-    catch (System.Exception e)
-    {
+    } catch (System.Exception e) {
         // Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlaegt
         Debug.LogError("Error parsing QR Code data: " + e.Message);
     }
@@ -2060,13 +2036,11 @@ Nach der Instanzierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{co
 
 \subsubsection*{Setzen der Labels}
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
-private void setLabels()
-{
+private void setLabels() {
     //Das GameObject mit den Labels wird gespeichert
     labels = gameObject.transform.Find("QRLabels").gameObject;
 
-    try
-    {
+    try {
         //Der Canvas indem sich die Labels befinden wird gespeichert
         Transform canvas = labels.transform.Find("Canvas");
 
@@ -2084,10 +2058,7 @@ private void setLabels()
         nameLabel.color = Color.white;
         valueLabel.color = Color.yellow;
         weightLabel.color = Color.cyan;
-
-    }
-    catch (System.Exception e)
-    {
+    } catch (System.Exception e) {
         // Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
         Debug.LogError("Error setting labels: " + e.Message);
     }
@@ -2098,20 +2069,13 @@ Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit
 
 \subsubsection*{Aktualisieren der Positionen}
 \begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
-void UpdatePropertiesDisplay()
-{
-    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
-    {
+void UpdatePropertiesDisplay() {
+    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks) {
         PhysicalSize = qrCode.PhysicalSideLength;
-
         item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
-
         labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f, item.qrData.position.y, item.qrData.position.z);
-
         labels.transform.localScale = new Vector3(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f);
-
         model.transform.localPosition = item.qrData.position;
-
         lastTimeStamp = qrCode.SystemRelativeLastDetectedTime.Ticks;
     }
 }
@@ -2568,11 +2532,11 @@ des Inventars zu aktualisieren. Sie überprüft zunächst, ob ein Inventarobjekt
 Hilfsfunktionen auf, um den Rest abzuarbeiten. Die Begrenzungen werden entsprechend des vertikalen Versatzes erweitert.
 \begin{lstlisting}[language={[Sharp]C}]
 private void UpdateInventoryBounds() {
-if (inventoryObject != null) {
-Bounds localBounds = GetBounds(inventoryObject);
-ExtendBounds(ref localBounds, verticalOffset);
-inventoryBounds = localBounds;
-}
+    if (inventoryObject != null) {
+        Bounds localBounds = GetBounds(inventoryObject);
+        ExtendBounds(ref localBounds, verticalOffset);
+        inventoryBounds = localBounds;
+    }
 }
 \end{lstlisting}
 
@@ -2581,8 +2545,8 @@ die Renderer-Komponenten des Objekts, um die Grenzen zu erhalten, und fällt auf
 kein Renderer vorhanden ist.
 \begin{lstlisting}[language={[Sharp]C}]
 private Bounds GetBounds(GameObject obj) {
-Renderer renderer = obj.GetComponent<Renderer>();
-return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
+    Renderer renderer = obj.GetComponent<Renderer>();
+    return renderer != null ? renderer.bounds : new Bounds(obj.transform.position, Vector3.one);
 }
 \end{lstlisting}
 
@@ -2591,8 +2555,8 @@ durchführt. Durch die Verwendung einer Referenz ist es möglich, direkt die Beg
 bearbeiten. Sie passt sowohl das Zentrum als auch die Ausdehnung der Begrenzung auf der y-Achse entsprechend des \texttt{offset} an.
 \begin{lstlisting}[language={[Sharp]C}]
 private void ExtendBounds(ref Bounds bounds, float offset) {
-bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
-bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
+    bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
+    bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
 }
 \end{lstlisting}
 \end{enumerate}
@@ -2900,8 +2864,7 @@ Die Aktionen (Actions) sind statisch, was bedeutet, dass sie auf Klassenebene de
 benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet, um die Ereignisse auszulösen.
 
 \begin{lstlisting}[style=csharp, label=code:EventManager]
-public static class EventManager
-{
+public static class EventManager {
     // Szenario 1
     // Ereignis fuer den Empfang einer Nachricht
     public static event System.Action<int, string, string> OnMessageReceived;
@@ -2930,15 +2893,13 @@ Um auf das aktualisierte Inventar zu reagieren, könnten andere Teile des Codes 
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
     //Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
-    void Start()
-    {
+    void Start() {
         items = new QRItem(0).items;
         // Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
         EventManager.OnGridUpdate += SetInventory;
     }
 
-    public void SetInventory(int[,] newInventory)
-    {
+    public void SetInventory(int[,] newInventory) {
         inventory = newInventory;
         CalculateKnapsack();
     }
@@ -3768,15 +3729,13 @@ Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests
 
 \begin{lstlisting}[style=csharp, caption={Auszug aus der Test-Klasse}, label={code:testClass}]
 [TestFixture]
-public class KnapsackSolverTests
-{
+public class KnapsackSolverTests {
     // Eine Variable zur Speicherung der KnapsackSolver-Instanz
     private KnapsackSolver knapsackSolver;
 
     // Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
     [SetUp]
-    public void SetUp()
-    {
+    public void SetUp() {
         // Erstellen eines GameObjects fuer den KnapsackSolver
         GameObject solverObject = new GameObject("KnapsackSolverObject");
 
@@ -3797,8 +3756,7 @@ Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und e
 
 \begin{lstlisting}[style=csharp, caption={einzelner Testfall}, label={code:zeroTest}]
     [Test]
-    public void KnapsackMaxValue_NoItems_ReturnsZero()
-    {
+    public void KnapsackMaxValue_NoItems_ReturnsZero() {
         // Arrange
         knapsackSolver.items = new Dictionary<int, QRData>();
         knapsackSolver.capacity = 100;
@@ -3886,15 +3844,13 @@ Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValu
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei hoher Anzahl an Gegenständen}, label={code:performanceRange}]
     [Test]
-    public void KnapsackPerformanceReportItemRange()()
-    {
+    public void KnapsackPerformanceReportItemRange()() {
         // Ueberschrift fuer den Leistungsbericht ausgeben
         UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
         UnityEngine.Debug.Log("-----------------------------");
 
         // Schleife durch verschiedene Gegenstandanzahlen
-        for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
-        {
+        for (int itemCount = 50; itemCount <= 1000; itemCount += 50) {
             // Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
             int weightUpperBound = itemCount * 2;
             int capacity = itemCount * 5;
@@ -3930,8 +3886,7 @@ Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt: Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
     [Test]
-    public void KnapsackPerformanceReportRangeIteration()
-    {
+    public void KnapsackPerformanceReportRangeIteration() {
         // Ueberschrift fuer den Leistungsbericht ausgeben
         UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
         UnityEngine.Debug.Log("-----------------------------");
@@ -3943,8 +3898,7 @@ Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife
         int weightUpperBound = itemCount * 2;
 
         // Schleife fuer 1000 wiederholungen
-        for (int i = 1; i <= 500; i++)
-        {
+        for (int i = 1; i <= 500; i++) {
             // Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
             int capacity = itemCount * 5;
 
