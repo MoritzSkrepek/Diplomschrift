@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  25 MAR 2024 14:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  25 MAR 2024 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -4845,17 +4845,10 @@ g>])
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/literatur.tex
 Anhang C.
-
-Overfull \hbox (3.66245pt too wide) in paragraph at lines 12--13
-[][][]\T1/cmr/m/n/10.95 GitLab.com - About Git-Lab. URL: [][]$[][]\T1/cmss/m/n/
-10.95 h t t p s : / / a b o u t . g i t l a b . c o m /$[][] \T1/cmr/m/n/10.95 
-(be-sucht am 20.03.2024). 
- []
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/literatur.tex:14: Misplaced alig
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/literatur.tex:36: Misplaced alig
 nment tab character &.
-l.14     \item BitBucket.org - Code &
-                                      CI/CD built for teams using Jira. URL:...
+l.36     \item BitBucket.org - Code &
+                                      CI/CD built for teams using Jira. {\sc...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -4974,7 +4967,7 @@ lic/cm-super/sfss1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-sup
 er/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt090
 0.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (175 pages, 26523857 bytes).
+pdf (175 pages, 26525105 bytes).
 PDF statistics:
  4183 PDF objects out of 4296 (max. 8388607)
  3746 compressed objects within 38 object streams
