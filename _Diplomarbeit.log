@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  27 MAR 2024 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.27)  28 MAR 2024 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3003,84 +3003,83 @@ LaTeX Warning: Citation 'ARRaycastHit' on page 69 undefined on input line 1244.
 
 [69]
 
-LaTeX Warning: Citation 'Raycast' on page 70 undefined on input line 1251.
+LaTeX Warning: Citation 'Raycast' on page 70 undefined on input line 1253.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:125
-5: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1255 ...e Liste der Raycastpunkte}, label=code:]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:125
-5: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1255 ...e Liste der Raycastpunkte}, label=code:]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1255.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 1261--1262
-
- []
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:126
-4: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1264 ...g}, label=code:Coordinates calculations]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:126
-4: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1264 ...g}, label=code:Coordinates calculations]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[70]
-Package csquotes Info: Input encoding change on input line 1264.
- (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:127
 7: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1277 ...st schießen}, label=code:createRaycast]
+l.1257 ...e Liste der Raycastpunkte}, label=code:]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:125
+7: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1257 ...e Liste der Raycastpunkte}, label=code:]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1257.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1264
+
+ []
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:126
+6: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1266 ...g}, label=code:Coordinates calculations]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:126
+6: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1266 ...g}, label=code:Coordinates calculations]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1266.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [70]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:127
+9: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1279 ...st schießen}, label=code:createRaycast]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3088,157 +3087,153 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:127
-7: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1277 ...st schießen}, label=code:createRaycast]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1277.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:128
-9: Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `latin1'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1289     \end{lstlisting}
-                           
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:128
-9: Package inputenc Error: Keyboard character used is undefined
-(inputenc)                in inputencoding `latin1'.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1289     \end{lstlisting}
-                           
-You need to provide a definition with \DeclareInputText 
-or \DeclareInputMath before using this key.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
-6: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1296 ...on={Binden an der Methode}, label=code:]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
-6: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1296 ...on={Binden an der Methode}, label=code:]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1296.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [71]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:130
-1: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1301 ...Paketes}, label=code:editAndSendPackage]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:130
-1: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1301 ...Paketes}, label=code:editAndSendPackage]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1301.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:132
-9: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1329 ...on={Update Funktion}, label=code:Update]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:132
 9: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1329 ...on={Update Funktion}, label=code:Update]
+l.1279 ...st schießen}, label=code:createRaycast]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-
-Underfull \vbox (badness 4582) has occurred while \output is active []
-
- [72]
-Package csquotes Info: Input encoding change on input line 1329.
-
+Package csquotes Info: Input encoding change on input line 1279.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:135
-3: Package inputenc Error: Keyboard character used is undefined
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
+1: Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `latin1'.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1353 ...    // Wenn der Index zum Bewegen groeß
+l.1291     \end{lstlisting}
+                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
+1: Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1291     \end{lstlisting}
+                           
+You need to provide a definition with \DeclareInputText 
+or \DeclareInputMath before using this key.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
+8: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1298 ...on={Binden an der Methode}, label=code:]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:129
+8: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1298 ...on={Binden an der Methode}, label=code:]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1298.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:130
+3: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1303 ...Paketes}, label=code:editAndSendPackage]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:130
+3: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1303 ...Paketes}, label=code:editAndSendPackage]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[71]
+Package csquotes Info: Input encoding change on input line 1303.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:133
+1: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1331 ...on={Update Funktion}, label=code:Update]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:133
+1: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1331 ...on={Update Funktion}, label=code:Update]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1331.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [72]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:135
+5: Package inputenc Error: Keyboard character used is undefined
+(inputenc)                in inputencoding `latin1'.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1355 ...    // Wenn der Index zum Bewegen groeß
                                                   er oder gleich der Anzahl ...
 
 You need to provide a definition with \DeclareInputText 
@@ -3248,87 +3243,82 @@ or \DeclareInputMath before using this key.
 <images/NachrichtenAnzeige.png, id=2173, 604.50844pt x 295.85532pt>
 File: images/NachrichtenAnzeige.png Graphic file (type png)
 <use images/NachrichtenAnzeige.png>
-Package pdftex.def Info: images/NachrichtenAnzeige.png  used on input line 1386
+Package pdftex.def Info: images/NachrichtenAnzeige.png  used on input line 1388
 .
 (pdftex.def)             Requested size: 213.39568pt x 104.43571pt.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:139
-2: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1392 ...d vom Gameobjekt bekommen}, label=code:]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:139
-2: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1392 ...d vom Gameobjekt bekommen}, label=code:]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 1392.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [74 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/NachrichtenAnzeige
-.png>]
-Overfull \hbox (5.15848pt too wide) in paragraph at lines 1423--1424
-[][][]\T1/cmtt/m/n/10.95 textMeshPro\T1/cmr/m/n/10.95 : Ei-ne Va-ria-ble vom Ty
-p \T1/cmtt/m/n/10.95 TextMeshPro\T1/cmr/m/n/10.95 , die das TextMeshPro-Objekt
- []
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:143
 4: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1434 ...bel Erkennung}, label=code:debugRaycast]
+l.1394 ...d vom Gameobjekt bekommen}, label=code:]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:143
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:139
 4: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1434 ...bel Erkennung}, label=code:debugRaycast]
+l.1394 ...d vom Gameobjekt bekommen}, label=code:]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1434.
+Package csquotes Info: Input encoding change on input line 1394.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [75] [76]
+) [74 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/NachrichtenAnzeige
+.png>]
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:147
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:143
 6: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1476 ... von Raycasts}, label=code:debugRaycast]
+l.1436 ...bel Erkennung}, label=code:debugRaycast]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:143
+6: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1436 ...bel Erkennung}, label=code:debugRaycast]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 1436.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [75]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:147
+8: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1478 ... von Raycasts}, label=code:debugRaycast]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3336,30 +3326,31 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:147
-6: Package Listings Error: style csharp undefined.
+8: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1476 ... von Raycasts}, label=code:debugRaycast]
+l.1478 ... von Raycasts}, label=code:debugRaycast]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1476.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+[76]
+Package csquotes Info: Input encoding change on input line 1478.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:148
-4: Package Listings Error: Couldn't load requested style.
+6: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1484 ...era Benutzung}, label=code:debugRaycast]
+l.1486 ...era Benutzung}, label=code:debugRaycast]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3367,34 +3358,34 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:148
-4: Package Listings Error: style csharp undefined.
+6: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1484 ...era Benutzung}, label=code:debugRaycast]
+l.1486 ...era Benutzung}, label=code:debugRaycast]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1484.
+Package csquotes Info: Input encoding change on input line 1486.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 ) [77]
-Overfull \hbox (42.19006pt too wide) in paragraph at lines 1526--1527
+Overfull \hbox (14.815pt too wide) in paragraph at lines 1528--1529
 \T1/cmr/m/n/10.95 fin-det sich der ge-sam-te Co-de der Web-sei-te in ei-ner ein
 -zi-gen Da-tei, \T1/cmr/m/it/10.95 Level1-FrontEnd/index.html\T1/cmr/m/n/10.95 
 .
  []
 
 
-LaTeX Warning: Citation 'http-server' on page 78 undefined on input line 1531.
+LaTeX Warning: Citation 'http-server' on page 78 undefined on input line 1533.
 
 [78]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:155
-0: Undefined control sequence.
-l.1550 ...en, da es sich um eine einfache \textiit
+2: Undefined control sequence.
+l.1552 ...en, da es sich um eine einfache \textiit
                                                   {Single-Page-Applikation (...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3402,34 +3393,37 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[79]
-<images/WebButton.png, id=2295, 729.22438pt x 368.87813pt>
+<images/WebButton.png, id=2290, 729.22438pt x 368.87813pt>
 File: images/WebButton.png Graphic file (type png)
 <use images/WebButton.png>
-Package pdftex.def Info: images/WebButton.png  used on input line 1563.
+Package pdftex.def Info: images/WebButton.png  used on input line 1565.
 (pdftex.def)             Requested size: 298.75264pt x 151.1228pt.
-<images/WebseiteSettings.png, id=2296, 370.38374pt x 215.80624pt>
+<images/WebseiteSettings.png, id=2291, 370.38374pt x 215.80624pt>
 File: images/WebseiteSettings.png Graphic file (type png)
 <use images/WebseiteSettings.png>
-Package pdftex.def Info: images/WebseiteSettings.png  used on input line 1570.
+Package pdftex.def Info: images/WebseiteSettings.png  used on input line 1572.
 (pdftex.def)             Requested size: 170.71393pt x 99.46635pt.
- [80 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/WebButton.png> <C:/
-Users/Moritz/Documents/GitHub/Diplomschrift/images/WebseiteSettings.png>]
 
-LaTeX Warning: Citation 'CORS' on page 81 undefined on input line 1585.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [79]
+
+LaTeX Warning: Citation 'CORS' on page 80 undefined on input line 1587.
 
 
-LaTeX Warning: Citation 'CORS-2' on page 81 undefined on input line 1585.
+LaTeX Warning: Citation 'CORS-2' on page 80 undefined on input line 1587.
 
+[80 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/WebButton.png> <C:/U
+sers/Moritz/Documents/GitHub/Diplomschrift/images/WebseiteSettings.png>]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:159
-5: Package Listings Error: Couldn't load requested style.
+7: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1595 ...[style=csharp, label=code:CORS anfragen]
+l.1597 ...[style=csharp, label=code:CORS anfragen]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3437,122 +3431,144 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:159
-5: Package Listings Error: style csharp undefined.
+7: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1595 ...[style=csharp, label=code:CORS anfragen]
+l.1597 ...[style=csharp, label=code:CORS anfragen]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1595.
+Package csquotes Info: Input encoding change on input line 1597.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [81]
+)
+Overfull \hbox (0.36832pt too wide) in paragraph at lines 1606--1607
+[][][]\T1/cmr/bx/n/10.95 ``Access-Control-Allow-Headers``, "Content-Type"\T1/cm
+r/m/n/10.95 : Die-ser Hea-der gibt an, wel-
+ []
+
+[81]
 
 LaTeX Warning: Citation 'Website Konzept' on page 82 undefined on input line 16
-28.
+30.
 
 
 LaTeX Warning: Citation 'Aufbau einer Website Inhalte und Struktur richtig Plan
-en und Erstellen' on page 82 undefined on input line 1628.
+en und Erstellen' on page 82 undefined on input line 1630.
 
 <images/prototypefrontend.png, id=2324, 3968.8275pt x 2284.535pt>
 File: images/prototypefrontend.png Graphic file (type png)
 <use images/prototypefrontend.png>
-Package pdftex.def Info: images/prototypefrontend.png  used on input line 1635.
+Package pdftex.def Info: images/prototypefrontend.png  used on input line 1637.
 
 (pdftex.def)             Requested size: 426.79135pt x 245.65245pt.
 
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 1635--1636
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 1637--1638
  [][][][] 
  []
 
 
-Underfull \vbox (badness 1024) has occurred while \output is active []
+Underfull \vbox (badness 1152) has occurred while \output is active []
 
- [82]
-<images/frontend.png, id=2335, 1445.4pt x 813.0375pt>
+ [82 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/prototypefrontend.p
+ng>]
+<images/frontend.png, id=2336, 1445.4pt x 813.0375pt>
 File: images/frontend.png Graphic file (type png)
 <use images/frontend.png>
-Package pdftex.def Info: images/frontend.png  used on input line 1645.
+Package pdftex.def Info: images/frontend.png  used on input line 1647.
 (pdftex.def)             Requested size: 426.79135pt x 240.06729pt.
 
-[83 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/prototypefrontend.pn
-g> <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/frontend.png>]
 
-LaTeX Warning: Citation 'HTML' on page 84 undefined on input line 1657.
+LaTeX Warning: Citation 'HTML' on page 83 undefined on input line 1659.
 
 
-LaTeX Warning: Citation 'CSS' on page 84 undefined on input line 1660.
+LaTeX Warning: Citation 'CSS' on page 83 undefined on input line 1662.
+
+[83 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/frontend.png>]
+
+LaTeX Warning: Citation 'Javascript' on page 84 undefined on input line 1667.
 
 
-LaTeX Warning: Citation 'Javascript' on page 84 undefined on input line 1665.
+LaTeX Warning: Citation 'Bootstrap' on page 84 undefined on input line 1672.
 
 
-LaTeX Warning: Citation 'Bootstrap' on page 84 undefined on input line 1670.
+LaTeX Warning: Citation 'CDN-Links' on page 84 undefined on input line 1676.
 
 
-LaTeX Warning: Citation 'CDN-Links' on page 84 undefined on input line 1674.
+Overfull \hbox (1.00789pt too wide) in paragraph at lines 1678--1679
+[][][]\T1/cmr/m/n/10.95 Anschlie�end k�n-nen Bootstrap-Komponenten und -Klassen
+ in-ner-halb der HTML-Datei
+ []
 
-[84]
-Package csquotes Info: Input encoding change on input line 1680.
- (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+Package csquotes Info: Input encoding change on input line 1682.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Package csquotes Info: Input encoding change on input line 1693.
+) [84]
+Package csquotes Info: Input encoding change on input line 1695.
 
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [85]
-<images/serverStart.png, id=2391, 1032.85875pt x 1156.32pt>
+)
+<images/serverStart.png, id=2373, 1032.85875pt x 1156.32pt>
 File: images/serverStart.png Graphic file (type png)
 <use images/serverStart.png>
-Package pdftex.def Info: images/serverStart.png  used on input line 1723.
+Package pdftex.def Info: images/serverStart.png  used on input line 1725.
 (pdftex.def)             Requested size: 258.21405pt x 289.07928pt.
 
-Overfull \hbox (66.15926pt too wide) in paragraph at lines 1723--1724
+Overfull \hbox (66.15926pt too wide) in paragraph at lines 1725--1726
  [][][][] 
  []
 
-<images/laptopAufbau.png, id=2392, 633.36626pt x 432.61626pt>
+<images/laptopAufbau.png, id=2374, 633.36626pt x 432.61626pt>
 File: images/laptopAufbau.png Graphic file (type png)
 <use images/laptopAufbau.png>
-Package pdftex.def Info: images/laptopAufbau.png  used on input line 1730.
+Package pdftex.def Info: images/laptopAufbau.png  used on input line 1732.
 (pdftex.def)             Requested size: 126.671pt x 86.52171pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [85]
+Overfull \hbox (0.6557pt too wide) in paragraph at lines 1742--1743
+\T1/cmr/m/n/10.95 IP-Adresse der Ho-lo-lens re-gis-triert wer-den. Ob-wohl die 
+Ver-bin-dungs-test-funk-ti-on nicht
+ []
+
 [86 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/serverStart.png> <C:
 /Users/Moritz/Documents/GitHub/Diplomschrift/images/laptopAufbau.png>] [87]
 <images/Level2Hirarchy.png, id=2410, 286.06876pt x 305.34074pt>
 File: images/Level2Hirarchy.png Graphic file (type png)
 <use images/Level2Hirarchy.png>
-Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 1796.
+Package pdftex.def Info: images/Level2Hirarchy.png  used on input line 1798.
 (pdftex.def)             Requested size: 228.85532pt x 244.27292pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1789--1799
+Underfull \hbox (badness 10000) in paragraph at lines 1791--1801
 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (6.76752pt too wide) in paragraph at lines 1816--1817
+[][][]\T1/cmr/bx/n/10.95 InventoryPlacementController: \T1/cmr/m/n/10.95 Ga-me 
+Ob-jekt, wel-ches das plat-zie-ren des Inventar-
+ []
 
- [88]
-[89 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Level2Hirarchy.png>]
+[88 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Level2Hirarchy.png>]
 
-LaTeX Warning: Citation 'QR-Code-Tracking' on page 90 undefined on input line 1
-839.
+LaTeX Warning: Citation 'QR-Code-Tracking' on page 89 undefined on input line 1
+841.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:184
-5: Package Listings Error: Couldn't load requested style.
+7: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1845 ...t von QRItem Klasse}, label=code:update]
+l.1847 ...t von QRItem Klasse}, label=code:update]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3560,126 +3576,128 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:184
-5: Package Listings Error: style csharp undefined.
+7: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.1845 ...t von QRItem Klasse}, label=code:update]
+l.1847 ...t von QRItem Klasse}, label=code:update]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 1845.
+Package csquotes Info: Input encoding change on input line 1847.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [90]
+) [89]
 
-LaTeX Warning: Citation 'Singleton' on page 91 undefined on input line 1885.
+LaTeX Warning: Citation 'Singleton' on page 90 undefined on input line 1887.
 
 
-LaTeX Warning: Citation 'QR-Code-Tracking' on page 91 undefined on input line 1
-885.
+LaTeX Warning: Citation 'QR-Code-Tracking' on page 90 undefined on input line 1
+887.
 
-<images/QRAblauf.png, id=2440, 608.2725pt x 825.0825pt>
+<images/QRAblauf.png, id=2429, 608.2725pt x 825.0825pt>
 File: images/QRAblauf.png Graphic file (type png)
 <use images/QRAblauf.png>
-Package pdftex.def Info: images/QRAblauf.png  used on input line 1896.
+Package pdftex.def Info: images/QRAblauf.png  used on input line 1898.
 (pdftex.def)             Requested size: 304.13551pt x 412.54024pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [91]
-[92 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/QRAblauf.png>]
-<images/bauklotz.png, id=2471, 992.70876pt x 923.45pt>
+ [90]
+[91 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/QRAblauf.png>]
+<images/bauklotz.png, id=2467, 992.70876pt x 923.45pt>
 File: images/bauklotz.png Graphic file (type png)
 <use images/bauklotz.png>
-Package pdftex.def Info: images/bauklotz.png  used on input line 1948.
+Package pdftex.def Info: images/bauklotz.png  used on input line 1950.
 (pdftex.def)             Requested size: 297.81493pt x 277.03712pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [93]
-[94 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/bauklotz.png>]
-<images/qrprefab.png, id=2486, 150.06062pt x 248.42813pt>
+ [92]
+[93 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/bauklotz.png>]
+<images/qrprefab.png, id=2481, 150.06062pt x 248.42813pt>
 File: images/qrprefab.png Graphic file (type png)
 <use images/qrprefab.png>
-Package pdftex.def Info: images/qrprefab.png  used on input line 1995.
+Package pdftex.def Info: images/qrprefab.png  used on input line 1997.
 (pdftex.def)             Requested size: 90.03706pt x 149.05801pt.
 
-[95]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:200
-9: Package Listings Error: Couldn't load requested style.
+ [94]
 
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2009 ...bs}, label=code:QR-Prefab instanzierung]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:200
-9: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2009 ...bs}, label=code:QR-Prefab instanzierung]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 2009.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [96 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/qrprefab.png>]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:203
-8: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2038 ...={Setzen der Labels}, label=code:labels]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:203
-8: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2038 ...={Setzen der Labels}, label=code:labels]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 2038.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [97]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:207
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:201
 1: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2071 ..., label=code:Aktualisieren der Position]
+l.2011 ...bs}, label=code:QR-Prefab instanzierung]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:201
+1: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2011 ...bs}, label=code:QR-Prefab instanzierung]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2011.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [95 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/qrprefab.png>]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:204
+0: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2040 ...={Setzen der Labels}, label=code:labels]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:204
+0: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2040 ...={Setzen der Labels}, label=code:labels]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2040.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:207
+3: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2073 ..., label=code:Aktualisieren der Position]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -3687,168 +3705,157 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:207
-1: Package Listings Error: style csharp undefined.
+3: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2071 ..., label=code:Aktualisieren der Position]
+l.2073 ..., label=code:Aktualisieren der Position]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2071.
+Package csquotes Info: Input encoding change on input line 2073.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-<images/scanned.png, id=2564, 1981.4025pt x 1076.02pt>
+) [96]
+<images/scanned.png, id=2561, 1981.4025pt x 1076.02pt>
 File: images/scanned.png Graphic file (type png)
 <use images/scanned.png>
-Package pdftex.def Info: images/scanned.png  used on input line 2095.
+Package pdftex.def Info: images/scanned.png  used on input line 2097.
 (pdftex.def)             Requested size: 297.19756pt x 161.39603pt.
 
-Underfull \vbox (badness 1184) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [98]
+ [97]
 
-LaTeX Warning: Citation 'Spatial Graph Node' on page 99 undefined on input line
- 2104.
+LaTeX Warning: Citation 'Spatial Graph Node' on page 98 undefined on input line
+ 2106.
 
 
-LaTeX Warning: Citation 'Lock-Statement' on page 99 undefined on input line 211
-1.
+LaTeX Warning: Citation 'Lock-Statement' on page 98 undefined on input line 211
+3.
 
-[99 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/scanned.png>]
-<images/invPrefabUnity.png, id=2593, 1159.9335pt x 522.15076pt>
+[98 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/scanned.png>]
+<images/invPrefabUnity.png, id=2589, 1159.9335pt x 522.15076pt>
 File: images/invPrefabUnity.png Graphic file (type png)
 <use images/invPrefabUnity.png>
-Package pdftex.def Info: images/invPrefabUnity.png  used on input line 2138.
+Package pdftex.def Info: images/invPrefabUnity.png  used on input line 2140.
 (pdftex.def)             Requested size: 347.98274pt x 156.64644pt.
 
-[100 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invPrefabUnity.png>
-]
-Underfull \vbox (badness 1354) has occurred while \output is active []
-
- [101]
-<images/invPlace_Editor.png, id=2610, 380.01974pt x 253.54726pt>
+[99 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invPrefabUnity.png>]
+<images/invPlace_Editor.png, id=2599, 380.01974pt x 253.54726pt>
 File: images/invPlace_Editor.png Graphic file (type png)
 <use images/invPlace_Editor.png>
-Package pdftex.def Info: images/invPlace_Editor.png  used on input line 2198.
+Package pdftex.def Info: images/invPlace_Editor.png  used on input line 2200.
 (pdftex.def)             Requested size: 304.0162pt x 202.83806pt.
-
-[102 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invPlace_Editor.png
->]
-Package csquotes Info: Input encoding change on input line 2236.
+[100] [101 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invPlace_Edit
+or.png>]
+Package csquotes Info: Input encoding change on input line 2238.
  (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:224
-6: Package inputenc Error: Keyboard character used is undefined
+8: Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `latin1'.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2246 \end{lstlisting}
+l.2248 \end{lstlisting}
                        
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:224
-6: Package inputenc Error: Keyboard character used is undefined
+8: Package inputenc Error: Keyboard character used is undefined
 (inputenc)                in inputencoding `latin1'.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2246 \end{lstlisting}
+l.2248 \end{lstlisting}
                        
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
-Package csquotes Info: Input encoding change on input line 2267.
+Package csquotes Info: Input encoding change on input line 2269.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [103]
+) [102]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:229
-5: LaTeX Error: There's no line here to end.
+7: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2295 G
+l.2297 G
         enerell lässt sich die Funktionsweise dieses Codes in neun Phasen u...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[104]
-Package csquotes Info: Input encoding change on input line 2338.
+[103]
+Package csquotes Info: Input encoding change on input line 2340.
  (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [105]
-<images/schritteins.png, id=2698, 1087.6635pt x 796.1745pt>
+)
+<images/schritteins.png, id=2676, 1087.6635pt x 796.1745pt>
 File: images/schritteins.png Graphic file (type png)
 <use images/schritteins.png>
-Package pdftex.def Info: images/schritteins.png  used on input line 2387.
+Package pdftex.def Info: images/schritteins.png  used on input line 2389.
 (pdftex.def)             Requested size: 204.8492pt x 170.71252pt.
-<images/schrittzwei.png, id=2699, 982.26974pt x 826.287pt>
+<images/schrittzwei.png, id=2677, 982.26974pt x 826.287pt>
 File: images/schrittzwei.png Graphic file (type png)
 <use images/schrittzwei.png>
-Package pdftex.def Info: images/schrittzwei.png  used on input line 2394.
+Package pdftex.def Info: images/schrittzwei.png  used on input line 2396.
 (pdftex.def)             Requested size: 204.84386pt x 170.71378pt.
-<images/schrittdrei.png, id=2700, 1105.12875pt x 496.254pt>
+<images/schrittdrei.png, id=2678, 1105.12875pt x 496.254pt>
 File: images/schrittdrei.png Graphic file (type png)
 <use images/schrittdrei.png>
-Package pdftex.def Info: images/schrittdrei.png  used on input line 2403.
+Package pdftex.def Info: images/schrittdrei.png  used on input line 2405.
 (pdftex.def)             Requested size: 426.79135pt x 191.64522pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [106]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [107 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/schritteins.png> <
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/schrittzwei.png> <C:/User
-s/Moritz/Documents/GitHub/Diplomschrift/images/schrittdrei.png>]
-<images/invCon_Editor.png, id=2715, 380.622pt x 240.9pt>
-File: images/invCon_Editor.png Graphic file (type png)
-<use images/invCon_Editor.png>
-Package pdftex.def Info: images/invCon_Editor.png  used on input line 2445.
-(pdftex.def)             Requested size: 266.43356pt x 168.62883pt.
- [108 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invCon_Editor.png>
-]
-Overfull \hbox (1.30054pt too wide) in paragraph at lines 2463--2465
-[][][]\T1/cmr/bx/n/10.95 Vertical Off-set\T1/cmr/m/n/10.95 : Float-Wert, um den
- die Be-gren-zun-gen (\T1/cmr/m/it/10.95 Bounds\T1/cmr/m/n/10.95 ) des Inventor
-y-
+ [104]
+Overfull \hbox (9.06349pt too wide) in paragraph at lines 2420--2423
+[][][]\T1/cmr/m/n/10.95 Die drit-te Ab-bil-dung zeigt den Ab-schluss des Plat-z
+ie-rungs-pro-zes-ses, bei dem das Inventar-
  []
 
+[105 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/schritteins.png> <C
+:/Users/Moritz/Documents/GitHub/Diplomschrift/images/schrittzwei.png> <C:/Users
+/Moritz/Documents/GitHub/Diplomschrift/images/schrittdrei.png>]
+<images/invCon_Editor.png, id=2706, 380.622pt x 240.9pt>
+File: images/invCon_Editor.png Graphic file (type png)
+<use images/invCon_Editor.png>
+Package pdftex.def Info: images/invCon_Editor.png  used on input line 2447.
+(pdftex.def)             Requested size: 266.43356pt x 168.62883pt.
+ [106 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/invCon_Editor.png>
+]
 
-LaTeX Warning: Citation 'Bounds' on page 109 undefined on input line 2475.
+LaTeX Warning: Citation 'Bounds' on page 107 undefined on input line 2477.
 
-[109] (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
+[107] (c:/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Package csquotes Info: Input encoding change on input line 2533.
-
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [110]
-Package csquotes Info: Input encoding change on input line 2546.
+Package csquotes Info: Input encoding change on input line 2535.
 
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
-Package csquotes Info: Input encoding change on input line 2556.
+Package csquotes Info: Input encoding change on input line 2548.
+
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [108]
+Package csquotes Info: Input encoding change on input line 2558.
 
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
@@ -3856,205 +3863,205 @@ File: latin1.def 2021/02/14 v1.3d Input encoding file
 <images/vorher.png, id=2744, 308.352pt x 219.219pt>
 File: images/vorher.png Graphic file (type png)
 <use images/vorher.png>
-Package pdftex.def Info: images/vorher.png  used on input line 2577.
+Package pdftex.def Info: images/vorher.png  used on input line 2579.
 (pdftex.def)             Requested size: 192.0548pt x 136.53987pt.
 <images/nachher.png, id=2745, 316.18124pt x 254.1495pt>
 File: images/nachher.png Graphic file (type png)
 <use images/nachher.png>
-Package pdftex.def Info: images/nachher.png  used on input line 2584.
+Package pdftex.def Info: images/nachher.png  used on input line 2586.
 (pdftex.def)             Requested size: 192.0548pt x 154.37946pt.
- [111 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/vorher.png> <C:/Us
-ers/Moritz/Documents/GitHub/Diplomschrift/images/nachher.png>]
-
-LaTeX Warning: Citation 'Lokal- und Weltposition' on page 112 undefined on inpu
-t line 2609.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:261
+LaTeX Warning: Citation 'Lokal- und Weltposition' on page 109 undefined on inpu
+t line 2611.
+
+[109 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/vorher.png> <C:/Use
+rs/Moritz/Documents/GitHub/Diplomschrift/images/nachher.png>]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:262
+0: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2620 ...nnen}, label=code:controller_updateGrid]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:262
+0: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2620 ...nnen}, label=code:controller_updateGrid]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 2620.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [110]
+Overfull \hbox (0.592pt too wide) in paragraph at lines 2682--2687
+[][][]\T1/cmr/bx/n/10.95 Pr�fung auf be-reits er-folg-te Ver-ar-bei-tung des Ge
+-gen-stands\T1/cmr/m/n/10.95 : In die-sem Schritt
+ []
+
+
+Overfull \hbox (2.71216pt too wide) in paragraph at lines 2688--2693
+\T1/cmr/m/n/10.95 und das Ge-wichts-li-mit ein-ge-hal-ten wird. Hier-bei wird d
+ie Funk-ti-on \T1/cmtt/m/n/10.95 UpdateInfoMesh()
+ []
+
+[111]
+<images/itemAdded.png, id=2814, 962.99776pt x 729.32475pt>
+File: images/itemAdded.png Graphic file (type png)
+<use images/itemAdded.png>
+Package pdftex.def Info: images/itemAdded.png  used on input line 2726.
+(pdftex.def)             Requested size: 426.79135pt x 323.22975pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [112]
+<images/itemEntfernt.png, id=2824, 923.24925pt x 660.66824pt>
+File: images/itemEntfernt.png Graphic file (type png)
+<use images/itemEntfernt.png>
+Package pdftex.def Info: images/itemEntfernt.png  used on input line 2759.
+(pdftex.def)             Requested size: 426.79135pt x 305.41315pt.
+
+Underfull \vbox (badness 7221) has occurred while \output is active []
+
+ [113 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemAdded.png>]
+<images/itemToHeavy.png, id=2833, 882.8985pt x 632.96475pt>
+File: images/itemToHeavy.png Graphic file (type png)
+<use images/itemToHeavy.png>
+Package pdftex.def Info: images/itemToHeavy.png  used on input line 2806.
+(pdftex.def)             Requested size: 426.79135pt x 305.97342pt.
+ [114 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemEntfernt.png>]
+ [115 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemToHeavy.png>]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:286
 8: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2618 ...nnen}, label=code:controller_updateGrid]
+l.2868 ...}[style=csharp, label=code:EventManager]
                                                   
 The following styles weren't loadable:
     ,csharp$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:261
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:286
 8: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2618 ...nnen}, label=code:controller_updateGrid]
+l.2868 ...}[style=csharp, label=code:EventManager]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2618.
+Package csquotes Info: Input encoding change on input line 2868.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [112]
-Overfull \hbox (5.02745pt too wide) in paragraph at lines 2656--2660
-[][][]\T1/cmr/bx/n/10.95 Sperren der ak-ti-ven QR-Co-de Ob-jek-te\T1/cmr/m/n/10
-.95 : Be-vor die Ver-ar-bei-tung der QRCode-
- []
+) [116]
 
-
-Overfull \hbox (15.24927pt too wide) in paragraph at lines 2661--2665
-\T1/cmr/m/n/10.95 wird ei-ne \T1/cmtt/m/n/10.95 foreach\T1/cmr/m/n/10.95 -Schle
-ife ver-wen-det, um durch al-le Ein-tr�-ge des \T1/cmtt/m/n/10.95 activeQRObjec
-ts
- []
-
-[113]
-<images/itemAdded.png, id=2820, 962.99776pt x 729.32475pt>
-File: images/itemAdded.png Graphic file (type png)
-<use images/itemAdded.png>
-Package pdftex.def Info: images/itemAdded.png  used on input line 2724.
-(pdftex.def)             Requested size: 426.79135pt x 323.22975pt.
-
-Underfull \vbox (badness 1077) has occurred while \output is active []
-
- [114]
-<images/itemEntfernt.png, id=2832, 923.24925pt x 660.66824pt>
-File: images/itemEntfernt.png Graphic file (type png)
-<use images/itemEntfernt.png>
-Package pdftex.def Info: images/itemEntfernt.png  used on input line 2757.
-(pdftex.def)             Requested size: 426.79135pt x 305.41315pt.
-
-Underfull \vbox (badness 2512) has occurred while \output is active []
-
- [115 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemAdded.png>]
-<images/itemToHeavy.png, id=2841, 882.8985pt x 632.96475pt>
-File: images/itemToHeavy.png Graphic file (type png)
-<use images/itemToHeavy.png>
-Package pdftex.def Info: images/itemToHeavy.png  used on input line 2804.
-(pdftex.def)             Requested size: 426.79135pt x 305.97342pt.
- [116 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemEntfernt.png>]
- [117 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/itemToHeavy.png>]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:286
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:289
 6: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2866 ...}[style=csharp, label=code:EventManager]
+l.2896 ...le=csharp label=code:Event Registration]
                                                   
 The following styles weren't loadable:
-    ,csharp$
+    ,csharplabel$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:286
-6: Package Listings Error: style csharp undefined.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:289
+6: Package Listings Error: style csharplabel undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2866 ...}[style=csharp, label=code:EventManager]
+l.2896 ...le=csharp label=code:Event Registration]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2866.
+Package csquotes Info: Input encoding change on input line 2896.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [118]
+)
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:289
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:291
 4: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2894 ...le=csharp label=code:Event Registration]
+l.2914 ...}[style=csharp label=code:Event Trigger]
                                                   
 The following styles weren't loadable:
     ,csharplabel$
 This may cause errors in the sequel.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:289
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:291
 4: Package Listings Error: style csharplabel undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.2894 ...le=csharp label=code:Event Registration]
+l.2914 ...}[style=csharp label=code:Event Trigger]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 2894.
+Package csquotes Info: Input encoding change on input line 2914.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
+) [117]
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:291
-2: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2912 ...}[style=csharp label=code:Event Trigger]
-                                                  
-The following styles weren't loadable:
-    ,csharplabel$
-This may cause errors in the sequel.
+LaTeX Warning: Citation '0/1 Knapsack-Problem' on page 118 undefined on input l
+ine 2962.
 
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:291
-2: Package Listings Error: style csharplabel undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2912 ...}[style=csharp label=code:Event Trigger]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 2912.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [119]
-
-LaTeX Warning: Citation '0/1 Knapsack-Problem' on page 120 undefined on input l
-ine 2960.
+LaTeX Warning: Citation 'Fractional Knapsack Problem' on page 118 undefined on 
+input line 2971.
 
 
-LaTeX Warning: Citation 'Fractional Knapsack Problem' on page 120 undefined on 
-input line 2969.
+LaTeX Warning: Citation 'Bounded Knapsack Problem' on page 118 undefined on inp
+ut line 2978.
+
+[118]
+
+LaTeX Warning: Citation 'Unbounded Knapsack' on page 119 undefined on input lin
+e 2989.
 
 
-LaTeX Warning: Citation 'Bounded Knapsack Problem' on page 120 undefined on inp
-ut line 2976.
-
-[120]
-
-LaTeX Warning: Citation 'Unbounded Knapsack' on page 121 undefined on input lin
-e 2987.
-
-
-LaTeX Warning: Citation 'Multi-objective Knapsack-Problem' on page 121 undefine
-d on input line 3006.
+LaTeX Warning: Citation 'Multi-objective Knapsack-Problem' on page 119 undefine
+d on input line 3008.
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:301
-3: Undefined control sequence.
-l.3013 wie zum Beispiel \texit
+5: Undefined control sequence.
+l.3015 wie zum Beispiel \texit
                               {Größe},\textit{Form}, \textit{Farbe} oder \...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4063,41 +4070,46 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation 'Multi-dimensional Knapsack-Problem' on page 121 undefi
-ned on input line 3013.
-
-[121]
-
-LaTeX Warning: Citation 'Multi Knapsack-Problem' on page 122 undefined on input
- line 3020.
+LaTeX Warning: Citation 'Multi-dimensional Knapsack-Problem' on page 119 undefi
+ned on input line 3015.
 
 
-LaTeX Warning: Citation 'Quadratic Knapsack-Problem' on page 122 undefined on i
-nput line 3027.
+LaTeX Warning: Citation 'Multi Knapsack-Problem' on page 119 undefined on input
+ line 3022.
+
+[119]
+
+LaTeX Warning: Citation 'Quadratic Knapsack-Problem' on page 120 undefined on i
+nput line 3029.
 
 
-LaTeX Warning: Citation 'Geometric Knapsack-Problem' on page 122 undefined on i
-nput line 3035.
+LaTeX Warning: Citation 'Geometric Knapsack-Problem' on page 120 undefined on i
+nput line 3037.
 
-[122]
 
 LaTeX Warning: Citation 'Solving the 0/1 Knapsack Problem Using Metaheuristic a
-nd Neural Networks' on page 123 undefined on input line 3053.
+nd Neural Networks' on page 120 undefined on input line 3055.
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 3053--3053
+Underfull \hbox (badness 1365) in paragraph at lines 3055--3055
 [][][][][]\T1/cmr/m/n/9 Hindawi, [],
+ []
+
+[120]
+Overfull \hbox (18.15013pt too wide) in paragraph at lines 3062--3066
+[][]\T1/cmr/m/n/10.95 Der dy-na-mi-sche Pro-gram-mier-an-satz ist ei-ne leis-tu
+ngs-f�-hi-ge Me-tho-de zur L�-sung des Knapsack-
  []
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:306
-6: Package Listings Error: Couldn't load requested style.
+8: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3066 ...harp, caption={Dynamischer Algorithmus}]
+l.3068 ...harp, caption={Dynamischer Algorithmus}]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4105,30 +4117,30 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:306
-6: Package Listings Error: style csharp undefined.
+8: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3066 ...harp, caption={Dynamischer Algorithmus}]
+l.3068 ...harp, caption={Dynamischer Algorithmus}]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3066.
+Package csquotes Info: Input encoding change on input line 3068.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:308
-4: LaTeX Error: There's no line here to end.
+6: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3084 \\
+l.3086 \\
          
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4136,34 +4148,37 @@ or  <return>  to continue without it.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:308
-5: LaTeX Error: There's no line here to end.
+7: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3085 D
+l.3087 D
         ie Funktion \texttt{knapsackDynamic()} implementiert den dynamischen...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[123]
-Underfull \hbox (badness 10000) in paragraph at lines 3134--3138
+[121]
+Underfull \hbox (badness 10000) in paragraph at lines 3136--3140
 
  []
 
-[124]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [122]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:319
-2: Package Listings Error: Couldn't load requested style.
+4: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3192 ...le=csharp, caption={Greedy Algorithmus}]
+l.3194 ...le=csharp, caption={Greedy Algorithmus}]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4171,70 +4186,74 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:319
-2: Package Listings Error: style csharp undefined.
+4: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3192 ...le=csharp, caption={Greedy Algorithmus}]
+l.3194 ...le=csharp, caption={Greedy Algorithmus}]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3192.
+Package csquotes Info: Input encoding change on input line 3194.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [125]
+) [123]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:321
-5: LaTeX Error: There's no line here to end.
+7: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3215 D
+l.3217 D
         ie Funktion \texttt{knapsackGreedy()} nimmt wie der dynamische Ansat...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[126]
 
-LaTeX Warning: Citation 'Knapsack-Problem Anwendungen' on page 127 undefined on
- input line 3259.
-
-
-Overfull \hbox (3.06895pt too wide) in paragraph at lines 3282--3285
-\T1/cmr/m/n/10.95 einen h�-he-ren Re-chen-auf-wand er-for-dert, bie-tet er den-
-noch ei-ne Laufzeit-effiziente
+Overfull \hbox (1.40973pt too wide) in paragraph at lines 3251--3254
+[][][]\T1/cmr/bx/n/10.95 Logistik\T1/cmr/m/n/10.95 : Der Knapsack-Algorithmus w
+ird in der Lo-gis-tik an-ge-wen-det, um den Trans-
  []
 
-[127]
-Overfull \hbox (4.71147pt too wide) in paragraph at lines 3285--3288
-\T1/cmr/m/n/10.95 ri-an-ten des Knapsack-Problems an-ge-wen-det wer-den, ein-sc
-hlie�-lich 0/1-Knapsack,
- []
 
-[128]
-<images/knapsackEditor.png, id=3031, 380.01974pt x 256.5585pt>
+LaTeX Warning: Citation 'Knapsack-Problem Anwendungen' on page 124 undefined on
+ input line 3261.
+
+[124] [125]
+<images/knapsackEditor.png, id=3018, 380.01974pt x 256.5585pt>
 File: images/knapsackEditor.png Graphic file (type png)
 <use images/knapsackEditor.png>
-Package pdftex.def Info: images/knapsackEditor.png  used on input line 3324.
+Package pdftex.def Info: images/knapsackEditor.png  used on input line 3326.
 (pdftex.def)             Requested size: 266.01201pt x 179.58972pt.
- [129 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/knapsackEditor.png
+ [126 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/knapsackEditor.png
 >]
+Overfull \hbox (10.95412pt too wide) in paragraph at lines 3351--3356
+[][]\T1/cmr/m/n/10.95 Dieser Ab-schnitt be-han-delt die Im-ple-men-tie-rung der
+ all-ge-mei-nen Va-ria-ti-on des 0/1 Knapsack-
+ []
+
+
+Overfull \hbox (9.33939pt too wide) in paragraph at lines 3351--3356
+\T1/cmr/m/n/10.95 Problems mit-tels des dy-na-mi-schen Pro-gram-mier-an-sat-zes
+. Die Funk-ti-on \T1/cmtt/m/n/10.95 KnapsackMaxValue()
+ []
+
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:336
-1: Package Listings Error: Couldn't load requested style.
+3: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3361 ...Backtracking}, label=code:startKnapsack]
+l.3363 ...Backtracking}, label=code:startKnapsack]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4242,40 +4261,41 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:336
-1: Package Listings Error: style csharp undefined.
+3: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3361 ...Backtracking}, label=code:startKnapsack]
+l.3363 ...Backtracking}, label=code:startKnapsack]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3361.
+Package csquotes Info: Input encoding change on input line 3363.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 3415--3418
+) [127]
+Underfull \hbox (badness 10000) in paragraph at lines 3417--3420
 
  []
 
-[130]
-Overfull \hbox (29.31323pt too wide) in paragraph at lines 3425--3428
+
+Overfull \hbox (18.93817pt too wide) in paragraph at lines 3427--3430
 [][][]\T1/cmr/m/n/10.95 W�hrend des Al-go-rith-mus wird zu-s�tz-lich ein Ar-ray
  aus boo-le-schen Wer-ten (\T1/cmtt/m/n/10.95 selected[][]\T1/cmr/m/n/10.95 )
  []
 
+[128]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:348
-5: Package Listings Error: Couldn't load requested style.
+7: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3485 ...nktion um eigenen Rucksack zu brechnen}]
+l.3487 ...nktion um eigenen Rucksack zu brechnen}]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4283,62 +4303,55 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:348
-5: Package Listings Error: style csharp undefined.
+7: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3485 ...nktion um eigenen Rucksack zu brechnen}]
+l.3487 ...nktion um eigenen Rucksack zu brechnen}]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[131]
-Package csquotes Info: Input encoding change on input line 3485.
- (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+Package csquotes Info: Input encoding change on input line 3487.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-<images/prefShow.png, id=3103, 1158.729pt x 524.55975pt>
+) [129]
+<images/prefShow.png, id=3114, 1158.729pt x 524.55975pt>
 File: images/prefShow.png Graphic file (type png)
 <use images/prefShow.png>
-Package pdftex.def Info: images/prefShow.png  used on input line 3534.
+Package pdftex.def Info: images/prefShow.png  used on input line 3536.
 (pdftex.def)             Requested size: 347.62138pt x 157.36913pt.
- [132]
-<images/bestSolPref_Editor.png, id=3130, 443.85825pt x 266.1945pt>
+ [130 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/prefShow.png>]
+<images/bestSolPref_Editor.png, id=3126, 443.85825pt x 266.1945pt>
 File: images/bestSolPref_Editor.png Graphic file (type png)
 <use images/bestSolPref_Editor.png>
-Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 3554
+Package pdftex.def Info: images/bestSolPref_Editor.png  used on input line 3556
 .
 (pdftex.def)             Requested size: 355.08707pt x 212.95589pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [133 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/prefShow.png>]
-Overfull \hbox (62.78206pt too wide) in paragraph at lines 3564--3565
+Overfull \hbox (38.69203pt too wide) in paragraph at lines 3566--3567
 [][][]\T1/cmr/bx/n/10.95 Inventory Pla-ce-ment Con-trol-ler: \T1/cmr/m/n/10.95 
 Ei-ne Re-fe-renz auf das \T1/cmtt/m/n/10.95 inventoryPlacementController
  []
 
-<images/perfSolBut.png, id=3141, 380.622pt x 334.851pt>
+<images/perfSolBut.png, id=3128, 380.622pt x 334.851pt>
 File: images/perfSolBut.png Graphic file (type png)
 <use images/perfSolBut.png>
-Package pdftex.def Info: images/perfSolBut.png  used on input line 3582.
+Package pdftex.def Info: images/perfSolBut.png  used on input line 3584.
 (pdftex.def)             Requested size: 304.49799pt x 267.88115pt.
-
-Underfull \vbox (badness 3701) has occurred while \output is active []
-
- [134 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/bestSolPref_Editor
-.png>]
+[131 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/bestSolPref_Editor.
+png>]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:359
-6: Package Listings Error: Couldn't load requested style.
+8: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3596 ...Visualizer Start}, label=code:Start_PSV]
+l.3598 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4346,40 +4359,40 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:359
-6: Package Listings Error: style csharp undefined.
+8: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3596 ...Visualizer Start}, label=code:Start_PSV]
+l.3598 ...Visualizer Start}, label=code:Start_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3596.
+Package csquotes Info: Input encoding change on input line 3598.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:361
-2: LaTeX Error: There's no line here to end.
+4: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3612 D
+l.3614 D
         iese Funktion dient nicht nur als Auslöser für das Einblenden der ...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[135 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/perfSolBut.png>]
+[132 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/perfSolBut.png>]
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:362
-0: Undefined control sequence.
-l.3620 ... perfekte Lösung repräsentiert (\textt
+2: Undefined control sequence.
+l.3622 ... perfekte Lösung repräsentiert (\textt
                                                   {usedItems}) zugegriffen
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -4389,13 +4402,13 @@ and I'll forget about whatever was undefined.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:363
-0: Package Listings Error: Couldn't load requested style.
+2: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3630 ...Position setzen}, label=code:newPos_PSV]
+l.3632 ...Position setzen}, label=code:newPos_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4403,30 +4416,30 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:363
-0: Package Listings Error: style csharp undefined.
+2: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3630 ...Position setzen}, label=code:newPos_PSV]
+l.3632 ...Position setzen}, label=code:newPos_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3630.
+Package csquotes Info: Input encoding change on input line 3632.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
 )
 
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:363
-8: LaTeX Error: There's no line here to end.
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:364
+0: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3638 
+l.3640 
        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -4434,13 +4447,13 @@ or  <return>  to continue without it.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:364
-4: Package Listings Error: Couldn't load requested style.
+6: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3644 ...ventar fuellen}, label=code:invFül_PSV]
+l.3646 ...ventar fuellen}, label=code:invFül_PSV]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4448,30 +4461,30 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:364
-4: Package Listings Error: style csharp undefined.
+6: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3644 ...ventar fuellen}, label=code:invFül_PSV]
+l.3646 ...ventar fuellen}, label=code:invFül_PSV]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3644.
+Package csquotes Info: Input encoding change on input line 3646.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [136]
+) [133]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:366
-5: LaTeX Error: There's no line here to end.
+7: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3665 D
+l.3667 D
         iese Funktion \texttt{fillInventory()} durchläuft das zweidimension...
 
 Your command was ignored.
@@ -4479,142 +4492,148 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Overfull \hbox (32.29883pt too wide) in paragraph at lines 3665--3670
+Overfull \hbox (4.92377pt too wide) in paragraph at lines 3667--3672
 [][]\T1/cmr/m/n/10.95 Diese Funk-ti-on \T1/cmtt/m/n/10.95 fillInventory() \T1/c
 mr/m/n/10.95 durch-l�uft das zwei-di-men-sio-na-le Ar-ray \T1/cmtt/m/n/10.95 pe
 rfectSolution\T1/cmr/m/n/10.95 ,
  []
 
-<images/perfSolUserPOV.png, id=3194, 752.21025pt x 856.3995pt>
+<images/perfSolUserPOV.png, id=3185, 752.21025pt x 856.3995pt>
 File: images/perfSolUserPOV.png Graphic file (type png)
 <use images/perfSolUserPOV.png>
-Package pdftex.def Info: images/perfSolUserPOV.png  used on input line 3677.
+Package pdftex.def Info: images/perfSolUserPOV.png  used on input line 3679.
 (pdftex.def)             Requested size: 426.79135pt x 485.91823pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [137]
-Underfull \vbox (badness 2005) has occurred while \output is active []
+ [134]
+Underfull \vbox (badness 7116) has occurred while \output is active []
 
- [138 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/perfSolUserPOV.png
+ [135 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/perfSolUserPOV.png
 >]
-<images/testRunner.png, id=3218, 415.05063pt x 376.40625pt>
+<images/testRunner.png, id=3204, 415.05063pt x 376.40625pt>
 File: images/testRunner.png Graphic file (type png)
 <use images/testRunner.png>
-Package pdftex.def Info: images/testRunner.png  used on input line 3699.
+Package pdftex.def Info: images/testRunner.png  used on input line 3701.
 (pdftex.def)             Requested size: 207.5248pt x 188.20265pt.
- [139 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/testRunner.png>]
+ [136 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/testRunner.png>]
 
-LaTeX Warning: Citation 'Arrange Act Assert' on page 140 undefined on input lin
-e 3723.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:373
-0: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3730 ...er Test-Klasse}, label={code:testClass}]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
+LaTeX Warning: Citation 'Arrange Act Assert' on page 137 undefined on input lin
+e 3725.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:373
-0: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3730 ...er Test-Klasse}, label={code:testClass}]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 3730.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [140]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:375
-7: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3757 ...zelner Testfall}, label={code:zeroTest}]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:375
-7: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3757 ...zelner Testfall}, label={code:zeroTest}]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 3757.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-)
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:378
-4: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3784 ... Gegenstände}, label={code:einzelTest}]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:378
-4: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3784 ... Gegenstände}, label={code:einzelTest}]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 3784.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [141]
-Overfull \hbox (47.06932pt too wide) in paragraph at lines 3806--3807
-[][][]\T1/cmr/m/n/10.95 Im zwei-ten Test-fall wird die Me-tho-de \T1/cmtt/m/n/1
-0.95 KnapsackMaxValue_SingleItem_ReturnsExpectedValue
- []
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:381
 2: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3812 ...re Gegenstände}, label={code:mehrTest}]
+l.3732 ...er Test-Klasse}, label={code:testClass}]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:373
+2: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3732 ...er Test-Klasse}, label={code:testClass}]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 3732.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:375
+9: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3759 ...zelner Testfall}, label={code:zeroTest}]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:375
+9: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3759 ...zelner Testfall}, label={code:zeroTest}]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[137]
+Package csquotes Info: Input encoding change on input line 3759.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+)
+Overfull \hbox (22.4185pt too wide) in paragraph at lines 3778--3779
+\T1/cmr/m/n/10.95 ge-ru-fen, die ge-tes-tet wer-den soll. Hier wird die Me-tho-
+de \T1/cmtt/m/n/10.95 KnapsackMaxValue \T1/cmr/m/n/10.95 des KnapsackSolver-
+ []
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:378
+6: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3786 ... Gegenstände}, label={code:einzelTest}]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:378
+6: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3786 ... Gegenstände}, label={code:einzelTest}]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 3786.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [138]
+Overfull \hbox (36.69426pt too wide) in paragraph at lines 3808--3809
+[][][]\T1/cmr/m/n/10.95 Im zwei-ten Test-fall wird die Me-tho-de \T1/cmtt/m/n/1
+0.95 KnapsackMaxValue_SingleItem_ReturnsExpectedValue
+ []
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:381
+4: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3814 ...re Gegenstände}, label={code:mehrTest}]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4622,61 +4641,61 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:381
-2: Package Listings Error: style csharp undefined.
+4: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3812 ...re Gegenstände}, label={code:mehrTest}]
+l.3814 ...re Gegenstände}, label={code:mehrTest}]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3812.
+Package csquotes Info: Input encoding change on input line 3814.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [142]
+) [139]
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:384
-5: Package Listings Error: Couldn't load requested style.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3845 ...tänden}, label={code:performanceRange}]
-                                                  
-The following styles weren't loadable:
-    ,csharp$
-This may cause errors in the sequel.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:384
-5: Package Listings Error: style csharp undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3845 ...tänden}, label={code:performanceRange}]
-                                                  
-The style is not loadable. Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-Package csquotes Info: Input encoding change on input line 3845.
-(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
-File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [143]
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:388
 7: Package Listings Error: Couldn't load requested style.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3887 ...den}, label={code:performanceIteration}]
+l.3847 ...tänden}, label={code:performanceRange}]
+                                                  
+The following styles weren't loadable:
+    ,csharp$
+This may cause errors in the sequel.
+
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:384
+7: Package Listings Error: style csharp undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3847 ...tänden}, label={code:performanceRange}]
+                                                  
+The style is not loadable. Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package csquotes Info: Input encoding change on input line 3847.
+(c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
+File: latin1.def 2021/02/14 v1.3d Input encoding file
+) [140]
+
+C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:388
+9: Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3889 ...den}, label={code:performanceIteration}]
                                                   
 The following styles weren't loadable:
     ,csharp$
@@ -4684,69 +4703,59 @@ This may cause errors in the sequel.
 
 
 C:/Users/Moritz/Documents/GitHub/Diplomschrift/feinkonzept_realisierung.tex:388
-7: Package Listings Error: style csharp undefined.
+9: Package Listings Error: style csharp undefined.
 
 See the Listings package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3887 ...den}, label={code:performanceIteration}]
+l.3889 ...den}, label={code:performanceIteration}]
                                                   
 The style is not loadable. Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Package csquotes Info: Input encoding change on input line 3887.
+Package csquotes Info: Input encoding change on input line 3889.
 (c:/texlive/2023/texmf-dist/tex/latex/base/latin1.def
 File: latin1.def 2021/02/14 v1.3d Input encoding file
-) [144]
-Overfull \hbox (27.63016pt too wide) in paragraph at lines 3930--3931
+) [141]
+Overfull \hbox (17.2551pt too wide) in paragraph at lines 3932--3933
 [][][]\T1/cmr/m/n/10.95 Im Ab-schnitt Knapsack-Per-for-man-ce-Re-por-tRan-geI-t
 e-ra-ti-on wird die Leis-tung des Knapsack-
  []
 
-<images/exclGeg.png, id=3383, 362.445pt x 220.095pt>
+<images/exclGeg.png, id=3387, 362.445pt x 220.095pt>
 File: images/exclGeg.png Graphic file (type png)
 <use images/exclGeg.png>
-Package pdftex.def Info: images/exclGeg.png  used on input line 3939.
+Package pdftex.def Info: images/exclGeg.png  used on input line 3941.
 (pdftex.def)             Requested size: 192.0548pt x 116.62628pt.
-<images/exclIte.png, id=3384, 362.007pt x 217.467pt>
+<images/exclIte.png, id=3388, 362.007pt x 217.467pt>
 File: images/exclIte.png Graphic file (type png)
 <use images/exclIte.png>
-Package pdftex.def Info: images/exclIte.png  used on input line 3945.
+Package pdftex.def Info: images/exclIte.png  used on input line 3947.
 (pdftex.def)             Requested size: 192.0548pt x 115.37308pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [145])
-Overfull \hbox (15.11066pt too wide) in paragraph at lines 3958--77
+[142 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/exclGeg.png> <C:/Us
+ers/Moritz/Documents/GitHub/Diplomschrift/images/exclIte.png>])
+Overfull \hbox (4.7356pt too wide) in paragraph at lines 3960--77
 [][][]\T1/cmr/m/n/10.95 Insgesamt kann fest-ge-stellt wer-den, dass die ak-tu-e
 l-le Leis-tung des Knapsack-Algorithmus
  []
 
-[146 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/exclGeg.png> <C:/Us
-ers/Moritz/Documents/GitHub/Diplomschrift/images/exclIte.png>]
+[143]
 \openout2 = `zmfs_abschluss.aux'.
 
-
-(C:/Users/Moritz/Documents/GitHub/Diplomschrift/zmfs_abschluss.tex
+ (C:/Users/Moritz/Documents/GitHub/Diplomschrift/zmfs_abschluss.tex
 Kapitel 5.
-[147
+[144
 
 
 
 
-]
-Overfull \hbox (0.5437pt too wide) in paragraph at lines 45--47
-\T1/cmr/m/n/10.95 wen-dungs-sze-na-ri-en dis-ku-tiert und kon-zi-piert. Ei-ne v
-iel-ver-spre-chen-de Idee wur-de iden-
- []
-
-) [148]
+]) [145]
 \openout2 = `anhang_a.aux'.
 
  (C:/Users/Moritz/Documents/GitHub/Diplomschrift/anhang_a.tex
 Anhang A.
-<images/HauptmenuMockup.png, id=3426, 372.79276pt x 794.97pt>
+<images/HauptmenuMockup.png, id=3412, 372.79276pt x 794.97pt>
 File: images/HauptmenuMockup.png Graphic file (type png)
 <use images/HauptmenuMockup.png>
 Package pdftex.def Info: images/HauptmenuMockup.png  used on input line 6.
@@ -4763,13 +4772,13 @@ l.7 \end{figure}
                 
 \global 
 
-[149
+[146
 
 
 
 
  <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/HauptmenuMockup.png>]
-<images/NachrichtenaustauschMockup.png, id=3433, 308.352pt x 792.561pt>
+<images/NachrichtenaustauschMockup.png, id=3420, 308.352pt x 792.561pt>
 File: images/NachrichtenaustauschMockup.png Graphic file (type png)
 <use images/NachrichtenaustauschMockup.png>
 Package pdftex.def Info: images/NachrichtenaustauschMockup.png  used on input l
@@ -4788,9 +4797,9 @@ l.14 \end{figure}
                  
 \global 
 
-[150 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Nachrichtenaustausc
+[147 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Nachrichtenaustausc
 hMockup.png>]
-<images/MockUpKnapsack.png, id=3440, 436.029pt x 792.561pt>
+<images/MockUpKnapsack.png, id=3427, 436.029pt x 792.561pt>
 File: images/MockUpKnapsack.png Graphic file (type png)
 <use images/MockUpKnapsack.png>
 Package pdftex.def Info: images/MockUpKnapsack.png  used on input line 20.
@@ -4808,37 +4817,37 @@ l.21 \end{figure}
                  
 \global 
 
-[151 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/MockUpKnapsack.png>
+[148 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/MockUpKnapsack.png>
 ])
 \openout2 = `anhang_b.aux'.
 
  (C:/Users/Moritz/Documents/GitHub/Diplomschrift/anhang_b.tex
 Anhang B.
-<images/Hauptmenu_Ablauf.png, id=3447, 736.7525pt x 864.22874pt>
+<images/Hauptmenu_Ablauf.png, id=3435, 736.7525pt x 864.22874pt>
 File: images/Hauptmenu_Ablauf.png Graphic file (type png)
 <use images/Hauptmenu_Ablauf.png>
 Package pdftex.def Info: images/Hauptmenu_Ablauf.png  used on input line 6.
 (pdftex.def)             Requested size: 341.43437pt x 400.50394pt.
-[152
+[149
 
 
 
 
  <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Hauptmenu_Ablauf.png>]
-<images/Nachrichtenaustausch_Ablauf.png, id=3454, 743.77875pt x 894.34125pt>
+<images/Nachrichtenaustausch_Ablauf.png, id=3442, 743.77875pt x 894.34125pt>
 File: images/Nachrichtenaustausch_Ablauf.png Graphic file (type png)
 <use images/Nachrichtenaustausch_Ablauf.png>
 Package pdftex.def Info: images/Nachrichtenaustausch_Ablauf.png  used on input 
 line 14.
 (pdftex.def)             Requested size: 426.79135pt x 513.19144pt.
- [153 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Nachrichtenaustaus
+ [150 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Nachrichtenaustaus
 ch_Ablauf.png>]
-<images/Knapsack_Ablauf.png, id=3461, 924.45375pt x 1185.42876pt>
+<images/Knapsack_Ablauf.png, id=3449, 924.45375pt x 1185.42876pt>
 File: images/Knapsack_Ablauf.png Graphic file (type png)
 <use images/Knapsack_Ablauf.png>
 Package pdftex.def Info: images/Knapsack_Ablauf.png  used on input line 22.
 (pdftex.def)             Requested size: 426.79135pt x 547.27545pt.
- [154 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Knapsack_Ablauf.pn
+ [151 <C:/Users/Moritz/Documents/GitHub/Diplomschrift/images/Knapsack_Ablauf.pn
 g>])
 \openout2 = `literatur.aux'.
 
@@ -4856,12 +4865,12 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[155
+[152
 
 
 
 
-] [156] [157] [158] [159]) [160]
+] [153] [154] [155] [156]) [157]
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.gls)
 runsystem(makeindex allgemein.idx)...executed safely (allowed).
 
@@ -4881,20 +4890,6 @@ runsystem(makeindex title.idx)...executed safely (allowed).
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/title.ind)
 
 LaTeX Warning: Empty bibliography on input line 115.
-
-
-C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.tex:123: LaTeX Err
-or: \begin{itemize} on input line 1245 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 \end{document}
-                    
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
 
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.aux
 (C:/Users/Moritz/Documents/GitHub/Diplomschrift/vorwort.aux)
@@ -4930,47 +4925,43 @@ Package biblatex Warning: Please (re)run Biber on the file:
 Package logreq Info: Writing requests to '_Diplomarbeit.run.xml'.
 \openout1 = `_Diplomarbeit.run.xml'.
 
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 1245 (\begingroup)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 36873 strings out of 474267
- 659230 string characters out of 5751464
- 2659558 words of memory out of 5000000
+ 36870 strings out of 474267
+ 659206 string characters out of 5751464
+ 2618558 words of memory out of 5000000
  56660 multiletter control sequences out of 15000+600000
  584491 words of font info for 99 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 112i,47n,159p,2333b,2893s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:
-/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/
-2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1
-095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c
-:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/
-2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf
--dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/font
-s/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/pu
-blic/cm-super/sfbx2488.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-su
-per/sfrm0600.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm08
-00.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:
-/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2
-023/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2023/texmf-
-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts
-/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/pub
-lic/cm-super/sfss1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-sup
-er/sfti1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt090
-0.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+ 112i,47n,159p,2333b,2797s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
+live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2023/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbi1095.pfb><c:/te
+xlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb><c:/texlive/2023
+/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2023/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2023/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbx1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public
+/cm-super/sfbx2074.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/
+sfbx2488.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0600.p
+fb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/tex
+live/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2023/
+texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2023/texmf-dist
+/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2023/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm1200.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/
+cm-super/sfrm1440.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/s
+fss1095.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfti1095.pf
+b><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb><c:/texl
+ive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
 Output written on C:/Users/Moritz/Documents/GitHub/Diplomschrift/_Diplomarbeit.
-pdf (175 pages, 26533137 bytes).
+pdf (172 pages, 26531290 bytes).
 PDF statistics:
- 4190 PDF objects out of 4296 (max. 8388607)
- 3752 compressed objects within 38 object streams
- 1640 named destinations out of 1728 (max. 500000)
+ 4161 PDF objects out of 4296 (max. 8388607)
+ 3726 compressed objects within 38 object streams
+ 1637 named destinations out of 1728 (max. 500000)
  2087 words of extra memory for PDF output out of 10000 (max. 10000000)
 

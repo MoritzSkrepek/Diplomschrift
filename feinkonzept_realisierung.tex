@@ -1246,13 +1246,15 @@ realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse bes
             %TODO shit erweitern
     \item \textit{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
     \item \textit{hitType: } gibt Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Sie ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie beispielsweise Kollisionen mit Meshes (darstellung der umgebung mit dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische collisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
-    \subsubsection{Entfernung messen}
-    Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
-    im späteren Verlauf RayCasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
-    für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
-    Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
-    Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte ,welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
-    \begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
+\end{itemize}
+
+\subsubsection{Entfernung messen}
+Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
+im späteren Verlauf RayCasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
+für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
+Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
+Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte ,welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
+\begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
 foreach (Vector2 redPixle in redPixelCoordinates) {
     positionVirtualObject(redPixle, targetTexture);
 }
@@ -2605,7 +2607,7 @@ die auf das Objekt angewendet wurden, einschließlich Verschiebung, Drehung und 
 Die Berechnung der Weltposition eines Objekts erfolgt durch Umrechnung seiner lokalen Position relativ zu seinem Elternobjekt
 oder zum Koordinatenursprung in die Szene. Diese Berechnung wird durch eine einfache Vektoraddition realisiert, wobei
 die lokale Koordinate des Objekts zur Weltkoordinate addiert wird, um die lokale Position in eine globale Koordinate
-umzuwandeln. Dadurch wird die tatsächliche Position des Objekts "in der Welt" bestimmt, was Interaktionen mit anderen
+umzuwandeln. Dadurch wird die tatsächliche Position des Objekts in der Welt bestimmt, was Interaktionen mit anderen
 Objekten oder Koordinaten in der Szene ermöglicht.\footnote{Unity-Dokumentation\cite{Lokal- und Weltposition}}
 
 \subsubsection{\label{sec:moritsInventarBounds}Erkennen hinzugefügter oder entfernter Gegenstände}
