@@ -464,7 +464,7 @@ Der Edit-Modus ist ein spezialisierter Modus zum Bearbeiten der Form eines Objek
 \subsubsection{Texture-Paint-Modus}
 Der Texture-Paint-Modus ist ein spezieller Modus, der es ermöglicht, Texturen direkt auf das Mesh eines Objekts zu malen. Dieser Modus ist ausschließlich auf das Bearbeiten von Meshes beschränkt und bietet eine intuitive Möglichkeit, Texturen im 3D-Viewport zu zeichnen und zu bearbeiten. Durch die direkte Malerei auf dem Objekt können komplexe Texturen und Oberflächeneffekte einfach erstellt und angepasst werden.
 
-\subsection{Hierarchie}
+\subsection{\label{sec:hierarchie}Hierarchie}
 In der 3D-Modellierung bezieht sich Hierarchie auf die strukturierte Organisation von Objekten innerhalb einer Szene oder eines Modells. Diese Hierarchie wird oft durch eine Baumstruktur dargestellt, in der übergeordnete Objekte untergeordnete Objekte enthalten können. Die Hierarchie spielt eine entscheidende Rolle bei der Verwaltung und Manipulation von Objekten sowie bei der Definition von Beziehungen zwischen ihnen.
 
 \begin{itemize}
@@ -901,11 +901,11 @@ In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut 
     \item \textbf{UserInfo:} Spielobjekt, welches den HoloLens Benutzer einen Countdown angibt und von welchem aus daraufhin alle anderen Skripts ausgeführt werden.
     \item \textbf{LoadingCircle:} Während gewisse Prozesse von der Maschine durchgeführt werden, die länger benötigen könnten, wird dieses \textit{Spielobjekt} angezeigt, um den Benutzer zu informieren, dass das Programm Berechnungen ausführt. Das Objekt beinhaltet ein \textit{Canvas} (siehe Kapitel \ref{sec:Canvas}) mit einem \textit{User Interface}.
     \item \textbf{Plane:} Ist ein Spielobjekt, welches den Code beinhaltet und ausführt. Es kann auch zum Debugging genutzt werden, da es die erkannten roten Pixel visuell darstellt.
-    \item \textbf{InfoObjectS:} Beinhaltet die Informationen (Name und Nachricht) welcher der Benutzer auf der Website angibt. Diese Nachricht wird durch diesem Objekt angezeigt, sobald der Nutzer auf das virtuelle Paket drücken. %TODO Website referenz
+    \item \textbf{InfoObjectS:} Beinhaltet die Informationen (Name und Nachricht) welcher der Benutzer auf der Website angibt. Diese Nachricht wird durch diesem Objekt angezeigt, sobald der Nutzer auf das virtuelle Paket drücken.
     \item \textbf{httpListener:} Verarbeitet die eingehenden http Anfragen der Website.
     \item \textbf{CableSearch:} Beinhaltet den Start der Unity-Szene und zeigt dem Benutzer Informationen an
     \item \textbf{MainThreadDispatcher: } Ein paar Funktionen, wie das Initialisieren eines Objekts, nur im Haupt Thread erlaubt ist, um Fehler zu vermeiden, wird ein \textit{MainThreadDispatcher} gebraucht. Das Skript innerhalb dieses Spielobjekts sorgt dann dafür, dass sobald der Haupt Thread verfügbar ist, dieser den Prozess durchführt.
-    \item \textbf{PackageClickable:} Ist ein Objekt, welches die Textur des Paketes und zwei Code-Skripte beinhaltet. Eines dieser Code Skripte ist ein \textit{BoxCollide } ,welcher von Unity zur Verfügung gestellt wird, sowie ein Button Skript von Mixed Reality Toolkit Contributors %TODO referenz Ping-Paket-Modell, referenz zu mrkt
+    \item \textbf{PackageClickable:} Ist ein Objekt, welches die Textur des Paketes und zwei Code-Skripte beinhaltet. Eines dieser Code Skripte ist ein \textit{BoxCollide } ,welcher von Unity zur Verfügung gestellt wird, sowie ein Button Skript.
 \end{itemize}
 
 \subsection{\label{sec:TextMeshPro}Text Mesh Pro}
@@ -1061,7 +1061,7 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
 
 
 \subsubsection{\label{sec:Canvas}Unity Canvas}
-Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{Spielobjekt} als sogenannten \textit{parent}, welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI} %TODO referenz hierachy
+Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{Spielobjekt} als sogenannten \textit{parent}, welches als \textit{child} (siehe Kapitel \ref{sec:hierarchie}) die \textit{UI} besitzt. Diese \textit{UI}
 kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
 Ein Canvas verfügt auch über verschiedene Rendermoduse:
 \begin{itemize}
@@ -1551,7 +1551,7 @@ Es ist anzumerken, dass die sequenzielle Ausführung dieses Codes ineffizient is
 Während der Entwicklung dieses Projekts wurden spezifische Funktionen implementiert, um Fehler und Bugs im Code zu identifizieren. Zu diesem Zweck wurden zwei Funktionen mit den Bezeichnungen \textit{debugRaycast} und \textit{DebugCameraResolution} entwickelt. Weiterhin wurde ein \textit{Plain} \textit{Spielobjekt} namens \textit{PixleDebug} erstellt, das als Hilfsmittel dient, um Fehler im Code zu diagnostizieren und zu beheben. Diese zusätzlichen Klassen tragen wesentlich dazu bei, die Fehlerfreiheit des entwickelten Systems sicherzustellen, indem sie eine strukturierte und systematische Fehlerbehandlung ermöglichen.
 
 \subsubsection{\label{sec:PlaneDebug}Anzeigen der Kabelerkennung}
-%TODO umschreiben und bild dazu
+%TODO bild dazu
 Das \textit{Spielobjekt} mit dem Namen \textit{PixleDebug} dient als Hilfsmittel zur Visualisierung der Erkennung roter Pixel. Diese Einrichtung ermöglicht die Darstellung aller identifizierten roten Pixel als 2D-Textur auf dem \textit{Spielobjekt}, wodurch die vom Skript erkannten roten Pixel sichtbar werden. Die Steuerung der Aktivierung bzw. Deaktivierung der Objektdarstellung kann über das Skript \textit{Deactivate Object} erfolgen. Diese Prozedur bietet eine effektive Methode zur Überprüfung der Pixelerkennung in der Umgebung.
 
 \subsubsection{Debug Funktion von Raycasts}
@@ -1596,7 +1596,7 @@ Debug.LogError("No camera devices found.");
 Im Code wird die Klasse \textit{WebCamTexture} verwendet, um auf die Kamera zuzugreifen und die Funktionalität zu überprüfen. Die \textit{WebCamTexture} ist eine Klasse in Unity, die die Verwendung von Kamerabildern in Echtzeit ermöglicht. Sie ermöglicht es, Live-Bilder von einer Kamera zu erfassen und sie als Textur zu verwenden, dazu beinhaltet es alle für Unity verfügbaren Kameras.
 
 Zuerst wird geprüft, ob ein Kameragerät verfügbar ist. Wenn ja, wird die erste verfügbare Kamera ausgewählt und eine Textur mit dieser Kamera erstellt. Anschließend wird die Textur abgespielt, um sicherzustellen, dass die Kamera korrekt initialisiert wurde. Wenn die Kamera eine gültige Auflösung (größere Auflösung als 0,0) zurückgibt, wird diese Auflösung protokolliert. Ansonsten wird eine Fehlermeldung ausgegeben. Wird keine Kamera gefunden, wird ebenfalls eine Fehlermeldung ausgegeben.
-
+,
 \subsection{Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite gemäß dem Anwendungsfall \ref{sec:jonasSzenario}. Die Webseite spielt eine zentrale Rolle im ersten Anwendungsszenario, dem Nachrichtenaustausch. Ziel ist es, dass zwei Geräte miteinander kommunizieren können. Für eine optimale Benutzererfahrung bedarf es daher einer intuitiven Benutzeroberfläche. Die Entscheidung, ein Web-Interface zu verwenden, basiert auf diesen zwei Faktoren:
 
