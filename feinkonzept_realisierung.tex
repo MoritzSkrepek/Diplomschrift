@@ -834,7 +834,7 @@ public class MenuManager : MonoBehaviour{
 }
 \end{lstlisting}
 
-Beim Start der Anwendung wird die Methode \texttt{SpawnPrefabMenu()} ausgeführt. Diese Methode ist für die Positionierung des Menüs verantwortlich. Die im Codeabschnitt \ref{code:spawnmenu} ersichtlichen Positionsvektoren sind einerseits dafür zuständig, die aktuelle Kameraposition zu ermitteln, aber auch eine neue Spawnposition zu setzen, die um 1 auf der z-Achse versetzt ist, so dass das Menü vor dem Benutzer erscheint. Der Funktionsaufruf \texttt{Instantiate} ist dafür verantwortlich, dass das Menü an der jeweiligen Spawnposition gesetzt wird. Anschließend wird das zuvor versteckte Menü mit \texttt{menu.SetActive(true)} aktiviert, so dass der Benutzer es sehen und mit ihm interagieren kann.
+Die Klasse \texttt{MenuManager} ist dafür zuständig, das Menü beim Neuladen der Anwendung zu instanziieren und zu platzieren. In der Methode \texttt{Awake()}, die bei jedem Start der Anwendung ausgeführt wird, wird zunächst eine neue Position für das Menü berechnet. Diese Position befindet sich leicht vor der aktuellen Kameraposition, indem der Wert der z-Achse um 1 erhöht wird. Anschließend wird das Menü auf diese neue Position verschoben und in der Größe angepasst, um es passend darzustellen. Schließlich wird das Menü aktiviert, sodass es für den Benutzer sichtbar und interaktiv wird.
 
 %\subsection{Vergleich der Menüentwürfe} (vielleicht mach ich das noch)
 \subsection{Laden der Level}
