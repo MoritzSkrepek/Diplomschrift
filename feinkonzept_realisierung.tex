@@ -254,7 +254,7 @@ und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebn
 
 \subsubsection{\label{sec:prefabs}Unity Prefabs}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
-Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von Game-Objekten. Prefabs sind modulare, wiederverwendbare Elemente, die als Blaupausen für die Konstruktion von Game-Objekten dienen. Sie ermöglichen Entwicklern, spezifische Objekte oder Objektstrukturen zu erstellen und zu katalogisieren. Diese Muster können dann in unterschiedlichen Szenarien oder Projekten repliziert werden, was eine effiziente Wiederverwendung und Konsistenz über verschiedene Projektumgebungen hinweg ermöglicht.
+Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von GameObjects. Prefabs sind modulare, wiederverwendbare Elemente, die als Blaupausen für die Konstruktion von GameObjects dienen. Sie ermöglichen Entwicklern, spezifische Objekte oder Objektstrukturen zu erstellen und zu katalogisieren. Diese Muster können dann in unterschiedlichen Szenarien oder Projekten repliziert werden, was eine effiziente Wiederverwendung und Konsistenz über verschiedene Projektumgebungen hinweg ermöglicht.
 
 Prefabs bieten zahlreiche Vorteile für die Gestaltung und Entwicklung von Projekten. Ihr Hauptvorteil liegt in ihrer Fähigkeit, eine effiziente und konsistente Gestaltung von Projekten zu ermöglichen. Sie erleichtern die Wiederverwendung von Designelementen und tragen so zur Effizienz und Konsistenz des Designprozesses bei.
 
@@ -1840,7 +1840,7 @@ Abbildung \ref{fig:protokoll} zeigt den Ablauf aller möglichen Szenarien, wie e
 Im Folgenden werden die einzelnen Schritte der Übertragung und ihre Funktionen beschrieben:
 
 \begin{itemize}
-\item \textbf{Start des Servers:} Auf der HoloLens befindet sich ein Game-Objekt namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
+\item \textbf{Start des Servers:} Auf der HoloLens befindet sich ein GameObject namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
 \item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der HoloLens registriert werden. Obwohl die Verbindungstestfunktion nicht zwingend erforderlich ist, um Nachrichten an diese IP zu senden, kann ein visuelles Feedback dem Benutzer anzeigen, ob die eingegebene IP-Adresse gültig ist und ob der Server erreichbar ist. Dies trägt zur Benutzerfreundlichkeit bei, indem es dem Benutzer ermöglicht, leichter zu erkennen, ob alles ordnungsgemäß funktioniert oder ob möglicherweise Probleme auftreten.
 \item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein \textit{HTTP POST-Request} an den Endpunkt \textit{/message} mit dem Benutzernamen, der Nachricht und die Position (Links oder Rechts) als Payload an die HoloLens gesendet werden. Nach Empfang der Anfrage auf der HoloLens wird das dementsprechende Event \textit{ReceiveMsg} ausgelöst (siehe Abschnitt \ref{sec:eventmanager}), welches wiederum die Simulation des Nachrichtenpakets (siehe Abschnitt \ref{sec:jonasNachrichtenSimulation}) startet.
 \item \textbf{Empfangen von Nachrichten:} Auf der HoloLens wird eine Liste aktueller Nachrichten geführt. Beide Laptops rufen alle fünf Sekunden mit einem \textit{HTTP GET-Request} an den Endpunkt \textit{/get-messages} diese Liste ab. Dies ermöglicht eine kontinuierliche Aktualisierung des Nachrichtenverlaufs (siehe Abschnitt \ref{sec:FrontendWebseite}, Abbildung \ref{fig:frontend}) und zeigt dem Benutzer stets die neuesten Nachrichten an.
@@ -1899,7 +1899,7 @@ In dieser Abbildung ist die Hirarchie un der Inhalts des Knapsack-Problem Szenar
 dass diese Unity Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen, m das gewünschte Ergebnis
 zu erzielen. Darunter sind folgende Objekte:
 \begin{itemize}
-    \item \textbf{level-2:} Ist die Unity Szene selbst, in der alle Game-Objekte enthalten sind.
+    \item \textbf{level-2:} Ist die Unity Szene selbst, in der alle GameObjects enthalten sind.
     \item \textbf{MRTK XR Rig:} Grundbaustein für das Entwickeln einer XR-Applikation. Enthält wichtig Komponenten
     wie Controller für das tracken der Hände, für den User Gaze, etc.
     \item \textbf{UserInfo:} Text Objekt, dass in der \textit{main camera } liegt, damit dieses ständig im Sichtfeld des
@@ -1917,7 +1917,7 @@ zu erzielen. Darunter sind folgende Objekte:
 \end{itemize}
 
 In der Abbildung ist ausßredem zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
-Wenn ein Game Objekt im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObjekt und somit alle angehängiten Scripts von diesem Game Objekt deaktiviert sind.
+Wenn ein Game Objekt im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObject und somit alle angehängiten Scripts von diesem Game Objekt deaktiviert sind.
 Das bedeutet, dass dieses Game Objekt samt allen Scripts zu Szenenbeginn nicht aufgerufen und somit auch nicht ausgeführt werden. Nicht ausgegraute Game Objekte widerum sind
 daher genau das Gegenteil. Das beudetet, dass das Game Objekt selbst samt allen angehängiten Scripts alle aktiviert sind und somit zu Szenenbeginn aufgerufen und ausgeführt werden.
 
@@ -2002,7 +2002,7 @@ Hier eine kurze Übersicht:
 \begin{itemize}
 
 \item \textbf{Initialisierung des QR-Tracking-Systems:}
-Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-Game-Objekt, das weitere Game-Objekte instanziiert, wie den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
+Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-GameObject, das weitere GameObject instanziiert, wie den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
 \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
 Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
@@ -2478,7 +2478,7 @@ und die Kontinuität des AR-Anwendungsszenarios sicherstellen.
     \item \textbf{Extraktion und Übergabe des Inventar-Objekts:} Das Inventar-Objekt wird aus dem Prefab extrahiert und an
     den \textit{Inventory Controller} übergeben. Dadurch wird eine nahtlose Fortsetzung der Interaktion mit dem Inventar ermöglicht.
 
-    \item \textbf{Deaktivierung des Objekts:} Abschließend wird das eigene Game-Objekt deaktiviert, um das Ende des
+    \item \textbf{Deaktivierung des Objekts:} Abschließend wird das eigene GameObject deaktiviert, um das Ende des
     Platzierungsvorgangs des Inventar-Prefabs zu markieren. Dadurch wird dem Benutzer signalisiert, dass der Platzierungsvorgang
     abgeschlossen ist und eine klare Abgrenzung erleichtert.
 \end{enumerate}
@@ -2949,10 +2949,10 @@ Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 
 \subsection{\label{sec:eventmanager}EventManager}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
-Der \textit{EventManager} ist ein entscheidendes Game-Objekt, das als zentrales Kommunikationselement fungiert und die
+Der \textit{EventManager} ist ein entscheidendes GameObject, das als zentrales Kommunikationselement fungiert und die
 Interaktion zwischen verschiedenen Komponenten und Klassen innerhalb der Anwendung ermöglicht. Implementiert als Klasse
-im Skript \textit{EventManager.cs}, das dem Game-Objekt angehängt ist, spielt er eine unverzichtbare Rolle trotz seiner
-Kompaktheit, da er die Schnittstelle für die Kommunikation zwischen verschiedenen Klassen und Game-Objekten bereitstellt.
+im Skript \textit{EventManager.cs}, das dem GameObject angehängt ist, spielt er eine unverzichtbare Rolle trotz seiner
+Kompaktheit, da er die Schnittstelle für die Kommunikation zwischen verschiedenen Klassen und GameObjects bereitstellt.
 
 
 \subsubsection*{Ereignisse und Handlungen}
@@ -3436,8 +3436,8 @@ innerhalb der Anwendung.
     \label{fig:Knapsack_Editor}
 \end{figure}
 
-Abbildung \ref{fig:Knapsack_Editor} zeigt das Unity-Game-Objekt im Unity Inspektor. Ebenfalls dargestellt ist die angehängte
-Skript-Komponente, die dem Game-Objekt zugeordnet ist. Innerhalb dieser Skript-Komponente sind die öffentlichen Klassenvariablen
+Abbildung \ref{fig:Knapsack_Editor} zeigt das Unity-GameObject im Unity Inspektor. Ebenfalls dargestellt ist die angehängte
+Skript-Komponente, die dem GameObject zugeordnet ist. Innerhalb dieser Skript-Komponente sind die öffentlichen Klassenvariablen
 aufgeführt, die direkt im Editor übergeben und manipuliert werden können. Diese Variablen spielen eine entscheidende Rolle
 bei der Konfiguration und Steuerung des Knapsack Solvers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 \begin{itemize}
