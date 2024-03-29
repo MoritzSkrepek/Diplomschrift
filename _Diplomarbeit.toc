@@ -1,10 +1,10 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.1}%
-\contentsline {chapter}{Vorwort}{v}{chapter*.3}%
-\contentsline {chapter}{Diplomarbeit Dokumentation}{vi}{chapter*.4}%
-\contentsline {chapter}{Diploma Thesis Documentation}{viii}{chapter*.5}%
-\contentsline {chapter}{Kurzfassung}{x}{chapter*.6}%
-\contentsline {chapter}{Abstract}{xi}{chapter*.7}%
+\contentsline {chapter}{Vorwort}{vi}{chapter*.3}%
+\contentsline {chapter}{Diplomarbeit Dokumentation}{vii}{chapter*.4}%
+\contentsline {chapter}{Diploma Thesis Documentation}{ix}{chapter*.5}%
+\contentsline {chapter}{Kurzfassung}{xi}{chapter*.6}%
+\contentsline {chapter}{Abstract}{xii}{chapter*.7}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
@@ -68,18 +68,98 @@
 \contentsline {subsection}{\numberline {4.1.3}Deployment der Anwendung}{31}{subsection.150}%
 \contentsline {subsubsection}{\numberline {4.1.3.1}Voraussetzungen für das Deployment}{31}{subsubsection.151}%
 \contentsline {subsubsection}{\numberline {4.1.3.2}Deployment-Prozess}{31}{subsubsection.152}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{34}{chapter.161}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{34}{section.162}%
-\contentsline {section}{\numberline {5.2}Abnahme}{34}{section.163}%
-\contentsline {section}{\numberline {5.3}Zukunft}{35}{section.164}%
-\contentsline {chapter}{\numberline {A}Mockups}{36}{appendix.165}%
-\contentsline {section}{\numberline {A.1}Hauptmenu}{36}{section.166}%
-\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{37}{section.168}%
-\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{38}{section.170}%
-\contentsline {chapter}{\numberline {B}Abläufe}{39}{appendix.172}%
-\contentsline {section}{\numberline {B.1}Hauptmenu}{39}{section.173}%
-\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{40}{section.175}%
-\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{41}{section.177}%
-\contentsline {chapter}{\numberline {C}Literatur}{42}{appendix.179}%
-\contentsline {chapter}{Index}{49}{appendix.179}%
-\contentsline {chapter}{Literatur}{49}{appendix.179}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}Erstmaliges Deployment}{34}{subsubsection.164}%
+\contentsline {section}{\numberline {4.2}Objektdesign}{34}{section.165}%
+\contentsline {subsection}{\numberline {4.2.1}Texturen}{34}{subsection.166}%
+\contentsline {subsubsection}{\numberline {4.2.1.1}Bild-Texturen in der 3D-Modellierung}{34}{subsubsection.169}%
+\contentsline {subsection}{\numberline {4.2.2}Mesh}{36}{subsection.173}%
+\contentsline {subsection}{\numberline {4.2.3}Rolle von Polygonen in einem Modell}{36}{subsection.177}%
+\contentsline {subsection}{\numberline {4.2.4}Optimierung der einzelnen Modelle}{36}{subsection.180}%
+\contentsline {subsubsection}{\numberline {4.2.4.1}Polygonreduktion}{36}{subsubsection.182}%
+\contentsline {subsubsection}{\numberline {4.2.4.2}Texturenoptimierung}{37}{subsubsection.186}%
+\contentsline {subsection}{\numberline {4.2.5}Export- und Integrationsprozess}{37}{subsection.187}%
+\contentsline {subsubsection}{\numberline {4.2.5.1}Dateiformat}{38}{subsubsection.189}%
+\contentsline {subsubsection}{\numberline {4.2.5.2}Koordinatensysteme}{38}{subsubsection.192}%
+\contentsline {subsection}{\numberline {4.2.6}Add-Ons und Plugins}{39}{subsection.193}%
+\contentsline {subsubsection}{\numberline {4.2.6.1}Looptools: Optimierung von Topologie und Oberflächen}{39}{subsubsection.194}%
+\contentsline {subsubsection}{\numberline {4.2.6.2}Images as Planes: Effiziente Integration von Texturen}{40}{subsubsection.197}%
+\contentsline {subsection}{\numberline {4.2.7}Modi}{40}{subsection.199}%
+\contentsline {subsubsection}{\numberline {4.2.7.1}Object-Modus}{40}{subsubsection.201}%
+\contentsline {subsubsection}{\numberline {4.2.7.2}Edit-Modus}{40}{subsubsection.202}%
+\contentsline {subsubsection}{\numberline {4.2.7.3}Texture-Paint-Modus}{40}{subsubsection.203}%
+\contentsline {subsection}{\numberline {4.2.8}Hierarchie}{41}{subsection.204}%
+\contentsline {subsection}{\numberline {4.2.9}Modifier}{41}{subsection.207}%
+\contentsline {subsection}{\numberline {4.2.10}Modellierung von Gegenständen für das Projekt}{42}{subsection.216}%
+\contentsline {subsubsection}{\numberline {4.2.10.1}Taschenrechner}{43}{subsubsection.217}%
+\contentsline {subsubsection}{\numberline {4.2.10.2}Restliche Modelle}{49}{subsubsection.236}%
+\contentsline {section}{\numberline {4.3}Hauptmenü}{51}{section.251}%
+\contentsline {subsection}{\numberline {4.3.1}Erstentwurf}{51}{subsection.252}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Probleme beim Erstentwurf}{53}{subsubsection.256}%
+\contentsline {subsection}{\numberline {4.3.2}Finalversion des Menüs}{54}{subsection.259}%
+\contentsline {subsubsection}{\numberline {4.3.2.1}Finalversion Menü - Hauptmenü}{54}{subsubsection.260}%
+\contentsline {subsubsection}{\numberline {4.3.2.2}Finalversion Menü - Anwendungsszenario}{56}{subsubsection.264}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{56}{subsubsection.266}%
+\contentsline {subsection}{\numberline {4.3.3}Laden der Level}{57}{subsection.278}%
+\contentsline {subsection}{\numberline {4.3.4}UI/UX}{58}{subsection.291}%
+\contentsline {section}{\numberline {4.4}Nachrichtenaustausch Anwendungsszenario}{58}{section.292}%
+\contentsline {subsection}{\numberline {4.4.1}Aufbau von Nachrichtenaustausch Anwendungsszenario}{59}{subsection.293}%
+\contentsline {subsection}{\numberline {4.4.2}Text Mesh Pro}{61}{subsection.296}%
+\contentsline {subsection}{\numberline {4.4.3}Transform Klasse}{61}{subsection.298}%
+\contentsline {subsection}{\numberline {4.4.4}IEnumerator Klasse}{61}{subsection.300}%
+\contentsline {subsection}{\numberline {4.4.5}Coroutines}{61}{subsection.303}%
+\contentsline {subsection}{\numberline {4.4.6}Start der Szene}{63}{subsection.344}%
+\contentsline {subsection}{\numberline {4.4.7}Kabelerkennung}{64}{subsection.388}%
+\contentsline {subsection}{\numberline {4.4.8}Fotoaufnahme}{65}{subsection.389}%
+\contentsline {subsubsection}{\numberline {4.4.8.1}Photocapture Klasse}{65}{subsubsection.390}%
+\contentsline {subsubsection}{\numberline {4.4.8.2}Unity Canvas}{65}{subsubsection.392}%
+\contentsline {subsubsection}{\numberline {4.4.8.3}Foto der Umgebung aufnehmen}{66}{subsubsection.395}%
+\contentsline {subsection}{\numberline {4.4.9}Ladesymbol}{67}{subsection.431}%
+\contentsline {subsection}{\numberline {4.4.10}Fotoverarbeitung}{67}{subsection.445}%
+\contentsline {subsubsection}{\numberline {4.4.10.1}Unity Job System}{67}{subsubsection.446}%
+\contentsline {subsubsection}{\numberline {4.4.10.2}Vector2 Klasse}{68}{subsubsection.448}%
+\contentsline {subsubsection}{\numberline {4.4.10.3}Pixel Positionen finden}{68}{subsubsection.450}%
+\contentsline {subsubsection}{\numberline {4.4.10.4}Kabel finden}{69}{subsubsection.489}%
+\contentsline {subsection}{\numberline {4.4.11}Erstellen und Bewegung des Paketes}{71}{subsection.533}%
+\contentsline {subsubsection}{\numberline {4.4.11.1}Definition eines Rays}{71}{subsubsection.534}%
+\contentsline {subsubsection}{\numberline {4.4.11.2}TrackableType Klasse}{71}{subsubsection.535}%
+\contentsline {subsubsection}{\numberline {4.4.11.3}ARRaycastHit Klasse}{72}{subsubsection.537}%
+\contentsline {subsubsection}{\numberline {4.4.11.4}Entfernung messen}{72}{subsubsection.539}%
+\contentsline {subsubsection}{\numberline {4.4.11.5}Erstellung und Positionierung des Paketes}{74}{subsubsection.571}%
+\contentsline {subsubsection}{\numberline {4.4.11.6}Bewegung des Paketes}{75}{subsubsection.608}%
+\contentsline {subsection}{\numberline {4.4.12}Anzeigen von Informationen der Nachricht}{76}{subsection.640}%
+\contentsline {subsection}{\numberline {4.4.13}Andere Versuche / Probleme bei der Programmierung}{77}{subsection.670}%
+\contentsline {subsubsection}{\numberline {4.4.13.1}Kabelerkennung Version 1}{77}{subsubsection.671}%
+\contentsline {subsection}{\numberline {4.4.14}Debugging Optionen}{78}{subsection.696}%
+\contentsline {subsubsection}{\numberline {4.4.14.1}Anzeigen der Kabelerkennung}{78}{subsubsection.697}%
+\contentsline {subsubsection}{\numberline {4.4.14.2}Debug Funktion von Raycasts}{79}{subsubsection.698}%
+\contentsline {subsubsection}{\numberline {4.4.14.3}Debug Funktion der Kamerabenutzung}{79}{subsubsection.704}%
+\contentsline {subsection}{\numberline {4.4.15}Starten und Nutzen der Webseite}{80}{subsection.733}%
+\contentsline {subsubsection}{\numberline {4.4.15.1}Webseite starten}{80}{subsubsection.734}%
+\contentsline {subsubsection}{\numberline {4.4.15.2}CORS}{82}{subsubsection.741}%
+\contentsline {subsection}{\numberline {4.4.16}Frontend der Webseite}{84}{subsection.750}%
+\contentsline {subsubsection}{\numberline {4.4.16.1}Designprozess}{84}{subsubsection.751}%
+\contentsline {subsubsection}{\numberline {4.4.16.2}Verwendete Programmiersprachen}{86}{subsubsection.758}%
+\contentsline {subsubsection}{\numberline {4.4.16.3}Funktionen der Webseite}{87}{subsubsection.768}%
+\contentsline {subsection}{\numberline {4.4.17}Backend der Webseite}{88}{subsection.791}%
+\contentsline {subsubsection}{\numberline {4.4.17.1}Protokoll zur Datenübertragung}{88}{subsubsection.792}%
+\contentsline {subsubsection}{\numberline {4.4.17.2}Bearbeitung von Anfragen}{89}{subsubsection.794}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Anwendungsszenario}{89}{section.795}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{90}{subsection.796}%
+\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{91}{subsection.798}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{92}{subsubsection.799}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{93}{subsubsection.829}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{95}{subsubsection.833}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}Positionsbestimmung von QR-Codes}{95}{subsubsection.835}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{96}{chapter.837}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{96}{section.838}%
+\contentsline {section}{\numberline {5.2}Abnahme}{96}{section.839}%
+\contentsline {section}{\numberline {5.3}Zukunft}{97}{section.840}%
+\contentsline {chapter}{\numberline {A}Mockups}{98}{appendix.841}%
+\contentsline {section}{\numberline {A.1}Hauptmenu}{98}{section.842}%
+\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{99}{section.844}%
+\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{100}{section.846}%
+\contentsline {chapter}{\numberline {B}Abläufe}{101}{appendix.848}%
+\contentsline {section}{\numberline {B.1}Hauptmenu}{101}{section.849}%
+\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{102}{section.851}%
+\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{103}{section.853}%
+\contentsline {chapter}{\numberline {C}Literatur}{104}{appendix.855}%
