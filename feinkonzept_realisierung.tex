@@ -765,13 +765,13 @@ Obwohl diese Herangehensweise zu einem homogenen Erscheinungsbild des Menüs fü
     \label{fig:menübar}
 \end{figure}
 
-Die Abbildung \ref{fig:menübar} zeigt den ersten Entwurf des Menüs, das eine wichtige Schnittstelle für den Nutzer darstellt, um zwischen verschiedenen Szenarien zu navigieren. Die Struktur des Menüs bleibt unabhängig vom jeweiligen Spiellevel konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite dienen der Initiierung des Ladevorgangs für die verschiedenen Spielszenarien. Hervorzuheben ist der Pin-Button in Kombination mit dem darunterliegenden weißen Balken. Diese beiden Funktionen gemeinsam ermöglichen es dem Benutzer, das Menü an gewünschten Positionen zu verankern und bietet somit Flexibilität bei der Positionierung entsprechend individueller Präferenzen. Ein solcher Einsatz ist von Vorteil, wenn externe Objekte die Nutzbarkeit des Menüs beeinträchtigen könnten, wie zum Beispiel im Szenario des Platznehmens an einem Tisch, wo das Menü ungünstigerweise mit dem Tisch kollidieren könnte und somit die Nutzererfahrung beeinträchtigt werden würde.
+Die Abbildung \ref{fig:menübar} zeigt den ersten Entwurf des Menüs, das eine wichtige Schnittstelle für den Nutzer darstellt, um zwischen verschiedenen Szenarien zu navigieren. Die Struktur des Menüs bleibt unabhängig vom jeweiligen Spielszenario konstant, was zur Simplifizierung und Klarheit beiträgt. Die primären Schaltflächen auf der linken Seite dienen der Initiierung des Ladevorgangs für die verschiedenen Spielszenarien. Hervorzuheben ist der Pin-Button in Kombination mit dem darunterliegenden weißen Balken. Diese beiden Funktionen gemeinsam ermöglichen es dem Benutzer, das Menü an gewünschten Positionen zu verankern und bietet somit Flexibilität bei der Positionierung entsprechend individueller Präferenzen. Ein solcher Einsatz ist von Vorteil, wenn externe Objekte die Nutzbarkeit des Menüs beeinträchtigen könnten, wie zum Beispiel im Szenario des Platznehmens an einem Tisch, wo das Menü ungünstigerweise mit dem Tisch kollidieren könnte und somit die Nutzererfahrung beeinträchtigt werden würde.
 
 \subsubsection{Probleme beim Erstentwurf}
 \subsubsection*{Problem 1 - Fehlende Dokumentation}
-Das Hauptziel bei dem Konzept des ersten Menüs, bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle erforderlichen Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Testpersonen, die nicht mit dem Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der Dokumentation und Erklärung der verschiedenen Anwendungsszenarien und ihrer jeweiligen Aufgaben aufweist. Es wurde bemängelt, dass Benutzer lediglich zwischen den einzelnen Leveln wechseln können, ohne klare Informationen darüber zu erhalten, worum es in den einzelnen Leveln geht und welche Aufgaben diese beinhalten.
+Das Hauptziel bei dem Konzept des ersten Menüs, bestand darin, ein benutzerfreundliches Menü zu gestalten, das alle erforderlichen Funktionen enthält und dennoch übersichtlich ist. Nach mehreren Iterationen und Tests mit Testpersonen, die nicht mit dem Projekt vertraut waren, stellte sich heraus, dass der ursprüngliche Entwurf erhebliche Mängel bei der Dokumentation und Erklärung der verschiedenen Anwendungsszenarien und ihrer jeweiligen Aufgaben aufweist. Es wurde bemängelt, dass Benutzer lediglich zwischen den einzelnen Anwendungsszenarien wechseln können, ohne klare Informationen darüber zu erhalten, worum es in den einzelnen Szenarien geht und welche Aufgaben diese beinhalten.
 
-Diese Feststellung verdeutlicht eine wesentliche Lücke in der Benutzerführung und information innerhalb des Menüsystems. Die unzureichende Dokumentation der Level und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und kann sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch als Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
+Diese Feststellung verdeutlicht eine wesentliche Lücke in der Benutzerführung und information innerhalb des Menüsystems. Die unzureichende Dokumentation der Anwendungsszenarien und ihrer Ziele führt zu einer fehlenden Orientierung für die Benutzer und kann sich negativ auf ihre Erfahrung auswirken. Das Menü sollte nicht nur als Navigationswerkzeug dienen, sondern auch als Informationsquelle, die dem Benutzer eine klare Vorstellung über den Spielverlauf und die zu erreichenden Ziele vermittelt.
 
 Die Identifizierung dieses Problems betont die Wichtigkeit einer umfassenden Benutzerbeobachtung und -evaluation während des Designprozesses. Dadurch wird sichergestellt, dass das entwickelte Benutzeroberflächensystem den Bedürfnissen und Erwartungen der Zielgruppe entspricht. Eine zielgerichtete Überarbeitung des Menüs ist erforderlich, um die fehlende Dokumentation der Anwendungsszenarien und ihrer Aufgaben zu adressieren und somit die Benutzererfahrung zu verbessern.
 
@@ -816,7 +816,7 @@ Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus z
 In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem Prefab \texttt{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \texttt{startbuttonclickable\_lv1/2} sind die in Unity erstellten unsichtbaren Buttons, die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter zu sehen sind die 3 verschiedenen Assets, welche aus Blender importiert wurden. Diese bestehen jeweils aus den verschiedenen Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \texttt{BezierCurve} ist eine spezielle Art von Kurve welche in Blender für die leichte Wölbung der Tafeln genutzt wurde. \footnote{Blender \cite{Bezier Curve}}
 
 \subsubsection{Finalversion Menü - Anwendungsszenario}
-Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle Aufmerksamkeit des Benutzers auf das jeweilige Level und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
+Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle Aufmerksamkeit des Benutzers auf das jeweilige Szenario und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
 
 \begin{figure}[H]
     \centering
@@ -848,7 +848,7 @@ public class MenuManager : MonoBehaviour{
 Die Klasse \texttt{MenuManager} ist dafür zuständig, das Menü beim Neuladen der Anwendung zu instanziieren und zu platzieren. In der Methode \texttt{Awake()}, die bei jedem Start der Anwendung ausgeführt wird, wird zunächst eine neue Position für das Menü berechnet. Diese Position befindet sich leicht vor der aktuellen Kameraposition, indem der Wert der z-Achse um 1 erhöht wird. Anschließend wird das Menü auf diese neue Position verschoben und in der Größe angepasst, um es passend darzustellen. Schließlich wird das Menü aktiviert, sodass es für den Benutzer sichtbar und interaktiv wird.
 
 %\subsection{Vergleich der Menüentwürfe} (vielleicht mach ich das noch)
-\subsection{Laden der Level}
+\subsection{Laden der Anwendungsszenarien}
 Um den Buttons eine Funktion zuzuweisen, wird ein Skript benötigt, das aktiviert wird, sobald ein Button gedrückt wird.
 Im vorliegenden Fall ist das Skript \textit{SceneChange.cs} für den Wechsel zwischen den verschiedenen Anwendungsszenarien verantwortlich.
 Wenn einer der Buttons im Hauptmenü gedrückt wird, wird dieses Skript ausgeführt. Die Spielszene wird im \textit{Unity Inspector}
@@ -908,7 +908,7 @@ In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=1]{images/Level1Hierarchy.png}
-    \caption{Hierarchie des Nachrichtenaustausch-Levels im Unity Editor.}
+    \caption{Hierarchie des Nachrichtenaustausch-Szenarios im Unity Editor.}
     \label{fig:level1Hierarchy}
 \end{figure}
 \begin{itemize}
