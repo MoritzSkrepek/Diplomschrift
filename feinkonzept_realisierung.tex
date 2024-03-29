@@ -569,7 +569,7 @@ Nach Abschluss dieser groben Modellierungsschritte entstand das Grundgerüst des
 %quelle für literatur
 %https://docs.blender.org/manual/de/dev/grease_pencil/modes/edit/point_menu.html#extrude
 
-Als nächster Schritt steht die Modellierung der Knöpfe und anderer Funktionen des Taschenrechners an, um das Modell weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
+Als nächster Schritt steht die Modellierung der Buttons und anderer Funktionen des Taschenrechners an, um das Modell weiter zu verfeinern und seinem realen Gegenstück näherzukommen. Dazu wird der \textit{Array}-Modifier verwendet, da dieser es ermöglicht, ein Button-Modell zu entwerfen und dieses dann zu vervielfältigen. Dadurch wird die Modellierungszeit enorm reduziert und die gleichmäßige Platzierung der Buttons verbessert.
 
 \subsubsection*{Einschub Array-Modifier}
 Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur Anpassung der Positionierung und Ausrichtung der Kopien.
@@ -623,7 +623,7 @@ Dieser Prozess wurde für jedes Element des Modells durchgeführt, um eine genau
 %literatur https://de.wikibooks.org/wiki/Blender_Dokumentation:_UV-Mapping
 \textit{UV-Mapping} ist ein wichtiger Schritt im Texturierungsprozess von 3D-Modellen. Dabei werden Texturen auf dreidimensionale Objekte projiziert. Die Bezeichnungen \textit{U} und \textit{V} stehen dabei für die beiden Koordinatenachsen im zweidimensionalen Raum. In Blender gibt es dafür einen eigenen Editor mit einer spezifischen Benutzeroberfläche.
 
-Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem Referenzbild auf die einzelnen Knöpfe und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
+Während der Modellierung des Taschenrechnermodells wurde \textit{UV-Mapping} genutzt, um Texturen detailgetreu von einem Referenzbild auf die einzelnen Buttons und Tasten des Modells zu übertragen. Dieser Prozess ermöglicht es, die Beschriftungen und andere Details automatisch von der Textur abzuleiten, anstatt sie manuell für jedes Element erstellen zu müssen.
 
 \begin{figure}[H]
     \centering
@@ -1906,7 +1906,7 @@ zu erzielen. Darunter sind folgende Objekte:
     Benutzers liegt.
     \item \textbf{Managers:} Die drei Manager \textit{ARPlaneManager}, \textit{ARRaycastManager} und \textit{QRCodesManager}
     sind wichtiger Bestandteil um ARPlanes zu scannen, Raycasting durchzuführen und QRCodes zu erkennen.
-    \item \textbf{HandMenu:} Knopf um in das Hauptmenu-Szenario zurück zu gelangen.
+    \item \textbf{HandMenu:} Button um in das Hauptmenu-Szenario zurück zu gelangen.
     \item \textbf{AR Default Plane:} Ist das Grund-Objekt für das markieren von erkannten ARPlanes.
     \item \textbf{ARSession:} Ist die Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
     \item \textbf{InventoryPlacementController:} Game Objekt, welches das platzieren des Inventar-Objekts handhabt.
