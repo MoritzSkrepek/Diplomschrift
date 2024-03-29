@@ -98,7 +98,7 @@
 \contentsline {subsection}{\numberline {4.3.2}Finalversion des Menüs}{54}{subsection.259}%
 \contentsline {subsubsection}{\numberline {4.3.2.1}Finalversion Menü - Hauptmenü}{54}{subsubsection.260}%
 \contentsline {subsubsection}{\numberline {4.3.2.2}Finalversion Menü - Anwendungsszenario}{56}{subsubsection.264}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{56}{subsubsection.266}%
+\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{57}{subsubsection.266}%
 \contentsline {subsection}{\numberline {4.3.3}Laden der Level}{57}{subsection.278}%
 \contentsline {subsection}{\numberline {4.3.4}UI/UX}{58}{subsection.291}%
 \contentsline {section}{\numberline {4.4}Nachrichtenaustausch Anwendungsszenario}{58}{section.292}%
@@ -132,83 +132,85 @@
 \contentsline {subsection}{\numberline {4.4.14}Debugging Optionen}{78}{subsection.696}%
 \contentsline {subsubsection}{\numberline {4.4.14.1}Anzeigen der Kabelerkennung}{78}{subsubsection.697}%
 \contentsline {subsubsection}{\numberline {4.4.14.2}Debug Funktion von Raycasts}{79}{subsubsection.698}%
-\contentsline {subsubsection}{\numberline {4.4.14.3}Debug Funktion der Kamerabenutzung}{79}{subsubsection.704}%
-\contentsline {subsection}{\numberline {4.4.15}Starten und Nutzen der Webseite}{80}{subsection.733}%
-\contentsline {subsubsection}{\numberline {4.4.15.1}Webseite starten}{80}{subsubsection.734}%
-\contentsline {subsubsection}{\numberline {4.4.15.2}CORS}{82}{subsubsection.741}%
-\contentsline {subsection}{\numberline {4.4.16}Frontend der Webseite}{84}{subsection.750}%
-\contentsline {subsubsection}{\numberline {4.4.16.1}Designprozess}{84}{subsubsection.751}%
-\contentsline {subsubsection}{\numberline {4.4.16.2}Verwendete Programmiersprachen}{86}{subsubsection.758}%
-\contentsline {subsubsection}{\numberline {4.4.16.3}Funktionen der Webseite}{87}{subsubsection.768}%
-\contentsline {subsection}{\numberline {4.4.17}Backend der Webseite}{88}{subsection.791}%
-\contentsline {subsubsection}{\numberline {4.4.17.1}Protokoll zur Datenübertragung}{88}{subsubsection.792}%
-\contentsline {subsubsection}{\numberline {4.4.17.2}Bearbeitung von Anfragen}{89}{subsubsection.794}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Anwendungsszenario}{89}{section.795}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{90}{subsection.796}%
-\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{91}{subsection.798}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{92}{subsubsection.799}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{93}{subsubsection.829}%
-\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{95}{subsubsection.833}%
-\contentsline {subsubsection}{\numberline {4.5.2.4}Positionsbestimmung von QR-Codes}{95}{subsubsection.835}%
-\contentsline {subsubsection}{\numberline {4.5.2.5}Ersetzen der QR-Codes durch Objekte in der virtuellen Realität}{96}{subsubsection.837}%
-\contentsline {subsubsection}{\numberline {4.5.2.6} Spatial Graph Node}{100}{subsubsection.922}%
-\contentsline {subsubsection}{\numberline {4.5.2.7}Zugriff auf QR-Codes bereitstellen}{100}{subsubsection.924}%
-\contentsline {subsection}{\numberline {4.5.3}Platzieren des Inventar Prefabs}{101}{subsection.926}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}Aufbau und Hirarchie des Inventar-Prefabs}{101}{subsubsection.927}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}User Gaze in AR-Anwendungen}{102}{subsubsection.933}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Der Inventory Placement Controller}{102}{subsubsection.934}%
-\contentsline {subsubsection}{\numberline {4.5.3.4}Implementierung des User Gazes}{103}{subsubsection.936}%
-\contentsline {subsubsection}{\numberline {4.5.3.5}Platzierungskontrolle und ARPlane-Überwachung}{104}{subsubsection.947}%
-\contentsline {subsubsection}{\numberline {4.5.3.6}Platzierung des Prefabs}{106}{subsubsection.984}%
-\contentsline {subsubsection}{\numberline {4.5.3.7}Visualisierung des Platzierungsablaufs}{106}{subsubsection.1001}%
-\contentsline {subsection}{\numberline {4.5.4}Inventarverwaltung}{107}{subsection.1003}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}Der Inventory Controller}{108}{subsubsection.1004}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Begrenzungen eines Objekts}{109}{subsubsection.1006}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Problem bei Standardbegrenzungen}{109}{subsubsection.1011}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Erweitern der Standardbegrenzungen}{110}{subsubsection.1012}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Erkennen hinzugefügter oder entfernter Gegenstände}{112}{subsubsection.1038}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}Zustände des Inventars aus der Sicht Benutzers}{114}{subsubsection.1080}%
-\contentsline {subsection}{\numberline {4.5.5}EventManager}{117}{subsection.1087}%
-\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{119}{subsection.1128}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Problemstellung}{120}{subsubsection.1129}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Typen des Knapsack-Problems}{120}{subsubsection.1130}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{121}{subsubsection.1139}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Ansätze zur Lösung des Knapsack-Problems}{122}{subsubsection.1150}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Dynamischer Programmieransatz}{123}{subsubsection.1152}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Greedy-Ansatz}{125}{subsubsection.1174}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Anwendungen des Knapsack-Problems}{126}{subsubsection.1201}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Auswahl des Implementierungsansatzes}{127}{subsubsection.1206}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}Auswahl der Variante und Typ des Problems}{128}{subsubsection.1211}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Der Knapsack Solver}{128}{subsubsection.1212}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{129}{subsubsection.1214}%
-\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des zusammengestellten Rucksacks}{131}{subsubsection.1267}%
-\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{132}{subsection.1287}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Aufbau und Hirarchie des best Solution Prefabs}{132}{subsubsection.1288}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}Das Best Solution Prefab}{133}{subsubsection.1292}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Auslöser des Skripts}{133}{subsubsection.1294}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Start des Perfect Solution Visualizer}{134}{subsubsection.1296}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab der perfekten Lösung platzieren}{135}{subsubsection.1312}%
-\contentsline {subsubsection}{\numberline {4.5.7.6}Prefab füllen}{135}{subsubsection.1320}%
-\contentsline {subsubsection}{\numberline {4.5.7.7}Zustand nach Knopfdruck}{136}{subsubsection.1341}%
-\contentsline {section}{\numberline {4.6}Performance und Qualitätssicherung}{137}{section.1343}%
-\contentsline {subsection}{\numberline {4.6.1}Unity Test Framework}{138}{subsection.1344}%
-\contentsline {subsubsection}{\numberline {4.6.1.1} Test-Runner}{138}{subsubsection.1346}%
-\contentsline {subsection}{\numberline {4.6.2} AAA-Schema}{138}{subsection.1348}%
-\contentsline {subsection}{\numberline {4.6.3}Testfälle}{139}{subsection.1350}%
-\contentsline {subsubsection}{\numberline {4.6.3.1}Aufbau eines einzelnen Testfalls}{140}{subsubsection.1372}%
-\contentsline {subsubsection}{\numberline {4.6.3.2}Testen von Einzelgegenständen im Rucksack}{140}{subsubsection.1387}%
-\contentsline {subsubsection}{\numberline {4.6.3.3}Testen von mehreren Gegenständen im Rucksack}{141}{subsubsection.1406}%
-\contentsline {subsubsection}{\numberline {4.6.3.4}Performance-Messung}{142}{subsubsection.1430}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{146}{chapter.1509}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{146}{section.1510}%
-\contentsline {section}{\numberline {5.2}Abnahme}{146}{section.1511}%
-\contentsline {section}{\numberline {5.3}Zukunft}{147}{section.1512}%
-\contentsline {chapter}{\numberline {A}Mockups}{148}{appendix.1513}%
-\contentsline {section}{\numberline {A.1}Hauptmenu}{148}{section.1514}%
-\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{149}{section.1516}%
-\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{150}{section.1518}%
-\contentsline {chapter}{\numberline {B}Abläufe}{151}{appendix.1520}%
-\contentsline {section}{\numberline {B.1}Hauptmenu}{151}{section.1521}%
-\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{152}{section.1523}%
-\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{153}{section.1525}%
-\contentsline {chapter}{\numberline {C}Literatur}{154}{appendix.1527}%
+\contentsline {subsubsection}{\numberline {4.4.14.3}Debug Funktion der Kamerabenutzung}{79}{subsubsection.705}%
+\contentsline {subsection}{\numberline {4.4.15}Starten und Nutzen der Webseite}{80}{subsection.734}%
+\contentsline {subsubsection}{\numberline {4.4.15.1}Webseite starten}{81}{subsubsection.735}%
+\contentsline {subsubsection}{\numberline {4.4.15.2}CORS}{82}{subsubsection.742}%
+\contentsline {subsection}{\numberline {4.4.16}Frontend der Webseite}{84}{subsection.751}%
+\contentsline {subsubsection}{\numberline {4.4.16.1}Designprozess}{84}{subsubsection.752}%
+\contentsline {subsubsection}{\numberline {4.4.16.2}Verwendete Programmiersprachen}{86}{subsubsection.759}%
+\contentsline {subsubsection}{\numberline {4.4.16.3}Funktionen der Webseite}{87}{subsubsection.769}%
+\contentsline {subsection}{\numberline {4.4.17}Backend der Webseite}{88}{subsection.792}%
+\contentsline {subsubsection}{\numberline {4.4.17.1}Protokoll zur Datenübertragung}{88}{subsubsection.793}%
+\contentsline {subsubsection}{\numberline {4.4.17.2}Bearbeitung von Anfragen}{89}{subsubsection.795}%
+\contentsline {section}{\numberline {4.5}Knapsack Problem Anwendungsszenario}{89}{section.796}%
+\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{90}{subsection.797}%
+\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{91}{subsection.799}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{92}{subsubsection.800}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{93}{subsubsection.830}%
+\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{95}{subsubsection.834}%
+\contentsline {subsubsection}{\numberline {4.5.2.4}Positionsbestimmung von QR-Codes}{95}{subsubsection.836}%
+\contentsline {subsubsection}{\numberline {4.5.2.5}Ersetzen der QR-Codes durch Objekte in der virtuellen Realität}{96}{subsubsection.838}%
+\contentsline {subsubsection}{\numberline {4.5.2.6} Spatial Graph Node}{100}{subsubsection.923}%
+\contentsline {subsubsection}{\numberline {4.5.2.7}Zugriff auf QR-Codes bereitstellen}{100}{subsubsection.925}%
+\contentsline {subsection}{\numberline {4.5.3}Platzieren des Inventar Prefabs}{101}{subsection.927}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}Aufbau und Hirarchie des Inventar-Prefabs}{101}{subsubsection.928}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}User Gaze in AR-Anwendungen}{102}{subsubsection.934}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}Der Inventory Placement Controller}{102}{subsubsection.935}%
+\contentsline {subsubsection}{\numberline {4.5.3.4}Implementierung des User Gazes}{103}{subsubsection.937}%
+\contentsline {subsubsection}{\numberline {4.5.3.5}Platzierungskontrolle und ARPlane-Überwachung}{104}{subsubsection.948}%
+\contentsline {subsubsection}{\numberline {4.5.3.6}Platzierung des Prefabs}{106}{subsubsection.985}%
+\contentsline {subsubsection}{\numberline {4.5.3.7}Visualisierung des Platzierungsablaufs}{106}{subsubsection.1002}%
+\contentsline {subsection}{\numberline {4.5.4}Inventarverwaltung}{107}{subsection.1004}%
+\contentsline {subsubsection}{\numberline {4.5.4.1}Der Inventory Controller}{108}{subsubsection.1005}%
+\contentsline {subsubsection}{\numberline {4.5.4.2}Begrenzungen eines Objekts}{109}{subsubsection.1007}%
+\contentsline {subsubsection}{\numberline {4.5.4.3}Problem bei Standardbegrenzungen}{109}{subsubsection.1012}%
+\contentsline {subsubsection}{\numberline {4.5.4.4}Erweitern der Standardbegrenzungen}{110}{subsubsection.1013}%
+\contentsline {subsubsection}{\numberline {4.5.4.5}Erkennen hinzugefügter oder entfernter Gegenstände}{112}{subsubsection.1039}%
+\contentsline {subsubsection}{\numberline {4.5.4.6}Zustände des Inventars aus der Sicht Benutzers}{114}{subsubsection.1081}%
+\contentsline {subsection}{\numberline {4.5.5}EventManager}{117}{subsection.1088}%
+\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{119}{subsection.1129}%
+\contentsline {subsubsection}{\numberline {4.5.6.1}Problemstellung}{120}{subsubsection.1130}%
+\contentsline {subsubsection}{\numberline {4.5.6.2}Typen des Knapsack-Problems}{120}{subsubsection.1131}%
+\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{121}{subsubsection.1140}%
+\contentsline {subsubsection}{\numberline {4.5.6.4}Ansätze zur Lösung des Knapsack-Problems}{122}{subsubsection.1151}%
+\contentsline {subsubsection}{\numberline {4.5.6.5}Dynamischer Programmieransatz}{123}{subsubsection.1153}%
+\contentsline {subsubsection}{\numberline {4.5.6.6}Greedy-Ansatz}{125}{subsubsection.1175}%
+\contentsline {subsubsection}{\numberline {4.5.6.7}Anwendungen des Knapsack-Problems}{126}{subsubsection.1202}%
+\contentsline {subsubsection}{\numberline {4.5.6.8}Auswahl des Implementierungsansatzes}{127}{subsubsection.1207}%
+\contentsline {subsubsection}{\numberline {4.5.6.9}Auswahl der Variante und Typ des Problems}{128}{subsubsection.1212}%
+\contentsline {subsubsection}{\numberline {4.5.6.10}Der Knapsack Solver}{128}{subsubsection.1213}%
+\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{129}{subsubsection.1215}%
+\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des zusammengestellten Rucksacks}{131}{subsubsection.1268}%
+\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{132}{subsection.1288}%
+\contentsline {subsubsection}{\numberline {4.5.7.1}Aufbau und Hirarchie des best Solution Prefabs}{132}{subsubsection.1289}%
+\contentsline {subsubsection}{\numberline {4.5.7.2}Das Best Solution Prefab}{133}{subsubsection.1293}%
+\contentsline {subsubsection}{\numberline {4.5.7.3}Auslöser des Skripts}{133}{subsubsection.1295}%
+\contentsline {subsubsection}{\numberline {4.5.7.4}Start des Perfect Solution Visualizer}{134}{subsubsection.1297}%
+\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab der perfekten Lösung platzieren}{135}{subsubsection.1313}%
+\contentsline {subsubsection}{\numberline {4.5.7.6}Prefab füllen}{135}{subsubsection.1321}%
+\contentsline {subsubsection}{\numberline {4.5.7.7}Zustand nach Knopfdruck}{136}{subsubsection.1342}%
+\contentsline {section}{\numberline {4.6}Performance und Qualitätssicherung}{137}{section.1344}%
+\contentsline {subsection}{\numberline {4.6.1}Unity Test Framework}{138}{subsection.1345}%
+\contentsline {subsubsection}{\numberline {4.6.1.1} Test-Runner}{138}{subsubsection.1347}%
+\contentsline {subsection}{\numberline {4.6.2} AAA-Schema}{138}{subsection.1349}%
+\contentsline {subsection}{\numberline {4.6.3}Testfälle}{139}{subsection.1351}%
+\contentsline {subsubsection}{\numberline {4.6.3.1}Aufbau eines einzelnen Testfalls}{140}{subsubsection.1373}%
+\contentsline {subsubsection}{\numberline {4.6.3.2}Testen von Einzelgegenständen im Rucksack}{140}{subsubsection.1388}%
+\contentsline {subsubsection}{\numberline {4.6.3.3}Testen von mehreren Gegenständen im Rucksack}{141}{subsubsection.1407}%
+\contentsline {subsubsection}{\numberline {4.6.3.4}Performance-Messung}{142}{subsubsection.1431}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{146}{chapter.1510}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{146}{section.1511}%
+\contentsline {section}{\numberline {5.2}Abnahme}{146}{section.1512}%
+\contentsline {section}{\numberline {5.3}Zukunft}{147}{section.1513}%
+\contentsline {chapter}{\numberline {A}Mockups}{148}{appendix.1514}%
+\contentsline {section}{\numberline {A.1}Hauptmenu}{148}{section.1515}%
+\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{149}{section.1517}%
+\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{150}{section.1519}%
+\contentsline {chapter}{\numberline {B}Abläufe}{151}{appendix.1521}%
+\contentsline {section}{\numberline {B.1}Hauptmenu}{151}{section.1522}%
+\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{152}{section.1524}%
+\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{153}{section.1526}%
+\contentsline {chapter}{\numberline {C}Literatur}{154}{appendix.1528}%
+\contentsline {chapter}{Index}{161}{appendix.1528}%
+\contentsline {chapter}{Literatur}{161}{appendix.1528}%
