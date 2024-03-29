@@ -1,10 +1,10 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Eidesstattliche Erklärung}{i}{chapter*.1}%
-\contentsline {chapter}{Vorwort}{vii}{chapter*.3}%
-\contentsline {chapter}{Diplomarbeit Dokumentation}{viii}{chapter*.4}%
-\contentsline {chapter}{Diploma Thesis Documentation}{x}{chapter*.5}%
-\contentsline {chapter}{Kurzfassung}{xii}{chapter*.6}%
-\contentsline {chapter}{Abstract}{xiii}{chapter*.7}%
+\contentsline {chapter}{Vorwort}{v}{chapter*.3}%
+\contentsline {chapter}{Diplomarbeit Dokumentation}{vi}{chapter*.4}%
+\contentsline {chapter}{Diploma Thesis Documentation}{viii}{chapter*.5}%
+\contentsline {chapter}{Kurzfassung}{x}{chapter*.6}%
+\contentsline {chapter}{Abstract}{xi}{chapter*.7}%
 \babel@toc {english}{}\relax 
 \babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.8}%
@@ -68,147 +68,18 @@
 \contentsline {subsection}{\numberline {4.1.3}Deployment der Anwendung}{31}{subsection.150}%
 \contentsline {subsubsection}{\numberline {4.1.3.1}Voraussetzungen für das Deployment}{31}{subsubsection.151}%
 \contentsline {subsubsection}{\numberline {4.1.3.2}Deployment-Prozess}{31}{subsubsection.152}%
-\contentsline {subsubsection}{\numberline {4.1.3.3}Erstmaliges Deployment}{34}{subsubsection.160}%
-\contentsline {section}{\numberline {4.2}Objektdesign}{34}{section.161}%
-\contentsline {subsection}{\numberline {4.2.1}Texturen}{34}{subsection.162}%
-\contentsline {subsubsection}{\numberline {4.2.1.1}Bild-Texturen in der 3D-Modellierung}{34}{subsubsection.165}%
-\contentsline {subsection}{\numberline {4.2.2}Mesh}{35}{subsection.169}%
-\contentsline {subsection}{\numberline {4.2.3}Rolle von Polygonen in einem Modell}{36}{subsection.173}%
-\contentsline {subsection}{\numberline {4.2.4}Optimierung der einzelnen Modelle}{36}{subsection.176}%
-\contentsline {subsubsection}{\numberline {4.2.4.1}Polygonreduktion}{36}{subsubsection.178}%
-\contentsline {subsubsection}{\numberline {4.2.4.2}Texturenoptimierung}{37}{subsubsection.182}%
-\contentsline {subsection}{\numberline {4.2.5}Export- und Integrationsprozess}{37}{subsection.183}%
-\contentsline {subsubsection}{\numberline {4.2.5.1}Dateiformat}{38}{subsubsection.185}%
-\contentsline {subsubsection}{\numberline {4.2.5.2}Koordinatensysteme}{38}{subsubsection.188}%
-\contentsline {subsection}{\numberline {4.2.6}Add-Ons und Plugins}{39}{subsection.189}%
-\contentsline {subsubsection}{\numberline {4.2.6.1}Looptools: Optimierung von Topologie und Oberflächen}{39}{subsubsection.190}%
-\contentsline {subsubsection}{\numberline {4.2.6.2}Images as Planes: Effiziente Integration von Texturen}{39}{subsubsection.193}%
-\contentsline {subsection}{\numberline {4.2.7}Modi}{40}{subsection.195}%
-\contentsline {subsubsection}{\numberline {4.2.7.1}Object-Modus}{40}{subsubsection.197}%
-\contentsline {subsubsection}{\numberline {4.2.7.2}Edit-Modus}{40}{subsubsection.198}%
-\contentsline {subsubsection}{\numberline {4.2.7.3}Texture-Paint-Modus}{40}{subsubsection.199}%
-\contentsline {subsection}{\numberline {4.2.8}Hierarchie}{40}{subsection.200}%
-\contentsline {subsection}{\numberline {4.2.9}Modifier}{41}{subsection.203}%
-\contentsline {subsection}{\numberline {4.2.10}Modellierung von Gegenständen für das Projekt}{42}{subsection.212}%
-\contentsline {subsubsection}{\numberline {4.2.10.1}Taschenrechner}{43}{subsubsection.213}%
-\contentsline {subsubsection}{\numberline {4.2.10.2}Restliche Modelle}{48}{subsubsection.232}%
-\contentsline {section}{\numberline {4.3}Hauptmenü}{50}{section.247}%
-\contentsline {subsection}{\numberline {4.3.1}Erstentwurf}{50}{subsection.248}%
-\contentsline {subsubsection}{\numberline {4.3.1.1}Probleme beim Erstentwurf}{52}{subsubsection.252}%
-\contentsline {subsection}{\numberline {4.3.2}Finalversion des Menüs}{53}{subsection.255}%
-\contentsline {subsubsection}{\numberline {4.3.2.1}Finalversion Menü - Hauptmenü}{53}{subsubsection.256}%
-\contentsline {subsubsection}{\numberline {4.3.2.2}Finalversion Menü - Anwendungsszenario}{55}{subsubsection.260}%
-\contentsline {subsubsection}{\numberline {4.3.2.3}Setzen des Menüs}{55}{subsubsection.262}%
-\contentsline {subsection}{\numberline {4.3.3}Laden der Level}{56}{subsection.274}%
-\contentsline {subsection}{\numberline {4.3.4}UI/UX}{57}{subsection.287}%
-\contentsline {section}{\numberline {4.4}Nachrichtenaustausch Anwendungsszenario}{57}{section.288}%
-\contentsline {subsection}{\numberline {4.4.1}Aufbau von Nachrichtenaustausch Anwendungsszenario}{58}{subsection.289}%
-\contentsline {subsection}{\numberline {4.4.2}Text Mesh Pro}{60}{subsection.292}%
-\contentsline {subsection}{\numberline {4.4.3}Transform Klasse}{60}{subsection.294}%
-\contentsline {subsection}{\numberline {4.4.4}IEnumerator Klasse}{60}{subsection.296}%
-\contentsline {subsection}{\numberline {4.4.5}Coroutines}{60}{subsection.299}%
-\contentsline {subsection}{\numberline {4.4.6}Start der Szene}{62}{subsection.340}%
-\contentsline {subsection}{\numberline {4.4.7}Kabelerkennung}{63}{subsection.384}%
-\contentsline {subsection}{\numberline {4.4.8}Fotoaufnahme}{64}{subsection.385}%
-\contentsline {subsubsection}{\numberline {4.4.8.1}Photocapture Klasse}{64}{subsubsection.386}%
-\contentsline {subsubsection}{\numberline {4.4.8.2}Unity Canvas}{64}{subsubsection.388}%
-\contentsline {subsubsection}{\numberline {4.4.8.3}Foto der Umgebung aufnehmen}{65}{subsubsection.391}%
-\contentsline {subsection}{\numberline {4.4.9}Ladesymbol}{66}{subsection.427}%
-\contentsline {subsection}{\numberline {4.4.10}Fotoverarbeitung}{66}{subsection.441}%
-\contentsline {subsubsection}{\numberline {4.4.10.1}Unity Job System}{66}{subsubsection.442}%
-\contentsline {subsubsection}{\numberline {4.4.10.2}Vector2 Klasse}{67}{subsubsection.444}%
-\contentsline {subsubsection}{\numberline {4.4.10.3}Pixel Positionen finden}{67}{subsubsection.446}%
-\contentsline {subsubsection}{\numberline {4.4.10.4}Kabel finden}{68}{subsubsection.485}%
-\contentsline {subsection}{\numberline {4.4.11}Erstellen und Bewegung des Paketes}{70}{subsection.529}%
-\contentsline {subsubsection}{\numberline {4.4.11.1}Definition eines Rays}{70}{subsubsection.530}%
-\contentsline {subsubsection}{\numberline {4.4.11.2}TrackableType Klasse}{70}{subsubsection.531}%
-\contentsline {subsubsection}{\numberline {4.4.11.3}ARRaycastHit Klasse}{71}{subsubsection.533}%
-\contentsline {subsubsection}{\numberline {4.4.11.4}Entfernung messen}{71}{subsubsection.535}%
-\contentsline {subsubsection}{\numberline {4.4.11.5}Erstellung und Positionierung des Paketes}{73}{subsubsection.567}%
-\contentsline {subsubsection}{\numberline {4.4.11.6}Bewegung des Paketes}{74}{subsubsection.604}%
-\contentsline {subsection}{\numberline {4.4.12}Anzeigen von Informationen der Nachricht}{75}{subsection.636}%
-\contentsline {subsection}{\numberline {4.4.13}Andere Versuche / Probleme bei der Programmierung}{76}{subsection.666}%
-\contentsline {subsubsection}{\numberline {4.4.13.1}Kabelerkennung Version 1}{76}{subsubsection.667}%
-\contentsline {subsection}{\numberline {4.4.14}Debugging Optionen}{77}{subsection.692}%
-\contentsline {subsubsection}{\numberline {4.4.14.1}Anzeigen der Kabelerkennung}{77}{subsubsection.693}%
-\contentsline {subsubsection}{\numberline {4.4.14.2}Debug Funktion von Raycasts}{78}{subsubsection.694}%
-\contentsline {subsubsection}{\numberline {4.4.14.3}Debug Funktion der Kamerabenutzung}{78}{subsubsection.700}%
-\contentsline {subsection}{\numberline {4.4.15}Starten und Nutzen der Webseite}{79}{subsection.729}%
-\contentsline {subsubsection}{\numberline {4.4.15.1}Webseite starten}{79}{subsubsection.730}%
-\contentsline {subsubsection}{\numberline {4.4.15.2}CORS}{81}{subsubsection.736}%
-\contentsline {subsection}{\numberline {4.4.16}Frontend der Webseite}{83}{subsection.745}%
-\contentsline {subsubsection}{\numberline {4.4.16.1}Designprozess}{83}{subsubsection.746}%
-\contentsline {subsubsection}{\numberline {4.4.16.2}Verwendete Programmiersprachen}{85}{subsubsection.753}%
-\contentsline {subsubsection}{\numberline {4.4.16.3}Funktionen der Webseite}{86}{subsubsection.763}%
-\contentsline {subsection}{\numberline {4.4.17}Backend der Webseite}{87}{subsection.786}%
-\contentsline {subsubsection}{\numberline {4.4.17.1}Protokoll zur Datenübertragung}{87}{subsubsection.787}%
-\contentsline {subsubsection}{\numberline {4.4.17.2}Bearbeitung von Anfragen}{88}{subsubsection.789}%
-\contentsline {section}{\numberline {4.5}Knapsack Problem Anwendungsszenario}{88}{section.790}%
-\contentsline {subsection}{\numberline {4.5.1}Knapsack-Problem Szenrio Hirarchie}{89}{subsection.791}%
-\contentsline {subsection}{\numberline {4.5.2}Nutzung von QR-Codes}{90}{subsection.793}%
-\contentsline {subsubsection}{\numberline {4.5.2.1}Struktur und Inhalt eines QR-Codes}{91}{subsubsection.794}%
-\contentsline {subsubsection}{\numberline {4.5.2.2}QR-Code-Tracking}{92}{subsubsection.824}%
-\contentsline {subsubsection}{\numberline {4.5.2.3}Interaktion mit QR-Codes}{94}{subsubsection.828}%
-\contentsline {subsubsection}{\numberline {4.5.2.4}Positionsbestimmung von QR-Codes}{94}{subsubsection.830}%
-\contentsline {subsubsection}{\numberline {4.5.2.5}Ersetzen der QR-Codes durch Objekte in der virtuellen Realität}{95}{subsubsection.831}%
-\contentsline {subsubsection}{\numberline {4.5.2.6} Spatial Graph Node}{99}{subsubsection.916}%
-\contentsline {subsubsection}{\numberline {4.5.2.7}Zugriff auf QR-Codes bereitstellen}{99}{subsubsection.918}%
-\contentsline {subsection}{\numberline {4.5.3}Platzieren des Inventar Prefabs}{100}{subsection.920}%
-\contentsline {subsubsection}{\numberline {4.5.3.1}Aufbau und Hirarchie des Inventar-Prefabs}{100}{subsubsection.921}%
-\contentsline {subsubsection}{\numberline {4.5.3.2}User Gaze in AR-Anwendungen}{101}{subsubsection.927}%
-\contentsline {subsubsection}{\numberline {4.5.3.3}Der Inventory Placement Controller}{101}{subsubsection.928}%
-\contentsline {subsubsection}{\numberline {4.5.3.4}Implementierung des User Gazes}{102}{subsubsection.930}%
-\contentsline {subsubsection}{\numberline {4.5.3.5}Platzierungskontrolle und ARPlane-Überwachung}{103}{subsubsection.941}%
-\contentsline {subsubsection}{\numberline {4.5.3.6}Platzierung des Prefabs}{105}{subsubsection.978}%
-\contentsline {subsubsection}{\numberline {4.5.3.7}Visualisierung des Platzierungsablaufs}{105}{subsubsection.995}%
-\contentsline {subsection}{\numberline {4.5.4}Inventarverwaltung}{106}{subsection.997}%
-\contentsline {subsubsection}{\numberline {4.5.4.1}Der Inventory Controller}{107}{subsubsection.998}%
-\contentsline {subsubsection}{\numberline {4.5.4.2}Begrenzungen eines Objekts}{108}{subsubsection.1000}%
-\contentsline {subsubsection}{\numberline {4.5.4.3}Problem bei Standardbegrenzungen}{108}{subsubsection.1005}%
-\contentsline {subsubsection}{\numberline {4.5.4.4}Erweitern der Standardbegrenzungen}{109}{subsubsection.1006}%
-\contentsline {subsubsection}{\numberline {4.5.4.5}Erkennen hinzugefügter oder entfernter Gegenstände}{111}{subsubsection.1032}%
-\contentsline {subsubsection}{\numberline {4.5.4.6}Zustände des Inventars aus der Sicht Benutzers}{113}{subsubsection.1074}%
-\contentsline {subsection}{\numberline {4.5.5}EventManager}{116}{subsection.1081}%
-\contentsline {subsection}{\numberline {4.5.6}Das Knapsack Problem}{118}{subsection.1122}%
-\contentsline {subsubsection}{\numberline {4.5.6.1}Problemstellung}{119}{subsubsection.1123}%
-\contentsline {subsubsection}{\numberline {4.5.6.2}Typen des Knapsack-Problems}{119}{subsubsection.1124}%
-\contentsline {subsubsection}{\numberline {4.5.6.3}Variationen des Knapsack-Problems}{120}{subsubsection.1133}%
-\contentsline {subsubsection}{\numberline {4.5.6.4}Ansätze zur Lösung des Knapsack-Problems}{121}{subsubsection.1144}%
-\contentsline {subsubsection}{\numberline {4.5.6.5}Dynamischer Programmieransatz}{122}{subsubsection.1146}%
-\contentsline {subsubsection}{\numberline {4.5.6.6}Greedy-Ansatz}{124}{subsubsection.1168}%
-\contentsline {subsubsection}{\numberline {4.5.6.7}Anwendungen des Knapsack-Problems}{125}{subsubsection.1195}%
-\contentsline {subsubsection}{\numberline {4.5.6.8}Auswahl des Implementierungsansatzes}{126}{subsubsection.1200}%
-\contentsline {subsubsection}{\numberline {4.5.6.9}Auswahl der Variante und Typ des Problems}{127}{subsubsection.1205}%
-\contentsline {subsubsection}{\numberline {4.5.6.10}Der Knapsack Solver}{127}{subsubsection.1206}%
-\contentsline {subsubsection}{\numberline {4.5.6.11}Knapsack-Algorithmus Implementierung}{128}{subsubsection.1208}%
-\contentsline {subsubsection}{\numberline {4.5.6.12}Berechnung des zusammengestellten Rucksacks}{130}{subsubsection.1261}%
-\contentsline {subsection}{\numberline {4.5.7}Anzeigen der perfekten Lösung}{131}{subsection.1281}%
-\contentsline {subsubsection}{\numberline {4.5.7.1}Aufbau und Hirarchie des best Solution Prefabs}{131}{subsubsection.1282}%
-\contentsline {subsubsection}{\numberline {4.5.7.2}Das Best Solution Prefab}{132}{subsubsection.1286}%
-\contentsline {subsubsection}{\numberline {4.5.7.3}Auslöser des Skripts}{132}{subsubsection.1288}%
-\contentsline {subsubsection}{\numberline {4.5.7.4}Start des Perfect Solution Visualizer}{133}{subsubsection.1290}%
-\contentsline {subsubsection}{\numberline {4.5.7.5}Prefab der perfekten Lösung platzieren}{134}{subsubsection.1306}%
-\contentsline {subsubsection}{\numberline {4.5.7.6}Prefab füllen}{134}{subsubsection.1314}%
-\contentsline {subsubsection}{\numberline {4.5.7.7}Zustand nach Knopfdruck}{135}{subsubsection.1335}%
-\contentsline {section}{\numberline {4.6}Performance und Qualitätssicherung}{136}{section.1337}%
-\contentsline {subsection}{\numberline {4.6.1}Unity Test Framework}{137}{subsection.1338}%
-\contentsline {subsubsection}{\numberline {4.6.1.1} Test-Runner}{137}{subsubsection.1339}%
-\contentsline {subsection}{\numberline {4.6.2} AAA-Schema}{137}{subsection.1341}%
-\contentsline {subsection}{\numberline {4.6.3}Testfälle}{138}{subsection.1343}%
-\contentsline {subsubsection}{\numberline {4.6.3.1}Aufbau eines einzelnen Testfalls}{139}{subsubsection.1364}%
-\contentsline {subsubsection}{\numberline {4.6.3.2}Testen von Einzelgegenständen im Rucksack}{139}{subsubsection.1379}%
-\contentsline {subsubsection}{\numberline {4.6.3.3}Testen von mehreren Gegenständen im Rucksack}{140}{subsubsection.1398}%
-\contentsline {subsubsection}{\numberline {4.6.3.4}Performance-Messung}{141}{subsubsection.1422}%
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{145}{chapter.1501}%
-\contentsline {section}{\numberline {5.1}Ergebnis}{145}{section.1502}%
-\contentsline {section}{\numberline {5.2}Abnahme}{145}{section.1503}%
-\contentsline {section}{\numberline {5.3}Zukunft}{146}{section.1504}%
-\contentsline {chapter}{\numberline {A}Mockups}{147}{appendix.1505}%
-\contentsline {section}{\numberline {A.1}Hauptmenu}{147}{section.1506}%
-\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{148}{section.1508}%
-\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{149}{section.1510}%
-\contentsline {chapter}{\numberline {B}Abläufe}{150}{appendix.1512}%
-\contentsline {section}{\numberline {B.1}Hauptmenu}{150}{section.1513}%
-\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{151}{section.1515}%
-\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{152}{section.1517}%
-\contentsline {chapter}{\numberline {C}Literatur}{153}{appendix.1519}%
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Abschluss}{34}{chapter.161}%
+\contentsline {section}{\numberline {5.1}Ergebnis}{34}{section.162}%
+\contentsline {section}{\numberline {5.2}Abnahme}{34}{section.163}%
+\contentsline {section}{\numberline {5.3}Zukunft}{35}{section.164}%
+\contentsline {chapter}{\numberline {A}Mockups}{36}{appendix.165}%
+\contentsline {section}{\numberline {A.1}Hauptmenu}{36}{section.166}%
+\contentsline {section}{\numberline {A.2}Nachrichtenaustausch Anwendungsszenario}{37}{section.168}%
+\contentsline {section}{\numberline {A.3}Knappsack-Problem Anwendungsszenario}{38}{section.170}%
+\contentsline {chapter}{\numberline {B}Abläufe}{39}{appendix.172}%
+\contentsline {section}{\numberline {B.1}Hauptmenu}{39}{section.173}%
+\contentsline {section}{\numberline {B.2}Nachrichtenaustausch Anwendungsszenario}{40}{section.175}%
+\contentsline {section}{\numberline {B.3}Knapsack-Problem Anwendungsszenario}{41}{section.177}%
+\contentsline {chapter}{\numberline {C}Literatur}{42}{appendix.179}%
+\contentsline {chapter}{Index}{49}{appendix.179}%
+\contentsline {chapter}{Literatur}{49}{appendix.179}%

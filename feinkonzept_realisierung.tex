@@ -16,13 +16,14 @@
     morekeywords=[2]
         {ARRaycastManager, ARPlaneManager, GameObject, InventoryController, Vector3, ARPlane, Ray, RaycastHit, GetComponent, MeshRenderer, Quaternion},
     morekeywords=[3]
-        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, StopAllCurrentCoroutines, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, },
+        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, StopAllCurrentCoroutines, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory},
     morekeywords=[4]
         {+, -, /, *, !, =, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null, true, false}, % Define symbols as keywords
     morecomment=[l]{//},
     morecomment=[s]{/*}{*/},
     morestring=[b]",
-    sensitive=true
+    sensitive=true,
+    alsoletter={_}
 }
 
 \lstdefinelanguage{JavaScript}{
@@ -307,7 +308,7 @@ der HoloLens 2 ausgeführt werden können. \footnote{Microsoft-Dokumentation, \c
 Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settings} dargestellt. Besonders relevant sind dabei die Einstellungen für die \textit{Architektur} und die \textit{Build-Konfiguration}. Die
 Architektur wird entsprechend der HoloLens 2 auf ARM 64-Bit festgelegt. Die Build-Konfiguration sollte auf \textit{Release} eingestellt werden. Der Grund dafür ist die voreingestellte \textit{Build-Konfiguration} von
 Unity, die eine Kompatibilität mit der HoloLens 2 gewährleistet. Die übrigen Optionen sollten entsprechend den Vorgaben in der Abbildung beibehalten werden. Diese Einstellungen sind wichtig, um in den nächsten Schritten
-eine funktionierende Übertragung zu garantieren. \footnote{Microsoft-Dokumentation, \cite{Build-Tutorial}} \footnote{Microsoft-Dokumentation, \cite{Visual-Studio-Build-Settings}
+eine funktionierende Übertragung zu garantieren. \footnote{Microsoft-Dokumentation, \cite{Build-Tutorial}} \footnote{Microsoft-Dokumentation, \cite{Visual-Studio-Build-Settings}}
 % TODO: QUELLE
 % https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-7-exercise-hand-interaction-with-objectmanipulator
 % https://learn.microsoft.com/de-de/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2
