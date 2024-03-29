@@ -297,11 +297,17 @@ Die Entwicklung und Bereitstellung einer Anwendung für die HoloLens 2 unter Ver
 \subsubsection*{Kompilierung und Build-Einstellungen in Unity}
 Dieser Prozess findet auf dem Computer statt, auf dem sich das Unity-Build-Projekt befindet, und kann über das Tastenkürzel \textbf{Strg + Umschalt + B} aufgerufen werden, um die Build-Einstellungen in Unity zu öffnen.
 
-In den Build-Einstellungen wird die Zielplattform festgelegt, auf die die Anwendung bereitgestellt werden soll. Für die HoloLens 2 ist die \textit{Universal Windows Platform (UWP)} die geeignete Zielplattform aufgrund ihrer Kompatibilität mit diesem Gerät. Die UWP ermöglicht die Entwicklung von Anwendungen, die auf verschiedenen Windows 10/11-Geräten einschließlich der HoloLens 2 ausgeführt werden können.
+In den Build-Einstellungen wird die Zielplattform festgelegt, auf die die Anwendung bereitgestellt werden soll. Für die
+HoloLens 2 ist die \textit{Universal Windows Platform (UWP)} die geeignete Zielplattform aufgrund ihrer Kompatibilität mit
+diesem Gerät. Die UWP ermöglicht die Entwicklung von Anwendungen, die auf verschiedenen Windows 10/11-Geräten einschließlich
+der HoloLens 2 ausgeführt werden können. \footnote{Microsoft-Dokumentation, \cite{Universal Windows Platform (UWP)}}
 % TODO: QUELLE
 % https://learn.microsoft.com/en-us/windows/apps/design/devices/designing-for-mr#overview
 
-Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settings} dargestellt. Besonders relevant sind dabei die Einstellungen für die \textit{Architektur} und die \textit{Build-Konfiguration}. Die Architektur wird entsprechend der HoloLens 2 auf ARM 64-Bit festgelegt. Die Build-Konfiguration sollte auf \textit{Release} eingestellt werden. Der Grund dafür ist die voreingestellte \textit{Build-Konfiguration} von Unity, die eine Kompatibilität mit der HoloLens 2 gewährleistet. Die übrigen Optionen sollten entsprechend den Vorgaben in der Abbildung beibehalten werden. Diese Einstellungen sind wichtig, um in den nächsten Schritten eine funktionierende Übertragung zu garantieren.
+Es gibt verschiedene Build-Einstellungen, wie in Abbildung \ref{fig:build-settings} dargestellt. Besonders relevant sind dabei die Einstellungen für die \textit{Architektur} und die \textit{Build-Konfiguration}. Die
+Architektur wird entsprechend der HoloLens 2 auf ARM 64-Bit festgelegt. Die Build-Konfiguration sollte auf \textit{Release} eingestellt werden. Der Grund dafür ist die voreingestellte \textit{Build-Konfiguration} von
+Unity, die eine Kompatibilität mit der HoloLens 2 gewährleistet. Die übrigen Optionen sollten entsprechend den Vorgaben in der Abbildung beibehalten werden. Diese Einstellungen sind wichtig, um in den nächsten Schritten
+eine funktionierende Übertragung zu garantieren. \footnote{Microsoft-Dokumentation, \cite{Build-Tutorial}} \footnote{Microsoft-Dokumentation, \cite{Visual-Studio-Build-Settings}
 % TODO: QUELLE
 % https://learn.microsoft.com/en-us/training/modules/learn-mrtk-tutorials/1-7-exercise-hand-interaction-with-objectmanipulator
 % https://learn.microsoft.com/de-de/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2
@@ -320,11 +326,15 @@ Nach einem erfolgreichen Build erhalten Sie einen Ordner mit den benötigten Dat
 
 Der nächste Schritt in dieser Visual Studio Solution, hier als \textit{AARIE.sln} bezeichnet, umfasst die Vorbereitung der Umgebung für die Bereitstellung auf AR-fähigen Geräten.
 
-Visual Studio ist eine von Microsoft entwickelte integrierte Entwicklungsumgebung (IDE), die hauptsächlich für die Softwareentwicklung verwendet wird. Innerhalb von Visual Studio können Entwickler Code schreiben, debuggen, testen und – in diesem speziellen Anwendungsfall – bereitstellen. %TODO: Quelle https://visualstudio.microsoft.com/de/
+Visual Studio ist eine von Microsoft entwickelte integrierte Entwicklungsumgebung (IDE), die hauptsächlich für die
+Softwareentwicklung verwendet wird. Innerhalb von Visual Studio können Entwickler Code schreiben, debuggen, testen
+und – in diesem speziellen Anwendungsfall – bereitstellen. \footnote{Microsoft-Homepage, \cite{Visual-Studio}
+
+%TODO: Quelle https://visualstudio.microsoft.com/de/
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{images/vsToolbar}
+    \includegraphics[scale=0.6]{images/toolbar}
     \caption{Toolbar – hier muessen die Einstellungen vorgenommen werden}
     \label{fig:vstoolbar}
 \end{figure}
@@ -1635,7 +1645,10 @@ Informationen zu CORS finden Sie im Abschnitt \ref{sec:cors}.
 
 Der vollständige Befehl lautet dann: \textit{http-server -c-1 --cors index.html}.
 
-In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, dass der http-server darauf eingestellt ist, die Datei \textit{index.html} zu liefern, wenn die Wurzel-URL des Servers aufgerufen wird. Der Server wird den Inhalt dieser Datei dem Client zurückgeben, der die Anfrage gestellt hat. Wie bereits erwähnt ist der gesamte Inhalt der Webseite in dieser Datei enthalten, da es sich um eine einfache \textiit{Single-Page-Applikation (SPA)} handelt. %TODO: Quelle https://www.bloomreach.com/en/blog/2018/what-is-a-single-page-application
+In dem gegebenen Befehl wird index.html als Argument übergeben. Dies bedeutet, dass der http-server darauf eingestellt ist, die Datei \textit{index.html} zu liefern, wenn die Wurzel-URL des Servers aufgerufen wird. Der Server wird den Inhalt dieser Datei dem Client zurückgeben, der die Anfrage gestellt hat. Wie bereits erwähnt ist der gesamte Inhalt der Webseite in dieser Datei enthalten, da es sich um eine
+einfache \textiit{Single-Page-Applikation (SPA)} handelt. \footnote{Bloomreach \cite{SPA}}
+
+%TODO: Quelle https://www.bloomreach.com/en/blog/2018/what-is-a-single-page-application
 
 Der Server wird standardmäßig auf dem Port 8080 gestartet. Falls ein anderer Port gewünscht ist, kann dieser mit dem Flag \textit{-p} und der gewünschten Portnummer geändert werden.
 
@@ -1661,7 +1674,6 @@ Um die Webseite erfolgreich zu verwenden, ist es zunächst erforderlich, die IP-
 \end{minipage}
 \end{figure}
 
-%TODO Bild Aktualisieren mit combobo
 Um die Webseite in diesem Szenario mit zwei Geräten zu nutzen, ist es erforderlich, die Seite des Kabels festzulegen, an der sich das aktuelle Gerät befindet. Dies gewährleistet eine korrekte Simulation der Nachrichten in der virtuellen Umgebung. In der Dropdown-Liste, wie in Abbildung \ref{fig:websettings} dargestellt, kann zwischen \textit{Rechte Seite} und \textit{Linke Seite} gewählt werden, je nach Position des Trägers der Brille. Weitere Details zur Verarbeitung dieser Information sind im Abschnitt \ref{sec:webBackend} zu finden.
 
 Nach der erfolgreichen Konfiguration der Webseite können nun Nachrichten versendet werden.
@@ -2051,7 +2063,10 @@ Erfahrung trägt dazu bei, die Immersion des Benutzers zu verbessern und ihm ein
 zu ermöglichen. Zu diesem Zweck muss die Position der Bauklötze und damit auch der QR-Codes laufend getrackt werden, wie im Abschnitt \ref{sec:qrpos} beschrieben.
 
 \subsubsection{\label{sec:qrpos}Positionsbestimmung von QR-Codes}
-Um die räumliche Position eines QR-Codes exakt zu bestimmen, ist ein spezieller Prozess notwendig. Dieser Schritt ist entscheidend, um physische QR-Codes in der virtuellen Realität erfassen und mit ihnen interagieren zu können. Die Positionierung der QR-Codes erfolgt mithilfe einer Klasse namens \textit{QRWatcher}, die im SDK-Plug-in \textit{Microsoft.MixedReality.QR} enthalten ist. %TODO: https://learn.microsoft.com/de-de/windows/mixed-reality/develop/native/qr-code-tracking-cs-cpp
+Um die räumliche Position eines QR-Codes exakt zu bestimmen, ist ein spezieller Prozess notwendig. Dieser Schritt ist entscheidend, um physische QR-Codes in der virtuellen Realität erfassen und mit ihnen interagieren zu können. Die Positionierung der QR-Codes erfolgt mithilfe einer Klasse namens \textit{QRWatcher}, die
+im SDK-Plug-in \textit{Microsoft.MixedReality.QR} enthalten ist.\footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking-SDK
+
+%TODO: https://learn.microsoft.com/de-de/windows/mixed-reality/develop/native/qr-code-tracking-cs-cpp
 
 Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
 
@@ -3781,7 +3796,8 @@ Die Sicherstellung einer hohen Performance und Qualität in Softwareprojekten is
 
 \subsection{\label{sec:testFramework}Unity Test Framework}
 
-Das \textit{Unity Test Framework} stellt eine leistungsstarke Suite von Werkzeugen bereit, mit der Entwickler umfassende Tests für ihre Unity-Skripte schreiben und durchführen können. Von der Überprüfung von Variablen bis hin zur Validierung von erwarteten Ergebnissen bietet das Framework eine breite Palette von Funktionen, um die Qualität von Unity-Anwendungen zu gewährleisten.
+Das \textit{Unity Test Framework} stellt eine leistungsstarke Suite von Werkzeugen bereit, mit der Entwickler umfassende Tests für ihre Unity-Skripte schreiben und durchführen können. Von der Überprüfung von Variablen bis hin zur Validierung von erwarteten
+Ergebnissen bietet das Framework eine breite Palette von Funktionen, um die Qualität von Unity-Anwendungen zu gewährleisten. \footnote{Unity-Dokumentation \cite{UnityTestFramework}}
 %TODO: https://unity.com/how-to/automated-tests-unity-test-framework
 
 \subsubsection{\label{sec:testRunner} Test-Runner}
@@ -3845,7 +3861,10 @@ knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
 }
 \end{lstlisting}
 
-Wie ersichtlich ist, werden verschiedene \textit{Attribute} verwendet, die vom Unity Test Framework (\ref{sec:testFramework}) bereitgestellt werden. Diese Attribute haben bestimmte Zwecke und Funktionalitäten innerhalb des Testframeworks. Das \textit{TestFixture-Attribut} kennzeichnet die Klasse \textit{KnapsackSolverTests} als Testfixture, was dem Framework signalisiert, dass die Klasse Tests enthält, die ausgeführt werden sollen. Das \textit{SetUp-Attribut} bewirkt, dass vor jedem Test die Methode \textit{SetUp()} ausgeführt wird. Der Inhalt der SetUp-Methode stellt sicher, dass stets eine neue Instanz des \textit{KnapsackSolvers} (\ref{sec:moKnapsacksolver}) erstellt wird, wodurch die Funktionalität der Tests immer in einer sauberen Ausgangssituation getestet werden kann. %TODO: Quelle https://www.bytehide.com/blog/attributes-csharp
+Wie ersichtlich ist, werden verschiedene \textit{Attribute} verwendet, die vom Unity Test Framework (\ref{sec:testFramework}) bereitgestellt werden. Diese Attribute haben bestimmte Zwecke und Funktionalitäten innerhalb des Testframeworks. Das \textit{TestFixture-Attribut} kennzeichnet die Klasse \textit{KnapsackSolverTests} als Testfixture, was dem Framework signalisiert, dass die Klasse Tests enthält, die ausgeführt werden sollen. Das \textit{SetUp-Attribut} bewirkt, dass vor jedem Test die Methode \textit{SetUp()} ausgeführt wird. Der Inhalt der SetUp-Methode stellt sicher, dass stets eine neue Instanz des \textit{KnapsackSolvers} (\ref{sec:moKnapsacksolver}) erstellt wird, wodurch die Funktionalität der Tests immer in einer sauberen Ausgangssituation
+getestet werden kann. \footnote{Bytehide \cite{AttributesCSharp}}
+
+%TODO: Quelle https://www.bytehide.com/blog/attributes-csharp
 
 Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und ermöglicht es, dass die Tests isoliert und unabhängig voneinander ausgeführt werden können.
 
