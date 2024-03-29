@@ -807,22 +807,14 @@ Diese Funktionalität hat zum Ziel, die Benutzerinteraktion intuitiver und konte
 Beim Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü, jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen Moment und an der richtigen Stelle in der richtige Szene selbstständig instanzieren, deshalb wurde extra für diesen Fall das \textit{MenuSpawn.cs} Skript geschrieben.
 
 \begin{lstlisting}[style=csharp, caption=Menueinstanzierung bei Neuladen., label=code:spawnmenu]
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class SpawnPrefab : MonoBehaviour {
-    public GameObject menu;
-
-    void Start() {
-        SpawnPrefabMenu();
-    }
-
-    void SpawnPrefabMenu() {
-        Vector3 cameraPosition = Camera.main.transform.position;
-        Vector3 spawnPosition = new Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z + 1f);
-        Instantiate(menu, spawnPosition, Quaternion.identity);
-        menu.SetActive(true);
+public class MenuManager : MonoBehaviour{
+    public GameObject menuPrefab;
+    public Transform cameraPosition;
+    private void Awake(){
+        Vector3 newSpawnPoint = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z + 1);
+        menuPrefab.transform.position = newSpawnPoint;
+        menuPrefab.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        menuPrefab.SetActive(true);
     }
 }
 \end{lstlisting}
@@ -849,19 +841,16 @@ Szenen dynamisch anzupassen, ohne dass Änderungen am eigentlichen Skript vorgen
 effiziente Verwaltung und Anpassung der Spielinhalte während des Entwicklungsprozesses.
 
 \begin{lstlisting}[style=csharp, caption=Auf Knopfdruck Szene wechseln., label=code:scenechange]
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class SceneChanger : MonoBehaviour {
+public class SceneChanger : MonoBehaviour{
     public string sceneToLoad;
-
-    public void ChangeScene() {
-        if(SceneManager.GetActiveScene().name != sceneToLoad) {
+    public void ChangeScene(){
+        if (SceneManager.GetActiveScene().name != sceneToLoad){
             PlayerPrefs.DeleteAll();
             SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
         }
     }
 }
+
 \end{lstlisting}
 
 Das vorliegende Skript hat eine vergleichsweise einfache Struktur. Die Variable \texttt{public string sceneToLoad} dient als Empfänger für den Namen der zu ladenden Szene, welcher im Unity-Inspector individuell für jede Szene festgelegt werden kann. Um den Szenenwechsel zu initiieren, wird die Methode \texttt{ChangeScene()} aufgerufen. Zunächst wird in dieser Methode geprüft, ob die aktive Szene, die durch \texttt{SceneManager.GetActiveScene()} ermittelt wird, mit der zu ladenden Szene übereinstimmt. Falls dies nicht der Fall ist, werden alle gespeicherten PlayerPrefabs mittels \texttt{PlayerPrefs.DeleteAll()} gelöscht. Dieser Schritt ist von entscheidender Bedeutung, um potenzielle Komplikationen im Zusammenhang mit dem HoloLens-Cache während des Szenenwechsels zu vermeiden.
