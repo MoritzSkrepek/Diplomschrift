@@ -1577,6 +1577,12 @@ Debug.Log("Ray hit position: " + hit.pose.position);
 Spielobjekt instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
 }
 \end{lstlisting}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\linewidth]{images/RaycastDebug.jpg}
+\caption{Raycast debug Visualisierung Beispiel}
+\label{fig:RaycastDebugVisualisierung}
+\end{figure}
 \subsubsection{Debug Funktion der Kamerabenutzung}
 Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung korrekt auf die Kamera zugreift und die richtige Bildauflösung erhält.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
