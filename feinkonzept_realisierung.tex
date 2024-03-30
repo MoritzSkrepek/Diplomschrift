@@ -892,47 +892,54 @@ Es ist wichtig zu betonen, dass eine solche Inspiration von bestehenden Anwendun
 
 
 \section{\label{sec:jonasSzenario}Nachrichtenaustausch Anwendungsszenario} \marginpar{\small(\rightarrow) Schoditsch}
-In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den HoloLens 2 Benutzer visualisiert. Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um Informationen wie Absender und Nachricht einzusehen.
+In diesem Szenario wird das IT-Grundprinzip des Nachrichtenaustausches zwischen zwei PCs illustriert. Zwei PCs sind in einer realen Umgebung durch ein rotes Kabel miteinander verbunden, wobei auf jedem PC dieselbe Website geöffnet ist. Der Benutzer trägt eine HoloLens 2 und erhält die Aufforderung, das rote Kabel zu betrachten. Nach einem Countdown wird ein Foto der Umgebung aufgenommen und anschließend verarbeitet. Dabei werden Raycasts eingesetzt, um die exakte Position des roten Kabels in der physischen Welt zu bestimmen. Sobald die Position des Kabels erkannt wurde, kann der Benutzer über die Website auf den beiden PCs eine Nachricht senden. Diese Nachricht wird dann in Form eines Pakets für den HoloLens 2 Benutzer visualisiert. Der Benutzer hat außerdem die Möglichkeit, auf das Paket zu drücken, um Informationen wie Absender und Nachricht einzusehen.
 
 \subsection{Aufbau von Nachrichtenaustausch Anwendungsszenario}
-In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen Spielobjekte  haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
+In diesem Kapitel wird der Aufbau der Unity-Szene so wie der Aufbau in der realen Welt genau beschrieben, um ein fundiertes Verständnis darüber zu vermitteln, wie virtuelle Umgebungen realistisch gestaltet werden können.
+\subsubsection{Aufbau in der Unity-Szene}
+
+In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen GameObjects  haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1]{images/Level1Hierarchy.png}
+    \caption{Hierarchie des Nachrichtenaustausch-Levels im Unity Editor.}
+    \label{fig:level1Hierarchy}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Level-1:} Die Szene von Unity, in der alle Unity-Objekte enthalten sind.
+    \item \textbf{UserInfo:} GameObject, welches den HoloLens Benutzer einen Countdown angibt und von welchem aus daraufhin alle anderen Skripts ausgeführt werden.
+    \item \textbf{LoadingCircle:} Während gewisse Prozesse von der Maschine durchgeführt werden, die länger benötigen könnten, wird dieses \textit{GameObject} angezeigt, um den Benutzer zu informieren, dass das Programm Berechnungen ausführt. Das Objekt beinhaltet ein \textit{Canvas} (siehe Kapitel \ref{sec:Canvas}) mit einem \textit{User Interface}.
+    \item \textbf{Plane:} Ist ein GameObject, welches den Code beinhaltet und ausführt. Es kann auch zum Debugging genutzt werden, da es die erkannten roten Pixel visuell darstellt.
+    \item \textbf{InfoObjectS:} Beinhaltet die Informationen (Name und Nachricht) welcher der Benutzer auf der Website (siehe Kapitel \ref{sec:Website}) angibt. Diese Nachricht wird durch diesem Objekt angezeigt, sobald der Nutzer auf das virtuelle Paket drücken.
+    \item \textbf{httpListener:} Verarbeitet die eingehenden http Anfragen der Website.
+    \item \textbf{CableSearch:} Beinhaltet den Start der Unity-Szene und zeigt dem Benutzer Informationen an
+    \item \textbf{MainThreadDispatcher: } Ein paar Funktionen, wie das Initialisieren eines Objekts, nur im Haupt Thread erlaubt ist, um Fehler zu vermeiden, wird ein \textit{MainThreadDispatcher} gebraucht. Das Skript innerhalb dieses GameObjects sorgt dann dafür, dass sobald der Haupt Thread verfügbar ist, dieser den Prozess durchführt.
+    \item \textbf{PackageClickable:} Ist ein Objekt, welches die Textur des Paketes und zwei Code-Skripte beinhaltet. Eines dieser Code Skripte ist ein \textit{BoxCollide } ,welcher von Unity zur Verfügung gestellt wird, sowie ein Button Skript.
+\end{itemize}
+\subsubsection{Aufbau in der realen welt}
+Zum Aufbau in der realen Welt werden zwei PCs nebeneinander aufgestellt. Beide dieser PCs müssen die Website (siehe Kapitel \ref{sec:Website}) offen haben, um Nachrichten zu erhalten sowie zu senden. Diese beiden PCs müssen auch mit einem roten Kabel verbunden sein.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{images/AufbauAnzeige.png}
     \caption{Aufbau in der realen welt}
     \label{fig:NachrichtenaustauschAufbau}
 \end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale=1]{images/Level1Hierarchy.png}
-    \caption{Hierarchie des Nachrichtenaustausch-Szenarios im Unity Editor.}
-    \label{fig:level1Hierarchy}
-\end{figure}
-\begin{itemize}
-    \item \textbf{Level-1:} Die Szene von Unity, in der alle Unity-Objekte enthalten sind.
-    \item \textbf{UserInfo:} Spielobjekt, welches den HoloLens Benutzer einen Countdown angibt und von welchem aus daraufhin alle anderen Skripts ausgeführt werden.
-    \item \textbf{LoadingCircle:} Während gewisse Prozesse von der Maschine durchgeführt werden, die länger benötigen könnten, wird dieses \textit{Spielobjekt} angezeigt, um den Benutzer zu informieren, dass das Programm Berechnungen ausführt. Das Objekt beinhaltet ein \textit{Canvas} (siehe Kapitel \ref{sec:Canvas}) mit einem \textit{User Interface}.
-    \item \textbf{Plane:} Ist ein Spielobjekt, welches den Code beinhaltet und ausführt. Es kann auch zum Debugging genutzt werden, da es die erkannten roten Pixel visuell darstellt.
-    \item \textbf{InfoObjectS:} Beinhaltet die Informationen (Name und Nachricht) welcher der Benutzer auf der Website angibt. Diese Nachricht wird durch diesem Objekt angezeigt, sobald der Nutzer auf das virtuelle Paket drücken.
-    \item \textbf{httpListener:} Verarbeitet die eingehenden http Anfragen der Website.
-    \item \textbf{CableSearch:} Beinhaltet den Start der Unity-Szene und zeigt dem Benutzer Informationen an
-    \item \textbf{MainThreadDispatcher: } Ein paar Funktionen, wie das Initialisieren eines Objekts, nur im Haupt Thread erlaubt ist, um Fehler zu vermeiden, wird ein \textit{MainThreadDispatcher} gebraucht. Das Skript innerhalb dieses Spielobjekts sorgt dann dafür, dass sobald der Haupt Thread verfügbar ist, dieser den Prozess durchführt.
-    \item \textbf{PackageClickable:} Ist ein Objekt, welches die Textur des Paketes und zwei Code-Skripte beinhaltet. Eines dieser Code Skripte ist ein \textit{BoxCollide } ,welcher von Unity zur Verfügung gestellt wird, sowie ein Button Skript.
-\end{itemize}
+
 
 \subsection{\label{sec:TextMeshPro}Text Mesh Pro}
-TextMeshPro ist eine leistungsstarke Text-Rendering, die in der Unity-Engine verwendet wird. Sie bietet verbesserte Kontrolle und Flexibilität bei der Darstellung von Text in Unity-Anwendungen. Im Gegensatz zur Standard-Textkomponente bietet TextMeshPro Unterstützung für eine Vielzahl von Schriftarten und Textstilen sowie eine präzisere Anpassung der Textdarstellung. Dies wird durch die Verwendung von Vektorgrafiken ermöglicht, die eine höhere Auflösung und Skalierbarkeit gewährleisten.\protect\footnote{Unity\cite{TextMeshPro}}
+TextMeshPro ist eine fortgeschrittene Text-Rendering-Engine, die innerhalb der Unity-Engine verwendet wird. Sie bietet verbesserte Kontrolle und Flexibilität bei der Darstellung von Text in Unity-Anwendungen. Im Gegensatz zur Standard-Textkomponente bietet TextMeshPro Unterstützung für eine Vielzahl von Schriftarten und Textstilen sowie eine präzisere Anpassung der Textdarstellung. Dies wird durch die Verwendung von Vektorgrafiken ermöglicht, die eine höhere Auflösung und Skalierbarkeit gewährleisten.\protect\footnote{Unity\cite{TextMeshPro}}
 
 
 \subsection{\label{sec:Transform}Transform Klasse}
-Die Transform-Klasse in Unity ist eine wichtige Komponente für die Platzierung, Rotation und Skalierung von Spielobjekts in einer 3D-Szene. Sie ermöglicht es ebenso innerhalb einer Hierarchie von Objekten, die Position, Rotation und Skalierung eines Spielobjekts relativ zu seinem Elternelement zu verändern. \protect\footnote{Unity\cite{Transform}}
+Die Transform-Klasse in Unity ist eine wichtige Komponente für die Platzierung, Rotation und Skalierung von GameObjects in einer 3D-Szene. Sie ermöglicht es ebenso innerhalb einer Hierarchie von Objekten, die Position, Rotation und Skalierung eines GameObjects relativ zu seinem Elternelement zu verändern. \protect\footnote{Unity\cite{Transform}}
 
 \subsection{\label{sec:IEnumerator}IEnumerator Klasse}
 Die Klasse IEnumerator ist eine Schnittstelle in der Programmiersprache C\#, die eine standardisierte Möglichkeit bietet, eine Sammlung von Elementen zu durchlaufen, ohne die interne Struktur der Sammlung offenzulegen. Sie ermöglicht das sequenzielle Durchlaufen von Elementen in einer Datenstruktur wie Arrays, Listen oder anderen Sammlungen.\protect\footnote{Microsoft Learn\cite{IEnumeratorMicrosoft}} \footnote{Medium \cite{IEnumeratorMedium}}
 
 \subsection{\label{sec:Coroutines}Coroutines}
-\textit{Coroutines} erlauben es den für \textit{Coroutines} verwendeten Code über mehrere Unity Frames vom Haupt Thread ausgeführt wird. Das bedeutet genauer gesagt einfach dass, wenn eine Coroutine aufgerufen wird, das die Funktion, welche als Coroutine ausgeführt werden soll, bis zu einem bestimmten Code Stück durchgeführt wird. Wenn es diesen bestimmten Code Stück erreicht hat, bearbeitet der Haupt Thread für einen Frame an dem Ablauf außerhalb von der Coroutine und geht dann wieder zur Coroutine Funktion zurück. Coroutines werden deswegen hauptsächlich in Methoden verwendet, welche eine Abfolge von Ereignissen über einen Zeitraum darstellen.
+\textit{Coroutines} in Unity ermöglichen die Ausführung von Code über mehrere Frames hinweg vom Haupt Thread aus. Sie werden verwendet, um Funktionen schrittweise auszuführen, wobei der Haupt Thread zwischen den Frames zurückkehrt, um andere Aufgaben zu erledigen. Coroutines eignen sich besonders für die Darstellung von Ereignissen über einen Zeitraum.
 \\
+\subsubsection*{Beispiel Code Coroutine}
 Zum Darstellen von \textit{Coroutines} ist dieses kurze Skript, welches das Objekt, an den es angebunden ist, in eine Richtung bewegt.
 \begin{lstlisting}[style=csharp, caption={Coroutine Beispiel}, label={code:coroutineBsp}]
 public class CoroutineExample : MonoBehaviour {
@@ -969,13 +976,14 @@ public class CoroutineExample : MonoBehaviour {
     \item \textbf{moveSpeed}: Die Geschwindigkeit, mit der das Objekt bewegt wird. Diese Variable wird verwendet, um die Geschwindigkeit anzupassen, mit der das Objekt von seiner aktuellen Position zur Zielposition bewegt wird. Wenn keine Geschwindigkeit angegeben wird, wird standardmäßig eine Geschwindigkeit von 1 verwendet.
     \item \textbf{numSteps}: Die Anzahl der Schritte, in denen die Bewegung stattfinden soll. Diese Variable steuert, wie viele Zwischenschritte während der Bewegung durchlaufen werden, um eine flüssige Bewegung zu erzielen. Ein höherer Wert führt zu einer genaueren Bewegung, aber möglicherweise zu einer längeren Bewegungsdauer.
 
-    \item \textbf{target}: Das Zielobjekt, zu dem das Objekt bewegt werden soll. Diese Variable definiert die Endposition, zu der das Objekt bewegt werden soll. Sie speichert die Positionsinformationen als \textit{Transform}, was in Unity üblich ist und die Position, Rotation und Größe eines Objekts speichert und ermöglicht, diese zu manipulieren.
+    \item \textbf{target}: Das Zielobjekt, zu dem das Objekt bewegt werden soll. Es speichert die Position des Endpunkts als  \textit{Transform} (sieh Kapitel \ref{sec:Transform})
 \end{itemize}
-Der Code verwendet eine Coroutine, um das Objekt von seiner aktuellen Position zur Zielposition zu bewegen. Coroutines werden in Unity verwendet, um asynchrone Operationen durchzuführen, ohne den Hauptthread zu blockieren. In diesem Fall wird die Coroutine \textit{MoveToTarget} gestartet, die in einer Schleife jeden Schritt der Bewegung durchläuft. Für jede Iteration wird die aktuelle Position des Objekts mithilfe der Funktion \textit{Vector3.Lerp} zwischen der Startposition und die Zielposition entsprechend dem Fortschritt der Bewegung gesetzt.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
+Der Code verwendet eine Coroutine, um das Objekt von seiner aktuellen Position zur Zielposition zu bewegen. Coroutines werden in Unity verwendet, um asynchrone Operationen durchzuführen, ohne den Haupt Thread zu blockieren. In diesem Fall wird die Coroutine \textit{MoveToTarget} gestartet, die in einer Schleife jeden Schritt der Bewegung durchläuft. Für jede Iteration wird die aktuelle Position des Objekts mithilfe der Funktion \textit{Vector3.Lerp} zwischen der Startposition und die Zielposition entsprechend dem Fortschritt der Bewegung gesetzt.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
 
 Um zwischen den Schritten eine Pause einzulegen, wird die Coroutine mit \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} unterbrochen, was eine Wartezeit zwischen den Bewegungsschritten ermöglicht und eine flüssige und kontrollierte Bewegung des Objekts gewährleistet.
 \\
-Falls man aus eine laufende Coroutine beenden will, kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verwenden. Man könnte den obigen Code folgendermaßen erweitern:
+\subsubsection*{Beenden einer Coroutine}
+Falls man eine laufende Coroutine beenden will, kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verwenden. Man könnte den obigen Code folgendermaßen erweitern:
 \begin{lstlisting}[style=csharp, caption={Coroutine beenden}, label=code:debugRaycast]
 public void stopFunctionCoroutine() {
     StopCoroutine(MoveToTarget)
@@ -992,14 +1000,15 @@ public void stopAllCurrentCoroutine() {
 
 
 \subsection{Start der Szene}
-Wenn der Benutzer von Hauptmenü in das Anwendungsszenario eins lädt, dann wird über das Spielobjekt CableSearch direkt das \textit{CableSearch.cs} Skript gestartet, welches für die Erkennung des Kabels verantwortlich ist.
+Wenn der Benutzer von dem Hauptmenü in das Anwendungsszenario Eins ladet, dann wird über das GameObject CableSearch direkt das \textit{CableSearch.cs} Skript gestartet, welches für die Erkennung des Kabels verantwortlich ist.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/CableSearchObjekt.png}
-    \caption{\textit{Komponenten} des \textit{CableSeach} \textit{Spielobjekts}}
+    \caption{\textit{Komponenten} des \textit{CableSeach} \textit{GameObjects}}
     \label{fig:CableSearchObjekt}
 \end{figure}
-Dem Skript wird zuerst ein \textit{Text Mesh Pro} (siehe Kapitel \ref{sec:TextMeshPro}) übergeben, dieser Text wird innerhalb von der Unity Szene anzeigt. Danach wird ein weiteres \textit{Spielobjekt} mit den Namen \textit{Plane}, welches ebenfalls in der Szene existiert, für das Debuggen (Siehe Kapitel \ref{sec:PlaneDebug}) und ausführen vom weiteren Code übergeben.
+\subsubsection*{Benutzer anzeige}
+Dem Skript wird zuerst ein \textit{Text Mesh Pro} (siehe Kapitel \ref{sec:TextMeshPro}) übergeben, dieser Text wird innerhalb von der Unity Szene anzeigt. Danach wird ein weiteres \textit{GameObject} mit den Namen \textit{Plane}, welches ebenfalls in der Szene existiert, für das Debuggen (Siehe Kapitel \ref{sec:PlaneDebug}) und ausführen vom weiteren Code übergeben.
 \begin{lstlisting}[style=csharp, caption={Start des \textit{CableSearch} Skripts}, label=code:CableSearch]
 void Start() {
     // Text wird den Benutzer angezeigt sodas dieser auf das Kabel schaut.
@@ -1018,7 +1027,9 @@ private IEnumerator DelayedStart() {
     canStartScript = true;
 }
 \end{lstlisting}
-Beim Start des Skripts wird die Funktion \textit{Start} aufgerufen. Diese modifiziert den Text von \textit{userInfo}, welcher dem Benutzer angezeigt wird. Nach dieser Änderung wird eine \textit{Coroutine}, (siehe Kapitel \ref{sec:Coroutines}), gestartet und an einen neuen Thread namens \textit{DelayedStart} übergeben. Die Funktion \textit{DelayedStart} stellt sicher, dass der Benutzer die Nachricht zwei Sekunden lang lesen kann, bevor sie durch einen Timer ersetzt wird. Dieser Timer wird in der \textit{Update}-Funktion von Unity verarbeitet, um eine zeitgesteuerte Aktualisierung zu gewährleisten.
+Beim Start des Skripts wird die Funktion \textit{Start} aufgerufen. Diese modifiziert den Text von \textit{userInfo}, welcher dem Benutzer angezeigt wird. Nach dieser Änderung wird eine \textit{Coroutine}, (siehe Kapitel \ref{sec:Coroutines}), gestartet und an einen neuen Thread namens \textit{DelayedStart} übergeben. Die Funktion \textit{DelayedStart} stellt sicher, dass der Benutzer die Nachricht zwei Sekunden lang lesen kann, bevor sie durch einen Timer ersetzt wird.
+\subsubsection*{Timer anzeige}
+Dieser Timer wird in der \textit{Update}-Funktion von Unity verarbeitet, um eine zeitgesteuerte Aktualisierung zu gewährleisten.
 
 \begin{lstlisting}[style=csharp, caption={Update des \textit{CableSearch} Skripts}, label=code:Timer]
 void Update() {
@@ -1048,12 +1059,8 @@ void Update() {
 \end{lstlisting}
 Nach Ablauf der Wartezeit von zwei Sekunden wird eine Zeitmessung gestartet. Dabei wird zunächst geprüft, ob die Restzeit \textit{timeRemaining}, die außerhalb der Funktion als Gleitkommazahl von sechs definiert ist, größer als eins ist. Ist diese Bedingung erfüllt, wird die Restzeit durch Abziehen der verstrichenen Zeit zwischen den \textit{Updates} angepasst. Anschließend wird die verbleibende Zeit in Sekunden umgerechnet und dem Benutzer angezeigt.Nach Ablauf der fünf Sekunden Ladezeit wird die verbleibende Zeit auf eins gesetzt, um Fehler zu vermeiden. Danach wird der Text geleert und der boolesche Wert \textit{objectPlaced} auf \textit{true} gesetzt, um sicherzustellen, dass die Update-Funktion nicht weiter ausgeführt wird. Schließlich wird innerhalb der Funktion \textit{startPictureTaking} das nächste Skript gestartet, um den Prozess fortzusetzen.
 
-\subsection{Kabelerkennung}
-Um das Visualisieren des Pakets bei der Übertragung der Nachricht über das Kabel zu gewährleisten, muss zunächst die Position des Kabels in der Umgebung genau bestimmt werden. Dies geschieht durch die Aufnahme eines Bildes mit der Kamera der HoloLens 2. Während dieser Aufnahmeaufgabe ist es wichtig, dass der Benutzer seinen Blick auf das jeweilige Kabel richtet. Nur so ist eine exakte Orientierung des Kabelverlaufs möglich.
-
-
-\subsection{Fotoaufnahme}
-Innerhalb von diesem Kapitel wird die Aufnahme des von rotem Kabel aufgenommenen Fotos, mithilfe des dementsprechenden Code Funktionen innerhalb von \textit{PictureTaking.cs} beschrieben. Dazu werden auch die für den Prozess notwendigen Unity Klassen beschrieben.
+\subsection{\label{sec:Fotoaufnahme}Fotoaufnahme}
+Innerhalb von diesem Kapitel wird beschreiben, wie das Programm mithilfe des \textit{PictureTaking.cs} Skripts ein Foto von dem roten Kabel macht.Dazu werden auch die für den Prozess notwendigen Unity Klassen beschrieben.
 
 \subsubsection{\label{sec:Photocapture}Photocapture Klasse}
 Die \textit{PhotoCapture} Klasse benutzt die \textit{PhotoCapture} API, um ein Foto mit der Kamera des Gerätes zu machen.
@@ -1073,27 +1080,28 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
 
 
 \subsubsection{\label{sec:Canvas}Unity Canvas}
-Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{Spielobjekt} als sogenannten \textit{parent}, welches als \textit{child} (siehe Kapitel \ref{sec:hierarchie}) die \textit{UI} besitzt. Diese \textit{UI}
+Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{GameObject} als sogenannten \textit{parent} (Siehe Kapitel \ref{sec:hierarchie}), welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI}
 kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
-Ein Canvas verfügt auch über verschiedene Rendermoduse:
+\\
+Ein Canvas verfügt auch über verschiedene Rendermodi:
 \begin{itemize}
 
     \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es, UI-Elementen über der Szene auf dem Bildschirm zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über der Szene gerendert wird.
 
-    \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird.
+    \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird. Anders gesagt, sie liegen auf einer Ebene über der Spielwelt und sind immer sichtbar, ohne von der Spielumgebung beeinflusst zu werden.
 
     \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas, im Gegensatz zu den anderen Modi, verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}\protect\footnote{Unity \cite{Renderer}}
 \end{itemize}
 
 \subsubsection{Foto der Umgebung aufnehmen}
-Das Aufnehmen des Fotos wird mithilfe der \textit{PhotoCapture}-Klasse (siehe Kapitel \ref{sec:Photocapture}) aufgenommen. Um zu gewährleisten, dass es funktioniert und mit der Kamera ein qualitativ gutes Foto zum Verarbeiten gemacht wird, müssen Einstellungen für die Kameraparameter eingestellt werden.
+Das Aufnehmen des Fotos wird mithilfe der \textit{PhotoCapture}-Klasse (siehe Kapitel \ref{sec:Photocapture}) asugeführt. Um zu gewährleisten, dass es funktioniert und mit der Kamera ein qualitativ gutes Foto zum Verarbeiten gemacht wird, müssen Einstellungen für die Kameraparameter eingestellt werden.
 \begin{lstlisting}[style=csharp, caption={Bild einstellung und aufnahme}, label=code:takingPicture]
 public void takingPicture() {
     // ueberprueft, ob bereits ein Bild aufgenommen wird, um zu verhindern, dass die Methode erneut aufgerufen wird
     if (!takingNewPicture) {
-        // Aktiviert das LoadingSymbol-Spielobjekt, um anzuzeigen, dass ein Bild aufgenommen wird
+        // Aktiviert das LoadingSymbol-GameObject, um anzuzeigen, dass ein Bild aufgenommen wird
         loadingCircle.SetActive(true);
-        // Holt sich das Canvas-Objekt innerhalb des LoadingSymbol-Spielobjekts
+        // Holt sich das Canvas-Objekt innerhalb des LoadingSymbol-GameObjects
         loadingCircleCanvas = loadingCircle.GetComponentInChildren<Canvas>();
         // Startet die Ladeanimation im LoadingCircle
         loadingCircleCanvas.GetComponent<LoadingCircle>().StartLoading();
@@ -1126,7 +1134,7 @@ public void takingPicture() {
 Zunächst wird in diesem Code mit dem Boolean \textit{takingNewPicture} geprüft, ob bereits ein Bild aufgenommen wurde. Daraufhin wird sofort das Lade-Symbol (siehe Kapitel \ref{sec:ladeSymbol}) gestartet und angezeigt. Anschließend wird eine asynchrone Methode \textit{PhotoCapture.CreateAsync()} aufgerufen, um ein \textit{Photo-Capture} zu erstellen. Diese Methode erstellt ein \textit{PhotoCapture-Objekt}, das für die Aufnahme von Fotos verwendet wird. Die Methode akzeptiert den Parameter false, der angibt, dass kein Audio-Capture erstellt werden soll. Wenn die Aufnahme erfolgreich war, wird das PhotoCapture-Objekt gespeichert und die Kameraparameter für die Aufnahme konfiguriert. Anschließend wird der Photo-Capture-Modus mit \textit{StartPhotoModeAsync} gestartet, und wenn dieser erfolgreich gestartet wurde, wird das Foto aufgenommen und mit \textit{TakePhotoAsync} im Speicher abgelegt.
 
 \subsection{Ladesymbol}\label{sec:ladeSymbol}
-Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informiert, dass Berechnungen oder Prozesse im Hintergrund ausgeführt werden. In erster Linie wird dieses Symbol während der Kabelsuche verwendet. Diese Animation des Ladesymbols wird durch einen entsprechenden Programmcode gesteuert, um dem Benutzer eine klare und konsistente Rückmeldung zu geben, dass der Prozess läuft. Im Design der Interaktion spielt das Ladesymbol eine wichtige Rolle, um den Benutzer über den aktuellen Status der Anwendung zu informieren.
+Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informiert, dass Berechnungen oder Prozesse im Hintergrund ausgeführt werden. In erster Linie wird dieses Symbol während der Kabelsuche verwendet. Diese Animation des Ladesymbols wird durch einen entsprechenden Programmcode gesteuert, um den Benutzer eine klare und konsistente Rückmeldung zu geben, dass der Prozess läuft. Im Design der Interaktion spielt das Ladesymbol eine wichtige Rolle, um den Benutzer über den aktuellen Status der Anwendung zu informieren.
 \begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.65\textwidth}
@@ -1156,12 +1164,59 @@ IEnumerator LoadingCoroutine() {
 }
 \end{lstlisting}
 Bei der Initiierung dieser Funktion wird die Methode \textit{StartCoroutine(LoadingCoroutine())} von Coroutine (siehe Kapitel \ref{sec:Coroutines}) benutzt, durch diesen Aufruf wird sichergestellt, dass die Funktion nebenbei und asynchron zum Code ausgeführt wird. Zum Anzeigen von dem Ladesymbol wird ein Objekt \textit{img} verwendet, dieses \textit{img} beinhaltet ein Bild eines weißen Kreises (äußerer Kreis von \textit{Abbildung (\ref{fig:Loading}})) und stellt einen Fortschritt während der Berechnung dar.
-\subsection{Fotoverarbeitung}
+
+
+\subsection{Fotoverarbeitung Version 1}
+Die erste Version der Fotoverarbeitung für die Kabelerkennung basierte auf der Analyse von einem Foto, die mit der HoloLens aufgenommen wurden.
+\begin{lstlisting}[style=csharp, caption={Erste Version der Kabel Erkennung}, label=code:debugRaycast]
+void editTextureV2(Texture2D textureToEdit) {
+    int textureWidth = textureToEdit.width;
+            List<int> yCoordinates = new List<int>();
+            List<int> xCoordinates = new List<int>();
+            for (int y = 0; y < textureToEdit.height; y++) {
+                for (int x = 0; x < textureWidth; x++) {
+                    int index = y * textureWidth + x;
+                    //  ueberprueft ob der gepruefte Pixel rot ist
+                    if (pixels[index].r > 0.55f && pixels[index].g < 0.5f && pixels[index].b < 0.5f) {
+                        yCoordinates.Add(y);
+                        xCoordinates.Add(x);
+                    }
+                }
+            }
+    int averageX = getCenterCoordinate(xCoordinates);
+    int averageY = getCenterCoordinate(yCoordinates);
+    // Fuegt den kleinsten X und den durchschnittlichen Y Punkt als Start Punkt zu redPixelCoordinates hinzu
+    redPixelCoordinates.Add(getSideCoordinate(xCoordinates,true, averageY));
+    // Fuegt den durchschnittlichen X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
+    redPixelCoordinates.Add(new Vector2(averageX, averageY));
+    // Fuegt den höchsten X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
+    redPixelCoordinates.Add(getSideCoordinate(xCoordinates, false, averageY));
+}
+\end{lstlisting}
+
+\begin{itemize}
+    \item \textbf{textureWidth}: Die Breite der bearbeiteten Textur.
+    \item \textbf{yCoordinates}: Eine Liste, die die Y-Koordinaten der identifizierten roten Pixel speichert.
+    \item \textbf{xCoordinates}: Eine Liste, die die X-Koordinaten der identifizierten roten Pixel speichert.
+    \item \textbf{averageX}: Der Durchschnitt der X-Koordinaten der identifizierten roten Pixel.
+    \item \textbf{averageY}: Der Durchschnitt der Y-Koordinaten der identifizierten roten Pixel.
+    \item \textbf{redPixelCoordinates}: Eine Liste von Vektoren, die die berechneten Positionen der roten Pixel speichert.
+\end{itemize}
+
+Der Code analysiert jede Pixelposition einer Textur, um festzustellen, ob es sich um ein rotes Pixel handelt. Ein Pixel wird als rot betrachtet, wenn seine Rotkomponente über einem bestimmten Schwellenwert liegt und seine Grün- und Blaukomponenten unter anderen Schwellenwerten liegen. Die Koordinaten der identifizierten roten Pixel werden gespeichert, und dann wird der Durchschnitt der X- und Y-Koordinaten berechnet. Basierend auf diesem Durchschnitt werden drei Positionen berechnet, die den Verlauf des Kabels darstellen sollen. Diese Positionen werden in der Liste redPixelCoordinates gespeichert.
+
+Es ist anzumerken, dass die sequenzielle Ausführung dieses Codes ineffizient ist und zu längeren Ladezeiten führen kann. Außerdem kann die Genauigkeit der berechneten Positionen begrenzt sein, was die Fähigkeit beeinträchtigen kann, das Kabel genau zu verfolgen.
+
+
+\subsection{Fotoverarbeitung Finale Version}
+In diesem Abschnitt wird die Vorgehensweise zur Lokalisierung des roten Kabels anhand eines Fotos erläutert, das zuvor im Kapitel \ref{sec:Fotoaufnahme} aufgenommen wurde. Dabei werden die roten Pixel im Bild gesucht, um das gesuchte Kabel präzise zu identifizieren.
 
 \subsubsection{\label{sec:JobSystem}Unity Job System}
 Das Job-System von Unity bietet eine effiziente Möglichkeit zur Implementierung von Multithreading in Anwendungen, wodurch die Anwendung in
 der Lage ist, alle verfügbaren CPU-Kerne optimal zu nutzen. Im Gegensatz zu einem sequenziellen Durchlauf des Codes durch einen einzigen Thread, dem sogenannten Haupt Thread, ermöglicht das Job-System die parallele Verarbeitung von Codeabschnitten durch separate Arbeiter-Threads. Durch die Nutzung mehrerer Arbeiter-Threads können Aufgaben effizienter verteilt und gleichzeitig bearbeitet werden. Dies trägt wesentlich zur Verbesserung der Effizienz und der Gesamtdauer der Ausführung des Programms bei. Eine wichtige Eigenschaft des Job-Systems besteht darin, sicherzustellen, dass nur so viele Threads verwendet werden, wie von den verfügbaren CPU-Kernen unterstützt werden.\\
-Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte "Work Stealing". Dabei handelt es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat, zusätzliche Aufgaben von anderen Arbeiter-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf alle verfügbaren Ressourcen zu verteilen. \\
+\\
+Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte \textit{Work Stealing}. Dabei handelt es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat, zusätzliche Aufgaben von anderen Arbeiter-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf alle verfügbaren Ressourcen zu verteilen. \\
+\\
 Um das Schreiben von einem Multithread-Code zu erleichtern, verfügt das Job-System über ein Sicherheitssystem, das sicherstellt, dass potenzielle Wettlaufbedingungen eine sogenannte \textit{Race Condition} zu vermeiden und somit können Fehler vermieden werden. Um zu gewährleisten, dass keine Wettlaufbedingungen auftreten können, erhält jeder Thread eine isolierte Kopie der Daten, die er verarbeiten kann.\protect\footnote{Unity \cite{Job System}}
 
 
@@ -1172,6 +1227,7 @@ Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Ma
     \item \textit{magnitude: }Besitzt die Größe des 2D Vektors. Die Größe des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
     \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
 \end{itemize}
+
 
 \subsubsection{Pixel Positionen finden}
 Nachdem ein Foto aufgenommen wurde, erfolgt die Datenverarbeitung mittels einer \textit{Texture2D}-Klasse innerhalb des \textit{Unity-Job-Systems} in paralleler Ausführung. Jeder Thread des Systems ist dafür zuständig eine festgelegte Anzahl von Pixeln im Bild zu überprüfen, um festzustellen, ob diese die Eigenschaft Rot aufweisen. Die Ergebnisse dieser Überprüfung werden in einem zweidimensionalen Boolean-Array gespeichert, wobei die x- und y-Koordinaten jeweils einer Dimension zugeordnet sind. Jeder Pixel im Array wird entsprechend seinem Farbzustand mit dem booleschen Wert \textit{true} gekennzeichnet, falls er rot ist, andernfalls wird ihm der Wert \textit{false} zugewiesen. Dieser Prozess wird durch das \textit{Job-System} ausgeführt, wobei jeder einzelne Job eine gewisse Anzahl an Pixeln überprüft.
@@ -1224,10 +1280,11 @@ struct PixelJob : IJobParallelFor {
     \item \textbf{startPixelIndex:} Nachdem jeder Arbeiter Thread seine eigenen Batches besitzt, muss der Index für diese berechnet werden.
     \item \textbf{redPixelPositions:} Wird vor der Initialisierung in der Klasse mit derselben Länge wie Pixels erstellt.
 \end{itemize}
-
-
+Die Methode \textit{Execute(int batchIndex)} wird von jedem \textit{Job} aufgerufen, um Pixel zu verarbeiten. Jeder \textit{Job} bearbeitet eine Teilmenge der Pixel im Bild.\\
+\\
+Innerhalb der Execute-Methode werden zunächst der Start- und Endindex für den aktuellen Batch berechnet. Dann wird eine Schleife durchlaufen, die jedem Pixel im aktuellen Batch überprüft. Für jedem Pixel wird die Farbkomponenten geprüft. Wenn ein Pixel so gesagt \textit{rot genug} ist, wird die Position in einen \textit{Vector2 List} gespeichert
 \subsubsection{Kabel finden}
-Nachdem das Foto verarbeitet wurde, wird nach roten Pixeln in dem Bild gesucht, um danach die noch fehlende Entfernung des Kabels, zu messen. Mit dieser hat man dann die genaue Position des roten Kabels in der echten Welt errechnet. Um dies zu erreichen, wird nach roten Pixeln im Bild gesucht. Da es aber unsicher ist, ob diese roten Pixel zu einem Kabel gehören oder nicht, wird eine Methode angewendet, um die längste zusammenhängende Reihe von roten Pixeln zu ermitteln. Es kann auch dazu kommen, dass rote Pixel nicht erkannt werden, welche zum roten Kabel gehören. Deswegen wird ein Toleranzbereich festgelegt. Es wird ermittelt, ob in einem bestimmten Bereich, rote Pixel existieren, von welchen aus dann weiter ermittelt wird. Dadurch wird eine präzisere Erkennung und Zuordnung von relevanten roten Pixeln im Kontext des zu identifizierenden Kabels ermöglicht. Die methodische Vorgehensweise zur Berechnung gestaltet sich wie folgt:
+Nachdem das Foto verarbeitet wurde, wird nach roten Pixeln in dem Bild gesucht, um danach die noch fehlende Entfernung des Kabels, zu messen. Mit dieser hat man dann die genaue Position des roten Kabels in der echten Welt errechnet. Um dies zu erreichen, wird nach roten Pixeln im Bild gesucht. Da es aber unsicher ist, ob diese roten Pixel zu einem Kabel gehören oder nicht, wird eine Methode angewendet, um die längste zusammenhängende Reihe von roten Pixeln zu ermitteln. Es kann auch dazu kommen, das rote Pixel, welche zum Kabel gehören, nicht erkannt werden. Deswegen wird ein Toleranzbereich festgelegt. Es wird ermittelt, ob in einem bestimmten Bereich, rote Pixel existieren, von welchen aus dann weiter ermittelt wird. Dadurch wird eine präzisere Erkennung und Zuordnung von relevanten roten Pixeln im Kontext des zu identifizierenden Kabels ermöglicht. Die methodische Vorgehensweise zur Berechnung gestaltet sich wie folgt:
 
 \begin{lstlisting}[style=csharp, caption={Kabel suche}, label=code:SearchForRedPixels]
 List<Vector2> SearchForRedPixels(int startX, int startY) {
@@ -1283,17 +1340,17 @@ List<Vector2> SearchForRedPixels(int startX, int startY) {
 \end{itemize}
 
 
-Die Funktion sucht nach roten Pixeln, indem sie von einer Startposition ausgehend Pixel in der Nähe überprüft. Dabei wird eine Liste der gefundenen Pixel Positionen erstellt. Die Schleife wird, solange durchlaufen, bis kein rotes Pixel mehr gefunden wird. Innerhalb der Schleife wird zuerst das aktuelle Pixel als geprüft markiert und seiner Position zur Liste hinzugefügt. Dann wird nach roten Pixeln in der Nähe gesucht. Falls keines gefunden wird, wird die Schleife beendet. Am Ende wird die Liste der gefundenen Pixel zurückgegeben.
+Die Funktion sucht nach roten Pixeln, indem sie von einer Startposition ausgehend Pixel in der Nähe überprüft. Dabei wird eine Liste der gefundenen Pixel Positionen erstellt. Die Schleife wird, solange durchlaufen, bis kein roter Pixel mehr gefunden wird. Innerhalb der Schleife wird zuerst das aktuelle Pixel als geprüft markiert und seine Position zur Liste hinzugefügt. Dann wird nach roten Pixeln in der Nähe gesucht. Falls keiner gefunden wird, wird die Schleife beendet. Am Ende wird die Liste der gefundenen Pixel zurückgegeben.
 
 
 \subsection{Erstellen und Bewegung des Paketes}
 Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald diese gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird das Paket über die Punkte bewegt.
 
 \subsubsection{\label{sec:Raycast}Definition eines Rays}
-Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\\
+Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\protect\footnote{Unity \cite{Raycast}}\\
 
 \subsubsection{\label{sec:TrackableType}TrackableType Klasse}
-In Unity ist \textbf{TrackableType} eine Aufzählung, die verschiedene Arten von Objekten repräsentiert, die in Augmented Reality (AR) verfolgt werden können. Zu diesen Typen gehören Bilder, Objekte und Ebenen.
+In Unity ist \textbf{TrackableType} eine Aufzählung, die verschiedene Arten von Objekten repräsentiert, die in Augmented Reality (AR) verfolgt werden können. Zu diesen Typen gehören:
 
 \begin{itemize}
     \item \textbf{Bilder}: Unity ermöglicht die Erkennung und Verfolgung von Bildern in der realen Welt. Entwickler können spezifische Bilder definieren, die von ihrer AR-Anwendung erkannt werden sollen, um darauf basierend virtuelle Inhalte anzuzeigen.
@@ -1311,40 +1368,40 @@ Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eine
 aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthält mehrere Methoden, die es ermöglichen, auf
 die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen
 wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
-ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z. B. das Platzieren virtueller Objekte auf
-realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} Diese Klasse besitzt die folgenden Eigenschaften:
+ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf
+realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} diese Klasse besitzt die folgenden Eigenschaften:
 \begin{itemize}
-\item \textit{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
+    \item \textbf{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
 
-\item \textit{hitType: } gibt Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Sie ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
+    \item \textbf{hitType: } gibt den Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Er ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
 \end{itemize}
 
-\subsubsection{Entfernung messen}
+\subsubsection{\label{sec:EntfernungMessen}Entfernung messen}
 Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
-im späteren Verlauf Raycasts\protect\footnote{Unity \cite{Raycast}} verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
+im Raycasts (siehe Kapitel (\ref{sec:Raycast}) verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
 für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
 Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
-Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte, welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert, um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast ausgeführt.
+Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte, welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert, um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast zu diesen Punkten ausgeführt.
 \begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
 foreach (Vector2 redPixle in redPixelCoordinates) {
-positionVirtualObject(redPixle, targetTexture)
+    positionVirtualObject(redPixle, targetTexture)
 }
 \end{lstlisting}
 \begin{itemize}
-\item Das \textit{positionVirtualObject} ist die Funktion welche die folgenden Berechnungen für Raycasts errechnet und den Raycast ausführt. \\
+    \item Das \textit{positionVirtualObject} ist die Funktion welche die folgenden Berechnungen für Raycasts errechnet und den Raycast ausführt. \\
 \end{itemize}
 Um Raycasts erfolgreich zu nutzen, greift Unity auf Bildschirmkoordinaten zurück. Jedoch liegen uns momentan nur die Koordinaten vor, die der Skalierung des Bildes entsprechen. Daher müssen diese in ein Format umgerechnet werden, das es ermöglicht, die Raycasts an die richtigen Positionen zu senden. Diese Umrechnung erfolgt im Code wie folgt:
 \begin{lstlisting}[style=csharp, caption={Koordinaten Umrechnung}, label=code:Coordinates calculations]
 Vector2 screenCoordinates = new Vector2(
-redPixel.x * Camera.main.pixelWidth / image.width,
-redPixel.y * Camera.main.pixelHeight / image.height
+    redPixel.x * Camera.main.pixelWidth / image.width,
+    redPixel.y * Camera.main.pixelHeight / image.height
 );
 \end{lstlisting}
 
 \begin{itemize}
-\item Das \textbf{redPixel.x} und \textbf{redPixel.y} sind die Positionen, welche in \textit{screenCoordinates} umgerechnet werden sollen.
-\item \textbf{Camera.main.pixelWidth} und \textbf{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
-\item Unter \textbf{image.width} und \textbf{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
+    \item Das \textbf{redPixel.x} und \textbf{redPixel.y} sind die Positionen, welche in \textit{screenCoordinates} umgerechnet werden sollen.
+    \item \textbf{Camera.main.pixelWidth} und \textbf{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
+    \item Unter \textbf{image.width} und \textbf{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
 \end{itemize}
 Sobald dann die \textit{screenCoordinates} berechnet wurden, kann der Raycast auf die Position im Bildschirm aufgerufen werden. Dafür ist dieser Code teils von \textit{positionVirtualObject} zuständig:
 \begin{lstlisting}[style=csharp, caption={Raycast schießen}, label=code:createRaycast]
@@ -1353,19 +1410,19 @@ List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
 // Ueberpruefen, ob ein Raycast auf etwas trifft.
 if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
-// Schleife durch alle getroffenen Punkte.
-for (int i = 0; i < hits.Count; i++) {
-// Ueberpruefen, ob der Treffertyp nicht "PlaneWithinInfinity" ist.
-if (hits[i].hitType != TrackableType.PlaneWithinInfinity) {
-// Ueberpruefen, ob der Treffer nicht null ist.
-if (hits[i] != null) {
-// Die Position des Treffers um 0.05 Einheiten nach oben verschieben (fuer eine bessere anzeigt) und zur Liste der Kabelpositionen hinzufügen.
-cablePositions.Add(new Vector3(hits[i].pose.position.x, hits[i].pose.position.y + 0.05f, hits[i].pose.position.z));
-// Die Schleife verlassen, nachdem ein gueltiger Treffer gefunden wurde.
-break;
-}
-}
-}
+    // Schleife durch alle getroffenen Punkte.
+    for (int i = 0; i < hits.Count; i++) {
+        // Ueberpruefen, ob der Treffertyp nicht "PlaneWithinInfinity" ist.
+        if (hits[i].hitType != TrackableType.PlaneWithinInfinity) {
+            // Ueberpruefen, ob der Treffer nicht null ist.
+            if (hits[i] != null) {
+                // Die Position des Treffers um 0.05 Einheiten nach oben verschieben (fuer eine bessere anzeigt) und zur Liste der Kabelpositionen hinzufügen.
+                cablePositions.Add(new Vector3(hits[i].pose.position.x, hits[i].pose.position.y + 0.05f, hits[i].pose.position.z));
+                // Die Schleife verlassen, nachdem ein gueltiger Treffer gefunden wurde.
+                break;
+            }
+        }
+    }
 }
 
 \end{lstlisting}
@@ -1378,88 +1435,88 @@ Bei der \textit{Start} Funktion, welche von Unity zur Verfügung gestellt  wird,
 \begin{lstlisting}[style=csharp, caption={Binden an der Methode}, label=code:]
 EventManager.OnMessageReceived += editAndSendPackage;
 \end{lstlisting}
-Diese Zeile sorgt dafür, dass beim Start der Unity \textit{Scene} \textit{editAndSendPackage} an den Event \textit{OnMessageReceived} gebunden wird. Das bedeutet, dass wenn das Event \textit{OnMessageReceived} erhalten wird, die Funktion \textit{editAndSendPackage} ausgelöst wird.
+Diese Zeile sorgt dafür, dass beim Start der Unity \textit{Scene} \textit{editAndSendPackage} auf das Event \textit{OnMessageReceived} registriert wird. Das bedeutet, dass wenn das Event \textit{OnMessageReceived} erhalten wird, die Funktion \textit{editAndSendPackage} ausgelöst wird.
 Die Funktion \textit{editAndSendPackage} initialisiert das visuelle Paket am Anfang des Kabels, falls es bisher nicht erstellt wurde.
 \begin{lstlisting}[style=csharp, caption={Initialisierung und Bearbeitung des Paketes}, label=code:editAndSendPackage]
 public void editAndSendPackage(string username, string message) {
-// Ueberpruefen, ob sich die Operation am Ende befindet
-if (isAtEnd) {
-// Wenn ja, zuruecksetzen der Flags und Zähler um neues senden zu ermoeglichen
-isAtEnd = false;
-moveToCounter = 1;
-moveFromCounter = 0;
-}
-// Auf dem Haupt Thread die folgenden Operationen ausführen
-MainThreadDispatcher.Instance().Enqueue(() => {
-// Ueberpruefen, ob das Objekt bereits instanziiert ist
-if (isObjectInstantiated == false) {
-// Wenn nicht, wird das virtuelle Objekt instanziieren
-instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
-isObjectInstantiated = true;
-}
-else {
-// Wenn ja, das aktuelle Objekt zerstören und neu instanziieren
-Destroy(instantiatedObject);
-instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
-}
-// Flag zum Bewegen des Objekts umschalten
-shouldMove = !shouldMove;
+    // Ueberpruefen, ob sich die Operation am Ende befindet
+    if (isAtEnd) {
+        // Wenn ja, zuruecksetzen der Flags und Zähler um neues senden zu ermoeglichen
+        isAtEnd = false;
+        moveToCounter = 1;
+        moveFromCounter = 0;
+    }
+    // Auf dem Haupt Thread die folgenden Operationen ausführen
+    MainThreadDispatcher.Instance().Enqueue(() => {
+        // Ueberpruefen, ob das Objekt bereits instanziiert ist
+        if (isObjectInstantiated == false) {
+            // Wenn nicht, wird das virtuelle Objekt instanziieren
+            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
+            isObjectInstantiated = true;
+        }
+        else {
+            // Wenn ja, das aktuelle Objekt zerstören und neu instanziieren
+            Destroy(instantiatedObject);
+            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
+        }
+        // Flag zum Bewegen des Objekts umschalten
+        shouldMove = !shouldMove;
 
-// Ein Textobjekt für die Informationen erstellen und bearbeiten
-EditTextOfInformationObject editTextOfInformationObject = new EditTextOfInformationObject(infoTextS);
-editTextOfInformationObject.GetTextMeshProFromChild();
-editTextOfInformationObject.EditText(username, message);
+        // Ein Textobjekt für die Informationen erstellen und bearbeiten
+        EditTextOfInformationObject editTextOfInformationObject = new EditTextOfInformationObject(infoTextS);
+        editTextOfInformationObject.GetTextMeshProFromChild();
+        editTextOfInformationObject.EditText(username, message);
 
-// Eine Nachricht über den EventManager senden
-EventManager.SendMsg(username, message);
-});
+        // Eine Nachricht über den EventManager senden
+        EventManager.SendMsg(username, message);
+    });
 }
 \end{lstlisting}
-Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Haupt Thread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Haupt Thread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Neben Thread, sondern vom Haupt Thread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt bislang nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des Spielobjekts zu verwenden, um die korrekten Daten im Text anzuzeigen.
+Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Haupt Thread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Haupt Thread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Neben Thread, sondern vom Haupt Thread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt bislang nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des GameObjects zu verwenden, um die korrekten Daten im Text anzuzeigen.
 
 
 \subsubsection{Bewegung des Paketes}
-Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
+Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor in Kapitel \ref{sec:EntfernungMessen} berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
-// Ueberpruefen, ob sich das Objekt bewegt soll
-if (shouldMove) {
-// Ueberpruefen, ob der Index wo sich das Paket hinbewegt kleiner als die Anzahl der Kabelpositionen ist
-if (moveToCounter < cablePositions.Count) {
-// Das Paket in die richtung der naechsten position bewegeb
-instantiatedObject.transform.Translate((cablePositions[moveToCounter] - cablePositions[moveFromCounter]) * 0.0075f);
+    // Ueberpruefen, ob sich das Objekt bewegt soll
+    if (shouldMove) {
+        // Ueberpruefen, ob der Index wo sich das Paket hinbewegt kleiner als die Anzahl der Kabelpositionen ist
+        if (moveToCounter < cablePositions.Count) {
+            // Das Paket in die richtung der naechsten position bewegeb
+            instantiatedObject.transform.Translate((cablePositions[moveToCounter] - cablePositions[moveFromCounter]) * 0.0075f);
 
-// Ueberpruefen, ob das Objekt nahe genug an der Zielposition ist
-if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[moveToCounter]) < 0.00375f) {
-// Das Objekt an die Zielposition setzen
-instantiatedObject.transform.position = cablePositions[moveToCounter];
-// Zaehler erhoehen
-moveToCounter++;
-moveFromCounter++;
+            // Ueberpruefen, ob das Objekt nahe genug an der Zielposition ist
+            if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[moveToCounter]) < 0.00375f) {
+                // Das Objekt an die Zielposition setzen
+                instantiatedObject.transform.position = cablePositions[moveToCounter];
+                // Zaehler erhoehen
+                moveToCounter++;
+                moveFromCounter++;
 
-// Ueberpruefen, ob das Objekt am Ende der Kabelpositionen ist
-if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[cablePositions.Count - 1]) < 0.00375f) {
-// Wenn ja, markiere, dass es am Ende ist
-isAtEnd = true;
-}
-}
-}
-else {
-// Wenn der Index zum Bewegen groeßer oder gleich der Anzahl der Kabelpositionen ist, beende das die Bewegung
-shouldMove = false;
-}
-}
+                // Ueberpruefen, ob das Objekt am Ende der Kabelpositionen ist
+                if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[cablePositions.Count - 1]) < 0.00375f) {
+                    // Wenn ja, markiere, dass es am Ende ist
+                    isAtEnd = true;
+                }
+            }
+        }
+        else {
+            // Wenn der Index zum Bewegen groeßer oder gleich der Anzahl der Kabelpositionen ist, beende das die Bewegung
+            shouldMove = false;
+        }
+    }
 }
 
 \end{lstlisting}Das Skript enthält globale Variablen, die von verschiedenen Funktionen verwendet werden:
 
 \begin{itemize}
-\item \textit{shouldMove}: Ein Boolescher Wert, der angibt, ob das Objekt sich bewegen soll oder nicht.
-\item \textit{moveFromCounter}: Ein Zähler, der verfolgt, wie oft das Paket bereits von einer Position weg bewegt wurde.
-\item \textit{moveToCounter}: Ein Zähler, der den Index für die nächste Position des Pakets zählt.
+    \item \textbf{shouldMove}: Ein Boolescher Wert, der angibt, ob das Objekt sich bewegen soll oder nicht.
+    \item \textbf{moveFromCounter}: Ein Zähler, der verfolgt, wie oft das Paket bereits von einer Position weg bewegt wurde.
+    \item \textbf{moveToCounter}: Ein Zähler, der den Index für die nächste Position des Pakets zählt.
 \end{itemize}
 
-Der Code prüft zuerst, ob das Objekt sich bewegen soll. Dann wird überprüft, ob das Objekt bereits am Ende angelangt ist, indem der \textit{moveToCounter} mit der Anzahl der Positionen in \textit{cablePositions} verglichen wird.
+er Code prüft zuerst, ob das Objekt beweget werden soll. Dann wird überprüft, ob das Objekt bereits am Ende angelangt ist, indem der \textit{moveToCounter} mit der Anzahl der Positionen in \textit{cablePositions} verglichen wird.
 
 Solange das Objekt nicht am Ende ist, wird die Bewegung ausgeführt. Die Bewegung selbst wird durch die Differenz zwischen der nächsten Position, zu der sich das Objekt bewegen soll, und der aktuellen Position, von der sich das Paket weg bewegt, definiert. Diese Bewegung wird mit einem Faktor multipliziert, um die Geschwindigkeit des Objekts anzupassen.
 
@@ -1470,145 +1527,103 @@ Nach jeder Bewegung wird überprüft, ob das Objekt nahe genug an der Zielpositi
 Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht
 innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn der Benutzer auf das virtuelle Paket in der HoloLens-App klickt.
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.5\linewidth]{images/NachrichtenAnzeige.png}
-\caption{Anzeige Besipiel für die Nachricht}
-\label{fig:enter-label}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/NachrichtenAnzeige.png}
+    \caption{Anzeige Besipiel für die Nachricht}
+    \label{fig:enter-label}
 \end{figure}
-Dies wird mithilfe des Spielobjekt \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
-Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} Spielobjekt welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
-\begin{lstlisting}[style=csharp, caption={Kind vom Spielobjekt bekommen}, label=code:]
+\\
+\subsubsection*{Text änderung}
+Dies wird mithilfe des GameObject \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
+Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} GameObject welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
+\begin{lstlisting}[style=csharp, caption={Kind vom GameObject bekommen}, label=code:]
 public class EditTextOfInformationObject : MonoBehaviour
 {
-// Referenz auf das Elternspielobjekt, von dem aus das Kindspielobjekt gefunden werden soll
-public Spielobjekt parentGameObject;
-// Referenz auf das TextMeshPro-Objekt, das bearbeitet werden soll
-TextMeshPro textMeshPro;
+    // Referenz auf das ElternGameObject, von dem aus das KindGameObject gefunden werden soll
+    public GameObject parentGameObject;
+    // Referenz auf das TextMeshPro-Objekt, das bearbeitet werden soll
+    TextMeshPro textMeshPro;
 
-// Methode zum Abrufen des TextMeshPro-Objekts vom Kindspielobjekt
-public void GetTextMeshProFromChild() {
-// Ueberpruefen, ob das Elternspielobjekt vorhanden ist
-if (parentGameObject != null)
-{
-// Das Childobjekt mit dem Namen "InformationTextS" im Elternspielobjekt finden
-Spielobjekt childGameObject = parentGameObject.transform.Find("InformationTextS").Spielobjekt;
-// Ueberpruefen, ob das Kindspielobjekt gefunden wurde
-if (childGameObject != null) {
-// Das TextMeshPro-Komponente vom Kindspielobjekt abrufen
-TextMeshPro tmp = childGameObject.GetComponent<TextMeshPro>();
-// Ueberpruefen, ob das TextMeshPro-Komponente vorhanden ist
-if (tmp != null) {
-// Das TextMeshPro-Objekt der Klasse zuweisen
-textMeshPro = tmp;
-}
-}
-}
-}
+    // Methode zum Abrufen des TextMeshPro-Objekts vom KindGameObject
+    public void GetTextMeshProFromChild() {
+        // Ueberpruefen, ob das ElternGameObject vorhanden ist
+        if (parentGameObject != null)
+        {
+            // Das Childobjekt mit dem Namen "InformationTextS" im ElternGameObject finden
+            GameObject childGameObject = parentGameObject.transform.Find("InformationTextS").GameObject;
+            // Ueberpruefen, ob das KindGameObject gefunden wurde
+            if (childGameObject != null) {
+                // Das TextMeshPro-Komponente vom KindGameObject abrufen
+                TextMeshPro tmp = childGameObject.GetComponent<TextMeshPro>();
+                // Ueberpruefen, ob das TextMeshPro-Komponente vorhanden ist
+                if (tmp != null) {
+                    // Das TextMeshPro-Objekt der Klasse zuweisen
+                    textMeshPro = tmp;
+                }
+            }
+        }
+    }
 }
 \end{lstlisting}
 Die Klasse enthält zwei Variablen:
 
 \begin{itemize}
-\item \texttt{parentGameObject}: Eine öffentliche Variable vom Typ \texttt{Spielobjekt}, die als Referenz auf das Elternspielobjekt dient, von dem aus das TextMeshPro-Objekt gefunden werden soll.
-\item \texttt{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
+    \item \textbf{parentGameObject}: Eine öffentliche Variable vom Typ \texttt{GameObject}, die als Referenz auf das ElternGameObject (Siehe Kapitel \ref{sec:hierarchie}) dient, von dem aus das TextMeshPro-Objekt gefunden werden soll.
+    \item \textbf{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
 \end{itemize}
-
-Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem Kindspielobjekt mit dem Namen \textit{InformationTextS} im angegebenen Elternspielobjekt abruft und in der Variablen \texttt{textMeshPro} speichert.
-
-\subsection{Andere Versuche / Probleme bei der Programmierung}
-In diesem Kapitel werden neben den Prototypen und den festgestellten Problemen während der inkrementellen Entwicklung dieses Teilbereichs auch gescheiterte/alternative Versuche und Ansätze innerhalb des Projekts behandelt.
+\\
+Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem KindGameObject mit dem Namen \textit{InformationTextS} im angegebenen ElternGameObject abruft und in der Variablen \texttt{textMeshPro} speichert.
 
 
-\subsubsection{Kabelerkennung Version 1}
-Die erste Version der Kabelerkennung basiert auf der Analyse von einem Foto, die mit der HoloLens aufgenommen wurden.
-\begin{lstlisting}[style=csharp, caption={Erste Version der Kabel Erkennung}, label=code:debugRaycast]
-void editTextureV2(Texture2D textureToEdit) {
-int textureWidth = textureToEdit.width;
-List<int> yCoordinates = new List<int>();
-List<int> xCoordinates = new List<int>();
-for (int y = 0; y < textureToEdit.height; y++) {
-for (int x = 0; x < textureWidth; x++) {
-int index = y * textureWidth + x;
-//  ueberprueft ob der gepruefte Pixel rot ist
-if (pixels[index].r > 0.55f && pixels[index].g < 0.5f && pixels[index].b < 0.5f) {
-yCoordinates.Add(y);
-xCoordinates.Add(x);
-}
-}
-}
-int averageX = getCenterCoordinate(xCoordinates);
-int averageY = getCenterCoordinate(yCoordinates);
-// Fuegt den kleinsten X und den durchschnittlichen Y Punkt als Start Punkt zu redPixelCoordinates hinzu
-redPixelCoordinates.Add(getSideCoordinate(xCoordinates,true, averageY));
-// Fuegt den durchschnittlichen X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
-redPixelCoordinates.Add(new Vector2(averageX, averageY));
-// Fuegt den höchsten X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
-redPixelCoordinates.Add(getSideCoordinate(xCoordinates, false, averageY));
-}
-\end{lstlisting}
-
-\begin{itemize}
-\item \textbf{textureWidth}: Die Breite der bearbeiteten Textur.
-\item \textbf{yCoordinates}: Eine Liste, die die Y-Koordinaten der identifizierten roten Pixel speichert.
-\item \textbf{xCoordinates}: Eine Liste, die die X-Koordinaten der identifizierten roten Pixel speichert.
-\item \textbf{averageX}: Der Durchschnitt der X-Koordinaten der identifizierten roten Pixel.
-\item \textbf{averageY}: Der Durchschnitt der Y-Koordinaten der identifizierten roten Pixel.
-\item \textbf{redPixelCoordinates}: Eine Liste von Vektoren, die die berechneten Positionen der roten Pixel speichert.
-\end{itemize}
-
-Der Code analysiert jede Pixelposition einer Textur, um festzustellen, ob es sich um ein rotes Pixel handelt. Ein Pixel wird als rot betrachtet, wenn seine Rotkomponente über einem bestimmten Schwellenwert liegt und seine Grün- und Blaukomponenten unter anderen Schwellenwerten liegen. Die Koordinaten der identifizierten roten Pixel werden gespeichert, und dann wird der Durchschnitt der X- und Y-Koordinaten berechnet. Basierend auf diesem Durchschnitt werden drei Positionen berechnet, die den Verlauf des Kabels darstellen sollen. Diese Positionen werden in der Liste redPixelCoordinates gespeichert.
-
-Es ist anzumerken, dass die sequenzielle Ausführung dieses Codes ineffizient ist und zu längeren Ladezeiten führen kann. Außerdem kann die Genauigkeit der berechneten Positionen begrenzt sein, was die Fähigkeit beeinträchtigen kann, das Kabel genau zu verfolgen.
 \subsection{Debugging Optionen}
-Während der Entwicklung dieses Projekts wurden spezifische Funktionen implementiert, um Fehler und Bugs im Code zu identifizieren. Zu diesem Zweck wurden zwei Funktionen mit den Bezeichnungen \textit{debugRaycast} und \textit{DebugCameraResolution} entwickelt. Weiterhin wurde ein \textit{Plain} \textit{Spielobjekt} namens \textit{PixleDebug} erstellt, das als Hilfsmittel dient, um Fehler im Code zu diagnostizieren und zu beheben. Diese zusätzlichen Klassen tragen wesentlich dazu bei, die Fehlerfreiheit des entwickelten Systems sicherzustellen, indem sie eine strukturierte und systematische Fehlerbehandlung ermöglichen.
+Während der Entwicklung dieses Projekts wurden spezifische Funktionen implementiert, um Fehler und Bugs im Code zu identifizieren. Zu diesem Zweck wurden zwei Funktionen mit den Bezeichnungen \textit{debugRaycast} und \textit{DebugCameraResolution} entwickelt. Weiterhin wurde ein \textit{Plain} \textit{GameObject} namens \textit{PixleDebug} erstellt, das als Hilfsmittel dient, um Fehler im Code zu diagnostizieren und zu beheben. Diese zusätzlichen Klassen tragen wesentlich dazu bei, die Fehlerfreiheit des entwickelten Systems sicherzustellen, indem sie eine strukturierte und systematische Fehlerbehandlung ermöglichen.
 
 \subsubsection{\label{sec:PlaneDebug}Anzeigen der Kabelerkennung}
-%TODO bild dazu
-Das \textit{Spielobjekt} mit dem Namen \textit{PixleDebug} dient als Hilfsmittel zur Visualisierung der Erkennung roter Pixel. Diese Einrichtung ermöglicht die Darstellung aller identifizierten roten Pixel als 2D-Textur auf dem \textit{Spielobjekt}, wodurch die vom Skript erkannten roten Pixel sichtbar werden. Die Steuerung der Aktivierung bzw. Deaktivierung der Objektdarstellung kann über das Skript \textit{Deactivate Object} erfolgen. Diese Prozedur bietet eine effektive Methode zur Überprüfung der Pixelerkennung in der Umgebung.
+Das \textit{GameObject} mit dem Namen \textit{PixleDebug} dient als Hilfsmittel zur Visualisierung der Erkennung roter Pixel. Diese Einrichtung ermöglicht die Darstellung aller identifizierten roten Pixel als 2D-Textur auf dem \textit{GameObject}, wodurch die vom Skript erkannten roten Pixel sichtbar werden. Die Steuerung der Aktivierung bzw. Deaktivierung der Objektdarstellung kann über das Skript \textit{Deactivate Object} erfolgen. Diese Prozedur bietet eine effektive Methode zur Überprüfung der Pixelerkennung in der Umgebung.
 
 \subsubsection{Debug Funktion von Raycasts}
-Um während des Prozesses von Programmieren der Raycasts sicherzustellen, dass in der Funktion \textit{positionVirtualObject} die korrekte Position getroffen wurde, kann man die Funktion \textit{debugRaycast} verwenden. Diese Funktion dient der Visualisierung der getroffenen Punkte des Raycasts, indem es an den getroffenen Punkt ein Objekt anzeigt. Zur Ausführung dieser Funktion muss das \textit{hit-Objekt} des Raycasts übergeben werden. Dies gewährleistet eine präzise Überprüfung und gegebenenfalls Anpassung der Raycast-Positionen für eine genauere Abbildung der realen Umgebung. Die Verwendung der \textit{debugRaycast}-Funktion ermöglicht somit eine verbesserte Qualität und Zuverlässigkeit in Anwendungen, die auf Raycasting basieren.
+Um während des Prozesses von Programmieren der sicherzustellen, dass in der Funktion \textit{positionVirtualObject} die Raycasts die korrekte Position getroffen wurde, kann man die Funktion \textit{debugRaycast} verwenden. Diese Funktion dient der Visualisierung der getroffenen Punkte des Raycasts, indem es an dem getroffenen Punkt ein Objekt anzeigt. Zur Ausführung dieser Funktion muss das \textit{hit-Objekt} des Raycasts übergeben werden. Dies gewährleistet eine präzise Überprüfung und gegebenenfalls Anpassung der Raycast-Positionen für eine genauere Abbildung der realen Umgebung. Die Verwendung der \textit{debugRaycast}-Funktion ermöglicht somit eine verbesserte Qualität und Zuverlässigkeit in Anwendungen, die auf Raycasting basieren.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von Raycasts}, label=code:debugRaycast]
 void debugRaycast(ARRaycastHit hit) {
-Debug.Log("Ray hit position: " + hit.pose.position);
-Spielobjekt instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
+    Debug.Log("Ray hit position: " + hit.pose.position);
+    GameObject instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
 }
 \end{lstlisting}
 \begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{images/RaycastDebug.jpg}
-\caption{Raycast debug Visualisierung Beispiel}
-\label{fig:RaycastDebugVisualisierung}
+    \centering
+    \includegraphics[width=1\linewidth]{images/RaycastDebug.jpg}
+    \caption{Raycast debug Visualisierung}
+    \label{fig:RaycastDebugVisualisierung}
 \end{figure}
 \subsubsection{Debug Funktion der Kamerabenutzung}
 Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung korrekt auf die Kamera zugreift und die richtige Bildauflösung erhält.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
 void DebugCameraReselution() {
-// Ueberpruefen, ob Kamerageraete verfuegbar sind
-if (WebCamTexture.devices.Length > 0) {
-// Das erste Kamerageraet auswaehlen
-WebCamDevice frontCamera = WebCamTexture.devices[0];
+    // Ueberpruefen, ob Kamerageraete verfuegbar sind
+    if (WebCamTexture.devices.Length > 0) {
+        // Das erste Kamerageraet auswaehlen
+        WebCamDevice frontCamera = WebCamTexture.devices[0];
 
-// Eine WebCamTexture mit dem ausgewaehlten Kamerageraet erstellen
-WebCamTexture webcamTexture = new WebCamTexture(frontCamera.name);
+        // Eine WebCamTexture mit dem ausgewaehlten Kamerageraet erstellen
+        WebCamTexture webcamTexture = new WebCamTexture(frontCamera.name);
 
-// Die Textur abspielen, um sicherzustellen, dass die Kamera ordnungsgemaeß initialisiert wird
-webcamTexture.Play();
+        // Die Textur abspielen, um sicherzustellen, dass die Kamera ordnungsgemaeß initialisiert wird
+        webcamTexture.Play();
 
-// Ueberpruefen, ob die Kamera eine gueltige Aufloesung zurueckgibt
-if (webcamTexture.width > 0 && webcamTexture.height > 0) {
-// Aufloesung protokollieren
-Debug.Log("Selected Resolution: " + webcamTexture.width + "x" + webcamTexture.height);
-}
-else {
-// Fehlermeldung ausgeben, wenn die Kamera keine gueltige Aufloesung zurueckgibt
-Debug.LogError("Failed to get a valid camera resolution.");
-}
-}
-else {
-// Fehlermeldung ausgeben, wenn keine Kamerageraete gefunden  werden
-Debug.LogError("No camera devices found.");
-}
+        // Ueberpruefen, ob die Kamera eine gueltige Aufloesung zurueckgibt
+        if (webcamTexture.width > 0 && webcamTexture.height > 0) {
+            // Aufloesung protokollieren
+            Debug.Log("Selected Resolution: " + webcamTexture.width + "x" + webcamTexture.height);
+        }
+        else {
+            // Fehlermeldung ausgeben, wenn die Kamera keine gueltige Aufloesung zurueckgibt
+            Debug.LogError("Failed to get a valid camera resolution.");
+        }
+    }
+    else {
+        // Fehlermeldung ausgeben, wenn keine Kamerageraete gefunden  werden
+        Debug.LogError("No camera devices found.");
+    }
 }
 \end{lstlisting}
 Im Code wird die Klasse \textit{WebCamTexture} verwendet, um auf die Kamera zuzugreifen und die Funktionalität zu überprüfen. Die \textit{WebCamTexture} ist eine Klasse in Unity, die die Verwendung von Kamerabildern in Echtzeit ermöglicht. Sie ermöglicht es, Live-Bilder von einer Kamera zu erfassen und sie als Textur zu verwenden, dazu beinhaltet es alle für Unity verfügbaren Kameras.
@@ -1617,7 +1632,7 @@ Zuerst wird geprüft, ob ein Kameragerät verfügbar ist. Wenn ja, wird die erst
 
 
 
-\subsection{Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
+\subsection{\Label{sec:Website}Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite gemäß dem Anwendungsfall \ref{sec:jonasSzenario}. Die Webseite spielt eine zentrale Rolle im ersten Anwendungsszenario, dem Nachrichtenaustausch. Ziel ist es, dass zwei Geräte miteinander kommunizieren können. Für eine optimale Benutzererfahrung bedarf es daher einer intuitiven Benutzeroberfläche. Die Entscheidung, ein Web-Interface zu verwenden, basiert auf diesen zwei Faktoren:
 
 \begin{itemize}
