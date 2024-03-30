@@ -2102,7 +2102,7 @@ Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Co
 Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
 
 \subsubsection{\label{sec:SGN}Spatial Graph Node}
-Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte \textit{Spatial Graph Nodes}. Diese werden durch das \textit{OpenXR-Plug-in} von Microsoft bereitgestellt und dienen dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
+Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte \textit{Spatial Graph Nodes}. Diese werden durch das \textit{OpenXR-Plug-in} (siehe \ref{sec:openxr}) von Microsoft bereitgestellt und dienen dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
 Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-KoordinatensysDarüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau exakt an der gleichen Stelle wie den realen QR-Code. Diese Verwendung von\textit{Spatial Graph Nodes} ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in
 der Mixed-Reality-Umgebung. \footnote{Microsoft-Dokumentation \cite{Spatial Graph Node}}
@@ -3825,7 +3825,7 @@ Das \textit{Unity Test Framework} stellt eine leistungsstarke Sammlung von Werkz
 Ergebnissen bietet das Framework eine breite Palette von Funktionen, um die Qualität von Unity-Anwendungen zu gewährleisten. \footnote{Unity-Dokumentation \cite{UnityTestFramework}}
 %https://unity.com/how-to/automated-tests-unity-test-framework
 
-\subsubsection{\label{sec:testRunner} Test-Runner}
+\subsubsection{\label{sec:testRunner}Test-Runner}
 
 Der \textit{Test-Runner} ist ein zentrales Werkzeug innerhalb des \textit{Unity Test Frameworks}, das Entwicklern ermöglicht, Tests einfach zu organisieren, auszuführen und zu überwachen. Durch die intuitive Benutzeroberfläche können Testfälle gruppiert, in spezifischer Reihenfolge ausgeführt und detaillierte Berichte über den Testdurchlauf generiert werden. Die visuelle Darstellung in Abbildung \ref{fig:testRunner} bietet einen schnellen Überblick über die Testergebnisse und ermöglicht eine präzise Analyse der Codequalität.
 
@@ -3838,7 +3838,7 @@ In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. 
 \label{fig:testRunner}
 \end{figure}
 
-\subsection{\label{sec:AAA} AAA-Schema}
+\subsection{\label{sec:AAA}AAA-Schema}
 Das AAA-Schema steht für \textit{Arrange}, \textit{Act}, \textit{Assert} und ist ein grundlegendes Konzept im Bereich des Testens von Software. Es bietet eine klare Struktur für die Organisation von Testfällen, um sicherzustellen, dass die Funktionalität korrekt überprüft wird. Hier ist eine Erläuterung der einzelnen Schritte:
 \begin{itemize}
 \item \textbf{Arrange (Vorbereitung):} In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
