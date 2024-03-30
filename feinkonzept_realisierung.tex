@@ -927,16 +927,6 @@ Zum Aufbau in der realen Welt werden zwei PCs nebeneinander aufgestellt. Beide d
 \end{figure}
 
 
-\subsection{\label{sec:TextMeshPro}Text Mesh Pro}
-TextMeshPro ist eine fortgeschrittene Text-Rendering-Engine, die innerhalb der Unity-Engine verwendet wird. Sie bietet verbesserte Kontrolle und Flexibilität bei der Darstellung von Text in Unity-Anwendungen. Im Gegensatz zur Standard-Textkomponente bietet TextMeshPro Unterstützung für eine Vielzahl von Schriftarten und Textstilen sowie eine präzisere Anpassung der Textdarstellung. Dies wird durch die Verwendung von Vektorgrafiken ermöglicht, die eine höhere Auflösung und Skalierbarkeit gewährleisten.\protect\footnote{Unity\cite{TextMeshPro}}
-
-
-\subsection{\label{sec:Transform}Transform Klasse}
-Die Transform-Klasse in Unity ist eine wichtige Komponente für die Platzierung, Rotation und Skalierung von GameObjects in einer 3D-Szene. Sie ermöglicht es ebenso innerhalb einer Hierarchie von Objekten, die Position, Rotation und Skalierung eines GameObjects relativ zu seinem Elternelement zu verändern. \protect\footnote{Unity\cite{Transform}}
-
-\subsection{\label{sec:IEnumerator}IEnumerator Klasse}
-Die Klasse IEnumerator ist eine Schnittstelle in der Programmiersprache C\#, die eine standardisierte Möglichkeit bietet, eine Sammlung von Elementen zu durchlaufen, ohne die interne Struktur der Sammlung offenzulegen. Sie ermöglicht das sequenzielle Durchlaufen von Elementen in einer Datenstruktur wie Arrays, Listen oder anderen Sammlungen.\protect\footnote{Microsoft Learn\cite{IEnumeratorMicrosoft}} \footnote{Medium \cite{IEnumeratorMedium}}
-
 \subsection{\label{sec:Coroutines}Coroutines}
 \textit{Coroutines} in Unity ermöglichen die Ausführung von Code über mehrere Frames hinweg vom Haupt Thread aus. Sie werden verwendet, um Funktionen schrittweise auszuführen, wobei der Haupt Thread zwischen den Frames zurückkehrt, um andere Aufgaben zu erledigen. Coroutines eignen sich besonders für die Darstellung von Ereignissen über einen Zeitraum.
 \\
@@ -999,6 +989,12 @@ public void stopAllCurrentCoroutine() {
     \item StopAllCoroutine: Sorgt dafür, dass alle Funktionen, welche für alle laufenden \textit{Coroutine} verwendet wurden, beendet werden.
 \end{itemize}
 
+\subsubsection{\label{sec:Transform}Transform Klasse}
+Die Transform-Klasse in Unity ist eine wichtige Komponente für die Platzierung, Rotation und Skalierung von GameObjects in einer 3D-Szene. Sie ermöglicht es ebenso innerhalb einer Hierarchie von Objekten, die Position, Rotation und Skalierung eines GameObjects relativ zu seinem Elternelement zu verändern. \protect\footnote{Unity\cite{Transform}}
+
+\subsubsection{\label{sec:IEnumerator}IEnumerator Klasse}
+Die Klasse IEnumerator ist eine Schnittstelle in der Programmiersprache C\#, die eine standardisierte Möglichkeit bietet, eine Sammlung von Elementen zu durchlaufen, ohne die interne Struktur der Sammlung offenzulegen. Sie ermöglicht das sequenzielle Durchlaufen von Elementen in einer Datenstruktur wie Arrays, Listen oder anderen Sammlungen.\protect\footnote{Microsoft Learn\cite{IEnumeratorMicrosoft}} \footnote{Medium \cite{IEnumeratorMedium}}
+
 
 \subsection{Start der Szene}
 Wenn der Benutzer von dem Hauptmenü in das Anwendungsszenario Eins ladet, dann wird über das GameObject CableSearch direkt das \textit{CableSearch.cs} Skript gestartet, welches für die Erkennung des Kabels verantwortlich ist.
@@ -1029,6 +1025,10 @@ private IEnumerator DelayedStart() {
 }
 \end{lstlisting}
 Beim Start des Skripts wird die Funktion \textit{Start} aufgerufen. Diese modifiziert den Text von \textit{userInfo}, welcher dem Benutzer angezeigt wird. Nach dieser Änderung wird eine \textit{Coroutine}, (siehe Kapitel \ref{sec:Coroutines}), gestartet und an einen neuen Thread namens \textit{DelayedStart} übergeben. Die Funktion \textit{DelayedStart} stellt sicher, dass der Benutzer die Nachricht zwei Sekunden lang lesen kann, bevor sie durch einen Timer ersetzt wird.
+
+\subsubsection{\label{sec:TextMeshPro}Text Mesh Pro}
+TextMeshPro ist eine fortgeschrittene Text-Rendering-Engine, die innerhalb der Unity-Engine verwendet wird. Sie bietet verbesserte Kontrolle und Flexibilität bei der Darstellung von Text in Unity-Anwendungen. Im Gegensatz zur Standard-Textkomponente bietet TextMeshPro Unterstützung für eine Vielzahl von Schriftarten und Textstilen sowie eine präzisere Anpassung der Textdarstellung. Dies wird durch die Verwendung von Vektorgrafiken ermöglicht, die eine höhere Auflösung und Skalierbarkeit gewährleisten.\protect\footnote{Unity\cite{TextMeshPro}}
+
 \subsubsection*{Timer anzeige}
 Dieser Timer wird in der \textit{Update}-Funktion von Unity verarbeitet, um eine zeitgesteuerte Aktualisierung zu gewährleisten.
 
@@ -1062,37 +1062,6 @@ Nach Ablauf der Wartezeit von zwei Sekunden wird eine Zeitmessung gestartet. Dab
 
 \subsection{\label{sec:Fotoaufnahme}Fotoaufnahme}
 Innerhalb von diesem Kapitel wird beschreiben, wie das Programm mithilfe des \textit{PictureTaking.cs} Skripts ein Foto von dem roten Kabel macht.Dazu werden auch die für den Prozess notwendigen Unity Klassen beschrieben.
-
-\subsubsection{\label{sec:Photocapture}Photocapture Klasse}
-Die \textit{PhotoCapture} Klasse benutzt die \textit{PhotoCapture} API, um ein Foto mit der Kamera des Gerätes zu machen.
-Damit dies möglich ist, muss man Unity die Erlaubnis für die \textit{Webcam} und das \textit{Microphone} erteilen. Diese gibt dann die Erlaubnis, wenn etwa ein Laptop verwendet wird, damit dieser über Unity Code Fotos/Videos sowie Sprachaufnahmen über die Kamera und Mikrofone aufnehmen kann. Dies trifft dann auch auf die HoloLens 2 zu.
-Dies kann unter \textit{Edit $\Rightarrow$ Project Settings $\Rightarrow$ Player $\Rightarrow$ Settings for Universal Windows Platform $Rightarrow$ Publishing Settings $\Rightarrow$ Capabilities} gemacht werden.
-
-Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
-
-
-\begin{itemize}
-    \item \textbf{PhotoCapture.CreateAsync():} Erstellt asynchron eine Instanz eines PhotoCapture Objekts, welches benutzt werden kann, um ein Foto zu schießen.
-    \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt, die zur \textit{CameraParameter}-Klasse instanziiert werden.
-    \item \textbf{PhotoCapture.TakePhotoAsync():} Macht das Foto.
-    \item \textbf{PhotoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto innerhalb einer Variable.
-    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer.\footnote{Unity, \cite{Photocapture}}
-\end{itemize}
-
-
-\subsubsection{\label{sec:Canvas}Unity Canvas}
-Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{GameObject} als sogenannten \textit{parent} (Siehe Kapitel \ref{sec:hierarchie}), welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI}
-kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
-\\
-Ein Canvas verfügt auch über verschiedene Rendermodi:
-\begin{itemize}
-
-    \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es, UI-Elementen über der Szene auf dem Bildschirm zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über der Szene gerendert wird.
-
-    \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird. Anders gesagt, sie liegen auf einer Ebene über der Spielwelt und sind immer sichtbar, ohne von der Spielumgebung beeinflusst zu werden.
-
-    \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas, im Gegensatz zu den anderen Modi, verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}\protect\footnote{Unity \cite{Renderer}}
-\end{itemize}
 
 \subsubsection{Foto der Umgebung aufnehmen}
 Das Aufnehmen des Fotos wird mithilfe der \textit{PhotoCapture}-Klasse (siehe Kapitel \ref{sec:Photocapture}) asugeführt. Um zu gewährleisten, dass es funktioniert und mit der Kamera ein qualitativ gutes Foto zum Verarbeiten gemacht wird, müssen Einstellungen für die Kameraparameter eingestellt werden.
@@ -1133,6 +1102,37 @@ public void takingPicture() {
 }
 \end{lstlisting}
 Zunächst wird in diesem Code mit dem Boolean \textit{takingNewPicture} geprüft, ob bereits ein Bild aufgenommen wurde. Daraufhin wird sofort das Lade-Symbol (siehe Kapitel \ref{sec:ladeSymbol}) gestartet und angezeigt. Anschließend wird eine asynchrone Methode \textit{PhotoCapture.CreateAsync()} aufgerufen, um ein \textit{Photo-Capture} zu erstellen. Diese Methode erstellt ein \textit{PhotoCapture-Objekt}, das für die Aufnahme von Fotos verwendet wird. Die Methode akzeptiert den Parameter false, der angibt, dass kein Audio-Capture erstellt werden soll. Wenn die Aufnahme erfolgreich war, wird das PhotoCapture-Objekt gespeichert und die Kameraparameter für die Aufnahme konfiguriert. Anschließend wird der Photo-Capture-Modus mit \textit{StartPhotoModeAsync} gestartet, und wenn dieser erfolgreich gestartet wurde, wird das Foto aufgenommen und mit \textit{TakePhotoAsync} im Speicher abgelegt.
+
+\subsubsection{\label{sec:Photocapture}Photocapture Klasse}
+Die \textit{PhotoCapture} Klasse benutzt die \textit{PhotoCapture} API, um ein Foto mit der Kamera des Gerätes zu machen.
+Damit dies möglich ist, muss man Unity die Erlaubnis für die \textit{Webcam} und das \textit{Microphone} erteilen. Diese gibt dann die Erlaubnis, wenn etwa ein Laptop verwendet wird, damit dieser über Unity Code Fotos/Videos sowie Sprachaufnahmen über die Kamera und Mikrofone aufnehmen kann. Dies trifft dann auch auf die HoloLens 2 zu.
+Dies kann unter \textit{Edit $\Rightarrow$ Project Settings $\Rightarrow$ Player $\Rightarrow$ Settings for Universal Windows Platform $Rightarrow$ Publishing Settings $\Rightarrow$ Capabilities} gemacht werden.
+
+Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
+
+
+\begin{itemize}
+    \item \textbf{PhotoCapture.CreateAsync():} Erstellt asynchron eine Instanz eines PhotoCapture Objekts, welches benutzt werden kann, um ein Foto zu schießen.
+    \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt, die zur \textit{CameraParameter}-Klasse instanziiert werden.
+    \item \textbf{PhotoCapture.TakePhotoAsync():} Macht das Foto.
+    \item \textbf{PhotoCaptureFrame.UploadImageDataToTexture:} Kopiert das unverarbeitete Foto innerhalb einer Variable.
+    \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer.\footnote{Unity, \cite{Photocapture}}
+\end{itemize}
+
+
+\subsubsection{\label{sec:Canvas}Unity Canvas}
+Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{GameObject} als sogenannten \textit{parent} (Siehe Kapitel \ref{sec:hierarchie}), welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI}
+kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
+\\
+Ein Canvas verfügt auch über verschiedene Rendermodi:
+\begin{itemize}
+
+    \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es, UI-Elementen über der Szene auf dem Bildschirm zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über der Szene gerendert wird.
+
+    \item\textbf{Screen Space-Camera}: Dieser Modus funktioniert ähnlich wie \textit{Screen Space-Overlay}, mit dem Unterschied, dass das UI-Element vor der zugewiesenen Kamera platziert wird. Anders gesagt, sie liegen auf einer Ebene über der Spielwelt und sind immer sichtbar, ohne von der Spielumgebung beeinflusst zu werden.
+
+    \item\textbf{World Space}: Dieser Rendermodus wird in diesem Projekt am häufigsten verwendet. In diesem Modus kann der Canvas, im Gegensatz zu den anderen Modi, verschoben werden, genau wie alle anderen Objekte in der Szene.\protect\footnote{Unity \cite{Canvas}}\protect\footnote{Unity \cite{Renderer}}
+\end{itemize}
 
 \subsection{Ladesymbol}\label{sec:ladeSymbol}
 Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informiert, dass Berechnungen oder Prozesse im Hintergrund ausgeführt werden. In erster Linie wird dieses Symbol während der Kabelsuche verwendet. Diese Animation des Ladesymbols wird durch einen entsprechenden Programmcode gesteuert, um den Benutzer eine klare und konsistente Rückmeldung zu geben, dass der Prozess läuft. Im Design der Interaktion spielt das Ladesymbol eine wichtige Rolle, um den Benutzer über den aktuellen Status der Anwendung zu informieren.
@@ -1212,24 +1212,6 @@ Es ist anzumerken, dass die sequenzielle Ausführung dieses Codes ineffizient is
 \subsection{Fotoverarbeitung Finale Version}
 In diesem Abschnitt wird die Vorgehensweise zur Lokalisierung des roten Kabels anhand eines Fotos erläutert, das zuvor im Kapitel \ref{sec:Fotoaufnahme} aufgenommen wurde. Dabei werden die roten Pixel im Bild gesucht, um das gesuchte Kabel präzise zu identifizieren.
 
-\subsubsection{\label{sec:JobSystem}Unity Job System}
-Das Job-System von Unity bietet eine effiziente Möglichkeit zur Implementierung von Multithreading in Anwendungen, wodurch die Anwendung in
-der Lage ist, alle verfügbaren CPU-Kerne optimal zu nutzen. Im Gegensatz zu einem sequenziellen Durchlauf des Codes durch einen einzigen Thread, dem sogenannten Haupt Thread, ermöglicht das Job-System die parallele Verarbeitung von Codeabschnitten durch separate Arbeiter-Threads. Durch die Nutzung mehrerer Arbeiter-Threads können Aufgaben effizienter verteilt und gleichzeitig bearbeitet werden. Dies trägt wesentlich zur Verbesserung der Effizienz und der Gesamtdauer der Ausführung des Programms bei. Eine wichtige Eigenschaft des Job-Systems besteht darin, sicherzustellen, dass nur so viele Threads verwendet werden, wie von den verfügbaren CPU-Kernen unterstützt werden.\\
-\\
-Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte \textit{Work Stealing}. Dabei handelt es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat, zusätzliche Aufgaben von anderen Arbeiter-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf alle verfügbaren Ressourcen zu verteilen. \\
-\\
-Um das Schreiben von einem Multithread-Code zu erleichtern, verfügt das Job-System über ein Sicherheitssystem, das sicherstellt, dass potenzielle Wettlaufbedingungen eine sogenannte \textit{Race Condition} zu vermeiden und somit können Fehler vermieden werden. Um zu gewährleisten, dass keine Wettlaufbedingungen auftreten können, erhält jeder Thread eine isolierte Kopie der Daten, die er verarbeiten kann.\protect\footnote{Unity \cite{Job System}}
-
-
-\subsubsection{\label{sec:Vector2}Vector2 Klasse}
-Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Manipulation von 2D-Positionen, -Richtungen und -Geschwindigkeiten innerhalb deren \textit{Engine}. Mithilfe der \textit{Vektor2D} Klasse von Unity lassen sich Bewegung, Interaktion und Objekte exakt steuern und simulieren. Diese Klasse besitzt die folgenden Eigenschaften:
-\begin{itemize}
-    \item \textit{x und y: }Punkt Koordinate in einem 2 dimensionalen Koordinatensystem
-    \item \textit{magnitude: }Besitzt die Größe des 2D Vektors. Die Größe des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
-    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
-\end{itemize}
-
-
 \subsubsection{Pixel Positionen finden}
 Nachdem ein Foto aufgenommen wurde, erfolgt die Datenverarbeitung mittels einer \textit{Texture2D}-Klasse innerhalb des \textit{Unity-Job-Systems} in paralleler Ausführung. Jeder Thread des Systems ist dafür zuständig eine festgelegte Anzahl von Pixeln im Bild zu überprüfen, um festzustellen, ob diese die Eigenschaft Rot aufweisen. Die Ergebnisse dieser Überprüfung werden in einem zweidimensionalen Boolean-Array gespeichert, wobei die x- und y-Koordinaten jeweils einer Dimension zugeordnet sind. Jeder Pixel im Array wird entsprechend seinem Farbzustand mit dem booleschen Wert \textit{true} gekennzeichnet, falls er rot ist, andernfalls wird ihm der Wert \textit{false} zugewiesen. Dieser Prozess wird durch das \textit{Job-System} ausgeführt, wobei jeder einzelne Job eine gewisse Anzahl an Pixeln überprüft.
 
@@ -1284,6 +1266,25 @@ struct PixelJob : IJobParallelFor {
 Die Methode \textit{Execute(int batchIndex)} wird von jedem \textit{Job} aufgerufen, um Pixel zu verarbeiten. Jeder \textit{Job} bearbeitet eine Teilmenge der Pixel im Bild.\\
 \\
 Innerhalb der Execute-Methode werden zunächst der Start- und Endindex für den aktuellen Batch berechnet. Dann wird eine Schleife durchlaufen, die jedem Pixel im aktuellen Batch überprüft. Für jedem Pixel wird die Farbkomponenten geprüft. Wenn ein Pixel so gesagt \textit{rot genug} ist, wird die Position in einen \textit{Vector2 List} gespeichert
+
+\subsubsection{\label{sec:JobSystem}Unity Job System}
+Das Job-System von Unity bietet eine effiziente Möglichkeit zur Implementierung von Multithreading in Anwendungen, wodurch die Anwendung in
+der Lage ist, alle verfügbaren CPU-Kerne optimal zu nutzen. Im Gegensatz zu einem sequenziellen Durchlauf des Codes durch einen einzigen Thread, dem sogenannten Haupt Thread, ermöglicht das Job-System die parallele Verarbeitung von Codeabschnitten durch separate Arbeiter-Threads. Durch die Nutzung mehrerer Arbeiter-Threads können Aufgaben effizienter verteilt und gleichzeitig bearbeitet werden. Dies trägt wesentlich zur Verbesserung der Effizienz und der Gesamtdauer der Ausführung des Programms bei. Eine wichtige Eigenschaft des Job-Systems besteht darin, sicherzustellen, dass nur so viele Threads verwendet werden, wie von den verfügbaren CPU-Kernen unterstützt werden.\\
+\\
+Ein weiteres wichtiges Konzept, das im Job System implementiert ist, ist das sogenannte \textit{Work Stealing}. Dabei handelt es sich um eine Planungsstrategie für Threads, bei der ein Thread, der seine aktuellen Aufgaben abgeschlossen hat, zusätzliche Aufgaben von anderen Arbeiter-Threads übernimmt und sie in seine eigene Warteschlange einfügt. Dies ermöglicht eine dynamische und effiziente Verteilung von Aufgaben zwischen den Threads und trägt dazu bei, die Last gleichmäßig auf alle verfügbaren Ressourcen zu verteilen. \\
+\\
+Um das Schreiben von einem Multithread-Code zu erleichtern, verfügt das Job-System über ein Sicherheitssystem, das sicherstellt, dass potenzielle Wettlaufbedingungen eine sogenannte \textit{Race Condition} zu vermeiden und somit können Fehler vermieden werden. Um zu gewährleisten, dass keine Wettlaufbedingungen auftreten können, erhält jeder Thread eine isolierte Kopie der Daten, die er verarbeiten kann.\protect\footnote{Unity \cite{Job System}}
+
+
+\subsubsection{\label{sec:Vector2}Vector2 Klasse}
+Unity bietet dem Benutzer eine umfassende Funktionalität zur Darstellung und Manipulation von 2D-Positionen, -Richtungen und -Geschwindigkeiten innerhalb deren \textit{Engine}. Mithilfe der \textit{Vektor2D} Klasse von Unity lassen sich Bewegung, Interaktion und Objekte exakt steuern und simulieren. Diese Klasse besitzt die folgenden Eigenschaften:
+\begin{itemize}
+    \item \textit{x und y: }Punkt Koordinate in einem 2 dimensionalen Koordinatensystem
+    \item \textit{magnitude: }Besitzt die Größe des 2D Vektors. Die Größe des Vektors wird mithilfe von dieser Formel berechnet $\sqrt{x^2 + y^2}$
+    \item \textit{normalized: }Normalisierung bedeutet, den Vektor auf eine Länge von 1 zu bringen, während seine Richtung beibehalten wird. \protect\footnote{Unity \cite{Vector2}}
+\end{itemize}
+
+
 \subsubsection{Kabel finden}
 Nachdem das Foto verarbeitet wurde, wird nach roten Pixeln in dem Bild gesucht, um danach die noch fehlende Entfernung des Kabels, zu messen. Mit dieser hat man dann die genaue Position des roten Kabels in der echten Welt errechnet. Um dies zu erreichen, wird nach roten Pixeln im Bild gesucht. Da es aber unsicher ist, ob diese roten Pixel zu einem Kabel gehören oder nicht, wird eine Methode angewendet, um die längste zusammenhängende Reihe von roten Pixeln zu ermitteln. Es kann auch dazu kommen, das rote Pixel, welche zum Kabel gehören, nicht erkannt werden. Deswegen wird ein Toleranzbereich festgelegt. Es wird ermittelt, ob in einem bestimmten Bereich, rote Pixel existieren, von welchen aus dann weiter ermittelt wird. Dadurch wird eine präzisere Erkennung und Zuordnung von relevanten roten Pixeln im Kontext des zu identifizierenden Kabels ermöglicht. Die methodische Vorgehensweise zur Berechnung gestaltet sich wie folgt:
 
@@ -1347,36 +1348,6 @@ Die Funktion sucht nach roten Pixeln, indem sie von einer Startposition ausgehen
 \subsection{Erstellen und Bewegung des Paketes}
 Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald diese gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird das Paket über die Punkte bewegt.
 
-\subsubsection{\label{sec:Raycast}Definition eines Rays}
-Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\protect\footnote{Unity \cite{Raycast}}\\
-
-\subsubsection{\label{sec:TrackableType}TrackableType Klasse}
-In Unity ist \textbf{TrackableType} eine Aufzählung, die verschiedene Arten von Objekten repräsentiert, die in Augmented Reality (AR) verfolgt werden können. Zu diesen Typen gehören:
-
-\begin{itemize}
-    \item \textbf{Bilder}: Unity ermöglicht die Erkennung und Verfolgung von Bildern in der realen Welt. Entwickler können spezifische Bilder definieren, die von ihrer AR-Anwendung erkannt werden sollen, um darauf basierend virtuelle Inhalte anzuzeigen.
-
-    \item \textbf{Objekte}: Dies bezieht sich auf die Verfolgung von physischen Objekten. Entwickler können bestimmte reale Objekte markieren, die von der AR-Anwendung verfolgt werden sollen, um interaktive Erfahrungen zu schaffen.
-
-    \item \textbf{Ebenen}: Unity kann flache Oberflächen wie Böden, Tische oder Wände erkennen und als Grundlage für die Platzierung von AR-Inhalten verwenden. Diese Art von TrackableType ermöglicht es, virtuelle Objekte stabil auf realen Oberflächen zu positionieren.\protect\footnote{Unity\cite{TrackableType}}
-\end{itemize}
-
-
-
-\subsubsection{\label{sec:ARRaycastHit}ARRaycastHit Klasse}
-Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eines \textit{Raycasts} (siehe Kapitel \ref{sec:Raycast}) in Augmented Reality
-(AR) Anwendungen zu erhalten. Die Informationen des Raycasts werden dann von der \textit{ARRaycastHit}-Klasse
-aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthält mehrere Methoden, die es ermöglichen, auf
-die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen
-wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
-ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf
-realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} diese Klasse besitzt die folgenden Eigenschaften:
-\begin{itemize}
-    \item \textbf{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
-
-    \item \textbf{hitType: } gibt den Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Er ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
-\end{itemize}
-
 \subsubsection{\label{sec:EntfernungMessen}Entfernung messen}
 Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
 im Raycasts (siehe Kapitel (\ref{sec:Raycast}) verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
@@ -1430,6 +1401,38 @@ if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
 Es wird eine Liste von ARRaycastHit Objekten erstellt, die den Namen \textit{hits} trägt. In dieser Liste werden nach dem Ausführen einer AR-Raycast-Operation die Treffer gespeichert. Die Funktion Raycast erhält die \textit{screenCoordinates}, die \textit{hits}-Liste sowie die zu suchenden TrackableType.Planes.
 Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überprüft. Diese Treffer werden dann darauf überprüft, ob ihr Typ nicht \textit{TrackableType.PlaneWithinInfinity} ist, um sicherzustellen, dass der Raycast nicht ins Unendliche geht. Wenn ein Objekt getroffen wurde, wird geprüft, ob es Werte besitzt. Wenn alle diese Voraussetzungen erfüllt sind, wird es mit einer um 5 cm Erhöhung (damit das Paket nicht innerhalb von Kabel gleitet, sondern leicht darüber) zu \textit{cablePositions} hinzugefügt. Unter \textit{cablePositions} versteht man die Position, die das Paket später durchqueren wird.
 
+
+\subsubsection{\label{sec:Raycast}Definition eines Rays}
+Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\protect\footnote{Unity \cite{Raycast}}\\
+
+\subsubsection{\label{sec:TrackableType}TrackableType Klasse}
+In Unity ist \textbf{TrackableType} eine Aufzählung, die verschiedene Arten von Objekten repräsentiert, die in Augmented Reality (AR) verfolgt werden können. Zu diesen Typen gehören:
+
+\begin{itemize}
+    \item \textbf{Bilder}: Unity ermöglicht die Erkennung und Verfolgung von Bildern in der realen Welt. Entwickler können spezifische Bilder definieren, die von ihrer AR-Anwendung erkannt werden sollen, um darauf basierend virtuelle Inhalte anzuzeigen.
+
+    \item \textbf{Objekte}: Dies bezieht sich auf die Verfolgung von physischen Objekten. Entwickler können bestimmte reale Objekte markieren, die von der AR-Anwendung verfolgt werden sollen, um interaktive Erfahrungen zu schaffen.
+
+    \item \textbf{Ebenen}: Unity kann flache Oberflächen wie Böden, Tische oder Wände erkennen und als Grundlage für die Platzierung von AR-Inhalten verwenden. Diese Art von TrackableType ermöglicht es, virtuelle Objekte stabil auf realen Oberflächen zu positionieren.\protect\footnote{Unity\cite{TrackableType}}
+\end{itemize}
+
+
+
+\subsubsection{\label{sec:ARRaycastHit}ARRaycastHit Klasse}
+Die \textit{ARRaycastHit} Klasse in Unity wird verwendet, um die Ergebnisse eines \textit{Raycasts} (siehe Kapitel \ref{sec:Raycast}) in Augmented Reality
+(AR) Anwendungen zu erhalten. Die Informationen des Raycasts werden dann von der \textit{ARRaycastHit}-Klasse
+aufgefangen und zur Verfügung gestellt.Die \textit{ARRaycastHit}-Klasse enthält mehrere Methoden, die es ermöglichen, auf
+die Details des Treffpunkts zuzugreifen und entsprechende Aktionen in einer AR-Anwendung auszuführen. Dazu gehören Informationen
+wie die Position des Treffpunktes und die Entfernung zum Startpunkt des Strahls. Durch die Verwendung der \textit{ARRaycastHit}-Klasse
+ist es möglich, präzise Interaktionen in AR-Szenen zu implementieren, wie z.B. das Platzieren virtueller Objekte auf
+realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} diese Klasse besitzt die folgenden Eigenschaften:
+\begin{itemize}
+    \item \textbf{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
+
+    \item \textbf{hitType: } gibt den Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Er ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
+\end{itemize}
+
+
 \subsubsection{Erstellung und Positionierung des Paketes}\label{sec:PaketPos}
 Nach der Bestimmung der kritischen Positionen mittels Raycast hat der Benutzer die Möglichkeit, über die Website eine Nachricht zu übermitteln. Die Übermittlung dieser Nachricht löst ein entsprechendes Ereignis aus, das zur Initialisierung und zum Absenden des Datenpakets führt.\\
 Bei der \textit{Start} Funktion, welche von Unity zur Verfügung gestellt  wird, wird diese Zeile ausgeführt:
@@ -1473,7 +1476,7 @@ public void editAndSendPackage(string username, string message) {
     });
 }
 \end{lstlisting}
-Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Haupt Thread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Haupt Thread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Neben Thread, sondern vom Haupt Thread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt bislang nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} des GameObjects zu verwenden, um die korrekten Daten im Text anzuzeigen.
+Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und ob es sich bereits am Ende des vorgesehenen Weges befindet. Sollte dies der Fall sein, wird der Zähler für die Bewegung des Pakets zurückgesetzt. Aufgrund der Tatsache, dass der \textit{EventManager}, der die Funktion aufruft, nicht im Haupt Thread läuft und die Initialisierung des Pakets sowie die Funktion \textit{EventManager.SendMsg} nur im Haupt Thread ausgeführt werden darf, ist die Verwendung des \textit{MainThreadDispatcher} erforderlich. Dieser stellt sicher, dass dieser Codeabschnitt nicht von einem Neben Thread, sondern vom Haupt Thread ausgeführt wird. Dies ist notwendig, um sicherzustellen, dass die Unity-Szene synchronisiert ist, wie von Unity vorgegeben. Innerhalb des \textit{MainThreadDispatcher} wird, wenn das Objekt bislang nicht erstellt wurde, dieses am Anfang des Kabels erstellt. Wenn das Paket jedoch bereits erstellt wurde, wird es zerstört und wieder auf die Startposition zurückgesetzt. Die Klasse \textit{EditTextOfInformationObject} ist dafür verantwortlich, das \textit{TextMeshPro} (siehe Kapitel \ref{sec:TextMeshPro}) des GameObjects zu verwenden, um die korrekten Daten im Text anzuzeigen.
 
 
 \subsubsection{Bewegung des Paketes}
