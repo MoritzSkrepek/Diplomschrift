@@ -252,6 +252,7 @@ Insgesamt bilden GameObjects und deren Komponenten das Rückgrat der Entwicklung
 Unity. Ihr Verständnis und ihre effektive Verwaltung sind entscheidend für die erfolgreiche Umsetzung digitaler Szenarien
 und tragen maßgeblich zur Entwicklung innovativer und ansprechender Spielerlebnisse bei.\footnote{Unity-Dokumentation \cite{GameObjects}}.
 
+
 \subsubsection{\label{sec:prefabs}Unity Prefabs}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Unity bietet mit \textit{Prefabs} eine äußerst praktische Funktion zur Erstellung und Wiederverwendung von GameObjects. Prefabs sind modulare, wiederverwendbare Elemente, die als Blaupausen für die Konstruktion von GameObjects dienen. Sie ermöglichen Entwicklern, spezifische Objekte oder Objektstrukturen zu erstellen und zu katalogisieren. Diese Muster können dann in unterschiedlichen Szenarien oder Projekten repliziert werden, was eine effiziente Wiederverwendung und Konsistenz über verschiedene Projektumgebungen hinweg ermöglicht.
@@ -1632,13 +1633,13 @@ Zuerst wird geprüft, ob ein Kameragerät verfügbar ist. Wenn ja, wird die erst
 
 
 
-\subsection{\Label{sec:Website}Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
+\subsection{Starten und Nutzen der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite gemäß dem Anwendungsfall \ref{sec:jonasSzenario}. Die Webseite spielt eine zentrale Rolle im ersten Anwendungsszenario, dem Nachrichtenaustausch. Ziel ist es, dass zwei Geräte miteinander kommunizieren können. Für eine optimale Benutzererfahrung bedarf es daher einer intuitiven Benutzeroberfläche. Die Entscheidung, ein Web-Interface zu verwenden, basiert auf diesen zwei Faktoren:
 
 \begin{itemize}
-\item \textbf{Breiter Geräte-Support:} Web-Interfaces sind auf einer Vielzahl von Geräten nutzbar, darunter Desktop-Computer und Laptops. Diese Vielseitigkeit gewährleistet eine breite Verfügbarkeit und Nutzbarkeit für Benutzer unabhängig von ihrem verwendeten Gerät, Betriebssystem oder der Rechenleistung.
+    \item \textbf{Breiter Geräte-Support:} Web-Interfaces sind auf einer Vielzahl von Geräten nutzbar, darunter Desktop-Computer und Laptops. Diese Vielseitigkeit gewährleistet eine breite Verfügbarkeit und Nutzbarkeit für Benutzer unabhängig von ihrem verwendeten Gerät, Betriebssystem oder der Rechenleistung.
 
-\item \textbf{Einfache Umsetzung:} Die Entwicklung eines Web-Interfaces gestaltet sich im Vergleich zu anderen Plattformen als verhältnismäßig unkompliziert. Dies liegt daran, dass Webtechnologien weitverbreitet, gut dokumentiert und leicht zugänglich sind.
+    \item \textbf{Einfache Umsetzung:} Die Entwicklung eines Web-Interfaces gestaltet sich im Vergleich zu anderen Plattformen als verhältnismäßig unkompliziert. Dies liegt daran, dass Webtechnologien weitverbreitet, gut dokumentiert und leicht zugänglich sind.
 \end{itemize}
 
 Die gesamte Anwendung ist bewusst einfach und minimalistisch gehalten. Folglich befindet sich der gesamte Code der Webseite in einer einzigen Datei, \textit{Level1-FrontEnd/index.html}. Im Folgenden wird erläutert, wie diese Datei ausgeführt wird, um die Webseite im lokalen Netzwerk bereitzustellen.
@@ -1676,20 +1677,20 @@ Nach dem Starten des Webservers kann die Webseite in einem beliebigen Browser ü
 Um die Webseite erfolgreich zu verwenden, ist es zunächst erforderlich, die IP-Adresse der HoloLens einzugeben. Dies kann über den Button in der oberen linken Ecke der Webseite erfolgen, wie in Abbildung \ref{fig:webbut} dargestellt. Die IP-Adresse wird in das entsprechende Eingabefeld eingetragen, und durch Klicken auf den Button \textit{Verbinden} kann die Verbindung getestet werden.
 
 \begin{figure}[H]
-\centering
-\begin{minipage}[b]{0.7\textwidth}
-\centering
-\includegraphics[width=\textwidth]{images/WebButton}
-\caption{Position des Buttons}
-\label{fig:webbut}
-\end{minipage}
-\hfill
-\begin{minipage}[b]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{images/WebseiteSettings}
-\caption{Fenster der Webseite Einstellungen}
-\label{fig:websettings}
-\end{minipage}
+    \centering
+    \begin{minipage}[b]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/WebButton}
+        \caption{Position des Buttons}
+        \label{fig:webbut}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/WebseiteSettings}
+        \caption{Fenster der Webseite Einstellungen}
+        \label{fig:websettings}
+    \end{minipage}
 \end{figure}
 
 Um die Webseite in diesem Szenario mit zwei Geräten zu nutzen, ist es erforderlich, die Seite des Kabels festzulegen, an der sich das aktuelle Gerät befindet. Dies gewährleistet eine korrekte Simulation der Nachrichten in der virtuellen Umgebung. In der Dropdown-Liste, wie in Abbildung \ref{fig:websettings} dargestellt, kann zwischen \textit{Rechte Seite} und \textit{Linke Seite} gewählt werden, je nach Position des Trägers der Brille. Weitere Details zur Verarbeitung dieser Information sind im Abschnitt \ref{sec:webBackend} zu finden.
@@ -1716,9 +1717,9 @@ context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
 \end{lstlisting}
 
 \begin{itemize}
-\item \textbf{``Access-Control-Allow-Origin``, "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
-\item \textbf{``Access-Control-Allow-Methods``, "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
-\item \textbf{``Access-Control-Allow-Headers``, "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
+    \item \textbf{``Access-Control-Allow-Origin``, "*"}: Dieser Header gibt an, von welchen Ursprüngen aus die Ressource zugänglich ist. Durch das Einstellen von "*" wird allen Ursprüngen erlaubt, auf die Ressource zuzugreifen, was als "Wildcard" für alle Ursprünge fungiert.
+    \item \textbf{``Access-Control-Allow-Methods``, "GET, POST, OPTIONS"}: Dieser Header gibt an, welche HTTP-Methoden für Cross-Origin-Anfragen erlaubt sind. Da wir nur GET, POST und OPTIONS-Anfragen an den Server senden, sind auch nur diese erlaubt, was bedeutet, dass Anfragen mit diesen Methoden von anderen Ursprüngen aus zugelassen werden.
+    \item \textbf{``Access-Control-Allow-Headers``, "Content-Type"}: Dieser Header gibt an, welche zusätzlichen Header in einer Anfrage aus einem anderen Ursprung erlaubt sind. In diesem Fall ist es nur der Header "Content-Type", was bedeutet, dass Anfragen von anderen Ursprüngen nur diesen spezifischen Header enthalten dürfen.
 \end{itemize}
 
 Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS-Header hinzu, die Cross-Origin-Anfragen für Ressourcen von unserem Server ermöglichen. Sie definieren auch genau, welche HTTP-Methoden und Header in diesen Anfragen erlaubt sind.
@@ -1727,8 +1728,8 @@ Durch das Hinzufügen dieser drei Zeilen zu unserer HTTP-Antwort fügen wir CORS
 Falls beim Senden der Anfragen ein CORS-Fehler auftritt, liegt das vermutlich an der Konfiguration des Servers. Das Problem kann in Ausnahmefällen (zum Beispiel bei kleineren Testläufen) auf folgende Art und Weise umgangen werden:
 
 \begin{itemize}
-\item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
-\item \textbf{Verwendung von Plug-ins:} Verschiedene Plug-ins ermöglichen die einfache Einbindung von CORS-Headern auf Clientseite. Ein von dem Projektteam getestetes Plug-in ist \textit{moesif-origin-cors-change}, welches exklusiv für den Google Chrome-Browser verfügbar ist. Nach der Installation kann das Plug-in je nach Bedarf aktiviert oder deaktiviert werden.
+    \item \textbf{Deaktivieren im Browser:} Die Deaktivierung von CORS im Browser würde das Problem beheben, birgt jedoch gewisse Risiken. CORS schützt den Benutzer vor schädlichen Webseiten, daher wird davon abgeraten. Die Deaktivierung erfolgt je nach Browser und ist nicht einfach zu finden. Stattdessen sollten die nachfolgende Lösung in Betracht gezogen werden.
+    \item \textbf{Verwendung von Plug-ins:} Verschiedene Plug-ins ermöglichen die einfache Einbindung von CORS-Headern auf Clientseite. Ein von dem Projektteam getestetes Plug-in ist \textit{moesif-origin-cors-change}, welches exklusiv für den Google Chrome-Browser verfügbar ist. Nach der Installation kann das Plug-in je nach Bedarf aktiviert oder deaktiviert werden.
 \end{itemize}
 
 Es ist wichtig zu beachten, dass beide Lösungsvorschläge gewisse Sicherheitsrisiken bergen und nur im lokalen Netzwerk getestet wurden. Sie sind höchstens für erste Prototypen akzeptabel, wenn überhaupt. Nach der Verwendung unseres Programms sollten beide Konfigurationen wieder rückgängig gemacht werden.
@@ -1836,20 +1837,20 @@ Die Webseite fungiert als Schnittstelle für die Kommunikation zwischen den beid
 \subsubsection{Protokoll zur Datenübertragung}
 
 \begin{figure}[H]
-\centering
-\begin{minipage}[b]{0.45\textwidth}
-\centering
-\includegraphics[scale=0.25]{images/serverStart.png}
-\caption{Aktivitätsdiagramm des Servers}
-\label{fig:protokoll}
-\end{minipage}
-\hfill
-\begin{minipage}[b]{0.45\textwidth}
-\centering
-\includegraphics[scale=0.2]{images/laptopAufbau.png}
-\caption{Kommunikationsstruktur}
-\label{fig:struktur}
-\end{minipage}
+    \centering
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.25]{images/serverStart.png}
+        \caption{Aktivitätsdiagramm des Servers}
+        \label{fig:protokoll}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.2]{images/laptopAufbau.png}
+        \caption{Kommunikationsstruktur}
+        \label{fig:struktur}
+    \end{minipage}
 \end{figure}
 
 Abbildung \ref{fig:protokoll} zeigt den Ablauf aller möglichen Szenarien, wie eine solche Datenübertragung zustande kommen kann. Wie in Abbildung \ref{fig:struktur} zu erkennen ist, ist die HoloLens das Zentrum der Datenübertragung, über die die gesamte Kommunikation erfolgt.
@@ -1857,10 +1858,10 @@ Abbildung \ref{fig:protokoll} zeigt den Ablauf aller möglichen Szenarien, wie e
 Im Folgenden werden die einzelnen Schritte der Übertragung und ihre Funktionen beschrieben:
 
 \begin{itemize}
-\item \textbf{Start des Servers:} Auf der HoloLens befindet sich ein GameObject namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
-\item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der HoloLens registriert werden. Obwohl die Verbindungstestfunktion nicht zwingend erforderlich ist, um Nachrichten an diese IP zu senden, kann ein visuelles Feedback dem Benutzer anzeigen, ob die eingegebene IP-Adresse gültig ist und ob der Server erreichbar ist. Dies trägt zur Benutzerfreundlichkeit bei, indem es dem Benutzer ermöglicht, leichter zu erkennen, ob alles ordnungsgemäß funktioniert oder ob möglicherweise Probleme auftreten.
-\item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein \textit{HTTP POST-Request} an den Endpunkt \textit{/message} mit dem Benutzernamen, der Nachricht und die Position (Links oder Rechts) als Payload an die HoloLens gesendet werden. Nach Empfang der Anfrage auf der HoloLens wird das dementsprechende Event \textit{ReceiveMsg} ausgelöst (siehe Abschnitt \ref{sec:eventmanager}), welches wiederum die Simulation des Nachrichtenpakets (siehe Abschnitt \ref{sec:jonasNachrichtenSimulation}) startet.
-\item \textbf{Empfangen von Nachrichten:} Auf der HoloLens wird eine Liste aktueller Nachrichten geführt. Beide Laptops rufen alle fünf Sekunden mit einem \textit{HTTP GET-Request} an den Endpunkt \textit{/get-messages} diese Liste ab. Dies ermöglicht eine kontinuierliche Aktualisierung des Nachrichtenverlaufs (siehe Abschnitt \ref{sec:FrontendWebseite}, Abbildung \ref{fig:frontend}) und zeigt dem Benutzer stets die neuesten Nachrichten an.
+    \item \textbf{Start des Servers:} Auf der HoloLens befindet sich ein GameObject namens \textit{httpListener} mit einem Skript namens \textit{RequestManager.cs}. Beim Laden des ersten Szenarios wird ein HTTP-Listener in einem eigenen Thread gestartet. Erst wenn dieser läuft, kann auf Anfragen der Webseite reagiert werden. Eine ausführlichere Beschreibung der Funktionalität des Servers findet sich im Abschnitt \ref{sec:server}.
+    \item \textbf{Verbindungsaufbau:} Bevor ein Nachrichtenpaket gesendet werden kann, muss die IP-Adresse der HoloLens registriert werden. Obwohl die Verbindungstestfunktion nicht zwingend erforderlich ist, um Nachrichten an diese IP zu senden, kann ein visuelles Feedback dem Benutzer anzeigen, ob die eingegebene IP-Adresse gültig ist und ob der Server erreichbar ist. Dies trägt zur Benutzerfreundlichkeit bei, indem es dem Benutzer ermöglicht, leichter zu erkennen, ob alles ordnungsgemäß funktioniert oder ob möglicherweise Probleme auftreten.
+    \item \textbf{Versenden von Nachrichten:} Um eine Nachricht von einem Laptop auf den anderen zu senden, muss ein \textit{HTTP POST-Request} an den Endpunkt \textit{/message} mit dem Benutzernamen, der Nachricht und die Position (Links oder Rechts) als Payload an die HoloLens gesendet werden. Nach Empfang der Anfrage auf der HoloLens wird das dementsprechende Event \textit{ReceiveMsg} ausgelöst (siehe Abschnitt \ref{sec:eventmanager}), welches wiederum die Simulation des Nachrichtenpakets (siehe Abschnitt \ref{sec:jonasNachrichtenSimulation}) startet.
+    \item \textbf{Empfangen von Nachrichten:} Auf der HoloLens wird eine Liste aktueller Nachrichten geführt. Beide Laptops rufen alle fünf Sekunden mit einem \textit{HTTP GET-Request} an den Endpunkt \textit{/get-messages} diese Liste ab. Dies ermöglicht eine kontinuierliche Aktualisierung des Nachrichtenverlaufs (siehe Abschnitt \ref{sec:FrontendWebseite}, Abbildung \ref{fig:frontend}) und zeigt dem Benutzer stets die neuesten Nachrichten an.
 \end{itemize}
 
 Es mag so aussehen, als ob das Senden von Requests für den Benutzer möglicherweise als unmöglich erscheint, aber im Abschnitt \ref{sec:FrontendWebseite} wird gezeigt, dass dies alles durch eine benutzerfreundliche Benutzeroberfläche (UI) erreicht wird.
@@ -1873,9 +1874,9 @@ Die Bearbeitung von Anfragen erfolgt im Skript \textit{RequestManager.cs}. Der L
 Es werden in diesem Fall nur drei Endpunkte unterstützt:
 
 \begin{itemize}
-\item \textbf{Testen der Verbindung auf /connect}
-\item \textbf{Empfangen von Nachrichten auf /get-messages}
-\item \textbf{Senden einer Nachricht auf /message}
+    \item \textbf{Testen der Verbindung auf /connect}
+    \item \textbf{Empfangen von Nachrichten auf /get-messages}
+    \item \textbf{Senden einer Nachricht auf /message}
 \end{itemize}
 
 Um erfolgreich eine Anfrage an den Server zu senden, muss sie an die folgende Adresse
@@ -1959,41 +1960,41 @@ Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \te
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt von QRItem Klasse}, label=code:update]
 public class QRItem
 {
-public struct QRData
-{
-public int id;
-public string name;
-public Vector3 position;
-public int weight;
-public int value;
-}
+    public struct QRData
+    {
+        public int id;
+        public string name;
+        public Vector3 position;
+        public int weight;
+        public int value;
+    }
 
-public QRData qrData;
+    public QRData qrData;
 
-public Dictionary<int, QRData> items = new Dictionary<int, QRData>()
-{
-{1, new QRData { id = 1, name = "Laptop", weight = 70, value = 100 }},
-{2, new QRData { id = 2, name = "Router", weight = 25, value = 50 }},
-{3, new QRData { id = 3, name = "Maus", weight = 20, value = 30 }},
-// ...
-{11, new QRData { id = 11, name = "Handy", weight = 30, value = 100 }}
-};
+    public Dictionary<int, QRData> items = new Dictionary<int, QRData>()
+    {
+        {1, new QRData { id = 1, name = "Laptop", weight = 70, value = 100 }},
+        {2, new QRData { id = 2, name = "Router", weight = 25, value = 50 }},
+        {3, new QRData { id = 3, name = "Maus", weight = 20, value = 30 }},
+        // ...
+        {11, new QRData { id = 11, name = "Handy", weight = 30, value = 100 }}
+    };
 
-public QRItem(int id)
-{
-items.TryGetValue(id, out qrData);
-}
+    public QRItem(int id)
+    {
+        items.TryGetValue(id, out qrData);
+    }
 }
 \end{lstlisting}
 
 In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgenden Informationen zuordnet:
 
 \begin{itemize}
-\item \textbf{Id:} Die numerische Kennung im QR-Code.
-\item \textbf{Name:} Die Bezeichnung des Gegenstandes, das dieser QR-Code repräsentiert.
-\item \textbf{Position:} die Position des Gegenstandes in der virtuellen Umgebung.
-\item \textbf{Weight:} Das Gewicht des Gegenstandes.
-\item \textbf{Value:} der Wert des Gegenstandes.
+    \item \textbf{Id:} Die numerische Kennung im QR-Code.
+    \item \textbf{Name:} Die Bezeichnung des Gegenstandes, das dieser QR-Code repräsentiert.
+    \item \textbf{Position:} die Position des Gegenstandes in der virtuellen Umgebung.
+    \item \textbf{Weight:} Das Gewicht des Gegenstandes.
+    \item \textbf{Value:} der Wert des Gegenstandes.
 \end{itemize}
 
 Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des Knapsack-Algorithmus.
@@ -2009,61 +2010,61 @@ und zuletzt darzustellen.
 Hier eine kurze Übersicht:
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.5, angle=0]{images/QRAblauf}
-\caption{Ablaufdiagramm des QR-Code-Trackings.}
-\label{fig:qrtracking}
+    \centering
+    \includegraphics[scale=0.5, angle=0]{images/QRAblauf}
+    \caption{Ablaufdiagramm des QR-Code-Trackings.}
+    \label{fig:qrtracking}
 \end{figure}
 
 \begin{itemize}
 
-\item \textbf{Initialisierung des QR-Tracking-Systems:}
-Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-GameObject, das weitere GameObject instanziiert, wie den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
+    \item \textbf{Initialisierung des QR-Tracking-Systems:}
+    Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-GameObject, das weitere GameObject instanziiert, wie den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
-\item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
-Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
-gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
-zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
+    \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
+    Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
+    gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
+    zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
 
-\item \textbf{Einrichtung des QR-Trackings:}
-Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
-Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
-Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
+    \item \textbf{Einrichtung des QR-Trackings:}
+    Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
+    Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
+    Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
 
-\item \textbf{Starten des QR-Trackings:}
-Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
-Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
-markiert den Beginn des fortlaufenden Erkennungsprozesses.
+    \item \textbf{Starten des QR-Trackings:}
+    Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
+    Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
+    markiert den Beginn des fortlaufenden Erkennungsprozesses.
 
-\item \textbf{Erkennung eines QR-Codes (Event):}
-Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:qrpos} zu finden.
+    \item \textbf{Erkennung eines QR-Codes (Event):}
+    Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:qrpos} zu finden.
 
-\item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
-Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
-ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
+    \item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
+    Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
+    ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
 
-\item \textbf{Instanziierung des GameObjects:}
-Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
+    \item \textbf{Instanziierung des GameObjects:}
+    Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
 
-Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
-Darstellungen, Interaktionsmöglichkeiten und weitere relevante Informationen über den zugehörigen QR-Code. Die Instanziierung
-ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
-von QR-Codes finden Sie in Abschnitt \ref{sec:qrvisualizer}.
+    Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
+    Darstellungen, Interaktionsmöglichkeiten und weitere relevante Informationen über den zugehörigen QR-Code. Die Instanziierung
+    ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
+    von QR-Codes finden Sie in Abschnitt \ref{sec:qrvisualizer}.
 
-\item \textbf{Aktualisierung der Eigenschaften anzeige:}
-Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
-aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
-Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
-repräsentierte Objekt erhalten.
+    \item \textbf{Aktualisierung der Eigenschaften anzeige:}
+    Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
+    aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
+    Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
+    repräsentierte Objekt erhalten.
 
 \end{itemize}
 
 \subsubsection{Interaktion mit QR-Codes}
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.3, angle=0]{images/bauklotz}
-\caption{Bauklötze mit QR-Codes}
-\label{fig:bauklotz}
+    \centering
+    \includegraphics[scale=0.3, angle=0]{images/bauklotz}
+    \caption{Bauklötze mit QR-Codes}
+    \label{fig:bauklotz}
 \end{figure}
 
 Durch den Einsatz der HoloLens kann dem Nutzer eine immersive visuelle Erfahrung in einer virtuellen Welt geboten werden. Um eine
@@ -2088,16 +2089,16 @@ im SDK-Plug-in \textit{Microsoft.MixedReality.QR} enthalten ist.\footnote{Micros
 Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
 
 \begin{itemize}
-\item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
-\item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
-\item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
-\item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (\ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
-\item \textbf{Zuordnung des QR-Codes:} Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node}(\ref{sec:SGN}) an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
+    \item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
+    \item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
+    \item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
+    \item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (\ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
+    \item \textbf{Zuordnung des QR-Codes:} Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node}(\ref{sec:SGN}) an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
 \end{itemize}
 
 Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
 
-\subsubsection{\label{sec:SGN} Spatial Graph Node}
+\subsubsection{\label{sec:SGN}Spatial Graph Node}
 Ein weiteres wichtiges Konzept, das bei der Übersetzung der Koordinaten verwendet wird, sind sogenannte \textit{Spatial Graph Nodes}. Diese werden durch das \textit{OpenXR-Plug-in} von Microsoft bereitgestellt und dienen dazu, die Tracking-Informationen des QR-Codes in der virtuellen Umgebung abzubilden.
 
 Dieses Skript ist mit dem QR-Code-Objekt verbunden und wandelt die Koordinaten des realen QR-Codes in das Unity-KoordinatensysDarüber hinaus platziert das Skript den virtuellen QR-Code im Szenenaufbau exakt an der gleichen Stelle wie den realen QR-Code. Diese Verwendung von\textit{Spatial Graph Nodes} ermöglicht eine präzise Zuordnung von physischen und virtuellen Objekten in
@@ -2109,9 +2110,9 @@ Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, muss ihre Visualisie
 
 Die Klasse \textit{QRWatcher} kann drei Events auslösen:
 \begin{itemize}
-\item Erkennen eines neuen QR-Codes
-\item Erkennen eines bereits bekannten QR-Codes
-\item Löschen eines QR-Codes
+    \item Erkennen eines neuen QR-Codes
+    \item Erkennen eines bereits bekannten QR-Codes
+    \item Löschen eines QR-Codes
 \end{itemize}
 
 Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen Erkennen eines QR-Codes wird ein QR-Prefab initialisiert. Bei erneutem Erkennen werden die Positionsdaten aktualisiert, und beim Entfernen wird entsprechend das virtuelle QR-Objekt aus der Szene entfernt.
@@ -2119,17 +2120,17 @@ Die \textit{Visualizer}-Klasse reagiert auf alle diese Events. Beim erstmaligen 
 Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-Codes, einschließlich des 3D-Modells, des Namens, des Werts und anderer Daten, die für Interaktionen innerhalb der virtuellen Umgebung erforderlich sind. Um die Funktionalität des QR-Codes sicherzustellen, wird dem Prefab das Skript \textit{QRCodes.cs} zugewiesen, das die visuelle Darstellung und alle damit verbundenen Interaktionen steuert.
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.6, angle=0]{images/qrprefab}
-\caption{Hierarchie des QR-Code Prefabs}
-\label{fig:qrprefab}
+    \centering
+    \includegraphics[scale=0.6, angle=0]{images/qrprefab}
+    \caption{Hierarchie des QR-Code Prefabs}
+    \label{fig:qrprefab}
 \end{figure}
 
 
 In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Zu erkennen ist, dass dieses Prefab nur über wenige Eigenschaften verfügt, nämlich:
 \begin{itemize}
-\item \textbf{Canvas:} Der Canvas enthält drei Labels: \textit{Name}, \textit{Gewicht} und \textit{Wert}, welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
-\item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Gegenstände, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
+    \item \textbf{Canvas:} Der Canvas enthält drei Labels: \textit{Name}, \textit{Gewicht} und \textit{Wert}, welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
+    \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Gegenstände, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
 \end{itemize}
 
 \subsubsection*{Instanziierung eines QR-Prefabs}
@@ -2137,67 +2138,67 @@ In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert
 \begin{lstlisting}[style=csharp, caption={Instanzierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
 void Start()
 {
-//... weiterer Code
+    //... weiterer Code
 
-// Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
-PhysicalSize = qrCode.PhysicalSideLength;
+    // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
+    PhysicalSize = qrCode.PhysicalSideLength;
 
-try
-{
-// (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten QR-Codes initialisiert
-item = new QRItem(int.Parse(qrCode.Data));
+    try
+    {
+        // (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten QR-Codes initialisiert
+        item = new QRItem(int.Parse(qrCode.Data));
 
-// (2) Das entsprechende 3D-Modell wird anhand der ID des QR-Items gefunden
-model = gameObject.transform.Find(item.qrData.id.ToString()).gameObject;
+        // (2) Das entsprechende 3D-Modell wird anhand der ID des QR-Items gefunden
+        model = gameObject.transform.Find(item.qrData.id.ToString()).gameObject;
 
-// (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung sichtbar gesetzt
-model.SetActive(model != null);
-}
-catch (System.Exception e)
-{
-// Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlaegt
-Debug.LogError("Error parsing QR Code data: " + e.Message);
-}
+        // (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung sichtbar gesetzt
+        model.SetActive(model != null);
+    }
+    catch (System.Exception e)
+    {
+        // Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlaegt
+        Debug.LogError("Error parsing QR Code data: " + e.Message);
+    }
 
-// (3) Labels werden mit den entsprechenden Werten befuellt
-setLabels();
+    // (3) Labels werden mit den entsprechenden Werten befuellt
+    setLabels();
 }
 \end{lstlisting}
 
-Nach der Instanziierung eines QR-Prefabs wird der folgende Codeabschnitt (\ref{code:QR-Prefab instanzierung}) ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanziierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{Codeabschnitt (1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{Codeabschnitt (2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{Codeabschnitt (3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanziierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei jeder Frameaktualisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem Abschnitt: \ref{sec:Shrek is leben}
+Nach der Instanziierung eines QR-Prefabs wird der Codeabschnitt \ref{code:QR-Prefab instanzierung} ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanziierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{Kommentar (1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{Kommentar (2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{Kommentar (3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanziierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei jeder Frameaktualisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem Abschnitt: \ref{sec:Shrek is leben}
 
 \subsubsection*{Setzen der Labels}
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
 private void setLabels()
 {
-//Das GameObject mit den Labels wird gespeichert
-labels = gameObject.transform.Find("QRLabels").gameObject;
+    //Das GameObject mit den Labels wird gespeichert
+    labels = gameObject.transform.Find("QRLabels").gameObject;
 
-try
-{
-//Der Canvas indem sich die Labels befinden wird gespeichert
-Transform canvas = labels.transform.Find("Canvas");
+    try
+    {
+        //Der Canvas indem sich die Labels befinden wird gespeichert
+        Transform canvas = labels.transform.Find("Canvas");
 
-//Die Text-Komponenten indem sich der anzuzeigende Text befindet wird geseichert
-TextMeshProUGUI nameLabel = canvas.Find("nameLabel").gameObject.GetComponent<TextMeshProUGUI>();
-TextMeshProUGUI valueLabel = canvas.Find("valueLabel").gameObject.GetComponent<TextMeshProUGUI>();
-TextMeshProUGUI weightLabel = canvas.Find("weightLabel").gameObject.GetComponent<TextMeshProUGUI>();
+        //Die Text-Komponenten indem sich der anzuzeigende Text befindet wird geseichert
+        TextMeshProUGUI nameLabel = canvas.Find("nameLabel").gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI valueLabel = canvas.Find("valueLabel").gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI weightLabel = canvas.Find("weightLabel").gameObject.GetComponent<TextMeshProUGUI>();
 
-// Die Texte der Labels werden mit den entsprechenden Daten des QR-Items aktualisiert
-nameLabel.text = "Name: " + item.qrData.name;
-valueLabel.text = "Wert: " + item.qrData.value.ToString();
-weightLabel.text = "Gewicht: " + item.qrData.weight.ToString();
+        // Die Texte der Labels werden mit den entsprechenden Daten des QR-Items aktualisiert
+        nameLabel.text = "Name: " + item.qrData.name;
+        valueLabel.text = "Wert: " + item.qrData.value.ToString();
+        weightLabel.text = "Gewicht: " + item.qrData.weight.ToString();
 
-// Die Farben der Labels werden gesetzt
-nameLabel.color = Color.white;
-valueLabel.color = Color.yellow;
-weightLabel.color = Color.cyan;
-}
-catch (System.Exception e)
-{
-// Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
-Debug.LogError("Error setting labels: " + e.Message);
-}
+        // Die Farben der Labels werden gesetzt
+        nameLabel.color = Color.white;
+        valueLabel.color = Color.yellow;
+        weightLabel.color = Color.cyan;
+    }
+    catch (System.Exception e)
+    {
+        // Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
+        Debug.LogError("Error setting labels: " + e.Message);
+    }
 }
 \end{lstlisting}
 
@@ -2207,38 +2208,38 @@ Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit
 \begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
 void UpdatePropertiesDisplay()
 {
-if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
-{
-PhysicalSize = qrCode.PhysicalSideLength;
+    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
+    {
+        PhysicalSize = qrCode.PhysicalSideLength;
 
-item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
+        item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
 
-labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f, item.qrData.position.y, item.qrData.position.z);
+        labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f, item.qrData.position.y, item.qrData.position.z);
 
-labels.transform.localScale = new Vector3(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f);
+        labels.transform.localScale = new Vector3(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f);
 
-model.transform.localPosition = item.qrData.position;
+        model.transform.localPosition = item.qrData.position;
 
-lastTimeStamp = qrCode.SystemRelativeLastDetectedTime.Ticks;
-}
+        lastTimeStamp = qrCode.SystemRelativeLastDetectedTime.Ticks;
+    }
 }
 \end{lstlisting}
 
 Die Funktionsweise der Positionsbestimmung ist im Abschnitt (\ref{sec:qrpos}) beschrieben. Im Codeabschnitt \ref{code:Aktualisieren der Position} werden die bereitgestellten Positionsdaten verwendet, um die Position der Modelle zu aktualisieren. Hier ist eine schrittweise Erläuterung dessen, was innerhalb der Funktion passiert:
 \begin{itemize}
-\item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
-\item Die Position des QR-Codes (\textit{item.qrData.position}) wird so festgelegt, dass er sich in seinem lokalen Koordinatensystem zentriert. Dazu wird die Position auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt, wobei \textit{PhysicalSize} die Größe des QR-Codes ist. Diese Festlegung ermöglicht es, dass der QR-Code unabhängig von seiner Größe korrekt positioniert wird.
-\item Die Position der Labels wird relativ zur Position des QR-Codes eingestellt, mit einem Offset von 0.05f nach rechts, jedoch auf derselben Höhe (y-Koordinate) und Tiefe (z-Koordinate). Die Skalierung der Labels wird auf \textit{(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f)} festgelegt. Dies bedeutet, dass die Größe der Labels entsprechend der Größe des QR-Codes angepasst wird. Wie in Abbildung \ref{fig:visqr} zu erkennen ist, führt dies dazu, dass die Labels rechts neben den 3D-Modellen angezeigt werden.
-\item Die Position des 3D-Modells, das mit dem QR-Code verbunden ist, wird auf die Position des QR-Codes gesetzt. Schließlich wird \textit{lastTimeStamp} auf die aktuelle Zeitmarke des QR-Codes gesetzt, um festzuhalten, wann der QR-Code zuletzt erkannt wurde.
+    \item Zunächst wird überprüft, ob der QR-Code nicht null ist und ob sich die Zeitmarke des letzten erkannten QR-Codes seit dem letzten Mal geändert hat. Diese Überprüfung stellt sicher, dass die Aktualisierung der Anzeige nur erfolgt, wenn sich tatsächlich etwas geändert hat, was zur Effizienz und Leistung der Anwendung beiträgt.
+    \item Die Position des QR-Codes (\textit{item.qrData.position}) wird so festgelegt, dass er sich in seinem lokalen Koordinatensystem zentriert. Dazu wird die Position auf \textit{(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f)} gesetzt, wobei \textit{PhysicalSize} die Größe des QR-Codes ist. Diese Festlegung ermöglicht es, dass der QR-Code unabhängig von seiner Größe korrekt positioniert wird.
+    \item Die Position der Labels wird relativ zur Position des QR-Codes eingestellt, mit einem Offset von 0.05f nach rechts, jedoch auf derselben Höhe (y-Koordinate) und Tiefe (z-Koordinate). Die Skalierung der Labels wird auf \textit{(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f)} festgelegt. Dies bedeutet, dass die Größe der Labels entsprechend der Größe des QR-Codes angepasst wird. Wie in Abbildung \ref{fig:visqr} zu erkennen ist, führt dies dazu, dass die Labels rechts neben den 3D-Modellen angezeigt werden.
+    \item Die Position des 3D-Modells, das mit dem QR-Code verbunden ist, wird auf die Position des QR-Codes gesetzt. Schließlich wird \textit{lastTimeStamp} auf die aktuelle Zeitmarke des QR-Codes gesetzt, um festzuhalten, wann der QR-Code zuletzt erkannt wurde.
 \end{itemize}
 
 Nachdem gesamten Prozess dem Durchlaufen wird, schaut das Endergebnis folgendermaßen aus (Abb. \ref{fig:visqr}):
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.15, angle=0]{images/scanned}
-\caption{Visualisierte QR-Codes}
-\label{fig:visqr}
+    \centering
+    \includegraphics[scale=0.15, angle=0]{images/scanned}
+    \caption{Visualisierte QR-Codes}
+    \label{fig:visqr}
 \end{figure}
 
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
@@ -2247,6 +2248,7 @@ Wie bereits in Abschnitt \ref{sec:Scene2} erwähnt, ist es erforderlich, dass an
 Um die Leistung der HoloLens nicht zu beeinträchtigen, wird der Prozess des QR-Code-Trackings und die Verarbeitung der erkannten QR-Codes auf mehreren Threads ausgeführt. Die aktuell erkannten QR-Codes werden in einem SortedDictionary gespeichert, das von anderen Teilen der Anwendung abgefragt werden kann. Da auf dieses Objekt von mehreren Threads gleichzeitig zugegriffen wird, muss es mittels einer Sperre (\textit{lock}) geschützt werden, um Inkonsistenzen zu vermeiden. Eine Sperre verhindert, dass mehrere Threads gleichzeitig auf dasselbe Objekt zugreifen. Durch diese Maßnahme wird sichergestellt, dass die Daten konsistent bleiben und die Anwendung stabil und zuverlässig funktioniert. Es ist jedoch zu beachten, dass durch die Verwendung von Sperren bestimmten Threads möglicherweise zeitweise der Zugriff verweigert wird, um die Konsistenz und Integrität der Daten zu gewährleisten.\footnote{Microsoft-Dokumentation \cite{Lock-Statement}}
 
 In diesem Anwendungsfall ist diese Verzögerung jedoch vernachlässigbar, da selten gleichzeitig auf die Daten zugegriffen wird und die Verzögerung für den Benutzer nicht wahrnehmbar ist.
+
 
 \subsection{Platzieren des Inventar Prefabs}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Eine präzise Interaktion zwischen der realen Welt und der augmentierten Realität erfordert ein tiefgreifendes Verständnis
@@ -2980,9 +2982,9 @@ Kompaktheit, da er die Schnittstelle für die Kommunikation zwischen verschieden
 Ereignisse dienen als entscheidender Mechanismus zur Erleichterung der Kommunikation zwischen verschiedenen Komponenten eines Programms, ohne dass direkte Abhängigkeiten zwischen ihnen bestehen müssen. Im Rahmen der Anwendung wurden spezifische Ereignisse definiert, um auf bestimmte Handlungen zu reagieren:
 
 \begin{itemize}
-\item \textbf{Nachrichteneingang \ref{sec:PaketPos}}: Dieses Ereignis wird ausgelöst, wenn im ersten Szenario eine Nachricht von einem Gerät empfangen wird. Nach der Auslösung wird eine Simulation der Nachrichtenübertragung über das Kabel auf der Brille durchgeführt.
-\item \textbf{Nachricht versendet \ref{sec:PaketPos}}: Dieses Ereignis wird ausgelöst, wenn im ersten Szenario eine Nachricht an ein Gerät gesendet wird. Es ermöglicht die Weiterleitung der empfangenen Nachricht an das zweite Gerät zum richtigen Zeitpunkt, nämlich nach Abschluss der Simulation.
-\item \textbf{Inventar Aktualisierung \ref{sec:moritsInventarBounds}}: Dieses Ereignis wird ausgelöst, wenn im zweiten Szenario ein Gegenstand dem Inventar hinzugefügt wird, wodurch das Inventar aktualisiert wird. Nach der Aktualisierung wird der aktuelle Wert des Inventars berechnet. Dies ermöglicht eine effiziente Verwaltung des Inventars und spart limitierte Ressourcen durch Vermeidung kontinuierlicher Neuberechnungen.
+    \item \textbf{Nachrichteneingang \ref{sec:PaketPos}}: Dieses Ereignis wird ausgelöst, wenn im ersten Szenario eine Nachricht von einem Gerät empfangen wird. Nach der Auslösung wird eine Simulation der Nachrichtenübertragung über das Kabel auf der Brille durchgeführt.
+    \item \textbf{Nachricht versendet \ref{sec:PaketPos}}: Dieses Ereignis wird ausgelöst, wenn im ersten Szenario eine Nachricht an ein Gerät gesendet wird. Es ermöglicht die Weiterleitung der empfangenen Nachricht an das zweite Gerät zum richtigen Zeitpunkt, nämlich nach Abschluss der Simulation.
+    \item \textbf{Inventar Aktualisierung \ref{sec:moritsInventarBounds}}: Dieses Ereignis wird ausgelöst, wenn im zweiten Szenario ein Gegenstand dem Inventar hinzugefügt wird, wodurch das Inventar aktualisiert wird. Nach der Aktualisierung wird der aktuelle Wert des Inventars berechnet. Dies ermöglicht eine effiziente Verwaltung des Inventars und spart limitierte Ressourcen durch Vermeidung kontinuierlicher Neuberechnungen.
 \end{itemize}
 
 \subsubsection*{Implementierung}
@@ -2992,22 +2994,22 @@ In der Klasse \textit{EventManager} werden die bereits erwähnten drei Ereigniss
 \begin{lstlisting}[style=csharp, label=code:EventManager]
 public static class EventManager
 {
-// Szenario 1
-// Ereignis fuer den Empfang einer Nachricht
-public static event System.Action<string, string, string> OnMessageReceived;
-// Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
-public static void ReceiveMsg(string username, string message, string side) => OnMessageReceived?.Invoke(username, message, side);
+    // Szenario 1
+    // Ereignis fuer den Empfang einer Nachricht
+    public static event System.Action<string, string, string> OnMessageReceived;
+    // Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
+    public static void ReceiveMsg(string username, string message, string side) => OnMessageReceived?.Invoke(username, message, side);
 
-// Ereignis fuer das Senden einer Nachricht
-public static event System.Action<string, string, string> OnMessageSend;
-// Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
-public static void SendMsg(string username, string message, string side) => OnMessageSend?.Invoke(username, message, side);
+    // Ereignis fuer das Senden einer Nachricht
+    public static event System.Action<string, string, string> OnMessageSend;
+    // Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
+    public static void SendMsg(string username, string message, string side) => OnMessageSend?.Invoke(username, message, side);
 
-// Szenario 2
-// Ereignis fuer die Aktualisierung des Inventars
-public static event System.Action<int[,]> OnGridUpdate;
-// Methode zum Ausloesen des Ereignisses fuer die Aktualisierung des Inventars
-public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
+    // Szenario 2
+    // Ereignis fuer die Aktualisierung des Inventars
+    public static event System.Action<int[,]> OnGridUpdate;
+    // Methode zum Ausloesen des Ereignisses fuer die Aktualisierung des Inventars
+    public static void GridUpdate(int[,] grid) => OnGridUpdate?.Invoke(grid);
 }
 \end{lstlisting}
 
@@ -3816,7 +3818,7 @@ Die Sicherstellung einer hohen Performance und Qualität in Softwareprojekten is
 
 \subsection{\label{sec:testFramework}Unity Test Framework}
 
-Das \textit{Unity Test Framework} stellt eine leistungsstarke \textit{Suite} von Werkzeugen bereit, mit der Entwickler umfassende Tests für ihre Unity-Skripte schreiben und durchführen können. Von der Überprüfung von Variablen bis hin zur Validierung von erwarteten
+Das \textit{Unity Test Framework} stellt eine leistungsstarke Sammlung von Werkzeugen bereit, mit der Entwickler umfassende Tests für ihre Unity-Skripte schreiben und durchführen können. Von der Überprüfung von Variablen bis hin zur Validierung von erwarteten
 Ergebnissen bietet das Framework eine breite Palette von Funktionen, um die Qualität von Unity-Anwendungen zu gewährleisten. \footnote{Unity-Dokumentation \cite{UnityTestFramework}}
 %https://unity.com/how-to/automated-tests-unity-test-framework
 
