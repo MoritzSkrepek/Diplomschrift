@@ -1151,7 +1151,7 @@ Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informie
         \label{fig:Loading}
     \end{minipage}
 \end{figure}
-\begin{lstlisting}[style=csharp, caption={Code zum ausführen des lade Symbols}, label=code:LoadingCoroutine]
+\begin{lstlisting}[style=csharp, caption={Code zum ausfuehren des lade Symbols}, label=code:LoadingCoroutine]
 IEnumerator LoadingCoroutine() {
     while (isRunnig) {
         if (img.fillAmount >= 1f) {
@@ -1255,7 +1255,7 @@ struct PixelJob : IJobParallelFor {
 
 \end{lstlisting}
 \begin{itemize}
-    \item \textbf{NativeArray:} bieten verbesserte Leistung im Vergleich zu standardmäßiger Arrays, da diese direkt auf native Speicherbereiche zugreifen können, was besonders wichtig ist, wenn große Datenmengen verarbeitet werden müssen und die Ausführung parallelisiert werden sollen.
+    \item \textbf{NativeArray:} bieten verbesserte Leistung im Vergleich zu standardmäßigen Arrays, da diese direkt auf native Speicherbereiche zugreifen können, was besonders wichtig ist, wenn große Datenmengen verarbeitet werden müssen und die Ausführung parallelisiert werden sollen.
     \item \textbf{pixels:} pixels ist ein \textit{NativeArray}, welcher die aktuell noch unbearbeiteten Pixels beinhaltend.
     \item \textbf{batchSize:} Die \textit{batchSize} beinhaltet die Anzahl von Pixel, die jeder \textit{Job} durchgeht und überprüft.
     \item \textbf{texturewidth:} Wird vor dem Aufruf der \textit{Jobs} berechnet, um die Koordinaten des roten Pixels herauszufinden.
@@ -1346,15 +1346,15 @@ Die Funktion sucht nach roten Pixeln, indem sie von einer Startposition ausgehen
 
 
 \subsection{\label{sec:jonasNachrichtenSimulation}Erstellen und Bewegung des Paketes}
-Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald diese gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird das Paket über die Punkte bewegt.
+Um das Paket über das Kabel gleiten zu lassen, muss zuerst der Abstand gemessen werden. Sobald dieser gemessen wurde, sind alle wichtigen Punkte berechnet, über die das Paket gleiten soll. Dann muss das Objekt, welches das Paket darstellt, initialisiert und am Anfang des Kabels positioniert werden. Danach wird das Paket über die Punkte bewegt.
 
 \subsubsection{\label{sec:EntfernungMessen}Entfernung messen}
 Da man noch die z-Achse, also die Tiefe ermitteln muss, um das visuelle Paket angemessen auf dem physischen zu platzieren und bewegen zu können, werden
 im Raycasts (siehe Kapitel (\ref{sec:Raycast}) verwendet. Aufgrund der Ressourcenintensität, die mit dem Versenden eines Raycasts
 für jede Position verbunden wäre, um die z-Achse für jede x/y Koordinate zu erhalten, ist eine Optimierung notwendig.
 Zur Verbesserung der Effizienz werden die wichtigsten Positionen berechnet. Diese wichtigen Punkte sind der
-Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte, welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert, um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iterieren und für jeden Punkt wird ein Raycast zu diesen Punkten ausgeführt.
-\begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:]
+Anfangspunkt des Kabels (am ersten PC), der Mittelpunkt des Kabels, der Endpunkt des Kabels (am zweiten PC), sowie zehn andere Punkte, welche gleichmäßig über das gesamte Kabel verteilt sind. Diese Punkte werden in einer globalen \textit{List<Vector3>} Variable namens \textit{redPixelCoordinates} gespeichert, um auf alle 3 Koordinaten (x/y/z) zugreifen zu können. Diese Liste wird durch Iteriert und für jeden Punkt wird ein Raycast zu diesen Punkten ausgeführt.
+\begin{lstlisting}[style=csharp, caption={Iteration durch die Liste der Raycastpunkte}, label=code:PositionIteration]
 foreach (Vector2 redPixle in redPixelCoordinates) {
     positionVirtualObject(redPixle, targetTexture)
 }
@@ -1429,7 +1429,7 @@ realen Oberflächen.\protect\footnote{Unity\cite{ARRaycastHit}} diese Klasse bes
 \begin{itemize}
     \item \textbf{distance: } Enthält die Entfernung vom Ursprung des Strahls bis zu dem Punkt, an dem er getroffen wurde.
 
-    \item \textbf{hitType: } gibt den Typ des Hits an, der durch eine Raycast Treffer bestimmt wurde. Er ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
+    \item \textbf{hitType: } gibt den Typ des Hits an, der durch einen Raycast Treffer bestimmt wurde. Er ermöglicht die Unterscheidung zwischen verschiedenen Arten von Treffern, wie Kollisionen mit Meshes (Darstellung der Umgebung mit Dreiecken), Terrains (Unity Landschaft) oder Collidern (für physische Kollisionen). Diese Eigenschaft ist nützlich für die differenzierte Behandlung von Kollisionen in Unity-Anwendungen.
 \end{itemize}
 
 
