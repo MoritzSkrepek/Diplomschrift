@@ -1961,10 +1961,8 @@ Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
 \begin{lstlisting}[style=csharp, caption={Codeabschnitt von QRItem Klasse}, label=code:update]
-public class QRItem
-{
-    public struct QRData
-    {
+public class QRItem {
+    public struct QRData {
         public int id;
         public string name;
         public Vector3 position;
@@ -1974,8 +1972,7 @@ public class QRItem
 
     public QRData qrData;
 
-    public Dictionary<int, QRData> items = new Dictionary<int, QRData>()
-    {
+    public Dictionary<int, QRData> items = new Dictionary<int, QRData>() {
         {1, new QRData { id = 1, name = "Laptop", weight = 70, value = 100 }},
         {2, new QRData { id = 2, name = "Router", weight = 25, value = 50 }},
         {3, new QRData { id = 3, name = "Maus", weight = 20, value = 30 }},
@@ -1983,8 +1980,7 @@ public class QRItem
         {11, new QRData { id = 11, name = "Handy", weight = 30, value = 100 }}
     };
 
-    public QRItem(int id)
-    {
+    public QRItem(int id) {
         items.TryGetValue(id, out qrData);
     }
 }
@@ -2139,15 +2135,13 @@ In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert
 \subsubsection*{Instanziierung eines QR-Prefabs}
 
 \begin{lstlisting}[style=csharp, caption={Instanzierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
-void Start()
-{
+void Start() {
     //... weiterer Code
 
     // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
     PhysicalSize = qrCode.PhysicalSideLength;
 
-    try
-    {
+    try {
         // (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten QR-Codes initialisiert
         item = new QRItem(int.Parse(qrCode.Data));
 
@@ -2157,8 +2151,7 @@ void Start()
         // (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung sichtbar gesetzt
         model.SetActive(model != null);
     }
-    catch (System.Exception e)
-    {
+    catch (System.Exception e) {
         // Fehlerbehandlung, falls das Parsing der QR-Code-Daten fehlschlaegt
         Debug.LogError("Error parsing QR Code data: " + e.Message);
     }
@@ -2172,13 +2165,11 @@ Nach der Instanziierung eines QR-Prefabs wird der Codeabschnitt \ref{code:QR-Pre
 
 \subsubsection*{Setzen der Labels}
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
-private void setLabels()
-{
+private void setLabels() {
     //Das GameObject mit den Labels wird gespeichert
     labels = gameObject.transform.Find("QRLabels").gameObject;
 
-    try
-    {
+    try {
         //Der Canvas indem sich die Labels befinden wird gespeichert
         Transform canvas = labels.transform.Find("Canvas");
 
@@ -2197,8 +2188,7 @@ private void setLabels()
         valueLabel.color = Color.yellow;
         weightLabel.color = Color.cyan;
     }
-    catch (System.Exception e)
-    {
+    catch (System.Exception e) {
         // Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
         Debug.LogError("Error setting labels: " + e.Message);
     }
@@ -2209,10 +2199,8 @@ Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit
 
 \subsubsection*{Aktualisieren der Positionen}
 \begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
-void UpdatePropertiesDisplay()
-{
-    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks)
-    {
+void UpdatePropertiesDisplay() {
+    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks) {
         PhysicalSize = qrCode.PhysicalSideLength;
 
         item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
@@ -2995,8 +2983,7 @@ Ereignisse dienen als entscheidender Mechanismus zur Erleichterung der Kommunika
 In der Klasse \textit{EventManager} werden die bereits erwähnten drei Ereignisse als statische Ereignisse definiert und Methoden bereitgestellt, um diese Ereignisse auszulösen. Dies ermöglicht eine globale Verwendung des Ereignissystems in verschiedenen Teilen des Codes. Die Aktionen (Actions) sind statisch, was bedeutet, dass sie auf Klassenebene definiert sind und keine Instanz der Klasse benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet, um die Ereignisse auszulösen. Diese Struktur gewährleistet eine effiziente und flexible Handhabung von Ereignissen innerhalb der Anwendung.
 
 \begin{lstlisting}[style=csharp, label=code:EventManager]
-public static class EventManager
-{
+public static class EventManager {
     // Szenario 1
     // Ereignis fuer den Empfang einer Nachricht
     public static event System.Action<string, string, string> OnMessageReceived;
@@ -3025,17 +3012,15 @@ Um auf Aktualisierungen im Inventar reagieren zu können, können andere Teile d
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
 //Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
-void Start()
-{
-items = new QRItem(0).items;
-// Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
-EventManager.OnGridUpdate += SetInventory;
+void Start() {
+    items = new QRItem(0).items;
+    // Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
+    EventManager.OnGridUpdate += SetInventory;
 }
 
-public void SetInventory(int[,] newInventory)
-{
-inventory = newInventory;
-CalculateKnapsack();
+public void SetInventory(int[,] newInventory) {
+    inventory = newInventory;
+    CalculateKnapsack();
 }
 \end{lstlisting}
 
@@ -3866,23 +3851,21 @@ Dieser Abschnitt bietet eine detaillierte Beschreibung der durchgeführten Tests
 
 \begin{lstlisting}[style=csharp, caption={Auszug aus der Test-Klasse}, label={code:testClass}]
 [TestFixture]
-public class KnapsackSolverTests
-{
-// Eine Variable zur Speicherung der KnapsackSolver-Instanz
-private KnapsackSolver knapsackSolver;
+public class KnapsackSolverTests {
+    // Eine Variable zur Speicherung der KnapsackSolver-Instanz
+    private KnapsackSolver knapsackSolver;
 
-// Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
-[SetUp]
-public void SetUp()
-{
-// Erstellen eines GameObjects fuer den KnapsackSolver
-GameObject solverObject = new GameObject("KnapsackSolverObject");
+    // Die SetUp-Methode wird vor jedem Testfall ausgefuehrt
+    [SetUp]
+    public void SetUp() {
+        // Erstellen eines GameObjects fuer den KnapsackSolver
+        GameObject solverObject = new GameObject("KnapsackSolverObject");
 
-// Dem GameObject wird eine Instanz von KnapsackSolver hinzugefuegt
-knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
-}
+        // Dem GameObject wird eine Instanz von KnapsackSolver hinzugefuegt
+        knapsackSolver = solverObject.AddComponent<KnapsackSolver>();
+    }
 
-// Hier folgen die einzelnen Testfaelle...
+    // Hier folgen die einzelnen Testfaelle...
 }
 \end{lstlisting}
 
@@ -3898,17 +3881,16 @@ Diese Struktur gewährleistet eine konsistente Umgebung vor jedem Testfall und e
 
 \begin{lstlisting}[style=csharp, caption={einzelner Testfall}, label={code:zeroTest}]
 [Test]
-public void KnapsackMaxValue_NoItems_ReturnsZero()
-{
-// Arrange
-knapsackSolver.items = new Dictionary<int, QRData>();
-knapsackSolver.capacity = 100;
+public void KnapsackMaxValue_NoItems_ReturnsZero() {
+    // Arrange
+    knapsackSolver.items = new Dictionary<int, QRData>();
+    knapsackSolver.capacity = 100;
 
-// Act
-int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
+    // Act
+    int maxValue = knapsackSolver.KnapsackMaxValue(out int[,] usedItems);
 
-// Assert
-Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
+    // Assert
+    Assert.AreEqual(0, maxValue, "The maximum value should be zero when there are no items.");
 }
 \end{lstlisting}
 
@@ -3932,15 +3914,14 @@ TestName = "Single item exceeding capacity returns zero value.")]
 [TestCase(30, 50, 30, ExpectedResult = 50,
 TestName = "Single item exact capacity returns expected value.")]
 public int KnapsackMaxValue_Item_ReturnsExpectedValue(
-int weight, int value, int capacity)
-{
-// Arrange
-var item = new QRData { id = 1, weight = weight, value = value };
-knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
-knapsackSolver.capacity = capacity;
+int weight, int value, int capacity) {
+    // Arrange
+    var item = new QRData { id = 1, weight = weight, value = value };
+    knapsackSolver.items = new Dictionary<int, QRData> { { 1, item } };
+    knapsackSolver.capacity = capacity;
 
-// Act and Assert
-return knapsackSolver.KnapsackMaxValue(out _);
+    // Act and Assert
+    return knapsackSolver.KnapsackMaxValue(out _);
 }
 \end{lstlisting}
 
@@ -3960,20 +3941,19 @@ TestName = "All items within capacity return expected value.")]
 [TestCase(70, ExpectedResult = 170,
 TestName = "Multiple items within capacity, return optimal selection.")]
 public int KnapsackMaxValue_MultipleItems_ReturnsExpectedValue(
-int capacity)
-{
-// Arrange
-var items = new Dictionary<int, QRData>
-{
-{ 1, new QRData { id = 1, weight = 20, value = 50 } },
-{ 2, new QRData { id = 2, weight = 30, value = 70 } },
-{ 3, new QRData { id = 3, weight = 40, value = 100 } }
-};
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+int capacity) {
+    // Arrange
+    var items = new Dictionary<int, QRData>
+    {
+        { 1, new QRData { id = 1, weight = 20, value = 50 } },
+        { 2, new QRData { id = 2, weight = 30, value = 70 } },
+        { 3, new QRData { id = 3, weight = 40, value = 100 } }
+    };
+    knapsackSolver.items = items;
+    knapsackSolver.capacity = capacity;
 
-// Act and Assert
-return knapsackSolver.KnapsackMaxValue(out _);
+    // Act and Assert
+    return knapsackSolver.KnapsackMaxValue(out _);
 }
 \end{lstlisting}
 
@@ -3987,38 +3967,36 @@ Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValu
 
 \begin{lstlisting}[style=csharp, caption={Performance Messung bei hoher Anzahl an Gegenstaenden}, label={code:performanceRange}]
 [Test]
-public void KnapsackPerformanceReportItemRange()()
-{
-// Ueberschrift fuer den Leistungsbericht ausgeben
-UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
-UnityEngine.Debug.Log("-----------------------------");
+public void KnapsackPerformanceReportItemRange() {
+    // Ueberschrift fuer den Leistungsbericht ausgeben
+    UnityEngine.Debug.Log("Item Count | Elapsed Time (ms)");
+    UnityEngine.Debug.Log("-----------------------------");
 
-// Schleife durch verschiedene Gegenstandanzahlen
-for (int itemCount = 50; itemCount <= 1000; itemCount += 50)
-{
-// Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
-int weightUpperBound = itemCount * 2;
-int capacity = itemCount * 5;
+    // Schleife durch verschiedene Gegenstandanzahlen
+    for (int itemCount = 50; itemCount <= 1000; itemCount += 50) {
+        // Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+        int weightUpperBound = itemCount * 2;
+        int capacity = itemCount * 5;
 
-// Zufaellige Gegenstaende generieren
-var items = GenerateRandomItems(itemCount, weightUpperBound);
+        // Zufaellige Gegenstaende generieren
+        var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+        // Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+        knapsackSolver.items = items;
+        knapsackSolver.capacity = capacity;
 
-// Stoppuhr starten, um die verstrichene Zeit zu messen
-var stopwatch = Stopwatch.StartNew();
+        // Stoppuhr starten, um die verstrichene Zeit zu messen
+        var stopwatch = Stopwatch.StartNew();
 
-// Die zu testende Methode aufrufen
-knapsackSolver.KnapsackMaxValue(out _);
+        // Die zu testende Methode aufrufen
+        knapsackSolver.KnapsackMaxValue(out _);
 
-// Stoppuhr anhalten nach dem Methodenaufruf
-stopwatch.Stop();
+        // Stoppuhr anhalten nach dem Methodenaufruf
+        stopwatch.Stop();
 
-// Anzahl der Gegenstaende und verstrichene Zeit fuer diese Iteration ausgeben
-UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
-}
+        // Anzahl der Gegenstaende und verstrichene Zeit fuer diese Iteration ausgeben
+        UnityEngine.Debug.Log($"{itemCount,-10} | {stopwatch.ElapsedMilliseconds,-15}");
+    }
 }
 \end{lstlisting}
 
@@ -4031,43 +4009,41 @@ Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife
 
 \begin{lstlisting}[style=csharp, caption={Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
 [Test]
-public void KnapsackPerformanceReportRangeIteration()
-{
-// Ueberschrift fuer den Leistungsbericht ausgeben
-UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
-UnityEngine.Debug.Log("-----------------------------");
+public void KnapsackPerformanceReportRangeIteration() {
+    // Ueberschrift fuer den Leistungsbericht ausgeben
+    UnityEngine.Debug.Log("Iteration | Elapsed Time (microseconds)");
+    UnityEngine.Debug.Log("-----------------------------");
 
-// Konstante fuer die Anzahl der Gegenstaende
-int itemCount = 20;
+    // Konstante fuer die Anzahl der Gegenstaende
+    int itemCount = 20;
 
-// Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
-int weightUpperBound = itemCount * 2;
+    // Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
+    int weightUpperBound = itemCount * 2;
 
-// Schleife fuer 1000 wiederholungen
-for (int i = 1; i <= 500; i++)
-{
-// Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
-int capacity = itemCount * 5;
+    // Schleife fuer 1000 wiederholungen
+    for (int i = 1; i <= 500; i++) {
+        // Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+        int capacity = itemCount * 5;
 
-// Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
-var items = GenerateRandomItems(itemCount, weightUpperBound);
+        // Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
+        var items = GenerateRandomItems(itemCount, weightUpperBound);
 
-// Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
-knapsackSolver.items = items;
-knapsackSolver.capacity = capacity;
+        // Gegenstaende und Kapazitaet fuer den Rucksackloeser festlegen
+        knapsackSolver.items = items;
+        knapsackSolver.capacity = capacity;
 
-// Stoppuhr starten, um die verstrichene Zeit zu messen
-var stopwatch = Stopwatch.StartNew();
+        // Stoppuhr starten, um die verstrichene Zeit zu messen
+        var stopwatch = Stopwatch.StartNew();
 
-// Die zu testende Methode aufrufen
-knapsackSolver.KnapsackMaxValue(out _);
+        // Die zu testende Methode aufrufen
+        knapsackSolver.KnapsackMaxValue(out _);
 
-// Stoppuhr anhalten nach dem Methodenaufruf
-stopwatch.Stop();
+        // Stoppuhr anhalten nach dem Methodenaufruf
+        stopwatch.Stop();
 
-// Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
-UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
-}
+        // Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
+        UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
+    }
 }
 \end{lstlisting}
 
