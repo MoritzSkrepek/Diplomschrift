@@ -1,10 +1,10 @@
 % Define colors
-\definecolor{keywordcolor}{RGB}{255,0,0}
-\definecolor{Classcolor}{RGB}{90, 90, 90}
-\definecolor{Funcolor}{RGB}{191, 64, 191}
-\definecolor{Logiccolor}{RGB}{51, 179, 255}
-\definecolor{commentcolor}{RGB}{0,128,0}
-\definecolor{stringcolor}{RGB}{163,21,21}
+\definecolor{keywordcolor}{RGB}{0, 0, 255} % Blue
+\definecolor{Classcolor}{RGB}{43, 145, 175} % Blue-Green
+\definecolor{Funcolor}{RGB}{128, 0, 128} % Purple (functions)
+\definecolor{Logiccolor}{RGB}{163, 21, 21} % Red
+\definecolor{commentcolor}{RGB}{0, 128, 0} % Green (comments)
+\definecolor{stringcolor}{RGB}{0, 128, 0} % Red
 
 \renewcommand\lstlistingname{Codeabschnitt}
 
@@ -12,11 +12,13 @@
 \lstdefinelanguage{CS}{
     language=C,
     morekeywords=
-        {using, public, private, class, yield, return, new, if, else, out, try, catch, for, while, throw, foreach, in, using},
+        {using, public, private, class, yield, return, new, if, else, out, try, catch, for, while, throw, foreach, in, using, Vector2, Pose},
     morekeywords=[2]
         {ARRaycastManager, ARPlaneManager, GameObject, InventoryController, Vector3, ARPlane, Ray, RaycastHit, GetComponent, MeshRenderer, Quaternion, Transform},
     morekeywords=[3]
-        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutine, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2, DebugCameraResolution, isNumberKey, validateAndSendMessage, UpdatePropertiesDisplay},
+        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutine, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2, DebugCameraResolution, isNumberKey, validateAndSendMessage, UpdatePropertiesDisplay,
+    // Functions from MRTK3 and other Unity AR development frameworks
+    MixedRealityToolkit, MixedRealityPlayspace, MixedRealityInputManager, MixedRealityToolkitVisualProfiler, HandTrackingInputSimulationProfile, BoundarySystem, ManipulationHandler, ObjectManipulator, NearInteractionTouchable, NearInteractionGrabbable, Follow, Interactable, ArticulatedHandDefinition, ArticulatedHandPose, HandJointUtils},
     morekeywords=[4]
         {+, -, /, *, !, =, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null, true, false}, % Define symbols as keywords
     morecomment=[l]{//},
@@ -37,12 +39,12 @@
 % Listings settings
 \lstset{
     language=CS,
-    basicstyle=\footnotesize\ttfamily,
+    basicstyle=\color{black}\footnotesize\ttfamily,
     keywordstyle=\color{keywordcolor}\bfseries,
     keywordstyle=[2]\color{Classcolor},
     keywordstyle=[3]\color{Funcolor},
     keywordstyle=[4]\color{Logiccolor},
-    commentstyle=\color{commentcolor},
+    commentstyle=\color{commentcolor}, % Green comments
     stringstyle=\color{stringcolor},
     showstringspaces=false,
     breaklines=true,
@@ -50,8 +52,13 @@
     numbers=left,
     numberstyle=\tiny\color{gray},
     tabsize=4,
-    captionpos=b
+    captionpos=b,
+    backgroundcolor=\color{white}, % White background
+    rulecolor=\color{black}, % Black frame rule
+    framerule=0.5pt, % Thin frame rule
+% You can adjust more settings to mimic Visual Studio 2022
 }
+
 
 \chapter{Feinkonzept und Realisierung}
 Dieses Kapitel behandelt das Feinkonzept und die Realisierung der Anwendungsszenarien in einer Augmented Reality Applikation.
@@ -828,14 +835,16 @@ Wie in der Abbildung \ref{fig:backbutton} gezeigt, besteht dieses Menü ausschli
 Diese Funktionalität hat zum Ziel, die Benutzerinteraktion intuitiver und kontextbezogener zu gestalten. Hierfür wird Bewegungserkennung und Blickrichtungserkennung genutzt, um das Handmenü nur dann einzublenden, wenn der Benutzer aktiv nach einem Navigationsmittel sucht. Dadurch wird die visuelle Ablenkung minimiert und die Benutzererfahrung optimiert, indem nur relevante Informationen und Interaktionselemente präsentiert werden, wenn sie benötigt werden.
 
 \subsubsection{Setzen des Menüs}
-Beim Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü, jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen Moment und an der richtigen Stelle in der richtige Szene selbstständig instanzieren, deshalb wurde extra für diesen Fall das \textit{MenuSpawn.cs} Skript geschrieben.
+Beim Erstentwurf gab es keine Probleme beim Wechseln zwischen den Szenen beziehungsweise dem Laden in das Hauptmenü, jedoch muss man in der neuen Version darauf achten das Menü richtig zu setzen. Dafür muss man die Modelle im richtigen Moment und an der richtigen Stelle in der richtige Szene selbstständig instanziieren, deshalb wurde extra für diesen Fall das \textit{MenuSpawn.cs} Skript geschrieben.
 
-\begin{lstlisting}[style=csharp, caption=Menueinstanzierung bei Neuladen., label=code:spawnmenu]
+\begin{lstlisting}[style=csharp, caption=Menueinstanziierung bei Neuladen., label=code:spawnmenu]
 public class MenuManager : MonoBehaviour{
     public GameObject menuPrefab;
     public Transform cameraPosition;
     private void Awake(){
-        Vector3 newSpawnPoint = new Vector3(cameraPosition.position.x, cameraPosition.position.y, cameraPosition.position.z + 1);
+        Vector3 newSpawnPoint = new Vector3(cameraPosition.position.x,
+                                            cameraPosition.position.y,
+                                            cameraPosition.position.z + 1);
         menuPrefab.transform.position = newSpawnPoint;
         menuPrefab.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
         menuPrefab.SetActive(true);
@@ -843,7 +852,7 @@ public class MenuManager : MonoBehaviour{
 }
 \end{lstlisting}
 
-Die Klasse \texttt{MenuManager} ist dafür zuständig, das Menü beim Neuladen der Anwendung zu instanzieren und zu platzieren. In der Methode \texttt{Awake()}, die bei jedem Start der Anwendung ausgeführt wird, wird zunächst eine neue Position für das Menü berechnet. Diese Position befindet sich leicht vor der aktuellen Kameraposition, indem der Wert der z-Achse um 1 erhöht wird. Anschließend wird das Menü auf diese neue Position verschoben und in der Größe angepasst, um es passend darzustellen. Schließlich wird das Menü aktiviert, sodass es für den Benutzer sichtbar und interaktiv wird.
+Die Klasse \texttt{MenuManager} ist dafür zuständig, das Menü beim Neuladen der Anwendung zu instanziieren und zu platzieren. In der Methode \texttt{Awake()}, die bei jedem Start der Anwendung ausgeführt wird, wird zunächst eine neue Position für das Menü berechnet. Diese Position befindet sich leicht vor der aktuellen Kameraposition, indem der Wert der z-Achse um 1 erhöht wird. Anschließend wird das Menü auf diese neue Position verschoben und in der Größe angepasst, um es passend darzustellen. Schließlich wird das Menü aktiviert, sodass es für den Benutzer sichtbar und interaktiv wird.
 
 %\subsection{Vergleich der Menüentwürfe} (vielleicht mach ich das noch)
 \subsection{Laden der Anwendungsszenarien}
