@@ -811,7 +811,7 @@ Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus z
     \label{fig:hierarchiemenuunity}
 \end{figure}
 
-In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem Prefab \texttt{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \texttt{startbuttonclickable\_lv1/2} sind die in Unity erstellten unsichtbaren Buttons, die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter zu sehen sind die 3 verschiedenen Assets, welche aus Blender importiert wurden. Diese bestehen jeweils aus den verschiedenen Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \texttt{BezierCurve} ist eine spezielle Art von Kurve welche in Blender für die leichte Wölbung der Tafeln genutzt wurde. \footnote{Blender \cite{Bezier Curve}}
+In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenüs im Unity Editor zu sehen. Dem Prefab \textit{menu} sind dabei 5 einzelne Objekte zugewiesen. Die Prefabs \textit{startbuttonclickable\_lv1/2} sind die in Unity erstellten unsichtbaren Buttons, die dafür zuständig sind den vormodellierten Buttons eine Funktion zu geben. Darunter zu sehen sind die 3 verschiedenen Assets, welche aus Blender importiert wurden. Diese bestehen jeweils aus den verschiedenen Einzelteilen, welche in Unity als Gameobjects dargestellt werden. Die \textit{BezierCurve} ist eine spezielle Art von Kurve welche in Blender für die leichte Wölbung der Tafeln genutzt wurde. \footnote{Blender \cite{Bezier Curve}}
 
 \subsubsection{Finalversion Menü - Anwendungsszenario}
 Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle Aufmerksamkeit des Benutzers auf das jeweilige Szenario und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
@@ -879,7 +879,7 @@ public class SceneChanger : MonoBehaviour{
 
 Das vorliegende Skript hat eine vergleichsweise einfache Struktur. Die Variable \texttt{public string sceneToLoad} dient als Empfänger für den Namen der zu ladenden Szene, welcher im Unity-Inspector individuell für jede Szene festgelegt werden kann. Um den Szenenwechsel zu initiieren, wird die Methode \texttt{ChangeScene()} aufgerufen. Zunächst wird in dieser Methode geprüft, ob die aktive Szene, die durch \texttt{SceneManager.GetActiveScene()} ermittelt wird, mit der zu ladenden Szene übereinstimmt. Falls dies nicht der Fall ist, werden alle gespeicherten PlayerPrefabs mittels \texttt{PlayerPrefs.DeleteAll()} gelöscht. Dieser Schritt ist von entscheidender Bedeutung, um potenzielle Komplikationen im Zusammenhang mit dem HoloLens-Cache während des Szenenwechsels zu vermeiden.
 
-Nachdem die Prefabs bereinigt wurden, wird die definierte Szene mit der Methode \texttt{SceneManag er.LoadScene()} geladen. Dabei wird die Ladeoption \texttt{LoadSceneMode.Single} verwendet, um sicherzustellen, dass nur die angegebene Szene aktiv geladen wird und keine anderen Szenen im Hintergrund verbleiben. Diese präzise Steuerung des Ladevorgangs zielt darauf ab, die Performance und Stabilität der Anwendung auf der HoloLens-Plattform zu optimieren und potenzielle Konflikte zwischen Szeneninhalten zu vermeiden.
+Nachdem die Prefabs bereinigt wurden, wird die definierte Szene mit der Methode \texttt{SceneManager.LoadScene()} geladen. Dabei wird die Ladeoption \texttt{LoadSceneMode.Single} verwendet, um sicherzustellen, dass nur die angegebene Szene aktiv geladen wird und keine anderen Szenen im Hintergrund verbleiben. Diese präzise Steuerung des Ladevorgangs zielt darauf ab, die Performance und Stabilität der Anwendung auf der HoloLens-Plattform zu optimieren und potenzielle Konflikte zwischen Szeneninhalten zu vermeiden.
 
 \subsection{UI/UX}
 Die Gestaltung der Benutzeroberfläche und die damit verbundene Benutzererfahrung sind wesentliche Aspekte bei der Konzeption und Entwicklung von Software. Eine bewährte Strategie besteht darin, sich an populären und gleichgerichteten Anwendungen zu orientieren, insbesondere im Bereich der Augmented- oder Virtual Reality. Es wird darauf geachtet, komplexe und verwirrende Menüstrukturen zu vermeiden und eine konsistente Farbpalette über die gesamte Benutzeroberfläche hinweg zu verwenden.
@@ -1588,7 +1588,7 @@ Eine der einfachsten Möglichkeiten, den \textit{http-server} zu installieren, i
 Um den HTTP-Server mithilfe von npm auf einem Windows-Gerät zu installieren, muss ein Befehl in der Eingabeaufforderung (cmd) ausgeführt werden. Dieser Befehl ermöglicht die Installation des Servers auf dem Gerät und lautet wie folgt: \textit{npm install http-server -g}. Durch die Ausführung dieses Befehls wird der http-server global auf dem Windows-Gerät installiert, was bedeutet, dass er von überall im System aus aufgerufen werden kann.
 
 \subsubsection*{Starten des HTTP-Servers}
-Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \texttt{index.html}-Datei befindet (standardmäßig im \textit{Level1-FrontEnd} Ordner), mit dem Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
+Nach der Installation des Servers kann die Webseite im Ordner, in dem sich die \textit{index.html}-Datei befindet (standardmäßig im \textit{Level1-FrontEnd} Ordner), mit dem Befehl \textit{http-server} und den Flags \textit{-c -1 --cors} gestartet werden.
 
 Die Flags haben folgende Bedeutungen:
 
@@ -1720,7 +1720,7 @@ Bootstrap ist ein Open-Source-Framework für die Frontend-Entwicklung von Websei
 
 Bootstrap erleichtert die Erstellung responsiver und ästhetisch ansprechender Webseiten, indem es eine Reihe von vorgefertigten Designelementen und Layoutoptionen bereitstellt.
 
-Die Integration von Bootstrap in eine HTML-Datei erfolgt durch das Einbinden der Bootstrap-Bibliotheksdateien in den \texttt{<head>}-Bereich des HTML-Dokuments. Dies kann entweder über ein CDN (Content Delivery Network) oder durch das Herunterladen und Einbinden der lokalen Bootstrap-Dateien erfolgen. \footnote{Bootstrap Dokumentation \cite{CDN-Links}}
+Die Integration von Bootstrap in eine HTML-Datei erfolgt durch das Einbinden der Bootstrap-Bibliotheksdateien in den \textit{<head>}-Bereich des HTML-Dokuments. Dies kann entweder über ein CDN (Content Delivery Network) oder durch das Herunterladen und Einbinden der lokalen Bootstrap-Dateien erfolgen. \footnote{Bootstrap Dokumentation \cite{CDN-Links}}
 
 Anschließend können Bootstrap-Komponenten und -Klassen innerhalb der HTML-Datei verwendet werden, um das Design und die Funktionalität der Webseite zu verbessern.
 
@@ -1811,7 +1811,7 @@ Es werden in diesem Fall nur drei Endpunkte unterstützt:
 \end{itemize}
 
 Um erfolgreich eine Anfrage an den Server zu senden, muss sie an die folgende Adresse
-gehen: \texttt{http://{IP-Adresse der HoloLens}:{Port}/{Endpoint}}. Die IP-Adresse der HoloLens wird manuell auf der
+gehen: \textit{http://{IP-Adresse der HoloLens}:{Port}/{Endpoint}}. Die IP-Adresse der HoloLens wird manuell auf der
 Webseite eingegeben. Der Listener läuft standardmäßig auf dem Port 9090.
 
 (Die erlaubten Endpunkte sind wie oben aufgeführt fallbasiert gelistet.)
@@ -2285,7 +2285,7 @@ Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 
     \item \textbf{QR Codes Manager}: Ein Verweis auf das QRCodesManager Game Objekt aus der Szene.
 
-    \item \textbf{User Info}: Referenz auf das in der \texttt{main camera} liegende \textit{TextMesh}.
+    \item \textbf{User Info}: Referenz auf das in der \textit{main camera} liegende \textit{TextMesh}.
 
     \item \textbf{Required Look Time}: Diese Variable definiert die vorgeschriebene Zeit, die der Benutzer auf eine
     Fläche blicken muss, um das Inventar darauf zu platzieren.
@@ -3426,7 +3426,7 @@ bei der Konfiguration und Steuerung des Knapsack Solvers. Zu den relevanten Vari
 
 \subsubsection{Knapsack-Algorithmus Implementierung}
 Dieser Abschnitt behandelt die Implementierung der allgemeinen Variation des 0/1 Knapsack-Problems mittels des dynamischen
-Programmieransatzes. Die Funktion \texttt{KnapsackMaxValue()} innerhalb der Klasse \textit{KnapsackSolver} implementiert
+Programmieransatzes. Die Funktion \texttt{KnapsackMaxValue()} innerhalb der Klasse \texttt{KnapsackSolver} implementiert
 den Algorithmus und ermittelt eine perfekte Lösung, indem sie die verwendeten Gegenstände verfolgt, um den maximalen Wert
 zu erreichen. Die Funktion besteht grundsätzlich aus zwei Hauptabschnitten, um dieses Ergebnis zu erzielen:
 \begin{enumerate}
@@ -3695,7 +3695,7 @@ der Sichtbarkeit des Modells repräsentiert, invertiert.
 Abhängig von diesem boolschen Wert wird im weiteren Verlauf der Funktion entschieden, ob die perfekte Lösung sichtbar
 werden soll (\texttt{true}) oder nicht (\texttt{false}). Um das Prefab dann anschließend an der korrekten Position platzieren
 zu können wird auf die Positionsinformation des originalen platzierten Inventars-Prefabs (\texttt{objectPlaced}) zugegriffen
-und ebenfalls wird auf das Array, welches die errechnete perfekte Lösung repräsentiert (\textt{usedItems}) zugegriffen
+und ebenfalls wird auf das Array, welches die errechnete perfekte Lösung repräsentiert (\texttt{usedItems}) zugegriffen
 um das Prefab im weiteren Verlauf anhand dieser füllen zu können. Abschließend werden die beiden Funktion \texttt{setNewPosition()}
 und \texttt{fillInventory()} aufgerufen die dies abschließen.
 
@@ -3955,7 +3955,7 @@ public void KnapsackPerformanceReportItemRange() {
 }
 \end{lstlisting}
 
-Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
+Der vorliegende Codeabschnitt implementiert eine Testmethode namens \texttt{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
 
 Die Methode beginnt mit der Ausgabe einer Überschrift, die das Format des folgenden Leistungsberichts festlegt. Im Hauptteil der Methode wird eine Schleife durchlaufen, die verschiedene Gegenstände im Rucksack simuliert. Die Anzahl der Gegenstände steigt schrittweise von 50 bis 1000, wobei in jedem Schritt 50 Gegenstände hinzugefügt werden. Innerhalb der Schleife werden zunächst der obere Grenzwert für das Gewicht der Gegenstände und die Kapazität des Rucksacks basierend auf der aktuellen Anzahl von Gegenständen berechnet. Anschließend werden zufällige Gegenstände generiert, die in den Rucksack aufgenommen werden sollen. Die generierten Gegenstände sowie die Kapazität des Rucksacks werden dann dem Algorithmus zugewiesen.
 Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife eine Stoppuhr gestartet, bevor die Methode ``KnapsackMaxValue`` aufgerufen wird, um den maximalen Wert des Rucksacks zu berechnen. Nach Beendigung des Methodenaufrufs wird die Stoppuhr gestoppt, und die verstrichene Zeit wird zusammen mit der Anzahl der Gegenstände im Rucksack protokolliert.
@@ -4008,12 +4008,12 @@ public void KnapsackPerformanceReportRangeIteration() {
 \end{lstlisting}
 
 
-Dieser Codeabschnitt \textit{KnapsackPerformanceReportRangeIteration} (\ref{code:performanceIteration}) unterscheidet sich vom anderen Codeabschnitt \textit{KnapsackPerformanceReportItemRange} (\ref{code:performanceRange}) hauptsächlich in Bezug auf die Parameter, die für die Leistungsmessung verwendet werden.
+Dieser Codeabschnitt \texttt{KnapsackPerformanceReportRangeIteration} (\ref{code:performanceIteration}) unterscheidet sich vom anderen Codeabschnitt \texttt{KnapsackPerformanceReportItemRange} (\ref{code:performanceRange}) hauptsächlich in Bezug auf die Parameter, die für die Leistungsmessung verwendet werden.
 
 Im Abschnitt KnapsackPerformanceReportRangeIteration wird die Leistung des \\ Knapsack-Algorithmus
 bei einer festen Anzahl von 20 Gegenständen und 500 Durchläufen gemessen. Dies bedeutet, dass die Anzahl der Gegenstände konstant bleibt, während die Iterationen variiert werden, um die Konsistenz der Messung sicherzustellen und die Auswirkungen wiederholter Durchläufe zu beobachten. Im Gegensatz dazu bewertet der Abschnitt KnapsackPerformanceReportItemRange die Leistung des Algorithmus bei einer variablen Anzahl von Gegenständen, wobei die Anzahl der Gegenstände von 50 bis 1000 in Schritten von jeweils 50 erhöht wird. Dies ermöglicht die Untersuchung der Leistung des Algorithmus bei verschiedenen Lastszenarien und die Identifizierung möglicher Zusammenhänge zwischen der Anzahl der Gegenstände und der Ausführungszeit des Algorithmus.
 
-Ebenso verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Methode zur Messung der verstrichenen Zeit, indem die Variable \textit{ElapsedMilliseconds} der Stopwatch-Klasse verwendet wird, um die Zeit in Millisekunden zu erfassen. Im Gegensatz dazu verwendet die Methode KnapsackPerformanceReportRangeIteration die Berechnung der verstrichenen Ticks und deren Umrechnung in Mikrosekunden, um eine genauere Messung zu ermöglichen.
+Ebenso verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Methode zur Messung der verstrichenen Zeit, indem die Variable \texttt{ElapsedMilliseconds} der Stopwatch-Klasse verwendet wird, um die Zeit in Millisekunden zu erfassen. Im Gegensatz dazu verwendet die Methode KnapsackPerformanceReportRangeIteration die Berechnung der verstrichenen Ticks und deren Umrechnung in Mikrosekunden, um eine genauere Messung zu ermöglichen.
 
 \subsubsection*{Ergebnisse der Performance-Messung}
 \begin{figure}[H]
