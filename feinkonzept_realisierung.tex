@@ -926,10 +926,9 @@ Zum Aufbau in der realen Welt werden zwei PCs nebeneinander aufgestellt. Beide d
     \label{fig:NachrichtenaustauschAufbau}
 \end{figure}
 
-
 \subsection{\label{sec:Coroutines}Coroutines}
 \textit{Coroutines} in Unity ermöglichen die Ausführung von Code über mehrere Frames hinweg vom Haupt Thread aus. Sie werden verwendet, um Funktionen schrittweise auszuführen, wobei der Haupt Thread zwischen den Frames zurückkehrt, um andere Aufgaben zu erledigen. Coroutines eignen sich besonders für die Darstellung von Ereignissen über einen Zeitraum.
-\\
+
 \subsubsection*{Beispiel Code Coroutine}
 Zum Darstellen von \textit{Coroutines} ist dieses kurze Skript, welches das Objekt, an den es angebunden ist, in eine Richtung bewegt.
 \begin{lstlisting}[style=csharp, caption={Coroutine Beispiel}, label={code:coroutineBsp}]
@@ -962,7 +961,7 @@ public class CoroutineExample : MonoBehaviour {
 Der Code verwendet eine Coroutine, um das Objekt von seiner aktuellen Position zur Zielposition zu bewegen. Coroutines werden in Unity verwendet, um asynchrone Operationen durchzuführen, ohne den Haupt Thread zu blockieren. In diesem Fall wird die Coroutine \textit{MoveToTarget} gestartet, die in einer Schleife jeden Schritt der Bewegung durchläuft. Für jede Iteration wird die aktuelle Position des Objekts mithilfe der Funktion \textit{Vector3.Lerp} zwischen der Startposition und die Zielposition entsprechend dem Fortschritt der Bewegung gesetzt.\protect\footnote{Log Rocket \cite{Coroutine2}} \footnote{ Unity \cite{Coroutine}}\\
 
 Um zwischen den Schritten eine Pause einzulegen, wird die Coroutine mit \textit{yield return new WaitForSeconds(moveSpeed / numSteps)} unterbrochen, was eine Wartezeit zwischen den Bewegungsschritten ermöglicht und eine flüssige und kontrollierte Bewegung des Objekts gewährleistet.
-\\
+
 \subsubsection*{Beenden einer Coroutine}
 Falls man eine laufende Coroutine beenden will, kann man auch \textit{StopCoroutine} oder \textit{StopAllCoroutines} verwenden. Man könnte den obigen Code folgendermaßen erweitern:
 \begin{lstlisting}[style=csharp, caption={Coroutine beenden}, label=code:debugRaycast]
@@ -1345,7 +1344,7 @@ Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überpr�
 
 
 \subsubsection{\label{sec:Raycast}Definition eines Rays}
-Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\protect\footnote{Unity \cite{Raycast}}\\
+Ein Ray ist ein abstraktes Konzept in der Computergrafik und Physiksimulation, das einen unendlich langen geraden Strahl repräsentiert. Dieser Strahl wird durch einen Ausgangspunkt definiert, der üblicherweise als \textit{Ursprung} bezeichnet wird. Im Kontext von dreidimensionalen Szenen und Visualisierungen entspricht der Ursprung oft der Position einer \textit{virtuellen Kamera} oder eines \textit{Blickpunkts}. Der Ray erstreckt sich dann in eine bestimmte Richtung, die durch einen Vektor definiert wird. Diese Richtung kann durch verschiedene Methoden festgelegt werden, abhängig von der Anwendung, in der der Ray verwendet wird. Im Falle der Bildschirmkoordinaten kann die Richtung beispielsweise durch  den Blick des Benutzers, bestimmt werden. In der Praxis wird der Ray häufig dazu verwendet, um \textit{Kollisionen mit Objekten in einer Szene zu erkennen} oder \textit{um Lichtstrahlen für die Beleuchtungsberechnung zu simulieren}. Durch das Schießen eines Rays in eine Szene und das Überprüfen auf \textit{Kollisionen} mit den vorhandenen Objekten kann festgestellt werden, ob der Ray ein Objekt trifft und wenn ja, an welcher \textit{Stelle} und unter welchem \textit{Winkel}.\protect\footnote{Unity \cite{Raycast}}
 
 \subsubsection{\label{sec:TrackableType}TrackableType Klasse}
 In Unity ist \textbf{TrackableType} eine Aufzählung, die verschiedene Arten von Objekten repräsentiert, die in Augmented Reality (AR) verfolgt werden können. Zu diesen Typen gehören:
@@ -1459,12 +1458,13 @@ void Update() {
     \item \textbf{moveToCounter}: Ein Zähler, der den Index für die nächste Position des Pakets zählt.
 \end{itemize}
 
-er Code prüft zuerst, ob das Objekt beweget werden soll. Dann wird überprüft, ob das Objekt bereits am Ende angelangt ist, indem der \textit{moveToCounter} mit der Anzahl der Positionen in \textit{cablePositions} verglichen wird.
+Der Code prüft zuerst, ob das Objekt beweget werden soll. Dann wird überprüft, ob das Objekt bereits am Ende angelangt ist, indem der \textit{moveToCounter} mit der Anzahl der Positionen in \textit{cablePositions} verglichen wird.
 
 Solange das Objekt nicht am Ende ist, wird die Bewegung ausgeführt. Die Bewegung selbst wird durch die Differenz zwischen der nächsten Position, zu der sich das Objekt bewegen soll, und der aktuellen Position, von der sich das Paket weg bewegt, definiert. Diese Bewegung wird mit einem Faktor multipliziert, um die Geschwindigkeit des Objekts anzupassen.
 
 Nach jeder Bewegung wird überprüft, ob das Objekt nahe genug an der Zielposition ist. Sobald es sich innerhalb des zulässigen Bereichs befindet, wird seine Position festgelegt, um zu verhindern, dass es über das Ziel hinaus läuft. Dann werden die Zähler aktualisiert und der Vorgang wird wiederholt, bis das Objekt das Ende erreicht hat. Dies simuliert eine Bewegung entlang des Kabels.
 
+\newpage
 
 \subsection{\label{sec:pingInfoJonas}Anzeigen von Informationen der Nachricht}
 Der Benutzer kann Mithilfe der Website, welche auf beiden Laptops (links und rechts) im Browser angezeigt wird, eine Nachricht
@@ -1476,7 +1476,7 @@ innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn de
     \label{fig:enter-label}
 \end{figure}
 \\
-\subsubsection*{Text änderung}
+\subsubsection*{Textänderung}
 Dies wird mithilfe des GameObject \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
 Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} GameObject welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
 \begin{lstlisting}[style=csharp, caption={Kind vom GameObject bekommen}, label=code:]
@@ -1574,7 +1574,7 @@ Dieser Abschnitt beschreibt den Prozess des Starts und der Nutzung der Webseite 
     \item \textbf{Einfache Umsetzung:} Die Entwicklung eines Web-Interfaces gestaltet sich im Vergleich zu anderen Plattformen als verhältnismäßig unkompliziert. Dies liegt daran, dass Webtechnologien weitverbreitet, gut dokumentiert und leicht zugänglich sind.
 \end{itemize}
 
-Die gesamte Anwendung ist bewusst einfach und minimalistisch gehalten. Folglich befindet sich der gesamte Code der Webseite in einer einzigen Datei, \textit{Level1-FrontEnd/index.html}. Im Folgenden wird erläutert, wie diese Datei ausgeführt wird, um die Webseite im lokalen Netzwerk bereitzustellen.
+Die gesamte Anwendung ist bewusst einfach und minimalistisch gehalten. Folglich befindet sich der gesamte Code der Webseite in einer einzigen Datei, \textit{index.html}. Im Folgenden wird erläutert, wie diese Datei ausgeführt wird, um die Webseite im lokalen Netzwerk bereitzustellen.
 
 \subsubsection{Webseite starten}
 
@@ -1849,30 +1849,30 @@ In dieser Abbildung ist die Hirarchie un der Inhalts des Knapsack-Problem Szenar
 dass diese Unity Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen, m das gewünschte Ergebnis
 zu erzielen. Darunter sind folgende Objekte:
 \begin{itemize}
-    \item \textbf{level-2:} Ist die Unity Szene selbst, in der alle GameObjects enthalten sind.
-    \item \textbf{MRTK XR Rig:} Grundbaustein für das Entwickeln einer XR-Applikation. Enthält wichtig Komponenten
+    \item \textbf{level-2}: Ist die Unity Szene selbst, in der alle GameObjects enthalten sind.
+    \item \textbf{MRTK XR Rig}: Grundbaustein für das Entwickeln einer XR-Applikation. Enthält wichtig Komponenten
     wie Controller für das tracken der Hände, für den User Gaze, etc.
-    \item \textbf{UserInfo:} Text Objekt, dass in der \textit{main camera } liegt, damit dieses ständig im Sichtfeld des
+    \item \textbf{UserInfo}: Text Objekt, dass in der \textit{main camera } liegt, damit dieses ständig im Sichtfeld des
     Benutzers liegt.
-    \item \textbf{Managers:} Die drei Manager \textit{ARPlaneManager}, \textit{ARRaycastManager} und \textit{QRCodesManager}
+    \item \textbf{Managers}: Die drei Manager \textit{ARPlaneManager}, \textit{ARRaycastManager} und \textit{QRCodesManager}
     sind wichtiger Bestandteil um ARPlanes zu scannen, Raycasting durchzuführen und QRCodes zu erkennen.
-    \item \textbf{HandMenu:} Button um in das Hauptmenu-Szenario zurück zu gelangen.
-    \item \textbf{AR Default Plane:} Ist das Grund-Objekt für das markieren von erkannten ARPlanes.
-    \item \textbf{ARSession:} Ist die Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
-    \item \textbf{InventoryPlacementController:} Game Objekt, welches das platzieren des Inventar-Objekts handhabt.
-    \item \textbf{InventoryController:} Game Objekt, welches das erkennen von neuen Objekten innerhalb des Inventar-Objekts handhabt.
-    \item \textbf{KnapsackSolver:} Game Objekt, welches den Knapsack Algorithmus implementiert und das eigene Inventar berechnet.
-    \item \textbf{bestSolutionPrefab:} Prefab, welches die perfekte Lösung wiederspiegelt.
-    \item \textbf{InfoObject:} Dient der visualisierung von berechneten Werten und Fehlermeldungen.
+    \item \textbf{HandMenu}: Button um in das Hauptmenu-Szenario zurück zu gelangen.
+    \item \textbf{AR Default Plane}: Ist das Grund-Objekt für das markieren von erkannten ARPlanes.
+    \item \textbf{ARSession}: Ist die Hauptkomponente, die die AR-Funktionalitäten steuert und koordiniert.
+    \item \textbf{InventoryPlacementController}: GameObject, welches das platzieren des Inventar-Objekts handhabt.
+    \item \textbf{InventoryController}: GameObject, welches das erkennen von neuen Objekten innerhalb des Inventar-Objekts handhabt.
+    \item \textbf{KnapsackSolver}: GameObject, welches den Knapsack Algorithmus implementiert und das eigene Inventar berechnet.
+    \item \textbf{bestSolutionPrefab}: Prefab, welches die perfekte Lösung wiederspiegelt.
+    \item \textbf{InfoObject}: Dient der visualisierung von berechneten Werten und Fehlermeldungen.
 \end{itemize}
 
-In der Abbildung ist ausßredem zu sehen, dass ein Paar Game Objekte ausgegraut und nicht ausgegraut sind und, dass neben ein paar Game Objekten ein durchgestrichenes Auge zu sehen ist.
-Wenn ein Game Objekt im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObject und somit alle angehängiten Scripts von diesem Game Objekt deaktiviert sind.
-Das bedeutet, dass dieses Game Objekt samt allen Scripts zu Szenenbeginn nicht aufgerufen und somit auch nicht ausgeführt werden. Nicht ausgegraute Game Objekte widerum sind
-daher genau das Gegenteil. Das beudetet, dass das Game Objekt selbst samt allen angehängiten Scripts alle aktiviert sind und somit zu Szenenbeginn aufgerufen und ausgeführt werden.
+In der Abbildung ist ausßredem zu sehen, dass einige GameObject ausgegraut und nicht ausgegraut sind und, dass neben einigen GameObjects ein durchgestrichenes Auge zu sehen ist.
+Wenn ein GameObject im Unity Editor ausgegraut ist bedeutet das, dass dieses GameObject und somit alle angehängiten Scripts von diesem GameObject deaktiviert sind.
+Das bedeutet, dass dieses GameObject samt allen Scripts zu Szenenbeginn nicht aufgerufen und somit auch nicht ausgeführt werden. Nicht ausgegraute GameObject widerum sind
+daher genau das Gegenteil. Das beudetet, dass das GameObject selbst samt allen angehängiten Scripts alle aktiviert sind und somit zu Szenenbeginn aufgerufen und ausgeführt werden.
 
-Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das nur, dass dieses Game Objekt im Unity Editor nicht zu sehen ist. Andererseits, wenn kein Zeichen
-neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
+Wenn neben einem GameObject das durchgestrichene Auge zu sehen ist bedeutet das nur, dass dieses GameObject im Unity Editor nicht zu sehen ist. Andererseits, wenn kein Zeichen
+neben dem GameObject zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele GameObjects vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
 \subsection{\label{sec:qrcodes}Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
@@ -1915,11 +1915,11 @@ public class QRItem {
 In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgenden Informationen zuordnet:
 
 \begin{itemize}
-    \item \textbf{Id:} Die numerische Kennung im QR-Code.
-    \item \textbf{Name:} Die Bezeichnung des Gegenstandes, das dieser QR-Code repräsentiert.
-    \item \textbf{Position:} die Position des Gegenstandes in der virtuellen Umgebung.
-    \item \textbf{Weight:} Das Gewicht des Gegenstandes.
-    \item \textbf{Value:} der Wert des Gegenstandes.
+    \item \textbf{Id}: Die numerische Kennung im QR-Code.
+    \item \textbf{Name}: Die Bezeichnung des Gegenstandes, das dieser QR-Code repräsentiert.
+    \item \textbf{Position}: die Position des Gegenstandes in der virtuellen Umgebung.
+    \item \textbf{Weight}: Das Gewicht des Gegenstandes.
+    \item \textbf{Value}: der Wert des Gegenstandes.
 \end{itemize}
 
 Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des Knapsack-Algorithmus.
@@ -1943,32 +1943,32 @@ Hier eine kurze Übersicht:
 
 \begin{itemize}
 
-    \item \textbf{Initialisierung des QR-Tracking-Systems:}
+    \item \textbf{Initialisierung des QR-Tracking-Systems}:
     Um das QR-Tracking-System zu aktivieren, wird die erforderliche Komponente gestartet, um die Erkennung von QR-Codes zu ermöglichen. Diese Komponente ist das QRCodeManager-GameObject, das weitere GameObject instanziiert, wie den \textit{QRCodesVisualizer}, der für die Visualisierung benötigt wird (siehe Abschnitt \ref{sec:qrvisualizer}). Dabei werden Tracking-Algorithmen gestartet, die für die Lokalisierung und Identifizierung von QR-Codes in der Umgebung benötigt werden. Diese Initialisierung erfolgt zu Beginn der Anwendungsaktivität.
 
-    \item \textbf{Zugriffsanforderung auf die Kamera der Brille:}
+    \item \textbf{Zugriffsanforderung auf die Kamera der Brille}:
     Für das QR-Tracking wird der Zugriff auf die Kamera der Augmented-Reality-Brille benötigt. Eine Zugriffsanfrage wird
     gestellt, um die notwendigen Berechtigungen zu erhalten. Dieser Schritt ist entscheidend, um visuelle Daten von der Kamera
     zu erhalten und QR-Codes in der physischen Umgebung zu erkennen.
 
-    \item \textbf{Einrichtung des QR-Trackings:}
+    \item \textbf{Einrichtung des QR-Trackings}:
     Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
     Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
     Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
 
-    \item \textbf{Starten des QR-Trackings:}
+    \item \textbf{Starten des QR-Trackings}:
     Das System sucht aktiv nach QR-Codes in der Umgebung, um sie zu erkennen. Die Kamera erfasst kontinuierlich visuelle
     Daten, welche von den Tracking-Algorithmen analysiert werden, um QR-Codes zu identifizieren. Das Starten des Trackings
     markiert den Beginn des fortlaufenden Erkennungsprozesses.
 
-    \item \textbf{Erkennung eines QR-Codes (Event):}
+    \item \textbf{Erkennung eines QR-Codes (Event)}:
     Sobald die Kamera einen QR-Code erfasst, wird dieser automatisch erkannt. Dieses Ereignis signalisiert die erfolgreiche Erkennung eines QR-Codes und liefert Informationen über den erkannten QR-Code, wie seine Daten und Position. Eine detaillierte Beschreibung des genauen Ablaufs der Erkennung und Positionsbestimmung ist im Abschnitt \ref{sec:qrpos} zu finden.
 
-    \item \textbf{Zuweisung des erkannten QR-Codes zum Objekt:}
+    \item \textbf{Zuweisung des erkannten QR-Codes zum Objekt}:
     Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls dies der Fall
     ist, wird der erkannte QR-Code einem entsprechenden Objekt in der virtuellen Umgebung zugeordnet.
 
-    \item \textbf{Instanziierung des GameObjects:}
+    \item \textbf{Instanziierung des GameObjects}:
     Nach dem Scannen eines QR-Codes wird ein QR-Code-Prefab erzeugt und in der Szene platziert.
 
     Dieses Objekt dient als Repräsentation des gescannten QR-Codes und wird als QR-Objekt bezeichnet. Es enthält visuelle
@@ -1976,7 +1976,7 @@ Hier eine kurze Übersicht:
     ermöglicht eine nahtlose Integration des gescannten QR-Codes in die virtuelle Umgebung. Weitere Informationen zur Visualisierung
     von QR-Codes finden Sie in Abschnitt \ref{sec:qrvisualizer}.
 
-    \item \textbf{Aktualisierung der Eigenschaften anzeige:}
+    \item \textbf{Aktualisierung der Eigenschaften anzeige}:
     Die Aktualisierung der Eigenschaftsanzeige dient dazu, visuelle und informative Darstellungen des erkannten QR-Codes zu
     aktualisieren. Hierbei werden die Position, Größe, visuelle Darstellung und zugehörige Informationen des QR-Codes aktualisiert.
     Durch die Aktualisierung wird sichergestellt, dass die Benutzer stets die neuesten Informationen über das durch den QR-Code
@@ -2015,11 +2015,11 @@ im SDK-Plug-in \textit{Microsoft.MixedReality.QR} enthalten ist.\footnote{Micros
 Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Codes in der physischen Umgebung. Sie stellt eine Vielzahl von Funktionen und Ereignissen zur Verfügung, die für die Weiterverarbeitung von QR-Codes notwendig sind. Die Verarbeitung erfolgt in den folgenden Schritten:
 
 \begin{itemize}
-    \item \textbf{Kamera-Feed abrufen:} Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
-    \item \textbf{Bildverarbeitung:} Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
-    \item \textbf{Erkennung eines QR-Codes:} Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
-    \item \textbf{Übersetzung der Positionen:} Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (\ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
-    \item \textbf{Zuordnung des QR-Codes:} Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node}(\ref{sec:SGN}) an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
+    \item \textbf{Kamera-Feed abrufen}: Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
+    \item \textbf{Bildverarbeitung}: Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
+    \item \textbf{Erkennung eines QR-Codes}: Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
+    \item \textbf{Übersetzung der Positionen}: Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (\ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
+    \item \textbf{Zuordnung des QR-Codes}: Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node}(\ref{sec:SGN}) an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
 \end{itemize}
 
 Nach Abschluss dieser Schritte sind die Positionen der vorhandenen QR-Codes bestimmt und können im nächsten Schritt in der virtuellen Welt dargestellt werden.
@@ -2055,8 +2055,8 @@ Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-
 
 In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert. Zu erkennen ist, dass dieses Prefab nur über wenige Eigenschaften verfügt, nämlich:
 \begin{itemize}
-    \item \textbf{Canvas:} Der Canvas enthält drei Labels: \textit{Name}, \textit{Gewicht} und \textit{Wert}, welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
-    \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Gegenstände, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
+    \item \textbf{Canvas}: Der Canvas enthält drei Labels: \textit{Name}, \textit{Gewicht} und \textit{Wert}, welche die für den Benutzer relevanten Eigenschaften eines Gegenstandes anzeigen.
+    \item \textbf{GameObjects von 1 bis 11}: Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Gegenstände, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
 \end{itemize}
 
 \newpage
@@ -2192,7 +2192,7 @@ physische Umgebung integriert werden können, ist der Zugriff auf die Kamera une
 Details der Umgebung, um relevante Ebenen zu identifizieren. Diese sind wichtig für eine präzise Platzierung von virtuellen
 Objekten und eine realistische Interaktion zwischen der realen und der augmentierten Welt.
 
-Dieser Abschnitt beschäftigt sich mit der Verwendung des Unity Game Objekts \textit{Inventory Placement Controller} und
+Dieser Abschnitt beschäftigt sich mit der Verwendung des Unity GameObjects \textit{Inventory Placement Controller} und
 dessen angehängter Skript-Komponente. Die \textit{InventoryPlacementController} Klasse bildet die Grundlage für die korrekte
 Platzierung des Inventar-Prefabs und gewährleistet einen reibungslosen Ablauf des Anwendungsszenarios des Knapsack-Problems.
 Es wird erläutert, wie das Inventar-Prefab strukturiert ist, welche Rolle der User Gaze spielt und wie sie implementiert
@@ -2215,7 +2215,7 @@ sondern auch zusätzliche 3D-Modelle, die das Gesamtbild vervollständigen.
 Die Abbildung \ref{fig:invPrefab_UNITY} veranschaulicht das gesamte Prefab im Unity Editor und bietet gleichzeitig Einblicke
 in die Hierarchie. Es wird deutlich, dass das Prefab aus drei Hauptmodellen besteht, wobei jedes dieser Hauptmodelle weitere
 Unterobjekte enthält. Diese drei Hauptmodelle sind:
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{inventory}: Dieses 3x3-Raster bildet die Hauptkomponente des Prefabs, mit dem der Benutzer interagiert, um
     Gegenstände zu platzieren und zu organisieren.
 
@@ -2234,7 +2234,7 @@ Unterobjekte enthält. Diese drei Hauptmodelle sind:
     unterhalb visualisiert. Diese Anzeige ist von großer Bedeutung, da sie dem Benutzer signalisiert, wie effektiv die
     zusammengestellte Lösung ist. Durch die klare Darstellung des aktuellen Werteverhältnisses erhält der Benutzer unmittelbares
     Feedback über die Qualität seiner aktuellen Lösung.
-\end{enumerate}
+\end{itemize}
 
 Die Struktur und das Design des Prefabs sind nicht nur ästhetisch ansprechend, sondern auch funktional und im Einklang
 mit der übrigen UI/UX der Anwendung. Sie ermöglicht eine effiziente und benutzerfreundliche Interaktion. Die Anordnung
@@ -2258,7 +2258,7 @@ intuitiv auf Benutzeraktionen reagieren. Dadurch wird eine beeindruckende und im
 und der virtuellen Umgebung ermöglicht.
 
 \subsubsection{Der Inventory Placement Controller}
-Das Unity Game Objekt \textit{Inventory Placement Controller} fungiert als grundlegender Baustein und Ausgangspunkt für
+Das Unity GameObject \textit{Inventory Placement Controller} fungiert als grundlegender Baustein und Ausgangspunkt für
 das Anwendungsszenario des Knapsack-Problems. Dieses Objekt übernimmt die Aufgabe dem Benutzer bei Szenenstart Anweisungen
 zu vermitteln und das Inventar-Prefab präzise zu platzieren und zu visualisieren. Mit der \textit{InventoryPlacementController.cs}
 Skript-Komponente ausgestattet, implementiert dieses Objekt die \textit{InventoryPlacementController} Klasse, welche die
@@ -2272,8 +2272,8 @@ steuert.
     \label{fig:inventoryPlacementController_Editor}
 \end{figure}
 
-Abbildung \ref{fig:inventoryPlacementController_Editor} zeigt das Game Objekt im Unity Inspektor. Ebenfalls zu sehen ist
-die angehängte Skript-Komponente, die dem Inventory Placement Controller Game Objekt zugeordnet ist. Innerhalb dieser
+Abbildung \ref{fig:inventoryPlacementController_Editor} zeigt das GameObject im Unity Inspektor. Ebenfalls zu sehen ist
+die angehängte Skript-Komponente, die dem Inventory Placement Controller GameObject zugeordnet ist. Innerhalb dieser
 Komponente sind die öffentlichen Klassenvariablen des Skripts aufgeführt, die direkt im Inspektor übergeben und manipuliert
 werden können. Diese Variablen spielen eine wichtige Rolle bei der Konfiguration und Steuerung des Inventory Placement
 Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
@@ -2283,7 +2283,7 @@ Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 
     \item \textbf{Inventory Controller}: Verweis auf das Inventory Controller Skript.
 
-    \item \textbf{QR Codes Manager}: Ein Verweis auf das QRCodesManager Game Objekt aus der Szene.
+    \item \textbf{QR Codes Manager}: Ein Verweis auf das QRCodesManager GameObject aus der Szene.
 
     \item \textbf{User Info}: Referenz auf das in der \textit{main camera} liegende \textit{TextMesh}.
 
@@ -2294,7 +2294,7 @@ Controllers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
     darauf zugreifen zu können.
 \end{itemize}
 
-Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity Game Objekt sind entscheidend für die
+Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity GameObject sind entscheidend für die
 gewünschte und korrekte Funktionsweise des Platzierungsvorgangs des Inventar-Prefabs. Durch die Anpassung der Variablen
 und ihrer Werte kann die Platzierungsdynamik präzise gesteuert werden, um eine reibungslose Benutzererfahrung zu gewährleisten.
 
@@ -2367,7 +2367,7 @@ void Update() {
 \end{lstlisting}\\
 Generell lässt sich die Funktionsweise dieses Codes in neun Phasen unterteilen, um das Inventar-Prefab entgültig zu platzieren. Diese Phasen sind:
 
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Platzierungsstatus und Skript-Startbedingung}: Zunächst wird überprüft, ob das Prefab für das Inventar
     noch nicht platziert wurde (\texttt{objectPlaced}) und, ob das Skript gestartet werden kann (\texttt{canStartScript}).
     Dies gewährleistet, dass die Platzierung nur erfolgt, wenn beide Bedingungen erfüllt sind.
@@ -2402,13 +2402,13 @@ Generell lässt sich die Funktionsweise dieses Codes in neun Phasen unterteilen,
     \item \textbf{Benachrichtigung bei fehlendem AR-Plane}: Wenn sich der User Gaze nicht über einem AR-Plane befindet oder
     kein AR-Plane erkannt wird, wird die Benutzeroberfläche entsprechend aktualisiert. Der Benutzer wird darüber informiert,
     dass er auf ein AR-Plane blicken muss, um das Inventar-Prefab erfolgreich zu platzieren.
-\end{enumerate}
+\end{itemize}
 
 \newpage
 \subsubsection{Platzierung des Prefabs}
 Die Platzierung des Inventar-Prefabs markiert den Abschluss des Skripts \textit{Inventory Placement Controllers}. Die
 Funktion \texttt{PlaceObjectOnDesk()} platziert das Prefab auf dem ARPlane, auf welches der Benutzer blickt und aktiviert
-bzw. deaktiviert weitere Game Objekte sowie Skripte, um einen nahtlosen Fortlauf der Anwendung zu gewährleisten.
+bzw. deaktiviert weitere GameObjects sowie Skripte, um einen nahtlosen Fortlauf der Anwendung zu gewährleisten.
 \begin{lstlisting}[caption={Funktion zum Platzieren des Inventarobjekts}, label=code:placeObject]
     private void PlaceObjectOnDesk(ARPlane deskPlane) {
     qrCodesManager.SetActive(true);
@@ -2426,21 +2426,21 @@ bzw. deaktiviert weitere Game Objekte sowie Skripte, um einen nahtlosen Fortlauf
 Die Platzierung des Inventar-Prefabs erfolgt in vier Hauptschritten, die den Ablauf des Platzierungsprozesses steuern
 und die Kontinuität des AR-Anwendungsszenarios sicherstellen.
 
-\begin{enumerate}
-    \item \textbf{Aktivierung des QRCodesManagers:} Der QRCodesManager wird aktiviert, um sicherzustellen, dass QR-Codes
+\begin{itemize}
+    \item \textbf{Aktivierung des QRCodesManagers}: Der QRCodesManager wird aktiviert, um sicherzustellen, dass QR-Codes
     nach Abschluss dieses Skripts erfolgreich erfasst werden können.
 
-    \item \textbf{Berechnung der Position und Rotation:} Die Position des Inventar-Prefabs auf dem AR-Plane wird berechnet,
+    \item \textbf{Berechnung der Position und Rotation}: Die Position des Inventar-Prefabs auf dem AR-Plane wird berechnet,
     um sicherzustellen, dass es an der richtigen Stelle platziert wird. Die Rotation des Objekts wird angepasst, um eine
     korrekte Ausrichtung zu gewährleisten. Schließlich wird das Objekt aktiviert, um es für den Benutzer sichtbar zu machen.
 
-    \item \textbf{Extraktion und Übergabe des Inventar-Objekts:} Das Inventar-Objekt wird aus dem Prefab extrahiert und an
+    \item \textbf{Extraktion und Übergabe des Inventar-Objekts}: Das Inventar-Objekt wird aus dem Prefab extrahiert und an
     den \textit{Inventory Controller} übergeben. Dadurch wird eine nahtlose Fortsetzung der Interaktion mit dem Inventar ermöglicht.
 
-    \item \textbf{Deaktivierung des Objekts:} Abschließend wird das eigene GameObject deaktiviert, um das Ende des
+    \item \textbf{Deaktivierung des Objekts}: Abschließend wird das eigene GameObject deaktiviert, um das Ende des
     Platzierungsvorgangs des Inventar-Prefabs zu markieren. Dadurch wird dem Benutzer signalisiert, dass der Platzierungsvorgang
     abgeschlossen ist und eine klare Abgrenzung erleichtert.
-\end{enumerate}
+\end{itemize}
 
 Diese Schritte sind essenziell für einen reibungslosen Ablauf des Platzierungsprozesses des Inventar-Prefabs und tragen
 zu einer effizienten und benutzerfreundlichen Interaktion innerhalb des AR-Anwendungsszenarios bei.
@@ -2499,14 +2499,14 @@ Es ist wichtig, das Inventar fortlaufend und präzise in Echtzeit zu erfassen un
 sei es das Hinzufügen oder Entfernen eines Gegenstands seitens des Benutzers - unmittelbar zu registrieren. Dank dieses
 Echtzeit-Feedbacksystems ist es möglich, direkt auf Veränderungen zu reagieren und dem Benutzer entsprechendes Feedback zu geben.
 
-Dieser Abschnitt beschreibt das \textit{Inventory Controller} Unity Game Objekt und seine angehängte Skript-Komponente
+Dieser Abschnitt beschreibt das \textit{Inventory Controller} Unity GameObject und seine angehängte Skript-Komponente
 im Detail. Die Klasse \textit{InventoryController} ist das Herzstück für die Überwachung und Verwaltung des Inventars
 und gewährleistet einen reibungslosen und kontinuierlich aktualisierten Ablauf des Anwendungsszenarios des Rucksack-Problems
 in Echtzeit. Es wird erläutert, wie diese Klasse funktioniert und welche Bedeutung die Begrenzungen eines Objekts in
 diesem Kontext haben.
 
 \subsubsection{Der Inventory Controller}
-Das Unity Game Objekt \texttt{Inventory Controller} ist von entscheidender Bedeutung für die nahtlose Interaktion und
+Das Unity GameObject \texttt{Inventory Controller} ist von entscheidender Bedeutung für die nahtlose Interaktion und
 Kontrolle des Inventars innerhalb des Anwendungsszenarios des Rucksack-Problems. Diese zentrale Einheit fungiert als Dreh-
 und Angelpunkt für die Erfassung und Verarbeitung sämtlicher Änderungen am Inventar, die durch den Benutzer initiiert
 werden. Ausgestattet mit der Skript-Komponente \textit{InventoryController.cs}, verkörpert das \textit{Inventory Controller}
@@ -2521,16 +2521,16 @@ des Inventars gemäß den Handlungen des Benutzers.
     \label{fig:InventoryController_Editor}
 \end{figure}
 
-Abbildung \ref{fig:InventoryController_Editor} zeigt das Game Objekt im Unity Inspektor, welches den Inventory Controller
+Abbildung \ref{fig:InventoryController_Editor} zeigt das GameObject im Unity Inspektor, welches den Inventory Controller
 repräsentiert. Es ist erkennbar, dass diesem Objekt eine Skript-Komponente angehängt ist, die dem Inventory Controller
 zugeordnet ist. Innerhalb dieser Komponente werden die öffentlichen Klassenvariablen des Skripts aufgeführt, welche direkt
 im Inspektor eingesehen und manipuliert werden können. Diese Variablen sind wichtig für die Konfiguration und Steuerung
 des Inventory Controllers. Folgende Variablen sind relevant und haben eine bestimmte Bedeutung:
 
 \begin{itemize}
-    \item \textbf{QR Code Manager}: Referenz auf das \textit{QRCodesManager} Game Objekt aus der Szene.
+    \item \textbf{QR Code Manager}: Referenz auf das \textit{QRCodesManager} GameObject aus der Szene.
 
-    \item \textbf{Knapsack Solver Game Objekt}: Ein Verweis auf das \textit{KnapsackSolver} Game Objekt aus der Szene.
+    \item \textbf{Knapsack Solver Game Objekt}: Ein Verweis auf das \textit{KnapsackSolver} GameObject aus der Szene.
 
     \item \textbf{User Info}: Referenz auf das in der \textit{main camera} liegende \textit{TextMesh}.
 
@@ -2538,7 +2538,7 @@ des Inventory Controllers. Folgende Variablen sind relevant und haben eine besti
     der X-Achse erweitert werden.
 \end{itemize}
 
-Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity Game Objekt ist von entscheidender Bedeutung
+Die korrekte Übergabe und Konfiguration dieser Objekte und Werte an das Unity GameObject ist von entscheidender Bedeutung
 für die gewünschte und fehlerfreie Funktionsweise der Inventarverwaltung. Durch die Anpassung dieser Werte und Variablen
 lässt sich das Verhalten der Verwaltungsdynamik präzise steuern, um eine nahtlose Benutzererfahrung sicherzustellen.
 
@@ -2552,20 +2552,20 @@ In Unity werden die Begrenzungen eines Objekts über die Eigenschaften der Klass
 Objekt in Unity ist mit einer \textit{Collider}-Komponente ausgestattet, der unter anderem die Begrenzungen des Objekts
 definiert. Die ermittelten Begrenzungen eines Objekts haben eine Vielzahl von Anwendungsbereichen:
 
-\begin{enumerate}
-    \item \textbf{Kollisionserkennung:} Durch den Vergleich der Begrenzungen zweier Objekte können Kollisionen zwischen
+\begin{itemize}
+    \item \textbf{Kollisionserkennung}: Durch den Vergleich der Begrenzungen zweier Objekte können Kollisionen zwischen
     diesen erkannt werden. Dieser Prozess ist von grundlegender Bedeutung für die physikalische Interaktion von Objekten
     innerhalb einer digitalen Umgebung und ermöglicht die Umsetzung realistischer Verhaltensweisen.
 
-    \item \textbf{Platzierung von Objekten:} Die Begrenzungen dienen als Leitfaden für die Platzierung neuer Objekte
+    \item \textbf{Platzierung von Objekten}: Die Begrenzungen dienen als Leitfaden für die Platzierung neuer Objekte
     innerhalb einer Szene. Durch die Gewährleistung, dass die Positionierung innerhalb eines definierten Bereichs oder
     Umfelds erfolgt, wird die konsistente Gestaltung und Strukturierung der digitalen Welt ermöglicht.
 
-    \item \textbf{Bewegung und Rotation von Objekten:} Bei der Bewegung oder Rotation von Objekten können die Begrenzungen
+    \item \textbf{Bewegung und Rotation von Objekten}: Bei der Bewegung oder Rotation von Objekten können die Begrenzungen
     genutzt werden, um sicherzustellen, dass diese innerhalb eines vordefinierten Gültigkeitsbereichs bleiben. Dies
     gewährleistet nicht nur die Kohärenz der Szene, sondern auch die Vermeidung von unerwünschten Interferenzen oder
     Überschneidungen zwischen verschiedenen Elementen.
-\end{enumerate}
+\end{itemize}
 
 Die effektive Nutzung der Begrenzungen eines Objekts trägt somit wesentlich zur Präzision und Stabilität digitaler
 Szenen bei, indem sie eine solide Grundlage für die Positionierung, Bewegung und Interaktion von Objekten innerhalb
@@ -2601,7 +2601,7 @@ unterbrechungsfreier Ablauf des \textit{Inventory Controllers} gewährleistet wi
 Die Funktion besteht aus drei Phasen, die durchlaufen werden, um die Begrenzungen des Objekts zu erweitern. Diese sind
 die folgenden:
 
-\begin{enumerate}
+\begin{itemize}
 \item \texttt{UpdateInventoryBounds()}: Diese Funktion ist die zentrale Methode, die aufgerufen wird, um die Begrenzungen
 des Inventars zu aktualisieren. Sie überprüft zunächst, ob ein Inventarobjekt vorhanden ist und ruft anschließend
 Hilfsfunktionen auf, um den Rest abzuarbeiten. Die Begrenzungen werden entsprechend des vertikalen Versatzes erweitert.
@@ -2615,7 +2615,7 @@ private void UpdateInventoryBounds() {
 }
 \end{lstlisting}
 
-\item \texttt{GetBounds()}: Diese Methode dient dazu, die Grenzen des übergebenen Spielobjekts zu bestimmen. Sie verwendet
+\item \texttt{GetBounds()}: Diese Methode dient dazu, die Grenzen des übergebenen GameObjects zu bestimmen. Sie verwendet
 die Renderer-Komponenten des Objekts, um die Grenzen zu erhalten, und fällt auf die Position des Objekts zurück, falls
 kein Renderer vorhanden ist.
 \begin{lstlisting}[language={[Sharp]C}]
@@ -2638,7 +2638,7 @@ private void ExtendBounds(ref Bounds bounds, float offset) {
                                  bounds.extents.z);
 }
 \end{lstlisting}
-\end{enumerate}
+\end{itemize}
 
 Diese Funktionen stellen sicher, dass die Begrenzungen des Inventars aktualisiert werden, um sicherzustellen, dass alle
 relevanten Objekte ordnungsgemäß erfasst und berücksichtigt werden. Dies trägt dazu bei, die Zuverlässigkeit und Effizienz
@@ -2739,7 +2739,7 @@ void Update() {
 Im Wesentlichen kann die vorliegende Funktion in mehrere einzelne Schritte unterteilt werden, die den Verwaltungsvorgang
 von neuen und entfernten Gegenstände steuert. Um diese Funktion dementsprechend Schritt für Schritt zu erklären, sind
 hier die einzelnen Schritte samt Erklärung, was diese beinhalten beschrieben:
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{Sperren der aktiven QRCode Objekte}:
     Bevor die Verarbeitung der QRCode-Objekte beginnt, wird das Dictionary \texttt{activeQRObjects} gesperrt, um
     sicherzustellen, dass keine anderen Teile des Systems gleichzeitig darauf zugreifen und es möglicherweise zu einem
@@ -2789,7 +2789,7 @@ hier die einzelnen Schritte samt Erklärung, was diese beinhalten beschrieben:
     \texttt{proccessedItems} und \texttt{idGrid} vorhanden ist, bedeutet das, dass der Benutzer diesen entfernt
     hat. Wenn das der Fall ist, wird dieser mithilfe der Funktion \texttt{RemoveItem} und \texttt{GridUpdate()} aus
     dem Inventar entfernt und aktualisiert.
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{Zustände des Inventars aus der Sicht Benutzers}
 In diesem Abschnitt werden die verschiedenen Zustände des Inventars aus Sicht des Benutzers anhand von Fallbeispielen
@@ -2808,7 +2808,7 @@ reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.66\textwidth]{images/itemAdded}
+    \includegraphics[width=1\textwidth]{images/itemAdded}
     \caption{Ruckasck mit erfolgreich hinzugefügtem Gegenstand}
     \label{fig:controller_itemAdded}
 \end{figure}
@@ -2841,7 +2841,7 @@ Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.66\textwidth]{images/itemEntfernt}
+    \includegraphics[width=1\textwidth]{images/itemEntfernt}
     \caption{Inventar nach Entfernen eines Gegenstands}
     \label{fig:controller_itemRemoved}
 \end{figure}
@@ -2888,7 +2888,7 @@ Dieser Zustand tritt ein, wenn der Benutzer versucht, einen Gegenstand hinzuzuf�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.66\textwidth]{images/itemToHeavy}
+    \includegraphics[width=1\textwidth]{images/itemToHeavy}
     \caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
     \label{fig:controller_itemTooHeavy}
 \end{figure}
@@ -3212,12 +3212,12 @@ Spalte die \textit{Teilprobleme} für eine zunehmende Anzahl von Gegenständen d
 Der letzte Eintrag in dieser Tabelle (\textbf{$\mathbf{a_{mn}}$}) repräsentiert den errechneten maximal erreichbaren Wert.\\
 \\
 Um anschließend eine Zelle \( a_{mn} \) dieser Matrix zu interpretieren und den maximalen erreichbaren Wert ablesen zu können, ist Folgendes wichtig:
-\begin{enumerate}
+\begin{itemize}
 \item \textbf{m} gibt an, wie viel \textit{Gewicht} bereits im Rucksack verbraucht wurde. Je weiter fortgeschritten dieser
 Wert ist, daher desto weiter unten in der Tabelle, desto mehr Gewicht wurde bereits verwendet.
 \item \textbf{n} gibt an, wie viele \textit{Gegenstände} bereits betrachtet wurden. Je weiter fortgeschritten, daher,
 desto weiter rechts in der Tabelle, desto mehr Gegenstände wurden bereits berücksichtigt.
-\end{enumerate}
+\end{itemize}
 
 Die Einträge in der Matrix werden durch den \textit{dynamischen Programmieransatz} berechnet, indem die optimalen Werte für
 Teilprobleme \textit{schrittweise kombiniert} werden, um den Wert für größere Teilprobleme zu bestimmen.
@@ -3294,7 +3294,7 @@ Die Funktion \texttt{knapsackGreedy()} nimmt wie der dynamische Ansatz drei Para
 ein Array von Werten (\( \textit{values} \)) und die Kapazität des Rucksacks (\( \textit{capacity} \)). Die Funktionsweise
 dieses Ansatzes ist wie folgt:
 
-\begin{enumerate}
+\begin{itemize}
 \item Zunächst wird für jeden Gegenstand das Verhältnis von Wert zu Gewicht berechnet und in einer Liste von Tupeln
 gespeichert. Jedes Tupel enthält das Wert-Gewichts-Verhältnis sowie das Gewicht und den Wert des entsprechenden Gegenstands.
 \item Die Liste der Gegenstände wird basierend auf dem Verhältnis von Wert zu Gewicht in absteigender Reihenfolge
@@ -3304,7 +3304,7 @@ hinzuzufügen. Dabei wird überprüft, ob das Hinzufügen des Gegenstands das Ge
 Falls dies der Fall ist, wird ein Teil des Gegenstands entsprechend dem verbleibenden verfügbaren Gewicht im Rucksack hinzugefügt.
 \item Nachdem alle Gegenstände überprüft wurden, wird der Gesamtwert der im Rucksack enthaltenen Gegenstände zurückgegeben.
 Dies stellt die Lösung des Problems dar.
-\end{enumerate}
+\end{itemize}
 
 Der Greedy-Algorithmus bietet eine einfache und effiziente Lösung für das Knapsack-Problem, die jedoch nicht immer die
 perfekte Lösung garantiert. Durch die Auswahl der Gegenstände basierend auf lokalen Kriterien kann der Algorithmus zu
@@ -3323,7 +3323,7 @@ Dieses Kapitel untersucht die Anwendungen des Knapsack-Problems und seine Bedeut
 einen relevanten Einfluss auf die moderne Technologie und Wirtschaft.
 
 Die Anwendungen des Knapsack-Problems lassen sich in folgende Hauptbereiche unterteilen:
-\begin{enumerate}
+\begin{itemize}
 \item \textbf{Logistik}: Der Knapsack-Algorithmus wird in der Logistik angewendet, um den Transport von Gütern mit
 begrenzten Kapazitäten zu optimieren. Indem er die bestmögliche Auswahl von Gütern trifft, ermöglicht er Logistikunternehmen,
 ihre Transportkosten zu minimieren und die Effizienz ihrer Lieferketten zu steigern. Dies kann die Beladung von Containern oder die Organisation von Waren in Lagern umfassen.
@@ -3335,7 +3335,7 @@ oder die Verwaltung von Fonds umfassen.
 Nutzung begrenzter Ressourcen sicherzustellen. Dies kann in der Produktion erfolgen, wo Arbeitskräfte, Maschinen und
 Materialien effizient zugewiesen werden müssen, oder im Projektmanagement, um Zeit und Budgets zu optimieren. Durch
 die Anwendung des Knapsack-Problems können Unternehmen ihre Produktivität steigern und Kosten senken.\footnote{Wikipedia, \cite{Knapsack-Problem Anwendungen}}
-\end{enumerate}
+\end{itemize}
 
 Die Untersuchung dieser Anwendungen veranschaulicht die Vielseitigkeit und Effektivität des Knapsack-Problems bei der Lösung
 komplexer Optimierungsprobleme. Darüber hinaus trägt die Anwendung des Knapsack-Algorithmus dazu bei, industrielle Abläufe
@@ -3354,7 +3354,7 @@ Flexibilität in Bezug auf unterschiedliche Problemvarianten und die Genauigkeit
 
 Diese Überlegungen werden anschließend ausführlich diskutiert und die Gründe für die Wahl des dynamischen Ansatzes als
 Implementierungsstrategie für den Knapsack-Algorithmus erläutert:
-\begin{enumerate}
+\begin{itemize}
 \item \textbf{Perfekte Lösungsgarantie}: Der dynamische Ansatz bietet die Möglichkeit, eine perfekte Lösung für das
 Knapsack-Problem zu garantieren. Dies ist besonders wichtig in Anwendungen, in denen eine genaue und zuverlässige
 Lösung erforderlich ist, um optimale Entscheidungen zu treffen.
@@ -3367,7 +3367,7 @@ einsetzbar und kann an die spezifischen Anforderungen einer Anwendung angepasst 
 \item \textbf{Genauigkeit}: Durch die Verwendung des dynamischen Ansatzes können exakte Werte für den maximal erreichbaren
 Wert des Rucksacks und die optimale Auswahl von Gegenständen berechnet werden. Dies ermöglicht eine präzise Bewertung
 und Planung basierend auf den berechneten Ergebnissen.
-\end{enumerate}
+\end{itemize}
 
 In Anbetracht dieser Überlegungen wurde der dynamische Ansatz als die geeignete Methode zur Implementierung des Knapsack-Algorithmus
 in dieser Anwendung gewählt. Obwohl nicht alle verfügbaren Lösungsansätze eine perfekte Lösung garantieren können, bieten
@@ -3387,9 +3387,9 @@ mit dem begrenzten Knapsack-Problem deswegen, weil in dieser Anwendung eine Begr
 die dem Inventar hinzugefügt werden können, gesetzt ist.
 
 \subsubsection{\label{sec:moKnapsacksolver}Der Knapsack Solver}
-Das Unity Game Objekt \textit{Knapsack Solver}, wie in Abbildung \ref{fig:Knapsack_Editor} dargestellt, implementiert
+Das Unity GameObject \textit{Knapsack Solver}, wie in Abbildung \ref{fig:Knapsack_Editor} dargestellt, implementiert
 die Lösung des Knapsack-Problems und berechnet gleichzeitig das zusammengestellte Inventar des Benutzers. Es stellt
-Feedback über diese Berechnungen bereit. Dieses Game Objekt mit der angehängten Skript-Komponente \textit{Knapsack Solver}
+Feedback über diese Berechnungen bereit. Dieses GameObject mit der angehängten Skript-Komponente \textit{Knapsack Solver}
 implementiert die Klasse \textit{KnapsackSolver}, welche die Logik zur Berechnung des maximal erreichbaren Werts einer
 optimalen Lösung sowie den Wert des selbst zusammengestellten Inventars steuert.
 
@@ -3410,17 +3410,17 @@ Skript-Komponente, die dem GameObject zugeordnet ist. Innerhalb dieser Skript-Ko
 aufgeführt, die direkt im Editor übergeben und manipuliert werden können. Diese Variablen spielen eine entscheidende Rolle
 bei der Konfiguration und Steuerung des Knapsack Solvers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 \begin{itemize}
-    \item \textbf{QRCodesManager:} Verweis auf das \textit{QRCodesManager} GameObject aus der Szene.
+    \item \textbf{QRCodesManager}: Verweis auf das \textit{QRCodesManager} GameObject aus der Szene.
 
-    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} GameObject aus dem Inventar Prefab
+    \item \textbf{Own Mesh}: Referenz auf das \textit{OwnValueMesh} GameObject aus dem Inventar Prefab
 
-    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} GameObject aus dem Inventar Prefab
+    \item \textbf{Max Mesh}: Referenz auf das \textit{MaxValueMesh} GameObject aus dem Inventar Prefab
 
-    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} GameObject aus dem Inventar Prefab
+    \item \textbf{Info Mesh}: Referenz auf das \textit{infoMesh} GameObject aus dem Inventar Prefab
 
-    \item \textbf{Capacity:} Integerwert, der die Kapazität des Rucksacks festlegt.
+    \item \textbf{Capacity}: Integerwert, der die Kapazität des Rucksacks festlegt.
 
-    \item \textbf{Max Items:} Integerwert, der die maximale Anzahl an möglich platzierbaren Gegenständen im Inventar
+    \item \textbf{Max Items}: Integerwert, der die maximale Anzahl an möglich platzierbaren Gegenständen im Inventar
     festlegt.
 \end{itemize}
 
@@ -3550,11 +3550,11 @@ Für die Interpretation der \texttt{selected}-Matrix ist es wichtig zu verstehen
 Matrix gibt an, ob der entsprechende Gegenstand in der perfekten Lösung des Knapsack-Problems enthalten ist (\textit{true})
 oder nicht (\textit{false}). Als Beispiel zeigt die Zelle $selected[4][3]$, dass der Gegenstand 4 in der perfekten Lösung
 miteinbezogen wurde, als die Kapazität des Rucksacks 3 betrug. Diese Informationen ermöglichen folgende Schlussfolgerungen:
-\begin{enumerate}
+\begin{itemize}
 \item Der Index \textbf{i} in $selected[i][j]$ repräsentiert den Gegenstand, der in Betracht gezogen wird.
 \item Der Index \textbf{j} in $selected[i][j]$ gibt die Kapazität des Rucksacks an, die für diese Teillösung verwendet
 wurde.
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{Berechnung des zusammengestellten Rucksacks}
 Um dem Benutzer ein dementsprechendes Feedback zu geben und dadurch zu veranschaulichen, welchen Wert der selbst
@@ -3615,11 +3615,11 @@ untergeordnet sind und jeweils innerhalb einer Zelle platziert sind.
 \end{figure}
 Die Abbildung \ref{fig:InvPref} stellt das gesamte Prefab im Unity Editor visuell dar und gibt gleichzeitig einen Einblick
 in seine Hierarchie. Es wird deutlich, dass das Prefab aus einem Hauptmodell und neun Untermodellen besteht. Diese Modelle sind:
-\begin{enumerate}
+\begin{itemize}
     \item \textbf{inventory}: Das Raster, welches den eigentlichen Rucksack repräsentiert.
 
     \item \textbf{QRItem}: Prefab, über das mithilfe der ID auf die 3D-Modelle zugegriffen wird, um diese darzustellen.
-\end{enumerate}
+\end{itemize}
 \newpage
 \subsubsection{Das Best Solution Prefab}
 Das Unity-Prefab \texttt{best Solution Prefab}, wie in Abbildung \ref{fig:bestSol_Editor} dargestellt, implementiert die
@@ -3630,18 +3630,18 @@ implementiert. Diese Klasse ist für das Platzieren und Ausfüllen der perfekten
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{images/bestSolPref_Editor}
-    \caption{Game Objekt im Unity Editor}
+    \caption{GameObject im Unity Editor}
     \label{fig:bestSol_Editor}
 \end{figure}
 
-Auf dieser Abbildung ist das \texttt{bestSolutionPrefab} Game Objekt mit den zugehörigen Komponenten in Unity selbst zu
+Auf dieser Abbildung ist das \texttt{bestSolutionPrefab} GameObject mit den zugehörigen Komponenten in Unity selbst zu
 sehen. An der Komponente, welches das Skript repräsentiert, ist zu sehen, dass dieses vier zu übergebende Objekte benötigt.
 Darunter sind die folgenden:
 \begin{itemize}
-    \item \textbf{Perfect Solution Inventory:} Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
-    \item \textbf{Inventory Placement Controller:} Eine Referenz auf das \\ \texttt{inventoryPlacementController} Game Objekt.
-    \item \textbf{Knapsack Solver:} Eine Referenz auf das \textit{Knapsack Solver} Game Objekt.
-    \item \textbf{Inventory:} Eine Referenz auf das Raster Modell, dass im Best Solution Prefab enthalten ist.
+    \item \textbf{Perfect Solution Inventory}: Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
+    \item \textbf{Inventory Placement Controller}: Eine Referenz auf das \\ \texttt{inventoryPlacementController} GameObject.
+    \item \textbf{Knapsack Solver}: Eine Referenz auf das \textit{Knapsack Solver} GameObject.
+    \item \textbf{Inventory}: Eine Referenz auf das Raster Modell, dass im Best Solution Prefab enthalten ist.
 \end{itemize}
 
 Die korrekte Übergabe und Konfiguration dieser Objekte und Werte ist entscheidend für die Funktionalität dieser Klasse
@@ -3778,14 +3778,14 @@ In der Abbildung \ref{fig:testRunner} ist der \textit{Test-Runner} dargestellt. 
 \subsection{\label{sec:AAA}AAA-Schema}
 Das AAA-Schema steht für \textit{Arrange}, \textit{Act}, \textit{Assert} und ist ein grundlegendes Konzept im Bereich des Testens von Software. Es bietet eine klare Struktur für die Organisation von Testfällen, um sicherzustellen, dass die Funktionalität korrekt überprüft wird. Hier ist eine Erläuterung der einzelnen Schritte:
 \begin{itemize}
-\item \textbf{Arrange (Vorbereitung):} In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
+\item \textbf{Arrange (Vorbereitung)}: In diesem Schritt werden die Vorbedingungen für den Testfall eingerichtet.
 Dies beinhaltet die Initialisierung von Objekten, das Setzen von Parametern und das Festlegen des Kontexts, um sicherzustellen, dass die zu testende Funktionalität in einem definierten Zustand ausgeführt wird.
 Das Ziel ist es, eine klare Umgebung für den Test zu schaffen, damit die zu überprüfende Funktionalität isoliert und unabhängig getestet werden kann.
-\item \textbf{Act (Ausführung):}
+\item \textbf{Act (Ausführung)}:
 Hier wird die tatsächliche Aktion oder Methode aufgerufen, die getestet werden soll.
 Dies kann das Aufrufen einer Methode, das Ausführen einer Funktion oder das Durchführen einer bestimmten Aktion sein, die das zu testende Verhalten auslöst.
 Das Ziel ist es, die spezifische Funktionalität auszuführen, die überprüft werden soll, um festzustellen, ob sie das erwartete Verhalten aufweist.
-\item \textbf{Assert (Überprüfung):}
+\item \textbf{Assert (Überprüfung)}:
 
 In diesem Schritt wird das erwartete Verhalten mit dem tatsächlichen Ergebnis verglichen.
 Es wird überprüft, ob das Ergebnis der ausgeführten Aktion den Erwartungen entspricht.
@@ -4033,10 +4033,10 @@ Ebenso verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Me
 
 Basierend auf den Performance-Messungen können folgende Schlussfolgerungen gezogen werden:
 \begin{itemize}
-\item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
-\item \textbf{Nicht lineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie O(n log n) oder sogar O(n$^2$). Eine detaillierte Analyse des Wachstumsvergleichs zwischen verschiedenen Algorithmen findet sich in Kapitel \ref{sec:moperformance}.
-\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten, die bei jedem Testdurchlauf auftreten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
-\item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
+\item \textbf{Laufzeitverhalten}: Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
+\item \textbf{Nicht lineares Wachstum}: Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie O(n log n) oder sogar O(n$^2$). Eine detaillierte Analyse des Wachstumsvergleichs zwischen verschiedenen Algorithmen findet sich in Kapitel \ref{sec:moperformance}.
+\item \textbf{Ausreißer}: Es gibt einige Ausreißer in den gemessenen Zeiten, die bei jedem Testdurchlauf auftreten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
+\item \textbf{Stabilität}: Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
 \end{itemize}
 
 Insgesamt kann festgestellt werden, dass die aktuelle Leistung des Knapsack-Algorithmus für unseren Anwendungsbereich mehr als ausreichend ist, da wir nicht mit einer derart großen Anzahl an Gegenständen arbeiten. Die HoloLens2 ist in der Lage, die optimale Lösung in wenigen Mikrosekunden und ohne Leistungseinbußen zu liefern. Selbst bei wiederholten Aufrufen spielen ungünstige Muster keine signifikante Rolle.
