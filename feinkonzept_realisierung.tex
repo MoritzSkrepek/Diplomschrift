@@ -16,7 +16,7 @@
     morekeywords=[2]
         {ARRaycastManager, ARPlaneManager, GameObject, InventoryController, Vector3, ARPlane, Ray, RaycastHit, GetComponent, MeshRenderer, Quaternion, Transform},
     morekeywords=[3]
-        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutines, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2},
+        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutines, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2, DebugCameraResolution, isNumberKey, validateAndSendMessage, UpdatePropertiesDisplay},
     morekeywords=[4]
         {+, -, /, *, !, =, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null, true, false}, % Define symbols as keywords
     morecomment=[l]{//},
@@ -1602,7 +1602,7 @@ void debugRaycast(ARRaycastHit hit) {
 \subsubsection{Debug Funktion der Kamerabenutzung}
 Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung korrekt auf die Kamera zugreift und die richtige Bildauflösung erhält.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
-void DebugCameraReselution() {
+void DebugCameraResolution() {
     // Ueberpruefen, ob Kamerageraete verfuegbar sind
     if (WebCamTexture.devices.Length > 0) {
         // Das erste Kamerageraet auswaehlen
