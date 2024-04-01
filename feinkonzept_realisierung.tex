@@ -1102,13 +1102,13 @@ Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informie
         \includegraphics[width=\textwidth]{images/LadeKreisHierachy.png}
         \caption{Hierarchie Lade Kreis im Unity Editor}
     \end{minipage}
+    \hspace{1cm}
     \begin{minipage}[b]{0.15\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/LadeKreisBsp.png}
         \caption{Lade Symbol}
         \label{fig:Loading}
     \end{minipage}
-    \hfill
 \end{figure}
 \begin{lstlisting}[style=csharp, caption={Code zum ausfuehren des lade Symbols}, label=code:LoadingCoroutine]
 IEnumerator LoadingCoroutine() {
@@ -1171,42 +1171,30 @@ Nachdem ein Foto aufgenommen wurde, erfolgt die Datenverarbeitung mittels einer 
 
 \begin{lstlisting}[style=csharp, caption={Rote Pixel suche}, label=code:PixelJob]
 struct PixelJob : IJobParallelFor {
-    // Speichert die Pixel Farben des Bildes.
     public NativeArray<Color> pixels;
-    // Speichert die Positionen der roten Pixel.
     public NativeArray<Vector2> redPixelPositions;
-    // Die Breite des Bildes in Pixeln.
     public int textureWidth;
-    // Anzahl der fuer jeden Job zu prueften Pixle
     public int batchSize;
 
-    // Methode, die von jedem Job ausgefuehrt wird, um Pixel zu verarbeiten.
     public void Execute(int batchIndex) {
         // Berechnet den Startindex fuer den aktuellen Batch.
-        int startPixelIndex = batchIndex * batchSize;
-        // Berechnet den Endindex für den aktuellen Batch und beruecksichtigt dabei das Ende des Pixelarrays.
-        int endPixelIndex = Mathf.Min((batchIndex + 1) * batchSize, pixels.Length);
-
-        // Schleife ueber die Pixel im aktuellen Batch.
-        for (int pixelIndex = startPixelIndex; pixelIndex < endPixelIndex; pixelIndex++) {
+        int startPIndex = batchIndex * batchSize;
+        // Berechnet den Endindex fuer den aktuellen Batch
+        int endPIndex = Mathf.Min((batchIndex + 1) * batchSize, pixels.Length);
+        for (int pIndex = startPIndex; pIndex < endPIndex; pIndex++) {
             // Berechnet die x- und y-Koordinaten des aktuellen Pixels.
-            int x = pixelIndex % textureWidth;
-            int y = pixelIndex / textureWidth;
-
+            int x = pIndex % textureWidth;
+            int y = pIndex / textureWidth;
             // Ueberprueft, ob der Pixel rot genug ist.
-            if (pixels[pixelIndex].r > 0.7f && pixels[pixelIndex].g < 0.5f && pixels[pixelIndex].b < 0.5f) {
-                // Setzt den Pixel auf Rot und speichert seine Position.
-                pixels[pixelIndex] = Color.red;
-                redPixelPositions[pixelIndex] = new Vector2Int(x, y);
-            }
-            else {
-                // Setzt den Pixel auf Schwarz.
-                pixels[pixelIndex] = Color.black;
+            if (pixels[pIndex].r > 0.7f && pixels[pIndex].g < 0.5f &&
+                pixels[pIndex].b < 0.5f) {
+                pixels[pIndex] = Color.red;
+                redPixelPositions[pIndex] = new Vector2Int(x, y);
+            } else {
+                pixels[pIndex] = Color.black;
             }
         }
-    }
-}
-
+    }}
 \end{lstlisting}
 \begin{itemize}
     \item \textbf{NativeArray:} bieten verbesserte Leistung im Vergleich zu standardmäßigen Arrays, da diese direkt auf native Speicherbereiche zugreifen können, was besonders wichtig ist, wenn große Datenmengen verarbeitet werden müssen und die Ausführung parallelisiert werden sollen.
@@ -1244,47 +1232,46 @@ Nachdem das Foto verarbeitet wurde, wird nach roten Pixeln in dem Bild gesucht, 
 
 \begin{lstlisting}[style=csharp, caption={Kabel suche}, label=code:SearchForRedPixels]
 List<Vector2> SearchForRedPixels(int startX, int startY) {
-        // Ist die momentane Line an der er Schaut ob sie einen weiteren Punkt findet
-        List<Vector2> currentLine = new List<Vector2>();
-        bool hasFound = false;
-        // foundX und foundY sind die momentare x und y positionen des Roten pixels von den man ausgeht
-        int foundX = startX, foundY = startY;
-        // heightY wird verwendet um zu ueberpruefen ob die gepruefte laenge nicht die exestierente uebertrifft
-        int heightY = redPixels.GetLength(1);
-        // withX wird verwendet um zu ueberpruefen ob die gepruefte breite nicht die exestierente uebertrifft
-        int withX = redPixels.GetLength(0);
+    // momentan gefundene Linie von roten Pixeln
+    List<Vector2> currentLine = new List<Vector2>();
+    bool hasFound = false;
+    // mommentane x/y Positionen der roten Pixel
+    int foundX = startX, foundY = startY;
+    // ueberprueft ob die hoehe nicht uebertroffen wird
+    int heightY = redPixels.GetLength(1);
+    // ueberprueft ob die breite nicht uebertroffen wird
+    int widthX = redPixels.GetLength(0);
 
-        do {
-            hasFound = false;
-            // Damit die funktion nicht in eine unendlich schleife bei den darueber und darunter ueberpruefen kommt wird die Position von redPixels auf false gesetzt
-            redPixels[foundX, foundY] = false;
-            currentLine.Add(new Vector2(foundX, foundY));
-            // ueberprueft ob 25 pixel "rechts" von den Pixel von den man ausgehen mindestens ein roter vorhanden ist
-            for (int i = 1; i < 25 && foundX + i < withX; i++) {
-                if (redPixels[foundX + i, foundY]) {
-                    foundX = foundX + i;
-                    hasFound = true;
-                }
+    do {
+        hasFound = false;
+        redPixels[foundX, foundY] = false;
+        currentLine.Add(new Vector2(foundX, foundY));
+        // ueberprueft die naechsten 25 pixel rechts ob ein roter pixel vorhanden ist
+        for (int i = 1; i < 25 && foundX + i < widthX; i++) {
+            if (redPixels[foundX + i, foundY]) {
+                foundX = foundX + i;
+                hasFound = true;
             }
+        }
 
-            // ueberprueft ob 10 pixel "unter" von den Pixel von den man ausgehen mindestens ein roter vorhanden ist
-            for (int i = 1; i < 10 && !hasFound && foundY - i > 0; i++) {
-                hasFound = redPixels[foundX, foundY - i];
-                if (hasFound) {
-                    foundY = foundY - i;
-                }
+        // ueberprueft die naechsten 10 pixel unten ob ein roter pixel vorhanden ist
+        for (int i = 1; i < 10 && !hasFound && foundY - i > 0; i++) {
+            hasFound = redPixels[foundX, foundY - i];
+            if (hasFound) {
+                foundY = foundY - i;
             }
+        }
 
-            // ueberprueft ob 10 pixel "ueber" von den Pixel von den man ausgehen ueberprueft ein roter vorhanden ist
-            for (int i = 1; i < 10 && !hasFound && foundY + i < heightY; i++) {
-                hasFound = redPixels[foundX, foundY + i];
-                if (hasFound) {
-                    foundY = foundY + i;
-                }
+        // ueberprueft die naechsten 10 pixel darueber ob ein roter pixel vorhanden ist
+        for (int i = 1; i < 10 && !hasFound && foundY + i < heightY; i++) {
+            hasFound = redPixels[foundX, foundY + i];
+            if (hasFound) {
+                foundY = foundY + i;
             }
-        } while (hasFound);
-        return currentLine;
-    }
+        }
+    } while (hasFound);
+    return currentLine;
+}
 \end{lstlisting}
 \begin{itemize}
     \item \textbf{currentLine}: Liste von Vektoren, um Positionen der gefundenen Pixel zu speichern.
@@ -1292,7 +1279,7 @@ List<Vector2> SearchForRedPixels(int startX, int startY) {
     \item \textbf{foundX}: Die aktuelle x-Position des gefundenen roten Pixels.
     \item \textbf{foundY}: Die aktuelle y-Position des gefundenen roten Pixels.
     \item \textbf{heightY}: Die Höhe des Arrays \textit{redPixels}.
-    \item \textbf{withX}: Die Breite des Arrays \textit{redPixels}.
+    \item \textbf{widthX}: Die Breite des Arrays \textit{redPixels}.
 \end{itemize}
 
 
@@ -1325,32 +1312,33 @@ Vector2 screenCoordinates = new Vector2(
 \end{lstlisting}
 
 \begin{itemize}
-    \item Das \textbf{redPixel.x} und \textbf{redPixel.y} sind die Positionen, welche in \textit{screenCoordinates} umgerechnet werden sollen.
-    \item \textbf{Camera.main.pixelWidth} und \textbf{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
-    \item Unter \textbf{image.width} und \textbf{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
+    \item \texttt{redPixel.x} und \texttt{redPixel.y} sind die Positionen, welche in \texttt{screenCoordinates} umgerechnet werden sollen.
+    \item \texttt{Camera.main.pixelWidth} und \texttt{Camera.main.pixelHeight} sind die Breite und Höhe des Bildschirms, auf dem die Kameraansicht dargestellt wird.
+    \item Unter \texttt{image.width} und \texttt{image.height} versteht man die gesamte Breite und Höhe des verarbeiteten Bildes vom roten Kabel in Pixels.
 \end{itemize}
-Sobald dann die \textit{screenCoordinates} berechnet wurden, kann der Raycast auf die Position im Bildschirm aufgerufen werden. Dafür ist dieser Code teils von \textit{positionVirtualObject} zuständig:
-\begin{lstlisting}[style=csharp, caption={Raycast schießen}, label=code:createRaycast]
-// Eine Liste von ARRaycastHit-Objekten wird erstellt, um Treffer von Raycasts zu speichern.
+Sobald dann die \texttt{screenCoordinates} berechnet wurden, kann der Raycast auf die Position im Bildschirm aufgerufen werden. Dafür ist dieser Code teils von \texttt{positionVirtualObject} zuständig:
+\begin{lstlisting}[style=csharp, caption={Raycast schiessen}, label=code:createRaycast]
 List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-// Ueberpruefen, ob ein Raycast auf etwas trifft.
+// Ueberpruefen, ob ein Raycast auf etwas trifft
 if (raycastManager.Raycast(screenCoordinates, hits, TrackableType.Planes)) {
-    // Schleife durch alle getroffenen Punkte.
+    // Schleife durch alle getroffenen Punkte
     for (int i = 0; i < hits.Count; i++) {
-        // Ueberpruefen, ob der Treffertyp nicht "PlaneWithinInfinity" ist.
+        // Ueberpruefen, ob der Treffertyp nicht "PlaneWithinInfinity" ist
         if (hits[i].hitType != TrackableType.PlaneWithinInfinity) {
-            // Ueberpruefen, ob der Treffer nicht null ist.
             if (hits[i] != null) {
-                // Die Position des Treffers um 0.05 Einheiten nach oben verschieben (fuer eine bessere anzeigt) und zur Liste der Kabelpositionen hinzufügen.
-                cablePositions.Add(new Vector3(hits[i].pose.position.x, hits[i].pose.position.y + 0.05f, hits[i].pose.position.z));
-                // Die Schleife verlassen, nachdem ein gueltiger Treffer gefunden wurde.
+                // Die Position des Treffers um 0.05 Einheiten nach oben verschieben
+                // (fuer eine bessere Anzeige) und zur Liste der
+                // Kabelpositionen hinzufuegen.
+                cablePositions.Add(new Vector3(hits[i].pose.position.x,
+                                   hits[i].pose.position.y + 0.05f,
+                                   hits[i].pose.position.z));
+                // Schleife bei gueltigem Treffer verlassen
                 break;
             }
         }
     }
 }
-
 \end{lstlisting}
 Es wird eine Liste von ARRaycastHit Objekten erstellt, die den Namen \textit{hits} trägt. In dieser Liste werden nach dem Ausführen einer AR-Raycast-Operation die Treffer gespeichert. Die Funktion Raycast erhält die \textit{screenCoordinates}, die \textit{hits}-Liste sowie die zu suchenden TrackableType.Planes.
 Wenn die Funktion mindestens einen Treffer erhält, werden alle Treffer überprüft. Diese Treffer werden dann darauf überprüft, ob ihr Typ nicht \textit{TrackableType.PlaneWithinInfinity} ist, um sicherzustellen, dass der Raycast nicht ins Unendliche geht. Wenn ein Objekt getroffen wurde, wird geprüft, ob es Werte besitzt. Wenn alle diese Voraussetzungen erfüllt sind, wird es mit einer um 5 cm Erhöhung (damit das Paket nicht innerhalb von Kabel gleitet, sondern leicht darüber) zu \textit{cablePositions} hinzugefügt. Unter \textit{cablePositions} versteht man die Position, die das Paket später durchqueren wird.
@@ -1395,37 +1383,35 @@ EventManager.OnMessageReceived += editAndSendPackage;
 \end{lstlisting}
 Diese Zeile sorgt dafür, dass beim Start der Unity \textit{Scene} \textit{editAndSendPackage} auf das Event \textit{OnMessageReceived} registriert wird. Das bedeutet, dass wenn das Event \textit{OnMessageReceived} erhalten wird, die Funktion \textit{editAndSendPackage} ausgelöst wird.
 Die Funktion \textit{editAndSendPackage} initialisiert das visuelle Paket am Anfang des Kabels, falls es bisher nicht erstellt wurde.
+\newpage
 \begin{lstlisting}[style=csharp, caption={Initialisierung und Bearbeitung des Paketes}, label=code:editAndSendPackage]
 public void editAndSendPackage(string username, string message) {
-    // Ueberpruefen, ob sich die Operation am Ende befindet
     if (isAtEnd) {
-        // Wenn ja, zuruecksetzen der Flags und Zähler um neues senden zu ermoeglichen
+        // zuruecksetzen der Flags und Zaehler
         isAtEnd = false;
         moveToCounter = 1;
         moveFromCounter = 0;
     }
-    // Auf dem Haupt Thread die folgenden Operationen ausführen
-    MainThreadDispatcher.Instance().Enqueue(() => {
-        // Ueberpruefen, ob das Objekt bereits instanziiert ist
-        if (isObjectInstantiated == false) {
-            // Wenn nicht, wird das virtuelle Objekt instanziieren
-            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
-            isObjectInstantiated = true;
-        }
-        else {
-            // Wenn ja, das aktuelle Objekt zerstören und neu instanziieren
-            Destroy(instantiatedObject);
-            instantiatedObject = Instantiate(virtualObject, cablePositions[0], Quaternion.identity);
-        }
-        // Flag zum Bewegen des Objekts umschalten
-        shouldMove = !shouldMove;
 
-        // Ein Textobjekt für die Informationen erstellen und bearbeiten
-        EditTextOfInformationObject editTextOfInformationObject = new EditTextOfInformationObject(infoTextS);
+    MainThreadDispatcher.Instance().Enqueue(() => {
+        if (isObjectInstantiated == false) {
+            instantiatedObject = Instantiate(virtualObject,
+                                             cablePositions[0],
+                                             Quaternion.identity);
+            isObjectInstantiated = true;
+        } else {
+            Destroy(instantiatedObject);
+            instantiatedObject = Instantiate(virtualObject,
+                                             cablePositions[0],
+                                             Quaternion.identity);
+        }
+        shouldMove = !shouldMove;
+        // Ein Textobjekt fuer die Informationen erstellen und bearbeiten
+        EditTextOfInformationObject editTextOfInformationObject =
+                                    new EditTextOfInformationObject(infoTextS);
         editTextOfInformationObject.GetTextMeshProFromChild();
         editTextOfInformationObject.EditText(username, message);
 
-        // Eine Nachricht über den EventManager senden
         EventManager.SendMsg(username, message);
     });
 }
@@ -1437,30 +1423,29 @@ Im Rahmen der Methode wird zunächst geprüft, ob ein Paket erstellt wurde und o
 Die Bewegung des Paketes läuft so ab, dass das die Nachricht nacheinander die Punkte durchläuft, welche davor in Kapitel \ref{sec:EntfernungMessen} berechnet wurden. Die Bewegung zwischen diesen Positionen wird innerhalb von Unity über die Funktion \textit{Update} ausgeführt. Diese Funktion wird bei jedem Frame aufgerufen, um eine kontinuierliche Aktualisierung der Position des Pakets zu gewährleisten und somit eine nahtlose Bewegung darzustellen zu können.
 \begin{lstlisting}[style=csharp, caption={Update Funktion}, label=code:Update]
 void Update() {
-    // Ueberpruefen, ob sich das Objekt bewegt soll
     if (shouldMove) {
-        // Ueberpruefen, ob der Index wo sich das Paket hinbewegt kleiner als die Anzahl der Kabelpositionen ist
+        // Ueberpruefen, ob Index des Pakets kleiner als Anzahl der Kabelpositionen
         if (moveToCounter < cablePositions.Count) {
-            // Das Paket in die richtung der naechsten position bewegeb
-            instantiatedObject.transform.Translate((cablePositions[moveToCounter] - cablePositions[moveFromCounter]) * 0.0075f);
+            // Das Paket in die richtung der naechsten Position bewegen
+            instantiatedObject.transform.Translate((cablePositions[moveToCounter] -
+                                                    cablePositions[moveFromCounter]) *
+                                                    0.0075f);
 
             // Ueberpruefen, ob das Objekt nahe genug an der Zielposition ist
-            if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[moveToCounter]) < 0.00375f) {
-                // Das Objekt an die Zielposition setzen
+            if (Vector3.Distance(instantiatedObject.transform.position,
+                                 cablePositions[moveToCounter]) < 0.00375f) {
                 instantiatedObject.transform.position = cablePositions[moveToCounter];
-                // Zaehler erhoehen
                 moveToCounter++;
                 moveFromCounter++;
 
                 // Ueberpruefen, ob das Objekt am Ende der Kabelpositionen ist
-                if (Vector3.Distance(instantiatedObject.transform.position, cablePositions[cablePositions.Count - 1]) < 0.00375f) {
-                    // Wenn ja, markiere, dass es am Ende ist
+                if (Vector3.Distance(instantiatedObject.transform.position,
+                                     cablePositions[cablePositions.Count - 1]) <
+                                     0.00375f) {
                     isAtEnd = true;
                 }
             }
-        }
-        else {
-            // Wenn der Index zum Bewegen groeßer oder gleich der Anzahl der Kabelpositionen ist, beende das die Bewegung
+        } else {
             shouldMove = false;
         }
     }
@@ -1495,27 +1480,22 @@ innerhalb des Paketes senden. Diese Informationen werden dann angezeigt, wenn de
 Dies wird mithilfe des GameObject \textit{InfoObject} umgesetzt, welches Voreinstellungen für den Hintergrund und Text besitzt, falls es zu Fehlern kommt. \\
 Um den Text des Objekts zu ändern, muss auf das \textit{Text Mesh Pro} GameObject welches ein unter Objekt des \textit{InfoObject} zugegriffen werden. Dies passiert durch diesen Code:
 \begin{lstlisting}[style=csharp, caption={Kind vom GameObject bekommen}, label=code:]
-public class EditTextOfInformationObject : MonoBehaviour
-{
-    // Referenz auf das ElternGameObject, von dem aus das KindGameObject gefunden werden soll
+public class EditTextOfInformationObject : MonoBehaviour {
+    // Referenz auf das GameObject, welches das TextMeshPro-Objekt enthaelt
     public GameObject parentGameObject;
-    // Referenz auf das TextMeshPro-Objekt, das bearbeitet werden soll
+    // Referenz auf das TextMeshPro-Objekt, dass bearbeitet werden soll
     TextMeshPro textMeshPro;
 
-    // Methode zum Abrufen des TextMeshPro-Objekts vom KindGameObject
     public void GetTextMeshProFromChild() {
-        // Ueberpruefen, ob das ElternGameObject vorhanden ist
-        if (parentGameObject != null)
-        {
-            // Das Childobjekt mit dem Namen "InformationTextS" im ElternGameObject finden
-            GameObject childGameObject = parentGameObject.transform.Find("InformationTextS").GameObject;
-            // Ueberpruefen, ob das KindGameObject gefunden wurde
+        if (parentGameObject != null) {
+            // Das Childobjekt mit dem Namen "InformationTextS" im
+            // ElternGameObject finden
+            GameObject childGameObject = parentGameObject.transform
+                                         .Find("InformationTextS").GameObject;
             if (childGameObject != null) {
                 // Das TextMeshPro-Komponente vom KindGameObject abrufen
                 TextMeshPro tmp = childGameObject.GetComponent<TextMeshPro>();
-                // Ueberpruefen, ob das TextMeshPro-Komponente vorhanden ist
                 if (tmp != null) {
-                    // Das TextMeshPro-Objekt der Klasse zuweisen
                     textMeshPro = tmp;
                 }
             }
@@ -1523,6 +1503,7 @@ public class EditTextOfInformationObject : MonoBehaviour
     }
 }
 \end{lstlisting}
+\newpage
 Die Klasse enthält zwei Variablen:
 
 \begin{itemize}
@@ -1544,7 +1525,9 @@ Um während des Prozesses von Programmieren der sicherzustellen, dass in der Fun
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von Raycasts}, label=code:debugRaycast]
 void debugRaycast(ARRaycastHit hit) {
     Debug.Log("Ray hit position: " + hit.pose.position);
-    GameObject instantiatedObject = Instantiate(virtualObject, hit.pose.position, Quaternion.identity);
+    GameObject instantiatedObject = Instantiate(virtualObject,
+                                                hit.pose.position,
+                                                Quaternion.identity);
 }
 \end{lstlisting}
 \begin{figure}[H]
@@ -1557,29 +1540,21 @@ void debugRaycast(ARRaycastHit hit) {
 Diese Funktion kann verwendet werden, um sicherzustellen, dass die Anwendung korrekt auf die Kamera zugreift und die richtige Bildauflösung erhält.
 \begin{lstlisting}[style=csharp, caption={Debug Funktion von der Kamera Benutzung}, label=code:debugRaycast]
 void DebugCameraResolution() {
-    // Ueberpruefen, ob Kamerageraete verfuegbar sind
     if (WebCamTexture.devices.Length > 0) {
-        // Das erste Kamerageraet auswaehlen
         WebCamDevice frontCamera = WebCamTexture.devices[0];
 
         // Eine WebCamTexture mit dem ausgewaehlten Kamerageraet erstellen
         WebCamTexture webcamTexture = new WebCamTexture(frontCamera.name);
 
-        // Die Textur abspielen, um sicherzustellen, dass die Kamera ordnungsgemaeß initialisiert wird
         webcamTexture.Play();
 
         // Ueberpruefen, ob die Kamera eine gueltige Aufloesung zurueckgibt
         if (webcamTexture.width > 0 && webcamTexture.height > 0) {
-            // Aufloesung protokollieren
             Debug.Log("Selected Resolution: " + webcamTexture.width + "x" + webcamTexture.height);
-        }
-        else {
-            // Fehlermeldung ausgeben, wenn die Kamera keine gueltige Aufloesung zurueckgibt
+        } else {
             Debug.LogError("Failed to get a valid camera resolution.");
         }
-    }
-    else {
-        // Fehlermeldung ausgeben, wenn keine Kamerageraete gefunden  werden
+    } else {
         Debug.LogError("No camera devices found.");
     }
 }
@@ -1635,19 +1610,16 @@ Um die Webseite erfolgreich zu verwenden, ist es zunächst erforderlich, die IP-
 
 \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.7\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/WebButton}
-        \caption{Position des Einstellungsbuttons}
-        \label{fig:webbut}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{images/WebseiteSettings}
-        \caption{Konfigurationsfenster der Webseite}
-        \label{fig:websettings}
-    \end{minipage}
+    \includegraphics[width=1\textwidth]{images/WebButton}
+    \caption{Position des Konfigurationsbuttons auf der Webseite}
+    \label{fig:webbut}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{images/WebseiteSettings}
+    \caption{Konfigurationsfenster der Webseite}
+    \label{fig:websettings}
 \end{figure}
 
 Um die Webseite in diesem Szenario mit zwei Geräten zu nutzen, ist es erforderlich, die Seite des Kabels festzulegen, an der sich das aktuelle Gerät befindet. Dies gewährleistet eine korrekte Simulation der Nachrichten in der virtuellen Umgebung. In der Dropdown-Liste, wie in Abbildung \ref{fig:websettings} dargestellt, kann zwischen \textit{Rechte Seite} und \textit{Linke Seite} gewählt werden, je nach Position des Trägers der Brille. Weitere Details zur Verarbeitung dieser Information sind im Abschnitt \ref{sec:webBackend} zu finden.
@@ -1711,6 +1683,8 @@ Der Prototyp der Webseite, wie in Abbildung \ref{fig:protfrontend} dargestellt, 
 \caption{Darstellung der Webseitenansicht aus Benutzersicht (Mockup)}
 \label{fig:protfrontend}
 \end{figure}
+
+\newpage
 
 \subsubsection*{Ausprogrammierte Webseite}
 Die endgültige Version der Webseite, wie in Abbildung \ref{fig:frontend} gezeigt, enthält alle gewünschten Funktionen. Die Farbpalette orientiert sich stark am Hauptmenü und den Standardfarben der HoloLens. Es werden verschiedene Blautöne verwendet, um eine konsistente und benutzerfreundliche Benutzererfahrung zu gewährleisten.
@@ -1784,7 +1758,7 @@ Die Funktion \texttt{validateAndSendMessage()} in dem Codeabschnitt \ref{code:va
 
 Zunächst ruft die Funktion die Werte der Formularfelder für Benutzername und Nachricht ab und entfernt führende und abschließende Leerzeichen mit der trim()-Methode. Anschließend überprüft sie, ob sowohl der Benutzername als auch die Nachricht nicht leer sind. Wenn beide Felder nicht leer sind, wird die Funktion sendMessage(username, message) aufgerufen, um die Nachricht zu senden. Wenn die Nachricht erfolgreich gesendet wurde, wird nichts weiter unternommen. Andernfalls wird eine Warnmeldung angezeigt, dass die Nachricht nicht gesendet werden konnte. Sollte eines der Felder leer sein, wird dem Benutzer eine Warnmeldung angezeigt, die ihn darauf hinweist, beide Felder auszufüllen.
 
-
+\newpage
 \subsection{\label{sec:webBackend}Backend der Webseite}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Nachdem im vorherigen Abschnitt (\ref{sec:FrontendWebseite}) der Designprozess der Webseite erläutert wurde, wird nun das Thema durch eine Beschreibung des Backend-Bereichs erweitert.
@@ -1842,6 +1816,7 @@ Webseite eingegeben. Der Listener läuft standardmäßig auf dem Port 9090.
 
 (Die erlaubten Endpunkte sind wie oben aufgeführt fallbasiert gelistet.)
 
+\newpage
 \section{Knapsack Problem Anwendungsszenario}\label{sec:Scene2} \marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Im zweiten Anwendungsszenario dieser Applikation liegt der Fokus auf dem bekannten Problem des Knapsack-Problems. Ziel
 dieses Szenarios ist es, dieses Informatikproblem mithilfe von Augmented Reality (AR) visuell und spielerisch darzustellen.
@@ -1863,13 +1838,13 @@ Für einen sicheren und funktionalen Ablauf ist der Aufbau beziehungsweise die H
 In diesem Abschnitt wird anhand der Abbildung \ref{fig:level2_hierarchy} verdeutlich wie die Unity Szene für die Implementierung
 des zweiten Anwendungsszenarios für das Knapsack-Problem aufgebaut ist und es wird zusätzlich kurz darauf eingegangen
 für was welches Objekt steht und welche Aufgabe dieses trägt.
-\\
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.8]{images/Level2Hirarchy}
     \caption{Knapsack-Problem Szenario Hirarchie im Unity Editor.}
     \label{fig:level2_hierarchy}
 \end{figure}
+\newpage
 In dieser Abbildung ist die Hirarchie un der Inhalts des Knapsack-Problem Szenarios zu sehen. Anhand desen ist zu erkennen,
 dass diese Unity Szene aus vielen wichtigen Komponenten besteht, die alle zusammenspielen, m das gewünschte Ergebnis
 zu erzielen. Darunter sind folgende Objekte:
@@ -1900,8 +1875,6 @@ Wenn neben einem Game Objekt das durchgestrichene Auge zu sehen ist bedeutet das
 neben dem Game Objekt zu sehen ist, ist dieses Objekt im Unity Editor sichtbar. Dies dient dazu, dass falls in der Unity Szene viele Game Objekte vorhanden sind, dass man
 diejenige ausblendet die nicht im Editor sichtbar sein müssen wie zum Beispiel Tesh Meshes oder Lables.
 
-
-
 \subsection{\label{sec:qrcodes}Nutzung von QR-Codes} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 Im vorherigen Abschnitt wurde bereits erwähnt, dass QR-Codes in diesem Anwendungsszenario verwendet werden, um verschiedene Elemente zu repräsentieren. Diese QR-Codes spielen eine entscheidende Rolle, indem sie dazu dienen, vielfältige Informationen zu den einzelnen Gegenständen, die für das Knapsack-Problem benötigt werden, zu speichern und sie anschließend in einer virtuellen Umgebung abzubilden. Im folgenden Abschnitt wird näher darauf eingegangen, wie genau QR-Codes generiert werden und welchen Zweck sie innerhalb der Augmented Reality (AR)-Applikation erfüllen. Dabei wird insbesondere betrachtet, wie die Codes generiert und auf welche Weise sie innerhalb der Anwendung zur Interaktion mit den realen Objekten verwendet werden.
 
@@ -1914,7 +1887,7 @@ Distanzen.  \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
 
 Die zugehörigen Zahlen werden in der Software, genauer gesagt in der Klasse \textit{QRItem.cs}, mit Informationen verknüpft. Im folgenden Codeausschnitt wird dies verdeutlicht:
 
-\begin{lstlisting}[style=csharp, caption={Codeabschnitt von QRItem Klasse}, label=code:update]
+\begin{lstlisting}[style=csharp, caption={QRItem Klasse}, label=code:update]
 public class QRItem {
     public struct QRData {
         public int id;
@@ -1939,7 +1912,6 @@ public class QRItem {
     }
 }
 \end{lstlisting}
-
 In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgenden Informationen zuordnet:
 
 \begin{itemize}
@@ -1951,7 +1923,7 @@ In dieser Klasse wird ein Dictionary verwendet, das den Gegenständen die folgen
 \end{itemize}
 
 Diese Informationen spielen eine wesentliche Rolle in der weiteren Anwendung des Knapsack-Algorithmus.
-
+\newpage
 \subsubsection{QR-Code-Tracking}
 Das Tracking der QR-Codes erfolgt mithilfe des \textit{QRCodeManager.cs} Skripts. Diese Klasse ist ein \textit{Singleton}, das
 die Erkennung und Verfolgung der QR-Codes steuert. \footnote{Microsoft-Dokumentation \cite{Singleton}} \footnote{Microsoft-Dokumentation \cite{QR-Code-Tracking}}
@@ -2012,6 +1984,7 @@ Hier eine kurze Übersicht:
 
 \end{itemize}
 
+\newpage
 \subsubsection{Interaktion mit QR-Codes}
 \begin{figure}[H]
     \centering
@@ -2074,7 +2047,7 @@ Jedes Prefab enthält alle relevanten Informationen für die Darstellung des QR-
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6, angle=0]{images/qrprefab}
+    \includegraphics[scale=1, angle=0]{images/qrprefab}
     \caption{Hierarchie des QR-Code Prefabs}
     \label{fig:qrprefab}
 \end{figure}
@@ -2086,23 +2059,27 @@ In diesem Abschnitt werden die Eigenschaften eines einzelnen QR-Codes erläutert
     \item \textbf{GameObjects von 1 bis 11:} Diese GameObjects repräsentieren die 3D-Modelle, die der QR-Code darstellen soll. Weitere Details zu den 3D-Modellen sind im Abschnitt \ref{sec:restlicheModelle} zu finden. Jedes Prefab enthält die Modelle aller möglichen Gegenstände, die angezeigt werden können. Die Nummerierung erleichtert die Iteration durch diese Modelle in der Szene, da die QR-Codes eine eindeutige ID haben und mit einem numerischen Namen leichter darauf zugegriffen werden kann.
 \end{itemize}
 
+\newpage
 \subsubsection*{Instanziierung eines QR-Prefabs}
 
-\begin{lstlisting}[style=csharp, caption={Instanzierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
+\begin{lstlisting}[style=csharp, caption={Instanziierung eines QR-Prefabs}, label=code:QR-Prefab instanzierung]
 void Start() {
-    //... weiterer Code
+    // ... weiterer Code
 
-    // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen in der UpdatePropertiesDisplay() Funktion benoetigt
+    // Die physikalische Groesse des QR-Codes wird abgerufen; Wird fuer Berechnungen
+    // in der UpdatePropertiesDisplay() Funktion benoetigt
     PhysicalSize = qrCode.PhysicalSideLength;
 
     try {
-        // (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten QR-Codes initialisiert
+        // (1) Ein neues QRItem wird erstellt und mit den Daten des gescannten
+        // QR-Codes initialisiert
         item = new QRItem(int.Parse(qrCode.Data));
 
         // (2) Das entsprechende 3D-Modell wird anhand der ID des QR-Items gefunden
         model = gameObject.transform.Find(item.qrData.id.ToString()).gameObject;
 
-        // (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung sichtbar gesetzt
+        // (2) Falls ein 3d-Modell gefunden wurde wird sie in der AR-Umgebung
+        // sichtbar gesetzt
         model.SetActive(model != null);
     }
     catch (System.Exception e) {
@@ -2115,34 +2092,46 @@ void Start() {
 }
 \end{lstlisting}
 
-Nach der Instanziierung eines QR-Prefabs wird der Codeabschnitt \ref{code:QR-Prefab instanzierung} ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet, erhält bei der Instanziierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID. \textit{Kommentar (1)} Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert. \textit{Kommentar (2)} Zudem wird das entsprechende 3D-Modell in die Szene eingefügt. \textit{Kommentar (3)} Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt. Diese Aktionen werden bei jeder Instanziierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei jeder Frameaktualisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen zu den Lebeszyklusmethoden befinden sich in diesem Abschnitt: \ref{sec:Shrek is leben}
+Nach der Instanziierung eines QR-Prefabs wird der Codeabschnitt \ref{code:QR-Prefab instanzierung} ausgeführt. Das Skript \textit{QRCode.cs}, in dem sich dieser Abschnitt befindet,
+erhält bei der Instanziierung lediglich den Inhalt des gescannten QR-Codes übermittelt, nämlich die ID.
+\begin{itemize}
+    \item \textbf{Kommentar (1)}: Anhand dieser ID werden aus einer Liste möglicher Objekte die weiteren erforderlichen Informationen entnommen und innerhalb der Klasse gespeichert.
+    \item \textbf{Kommentar (2)}: Zudem wird das entsprechende 3D-Modell in die Szene eingefügt.
+    \item \textbf{Kommentar (3)}: Zuletzt werden die Labels mit den richtigen Werten (Name, Gewicht, Wert) befüllt, \ref{code:labels} ist der genauere Codeabschnitt.
+\end{itemize}
+Diese Aktionen werden bei jeder Instanziierung nur einmal ausgeführt. Im Gegensatz dazu wird die folgende Funktion (\ref{code:Aktualisieren der Position}) bei
+jeder Frameaktualisierung der Brille ausgeführt und befindet sich daher in der \textit{Update()} Funktion. Weitere Informationen
+zu den Lebeszyklusmethoden befinden sich in diesem Abschnitt: \ref{sec:Shrek is leben}
 
+\newpage
 \subsubsection*{Setzen der Labels}
 \begin{lstlisting}[style=csharp, caption={Setzen der Labels}, label=code:labels]
 private void setLabels() {
-    //Das GameObject mit den Labels wird gespeichert
+    // Das GameObject mit den Labels wird gespeichert
     labels = gameObject.transform.Find("QRLabels").gameObject;
 
     try {
-        //Der Canvas indem sich die Labels befinden wird gespeichert
+        // Der Canvas indem sich die Labels befinden wird gespeichert
         Transform canvas = labels.transform.Find("Canvas");
+        // Die Text-Komponenten indem sich der anzuzeigende Text befindet
+        // wird geseichert
+        TextMeshProUGUI nameLabel   = canvas.Find("nameLabel").gameObject
+                                      .GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI valueLabel  = canvas.Find("valueLabel").gameObject
+                                      .GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI weightLabel = canvas.Find("weightLabel").gameObject
+                                      .GetComponent<TextMeshProUGUI>();
 
-        //Die Text-Komponenten indem sich der anzuzeigende Text befindet wird geseichert
-        TextMeshProUGUI nameLabel = canvas.Find("nameLabel").gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI valueLabel = canvas.Find("valueLabel").gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI weightLabel = canvas.Find("weightLabel").gameObject.GetComponent<TextMeshProUGUI>();
-
-        // Die Texte der Labels werden mit den entsprechenden Daten des QR-Items aktualisiert
+        // Die Texte der Labels werden mit den entsprechenden Daten
+        // des QR-Items aktualisiert
         nameLabel.text = "Name: " + item.qrData.name;
         valueLabel.text = "Wert: " + item.qrData.value.ToString();
         weightLabel.text = "Gewicht: " + item.qrData.weight.ToString();
-
         // Die Farben der Labels werden gesetzt
         nameLabel.color = Color.white;
         valueLabel.color = Color.yellow;
         weightLabel.color = Color.cyan;
-    }
-    catch (System.Exception e) {
+    } catch (System.Exception e) {
         // Fehlerbehandlung, falls beim abfragen der Modelle etwas schieflaeuft
         Debug.LogError("Error setting labels: " + e.Message);
     }
@@ -2154,17 +2143,17 @@ Dieser Code ist dafür verantwortlich, die Textlabels im Canvas entsprechend mit
 \subsubsection*{Aktualisieren der Positionen}
 \begin{lstlisting}[style=csharp, caption={Aktualisieren der Position}, label=code:Aktualisieren der Position]
 void UpdatePropertiesDisplay() {
-    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime.Ticks) {
+    if (qrCode != null && lastTimeStamp != qrCode.SystemRelativeLastDetectedTime
+                                           .Ticks) {
         PhysicalSize = qrCode.PhysicalSideLength;
-
-        item.qrData.position = new Vector3(PhysicalSize / 2.0f, PhysicalSize / 2.0f, 0.0f);
-
-        labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f, item.qrData.position.y, item.qrData.position.z);
-
-        labels.transform.localScale = new Vector3(PhysicalSize * 0.02f, PhysicalSize * 0.02f, 0.005f);
-
+        item.qrData.position = new Vector3(PhysicalSize / 2.0f,
+                                           PhysicalSize / 2.0f, 0.0f);
+        labels.transform.localPosition = new Vector3(item.qrData.position.x + 0.05f,
+                                                     item.qrData.position.y,
+                                                     item.qrData.position.z);
+        labels.transform.localScale = new Vector3(PhysicalSize * 0.02f,
+                                                  PhysicalSize * 0.02f, 0.005f);
         model.transform.localPosition = item.qrData.position;
-
         lastTimeStamp = qrCode.SystemRelativeLastDetectedTime.Ticks;
     }
 }
@@ -2182,11 +2171,12 @@ Nachdem gesamten Prozess dem Durchlaufen wird, schaut das Endergebnis folgenderm
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.15, angle=0]{images/scanned}
+    \includegraphics[scale=0.2, angle=0]{images/scanned}
     \caption{Visualisierte QR-Codes}
     \label{fig:visqr}
 \end{figure}
 
+\newpage
 \subsubsection{Zugriff auf QR-Codes bereitstellen}
 Wie bereits in Abschnitt \ref{sec:Scene2} erwähnt, ist es erforderlich, dass andere Klassen in der Anwendung Zugriff auf die aktuell erkannten QR-Codes in der Szene haben, um angemessen reagieren zu können. Dies ist insbesondere notwendig für die Überprüfung, ob und welche QR-Codes sich im Knapsack-Inventar befinden (\ref{sec:moritsInventarBounds}).
 
@@ -2217,7 +2207,7 @@ sondern auch zusätzliche 3D-Modelle, die das Gesamtbild vervollständigen.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{images/invPrefabUnity}
+    \includegraphics[scale=0.35]{images/invPrefabUnity}
     \caption{Aufbau des Inventar-Prefabs im Unity Editor}
     \label{fig:invPrefab_UNITY}
 \end{figure}
@@ -2250,7 +2240,7 @@ Die Struktur und das Design des Prefabs sind nicht nur ästhetisch ansprechend, 
 mit der übrigen UI/UX der Anwendung. Sie ermöglicht eine effiziente und benutzerfreundliche Interaktion. Die Anordnung
 der einzelnen Elemente ist gut durchdacht und bietet dem Benutzer eine klare Orientierung, was die Benutzererfahrung
 insgesamt verbessert.
-
+\newpage
 \subsubsection{User Gaze in AR-Anwendungen}
 In Augmented-Reality-Anwendungen spielt der \textit{User-Gaze} eine zentrale Rolle, da er die Interaktion zwischen Benutzer
 und virtueller Umgebung ermöglicht. Er erfasst und interpretiert dabei die Blickrichtung und -position des Benutzers,
@@ -2315,7 +2305,7 @@ um zu bestimmen, ob der Benutzer auf eine geeignete Fläche blickt, auf der das 
 Die Klasse \textit{InventoryPlacementController} verwendet zwei Funktionen, um den Blick des Benutzers auf ein \textit{ARPlane}
 zu erkennen und, um dieses \textit{ARPlane} zu ermitteln und zurückzugeben. In diesem Abschnitt wird die Funktion, welche
 den Blick-Status ermittelt, anhand des Source-Codes erklärt.
-\begin{lstlisting}[caption={Funktion zur Überprüfung des User Gazes}, label=code:isPOP]
+\begin{lstlisting}[caption={Funktion zur Ueberpruefung des User Gazes}, label=code:isPOP]
 private bool IsPointerOverPlane() {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
@@ -2357,7 +2347,8 @@ void Update() {
                     lookStartTime = Time.time;
                 }
                 float timeLookedAtPlane = Time.time - lookStartTime;
-                userInfo.text = ((int)requiredLookTime - (int)timeLookedAtPlane).ToString();
+                userInfo.text = ((int)requiredLookTime - (int)timeLookedAtPlane)
+                                                         .ToString();
                 if (timeLookedAtPlane >= requiredLookTime) {
                     PlaceObjectOnDesk(selectedDeskPlane);
                     objectPlaced = true;
@@ -2413,6 +2404,7 @@ Generell lässt sich die Funktionsweise dieses Codes in neun Phasen unterteilen,
     dass er auf ein AR-Plane blicken muss, um das Inventar-Prefab erfolgreich zu platzieren.
 \end{enumerate}
 
+\newpage
 \subsubsection{Platzierung des Prefabs}
 Die Platzierung des Inventar-Prefabs markiert den Abschluss des Skripts \textit{Inventory Placement Controllers}. Die
 Funktion \texttt{PlaceObjectOnDesk()} platziert das Prefab auf dem ARPlane, auf welches der Benutzer blickt und aktiviert
@@ -2500,7 +2492,7 @@ muss, um das Inventar-Prefab erfolgreich zu platzieren.
 Die dritte Abbildung zeigt den Abschluss des Platzierungsprozesses, bei dem das Inventar-Prefab erfolgreich platziert
 wurde. Nach Abschluss dieser Phase erhält der Benutzer weitere Anweisungen für die nächsten Schritte, um das Inventar
 effektiv im Spiel zu verwenden.
-
+\newpage
 \subsection{Inventarverwaltung}\marginpar{\small\(\rightarrow\) {\tiny SKREPEK}}
 Eine effiziente Handhabung und Überwachung des platzierten Inventars ist ein zentraler Aspekt im Kontext des Rucksack-Problems.
 Es ist wichtig, das Inventar fortlaufend und präzise in Echtzeit zu erfassen und zu aktualisieren, um sämtliche Veränderungen -
@@ -2524,7 +2516,7 @@ des Inventars gemäß den Handlungen des Benutzers.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{images/invCon_Editor}
+    \includegraphics[scale=0.75]{images/invCon_Editor}
     \caption{InventoryController Objekt im Editor}
     \label{fig:InventoryController_Editor}
 \end{figure}
@@ -2536,7 +2528,7 @@ im Inspektor eingesehen und manipuliert werden können. Diese Variablen sind wic
 des Inventory Controllers. Folgende Variablen sind relevant und haben eine bestimmte Bedeutung:
 
 \begin{itemize}
-    \item \textbf{QR Code Manager}: Referenz auf das \textit{QRCodeManager} Game Objekt aus der Szene.
+    \item \textbf{QR Code Manager}: Referenz auf das \textit{QRCodesManager} Game Objekt aus der Szene.
 
     \item \textbf{Knapsack Solver Game Objekt}: Ein Verweis auf das \textit{KnapsackSolver} Game Objekt aus der Szene.
 
@@ -2579,6 +2571,7 @@ Die effektive Nutzung der Begrenzungen eines Objekts trägt somit wesentlich zur
 Szenen bei, indem sie eine solide Grundlage für die Positionierung, Bewegung und Interaktion von Objekten innerhalb
 einer virtuellen Umgebung bildet.
 
+\newpage
 \subsubsection{Problem bei Standardbegrenzungen}
 Die Standardbegrenzungen des Inventar-Objekts sind so festgelegt, dass sie genau die räumliche Fläche dieses Objekts
 abdecken. Dies kann jedoch zu Problemen führen, insbesondere wenn sich ein Gegenstand innerhalb dieser Grenzen befindet,
@@ -2605,8 +2598,8 @@ erkennt und effizient verwaltet, selbst wenn diese die ursprünglichen Begrenzun
 Aktualisierung der Standardbegrenzungen können solche Änderungen sofort erfasst und berücksichtigt werden, wodurch ein
 unterbrechungsfreier Ablauf des \textit{Inventory Controllers} gewährleistet wird.
 
-Die Funktion besteht aus drei Phasen, die durchlaufen werden, um die Begrenzungen des Objekts zu erweitern. Diese sind d
-ie folgenden:
+Die Funktion besteht aus drei Phasen, die durchlaufen werden, um die Begrenzungen des Objekts zu erweitern. Diese sind
+die folgenden:
 
 \begin{enumerate}
 \item \texttt{UpdateInventoryBounds()}: Diese Funktion ist die zentrale Methode, die aufgerufen wird, um die Begrenzungen
@@ -2637,8 +2630,12 @@ durchführt. Durch die Verwendung einer Referenz ist es möglich, direkt die Beg
 bearbeiten. Sie passt sowohl das Zentrum als auch die Ausdehnung der Begrenzung auf der y-Achse entsprechend des \texttt{offset} an.
 \begin{lstlisting}[language={[Sharp]C}]
 private void ExtendBounds(ref Bounds bounds, float offset) {
-    bounds.center = new Vector3(bounds.center.x, bounds.center.y + offset / 2, bounds.center.z);
-    bounds.extents = new Vector3(bounds.extents.x, bounds.extents.y + offset / 2, bounds.extents.z);
+    bounds.center = new Vector3(bounds.center.x,
+                                bounds.center.y + offset / 2,
+                                bounds.center.z);
+    bounds.extents = new Vector3(bounds.extents.x,
+                                 bounds.extents.y + offset / 2,
+                                 bounds.extents.z);
 }
 \end{lstlisting}
 \end{enumerate}
@@ -2702,29 +2699,37 @@ void Update() {
     lock (activeQRObjects) {
         foreach (var item in activeQRObjects.Values) {
             QRCode qRCode = item.GetComponent<QRCode>();
-            Vector3 worldPosition = item.transform.TransformPoint(qRCode.item.qrData.position);
+            Vector3 worldPosition = item.transform
+                                    .TransformPoint(qRCode.item.qrData.position);
             if (item != null && inventoryBounds.Contains(worldPosition)) {
                 int itemId = qRCode.item.qrData.id;
                 if (!processedItems.Contains(itemId)) {
                     if (currWeight + qRCode.item.qrData.weight <= cap) {
                         userInfo.text = "";
                         processedItems.Add(itemId);
-                        Vector2 startGridPosition = CalculateGridPosition(worldPosition);
-                        idGrid[(int)startGridPosition.x, (int)startGridPosition.y] = itemId;
+                        Vector2 startGridPosition =
+                        CalculateGridPosition(worldPosition);
+                        idGrid[(int)startGridPosition.x, (int)startGridPosition.y] =
+                        itemId;
                         knapsackSolver?.UpdateInfoMesh("", Color.white);
                         currWeight += qRCode.item.qrData.weight;
-                        remCap.text = "Verbleibendes Gewicht: " + (cap - currWeight) + "/" + cap;
+                        remCap.text =
+                        "Verbleibendes Gewicht: " + (cap - currWeight) + "/" + cap;
                         EventManager.GridUpdate(idGrid);
                     } else {
-                        knapsackSolver?.UpdateInfoMesh("Item hat zu viel Gewicht!", Color.red);
+                        knapsackSolver?
+                        .UpdateInfoMesh("Item hat zu viel Gewicht!", Color.red);
                     }
                 }
-            } else if (!inventoryBounds.Contains(worldPosition) && processedItems.Contains(qRCode.item.qrData.id) && ContainsId(qRCode.item.qrData.id)) {
+            } else if (!inventoryBounds.Contains(worldPosition) &&
+                       processedItems.Contains(qRCode.item.qrData.id) &&
+                       ContainsId(qRCode.item.qrData.id)) {
                 int itemId = qRCode.item.qrData.id;
                 processedItems.Remove(itemId);
                 RemoveItem(itemId);
                 currWeight -= qRCode.item.qrData.weight;
-                remCap.text = "Verbleibendes Gewicht: " + (cap - currWeight) + "/" + cap;
+                remCap.text =
+                "Verbleibendes Gewicht: " + (cap - currWeight) + "/" + cap;
                 EventManager.GridUpdate(idGrid);
             }
         }
@@ -2764,7 +2769,7 @@ hier die einzelnen Schritte samt Erklärung, was diese beinhalten beschrieben:
     Einträge zu verhindern und die Datenkonsistenz zu wahren. Die Funktion \texttt{Contains()} wird aufgerufen, um zu
     überprüfen, ob der Gegenstand bereits in der Liste der verarbeiteten Gegenstände (\texttt{processedItems}) enthalten
     ist.
-
+    \newpage
     \item \textbf{Überprüfung des Gewichtslimits}:
     Diese Überprüfung dient dazu festzustellen, ob das Hinzufügen des Gegenstands das vorgegebene Gewichtslimit des
     Inventars überschreiten würde. Dadurch wird sichergestellt, dass das Inventar nicht überladen wird und das
@@ -2795,7 +2800,7 @@ und um einen klaren Überblick zu verschaffen. Jeder dieser Zustände wird durch
 um zu veranschaulichen, wie sich das Inventar sowie die zugrundeliegende Datenstruktur in verschiedenen Situationen
 verhalten. Dabei wird auch darauf eingegangen, wie der Benutzer durch die grafische Benutzeroberfläche (GUI) über
 diese Zustände informiert wird.
-
+\newpage
 \subsubsection*{Gegenstand zu dem Rucksack hinzugefügt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand erfolgreich in dem Inventar platziert hat. Das Inventar
 reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur. Die nachfolgende Abbildung
@@ -2803,7 +2808,7 @@ reagiert umgehend und integriert den neuen Gegenstand nahtlos in seine Struktur.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/itemAdded}
+    \includegraphics[width=0.66\textwidth]{images/itemAdded}
     \caption{Ruckasck mit erfolgreich hinzugefügtem Gegenstand}
     \label{fig:controller_itemAdded}
 \end{figure}
@@ -2829,14 +2834,14 @@ doppelt berücksichtigt wird:
 \[
 \text{processedItems} = \{1\}
 \]
-
+\newpage
 \subsubsection*{Gegenstand aus dem Rucksack entfernt}
 Dieser Zustand tritt ein, sobald der Benutzer einen Gegenstand aus dem Inventar entfernt hat, wie in Abbildung
 \ref{fig:controller_itemRemoved} dargestellt.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/itemEntfernt}
+    \includegraphics[width=0.66\textwidth]{images/itemEntfernt}
     \caption{Inventar nach Entfernen eines Gegenstands}
     \label{fig:controller_itemRemoved}
 \end{figure}
@@ -2876,14 +2881,14 @@ erneut verarbeitet wird:
 \[
 \text{processedItems (nachher)} = \{1, 11\}
 \]
-
+\newpage
 \subsubsection*{Gegenstand zu schwer für den Rucksack}
 Dieser Zustand tritt ein, wenn der Benutzer versucht, einen Gegenstand hinzuzufügen, der das Gewichtslimit des Inventars
 überschreitet, wie in Abbildung \ref{fig:controller_itemTooHeavy} illustriert.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/itemToHeavy}
+    \includegraphics[width=0.66\textwidth]{images/itemToHeavy}
     \caption{Inventar mit einem Gegenstand, der das Gewichtslimit überschreitet}
     \label{fig:controller_itemTooHeavy}
 \end{figure}
@@ -2911,9 +2916,7 @@ Das \texttt{processedItems}-Array bleibt ebenfalls unverändert:
 \text{processedItems} = \{1, 3, 11\}
 \]
 
-
-
-
+\newpage
 \subsection{\label{sec:eventmanager}Event Manager}\marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Der \textit{Event Manager} ist ein entscheidendes GameObject, das als zentrales Kommunikationselement fungiert und die
@@ -2936,6 +2939,7 @@ Ereignisse dienen als entscheidender Mechanismus zur Erleichterung der Kommunika
 
 In der Klasse \textit{EventManager} werden die bereits erwähnten drei Ereignisse als statische Ereignisse definiert und Methoden bereitgestellt, um diese Ereignisse auszulösen. Dies ermöglicht eine globale Verwendung des Ereignissystems in verschiedenen Teilen des Codes. Die Aktionen (Actions) sind statisch, was bedeutet, dass sie auf Klassenebene definiert sind und keine Instanz der Klasse benötigen, um aufgerufen zu werden. Die Methode \textit{Invoke} wird verwendet, um die Ereignisse auszulösen. Diese Struktur gewährleistet eine effiziente und flexible Handhabung von Ereignissen innerhalb der Anwendung.
 
+\newpage
 \begin{lstlisting}[style=csharp, label=code:EventManager]
 public static class EventManager {
     // Szenario 1
@@ -2943,7 +2947,6 @@ public static class EventManager {
     public static event System.Action<string, string, string> OnMessageReceived;
     // Methode zum Ausloesen des Ereignisses fuer den Empfang einer Nachricht
     public static void ReceiveMsg(string username, string message, string side) => OnMessageReceived?.Invoke(username, message, side);
-
     // Ereignis fuer das Senden einer Nachricht
     public static event System.Action<string, string, string> OnMessageSend;
     // Methode zum Ausloesen des Ereignisses fuer das Senden einer Nachricht
@@ -2965,10 +2968,10 @@ Zum Beispiel wird in diesem Kontext das \textit{OnGridUpdate}-Ereignis definiert
 Um auf Aktualisierungen im Inventar reagieren zu können, können andere Teile des Codes sich für dieses Ereignis registrieren, indem sie eine Methode oder einen Handler bereitstellen, der ausgeführt wird, wenn das Ereignis eintritt. Ein \textit{Handler} ist eine Funktion oder Methode, die aufgerufen wird, wenn ein bestimmtes Ereignis eintritt. Im folgenden Beispiel wird die Methode \textit{SetInventory} als \textit{Ereignishandler} für das \textit{OnGridUpdate}-Ereignis registriert:
 
 \begin{lstlisting}[style=csharp label=code:Event Registration]
-//Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
+// Dieser Code Abschnitt befindet sich in der Klasse: KnapsackSolver.cs
 void Start() {
     items = new QRItem(0).items;
-    // Die SetInventory Methode wird als Ereignishandler fuer das OnGridUpdate Ereignis registriert
+    // SetInventory als OnGridUpdate Ereignishandler registrieren
     EventManager.OnGridUpdate += SetInventory;
 }
 
@@ -3058,7 +3061,7 @@ Im Gegensatz zum Begrenzten Knapsack-Problem, bei dem die Anzahl der Instanzen e
 beim unbeschränkten Knapsack-Problem \textit{beliebig viele} Instanzen \textit{desselben} Gegenstands verwendet werden.
 Dies ermöglicht eine flexiblere Auswahl und Nutzung der verfügbaren Gegenstände, um den maximalen Gesamtwert zu erzielen,
 der das vorgegebene Gewicht nicht überschreitet.\footnote{GeeksForGeeks, \cite{Unbounded Knapsack}}
-
+\newpage
 \subsubsection{Variationen des Knapsack-Problems}
 Im Laufe der Zeit hat das Knapsack-Problem verschiedene Variationen hervorgebracht, die jeweils unterschiedliche Aspekte
 und Einschränken des Problems berücksichtigen. Variationen beziehen sich hier auf unterschiedliche Varianten des Hauptproblems,
@@ -3129,6 +3132,7 @@ Eine neuere Entwicklung in der Lösung des Knapsack-Problems ist der Einsatz von
 den Einsatz von \textit{Datenanalyse} und \textit{statistischen Methoden} können Modelle trainiert werden, um Muster in
 den Eigenschaften der Gegenstände und den Anforderungen des  Rucksacks zu erkennen und optimale Packstrategien vorherzusagen.
 
+\newpage
 \subsubsection{Dynamischer Programmieransatz}
 Der dynamische Programmieransatz ist eine leistungsfähige Methode zur Lösung des Knapsack-Problems, die auf der Idee beruht,
 das Problem in kleinere Teilprobleme zu zerlegen und die Lösungen dieser Teilprobleme systematisch zu kombinieren, um die
@@ -3145,7 +3149,8 @@ FUNCTION knapsackDynamic(weights[], values[], capacity)
             IF i == 0 OR w == 0 THEN
                 Tabelle[i][w] = 0
             ELSE IF weights[i-1] <= w THEN
-                Tabelle[i][w] = MAX(values[i-1] + Tabelle[i-1][w - weights[i-1]], Tabelle[i-1][w])
+                Tabelle[i][w] = MAX(values[i-1] + Tabelle[i-1][w - weights[i-1]],
+                                    Tabelle[i-1][w])
             ELSE
                 Tabelle[i][w] = Tabelle[i-1][w]
             END IF
@@ -3336,6 +3341,7 @@ Die Untersuchung dieser Anwendungen veranschaulicht die Vielseitigkeit und Effek
 komplexer Optimierungsprobleme. Darüber hinaus trägt die Anwendung des Knapsack-Algorithmus dazu bei, industrielle Abläufe
 zu verbessern, Kosten zu senken und die Effizienz in verschiedenen Bereichen zu steigern.
 
+\newpage
 \subsubsection{\label{sec:moperformance}Auswahl des Implementierungsansatzes}
 Die Wahl des Implementierungsansatzes für den Knapsack-Algorithmus für die in dieser Arbeit vorgestellten Anwendungen, ist von entscheidender Bedeutung
 für den Erfolg des Projekts. Moderne Softwaresysteme stehen vor einer Vielzahl von Herausforderungen und Anforderungen,
@@ -3404,13 +3410,13 @@ Skript-Komponente, die dem GameObject zugeordnet ist. Innerhalb dieser Skript-Ko
 aufgeführt, die direkt im Editor übergeben und manipuliert werden können. Diese Variablen spielen eine entscheidende Rolle
 bei der Konfiguration und Steuerung des Knapsack Solvers. Zu den relevanten Variablen und ihrer Bedeutung gehören:
 \begin{itemize}
-    \item \textbf{QRCodesManager:} Ein Verweis auf das \textit{QRCodesManager} Game Objekt aus der Szene.
+    \item \textbf{QRCodesManager:} Verweis auf das \textit{QRCodesManager} GameObject aus der Szene.
 
-    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} TextMesh-Element aus dem Inventar Prefab
+    \item \textbf{Own Mesh:} Referenz auf das \textit{OwnValueMesh} GameObject aus dem Inventar Prefab
 
-    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} TextMesh-Element aus dem Inventar Prefab
+    \item \textbf{Max Mesh:} Referenz auf das \textit{MaxValueMesh} GameObject aus dem Inventar Prefab
 
-    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} TextMesh-Element aus dem Inventar Prefab
+    \item \textbf{Info Mesh:} Referenz auf das \textit{infoMesh} GameObject aus dem Inventar Prefab
 
     \item \textbf{Capacity:} Integerwert, der die Kapazität des Rucksacks festlegt.
 
@@ -3458,8 +3464,7 @@ public int KnapsackMaxValue(out int[,] usedItems) {
     int[,] tempUsedItems = new int[3, 3];
     int row = n;
     int col = capacity;
-    int rowIndex = 0;
-    int colIndex = 0;
+    int rowIndex, colIndex = 0;
     while (row > 0 && col > 0 && rowIndex < 3 && colIndex < 3) {
         if (selected[row, col] && colIndex < maxItems) {
             tempUsedItems[rowIndex, colIndex] = items[row].id;
@@ -3595,7 +3600,7 @@ In diesem Abschnitt werden das Unity-Prefab \textit{Best Solution Prefab} und di
 beschrieben. Die Klasse \textit{BestSolutionVisualizer} ist hier hauptsächlich für das Platzieren, Aktivieren und Deaktivieren
 der perfekten Lösung verantwortlich, um einen reibungslosen Ablauf zu gewährleisten. Es wird erklärt, wie das Prefab
 selbst aufgebaut ist, wie dieses Skript aufgerufen wird und wie genau diese Lösung platziert und gefüllt wird.
-
+\newpage
 \subsubsection{Aufbau und Hirarchie des best Solution Prefabs}
 Das Design und die Struktur des Prefabs sind von entscheidender Bedeutung, da dieses Objekt als Grundlage für die
 Visualisierung einer perfekten Lösung dient und dem Benutzer Feedback gibt. Die sorgfältige Ausarbeitung des Prefabs
@@ -3604,7 +3609,7 @@ Das Prefab enthält nicht nur das einfache Inventar-Raster, sondern auch neun zu
 untergeordnet sind und jeweils innerhalb einer Zelle platziert sind.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{images/prefShow}
+    \includegraphics[scale=0.35]{images/prefShow}
     \caption{Prefab Hirarchie und Aufbau im Unity Editor}
     \label{fig:InvPref}
 \end{figure}
@@ -3615,7 +3620,7 @@ in seine Hierarchie. Es wird deutlich, dass das Prefab aus einem Hauptmodell und
 
     \item \textbf{QRItem}: Prefab, über das mithilfe der ID auf die 3D-Modelle zugegriffen wird, um diese darzustellen.
 \end{enumerate}
-
+\newpage
 \subsubsection{Das Best Solution Prefab}
 Das Unity-Prefab \texttt{best Solution Prefab}, wie in Abbildung \ref{fig:bestSol_Editor} dargestellt, implementiert die
 Logik zur Anzeige einer perfekten Lösung und gibt Feedback durch Visualisierung dieser Lösung. Dieses Prefab enthält die
@@ -3634,7 +3639,7 @@ sehen. An der Komponente, welches das Skript repräsentiert, ist zu sehen, dass 
 Darunter sind die folgenden:
 \begin{itemize}
     \item \textbf{Perfect Solution Inventory:} Eine Referenz auf das \textit{Prefab} für die perfekte Lösung.
-    \item \textbf{Inventory Placement Controller:} Eine Referenz auf das \texttt{inventoryPlacementController} Game Objekt.
+    \item \textbf{Inventory Placement Controller:} Eine Referenz auf das \\ \texttt{inventoryPlacementController} Game Objekt.
     \item \textbf{Knapsack Solver:} Eine Referenz auf das \textit{Knapsack Solver} Game Objekt.
     \item \textbf{Inventory:} Eine Referenz auf das Raster Modell, dass im Best Solution Prefab enthalten ist.
 \end{itemize}
@@ -3702,7 +3707,8 @@ jedoch angenehmer, d.h. besser für die allgemeine Benutzererfahrung, zu machen,
 können, wird abschließend die Rotation dieses Objekts geändert, um es um -45 Grad entlang der x-Achse zu kippen.
 \begin{lstlisting}[style=csharp, caption={Neue Position setzen}, label=code:newPos_PSV]
 private void setNewPosition() {
-    Vector3 newPosition = originalInventoryPosition + Vector3.forward * 0.395f + Vector3.up * 0.16f;
+    Vector3 newPosition = originalInventoryPosition + Vector3.forward * 0.395f
+                          + Vector3.up * 0.16f;
     inventoryObject.transform.position = newPosition;
     Quaternion objectRotation = Quaternion.Euler(-45f, 0f, 0f);
     inventoryObject.transform.rotation = objectRotation;
@@ -3719,18 +3725,11 @@ private void fillInventory() {
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < numColumns; j++) {
             int id = perfectSolution[i, j];
-            if (perfectSolution[i, j] == 0)
-                continue;
-            else {
-                string qrCodeName = "QRCode" + (i * numColumns + j + 1);
-                Transform qrCodeTransform = inventory.Find(qrCodeName);
-                if (qrCodeTransform != null) {
-                    Transform childTransform = qrCodeTransform.Find(id.ToString());
-                    if (childTransform != null) {
-                        childTransform.gameObject.SetActive(true);
-                    }
-                }
-            }
+            if (id == 0) continue;
+            string qrCodeName = "QRCode" + (i * numColumns + j + 1);
+            Transform qrCodeTransform = inventory.Find(qrCodeName);
+            Transform childTransform = qrCodeTransform?.Find(id.ToString());
+            childTransform?.gameObject.SetActive(true);
         }
     }
 }
@@ -3747,13 +3746,12 @@ ausgeführt wurde, wird die perfekte Lösung platziert und vervollständigt. Ans
 wie in Abbildung \ref{fig:perfSolUserPOV} dargestellt.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/perfSolUserPOV}
+    \includegraphics[width=0.95\textwidth]{images/perfSolUserPOV}
     \caption{Perfekte Lösung}
     \label{fig:perfSolUserPOV}
 \end{figure}
 
-
-
+\newpage
 \section{Performance und Qualitätssicherung} \marginpar{\small\(\rightarrow\) {\tiny HAYLAZ}}
 
 Die Sicherstellung einer hohen Performance und Qualität in Softwareprojekten ist entscheidend für den Erfolg und die Zufriedenheit der Nutzer. Ein zentraler Bestandteil dieser Bemühungen sind \textit{Unit-Tests}, die sicherstellen, dass einzelne Komponenten korrekt funktionieren und den Erwartungen entsprechen. Im Rahmen dieses Projekts wurden Unit-Tests zur Überprüfung des Knapsack-Algorithmus (\ref{sec:Scene2}), der für das Projekt von entscheidender Bedeutung ist, genutzt. Die Verwendung des Unity Test Frameworks ermöglichte es, diese Tests effizient zu erstellen und auszuführen.
@@ -3852,7 +3850,7 @@ Um sicherzustellen, dass die Funktionalität korrekt überprüft wird, folgt ein
 
 Im Vorbereitungsabschnitt (\textit{Arrange}) werden die erforderlichen Vorbedingungen spezifisch für den zu testenden Fall festgelegt. Hier werden die entsprechenden Eingabewerte und Zustände definiert, die für die korrekte Durchführung des Tests benötigt werden. Zum Beispiel wird in unserem Fall betrachtet, ob der maximale Wert des Rucksacks korrekt berechnet wird, wenn keine Gegenstände im Rucksack vorhanden sind. Im Arrange-Abschnitt werden dem KnapsackSolver keine Gegenstände hinzugefügt, und die Kapazität des Rucksacks wird auf 100 gesetzt.
 
-Im Ausführungsabschnitt (\textit{Act}) wird die tatsächliche Methode oder Funktionalität aufgerufen, die getestet werden soll. Hier wird die Methode \texttt{KnapsackMaxValue} des KnapsackSolver-Objekts aufgerufen, um den maximalen Wert des Rucksacks zu berechnen.
+Im Ausführungsabschnitt (\textit{Act}) wird die tatsächliche Methode oder Funktionalität aufgerufen, die getestet werden soll. Hier wird die Methode \texttt{KnapsackMaxValue} des \\ KnapsackSolver-Objekts aufgerufen, um den maximalen Wert des Rucksacks zu berechnen.
 
 Im Überprüfungsabschnitt (\textit{Assert}) wird das erwartete Ergebnis mit dem tatsächlich berechneten Ergebnis verglichen. In diesem Fall wird überprüft, ob der maximal berechnete Wert tatsächlich null ist, da keine Gegenstände im Rucksack vorhanden sind. Wenn der Test fehlschlägt, wird eine entsprechende Fehlermeldung ausgegeben.
 
@@ -3860,7 +3858,7 @@ Durch die Strukturierung von Testfällen nach dem \textit{AAA-Schema} wird eine 
 
 \subsubsection{Testen von Einzelgegenständen im Rucksack}
 
-\begin{lstlisting}[style=csharp, caption={Testfall: einzelne Gegenstände}, label={code:einzelTest}]
+\begin{lstlisting}[style=csharp, caption={Testfall: einzelne Gegenstaende}, label={code:einzelTest}]
 [TestCase(20, 50, 30, ExpectedResult = 50,
 TestName = "Single item within capacity returns expected value.")]
 [TestCase(30, 50, 20, ExpectedResult = 0,
@@ -3881,13 +3879,14 @@ int weight, int value, int capacity) {
 
 Die oben aufgeführten Testfälle zeigen verschiedene Szenarien zur Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand. Jeder Testfall wird mittels des \texttt{[TestCase]}-Attributs definiert und enthält das \textit{Gewicht}, den \textit{Wert} und die \textit{Kapazität} des Rucksacks als Parameter. Das erwartete Ergebnis wird ebenfalls angegeben, um sicherzustellen, dass die berechneten Werte den Erwartungen entsprechen. Im Vorbereitungsabschnitt werden die notwendigen Vorbedingungen festgelegt, indem ein einzelner Gegenstand mit dem angegebenen Gewicht und Wert dem KnapsackSolver hinzugefügt wird. Die Kapazität des Rucksacks wird entsprechend gesetzt. Im Ausführungsabschnitt wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird überprüft und mit dem erwarteten Ergebnis verglichen. Durch diese Testfälle wird sichergestellt, dass die Methode zur Berechnung des maximalen Werts unter verschiedenen Bedingungen korrekt arbeitet.
 
-Im zweiten Testfall wird die Methode \texttt{KnapsackMaxValue\_Item\_ReturnsExpectedValue}(\ref{code:einzelTest}) verwendet, die mit dem \texttt{[TestCase]}-Attribut versehen ist, um verschiedene Szenarien für die Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand zu testen. Im Gegensatz zum ersten Testfall (\ref{code:zeroTest}), der das \texttt{[Test]}-Attribut verwendet, um einen einzelnen Testfall zu definieren, wird hier das \texttt{[TestCase]}-Attribut verwendet, um mehrere Testfälle innerhalb derselben Methode zu definieren.
+Im zweiten Testfall wird die Methode \texttt{KnapsackMaxValue\_Item\_ReturnsExpectedValue} (\ref{code:einzelTest}) verwendet, die mit dem \texttt{[TestCase]}-Attribut versehen ist, um verschiedene Szenarien für die Berechnung des maximalen Werts eines Rucksacks mit nur einem Gegenstand zu testen. Im Gegensatz zum ersten Testfall (\ref{code:zeroTest}), der das \texttt{[Test]}-Attribut verwendet, um einen einzelnen Testfall zu definieren, wird hier das \texttt{[TestCase]}-Attribut verwendet, um mehrere Testfälle innerhalb derselben Methode zu definieren.
 
 Die Verwendung von \texttt{[TestCase]} ermöglicht eine kompaktere Darstellung mehrerer ähnlicher Testfälle, wodurch der Code übersichtlicher wird. Jeder Testfall wird durch die Parameter definiert, die an die Methode übergeben werden, und das erwartete Ergebnis wird durch das \texttt{ExpectedResult}-Attribut angegeben. Das \textit{TestName}-Attribut trägt auch der Übersichtlichkeit und der Lesbarkeit bei. Dieser Name wird dann auch im \textit{Test-Runner} (\ref{sec:testRunner}) angezeigt mit dem entsprechenden Bericht zum TestCase.
 
+\newpage
 \subsubsection{Testen von mehreren Gegenständen im Rucksack}
 
-\begin{lstlisting}[style=csharp, caption={Testfall: mehrere Gegenstände}, label={code:mehrTest}]
+\begin{lstlisting}[style=csharp, caption={Testfall: mehrere Gegenstaende}, label={code:mehrTest}]
 [TestCase(10, ExpectedResult = 0,
 TestName = "All items exceeding capacity return zero value.")]
 [TestCase(90, ExpectedResult = 220,
@@ -3917,6 +3916,7 @@ Im Vorbereitungsabschnitt (\textit{Arrange}) werden die notwendigen Vorbedingung
 
 Im Ausführungsabschnitt (\textit{Act}) wird die Methode \texttt{KnapsackMaxValue} aufgerufen, um den maximalen Wert des Rucksacks zu berechnen. Das zurückgegebene Ergebnis wird dann überprüft und mit dem erwarteten Ergebnis verglichen.
 
+\newpage
 \subsubsection{Performance-Messung}
 
 \begin{lstlisting}[style=csharp, caption={Performance Messung bei hoher Anzahl an Gegenstaenden}, label={code:performanceRange}]
@@ -3928,7 +3928,8 @@ public void KnapsackPerformanceReportItemRange() {
 
     // Schleife durch verschiedene Gegenstandanzahlen
     for (int itemCount = 50; itemCount <= 1000; itemCount += 50) {
-        // Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+        // Oberen Grenzwert fuer das Gegenstandgewicht und die Kapazitaet basierend
+        // auf der Gegenstandanzahl berechnen
         int weightUpperBound = itemCount * 2;
         int capacity = itemCount * 5;
 
@@ -3959,9 +3960,10 @@ Der vorliegende Codeabschnitt implementiert eine Testmethode namens \textit{Knap
 Die Methode beginnt mit der Ausgabe einer Überschrift, die das Format des folgenden Leistungsberichts festlegt. Im Hauptteil der Methode wird eine Schleife durchlaufen, die verschiedene Gegenstände im Rucksack simuliert. Die Anzahl der Gegenstände steigt schrittweise von 50 bis 1000, wobei in jedem Schritt 50 Gegenstände hinzugefügt werden. Innerhalb der Schleife werden zunächst der obere Grenzwert für das Gewicht der Gegenstände und die Kapazität des Rucksacks basierend auf der aktuellen Anzahl von Gegenständen berechnet. Anschließend werden zufällige Gegenstände generiert, die in den Rucksack aufgenommen werden sollen. Die generierten Gegenstände sowie die Kapazität des Rucksacks werden dann dem Algorithmus zugewiesen.
 Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife eine Stoppuhr gestartet, bevor die Methode ``KnapsackMaxValue`` aufgerufen wird, um den maximalen Wert des Rucksacks zu berechnen. Nach Beendigung des Methodenaufrufs wird die Stoppuhr gestoppt, und die verstrichene Zeit wird zusammen mit der Anzahl der Gegenstände im Rucksack protokolliert.
 
+\newpage
 \subsubsection*{Iterationen bei fester Gegenstandsanzahl}
 
-\begin{lstlisting}[style=csharp, caption={Performance Messung bei 500 Aufrufen von 20 Gegenständen}, label={code:performanceIteration}]
+\begin{lstlisting}[style=csharp, caption={Performance Messung bei 500 Aufrufen von 20 Gegenstaenden}, label={code:performanceIteration}]
 [Test]
 public void KnapsackPerformanceReportRangeIteration() {
     // Ueberschrift fuer den Leistungsbericht ausgeben
@@ -3971,12 +3973,14 @@ public void KnapsackPerformanceReportRangeIteration() {
     // Konstante fuer die Anzahl der Gegenstaende
     int itemCount = 20;
 
-    // Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der Gegenstandanzahl berechnen
+    // Oberen Grenzwert fuer das Gegenstandgewicht basierend auf der
+    // Gegenstandanzahl berechnen
     int weightUpperBound = itemCount * 2;
 
-    // Schleife fuer 1000 wiederholungen
+    // Schleife fuer 500 wiederholungen
     for (int i = 1; i <= 500; i++) {
-        // Oberen Grenzwert fuer die Kapazitaet basierend auf der Gegenstandanzahl berechnen
+        // Oberen Grenzwert fuer die Kapazitaet basierend auf der
+        // Gegenstandanzahl berechnen
         int capacity = itemCount * 5;
 
         // Zufaellige Gegenstaende generieren (festgelegte Anzahl von Gegenstaenden)
@@ -3996,7 +4000,9 @@ public void KnapsackPerformanceReportRangeIteration() {
         stopwatch.Stop();
 
         // Durchlaufnummer und verstrichene Zeit fuer diese Iteration ausgeben
-        UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks / (Stopwatch.Frequency / (1000.0 * 1000.0)):F2} Mikrosekunden");
+        UnityEngine.Debug.Log($"{i,-9} | {stopwatch.ElapsedTicks /
+                                          (Stopwatch.Frequency /
+                                          (1000.0 * 1000.0)):F2} Mikrosekunden");
     }
 }
 \end{lstlisting}
@@ -4004,20 +4010,21 @@ public void KnapsackPerformanceReportRangeIteration() {
 
 Dieser Codeabschnitt \textit{KnapsackPerformanceReportRangeIteration} (\ref{code:performanceIteration}) unterscheidet sich vom anderen Codeabschnitt \textit{KnapsackPerformanceReportItemRange} (\ref{code:performanceRange}) hauptsächlich in Bezug auf die Parameter, die für die Leistungsmessung verwendet werden.
 
-Im Abschnitt KnapsackPerformanceReportRangeIteration wird die Leistung des Knapsack-Algorithmus bei einer festen Anzahl von 20 Gegenständen und 500 Durchläufen gemessen. Dies bedeutet, dass die Anzahl der Gegenstände konstant bleibt, während die Iterationen variiert werden, um die Konsistenz der Messung sicherzustellen und die Auswirkungen wiederholter Durchläufe zu beobachten. Im Gegensatz dazu bewertet der Abschnitt KnapsackPerformanceReportItemRange die Leistung des Algorithmus bei einer variablen Anzahl von Gegenständen, wobei die Anzahl der Gegenstände von 50 bis 1000 in Schritten von jeweils 50 erhöht wird. Dies ermöglicht die Untersuchung der Leistung des Algorithmus bei verschiedenen Lastszenarien und die Identifizierung möglicher Zusammenhänge zwischen der Anzahl der Gegenstände und der Ausführungszeit des Algorithmus.
+Im Abschnitt KnapsackPerformanceReportRangeIteration wird die Leistung des \\ Knapsack-Algorithmus
+bei einer festen Anzahl von 20 Gegenständen und 500 Durchläufen gemessen. Dies bedeutet, dass die Anzahl der Gegenstände konstant bleibt, während die Iterationen variiert werden, um die Konsistenz der Messung sicherzustellen und die Auswirkungen wiederholter Durchläufe zu beobachten. Im Gegensatz dazu bewertet der Abschnitt KnapsackPerformanceReportItemRange die Leistung des Algorithmus bei einer variablen Anzahl von Gegenständen, wobei die Anzahl der Gegenstände von 50 bis 1000 in Schritten von jeweils 50 erhöht wird. Dies ermöglicht die Untersuchung der Leistung des Algorithmus bei verschiedenen Lastszenarien und die Identifizierung möglicher Zusammenhänge zwischen der Anzahl der Gegenstände und der Ausführungszeit des Algorithmus.
 
 Ebenso verwendet der Abschnitt KnapsackPerformanceReportItemRange eine andere Methode zur Messung der verstrichenen Zeit, indem die Variable \textit{ElapsedMilliseconds} der Stopwatch-Klasse verwendet wird, um die Zeit in Millisekunden zu erfassen. Im Gegensatz dazu verwendet die Methode KnapsackPerformanceReportRangeIteration die Berechnung der verstrichenen Ticks und deren Umrechnung in Mikrosekunden, um eine genauere Messung zu ermöglichen.
 
 \subsubsection*{Ergebnisse der Performance-Messung}
 \begin{figure}[H]
 \centering
-\begin{minipage}[b]{0.45\textwidth}
+\begin{minipage}[b]{0.49\textwidth}
 \centering
 \includegraphics[width=\textwidth]{images/exclGeg}
 \label{fig:exclGeg}
 \end{minipage}
 \hfill
-\begin{minipage}[b]{0.45\textwidth}
+\begin{minipage}[b]{0.49\textwidth}
 \centering
 \includegraphics[width=\textwidth]{images/exclIte}
 \label{fig:exclIte}
@@ -4028,7 +4035,7 @@ Basierend auf den Performance-Messungen können folgende Schlussfolgerungen gezo
 \begin{itemize}
 \item \textbf{Laufzeitverhalten:} Die Laufzeit des Algorithmus steigt mit zunehmender Anzahl der Gegenstände im Rucksack. Dies ist zu erwarten, da der Algorithmus mehr Berechnungen durchführen muss, um den maximalen Wert des Rucksacks zu bestimmen, wenn mehr Gegenstände vorhanden sind.
 \item \textbf{Nicht lineares Wachstum:} Die Laufzeit des Algorithmus scheint nicht linear mit der Anzahl der Gegenstände zu wachsen. Dies deutet darauf hin, dass der Algorithmus möglicherweise eine Laufzeitkomplexität hat, die größer als linear ist, wie O(n log n) oder sogar O(n$^2$). Eine detaillierte Analyse des Wachstumsvergleichs zwischen verschiedenen Algorithmen findet sich in Kapitel \ref{sec:moperformance}.
-\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
+\item \textbf{Ausreißer:} Es gibt einige Ausreißer in den gemessenen Zeiten, die bei jedem Testdurchlauf auftreten. Die zufällig generierten Werte könnten bestimmte Bedingungen schaffen, die den Algorithmus vor größere Herausforderungen stellen. Zum Beispiel könnten in bestimmten Fällen die generierten Gegenstände ein ungünstiges Muster aufweisen, das dazu führt, dass der Algorithmus mehr Zeit benötigt, um den optimalen Wert zu berechnen.
 \item \textbf{Stabilität:} Trotz einiger Ausreißer scheint der Algorithmus insgesamt stabil zu sein, da die gemessenen Zeiten für ähnliche Anzahlen von Gegenständen relativ konsistent sind.
 \end{itemize}
 
