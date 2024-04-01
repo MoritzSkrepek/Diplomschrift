@@ -16,7 +16,7 @@
     morekeywords=[2]
         {ARRaycastManager, ARPlaneManager, GameObject, InventoryController, Vector3, ARPlane, Ray, RaycastHit, GetComponent, MeshRenderer, Quaternion, Transform},
     morekeywords=[3]
-        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutines, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2, DebugCameraResolution, isNumberKey, validateAndSendMessage, UpdatePropertiesDisplay},
+        {Start, Update, Awake, DelayedStart, IsPointerOverPlane, GetCurrentPlaneUnderGaze, SetPlaneColor, PlaceObjectOnDesk, ScreenPointToRay, SetActive, Euler, SetInventoryObject, Raycast, ChangeScene, MoveToTarget, stopFunctionCoroutine, stopAllCurrentCoroutine, DelayedStart, takingPicture, LoadingCoroutine, Execute, SearchForRedPixels, editAndSendPackage, GetTextMeshProFromChild, SetInventory, SetUp, KnapsackMaxValue_NoItems_ReturnsZero, KnapsackPerformanceReportItemRange, KnapsackPerformanceReportRangeIteration, setLabels, KnapsackMaxValue, KnapsackInventoryValue, GridUpdate, SendMsg, ReceiveMsg, KnapsackMaxValue_SingleItem_ReturnsExpectedValue, KnapsackMaxValue_MultipleItems_ReturnsExpectedValue, UpdateInventoryBounds, GetBounds, ExtendedBounds, setNewPosition, fillInventory, editTextureV2, DebugCameraResolution, isNumberKey, validateAndSendMessage, UpdatePropertiesDisplay},
     morekeywords=[4]
         {+, -, /, *, !, =, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, null, true, false}, % Define symbols as keywords
     morecomment=[l]{//},
@@ -145,8 +145,9 @@ Anwendung auszuführen.\footnote{Microsoft Dokumentation \cite{Subsysteme MRTK3}
     bieten die Möglichkeit, spezifische Aktionen auszuführen.
 \end{itemize}
 
+\newpage
 \subsubsection*{Script Lifecycle Flowchart}
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.65\textwidth]{images/monobehaviour_flowchart}
     \caption{Ausführungsreihenfolge\protect\footnotemark}
@@ -536,7 +537,7 @@ Um den Modellierungsprozess am Beispiel des Taschenrechners zu veranschaulichen,
 \subsubsection*{Ausgangslage}
 Im Modellierungsprogramm Blender war das Standardprojekt als Startpunkt geeignet. Es wurde bereits geringfügig angepasst. Die Standardkamera und Lichtquelle, die für das Rendering innerhalb von Blender verwendet werden, wurden entfernt, da sie für das finale Projekt in Unity nicht benötigt werden und unnötige Komplikationen verursachen könnten. Je nach Anforderung des Modells wird eine geeignete Grundform wie beispielsweise ein Würfel, eine Fläche oder ein Zylinder erstellt, um darauf aufbauend mit der eigentlichen Modellierung zu beginnen.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{images/AusgangslageTaschenrechner.png}
     \caption{Ausgangslage innerhalb von Blender}
@@ -555,10 +556,10 @@ Für die Verwendung des Extrahieren-Werkzeugs ist ein Verständnis der grundlege
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 Im Anschluss begann die Modellierung durch Extrudieren eines Eckpunkts der Fläche, um grob der Form des Referenzbildes zu folgen.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.4\textwidth]{images/basis.png}
-    \caption{Taschenrechner mit Buttons in Blender}
+    \includegraphics[width=0.5\textwidth, angle=90]{images/basis.png}
+    \caption{Taschenrechnerbasis in Blender}
     \label{fig:Basis}
 \end{figure}
 
@@ -572,7 +573,7 @@ Als nächster Schritt steht die Modellierung der Buttons und anderer Funktionen 
 \subsubsection*{Einschub Array-Modifier}
 Der Array-Modifier in Blender ermöglicht die Erstellung einer Reihe von Kopien eines Basisobjekts. Jede Kopie wird dabei auf eine vordefinierte Weise von der vorherigen Kopie versetzt. Der Modifier bietet eine Vielzahl von Optionen zur Anpassung der Positionierung und Ausrichtung der Kopien.
 Die grundlegenden Funktionen des Array-Modifiers umfassen die Möglichkeit, Eckpunkte in benachbarten Kopien zusammenzuführen, insbesondere wenn sie nahe beieinander liegen. Dadurch können nahtlose und konsistente Verbindungen zwischen den einzelnen Kopien hergestellt werden.
-Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen. Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die Positionierung der Kopien weiter anzupassen. \footnote{Blender \cite{Array Modifier}}
+Eine wichtige Option des Array-Modifiers ist der sogenannte \textit{Fit Type}, der angibt, wie das Objekt dupliziert werden soll. Dies kann entlang einer Kurve, mit einer passenden Länge oder einer festgelegten Anzahl von Kopien erfolgen. Darüber hinaus kann eine relative oder feste Verschiebung entlang der x-, y- oder z-Achse definiert werden, um die Positionierung der Kopien weiter anzupassen.\footnote{Blender \cite{Array Modifier}}
 
 \subsubsection*{Weiterführung beim Taschenrechnermodell}
 \begin{figure}[H]
@@ -639,7 +640,7 @@ Der nächste Schritt besteht darin, die ausgewählten Flächen des Modells aufzu
 Nach dem \textit{UV-Unwrappen} werden die Flächen im Editor positioniert, um die Texturen und Beschriftungen korrekt auf das Modell zu projizieren, ohne dass sie abgeschnitten oder verzerrt wirken. Dieser Prozess ist zeitaufwendig, da er für jedes einzelne Element des Modells wiederholt werden muss. Dabei muss auch auf korrekte Skalierungen geachtet werden, um eine einheitliche Darstellung zu gewährleisten. \footnote{all3dp \cite{Blender UV Mapping Simply Explained}}
 
 \textit{UV-Mapping} ist somit ein entscheidender Schritt bei der Erstellung realistischer 3D-Modelle, da es eine präzise Texturierung und Gestaltung ermöglicht.
-
+\newpage
 \subsubsection{\label{sec:restlicheModelle}Restliche Modelle}
 \begin{figure}[H]
     \centering
@@ -676,7 +677,7 @@ Die Modellierung des Routers war eine iterative Aufgabe, die mehrere Versionen e
 \subsubsection*{Maus-Modell}
 Die Modellierung der Maus war eine Standardaufgabe, bei der der Mirror Modifier effektiv eingesetzt wurde, um die symmetrische Natur des Objekts zu betonen. Eine einfache Büromaus diente als Referenz für das Modell.
 
-
+\newpage
 \begin{figure}[H]
     \centering
     \begin{minipage}[b]{0.20\textwidth}
@@ -711,7 +712,6 @@ Die Modellierung der Kopfhörer erforderte aufgrund ihrer geschwungenen Form und
 
 \subsubsection*{Dose-Modell}
 Die Modellierung der Dose eines Energydrinks begann mit einem einfachen Zylinder, der dann anhand eines Referenzbildes geformt wurde. Besonderes Augenmerk wurde auf die Textur gelegt, wobei ein bekanntes Produktlabel als Referenz diente.
-
 \newpage
 \begin{figure}[H]
     \centering
@@ -795,16 +795,16 @@ Auf dieser Grundlage wurde das Design des Menüsystems vollständig überarbeite
 
 Anstelle des Nahmenüs wurden vorgefertigte Objekte in das Hauptmenü integriert, welche zuvor mit Blender modelliert wurden. Die Entscheidung, vorgefertigte Objekte aus Blender zu importieren, bietet eine breite Palette an Gestaltungsmöglichkeiten und ermöglicht es, das Menü visuell ansprechend und einladend zu gestalten. Außerdem trägt die Integration dieser Objekte dazu bei, das Menü intuitiver und zugänglicher zu machen, da sie dem Benutzer klare Anhaltspunkte und Handlungsmöglichkeiten bieten.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{images/menuversion2.png}
-    \caption{Darstellung des finalen Menues innerhalb der Anwendung auf der HoloLens2}
+    \caption{Darstellung des finalen Menues innerhalb der Anwendung}
     \label{fig:menuversion2}
 \end{figure}
 
 Die in der Abbildung \ref{fig:menuversion2} dargestellten Objekte bestehen aus zwei separaten Tafeln, die durch unser Diplomarbeitslogo voneinander getrennt sind. Jede Tafel enthält den Titel des Anwendungsszenarios sowie einen vorgefertigten Startbutton.  In Unity wurde ein unsichtbarer, aber dennoch klickbarer Button mit exakt denselben Dimensionen wie das Modell des Startbuttons an der entsprechenden Stelle platziert. Das Skript \textit{SceneChange.cs}, welches für die Szenenwechsel-Funktionalität verantwortlich ist, ist diesem Button angehängt.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{images/hierarchiemenuunity.png}
     \caption{Darstellung der Hierarchie des finalen Menüs im Unity Editor}
@@ -816,10 +816,10 @@ In der Abbildung \ref{fig:hierarchiemenuunity} ist die Hierarchie des Hauptmenü
 \subsubsection{Finalversion Menü - Anwendungsszenario}
 Im Gegensatz zum Erstentwurf, der ein einheitliches Menü für alle Anwendungsszenarien vorsah, weist diese Version eine Differenzierung auf. Die Entscheidung, das Menü innerhalb der einzelnen Szenarien anzupassen, wurde getroffen, um die volle Aufmerksamkeit des Benutzers auf das jeweilige Szenario und die darin ausgeführten Aktivitäten zu lenken. Aus diesem Grund wurde ebenfalls das Nahmenü aus den Szenarien entfernt und durch ein simples Handmenü ersetzt.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/backbutton.png}
-    \caption{Darstellung des finalen Zurückbuttons innerhalb der Anwendung auf der HoloLens2}
+    \includegraphics[width=0.6\textwidth]{images/backbutton.png}
+    \caption{Darstellung des finalen Zurückbuttons innerhalb der Anwendung}
     \label{fig:backbutton}
 \end{figure}
 
@@ -902,7 +902,7 @@ In diesem Kapitel wird der Aufbau der Unity-Szene so wie der Aufbau in der reale
 In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut ist, welche Rollen und Funktionen die einzelnen GameObjects  haben und wie sie miteinander interagieren, um die gewünschte Funktionalität der Szene zu erreichen.
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=1]{images/Level1Hierarchy.png}
+    \includegraphics[width=0.6\textwidth]{images/Level1Hierarchy.png}
     \caption{Hierarchie des Nachrichtenaustausch-Levels im Unity Editor.}
     \label{fig:level1Hierarchy}
 \end{figure}
@@ -921,7 +921,7 @@ In diesem Abschnitt wird detailliert beschrieben, wie die Unity-Szene aufgebaut 
 Zum Aufbau in der realen Welt werden zwei PCs nebeneinander aufgestellt. Beide dieser PCs müssen die Website (siehe Kapitel \ref{sec:Website}) offen haben, um Nachrichten zu erhalten sowie zu senden. Diese beiden PCs müssen auch mit einem roten Kabel verbunden sein.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{images/AufbauAnzeige.png}
+    \includegraphics[width=0.7\textwidth]{images/AufbauAnzeige.png}
     \caption{Aufbau in der realen welt}
     \label{fig:NachrichtenaustauschAufbau}
 \end{figure}
@@ -934,30 +934,20 @@ Zum Aufbau in der realen Welt werden zwei PCs nebeneinander aufgestellt. Beide d
 Zum Darstellen von \textit{Coroutines} ist dieses kurze Skript, welches das Objekt, an den es angebunden ist, in eine Richtung bewegt.
 \begin{lstlisting}[style=csharp, caption={Coroutine Beispiel}, label={code:coroutineBsp}]
 public class CoroutineExample : MonoBehaviour {
-    // Das Zielobjekt, zu dem das Objekt bewegt werden soll
     public Transform target;
-    // Die Geschwindigkeit, mit der das Objekt bewegt wird
     public float moveSpeed = 1f;
-    // Die Anzahl der Schritte für die Bewegung
     public int numSteps = 10;
 
     void Start() {
-    // Starte die Coroutine fuer die Bewegung
         StartCoroutine(MoveToTarget());
     }
 
     IEnumerator MoveToTarget() {
-    // Die Startposition des Objekts
         Vector3 startPos = transform.position;
-        // Die Zielposition des Objekts
         Vector3 endPos = target.position;
-        // Iteriere ueber jeden Schritt der Bewegung
         for (int i = 0; i <= numSteps; i++) {
-            // Berechne den Fortschritt der Bewegung (Wert zwischen 0 und 1)
             float t = (float)i / numSteps;
-            // Bewege das Objekt entsprechend dem aktuellen Fortschritt
             transform.position = Vector3.Lerp(startPos, endPos, t);
-            // Wartet fuer eine bestimmte Zeit, bevor der nächste Schritt ausgefuehrt wird
             yield return new WaitForSeconds(moveSpeed / numSteps);
         }
     }
@@ -989,6 +979,7 @@ public void stopAllCurrentCoroutine() {
     \item StopAllCoroutine: Sorgt dafür, dass alle Funktionen, welche für alle laufenden \textit{Coroutine} verwendet wurden, beendet werden.
 \end{itemize}
 
+\newpage
 \subsubsection{\label{sec:Transform}Transform Klasse}
 Die Transform-Klasse in Unity ist eine wichtige Komponente für die Platzierung, Rotation und Skalierung von GameObjects in einer 3D-Szene. Sie ermöglicht es ebenso innerhalb einer Hierarchie von Objekten, die Position, Rotation und Skalierung eines GameObjects relativ zu seinem Elternelement zu verändern. \protect\footnote{Unity\cite{Transform}}
 
@@ -1004,23 +995,16 @@ Wenn der Benutzer von dem Hauptmenü in das Anwendungsszenario Eins ladet, dann 
     \caption{\textit{Komponenten} des \textit{CableSeach} \textit{GameObjects}}
     \label{fig:CableSearchObjekt}
 \end{figure}
-\subsubsection*{Benutzer anzeige}
+\subsubsection*{Benutzeranzeige}
 Dem Skript wird zuerst ein \textit{Text Mesh Pro} (siehe Kapitel \ref{sec:TextMeshPro}) übergeben, dieser Text wird innerhalb von der Unity Szene anzeigt. Danach wird ein weiteres \textit{GameObject} mit den Namen \textit{Plane}, welches ebenfalls in der Szene existiert, für das Debuggen (Siehe Kapitel \ref{sec:PlaneDebug}) und ausführen vom weiteren Code übergeben.
 \begin{lstlisting}[style=csharp, caption={Start des \textit{CableSearch} Skripts}, label=code:CableSearch]
 void Start() {
-    // Text wird den Benutzer angezeigt sodas dieser auf das Kabel schaut.
     userInfo.text = "Schauen Sie auf das Rote Kabel";
-
-    // Starte eine Coroutine, um einen verzögerten Start zu ermoeglichen, sodas der nutzer zeit hat zu lesen.
     StartCoroutine(DelayedStart());
 }
 
-// Coroutine funktion für einen verzoegerten Start.
 private IEnumerator DelayedStart() {
-    // Wartet 2 Sekunden, bevor der Startvorgang abgeschlossen ist.
     yield return new WaitForSeconds(2.0f);
-
-    // Die Variable canStartScript wird auf true gesetzt, um anzuzeigen, dass das Skript gestartet werden kann.
     canStartScript = true;
 }
 \end{lstlisting}
@@ -1034,25 +1018,15 @@ Dieser Timer wird in der \textit{Update}-Funktion von Unity verarbeitet, um eine
 
 \begin{lstlisting}[style=csharp, caption={Update des \textit{CableSearch} Skripts}, label=code:Timer]
 void Update() {
-    // Ueberprueft, ob das Skript gestartet werden kann und ob das Skript noch schon ausgeführt wurde
     if (canStartScript && !objectPlaced) {
-        // Ueberprueft ob noch Zeit uebrig ist
         if (timeRemaining > 1f) {
-            // Verringert die verbleibende Zeit basierend auf der verstrichenen Zeit seit dem letzten Update
             timeRemaining -= Time.deltaTime;
-            // Berechnet die verstrichene Zeit in Sekunden
             int elapsedTime = Mathf.FloorToInt(timeRemaining % 60);
-            // Aktualisiert den Text auf dem Bildschirm mit der verbleibenden Zeit
             userInfo.text = elapsedTime.ToString();
-        }
-        else {
-            // Setzt die verbleibende Zeit auf 1 Sekunde, um zu verhindern, dass sie negativ wird
+        } else {
             timeRemaining = 1f;
-            // Leert den Text auf dem Bildschirm
             userInfo.text = "";
-            // wird auf true gesetzt um zu verhindern das weiter ueberpueft wird
             objectPlaced = true;
-            // fuert den weiteren code aus
             startPictureTaking();
         }
     }
@@ -1067,32 +1041,21 @@ Innerhalb von diesem Kapitel wird beschreiben, wie das Programm mithilfe des \te
 Das Aufnehmen des Fotos wird mithilfe der \textit{PhotoCapture}-Klasse (siehe Kapitel \ref{sec:Photocapture}) asugeführt. Um zu gewährleisten, dass es funktioniert und mit der Kamera ein qualitativ gutes Foto zum Verarbeiten gemacht wird, müssen Einstellungen für die Kameraparameter eingestellt werden.
 \begin{lstlisting}[style=csharp, caption={Bild einstellung und aufnahme}, label=code:takingPicture]
 public void takingPicture() {
-    // ueberprueft, ob bereits ein Bild aufgenommen wird, um zu verhindern, dass die Methode erneut aufgerufen wird
     if (!takingNewPicture) {
-        // Aktiviert das LoadingSymbol-GameObject, um anzuzeigen, dass ein Bild aufgenommen wird
         loadingCircle.SetActive(true);
-        // Holt sich das Canvas-Objekt innerhalb des LoadingSymbol-GameObjects
         loadingCircleCanvas = loadingCircle.GetComponentInChildren<Canvas>();
-        // Startet die Ladeanimation im LoadingCircle
         loadingCircleCanvas.GetComponent<LoadingCircle>().StartLoading();
-        // Erstellt asynchron eine Fotoaufnahme
         PhotoCapture.CreateAsync(false, delegate (PhotoCapture captureObject) {
-            // ueberprueft, ob die Fotoaufnahme erfolgreich erstellt wurde
             if (captureObject != null) {
-                // Speichert die Fotoaufnahme in einer Instanzvariablen
                 photoCaptureObject = captureObject;
-                // Konfiguriert die Kameraparameter fuer die Aufnahme
                 CameraParameters cameraParameters = new CameraParameters();
                 cameraParameters.hologramOpacity = 0.0f;
-                // Setzt die Aufloesung der Kamera
                 cameraParameters.cameraResolutionWidth = cameraResolution.width;
                 cameraParameters.cameraResolutionHeight = cameraResolution.height;
-                // Setzt das Pixelformat fuer die Aufnahme
                 cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
                 try {
-                    // Startet asynchron den Fotoaufnahmemodus
-                    photoCaptureObject.StartPhotoModeAsync(cameraParameters, delegate (PhotoCapture.PhotoCaptureResult result) {
-                        // Nimmt ein Foto auf und speichert es im Arbeitsspeicher
+                    photoCaptureObject.StartPhotoModeAsync(cameraParameters,
+                    delegate (PhotoCapture.PhotoCaptureResult result) {
                         photoCaptureObject.TakePhotoAsync(onCapturedPhotoToMemory);
                     });
                 }
@@ -1110,7 +1073,6 @@ Dies kann unter \textit{Edit $\Rightarrow$ Project Settings $\Rightarrow$ Player
 
 Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
 
-
 \begin{itemize}
     \item \textbf{PhotoCapture.CreateAsync():} Erstellt asynchron eine Instanz eines PhotoCapture Objekts, welches benutzt werden kann, um ein Foto zu schießen.
     \item \textbf{PhotoCapture.StartPhotoModeAsync(CameraParameter):} Dafür werden die Parameter der Kamera benötigt, die zur \textit{CameraParameter}-Klasse instanziiert werden.
@@ -1119,12 +1081,9 @@ Die wichtigsten Funktionen von \textit{PhotoCapture} sind:
     \item \textbf{PhotoCaptureObject.StopPhotoModeAsync():} Beendet die Instanz des Photocapture und ruft danach die Funktion innerhalb der Klammer.\footnote{Unity, \cite{Photocapture}}
 \end{itemize}
 
-
 \subsubsection{\label{sec:Canvas}Unity Canvas}
 Ein Canvas stellt einen Bereich dar, in dem alle Benutzeroberflächen (kurz UI) enthalten sind. Die Hierarchie von so einem UI besteht aus dem \textit{GameObject} als sogenannten \textit{parent} (Siehe Kapitel \ref{sec:hierarchie}), welches als \textit{child} die \textit{UI} besitzt. Diese \textit{UI}
-kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen.\\
-\\
-Ein Canvas verfügt auch über verschiedene Rendermodi:
+kann auch als weiteres child ein \textit{Image} besitzen. Das Canvas wird als Rechteck dargestellt, was es erleichtert, die genaue Position des Objekts zu bestimmen. Ein Canvas verfügt auch über verschiedene Rendermodi:
 \begin{itemize}
 
     \item\textbf{Screen Space-Overlay}: Dieser Modus ermöglicht es, UI-Elementen über der Szene auf dem Bildschirm zu werden. Das bedeutet, dass das UI-Element unabhängig von dem, was in der Szene passiert, über der Szene gerendert wird.
@@ -1138,26 +1097,25 @@ Ein Canvas verfügt auch über verschiedene Rendermodi:
 Das Ladesymbol ist eine visuelle Darstellung, die den Benutzer darüber informiert, dass Berechnungen oder Prozesse im Hintergrund ausgeführt werden. In erster Linie wird dieses Symbol während der Kabelsuche verwendet. Diese Animation des Ladesymbols wird durch einen entsprechenden Programmcode gesteuert, um den Benutzer eine klare und konsistente Rückmeldung zu geben, dass der Prozess läuft. Im Design der Interaktion spielt das Ladesymbol eine wichtige Rolle, um den Benutzer über den aktuellen Status der Anwendung zu informieren.
 \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.65\textwidth}
+    \begin{minipage}[b]{0.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/LadeKreisHierachy.png}
-        \caption{Hierarchie Lade Kreises im Unity Editor}
+        \caption{Hierarchie Lade Kreis im Unity Editor}
     \end{minipage}
-    \hfill
-    \begin{minipage}[b]{0.3\textwidth}
+    \begin{minipage}[b]{0.15\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/LadeKreisBsp.png}
         \caption{Lade Symbol}
         \label{fig:Loading}
     \end{minipage}
+    \hfill
 \end{figure}
 \begin{lstlisting}[style=csharp, caption={Code zum ausfuehren des lade Symbols}, label=code:LoadingCoroutine]
 IEnumerator LoadingCoroutine() {
     while (isRunnig) {
         if (img.fillAmount >= 1f) {
             img.fillAmount = 0f;
-        }
-        else {
+        } else {
             img.fillAmount += fillSpeed;
         }
         yield return new WaitForSeconds(0.1f);
@@ -1165,7 +1123,6 @@ IEnumerator LoadingCoroutine() {
 }
 \end{lstlisting}
 Bei der Initiierung dieser Funktion wird die Methode \textit{StartCoroutine(LoadingCoroutine())} von Coroutine (siehe Kapitel \ref{sec:Coroutines}) benutzt, durch diesen Aufruf wird sichergestellt, dass die Funktion nebenbei und asynchron zum Code ausgeführt wird. Zum Anzeigen von dem Ladesymbol wird ein Objekt \textit{img} verwendet, dieses \textit{img} beinhaltet ein Bild eines weißen Kreises (äußerer Kreis von \textit{Abbildung (\ref{fig:Loading}})) und stellt einen Fortschritt während der Berechnung dar.
-
 
 \subsection{Fotoverarbeitung Version 1}
 Die erste Version der Fotoverarbeitung für die Kabelerkennung basierte auf der Analyse von einem Foto, die mit der HoloLens aufgenommen wurden.
@@ -1177,8 +1134,8 @@ void editTextureV2(Texture2D textureToEdit) {
             for (int y = 0; y < textureToEdit.height; y++) {
                 for (int x = 0; x < textureWidth; x++) {
                     int index = y * textureWidth + x;
-                    //  ueberprueft ob der gepruefte Pixel rot ist
-                    if (pixels[index].r > 0.55f && pixels[index].g < 0.5f && pixels[index].b < 0.5f) {
+                    if (pixels[index].r > 0.55f && pixels[index].g < 0.5f &&
+                        pixels[index].b < 0.5f) {
                         yCoordinates.Add(y);
                         xCoordinates.Add(x);
                     }
@@ -1186,11 +1143,8 @@ void editTextureV2(Texture2D textureToEdit) {
             }
     int averageX = getCenterCoordinate(xCoordinates);
     int averageY = getCenterCoordinate(yCoordinates);
-    // Fuegt den kleinsten X und den durchschnittlichen Y Punkt als Start Punkt zu redPixelCoordinates hinzu
     redPixelCoordinates.Add(getSideCoordinate(xCoordinates,true, averageY));
-    // Fuegt den durchschnittlichen X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
     redPixelCoordinates.Add(new Vector2(averageX, averageY));
-    // Fuegt den höchsten X und den durchschnittlichen Y Punkt als Mittelpunkt Punkt zu redPixelCoordinates hinzu
     redPixelCoordinates.Add(getSideCoordinate(xCoordinates, false, averageY));
 }
 \end{lstlisting}
@@ -1684,14 +1638,14 @@ Um die Webseite erfolgreich zu verwenden, ist es zunächst erforderlich, die IP-
     \begin{minipage}[b]{0.7\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/WebButton}
-        \caption{Position des Buttons}
+        \caption{Position des Einstellungsbuttons}
         \label{fig:webbut}
     \end{minipage}
     \hfill
     \begin{minipage}[b]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/WebseiteSettings}
-        \caption{Fenster der Webseite Einstellungen}
+        \caption{Konfigurationsfenster der Webseite}
         \label{fig:websettings}
     \end{minipage}
 \end{figure}
