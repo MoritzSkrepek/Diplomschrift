@@ -109,7 +109,7 @@ und Optimierung ihrer Projekte.\footnote{Unity.com \cite{Spiele in Augmented Rea
 
 \subsubsection*{AR Foundation}
 AR Foundation ist ein Framework innerhalb des Unity-Editors, dass eine plattformübergreifende Abstraktionsschicht für die
-Entwicklung von Augmented Reality (AR)-Anwendungen bereitstellt. Entwickler können durch die Integration von AR Foundation
+Entwicklung von Augmented Reality (AR) Anwendungen bereitstellt. Entwickler können durch die Integration von AR Foundation
 AR-Erfahrungen auf verschiedenen Geräten wie Smartphones, Tablets und AR-Brillen erstellen, ohne sich um die Unterschiede
 zwischen den AR-Plattformen wie ARCore für Android und ARKit für iOS kümmern zu müssen. Dies ermöglicht eine einheitliche
 Entwicklung von Augmented-Reality-Anwendungen unabhängig von der zugrunde liegenden Hardware.\footnote{Unity-Dokumentation \cite{About AR Foundation}}
@@ -182,7 +182,7 @@ können Entwickler ihre Arbeitsabläufe effizienter gestalten, da sie vorhandene
 wird die Entwicklungsgeschwindigkeit erhöht und die Qualität der Projekte verbessert.
 
 \subsubsection{Unity Szenen}\label{sec:UnityScenes}
-Unity-Szenen (Siehe Abschnitt \ref{sec:Scene1} oder \ref{sec:Scene2} für Umsetzung) bilden das grundlegende Gerüst für
+Unity-Szenen (Siehe Abschnitt \ref{sec:jonasSzenario} oder \ref{sec:Scene2} für Umsetzung) bilden das grundlegende Gerüst für
 die Gestaltung von Inhalten in der Unity-Entwicklungsumgebung. Sie stellen
 Assets dar, die alle oder einen Teil eines Spiels oder einer Anwendung enthalten. Szenen bieten eine strukturierte Möglichkeit,
 verschiedene Elemente wie \textit{Umgebungen}, \textit{Charaktere}, \textit{Hindernisse}, \textit{Dekorationen} und
@@ -421,7 +421,7 @@ Werkzeuge wie der \textit{Decimate Modifier} in Blender bieten die Möglichkeit,
 
 Dennoch ist es ratsam, bereits während des Modellierungsprozesses darauf zu achten, keine unnötigen zusätzlichen Unterteilungen zu erzeugen, um eine optimale Ausgangsbasis für die Polygonreduktion zu schaffen. Eine Möglichkeit hierfür ist die regelmäßige Nutzung der \textit{Merge}-Funktion, welche es ermöglicht, einzelne Punkte anhand ihres Abstandes zu kombinieren und einen einzelnen Punkt daraus zu erstellen. \footnote{Blender Dokumentation \cite {Merge Funktion}} Wenn dieser Vorgang auf das gesamte Modell angewendet wird, verhindert er außerdem ungewollte Kopien von Eckpunkten durch beispielsweise unbeabsichtigte und abgebrochene \textit{Extrusion}.
 
-Die Polygonreduktion ist ein wichtiger Bestandteil der 3D-Modellierung und -Optimierung, da sie dazu beiträgt, die Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten sind.
+Die Polygonreduktion ist ein wichtiger Bestandteil der 3D Modellierung und Optimierung, da sie dazu beiträgt, die Leistung von Anwendungen zu verbessern und die Benutzererfahrung zu optimieren. Durch eine sorgfältige Anwendung dieser Technik können qualitativ hochwertige 3D-Modelle erstellt werden, die sowohl ästhetisch ansprechend als auch effizient zu verarbeiten sind.
 
 \subsubsection{Texturenoptimierung}
 Die Optimierung von Texturen ist ein wesentlicher Bestandteil der Gestaltung von 3D-Modellen für Augmented Reality (AR)-Anwendungen, da sie einen direkten Einfluss auf die Benutzererfahrung haben. Bei der Auswahl geeigneter Texturen muss der Auflösung besondere Aufmerksamkeit geschenkt werden, insbesondere im Hinblick auf die begrenzte Leistungsfähigkeit von AR-Geräten wie der Hololens 2.
@@ -677,8 +677,8 @@ UV-Mapping ist somit ein entscheidender Schritt bei der Erstellung realistischer
     \end{minipage}
 \end{figure}
 
-\subsubsection*{Ping-Paket-Modell}
-Das Ping-Paket-Modell wurde speziell für didaktische Zwecke auf das erste Anwendungsszenario konzipiert, um den Benutzern das grundlegende Konzept eines Daten-Pings zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
+\subsubsection*{Nachrichtenpaket-Modell}
+Das Nachrichtenpaket-Modell wurde speziell für didaktische Zwecke auf das erste Anwendungsszenario konzipiert, um den Benutzern das grundlegende Konzept eines Nachrichtenaustausches zu veranschaulichen. Es dient dazu, die Übertragung von Daten zwischen zwei Endpunkten, beispielsweise Laptops, zu visualisieren. Das Modell besteht im Wesentlichen aus einem simplen Quader, ergänzt durch Details wie Paketklebeband, um eine realistische Darstellung zu erreichen. Bei der Texturierung wurde ein Amazon-Paket als Referenz verwendet.
 
 \subsubsection*{Laptop-Modell}
 Der Laptop stellt einen unverzichtbaren Gegenstand im zweiten Anwendungsszenario dar und ist ein essentielles Werkzeug für Schüler ab der 3. Klasse. Bei der Modellierung wurden zusätzliche Details wie USB-Ports und der Laptopständer berücksichtigt. Um den Aufwand zu minimieren, wurde der Laptop im geschlossenen Zustand modelliert, wodurch die Komplexität von Tastatur und Bildschirm vermieden wurde. Die Referenz für das Modell lieferte ein reales Laptop-Exemplar eines Projektmitglieds.
@@ -1525,7 +1525,7 @@ Die Klasse enthält zwei Variablen:
     \item \textbf{textMeshPro}: Eine Variable vom Typ \texttt{TextMeshPro}, die das TextMeshPro-Objekt speichert, auf das zugegriffen werden soll.
 \end{itemize}
 \\
-Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro-Objekt aus dem KindGameObject mit dem Namen \textit{InformationTextS} im angegebenen ElternGameObject abruft und in der Variablen \texttt{textMeshPro} speichert.
+Die Klasse enthält auch eine Methode namens \texttt{GetTextMeshProFromChild()}, die das TextMeshPro Objekt aus dem KindGameObject mit dem Namen \textit{InformationTextS} im angegebenen ElternGameObject abruft und in der Variablen \texttt{textMeshPro} speichert.
 
 
 \subsection{Debugging Optionen}
@@ -3969,7 +3969,7 @@ public void KnapsackPerformanceReportItemRange() {
 }
 \end{lstlisting}
 
-Der vorliegende Codeabschnitt implementiert eine Testmethode namens \texttt{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
+Der vorliegende Codeabschnitt implementiert eine Testmethode namens \\ \texttt{KnapsackPerformanceReport}, die darauf abzielt, die Leistung des Knapsack Algorithmus unter verschiedenen Lastszenarien zu bewerten. Der Code ist auf die Performance-Messung des Algorithmus fokussiert und zielt darauf ab, die Laufzeit des Algorithmus in Abhängigkeit von der Anzahl der Gegenstände im Rucksack zu erfassen.
 
 Die Methode beginnt mit der Ausgabe einer Überschrift, die das Format des folgenden Leistungsberichts festlegt. Im Hauptteil der Methode wird eine Schleife durchlaufen, die verschiedene Gegenstände im Rucksack simuliert. Die Anzahl der Gegenstände steigt schrittweise von 50 bis 1000, wobei in jedem Schritt 50 Gegenstände hinzugefügt werden. Innerhalb der Schleife werden zunächst der obere Grenzwert für das Gewicht der Gegenstände und die Kapazität des Rucksacks basierend auf der aktuellen Anzahl von Gegenständen berechnet. Anschließend werden zufällige Gegenstände generiert, die in den Rucksack aufgenommen werden sollen. Die generierten Gegenstände sowie die Kapazität des Rucksacks werden dann dem Algorithmus zugewiesen.
 Um die Leistung des Algorithmus zu messen, wird für jede Iteration der Schleife eine Stoppuhr gestartet, bevor die Methode ``KnapsackMaxValue`` aufgerufen wird, um den maximalen Wert des Rucksacks zu berechnen. Nach Beendigung des Methodenaufrufs wird die Stoppuhr gestoppt, und die verstrichene Zeit wird zusammen mit der Anzahl der Gegenstände im Rucksack protokolliert.
