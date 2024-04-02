@@ -302,7 +302,8 @@ Damit das Deployment der Anwendung auf einem AR-fähigen Gerät erfolgreich verl
 
     \item \textbf{Netzwerkverbindung:} Es ist notwendig, dass sowohl das AR-fähige Gerät als auch der Computer, auf dem der Build durchgeführt wurde, sich im selben Netzwerk befinden. Nur so kann das Unity-Paket über das Netzwerk auf das AR-fähige Gerät übertragen werden.
 
-    \item \textbf{Authentifizierung:} Der Computer, der sich mit der HoloLens verbinden und die Anwendung deployen möchte, muss von der Brille authentifiziert werden. Dies gewährleistet, dass nur autorisierte Geräte Zugriff auf die Brille haben und die Übertragung sicher erfolgt.
+    \item \textbf{Authentifizierung:} Der Computer, der sich mit der HoloLens verbinden und die Anwendung deployen möchte, muss von der Brille authentifiziert werden. Dies gewährleistet, dass nur autorisierte Geräte Zugriff auf die Brille haben und die Übertragung sicher
+    erfolgt. Wie die Authentifizierung durchgeführt wird, wird in Abschnitt \ref{sec:erstmal} erläutert.
 \end{itemize}
 
 \subsubsection{\label{sec:depprozess}Deployment-Prozess}
@@ -352,7 +353,7 @@ und – in diesem speziellen Anwendungsfall – bereitstellen. \footnote{Microso
     \label{fig:vstoolbar}
 \end{figure}
 
-Nach dem Öffnen der Datei müssen die Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Das Bereitstellungsziel ist von \textit{Device} auf \textit{Remote Machine} umzustellen. Diese drei Einstellungen sind in der \textit{Toolbar} zu finden (\ref{fig:vstoolbar}). Zusätzlich muss die IP-Adresse des AR-fähigen Geräts in den Projekteigenschaften unter Debugging gesetzt werden. Die IP-Adresse der HoloLens 2 kann auf der Brille in den Einstellungen unter Netzwerk gefunden werden. In den Projekteigenschaften ist noch folgende Einstellung zu treffen:
+Nach dem Öffnen der Datei müssen die Konfiguration auf \textit{Release} und die Plattform auf \textit{ARM64} eingestellt werden. Das Bereitstellungsziel ist von \textit{Device} auf \textit{Remote Machine} umzustellen. Diese drei Einstellungen sind in der \textit{Toolbar} zu finden (Abb. \ref{fig:vstoolbar}). Zusätzlich muss die IP-Adresse des AR-fähigen Geräts in den Projekteigenschaften unter Debugging gesetzt werden. Die IP-Adresse der HoloLens 2 kann auf der Brille in den Einstellungen unter Netzwerk gefunden werden. In den Projekteigenschaften ist noch folgende Einstellung zu treffen:
 
 Der Authentication Mode \textit{Universal (Unencrypted Protocol)} wird gewählt, um eine reibungslose Kommunikation zwischen dem Computer und der HoloLens 2 zu ermöglichen, insbesondere während des Deployments der Anwendung. Dieser Modus erlaubt eine unverschlüsselte Kommunikation zwischen den Geräten, was in diesem speziellen Anwendungsszenario aus verschiedenen Gründen vorteilhaft ist. Zum einen vereinfacht die Verwendung eines unverschlüsselten Protokolls die Konfiguration und ermöglicht eine schnellere Einrichtung der Verbindung zwischen dem Entwicklungscomputer und der HoloLens 2. Da dies ein Entwicklungs- und Testumfeld ist, wo Sicherheit weniger prioritär ist als Effizienz und Schnelligkeit, wird diese einfachere Konfiguration bevorzugt. Weiterhin, minimiert die Verwendung eines unverschlüsselten Protokolls das Risiko von Verbindungsproblemen und -verzögerungen, die bei verschlüsselten Kommunikationsprotokollen auftreten können, insbesondere in lokalen Netzwerken oder Umgebungen, in denen die Infrastruktur möglicherweise nicht optimal konfiguriert ist. In einer Entwicklungs- und Testumgebung, in der die Anwendung iterativ entwickelt und getestet wird, steht die Effizienz im Vordergrund. Die Verwendung eines unverschlüsselten Protokolls erleichtert den Entwicklungsprozess, da sie weniger Overhead und Komplexität mit sich bringt. Es ist jedoch wichtig zu beachten, dass in produktiven Umgebungen, in denen Sicherheit eine höhere Priorität hat, verschlüsselte Kommunikationsprotokolle verwendet werden sollten, um die Vertraulichkeit und Integrität der übertragenen Daten zu gewährleisten. \footnote{Microsoft-Dokumentation, \cite{Universal Unencrypted Protocol}}
 % https://learn.microsoft.com/en-us/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps
@@ -365,7 +366,7 @@ Anwendung auf die HoloLens 2 deployt werden. Dazu muss die Solution mit \textit{
 
 Falls die Anwendung beendet wird, kann sie auf der HoloLens 2 unter \textit{Start} $\rightarrow$ \textit{alle Apps} $\rightarrow$ \textit{AARIE} erneut gestartet werden. Falls Änderungen an der Anwendung auf den Computern vorgenommen wurden, muss der gesamte Prozess erneut durchgeführt werden. Es ist wichtig zu beachten, dass die Anwendung nicht automatisch aktualisiert wird (hot deployment).
 
-\subsubsection{Erstmaliges Deployment}
+\subsubsection{\label{sec:erstmal}Erstmaliges Deployment}
 Bei der erstmaligen Bereitstellung auf der HoloLens können Probleme auftreten, die auf die Authentifizierung der HoloLens zurückzuführen sind. In solchen Fällen muss der ``neue`` Computer, von dem aus das Deployment erfolgt, zuerst auf der HoloLens authentifiziert werden. Diese Authentifizierung wird beim Starten des Deployments angefordert. Auf dem Computer wird ein Authentifizierungscode angezeigt, der auf der HoloLens unter \textit{Einstellungen} $\rightarrow$ \textit{Update \& Sicherheit} $\rightarrow$ \textit{für Entwickler} $\rightarrow$ \textit{Koppeln} eingegeben werden muss. Nach erfolgreicher Authentifizierung kann das Deployment erneut gestartet werden.
 
 \section{Objektdesign}\marginpar{\small\(\rightarrow\) {\tiny LAMPEL}}
@@ -1951,7 +1952,7 @@ Hier eine kurze Übersicht:
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5, angle=0]{images/QRAblauf}
-    \caption{Ablaufdiagramm des QR-Code-Trackings.}
+    \caption{Ablaufdiagramm des QR-Code-Trackings}
     \label{fig:qrtracking}
 \end{figure}
 
@@ -1967,7 +1968,7 @@ Hier eine kurze Übersicht:
 
     \item \textbf{Einrichtung des QR-Trackings}:
     Die Einrichtung des QR-Trackings umfasst die Konfiguration von Parametern und Einstellungen, die für die korrekte
-    Funktion des Tracking-Systems erforderlich sind.Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
+    Funktion des Tracking-Systems erforderlich sind. Dazu gehören Kalibrierungsschritte, die Anpassung an die Umgebung und die
     Festlegung von Erkennungsbereichen. Eine ordnungsgemäße Einrichtung gewährleistet eine zuverlässige und präzise Erkennung von QR-Codes.
 
     \item \textbf{Starten des QR-Trackings}:
@@ -2032,7 +2033,7 @@ Die \textit{QRWatcher}-Klasse ermöglicht die Erkennung und Verfolgung von QR-Co
     \item \textbf{Kamera-Feed abrufen}: Nach der Initialisierung der \textit{QRWatcher}-Klasse und dem Start des Trackings wird zunächst der Kamerafeed der HoloLens abgerufen.
     \item \textbf{Bildverarbeitung}: Der Kamerafeed wird mit den Algorithmen und Methoden der \textit{QRWatcher}-Klasse verarbeitet, um QR-Codes zu identifizieren.
     \item \textbf{Erkennung eines QR-Codes}: Sobald ein QR-Code erkannt wird, wird ein Ereignis ausgelöst. Dieses Ereignis enthält Informationen über den erkannten QR-Code, wie dessen Daten und Position, und kann von anderen Klassen subskribiert werden.
-    \item \textbf{Übersetzung der Positionen}: Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (\ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(\ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
+    \item \textbf{Übersetzung der Positionen}: Die Positionen der erkannten QR-Codes werden in die Weltkoordinaten (siehe \ref{sec:MoWeltpostionen}) der HoloLens übersetzt, um sie in der virtuellen Welt zu verankern. Dazu wird ein \textit{Spatial Graph Node}(siehe \ref{sec:SGN}) erstellt und die Position des QR-Codes an diesen gebunden.
     \item \textbf{Zuordnung des QR-Codes}: Nach der Erkennung wird überprüft, ob der erkannte QR-Code bereits in der Anwendung registriert ist. Falls ja, werden die Positionsinformationen des QR-Codes aktualisiert, um mögliche Bewegungen in der physischen Umgebung zu berücksichtigen. Anschließend wird ein neuer \textit{Spatial Graph Node}(\ref{sec:SGN}) an dieser aktualisierten Position platziert. Dadurch wird sichergestellt, dass das virtuelle Objekt weiterhin korrekt mit dem QR-Code verbunden ist und an der aktuellen Position in der virtuellen Umgebung angezeigt wird.
 \end{itemize}
 
@@ -2046,7 +2047,7 @@ der Mixed-Reality-Umgebung. \footnote{Microsoft-Dokumentation \cite{Spatial Grap
 %https://learn.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.openxr.spatialgraphnode?view=mixedreality-openxr-plugin-1.10
 
 \subsubsection{\label{sec:qrvisualizer}Ersetzen der QR-Codes durch Objekte in der virtuellen Realität}
-Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, muss ihre Visualisierung in der virtuellen Welt umgesetzt werden. Hierfür wird die Funktionalität von Unity Prefabs (\ref{sec:prefabs}) genutzt, um visuelle Repräsentationen der QR-Codes zu erstellen und sie nahtlos in die virtuelle Umgebung zu integrieren.
+Nachdem die genaue Platzierung der QR-Codes bestimmt wurde, muss ihre Visualisierung in der virtuellen Welt umgesetzt werden. Hierfür wird die Funktionalität von Unity Prefabs (siehe \ref{sec:prefabs}) genutzt, um visuelle Repräsentationen der QR-Codes zu erstellen und sie nahtlos in die virtuelle Umgebung zu integrieren.
 
 Die Klasse \textit{QRWatcher} kann drei Events auslösen:
 \begin{itemize}
